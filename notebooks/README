@@ -1,0 +1,3 @@
+Los directorio 17nodes y 66nodes contienen la información necesaria para reconstruir las matrices de correlaciones y calcular todo lo necesario para la tesis y los papers. En 17nodes están las matrices que carga el notebook, de tal manera que puedo trabajar únicamente con el contenido de esa carpeta. También he incluido el valor medio del momento de la simulacion de plug flow. 
+ 
+Para el caso de PBC 66 nodos no he incluido la matriz de correlaciones C(t) porque es muy pesada.  
