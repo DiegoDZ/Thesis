@@ -157,9 +157,9 @@ def buildC2(corrB1,corrB2):
 
 if gxgx=='y':
 
-    block1 = np.loadtxt('corr-gxgx-WALLS-block1-AVG.dat')
-    block2 = np.loadtxt('corr-gxgx-WALLS-block2-AVG.dat')
-    corr_gxgx_neigh_from33to40 = np.loadtxt('Ct-canalNeigh-66nodes-WALLS.dat')
+    block1 = np.loadtxt('corr-gxgx-WALLS-block1-66nodes-AVG.dat')
+    block2 = np.loadtxt('corr-gxgx-WALLS-block2-66nodes-AVG.dat')
+    corr_gxgx_neigh_from33to40 = np.loadtxt('Ct-canalNeigh-WALLS-66nodes.dat')
     
     nRows, nCols = np.shape(block1)
     nNodesBlock  = int(np.sqrt(nCols))

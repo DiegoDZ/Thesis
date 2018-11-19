@@ -153,9 +153,9 @@ def buildC2(corrB1,corrB2):
 
 if gxgx=='y':
 
-    block1 = np.loadtxt('corr-gxgx-WALLS-block1-AVG.dat')
-    block2 = np.loadtxt('corr-gxgx-WALLS-block2-AVG.dat')
-    corr_gxgx_neigh_from8to11 = np.loadtxt('Ct-canalNeigh-8-11-WALLS.dat')
+    block1 = np.loadtxt('corr-gxgx-WALLS-block1-17nodes-AVG.dat')
+    block2 = np.loadtxt('corr-gxgx-WALLS-block2-17nodes-AVG.dat')
+    corr_gxgx_neigh_from8to11 = np.loadtxt('Ct-canalNeigh-8-11-WALLS-17nodes.dat')
     
     nRows, nCols = np.shape(block1)
     nNodesBlock  = int(np.sqrt(nCols))
@@ -216,8 +216,8 @@ if gxgx=='y':
 #--------------------------------------------------<Sxz(t)Fx>, <Fx(t)Sxz> and <Fx(t)Fx>---------------------------------------
 
 if SxzFx == 'y':
-    block1 = np.loadtxt('corr-SxzFx-WALLS-block1-AVG.dat')
-    block2 = np.loadtxt('corr-SxzFx-WALLS-block2-AVG.dat')
+    block1 = np.loadtxt('corr-SxzFx-WALLS-block1-17nodes-AVG.dat')
+    block2 = np.loadtxt('corr-SxzFx-WALLS-block2-17nodes-AVG.dat')
 
     nRows, nCols = np.shape(block1)
     nNodesBlock  = int(np.sqrt(nCols/4))
