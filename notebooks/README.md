@@ -9,3 +9,4 @@ The file which contains the data of the matrix C(t) is not include. The size exc
 
 
 *66nodes* directory contains almost all the files to obtain the necessary information to be included in the thesis and papers. The file which contains the data of the matrix C(t) is not include because its size exceeds 100.00 MB. 
+
