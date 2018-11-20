@@ -8,7 +8,7 @@ Makefile
 *.log
 *.lot
 *.toc
-*.pdf
+tesis.pdf
 
 # OS generated files #
 ######################
