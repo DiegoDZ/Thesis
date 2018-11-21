@@ -2179,7 +2179,7 @@ and $V_T$ is the total volume of the system.
 
 By using (\ref{non-loc}) in (\ref{eta00}) we obtain
 \begin{align}
-    \tilde{\eta}_{00}(t)&=\frac{1}{N_{\rm bin}}\frac{1}{k_BT}\int_0^tdt'\llangle \sum_{\mu}\hat{\sigma}^{13}_{\mu}(t')\sum\hat{\sigma}^{13}_{\nu}\rrangle
+    \tilde{\eta}_{00}(t)&=\frac{1}{N_{\rm bin}}\frac{1}{k_BT}\int_0^tdt'\llangle \sum_{\mu}\hat{\sigma}^{13}_{\mu}(t')\sum_{\nu}\hat{\sigma}^{13}_{\nu}\rrangle
 \end{align}
 Using the Eq. (\ref{TotStress2})
 \begin{align}
@@ -2286,6 +2286,8 @@ discrete momentum should evolve according to a vector equation analogous to
 \label{dgDnug}
 \end{align}
 where we have defined the discrete velocity field $v$ according to
+
+\Note{A partir de aquí se añade un superíndice al momento y a la velocidad que lo mismo no es necesario poner }
 \begin{align}
   v_\mu&\equiv\sum_\nu \rho_{\mu\nu}^{-1}g^1_\nu
 \label{vel}
@@ -2362,7 +2364,6 @@ In real space, the correlation matrix is given by Eq. (\ref{SDECpi})
 \label{Cmunut}
 \end{align}
 where the exponential matrix takes the form
-\Pendiente{
 \begin{align}
 \left[\exp\left\{\Delta\esc \nu^* t \right\}\right]_{\mu\nu}
 &=\frac{1}{N_{\rm bin}}\sum_{\mu'}\exp\left\{i\frac{2\pi}{N_{\rm bin}}(\mu-\nu)\mu'\right\}
@@ -2374,7 +2375,6 @@ In summary, the prediction of the correlation matrix in Fourier space
 is given  by single exponentials, while  in real space is  given by a
 linear combination of  single exponentials. As we will  see, the later
 will give rise to quasi-algebraic decay of correlations.
-} %Fin pendiente
 
 \subsection{The local in space prediction}
 
