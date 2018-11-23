@@ -2377,6 +2377,63 @@ linear combination of  single exponentials. As we will  see, the later
 will give rise to quasi-algebraic decay of correlations.
 
 \subsection{The local in space prediction}
+The   discrete   version   of  the   local   continuum   hydrodynamics
+Eq. (\ref{congx3}) is simply
+\begin{align}
+  \frac{d}{dt}{g}_\mu(t)=&\nu_0\Delta_{\mu\nu}{g}_\nu(t)
+\label{gloc}
+\end{align}
+By comparing  this discrete equation  in the local  approximation with
+the non-local  discrete equation  (\ref{dgDnug}) we conclude  that the
+local approximation of the non-local viscosity matrix $\nu^*$ becomes a
+diagonal matrix of the form
+\begin{align}
+\nu_{\mu\mu'}^*&\simeq \nu_0 \delta_{\mu\mu'}
+\end{align}
+where the local kinematic viscosity is given by
+\begin{align}
+\nu_0&\equiv \sum_{\mu'}\nu_{\mu\mu'}^* \quad \quad \quad\forall \mu
+\label{nu0}
+\end{align}
+In the  local approximation, the differential  equation (\ref{SDECpi})
+for the correlation matrix becomes
+\begin{align}
+  \frac{d}{dt}{C}(t)=&\nu_0{\Delta}\esc { C}(t)
+\label{LocalEq}
+\end{align}
+The Fourier transform of the local Eq. (\ref{LocalEq}) is identical to
+(\ref{SDECpiDiag})  but  with  a  constant  value  for  the  kinematic
+viscosity in (\ref{taumu})
+\begin{align}
+\tilde{\nu}^*_\mu&= \nu_0
+\label{numunu0}
+\end{align}
+for all $\mu$. Therefore, the  local hydrodynamic prediction says that
+the Fourier kinetic viscosity  coefficients $\tilde{\nu}_\mu$ take the
+constant value $\nu_0$ given in (\ref{nu0}).
+In the local approximation, the relaxation time (\ref{taumu}) is given by 
+\begin{align}
+ \frac{1}{\tau^{\rm loc}_\mu}&=\frac{2}{\Delta z^2}
+\left(1-\cos\left( \frac{2\pi \mu}{N_{\rm bin}}\right)\right)
+\nu_0
+\label{taumuloc}
+\end{align}
+
+\subsection{Summary of the theory}
+In the following section  we will show the different quatities we have expressed in the previous part of this chapter. 
+The correlation matrix of the discrete momentum $C(t)$ and the correlation of the discrete
+stress  that appears  in  the Green-Kubo  running integral  $\eta(t)$ can be measured from MD. 
+In  order to
+test the locality in time, we use the simple prediction (\ref{solexp})
+for the  eigenvalues of the correlation  matrix. In order to  test the
+non-locality  in space,  from Eq.   (\ref{FouFin}) we  will infer  the
+nonlocal shear viscosity matrix  $\tilde{\eta}^*$ and from the Fourier
+transform   of  (\ref{nustar})   the  non-local   kinematic  viscosity
+$\tilde{\nu}^*$. The local  approximation in space will be  good if we
+can approximate  $\tilde{\nu}^*$ as in (\ref{numunu0}).   Once we have
+measured  $\Lambda^*$  or  equivalently  $\eta^*$ or  $\nu^*$  we  can
+compare  the  prediction  (\ref{Cmunut})  from Mori  theory  with  the
+correlation matrix measured in the simulation.
 
 
 \section{Simulations}
