@@ -8,7 +8,7 @@
 #------------------------------------------------------------------------------
 #                         Author   : @DiegoDZ
 #                         Date     : January  2018
-#                         Modified : September 2018
+#                         Modified : November 2018
 #                         Run      : python buildCt.py  (Run with python 2.7)
 #------------------------------------------------------------------------------
 
@@ -204,7 +204,8 @@ if gxgx=='y':
         C[nNodesLowerWall:nNodes-nNodesUpperWall, nNodesLowerWall:nNodes-nNodesUpperWall] = CFluid
         Ct[t,:] = reshape_mv(C) 
         
-        reshape_vm(Ct[t,:])[2:nNodesBlock+2,2:nNodesBlock+2]                             = B1  
+        #reshape_vm(Ct[t,:])[2:nNodesBlock+2,2:nNodesBlock+2]                             = B1  
+        reshape_vm(Ct[t,:])[1:nNodesBlock+1,1:nNodesBlock+1]                             = B1  
         reshape_vm(Ct[t,:])[nNodes-nNodesBlock-2:nNodes-2,nNodes-nNodesBlock-2:nNodes-2] = B2
 
         #Substitute correlations near the main diagonal by correlations computed directly with lammps.
