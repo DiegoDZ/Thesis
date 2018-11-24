@@ -1797,7 +1797,8 @@ amplified to a  catastrophic level.
 
 
 \section{Mori theory for shear hydrodynamics}
-In this section, we use Mori theory in the notation presented in Section \ref{Sec:Mori} for prediction the dynamics of equilibrium correlations of transverse momentum density in a periodic box in the time domain. 
+\label{Sec:MoriShearHydro}
+In this section, we use Mori theory in the notation presented in Section \ref{Sec:Mori} for predicting the dynamics of equilibrium correlations of transverse momentum density in a periodic box in the time domain. 
 \subsection{The CG variables}
 In Chapter \ref{Chap:Planar} we gave a detailed description of the definitions of the geometry and the definition of the CG variables. In this section we have a system like Fig. (\ref{fig:PBCBox})
 The simulation periodic box of  dimensions $L_x,L_y,L_z$ is divided in
@@ -2353,6 +2354,7 @@ $\tilde{C}_\mu(\tau)$ at time $\tau$ is the exponential function
   \tilde{C}_\mu(t)&=\exp\left\{-\frac{t-\tau}{\tau_\mu}\right\}  \tilde{C}_\mu(\tau)
 \label{solexp}
 \end{align}
+The eigenvalues must be decay in an exponential way if the Markovian aproximation is correct. 
 The displacement of the initial condition to the time $\tau$ is due to
 the fact that  we know that the exponential behaviour  cannot start at
 $t=0$  where   the  Markovian  equation  (\ref{AproxC})   and,  hence
@@ -2419,11 +2421,29 @@ In the local approximation, the relaxation time (\ref{taumu}) is given by
 \label{taumuloc}
 \end{align}
 
-\subsection{Summary of the theory}
-In the following section  we will show the different quatities we have expressed in the previous part of this chapter. 
-The correlation matrix of the discrete momentum $C(t)$ and the correlation of the discrete
-stress  that appears  in  the Green-Kubo  running integral  $\eta(t)$ can be measured from MD. 
-In  order to
+%\subsection{Summary of the theory}
+%The  two main  quantities of  concern  are the  correlation matrix  of
+%discrete momentum  $C(t)$ and the  correlation matrix of  the discrete
+%stress  that appears  in  the Green-Kubo  running integral  $\eta(t)$.
+%These two  matrices can be measured  from MD simulations. In  order to
+%test the locality in time, we use the simple prediction (\ref{solexp})
+%for the  eigenvalues of the correlation  matrix. In order to  test the
+%non-locality  in space,  from Eq.   (\ref{FouFin}) we  will infer  the
+%nonlocal shear viscosity matrix  $\tilde{\eta}^*$ and from the Fourier
+%transform   of  (\ref{nustar})   the  non-local   kinematic  viscosity
+%$\tilde{\nu}^*$. The local  approximation in space will be  good if we
+%can approximate  $\tilde{\nu}^*$ as in (\ref{numunu0}).   Once we have
+%measured  $\Lambda^*$  or  equivalently  $\eta^*$ or  $\nu^*$  we  can
+%compare  the  prediction  (\ref{Cmunut})  from Mori  theory  with  the
+%correlation matrix measured in the simulation.
+
+
+\section{Simulations}
+\label{Sec:Sim}
+In Section (\ref{Sec:MoriShearHydro}) we saw that the  two main  quantities of  concern  are the  correlation matrix  of
+discrete momentum  $C(t)$ and the  correlation matrix of  the discrete
+stress  that appears  in  the Green-Kubo  running integral  $\eta(t)$.
+These two  matrices can be measured  from MD simulations. In  order to
 test the locality in time, we use the simple prediction (\ref{solexp})
 for the  eigenvalues of the correlation  matrix. In order to  test the
 non-locality  in space,  from Eq.   (\ref{FouFin}) we  will infer  the
@@ -2435,12 +2455,132 @@ measured  $\Lambda^*$  or  equivalently  $\eta^*$ or  $\nu^*$  we  can
 compare  the  prediction  (\ref{Cmunut})  from Mori  theory  with  the
 correlation matrix measured in the simulation.
 
+The objective of this section is to present the simulations we made to measure the
+momentum  correlation  matrix  $C(t)$  and  the  Green-Kubo  non-local
+viscosity $\eta(t)$.   From these primary quantities,  we obtain their
+Fourier transforms  $\tilde{C}(t),\tilde{\eta}(t)$ which  are diagonal
+matrices  due to  traslation invariance.  
 
-\section{Simulations}
+\subsection{Simulation set up}
+A  system  of particles  interacting  with  a Lennard-Jones  potential
+truncated at  $\sigma=2.5$ has been  simulated in PBC with  the LAMMPS
+code.  The box  size is $40\times40\times30$, the  number of particles with mass $m=1$
+is $N=28749$, and the time step is $0.002$ in reduced units.  After an
+equilibration  of  $10^5$ timesteps  with  a  Langevin thermostate  to
+produce a microstate typical  from a thermodynamic point corresponding
+to $T=2,\rho=0.6$ in  reduced units, the system is  evolved under NVE
+microcanonical conditions for a  further $10^5$ timesteps.  After this
+equilibration  phase,  production  runs   of  $15\cdot 10^5$  time  steps  are
+launched.   The $z$  axis is  binned  in $60$  bins on  which the  $x$
+component of the momentum density is recorded.  The
+width of the  bin is $\Delta z=0.5\sigma$ which is  subatomic.  In the
+presence of walls,  such a bin allows to resolve  the density layering.  A total of $60\times  60$ correlations corresponding to the
+elements of  the correlation matrix  are computed in  each simulation.
+The correlations are computed with the LAMMPS command {\it fix ave/correlate}. During $7.5\cdot 10^5$ time steps the $x$ component of the momentum density is recorded every $2$ time steps. These values are used to obtain the correlations with a support of $15\cdot10^4$ time steps. %LAMMPS 7500 puntos curva de correlación separados por 2*dt-> soporte de 15000 (i.e. t=30)
+After $7.5\cdot 10^5$ steps the correlations are averaged with the previous one. 
+In  order to  increase  statistics,  we 
+exploit   the   traslation   invariance   of   the
+system.  Although computing  all the  correlation matrix  elements may
+seem  unnecessary,  we will  use  the  same methodology  for  confined
+fluids. In  this later  case, traslation invariance  is broken  and we
+need to consider the full correlation matrix.
+
+\subsection{The correlation matrix $C(t)$}
+
+In  Fig. \ref{fig:Ct-matrix-PBC} we  plot the  correlation  matrix of  the
+transverse     momentum      $C_{\mu\nu}(t)=\llangle     g^1_{\mu}(t)\
+g^1_\nu\rrangle$ at  the time  $t=0$ and $t=0.6$.  This  matrix is  periodic and
+traslation invariant.  Therefore, statistical errors have been further
+reduced by averaging this matrix ``along diagonals''.  In addition, we
+have taken advantadge of the  analytical calculation of the covariance
+$\llangle g^1_{\mu} g^1_\nu\rrangle$ in the Appendix \ref{Ap:Cov} in a
+manner that we describe below.
+\begin{figure}
+\centering
+\includegraphics[scale=0.5]{Ct-matrix-PBC}
+\caption[Correlation matrix $C(t)$ at $t=0$ and $t=0.6$ for PBC system.]{The   correlation    matrix   $C_{\mu\nu}(t)=\llangle
+g^1_{\mu}(t)  g^1_\nu\rrangle$ for  $t=0$ (left) and $t=0.6$ (right).}
+\label{fig:Ct-matrix-PBC}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.5]{Ct-mu30nu-PBC}
+\caption[$C_{30\nu}(t)$ for PBC system.]{$C_{\mu\nu}(t)=\llangle  g^1_{\mu}(t) g^1_\nu\rrangle$  for $\nu=30$
+ as a  function of node index  $\nu$ and for times $t=0, 0.2, 0.4, 0.6$ in descending order.  }
+ \label{fig:Ct-mu30nu-PBC} 
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.5]{Ct-mu30nu-PBC}
+\caption[Autocorrelation for PBC system.]{The autocorrelation
+  $\llangle g_{\mu}(t) g_\mu\rrangle$ (for  any $\mu$)
+  . The correlation  decays very
+slowly, in an  apparent algebraic way as can be  seen in logscale in the inset.}
+  \label{fig:Autocorrelation-PBC}
+\end{figure}
+
+In  Fig.    \ref{fig:Ct-mu30nu-PBC}  the   correlations  $\llangle
+g^1_{\mu}(t)  g^1_\nu\rrangle$ for  $\mu=30$ and  different values  of
+$\nu$ at $t=0, 0.2, 0.4, 0.6, 0.8$ is shown.  This is the row 30 of the matrix plotted
+in Fig. \ref{fig:Ct-matrix-PBC}.  We  observe a diffusive
+behaviour over  a negative  background.  The  origin of  this negative
+global  correlation for  nodes that  are far  appart is  due to  total
+momentum conservation in PBC.  If a bin has  a positive momentum, the rest of
+bins should  have an  overall negative  value in  order for  the total
+momentum to  be zero. In order  to improve the statistical  quality of
+the matrix  $C(t)$ we have  used the analytical value  (\ref{Cneg}) of
+the  background,  as  provided  by the  analytic  calculation  of  the
+covariance in the Appendix \ref{Ap:Cov}.
+
+The autocorrelation $\llangle  g^1_{\mu}(t) g^1_\mu\rrangle$ (which is
+the same for  all $\mu$) is shown in  Fig.  \ref{Fig-Autocorrelation-PBC}
+as a function of time in both  linear and log scales.  Also shown is a
+function $\propto  t^{-1/2}$.  The observed decay  does not correspond
+to this algebraic decay.  As discussed in Appendix \ref{Ap:Cont}, only
+in both,  the continuum and  thermodynamic limits, we expect  the long
+time  tail   $\propto  t^{-1/2}$  behaviour  predicted   by  continuum
+hydrodynamics.
+
+\begin{figure}{Ct-mu30nu-PBC}
+  \caption[Pendiente]{The diagonal $\tilde{C}_{\mu\mu}(t)$ of the Fourier transform
+  of the correlation  matrix $C(t)$ for different values  of the time.
+  In      descending     order      the     plotted      times     are
+  $t=0.10,0.12,0.14,0.16,0.18,0.20$.  The  evolution of  the different
+  eigenvalues  $\tilde{C}_{\mu\mu}(t)$ of  the  correlation matrix  of
+  momentum  as  a  function  of   time  in  a  lin-lin  plot  (middle)
+  and   log-lin   plot
+  (bottom). Also  plotted are  a vertical line  at $t=\tau=0.2$  and a
+  horizontal  line  at  the   value  $2\times10^{-5}$,  signaling  the
+  threshold below which statistical errors give spurious results. }
+\label{Fig-CtExp.eps}
+\label{Fig-Ct4.eps}  
+\end{figure}
+
+The Fourier transform $\tilde{C}(t)$  of the correlation matrix $C(t)$
+is a diagonal matrix.  The diagonal $\tilde{C}_{\mu\mu}(t)$ is plotted
+in the top panel in Fig.   \ref{Fig-Ct4.eps} as a function of the mode
+$\mu$      for      different       values      of      the      time,
+$t=0.10,0.12,0.14,0.16,0.18,0.20$  in  descending   order.   The  mode
+$\mu=0$ gives a vanishing value  because of momentum conservation.  As
+can be seen in Fig.   \ref{Fig-Ct4.eps}, at the largest times plotted,
+the  value  of  the  diagonal  correlation  matrix  in  Fourier  space
+$\tilde{C}_\mu(t)$ goes to  zero for modes with  values near $\mu=30$,
+implying the  amplification of the  statistical errors in  the inverse
+matrix in that  region.  In Fig.  \ref{Fig-CtExp.eps}  middle panel we
+plot the  eigenvalues $\tilde{C}_{\mu\mu}(t)$  as a function  of time.
+Observe  that after  a time  around  $\tau=0.2$ the  decay in  log-lin
+(bottom  panel) is  approximately  linear,  suggesting an  exponential
+decay.
+
+
+\subsection{Validation of the Markov property}
+
 
 \begin{figure}
     \centering
-    \includegraphics[scale=0.8]{Ct-17nodes-matrix}
+    \includegraphics[scale=0.8]{Ct-matrix-17nodes}
     \caption[Snapshots of C(t)]{Matrix $C(t)$ for different times.}
     \label{fig:CtMatrix17Nodes}
 \end{figure}
