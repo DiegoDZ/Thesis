@@ -8,6 +8,7 @@ Makefile
 *.log
 *.lot
 *.toc
+*.swp
 tesis.pdf
 
 # OS generated files #
