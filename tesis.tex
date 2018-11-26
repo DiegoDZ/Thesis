@@ -2497,9 +2497,9 @@ $\llangle g^1_{\mu} g^1_\nu\rrangle$ in the Appendix \ref{Ap:Cov} in a
 manner that we describe below.
 \begin{figure}
 \centering
-\includegraphics[scale=0.5]{Ct-matrix-PBC}
+\includegraphics[scale=0.4]{Ct-matrix-PBC}
 \caption[Correlation matrix $C(t)$ at $t=0$ and $t=0.6$ for PBC system.]{The   correlation    matrix   $C_{\mu\nu}(t)=\llangle
-g^1_{\mu}(t)  g^1_\nu\rrangle$ for  $t=0$ (left) and $t=0.6$ (right).}
+g_{\mu}(t)  g_\nu\rrangle$ for  $t=0$ (left) and $t=0.6$ (right).}
 \label{fig:Ct-matrix-PBC}
 \end{figure}
 
@@ -2513,7 +2513,7 @@ g^1_{\mu}(t)  g^1_\nu\rrangle$ for  $t=0$ (left) and $t=0.6$ (right).}
 
 \begin{figure}
 \centering
-\includegraphics[scale=0.5]{Ct-mu30nu-PBC}
+\includegraphics[scale=0.5]{Ct-mu30nu30-PBC}
 \caption[Autocorrelation for PBC system.]{The autocorrelation
   $\llangle g_{\mu}(t) g_\mu\rrangle$ (for  any $\mu$)
   . The correlation  decays very
@@ -2542,20 +2542,29 @@ to this algebraic decay.  As discussed in Appendix \ref{Ap:Cont}, only
 in both,  the continuum and  thermodynamic limits, we expect  the long
 time  tail   $\propto  t^{-1/2}$  behaviour  predicted   by  continuum
 hydrodynamics.
-
-\begin{figure}{Ct-mu30nu-PBC}
-  \caption[Pendiente]{The diagonal $\tilde{C}_{\mu\mu}(t)$ of the Fourier transform
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.5]{CtFourier-PBC}
+  \caption[Diagonal $\tilde{C}_{\mu\nu}(t)$]{The diagonal $\tilde{C}_{\mu\mu}(t)$ of the Fourier transform
   of the correlation  matrix $C(t)$ for different values  of the time.
   In      descending     order      the     plotted      times     are
-  $t=0.10,0.12,0.14,0.16,0.18,0.20$.  The  evolution of  the different
+$t=0.10,0.12,0.14,0.16,0.18,0.20$.}
+\label{CtFourier-PBC}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.45]{CtFourier-PBC-exp}
+  \caption[Evolution of different eigenvalues $\tilde{C}_{\mu\nu}(t)$]{
+  In      descending     order      the     plotted      times     go from
+  $t=0$ to $t=0.20$ in intervals of $0.02$.  The  evolution of  the different
   eigenvalues  $\tilde{C}_{\mu\mu}(t)$ of  the  correlation matrix  of
   momentum  as  a  function  of   time  in  a  lin-lin  plot  (middle)
   and   log-lin   plot
   (bottom). Also  plotted are  a vertical line  at $t=\tau=0.2$  and a
   horizontal  line  at  the   value  $2\times10^{-5}$,  signaling  the
   threshold below which statistical errors give spurious results. }
-\label{Fig-CtExp.eps}
-\label{Fig-Ct4.eps}  
+\label{CtFourier-PBC-exp}
 \end{figure}
 
 The Fourier transform $\tilde{C}(t)$  of the correlation matrix $C(t)$
@@ -2568,7 +2577,7 @@ can be seen in Fig.   \ref{Fig-Ct4.eps}, at the largest times plotted,
 the  value  of  the  diagonal  correlation  matrix  in  Fourier  space
 $\tilde{C}_\mu(t)$ goes to  zero for modes with  values near $\mu=30$,
 implying the  amplification of the  statistical errors in  the inverse
-matrix in that  region.  In Fig.  \ref{Fig-CtExp.eps}  middle panel we
+matrix in that  region.  In Fig.  \ref{fig:CtFourier-PBC-exp}  middle panel we
 plot the  eigenvalues $\tilde{C}_{\mu\mu}(t)$  as a function  of time.
 Observe  that after  a time  around  $\tau=0.2$ the  decay in  log-lin
 (bottom  panel) is  approximately  linear,  suggesting an  exponential
@@ -2576,6 +2585,27 @@ decay.
 
 
 \subsection{Validation of the Markov property}
+\begin{figure}[h]
+  \centering
+\includegraphics[scale=0.45]{LambdatFourier-PBC}
+\caption{The  diagonal elements  $\tilde{\Lambda}_{\mu\mu}(t)$ of  the
+  Fourier transform of $\Lambda(t)$ defined in (\ref{AproxCtau}), as a
+  function of  $\mu$ (top)  and $t$  (bottom).  In  the top  panel, in
+  ascending  order the  plotted times  go  from $t=0$  to $t=0.20$  in
+  intervals of $0.02$.  The dotted line is the local approximation Eq.
+  (\ref{Lambdaloc}) with a  value of the local  kinematic viscosity of
+  $\nu_0=1.48$.   In the  bottom panel,  we observe  a clear  plateau,
+  beyond  $\tau=0.2$  indicating  the  exponential  behaviour  of  the
+  correlations in Fig. \ref{fig:CtFourier-PBC-exp}.}
+\label{fig:LambdatFourier-PBC}
+\end{figure}
+
+
+
+
+
+
+
 
 
 \begin{figure}
