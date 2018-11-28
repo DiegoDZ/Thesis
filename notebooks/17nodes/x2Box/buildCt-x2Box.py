@@ -52,9 +52,6 @@ def step(t):
     
 Ct      = np.loadtxt('Ct-x2Box-WALLS-untilt1-AVG.dat')
 SxzFxt  = np.loadtxt('corr-SxzFx-x2Box-WALLS-untilt1-AVG.dat')
-#SxzFxt  = np.loadtxt('corr-SxzFx-x2Box-WALLS-untilt1.dat.1')
-
-
 
 CtStat       = np.zeros((nSteps, nNodes ** 2))
 corr_SxzSxzt = np.zeros((nSteps, nNodes ** 2))
@@ -65,24 +62,18 @@ corr_FxFxt   = np.zeros((nSteps, nNodes ** 2))
 for k in range(nSteps):
     print 'step='+str(k)
     C           = np.zeros((nNodes, nNodes))
-
-    CSim = 0.5 * (Ct[k,:].reshape(nNodes-1, nNodes-1)+(Ct[k,:].reshape(nNodes-1, nNodes-1)).T)
-    CStat = 0.5 * (CSim + np.rot90(CSim,2))
-    C[1:,1:] = CStat
+    CSim        = 0.5 * (Ct[k,:].reshape(nNodes-1, nNodes-1)+(Ct[k,:].reshape(nNodes-1, nNodes-1)).T)
+    CStat       = 0.5 * (CSim + np.rot90(CSim,2))
+    C[1:,1:]    = CStat
     CtStat[k,:] = reshape_mv(C)
-    #C[1:,1:] = Ct[k,:].reshape(nNodes-1,nNodes-1)
-    #CtStat[k,:] = 0.5 * reshape_mv(C + C.T) 
-    #CtStat[k,:] = reshape_mv(C)
     
-    A                 = SxzFxt[k,:].reshape(2*(nNodes-1), 2*(nNodes-1))
-    B                 = np.zeros((2*nNodes, 2*nNodes))
+    A                       = SxzFxt[k,:].reshape(2*(nNodes-1), 2*(nNodes-1))
+    B                       = np.zeros((2*nNodes, 2*nNodes))
     B[1:nNodes,1:nNodes]    = A[:nNodes-1, :nNodes-1]
     B[1:nNodes,nNodes+1:]   = A[:nNodes-1, nNodes-1:]
     B[nNodes+1:, 1:nNodes]  = A[nNodes-1:, :nNodes-1]
     B[nNodes+1:, nNodes+1:] = A[nNodes-1:, nNodes-1:]
-   
-    #stat.
-    B[:nNodes, :nNodes] = 0.5 * (B[:nNodes, :nNodes] + np.rot90(B[:nNodes, :nNodes], 2)) 
+    B[:nNodes, :nNodes]     = 0.5 * (B[:nNodes, :nNodes] + np.rot90(B[:nNodes, :nNodes], 2)) 
 
     corr_SxzSxzt[k,:] = reshape_mv(B[:nNodes, :nNodes])
     corr_SxzFxt[k,:]  = reshape_mv(B[:nNodes, nNodes:])
@@ -94,12 +85,6 @@ np.savetxt('SxzSxz-x2Box-WALLS.dat', corr_SxzSxzt)
 np.savetxt('SxzFx-x2Box-WALLS.dat',  corr_SxzFxt)
 np.savetxt('FxSxz-x2Box-WALLS.dat',  corr_FxSxzt)
 np.savetxt('FxFx-x2Box-WALLS.dat',   corr_FxFxt)
-
-
-#np.savetxt('SxzSxz-t0-new', reshape_vm(corr_SxzSxzt[0,:]))
-#np.savetxt('SxzFx-t0-new', reshape_vm(corr_SxzFxt[0,:]))
-#np.savetxt('FxSxz-t0', reshape_vm(corr_FxSxzt[0,:]))
-#np.savetxt('FxFx-t0', reshape_vm(corr_FxFxt[0,:]))
 
 #EOF
 
