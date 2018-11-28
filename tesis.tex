@@ -9,6 +9,8 @@
 \usepackage{cite} 
 \usepackage{fancyhdr}
 \usepackage{epigraph}
+\usepackage{caption}
+\captionsetup[figure]{font=small,labelfont=small}
 \graphicspath{{./figures/}}
 %To use a kind of times new roman font style
 \usepackage{mathptmx}
@@ -2488,14 +2490,15 @@ need to consider the full correlation matrix.
 \subsection{The correlation matrix $C(t)$}
 
 In  Fig. \ref{fig:Ct-matrix-PBC} we  plot the  correlation  matrix of  the
-transverse     momentum      $C_{\mu\nu}(t)=\llangle     g^1_{\mu}(t)\
-g^1_\nu\rrangle$ at  the time  $t=0$ and $t=0.6$.  This  matrix is  periodic and
+transverse     momentum      $C_{\mu\nu}(t)=\llangle     g_{\mu}(t)\
+g_\nu\rrangle$ at  the time  $t=2$ and $t=0.6$.  This  matrix is  periodic and
 traslation invariant.  Therefore, statistical errors have been further
 reduced by averaging this matrix ``along diagonals''.  In addition, we
 have taken advantadge of the  analytical calculation of the covariance
-$\llangle g^1_{\mu} g^1_\nu\rrangle$ in the Appendix \ref{Ap:Cov} in a
+$\llangle g_{\mu} g_\nu\rrangle$ in the Appendix \ref{Ap:Cov} in a
 manner that we describe below.
-\begin{figure}
+
+\begin{figure}[h]
 \centering
 \includegraphics[scale=0.4]{Ct-matrix-PBC}
 \caption[Correlation matrix $C(t)$ at $t=0$ and $t=0.6$ for PBC system.]{The   correlation    matrix   $C_{\mu\nu}(t)=\llangle
@@ -2503,27 +2506,9 @@ g_{\mu}(t)  g_\nu\rrangle$ for  $t=0$ (left) and $t=0.6$ (right).}
 \label{fig:Ct-matrix-PBC}
 \end{figure}
 
-\begin{figure}
-\centering
-\includegraphics[scale=0.5]{Ct-mu30nu-PBC}
-\caption[$C_{30\nu}(t)$ for PBC system.]{$C_{\mu\nu}(t)=\llangle  g^1_{\mu}(t) g^1_\nu\rrangle$  for $\nu=30$
- as a  function of node index  $\nu$ and for times $t=0, 0.2, 0.4, 0.6$ in descending order.  }
- \label{fig:Ct-mu30nu-PBC} 
-\end{figure}
-
-\begin{figure}
-\centering
-\includegraphics[scale=0.5]{Ct-mu30nu30-PBC}
-\caption[Autocorrelation for PBC system.]{The autocorrelation
-  $\llangle g_{\mu}(t) g_\mu\rrangle$ (for  any $\mu$)
-  . The correlation  decays very
-slowly, in an  apparent algebraic way as can be  seen in logscale in the inset.}
-  \label{fig:Autocorrelation-PBC}
-\end{figure}
-
 In  Fig.    \ref{fig:Ct-mu30nu-PBC}  the   correlations  $\llangle
-g^1_{\mu}(t)  g^1_\nu\rrangle$ for  $\mu=30$ and  different values  of
-$\nu$ at $t=0, 0.2, 0.4, 0.6, 0.8$ is shown.  This is the row 30 of the matrix plotted
+g_{\mu}(t)  g_\nu\rrangle$ for  $\mu=30$ and  different values  of
+$\nu$ at $t=0$ (blue), $t0.2$ (orange), $t=0.4$ (purple) and $t= 0.6$ (green) is shown.  This is the row 30 of the matrix plotted
 in Fig. \ref{fig:Ct-matrix-PBC}.  We  observe a diffusive
 behaviour over  a negative  background.  The  origin of  this negative
 global  correlation for  nodes that  are far  appart is  due to  total
@@ -2534,14 +2519,34 @@ the matrix  $C(t)$ we have  used the analytical value  (\ref{Cneg}) of
 the  background,  as  provided  by the  analytic  calculation  of  the
 covariance in the Appendix \ref{Ap:Cov}.
 
-The autocorrelation $\llangle  g^1_{\mu}(t) g^1_\mu\rrangle$ (which is
-the same for  all $\mu$) is shown in  Fig.  \ref{Fig-Autocorrelation-PBC}
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.5]{Ct-mu30nu-PBC}
+\caption[$C_{30\nu}(t)$ for PBC system.]{$C_{\mu\nu}(t)=\llangle  g_{\mu}(t) g_\nu\rrangle$  for $\nu=30$
+ as a  function of node index  $\nu$ and for times $t=0, 0.2, 0.4, 0.6$ in descending order.}
+ \label{fig:Ct-mu30nu-PBC} 
+\end{figure}
+
+The autocorrelation $\llangle  g_{\mu}(t) g_\mu\rrangle$ (which is
+the same for  all $\mu$) is shown in  Fig.  \ref{fig:Autocorrelation-PBC}
 as a function of time in both  linear and log scales.  Also shown is a
 function $\propto  t^{-1/2}$.  The observed decay  does not correspond
 to this algebraic decay.  As discussed in Appendix \ref{Ap:Cont}, only
 in both,  the continuum and  thermodynamic limits, we expect  the long
 time  tail   $\propto  t^{-1/2}$  behaviour  predicted   by  continuum
 hydrodynamics.
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.5]{Ct-mu30nu30-PBC}
+\caption[Autocorrelation for PBC system.]{The autocorrelation
+  $\llangle g_{\mu}(t) g_\mu\rrangle$ (for  any $\mu$)
+  . The correlation  decays very
+slowly, in an  apparent algebraic way as can be  seen in logscale in the inset.}
+  \label{fig:Autocorrelation-PBC}
+\end{figure}
+
+
 \begin{figure}
   \centering
   \includegraphics[scale=0.5]{CtFourier-PBC}
@@ -2549,7 +2554,7 @@ hydrodynamics.
   of the correlation  matrix $C(t)$ for different values  of the time.
   In      descending     order      the     plotted      times     are
 $t=0.10,0.12,0.14,0.16,0.18,0.20$.}
-\label{CtFourier-PBC}
+\label{fig:CtFourier-PBC}
 \end{figure}
 
 \begin{figure}
@@ -2564,23 +2569,22 @@ $t=0.10,0.12,0.14,0.16,0.18,0.20$.}
   (bottom). Also  plotted are  a vertical line  at $t=\tau=0.2$  and a
   horizontal  line  at  the   value  $2\times10^{-5}$,  signaling  the
   threshold below which statistical errors give spurious results. }
-\label{CtFourier-PBC-exp}
+\label{fig:CtFourier-PBC-exp}
 \end{figure}
 
 The Fourier transform $\tilde{C}(t)$  of the correlation matrix $C(t)$
 is a diagonal matrix.  The diagonal $\tilde{C}_{\mu\mu}(t)$ is plotted
-in the top panel in Fig.   \ref{Fig-Ct4.eps} as a function of the mode
+in Fig.   \ref{fig:CtFourier-PBC} as a function of the mode
 $\mu$      for      different       values      of      the      time,
-$t=0.10,0.12,0.14,0.16,0.18,0.20$  in  descending   order.   The  mode
-$\mu=0$ gives a vanishing value  because of momentum conservation.  As
-can be seen in Fig.   \ref{Fig-Ct4.eps}, at the largest times plotted,
+$t=0.10,0.12,0.14,0.16,0.18,0.20$  in  descending   order.   Note that the  mode
+$\mu=0$ gives a vanishing value  because of momentum conservation. At the largest times plotted,
 the  value  of  the  diagonal  correlation  matrix  in  Fourier  space
 $\tilde{C}_\mu(t)$ goes to  zero for modes with  values near $\mu=30$,
 implying the  amplification of the  statistical errors in  the inverse
-matrix in that  region.  In Fig.  \ref{fig:CtFourier-PBC-exp}  middle panel we
+matrix in that  region.  In Fig.  \ref{fig:CtFourier-PBC-exp}  left panel we
 plot the  eigenvalues $\tilde{C}_{\mu\mu}(t)$  as a function  of time.
-Observe  that after  a time  around  $\tau=0.2$ the  decay in  log-lin
-(bottom  panel) is  approximately  linear,  suggesting an  exponential
+Observe  that after  a time  around  $\tau=0.2$ (red line) the  decay in  log-lin
+(right  panel) is  approximately  linear,  suggesting an  exponential
 decay.
 
 
