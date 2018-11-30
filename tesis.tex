@@ -10,7 +10,7 @@
 \usepackage{fancyhdr}
 \usepackage{epigraph}
 \usepackage{caption}
-\captionsetup[figure]{font=small,labelfont=small}
+\captionsetup[figure]{font=footnotesize,labelfont=footnotesize}
 \graphicspath{{./figures/}}
 %To use a kind of times new roman font style
 \usepackage{mathptmx}
@@ -2290,9 +2290,8 @@ discrete momentum should evolve according to a vector equation analogous to
 \end{align}
 where we have defined the discrete velocity field $v$ according to
 
-\Note{A partir de aquí se añade un superíndice al momento y a la velocidad que lo mismo no es necesario poner }
 \begin{align}
-  v_\mu&\equiv\sum_\nu \rho_{\mu\nu}^{-1}g^1_\nu
+  v_\mu&\equiv\sum_\nu \rho_{\mu\nu}^{-1}g_\nu
 \label{vel}
 \end{align}
 The matrix  $\rho_{\mu\nu}$ defined in (\ref{MassMat})  has dimensions
@@ -2498,7 +2497,7 @@ have taken advantadge of the  analytical calculation of the covariance
 $\llangle g_{\mu} g_\nu\rrangle$ in the Appendix \ref{Ap:Cov} in a
 manner that we describe below.
 
-\begin{figure}[h]
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.4]{Ct-matrix-PBC}
 \caption[Correlation matrix $C(t)$ at $t=0$ and $t=0.6$ for PBC system.]{The   correlation    matrix   $C_{\mu\nu}(t)=\llangle
@@ -2508,7 +2507,7 @@ g_{\mu}(t)  g_\nu\rrangle$ for  $t=0$ (left) and $t=0.6$ (right).}
 
 In  Fig.    \ref{fig:Ct-mu30nu-PBC}  the   correlations  $\llangle
 g_{\mu}(t)  g_\nu\rrangle$ for  $\mu=30$ and  different values  of
-$\nu$ at $t=0$ (blue), $t0.2$ (orange), $t=0.4$ (purple) and $t= 0.6$ (green) is shown.  This is the row 30 of the matrix plotted
+$\nu$ at $t=0$ (blue), $t=0.2$ (orange), $t=0.4$ (purple) and $t= 0.6$ (green) is shown.  This is the row 30 of the matrix plotted
 in Fig. \ref{fig:Ct-matrix-PBC}.  We  observe a diffusive
 behaviour over  a negative  background.  The  origin of  this negative
 global  correlation for  nodes that  are far  appart is  due to  total
@@ -2519,7 +2518,7 @@ the matrix  $C(t)$ we have  used the analytical value  (\ref{Cneg}) of
 the  background,  as  provided  by the  analytic  calculation  of  the
 covariance in the Appendix \ref{Ap:Cov}.
 
-\begin{figure}[h]
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.45]{Ct-mu30nu-PBC}
 \caption[$C_{30\nu}(t)$ for PBC system.]{$C_{\mu\nu}(t)=\llangle  g_{\mu}(t) g_\nu\rrangle$  for $\nu=30$
@@ -2536,7 +2535,7 @@ in both,  the continuum and  thermodynamic limits, we expect  the long
 time  tail   $\propto  t^{-1/2}$  behaviour  predicted   by  continuum
 hydrodynamics.
 
-\begin{figure}[h]
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.45]{Ct-mu30nu30-PBC}
 \caption[Autocorrelation for PBC system.]{The autocorrelation
@@ -2547,26 +2546,25 @@ slowly, in an  apparent algebraic way as can be  seen in logscale in the inset.}
 \end{figure}
 
 
-\begin{figure}
+\begin{figure}[h!]
   \centering
   \includegraphics[scale=0.45]{CtFourier-PBC}
   \caption[Diagonal $\tilde{C}_{\mu\nu}(t)$]{The diagonal $\tilde{C}_{\mu\mu}(t)$ of the Fourier transform
   of the correlation  matrix $C(t)$ for different values  of the time.
-  In      descending     order      the     plotted      times     are
-$t=0.10,0.12,0.14,0.16,0.18,0.20$.}
+In      descending     order      the     plotted      times go from $t=0.10$ to $t=0.20$ in intervals of $0.02$. }
 \label{fig:CtFourier-PBC}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[h!]
   \centering
   \includegraphics[scale=0.45]{CtFourier-PBC-exp}
   \caption[Evolution of different eigenvalues $\tilde{C}_{\mu\nu}(t)$]{
   In      descending     order      the     plotted      times     go from
   $t=0$ to $t=0.20$ in intervals of $0.02$.  The  evolution of  the different
   eigenvalues  $\tilde{C}_{\mu\mu}(t)$ of  the  correlation matrix  of
-  momentum  as  a  function  of   time  in  a  lin-lin  plot  (middle)
+  momentum  as  a  function  of   time  in  a  lin-lin  plot  (left)
   and   log-lin   plot
-  (bottom). Also  plotted are  a vertical line  at $t=\tau=0.2$  and a
+  (right). Also  plotted are  a vertical line  at $t=\tau=0.2$  and a
   horizontal  line  at  the   value  $2\times10^{-5}$,  signaling  the
   threshold below which statistical errors give spurious results. }
 \label{fig:CtFourier-PBC-exp}
@@ -2576,7 +2574,7 @@ The Fourier transform $\tilde{C}(t)$  of the correlation matrix $C(t)$
 is a diagonal matrix.  The diagonal $\tilde{C}_{\mu\mu}(t)$ is plotted
 in Fig.   \ref{fig:CtFourier-PBC} as a function of the mode
 $\mu$      for      different       values      of      the      time,
-$t=0.10,0.12,0.14,0.16,0.18,0.20$  in  descending   order.   Note that the  mode
+from $t=0.10$ to $t=0.20$ in intervals of $0.02$ in  descending   order.   Note that the  mode
 $\mu=0$ gives a vanishing value  because of momentum conservation. At the largest times plotted,
 the  value  of  the  diagonal  correlation  matrix  in  Fourier  space
 $\tilde{C}_\mu(t)$ goes to  zero for modes with  values near $\mu=30$,
@@ -2585,99 +2583,460 @@ matrix in that  region.  In Fig.  \ref{fig:CtFourier-PBC-exp}  left panel we
 plot the  eigenvalues $\tilde{C}_{\mu\mu}(t)$  as a function  of time.
 Observe  that after  a time  around  $\tau=0.2$ (red line) the  decay in  log-lin
 (right  panel) is  approximately  linear,  suggesting an  exponential
-decay.
+decay. Also we have represented in black and dashed lines the values of the eigenvalues $\tilde{C}_{\mu\nu}$ which statistical errors give spurious results. 
 
 
 \subsection{Validation of the Markov property}
-\begin{figure}[h]
+When the  Markov equation (\ref{AproxC})  is valid, we have  that the
+eigenvalues of  the correlation matrix decay  exponentially, according
+to the prediction (\ref{SDECpiDiag}).  In order to better discriminate
+the exponential behaviour we introduce the time-dependent matrix
+\begin{align}
+\Lambda(t)\equiv-    \frac{dC}{dt}(t)\esc C^{-1}(t)
+\label{AproxCtau}
+\end{align}
+that according  to the Markov equation  (\ref{AproxC}), should evolve
+towards a constant time  independent matrix $ \Lambda(t)\to \Lambda^*$
+after   certain  time.   In  Fourier   space  all   matrices  in   Eq.
+(\ref{AproxCtau}) are diagonal and, therefore
+\begin{align}
+\tilde{\Lambda}_{\mu\mu}(t)\equiv -    \frac{1}{\tilde{C}_{\mu\mu}(t)}\frac{d\tilde{C}_{\mu\mu}}{dt}(t)
+\label{AproxCtau2}
+\end{align}
+Note that for times $t>\tau$ we have that $\tilde{\Lambda}_{\mu\mu}(t)\to \frac{1}{\tau_\mu}$
+where the relaxation time is given in Eq. (\ref{taumu}).
+\begin{figure}[h!]
   \centering
 \includegraphics[scale=0.45]{LambdatFourier-PBC}
-\caption{The  diagonal elements  $\tilde{\Lambda}_{\mu\mu}(t)$ of  the
+\caption[Diagonal elements  $\tilde{\Lambda}_{\mu\mu}(t)$ of  the Fourier transform of $\Lambda(t)$]{The  diagonal elements  $\tilde{\Lambda}_{\mu\mu}(t)$ of  the
   Fourier transform of $\Lambda(t)$ defined in (\ref{AproxCtau}), as a
-  function of  $\mu$ (top)  and $t$  (bottom).  In  the top  panel, in
+  function of  $\mu$ (left)  and $t$  (right).  In  the top  panel, in
   ascending  order the  plotted times  go  from $t=0$  to $t=0.20$  in
   intervals of $0.02$.  The dotted line is the local approximation Eq.
   (\ref{Lambdaloc}) with a  value of the local  kinematic viscosity of
-  $\nu_0=1.48$.   In the  bottom panel,  we observe  a clear  plateau,
+  $\nu_0=1.48$.   In the  right panel,  we observe  a clear  plateau,
   beyond  $\tau=0.2$  indicating  the  exponential  behaviour  of  the
   correlations in Fig. \ref{fig:CtFourier-PBC-exp}.}
 \label{fig:LambdatFourier-PBC}
 \end{figure}
 
+In       Fig.         \ref{fig:LambdatFourier-PBC}       we       plot
+$\tilde{\Lambda}_{\mu\mu}(t)$  as a  function of  $\mu$ for  different
+times (left) and as a function of $t$ for the different values of $\mu$
+(right). In the left panel,  the different curves correspond to values
+of  $t$ from  $0$ to  $0.20$ in  intervals of  $0.02$.  The  structure
+observed  in the  central region  is spureous  and due  to statistical
+errors.   These   errors  increase  with   time.   We  also   plot  in
+Fig. \ref{fig:LambdatFourier-PBC}  the theoretical prediction  of this
+matrix in the local approximation  given in Eq. (\ref{taumuloc}) for a
+fitted value  of the  local kinematic  viscosity of  $\nu_0=1.48$. \Pendiente{This value corresponds to the kinematic viscosity of a fluid with density $\rho=0.6$ andtemperature $T=2.0$ \cite{Woodcock2006}}.  We
+observe that  the local approximation (\ref{taumuloc})  gives a fairly
+reasonable approximation  for the converged  value $\tilde{\Lambda}^*$
+of the  relaxation matrix in Fourier  space.  In the right  panel, we
+plot $\tilde{\Lambda}_{\mu\mu}(t)$ for all $\mu$ as a function of time
+$t$.  We  have disregarded the data  points beyond times in  which the
+statistical  errors  lead  to  meaningless results  (those  below  the
+threshold  in  the  eigenvalues  in Fig  \ref{fig:CtFourier-PBC-exp}).   We  may
+appreciate a  very clear  plateau for  the modes  of low  $\mu$ (large
+wavelengths).  As the wavenumber increases, for wavenumbers $\mu\ge20$
+the plateau dissappears  and this is concomittant  with the appearance
+of great distorsions that are due  to the lack of statistics necessary
+to describe  the inverse  of the correlation matrix.  Therefore, we  cannot decide
+from the plots  wether there is no plateau at  large wavenumber or, on
+the contrary,  there is a  plateau but it is  obscured by the  lack of
+statistics.  A clear convergence of $\tilde{\Lambda}_{\mu\mu}(t)$ to a
+constant  plateau  value  $\tilde{\Lambda}^*$ is  observed  for  times
+larger than $t\simeq  2$. Therefore, we select the  time $\tau=0.2$ as
+the best compromise  satisfying that $\tilde{\Lambda}_{\mu\mu}(t)$ has
+attained  its  constant  value  but  does  not  suffer  from  dramatic
+statistical errors.     The existence  of a  plateau
+beyond  $\tau=0.2$  signals  to   the  exponential  behaviour  of  the
+correlations  in  Fig.   \ref{fig:CtFourier-PBC-exp}  beyond  this  time.   We
+measure  then   the  relaxation   matrix  in  Fourier   space  through
+$\tilde{\Lambda}^*_{\mu\mu}=\tilde{\Lambda}_{\mu\nu}(\tau)$.      This
+measured relaxation  matrix is  compared with its  local approximation
+$\tilde{\Lambda}^{\rm loc}_{\mu\mu}$ which, from Eq. (\ref{taumuloc}),
+is given by
+\begin{align}
+\tilde{\Lambda}^{\rm loc}_{\mu\mu}&=\frac{2}{\Delta z^2}
+\left(1-\cos\left( \frac{2\pi \mu}{N_{\rm bin}}\right)\right)
+\nu_0
+\label{Lambdaloc}
+\end{align}
 
-
-
-
-
-\subsection{The Green-Kubo non-local viscosity matrix}
-\begin{figure}[h]
+\begin{figure}[h!]
   \centering
-\includegraphics[scale=0.45]{Etat-PBC}
-\caption[The non-local viscosity as a function of time for PBC system]{The non-local viscosity $\eta_{\mu\nu}(t)$ as a function of time, for $\mu=30$ and, in descending order, $\nu=30-40$. The left panel is in linscale, while the right panel in logscale. The inset is a zoom and the red line is at $t=\tau$.}
-\label{fig:Etat-PBC}
+\includegraphics[scale=0.45]{CompareLambdas-PBC}
+\caption[Comparison $\tilde{\Lambda}^*_{\mu\mu}$ and $\tilde{\Lambda}_{\mu\mu}(\tau)$]{Comparison $\tilde{\Lambda}^*_{\mu\mu}=\tilde{\Lambda}_{\mu\mu}(\tau)$ for $\tau=0.2$ with $\tilde{\Lambda}^{\rm loc}_{\mu\mu}$ in Eq. (\ref{Lambdaloc}) with $\nu_0=1.48$. The red line has slope $1$ and it is for guide the eye.}
+\label{fig:CompareLambdas-PBC}
 \end{figure}
-\begin{figure}[h]
-  \centering
-\includegraphics[scale=0.45]{KinVisc0t-PBC}
-\caption[The local kinematic viscosity for PBC system]{}
-\label{fig:KinVisc0t-PBC}
-\end{figure}
-\begin{figure}[h]
-  \centering
-\includegraphics[scale=0.45]{EtaStartFourier-PBC}
-\caption[The non-local shear viscosity kernel for PBC system]{The non-local shear viscosity kernel from corrected Green-Kubo formular $\tilde{\eta}^*_{\mu\mu}=\frac{\tilde{\eta_{\mu\mu}(t)}}{\tilde{c}_{\mu\mu}(t)}$}
-\label{fig:EtaStartFourier-PBC}
-\end{figure}
-\begin{figure}[h]
-  \centering
-\includegraphics[scale=0.45]{KinVisctFourier-PBC}
-\caption[The eigenvalues of the non-local kinematic viscosity matrix for PBC system]{The eigenvalues of the non-local kinematic viscosity matrix defined in (\ref{}) as a function of time (right panel), and as a function of the mode index por times from t=0 to t=0.2 in ascending order in intervals of $0.01$. The orange line at $\nu_0=1.48$ is plotted in order to guide the eye in the plateau region.}
-\label{fig:EtaStartFourier-PBC}
-\end{figure}
+In         Fig.           \ref{fig:CompareLambdas-PBC}         we         plot
+$\tilde{\Lambda}^*_{\mu\mu}=\tilde{\Lambda}_{\mu\mu}(\tau)$        for
+$\tau=0.2$    against    $\tilde{\Lambda}_{\mu\mu}^{\rm    loc}$    in
+(\ref{Lambdaloc})   with  $\nu_0=1.48$. Observe that the linear behaviour of this plot
+indicates  that,  to  a  very good  degree,  the  local  approximation
+describes well the relaxation matrix $\Lambda^*$.
+From the Fourier transform  of the diagonal matrix $\tilde{\Lambda}^*$ i
+we may  obtain the relaxation  matrix $\Lambda^*$ in real space which,  by comparing
+(\ref{AproxC})      with     (\ref{SDECpi})      is     given      by
+$\Lambda^*=\Delta\nu^*$. From Eq.  (\ref{Cmunut}) we can
+now  have the  prediction of  Mori theory  for the  correlation matrix
+$C(t)$.  In Fig.  \ref{fig:Predictionsmumu-PBC} we compare the autocorrelation
+$C_{\mu\mu}(t)$ measured in  MD with the predictions  of the non-local
+(orange) and local  (green) theories.  The arrow is at  $t=\tau$ where the
+three curves  coincide by  construction.  The  agreement of  the three
+curves  is  excellent beyond  $\tau$.   This  is best  appreciated  in
+logscale (right panel). The curving at long times,
+reflecting the  finite size  of the simulation  box \Pendiente{(see  appendix)} is
+captured in  both theories.  The inset  in the left panel of Fig.  \ref{fig:Predictionsmumu-PBC}
+shows a zoom at short times,  where one appreciates that the non-local
+theory gives  a better  prediction than the  local prediction  but, of
+course,  yields  poor results  at  very  short  times. Note  that  the
+Markovian theory leads to a cusp at $t=0$ in the correlation while the
+MD  results  have   a  vanishing  value  of  the   derivative  of  the
+correlation.
 
-\begin{figure}[h]
+\begin{figure}[h!]
   \centering
 \includegraphics[scale=0.45]{Predictionsmumu-PBC}
 \caption[Comparison of autocorrelation $C_{\mu\mu}$ with the predicions for PBC system]{Comparison of autocorrelation $C_{\mu\mu}(t)$ with the predictions of the non-local (orange) and local (green) theries. The left panel is in linscale and the right panel in logscale. The red line is at $t=\tau$ where the three curves coincide by construction. The inset shows a zoom at short times.}
 \label{fig:Predictionsmumu-PBC}
 \end{figure}
 
-\begin{figure}[h]
+In Fig. \ref{fig:Predictionsmumu+1-PBC} we compare the cross correlation $C_{\mu\mu+1}(t)$ in the same way as we did with the autocorrelation in Fig. \ref{fig:Predictionsmumu-PBC}. The agreement of the the three curves (predictions, non-local and local theories) is excellent beyond $\tau$, but we appreciate that for long times \Note{the local prediction is better than the non-local prediction}. 
+
+\begin{figure}[h!]
   \centering
 \includegraphics[scale=0.45]{Predictionsmumu+1-PBC}
 \caption[Comparison of cross correlation $C_{\mu\mu+1}$ with the predicions for PBC system]{Comparison of autocorrelation $C_{\mu\mu+1}(t)$ with the predictions of the non-local (orange) and local (green) theries. The left panel is in linscale and the right panel in logscale. The red line is at $t=\tau$ where the three curves coincide by construction. The inset shows a zoom at short times.}
 \label{fig:Predictionsmumu+1-PBC}
 \end{figure}
 
+In summary, in the present subsection we have shown that the Markovian
+approximation  is  an   excellent  one  for  the   prediction  of  the
+correlation matrix of the  transverse momentum beyond a characteristic
+time $\tau$.   We have also  observed that, \textit{beyond}  this time
+$\tau$,  a  local  in  space  approximation  gives  equally  excellent
+predictions.
 
 
 
 
-\begin{figure}
-    \centering
-    \includegraphics[scale=0.8]{Ct-matrix-17nodes}
-    \caption[Snapshots of C(t)]{Matrix $C(t)$ for different times.}
-    \label{fig:CtMatrix17Nodes}
+\subsection{The Green-Kubo non-local viscosity matrix}
+In   this  section,   we  discuss   the  non-local   viscosity  matrix
+$\eta_{\mu\nu}(\tau)$  defined   Eq.   (\ref{non-loc}).    To  compute
+$\eta_{\mu\nu}(t)$   we    record   the   stress   tensor    per   bin
+$\hat{\sigma}_\mu$,  defined in  (\ref{sbin}),  and  compute the  time
+integral     of     the      equilibrium     correlation     $\llangle
+\hat{\sigma}_{\mu}(t)\hat{\sigma}_\nu\rrangle$.         In        Fig.
+\ref{fig:Etat-PBC}  we  plot  the non-local  shear  viscosity
+matrix  $\eta_{\mu\nu}(t)$  for  $\mu=30$   and  different  values  of
+$\nu=30-40$.   We observe  that  $\eta_{\mu\nu}(t)$ starts  from 0  at
+$t=0$  and  attains a  maximum  at  a  time  that increases  with  the
+separation between bins. Even though in linear scale there seems to be
+a plateau after the maximum, the logscale representation in the bottom
+panel of Fig.  \ref{fig:Etat-PBC} reveals that such a plateau
+does  not exist  as a  very slow  algebraic decay  is apparent.   This
+result reveals strikingly that  the standard Green-Kubo expression for
+the non-local  viscosity has no plateau  and cannot be used  to define
+the non-local viscosity  because there is no a priori  criteria to fix
+the  upper  limit   of  integration  $\tau$.   Of   course,  from  Eq.
+(\ref{etaExact})  we already  observed  that $\eta(t)$  cannot have  a
+plateau because the time derivative of the correlation function decays
+at  long times.   Note  that the  non-existence of  a  plateau in  the
+non-local viscosity matrix $\eta(t)$ is  in clear contrast to the case
+of  the Green-Kubo  running  integral for  the  local shear  viscosity
+$\eta_0(t)$ which,  according to Eqs.  (\ref{eta00})  and (\ref{etat})
+is proportional to the sum of all the function $\eta_{\mu\nu}(t)$ that
+decay  in a  quasi  algebraic  manner. 
+
+\begin{figure}[h!]
+  \centering
+\includegraphics[scale=0.45]{Etat-PBC}
+\caption[The non-local viscosity as a function of time for PBC system]{The non-local viscosity $\eta_{\mu\nu}(t)$ as a function of time, for $\mu=30$ and, in descending order, $\nu=30-40$. The left panel is in linscale, while the right panel in logscale. The inset is a zoom and the red line is at $t=\tau$.}
+\label{fig:Etat-PBC}
 \end{figure}
 
-\begin{figure}
-    \centering
-    \includegraphics[scale=0.8]{Lambda-17nodes}
-    \caption[$\Lambda(t)$ for a system of 17 nodes]{$\Lambda(t)$ for three basis: blue $E(0.15)$, red $E(0.30)$ and orange $E(t)$}
-    \label{fig:Lambda17Nodes}
+
+In Fig.
+\ref{fig:KinVisc0t-PBC} we plot $\nu_0(t)$  which we recall that
+is the sum  of the curves in  the left panel of Fig. \ref{fig:Etat-PBC} divided by the density. We observe  a very neat
+plateau.  Of course, the plateau cannot extend indefinitely because of
+the  finite number  of terms  involved  in the  sum (\ref{eta00}).  \Pendiente{We
+expect that after  an estimated time of the order  of $L^2/\nu_0$ that
+takes the vorticity to diffuse the entire system size the plateau will
+curve down.  In our system  this time is  $\sim 600$, well  beyond our
+observation  span. After  this  time  we expect  that  the plateau  in
+$\nu_0(t)$ will start to decrease due to finite size effects.}
+\begin{figure}[h!]
+  \centering
+\includegraphics[scale=0.45]{KinVisc0t-PBC}
+\caption[The local kinematic viscosity for PBC system]{The local kinematic viscosity $\nu_0(t)=\eta_0(t)/\rho^{\rm eq}$ as a function of time where the shear viscosity is computed with the data from Fig. \ref{fig:Etat-PBC}. A horizontal orange line at $\nu_0=1.48$ is also plotted in order to guide the eye in the plateau region.}
+\label{fig:KinVisc0t-PBC}
 \end{figure}
 
-\begin{figure}
-    \centering
-    \includegraphics[scale=0.7]{Predictions-17nodes}
-    \caption[$C(t)$ predictions for a system of 17 nodes]{In the top panel, in the middle and in the bottom.}
-    \label{fig:CtPredictions17Nodes}
+By following a  strategy similar to the one given  in \Pendiente{Referencia paper correción GK?} we
+have shown in  Eq. (\ref{FouFin}) how to evaluate  the non-local shear
+viscosity  matrix  $\tilde{\eta}^*_{\mu\mu}$  not  from  the  standard
+Green-Kubo  formula but  rather from  a corrected  version of  it that
+accounts for the  fact that the Green-Kubo running  integral decays as
+the correlation of  the CG variables themselves. In  order to evaluate
+$\tilde{\eta}^*_{\mu\mu}$ we introduce the time dependent eigenvalue
+\begin{align}
+\tilde{\eta}_{\mu\mu}^*(t)&=\frac{\tilde{\eta}_{\mu\mu}(t) }{\tilde{c}_{\mu\mu}(t)}
+\label{FouFint}
+\end{align}
+which, according  to Eq. (\ref{FouFin})  should have a plateau  if the
+Markovian approximation is appropriate.
+
+In    Fig.      \ref{fig:EtaStartFourier-PBC}    we    show     the    function
+$\tilde{\eta}_{\mu\mu}(t)$  as a  function of  time for  the different
+modes.   We observe  that, whenever  the  statistics allow  for it,  a
+reasonable plateau  is obtained. Therefore,  it is possible  to define
+the  non-local  shear  viscosity  matrix  $\eta^*_{\mu\nu}$  from  the
+Fourier transform  of the plateau  value $\tilde{\eta}_{\mu\mu}(\tau)$
+where $\tau=0.2$.  This  is shown in Fig.  \ref{fig:CompareEtas-PBC} where the
+diagonal structure  is apparent,  with a width  that has  around $\sim
+5\sigma$.  This  is, approximately  twice the  cutoff distance  of the
+Lennard-Jones potential.  One way to  explain this width is  by noting
+that  the stress  tensor of  a bin,  defined in  (\ref{sbin}) contains
+contributions of pairs  of atoms through the fraction  of the distance
+between the atoms. Bins which are  at a distance larger than twice the
+LJ cutoff radius  do not have any atom  that simultaneously contribute
+to the stress tensor in each  bin. Therefore, it is plausible to infer
+that the width of the stress correlation is a consequence of the absence
+of correlation between the stress through atoms that contribute to the stress
+in both bins.
+
+
+The kinematic viscosity  in Fourier space is  obtained by transforming Eq. (\ref{numunu0})
+to Fourier space  and gives
+\begin{align}
+\tilde{\nu}_\mu(t)&=  \frac{{\cal V}_\mu \tilde{\eta}_\mu(t)}{\tilde{\rho}_\mu}
+\end{align}
+We plot $\tilde{\nu}_\mu(t)$  in Fig.  (\ref{fig:KinVisctFourier-PBC}) as a  function of time
+$t$ for  different modes  $\mu$ (left)  and as a  function of  the mode
+number $\mu$  at different times from $t=0$ to $t=0.2$ in intervals of $0.01$ (right). From
+the last plot  we observe that the modes around  $\sim 30$ are subject
+to  large statistical  error because  for these  modes the  eigenvalue
+$\tilde{c}_\mu(t)$ of  the correlation  matrix has already  taken very
+low values, thus  amplifying though its inverse  the small statistical
+errors present. In  any case, we observe  that $\tilde{\nu}_\nu(t)$ is
+almost constant for all values of $\mu$ and that for times larger than
+$\tau=0.2$ the  kinematic viscosity  of all  modes is  fairly constant
+$\tilde{\nu}_\nu(\tau)\simeq\nu_0=1.48$  in  reduced units.  This  is,
+another reflection  of the  fact that the  discrete hydrodynamics in 
+periodic boundary conditions is fairly local, and can be described with
+ a local in space approximation, as has been corroborated in Figs. 
+ \ref{fig:Predictionsmumu-PBC}, \ref{fig:Predictionsmumu+1-PBC} and \ref{fig:EtaStartFourier-PBC}.
+
+
+\begin{figure}[h!]
+  \centering
+\includegraphics[scale=0.45]{CompareEtas-PBC}
+\caption[Comparison $\eta^*_{30,\nu}$ and $eta_{30,\nu}$]{The non-local shear viscosity $\eta_{\mu\nu}$ (blue) and its corrected form $\eta^*_{\mu\nu}$ (orange) for $\nu=30$ as a function of node index $\nu$ at $t=0.2$.}
+\label{fig:CompareEtas-PBC}
 \end{figure}
 
 
-\Note{Cuando tenga que poner las gráficas de las correlaciones y predicciones coger el centro del canal y mu=30, nu=31 con el soporte hasta 10. Están en el directorio ~/Escritorio/lambda/66nodes/PBC con nombre Ct-gxTh-mu30nu31 y Ct-gxTh-mu30nu30. Los he copiado a este directorio por si pierdo esos ficheros.}
+
+\begin{figure}[h!]
+  \centering
+\includegraphics[scale=0.45]{EtaStartFourier-PBC}
+\caption[The non-local shear viscosity kernel for PBC system]{The non-local shear viscosity kernel from corrected Green-Kubo formula $\tilde{\eta}^*_{\mu\mu}=\frac{\tilde{\eta_{\mu\mu}(t)}}{\tilde{c}_{\mu\mu}(t)}$}
+\label{fig:EtaStartFourier-PBC}
+\end{figure}
+\begin{figure}[h!]
+  \centering
+\includegraphics[scale=0.45]{KinVisctFourier-PBC}
+\caption[The eigenvalues of the non-local kinematic viscosity matrix for PBC system]{The eigenvalues of the non-local kinematic viscosity matrix defined in (\ref{}) as a function of time (right panel), and as a function of the mode index por times from t=0 to t=0.2 in ascending order in intervals of $0.01$. The orange line at $\nu_0=1.48$ is plotted in order to guide the eye in the plateau region.}
+\label{fig:KinVisctFourier-PBC}
+\end{figure}
+
+\newpage
+\section{Conclusions}
+\label{Sec:Conclusions}
+\Note{Paper corrected GK}
+In this  work, we have addressed  the plateau problem that  appears in
+the  expression of  transport  coefficient in  terms  of the  standard
+Green-Kubo running integrals.  In the  case of Markovian dynamics with
+not an extreme separation of time  scales, the decay of the Green-Kubo
+running integral does  not allow to determine  unambiguously the value
+of the  transport coefficients.  We  have shown in  Eq.  (\ref{Math1})
+that  the  Green-Kubo  running  integral necessarily  decays  to  zero
+because it  is given in terms  of the correlation of  the CG variables
+and its  time derivative.  With  this observation, we have  proposed a
+correction  to  the  standard  Green-Kubo  expression  that  does  has  a
+well-defined infinite time limit. We have seen also that it is crucial
+to  distinguish between  the  three  different ``friction  matrices'':
+$M(t)$ involving the real dynamics (that  goes to zero as time goes to
+infinity), $M^+(t)$  involving the projected dynamics  (that also goes
+to zero  with time  going to  infinity, in  spite of  claims otherwise
+\cite{Kubo1991,Espanol_Zuniga1993}),  and $M^*$,  a putative  constant
+matrix   given    by   the    non-zero   infinite   time    limit   in
+Eq. (\ref{GKCorrected}).
+
+As a  final remark,  we note  that there are  situations in  which the
+standard  Green-Kubo running  integral indeed  display a  well-defined
+plateau.  This can only happen if  some of the assumptions made in the
+argument based on the theorem (\ref{Math1}) do not hold.
+
+For example, if we take as CG  variable the position ${\bf r}(t)$ of a
+tagged  particle  in a  fluid,  we  have the  well-known  mathematical
+identity
+\begin{align}
+\frac{1}{2}\frac{d}{dt}\llangle({\bf r}(t)-{\bf r}(0))^2\rrangle&=  \int_0^tdt'\llangle {\bf v}(t)\esc {\bf v}\rrangle 
+\end{align}
+where ${\bf  v}(t)$ is  the velocity of  the particle.   This equation
+would correspond to  (\ref{Math1}). It is clear that  because the root
+mean square displacement  is a ``correlation'' that does  not decay to
+zero, the infinite time integral of  the right hand side does not need
+to decay  to zero.  It actually  gives a non-zero  value given  by the
+self-diffusion coefficient.
+
+Another example  can be  found whenever  we consider  a
+conserved  quantity.  Consider,  for  example,  the  momentum  density
+correlation function in an infinite system in Fourier space,
+\begin{align}
+\hat{\bf g}_{\bf k}&=\sum_i^N{\bf p}_i\exp\{i{\bf k}\esc{\bf r}_i\}
+\end{align}
+The correlation matrix function is
+\begin{align}
+  {\bf C}(k,t)&=\llangle \hat{\bf g}_{\bf k}(t)\hat{\bf g}_{-{\bf k}}\rrangle
+\end{align}
+Eq. (\ref{Math1}) now becomes
+\begin{align}
+\partial_t  C(k,t)&=-\int_0^tdt'\llangle i{\cal L} \hat{\bf g}_{\bf k}(t) i{\cal L}\hat{\bf g}_{-{\bf k}}\rrangle
+\end{align}
+The action of the Liouville operator is well-known
+\begin{align}
+  i{\cal L}\hat{\bf g}_{\bf k}=-i{\bf k}\esc\hat{\boldsymbol{\sigma}}_{\bf k}
+\end{align}
+where $\hat{\boldsymbol{\sigma}}_{\bf k}$ is the Fourier transform of the Irwing-Kirkwood
+stress tensor.  Therefore, we have
+\begin{align}
+\partial_t  C(k,t)&={\bf k}\esc\boldsymbol{\Theta}(k,t)\esc {\bf k}
+\label{Ck}
+\end{align}
+where the fourth order viscosity tensor is defined as the time integral of the
+stress correlation function
+\begin{align}
+\boldsymbol{\Theta}(k,t)&=  \int_0^tdt'\llangle \boldsymbol{\sigma}_{\bf k}(t) \boldsymbol{\sigma}_{-{\bf k}}\rrangle
+\label{Theta}
+\end{align}
+Eq  (\ref{Ck})  is  what  corresponds now  to  (\ref{Math1})  and  the
+argument  is  that  because   the  correlation  $C(k,t)$  decays,  the
+viscosity   tensor   $\boldsymbol{\Theta}(k,t)$  \textit{must}   decay
+towards zero.   This is  true in  general, but  fails for  the very special
+value of ${\bf k}={\bf 0}$.  At this  value, we see that the left hand
+side is zero because, for ${\bf k}={\bf 0}$, $\hat{\bf g}_{{\bf k}=\bf 0}$ is
+the total momentum  of the system.  As we assume  that the equilibrium
+average of the CG variables vanish, we are implicitly assuming that we
+are in  the center  of mass  reference frame of  the fluid,  for which
+total momentum vanishes.  Therefore, the right hand  side of (\ref{Ck})
+vanishes at  ${\bf k}=0$.  At the same time, for  ${\bf k}=0$  the Irwing-Kirkwood
+stress tensor becomes the total stress tensor of the fluid
+\begin{align}
+  \hat{\boldsymbol{\sigma}}^{\alpha\beta}_{{\bf k}={\bf 0}}=\sum_i{\bf p}_i{\bf v}_i+\frac{1}{2}\sum_{ij}{\bf r}_{ij}{\bf F}_{ ij}
+\end{align}
+and     the     isotropic     fourth    order     viscosity     tensor
+$\boldsymbol{\Theta}(0,t)$ has  only two independent  components given
+by  the  standard  Green-Kubo  expressions  for  the  shear  and  bulk
+viscosities.  Therefore, for ${\bf  k}={\bf 0}$, Eq.  (\ref{Ck}) takes
+the trivial form ${\bf 0}={\bf 0}\esc \boldsymbol{\Theta}(0,t)\esc{\bf
+  0}$ and $\boldsymbol{\Theta}(0,t)$ is no longer constrained to decay
+to  zero anymore  and may  display a  well-defined plateau,  as it  is
+observed  empirically. However,  for values  of ${\bf  k}\neq 0$,  the
+resulting (non-local) viscosities suffer  necessarily from the plateau
+problem and  require the  correction presented in  this paper  for its
+actual  evaluation.   In forthcoming  publications  we  will show  how
+non-local transport  coefficients for discrete hydrodynamics  with and
+without confining walls can be unambiguously measured by using the new
+corrected Green-Kubo formula.
 
 
+
+
+\Note{Paper PBC}
+
+
+
+In this  paper we  have computed from  MD simulations  the equilibrium
+time-dependent correlation matrix of  the discrete transverse momentum
+density.   Under  the Markovian  approximation,  Mori  theory gives  a
+definite prediction for the correlation  matrix in terms of a decaying
+matrix exponential.   As we  have discussed, the  Markovian prediction
+\textit{cannot}  hold for  very small  times, essentially  because the
+exponential matrix decay predicts a  non-zero value of the derivatives
+of the correlation at  $t=0$, while microscopic reversibility enforces
+a  vanishing value  of the  derivative of  the correlations  at $t=0$.
+Therefore,  the initial  decay of  the  correlation cannot  be of  the
+exponential matrix form.  Only after a time $\tau$ in which the memory
+has fade out one can expect a Markovian approximation to hold. 
+%  One of
+% the objectives of  the present work has been the  determination of the
+% relaxation  matrix   $\Lambda^*$  that   governs  the  decay   of  the
+% correlation,  and also  the  time $\tau$  beyond  which the  Markovian
+% approximation is expected to be valid. Hydrodynamics is local
+
+A number of conclusions can be drawn from the simulation results:
+\begin{enumerate}
+\item We  have observed that  the relaxation matrix  $\Lambda(t)$ does
+  indeed  plateau to  a  constant value  $\Lambda^*$, indicating  that
+  after  the  time $\tau$  the  decay  of  the correlation  matrix  is
+  exponential  and  hence Markovian.   This  time  is not  excessively
+  large, capturing about  80\% of the total decay  of the correlation.
+  The  Markovian approximation  predicts a  quasi-algebraic long  time
+  tail  that gives  excellent agreement  with the  simulation results.
+  Trully algebraic  decay is  obtained only  in the  thermodynamic and
+  continuum limits, as described  in Appendix \ref{Ap:Cont}. Note that
+  the width  of the bins  that we use in  the present work  is $\Delta
+  z=0.5\sigma$.  Such bin  size allows,  in the  presence of  walls to
+  resolve the density layering near the wall.
+\item  We observe  that  for  the times  beyond  $\tau$  in which  the
+  Markovian (local in time) approximation is valid, the local in space
+  approximation of the kinematic  shear viscosity matrix gives already
+  very accurate results.
+\item The \textit{non-local}  shear viscosity defined in  terms of the
+  Green-Kubo  formula  as  the  time  integral  of  the  stress-stress
+  correlation does  not show a  plateau. Quite remarkably, the  sum of
+  the  (non-plateau) non-local  shear viscosity  matrix elements  does
+  indeed   have  a   plateau.    This  plateau   corresponds  to   the
+  \textit{local}  viscosity  computed  in   the  usual  way  from  its
+  Green-Kubo  formula. The  existence  of this  plateau  in the  local
+  viscosity is due to global momentum conservation.
+\end{enumerate}
+These facts suggest that the usefulness of a non-local shear viscosity
+in a  Markovian description  of correlation functions  of hydrodynamic
+variables is small.  On one hand, its Green-Kubo expression is useless
+as it does not have a plateau and, on the other, a local approximation
+with well-defined plateau already provides excellent results.
+
+Steady states situations in which the Markovian approximation is valid
+automatically may  still require the  use of non-local in  space shear
+viscosities for its correct description \cite{.}.
+
+In  the  present paper  we  have  limited  ourselves to  the  discrete
+transverse  momentum   variable.   With  the  same   methodology,  the
+extension  to   the  rest  of  conserved   hydrodynamic  variables  is
+straitghforward and will be presented elsewhere. 
+
+One strategy to increase the validity of a purely Markovian theory for
+times   smaller  than   $\tau$   consists   on  including   additional
+non-conserved variables in the list  of CG variables.  For example, by
+including the stress tensor and heat flux as additional variables, one
+expects  to  capture the  viscoelastic  and  memory effects  that  are
+required to describe the dynamics  of the conserved variables at small
+time scales \cite{Khayat1989,Mryglod1995,Bryk2010}.
+
+We have  considered a  simple fluid  in periodic  boundary conditions.
+The  same methodology used here  will be  used for  the case  of fluids
+confined in between parallel solid walls.  The computational burden in
+that case is much larger  because traslation invariance cannot be used
+in order to increase statistics, as we have done in the present paper.
+In  addition   to  the   non-local  shear  viscosity,   new  transport
+coefficients related to slip at the wall appear in confined fluids, as
+has been recently described in Ref. \cite{Camargo2018, III}.
 
 
 
