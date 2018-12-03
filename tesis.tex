@@ -1417,6 +1417,9 @@ as
 \epigraph{\textit{Time is longer than any distance.}}{Absalom, Absalom! \\ WILLIAM FAULKNER}
 \section{Introduction}
 
+In this chapter we revisit the plateau problem in the Green-Kubo formula. Within the context of Mori projection operator formulation, we offer an alternative expression for the transport coefficients that is given by a corretec Green-Kubo expression that has no plateau problem. 
+
+
 
 
 \section{Mori theory}
@@ -1509,6 +1512,7 @@ to the initial ensemble vanishes, i.e.
 \end{align}
 
 \subsection{The Markovian approximation}
+\label{Sec:MarkovianAprox}
 The Markovian approximation assumes that the CG variables evolve in a time scale much larger than the memory time scale. This implies that there exists  a time-independent matrix $M^*$
 such that  the linear integro-differential term  in Eq. (\ref{exactC})
 can  be  approximated  by  a  memory-less term,  also  linear  in  the
@@ -1798,6 +1802,86 @@ $\Lambda(t)$,  and for  which  statistical errors  have  not yet  been
 amplified to a  catastrophic level.  
 
 
+We note  that there are  situations in  which the
+standard  Green-Kubo running  integral indeed  display a  well-defined
+plateau.  This can only happen if  some of the assumptions made in the
+argument based on the theorem (\ref{Math1}) do not hold.
+
+For example, if we take as CG  variable the position ${\bf r}(t)$ of a
+tagged  particle  in a  fluid,  we  have the  well-known  mathematical
+identity
+\begin{align}
+\frac{1}{2}\frac{d}{dt}\llangle({\bf r}(t)-{\bf r}(0))^2\rrangle&=  \int_0^tdt'\llangle {\bf v}(t)\esc {\bf v}\rrangle 
+\end{align}
+where ${\bf  v}(t)$ is  the velocity of  the particle.   This equation
+would correspond to  (\ref{Math1}). It is clear that  because the root
+mean square displacement  is a ``correlation'' that does  not decay to
+zero, the infinite time integral of  the right hand side does not need
+to decay  to zero.  It actually  gives a non-zero  value given  by the
+self-diffusion coefficient.
+
+Another example  can be  found whenever  we consider  a
+conserved  quantity.  Consider,  for  example,  the  momentum  density
+correlation function in an infinite system in Fourier space,
+\begin{align}
+\hat{\bf g}_{\bf k}&=\sum_i^N{\bf p}_i\exp\{i{\bf k}\esc{\bf r}_i\}
+\end{align}
+The correlation matrix function is
+\begin{align}
+  {\bf C}(k,t)&=\llangle \hat{\bf g}_{\bf k}(t)\hat{\bf g}_{-{\bf k}}\rrangle
+\end{align}
+Eq. (\ref{Math1}) now becomes
+\begin{align}
+\partial_t  C(k,t)&=-\int_0^tdt'\llangle i{\cal L} \hat{\bf g}_{\bf k}(t) i{\cal L}\hat{\bf g}_{-{\bf k}}\rrangle
+\end{align}
+The action of the Liouville operator is well-known
+\begin{align}
+  i{\cal L}\hat{\bf g}_{\bf k}=-i{\bf k}\esc\hat{\boldsymbol{\sigma}}_{\bf k}
+\end{align}
+where $\hat{\boldsymbol{\sigma}}_{\bf k}$ is the Fourier transform of the Irwing-Kirkwood
+stress tensor.  Therefore, we have
+\begin{align}
+\partial_t  C(k,t)&={\bf k}\esc\boldsymbol{\Theta}(k,t)\esc {\bf k}
+\label{Ck}
+\end{align}
+where the fourth order viscosity tensor is defined as the time integral of the
+stress correlation function
+\begin{align}
+\boldsymbol{\Theta}(k,t)&=  \int_0^tdt'\llangle \boldsymbol{\sigma}_{\bf k}(t) \boldsymbol{\sigma}_{-{\bf k}}\rrangle
+\label{Theta}
+\end{align}
+Eq  (\ref{Ck})  is  what  corresponds now  to  (\ref{Math1})  and  the
+argument  is  that  because   the  correlation  $C(k,t)$  decays,  the
+viscosity   tensor   $\boldsymbol{\Theta}(k,t)$  \textit{must}   decay
+towards zero.   This is  true in  general, but  fails for  the very special
+value of ${\bf k}={\bf 0}$.  At this  value, we see that the left hand
+side is zero because, for ${\bf k}={\bf 0}$, $\hat{\bf g}_{{\bf k}=\bf 0}$ is
+the total momentum  of the system.  As we assume  that the equilibrium
+average of the CG variables vanish, we are implicitly assuming that we
+are in  the center  of mass  reference frame of  the fluid,  for which
+total momentum vanishes.  Therefore, the right hand  side of (\ref{Ck})
+vanishes at  ${\bf k}=0$.  At the same time, for  ${\bf k}=0$  the Irwing-Kirkwood
+stress tensor becomes the total stress tensor of the fluid
+\begin{align}
+  \hat{\boldsymbol{\sigma}}^{\alpha\beta}_{{\bf k}={\bf 0}}=\sum_i{\bf p}_i{\bf v}_i+\frac{1}{2}\sum_{ij}{\bf r}_{ij}{\bf F}_{ ij}
+\end{align}
+and     the     isotropic     fourth    order     viscosity     tensor
+$\boldsymbol{\Theta}(0,t)$ has  only two independent  components given
+by  the  standard  Green-Kubo  expressions  for  the  shear  and  bulk
+viscosities.  Therefore, for ${\bf  k}={\bf 0}$, Eq.  (\ref{Ck}) takes
+the trivial form ${\bf 0}={\bf 0}\esc \boldsymbol{\Theta}(0,t)\esc{\bf
+  0}$ and $\boldsymbol{\Theta}(0,t)$ is no longer constrained to decay
+to  zero anymore  and may  display a  well-defined plateau,  as it  is
+observed  empirically. However,  for values  of ${\bf  k}\neq 0$,  the
+resulting (non-local) viscosities suffer  necessarily from the plateau
+problem and  require the  correction presented in  this paper  for its
+actual  evaluation.   In forthcoming  publications  we  will show  how
+non-local transport  coefficients for discrete hydrodynamics  with and
+without confining walls can be unambiguously measured by using the new
+corrected Green-Kubo formula.
+
+
+
 \section{Mori theory for shear hydrodynamics}
 \label{Sec:MoriShearHydro}
 In this section, we use Mori theory in the notation presented in Section \ref{Sec:Mori} for predicting the dynamics of equilibrium correlations of transverse momentum density in a periodic box in the time domain. 
@@ -1861,8 +1945,6 @@ integral  (i.e. sum  over bins  times the  volume of  the bin)  of the
 discrete hydrodynamic variables we obtain
 \begin{align}
   \sum_\mu{\cal V}_\mu\hat{\rho}_\mu(z)&  &&= mN
-% \nonumber\\
-%   \sum_\mu{\cal V}_\mu\hat{e}_\mu(z)&= \sum_i^N\left(\frac{{\bf p}^2_i}{2m_i}+\phi_i\right)&&=\hat{H}(z)
 \nonumber\\
   \sum_\mu{\cal V}_\mu\hat{\bf g}_\mu(z)&=\sum_i^N{\bf p}_i&&= \hat{\bf P}_T(z)
 \label{DiscCons}
@@ -2587,6 +2669,7 @@ decay. Also we have represented in black and dashed lines the values of the eige
 
 
 \subsection{Validation of the Markov property}
+\label{Sec:ValidateMarkov}
 When the  Markov equation (\ref{AproxC})  is valid, we have  that the
 eigenvalues of  the correlation matrix decay  exponentially, according
 to the prediction (\ref{SDECpiDiag}).  In order to better discriminate
@@ -2813,6 +2896,7 @@ The kinematic viscosity  in Fourier space is  obtained by transforming Eq. (\ref
 to Fourier space  and gives
 \begin{align}
 \tilde{\nu}_\mu(t)&=  \frac{{\cal V}_\mu \tilde{\eta}_\mu(t)}{\tilde{\rho}_\mu}
+  \label{kinViscFourier}
 \end{align}
 We plot $\tilde{\nu}_\mu(t)$  in Fig.  (\ref{fig:KinVisctFourier-PBC}) as a  function of time
 $t$ for  different modes  $\mu$ (left)  and as a  function of  the mode
@@ -2834,7 +2918,7 @@ periodic boundary conditions is fairly local, and can be described with
 \begin{figure}[h!]
   \centering
 \includegraphics[scale=0.45]{CompareEtas-PBC}
-\caption[Comparison $\eta^*_{30,\nu}$ and $eta_{30,\nu}$]{The non-local shear viscosity $\eta_{\mu\nu}$ (blue) and its corrected form $\eta^*_{\mu\nu}$ (orange) for $\nu=30$ as a function of node index $\nu$ at $t=0.2$.}
+\caption[Comparison $\eta^*_{30,\nu}$ and $eta_{30,\nu}$]{The non-local shear viscosity $\eta_{\mu\nu}$ (blue) and its corrected form $\eta^*_{\mu\nu}$ (orange) for $\mu=30$ as a function of node index $\nu$ at $t=0.2$.}
 \label{fig:CompareEtas-PBC}
 \end{figure}
 
@@ -2849,15 +2933,14 @@ periodic boundary conditions is fairly local, and can be described with
 \begin{figure}[h!]
   \centering
 \includegraphics[scale=0.45]{KinVisctFourier-PBC}
-\caption[The eigenvalues of the non-local kinematic viscosity matrix for PBC system]{The eigenvalues of the non-local kinematic viscosity matrix defined in (\ref{}) as a function of time (right panel), and as a function of the mode index por times from t=0 to t=0.2 in ascending order in intervals of $0.01$. The orange line at $\nu_0=1.48$ is plotted in order to guide the eye in the plateau region.}
+\caption[The eigenvalues of the non-local kinematic viscosity matrix for PBC system]{The eigenvalues of the non-local kinematic viscosity matrix defined in Eq. (\ref{kinViscFourier}) as a function of time (right panel), and as a function of the mode index por times from t=0 to t=0.2 in ascending order in intervals of $0.01$. The orange line at $\nu_0=1.48$ is plotted in order to guide the eye in the plateau region.}
 \label{fig:KinVisctFourier-PBC}
 \end{figure}
 
 \newpage
 \section{Conclusions}
 \label{Sec:Conclusions}
-\Note{Paper corrected GK}
-In this  work, we have addressed  the plateau problem that  appears in
+In the first part of this chapter -- Section \ref{Sec:Mori} -- we have addressed  the plateau problem that  appears in
 the  expression of  transport  coefficient in  terms  of the  standard
 Green-Kubo running integrals.  In the  case of Markovian dynamics with
 not an extreme separation of time  scales, the decay of the Green-Kubo
@@ -2872,120 +2955,27 @@ to  distinguish between  the  three  different ``friction  matrices'':
 $M(t)$ involving the real dynamics (that  goes to zero as time goes to
 infinity), $M^+(t)$  involving the projected dynamics  (that also goes
 to zero  with time  going to  infinity, in  spite of  claims otherwise
-\cite{Kubo1991,Espanol_Zuniga1993}),  and $M^*$,  a putative  constant
+\cite{Kubo1991,Espanol1993}),  and $M^*$,  a putative  constant
 matrix   given    by   the    non-zero   infinite   time    limit   in
 Eq. (\ref{GKCorrected}).
 
-As a  final remark,  we note  that there are  situations in  which the
-standard  Green-Kubo running  integral indeed  display a  well-defined
-plateau.  This can only happen if  some of the assumptions made in the
-argument based on the theorem (\ref{Math1}) do not hold.
 
-For example, if we take as CG  variable the position ${\bf r}(t)$ of a
-tagged  particle  in a  fluid,  we  have the  well-known  mathematical
-identity
-\begin{align}
-\frac{1}{2}\frac{d}{dt}\llangle({\bf r}(t)-{\bf r}(0))^2\rrangle&=  \int_0^tdt'\llangle {\bf v}(t)\esc {\bf v}\rrangle 
-\end{align}
-where ${\bf  v}(t)$ is  the velocity of  the particle.   This equation
-would correspond to  (\ref{Math1}). It is clear that  because the root
-mean square displacement  is a ``correlation'' that does  not decay to
-zero, the infinite time integral of  the right hand side does not need
-to decay  to zero.  It actually  gives a non-zero  value given  by the
-self-diffusion coefficient.
-
-Another example  can be  found whenever  we consider  a
-conserved  quantity.  Consider,  for  example,  the  momentum  density
-correlation function in an infinite system in Fourier space,
-\begin{align}
-\hat{\bf g}_{\bf k}&=\sum_i^N{\bf p}_i\exp\{i{\bf k}\esc{\bf r}_i\}
-\end{align}
-The correlation matrix function is
-\begin{align}
-  {\bf C}(k,t)&=\llangle \hat{\bf g}_{\bf k}(t)\hat{\bf g}_{-{\bf k}}\rrangle
-\end{align}
-Eq. (\ref{Math1}) now becomes
-\begin{align}
-\partial_t  C(k,t)&=-\int_0^tdt'\llangle i{\cal L} \hat{\bf g}_{\bf k}(t) i{\cal L}\hat{\bf g}_{-{\bf k}}\rrangle
-\end{align}
-The action of the Liouville operator is well-known
-\begin{align}
-  i{\cal L}\hat{\bf g}_{\bf k}=-i{\bf k}\esc\hat{\boldsymbol{\sigma}}_{\bf k}
-\end{align}
-where $\hat{\boldsymbol{\sigma}}_{\bf k}$ is the Fourier transform of the Irwing-Kirkwood
-stress tensor.  Therefore, we have
-\begin{align}
-\partial_t  C(k,t)&={\bf k}\esc\boldsymbol{\Theta}(k,t)\esc {\bf k}
-\label{Ck}
-\end{align}
-where the fourth order viscosity tensor is defined as the time integral of the
-stress correlation function
-\begin{align}
-\boldsymbol{\Theta}(k,t)&=  \int_0^tdt'\llangle \boldsymbol{\sigma}_{\bf k}(t) \boldsymbol{\sigma}_{-{\bf k}}\rrangle
-\label{Theta}
-\end{align}
-Eq  (\ref{Ck})  is  what  corresponds now  to  (\ref{Math1})  and  the
-argument  is  that  because   the  correlation  $C(k,t)$  decays,  the
-viscosity   tensor   $\boldsymbol{\Theta}(k,t)$  \textit{must}   decay
-towards zero.   This is  true in  general, but  fails for  the very special
-value of ${\bf k}={\bf 0}$.  At this  value, we see that the left hand
-side is zero because, for ${\bf k}={\bf 0}$, $\hat{\bf g}_{{\bf k}=\bf 0}$ is
-the total momentum  of the system.  As we assume  that the equilibrium
-average of the CG variables vanish, we are implicitly assuming that we
-are in  the center  of mass  reference frame of  the fluid,  for which
-total momentum vanishes.  Therefore, the right hand  side of (\ref{Ck})
-vanishes at  ${\bf k}=0$.  At the same time, for  ${\bf k}=0$  the Irwing-Kirkwood
-stress tensor becomes the total stress tensor of the fluid
-\begin{align}
-  \hat{\boldsymbol{\sigma}}^{\alpha\beta}_{{\bf k}={\bf 0}}=\sum_i{\bf p}_i{\bf v}_i+\frac{1}{2}\sum_{ij}{\bf r}_{ij}{\bf F}_{ ij}
-\end{align}
-and     the     isotropic     fourth    order     viscosity     tensor
-$\boldsymbol{\Theta}(0,t)$ has  only two independent  components given
-by  the  standard  Green-Kubo  expressions  for  the  shear  and  bulk
-viscosities.  Therefore, for ${\bf  k}={\bf 0}$, Eq.  (\ref{Ck}) takes
-the trivial form ${\bf 0}={\bf 0}\esc \boldsymbol{\Theta}(0,t)\esc{\bf
-  0}$ and $\boldsymbol{\Theta}(0,t)$ is no longer constrained to decay
-to  zero anymore  and may  display a  well-defined plateau,  as it  is
-observed  empirically. However,  for values  of ${\bf  k}\neq 0$,  the
-resulting (non-local) viscosities suffer  necessarily from the plateau
-problem and  require the  correction presented in  this paper  for its
-actual  evaluation.   In forthcoming  publications  we  will show  how
-non-local transport  coefficients for discrete hydrodynamics  with and
-without confining walls can be unambiguously measured by using the new
-corrected Green-Kubo formula.
-
-
-
-
-\Note{Paper PBC}
-
-
-
-In this  paper we  have computed from  MD simulations  the equilibrium
+In the second part of this chapter -- Sections \ref{Sec:MoriShearHydro} and \ref{Sec:Sim} --  we  have computed from  MD simulations  the equilibrium
 time-dependent correlation matrix of  the discrete transverse momentum
 density.   Under  the Markovian  approximation,  Mori  theory gives  a
 definite prediction for the correlation  matrix in terms of a decaying
-matrix exponential.   As we  have discussed, the  Markovian prediction
-\textit{cannot}  hold for  very small  times, essentially  because the
-exponential matrix decay predicts a  non-zero value of the derivatives
-of the correlation at  $t=0$, while microscopic reversibility enforces
-a  vanishing value  of the  derivative of  the correlations  at $t=0$.
-Therefore,  the initial  decay of  the  correlation cannot  be of  the
-exponential matrix form.  Only after a time $\tau$ in which the memory
-has fade out one can expect a Markovian approximation to hold. 
-%  One of
-% the objectives of  the present work has been the  determination of the
-% relaxation  matrix   $\Lambda^*$  that   governs  the  decay   of  the
-% correlation,  and also  the  time $\tau$  beyond  which the  Markovian
-% approximation is expected to be valid. Hydrodynamics is local
+matrix exponential.   As we  have discussed in Section \ref{Sec:MarkovianAprox}, the  Markovian prediction
+\textit{cannot}  hold for  very small  times. Only after a time $\tau$ in which the memory
+has fade out one can expect a Markovian approximation to hold. We validated it though MD simulations in Section \ref{Sec:ValidateMarkov}.
+
 
 A number of conclusions can be drawn from the simulation results:
 \begin{enumerate}
 \item We  have observed that  the relaxation matrix  $\Lambda(t)$ does
   indeed  plateau to  a  constant value  $\Lambda^*$, indicating  that
   after  the  time $\tau$  the  decay  of  the correlation  matrix  is
-  exponential  and  hence Markovian.   This  time  is not  excessively
-  large, capturing about  80\% of the total decay  of the correlation.
+  exponential  and  hence Markovian.   \Pendiente{This  time  is not  excessively
+    large, capturing about  80\% of the total decay  of the correlation}.
   The  Markovian approximation  predicts a  quasi-algebraic long  time
   tail  that gives  excellent agreement  with the  simulation results.
   Trully algebraic  decay is  obtained only  in the  thermodynamic and
@@ -3016,7 +3006,7 @@ Steady states situations in which the Markovian approximation is valid
 automatically may  still require the  use of non-local in  space shear
 viscosities for its correct description \cite{.}.
 
-In  the  present paper  we  have  limited  ourselves to  the  discrete
+In  this chapter  we  have  limited  ourselves to  the  discrete
 transverse  momentum   variable.   With  the  same   methodology,  the
 extension  to   the  rest  of  conserved   hydrodynamic  variables  is
 straitghforward and will be presented elsewhere. 
@@ -3029,18 +3019,17 @@ expects  to  capture the  viscoelastic  and  memory effects  that  are
 required to describe the dynamics  of the conserved variables at small
 time scales \cite{Khayat1989,Mryglod1995,Bryk2010}.
 
-We have  considered a  simple fluid  in periodic  boundary conditions.
-The  same methodology used here  will be  used for  the case  of fluids
+Despite of considering the simplest case such as  simple fluid  in periodic  boundary conditions, the  same methodology used here  will be  used in the following chapters for  the case  of fluids
 confined in between parallel solid walls.  The computational burden in
 that case is much larger  because traslation invariance cannot be used
-in order to increase statistics, as we have done in the present paper.
+in order to increase statistics.
 In  addition   to  the   non-local  shear  viscosity,   new  transport
 coefficients related to slip at the wall appear in confined fluids, as
-has been recently described in Ref. \cite{Camargo2018, III}.
+we saw in Chapter \ref{Chap:BC}.
 
 
 
-\chapter{Correlations of transverse momentum}\label{cap.TransMomentum}
+\chapter{Correlations of transverse momentum}\label{Chap:TransMomentum}
 \markboth{Correlation of transverse momentum}{}
 \epigraph{\textit{Descubrir es ver de otro modo lo que nadie ha percibido.}}{Blanco Nocturno \\ RICARDO PLIGIA}
 \section{Introduction}
