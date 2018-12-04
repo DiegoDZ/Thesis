@@ -83,11 +83,71 @@ blablabla
 
 \pagenumbering{arabic}
 \setcounter{chapter}{-1}
-\chapter{Introduction}\label{cap.Intro}
+\chapter{Introduction}\label{Chap:Intro}
 \markboth{Introduction}{Introduction}
 
+
+
+In Chapter \ref{Chap:NESM} we introduce the Non-Equilibrium Statistical Mechanics
+
+
+We will see that one important  objective within Non-Equilibrium  Statistical Mechanics
+is the derivation of the governing dynamics of a set of coarse-grained
+(CG) variables that describe the system at a mesoscopic or macroscopic
+level of description  by starting from the microscopic  laws of motion
+of the constituent atoms and  molecules of the system \cite{Kubo1991}.
+In this quest, the projection  operator technique, as described in the
+textbook by Grabert \cite{Grabert1982}, has  proved to be an extremely
+useful  tool.   As  discussed   there,  there  are  essentially  three
+different  types of  projection operator  theories, associated  to the
+names  of   Mori  \cite{Mori1965},  Zwanzig   \cite{Zwanzig1961},  and
+Kawasaki  and Gunton  \cite{Kawasaki1973},  with  increasing order  of
+generality \cite{Grabert1982}. The Kawasaki-Gunton projection operator
+allows one to  obtain non-linear closed equations for  the averages of
+the coarse-grained variables. The Zwanzig  projector is a special case
+of  the Kawasaki-Gunton  projector  when the  selected variables  are,
+instead of  the CG variables themselves,  the \textit{distribution} of
+the  CG variables.  This results  into  a governing  equation for  the
+probability distribution of CG  variables.  Finally, Mori projector is
+obtained    from    Zwanzig     projector    in    near    equilibrium
+situations\cite{Grabert1982,Kauzlaric2011a}.   The  resulting  dynamic
+equations in  Mori theory are  linear and  allow one to  obtain simple
+equations not only for the averages  of the CG variables, but also for
+their correlation functions.
+
+The projection operator technique  provides closed and exact equations
+for the  evolution of the averages or probabilities  of the CG variables  with only one
+assumption about  the initial  distribution of microstates,  which are
+assumed   to  be   distributed   with  a   maximum  entropy   ensemble
+\cite{Grabert1982}. The exact equations of  motion of the CG variables
+contain a reversible  term which is local in time  and an irreversible
+integro-differential term describing memory  about the past history of
+the CG variables.  The memory  kernel is defined in microscopic terms,
+but is completely untractable, as  it involves the so called projected
+dynamics which  is different, in  general, from the  usual Hamiltonian
+dynamics of the system.
+
+When the  selected CG  variables are  such that  they display  a clear
+separation  of time  scales in  its dynamics  then it  is possible  to
+resort  to the  Markovian  approximation in  which  the memory  kernel
+becomes proportional to  a delta function in time.   Such a separation
+of  time scales  happens, in  general, when  the evolution  of the  CG
+variables  is the  result of  many minuscule  and fast  contributions.
+Under  the Markovian  approximation, the  resulting governing  dynamic
+equations    are   non-linear    differential   equations    for   the
+non-equilibrium averages  of the  CG variables in  the Kawasaki-Gunton
+projector or stochastic  differential equations (SDE) in  the Mori and
+Zwanzig projectors.   Within the  Markovian approximation  one obtains
+the  transport coefficients  governing  the irreversible  part of  the
+dynamics in terms of the time  integral of the time derivatives of the
+CG  variables.   These formulae  for  transport  coefficients are  the
+celebrated Green-Kubo formulae \cite{Green1952,Kubo1957}.
+
+
+
+
 %CHAPTER 1
-\chapter{Nonequilibrium Statistical Mechanics}\label{cap.NESM}
+\chapter{Nonequilibrium Statistical Mechanics}\label{Chap:NESM}
 \markboth{Nonequilibrium Statistical Mechanics}{}
 \epigraph{\textit{There is no future. There is no past. Do you see? Time is simultaneous, an intricately structured jewel that humans insist on viewing one edge at a time, when the whole design is visible in every facet.}}{Watchmen \\ ALAN MOORE}
 
@@ -1409,6 +1469,18 @@ as
 \chapter{Planar flows}\label{Chap:Planar}
 \markboth{Planar flows}{}
 \section{Introduction}
+
+\Note{ Esto viene de la intro del paper 5. Alternatively,  the method  of planes  \cite{Davis1996,Travis2000} has
+been used to  define discrete hydrodynamic variables.  In  a number of
+works
+\cite{Espanol2009i,DelaTorre2011,DelaTorre2015,EspanolDonev2015},   we
+have  discussed  refined strategies  for  the  definition of  discrete
+hydrodynamic variables  in real  space.  The  main objective  of these
+strategies is to match the  bottom up deri\Note{ Esto viene de la intro del paper 5. vation of discrete evolution
+equations  with the  top  down discretization  of continuum  equations
+Referencia: Tesis de Arturo.}
+
+
 \section{Summary}
 
 %CHAPTER 5
@@ -1417,9 +1489,155 @@ as
 \epigraph{\textit{Time is longer than any distance.}}{Absalom, Absalom! \\ WILLIAM FAULKNER}
 \section{Introduction}
 
-In this chapter we revisit the plateau problem in the Green-Kubo formula. Within the context of Mori projection operator formulation, we offer an alternative expression for the transport coefficients that is given by a corretec Green-Kubo expression that has no plateau problem. 
+%In Chapters \ref{Chap:Theory} and \ref{Chap:Planar} we have derived the dynamic equations of a fluid in contact with a solid sphere and we have discretized the resulting equations using the Kawasaki-Gunton projector operator technique.  
+%In this chapter and the following ones we will study through Mori theory the space and time locality of a simple fluid in periodic boundary conditions and a fluid in between tow solid slab. 
+%
+%In the first part of this chapter -- Section \ref{Sec:Mori} -- we offer a simple non-trivial solution to the plateau problem by proposing a new corrected Green-Kubo formulae for the transport coefficientes. This new expression for the transport coefficientes reduces to the standart Green-Kubo formula in the limit of large separation of time scales, but corrects it in those situations where the separation of time scales is not extreme but the Markovian approximation still holds, allowing one to use transport coefficientes instead of memory kernels. 
 
 
+The behaviour of a fluid at large scales is governed by the well-known
+Navier-Stokes equations of hydrodynamics. These equations are based in the conservation of mass, momentum and energy, and are supplemented with
+boundary conditions  at the  frontier of the  fluid domain.   When the
+scales  probed are  shrinked  to  the nanoscale  as,  for example,  in
+nanochanels and  nanopores, the Navier-Stokes equations  are no longer
+appropriate. Typically,  the atomic structure  of the fluid  starts to
+manifest, and this  leads to a number of interesting  effects, such as
+the layering of the density near  the walls and the appearance of slip
+at the walls.  As a general feature,  the fluid starts to  behave in a
+non-local way  in both space and  time.  For unconfined fluids  at the
+nanoscale the methods of Generalized Hydrodynamics \cite{Mountain1977,
+ Hansen2013,Alley1984}  have been very succesfull  in order
+to  characterize the  dynamics of  fluids  at nanoscales. These scales can  be
+probed with neutron scattering techniques.  Generalized hydrodynamics
+considers wavenumber  and frequency dependent  transport coefficients,
+reflecting non-locality in  space and time, respectively,  in order to
+extend the validity of the hydrodynamic equations to molecular scales.
+Correlation functions of conserved hydrodynamic  and non-hydrodynamic
+variables are defined in Fourier space and measured in MD simulations,
+thus providing a  wealth of information about the  behaviour of fluids
+at small scales \cite{Chung1969,DeSchepper1988,Khayat1989}.
+
+When  the  fluid is  confined,  traslation  invariance is  broken  and
+Fourier  techniques  are   no  longer  as  useful   as  in  unconfined
+fluids. One is therefore, restricted to  work in real space, where the
+hydrodynamic variables should  be defined in a  discrete setting. This
+is  typically  done by  binning  space  and  measuring the  number  of
+particles, average velocity  and energy of the particles  in that bin, as we showed in Chapter \ref{Chap:Planar}.
+
+In this chapter we reframe in  real space (as opposed
+to Fourier space) the discussion of  non-locality in time and space of
+hydrodynamics for unconfined fluids. The  methodology will be  transferrable to
+confined fluids allowing  us to discuss wall  effects (layering, slip,
+Kapitza  resistances, etc.)   in the Chapter \ref{Chap:Walls} and \ref{Chap:Coeff}.  More  specifically, the
+objective  here  is  to  assess  to what  extent  it  makes  sense  to
+approximate  the  dynamics of  discrete  hydrodynamic  variables in  a
+Markovian  way  while,  at  the same  time,  use  non-local  transport
+coefficients. 
+
+
+In the study of shear flow of simple fluids at the nanoscale, as those
+occuring  in  nanoscale  pores,  there   seems  to  be  two  different
+approaches in the literature.  The first approach is the Local Average
+Density Model  (LADM) introduced by Davis  et al.  \cite{Bitsanis1987}
+while the second  approach is the non-local viscosity  model. The LADM
+assumes that  local transport coefficients of  inhomogeneous fluids in
+narrow capillary pores can be  set equal to the transport coefficients
+of homogeneous  fluids at  the ``smoothed'' local  densities in  a way
+similar to what  is done in Equilibrium Density  Functional Theory for
+the formulation of Weighted Density  Approximation models for the free
+energy functional  \cite{Tarazona2008}.  This somewhat  heuristic idea
+was given a rigorous foundation from a kinetic theory for dense fluids
+proposed by Pozhar et al.  \cite{Pozhar1991a}.  From the computational
+side,   Bitsanis  et   al  \cite{Bitsanis1987}   used  Non-Equilibrium
+Molecular  Dynamics (NEMD)  to produce  Couette-like flows  in several
+external conservative fields and it was shown that the LADM gives good
+results.    More     recent    work    by    Hoang     and    Galliero
+\cite{Hoang2012a,Hoang2012b,Hoang2013} use  NEMD to  measure viscosity
+with LADM and they find good agreement for liquids but not so good for
+gases.
+
+The second approach that has been used in the description of fluids at
+the nanoscale  is based  on the  notion of a  non-local (in  space and
+time)  generalization of  Newton's  constitutive  equation for  planar
+shear  flows in  which  the  stress is  related  to  the strain  field
+$\dot{\gamma}$ in the form \cite{EvansMorris2008}
+\begin{align}
+  P^{xy}({\bf r},t)&=-\int_0^t ds \int_{-\infty}^{\infty} d{\bf r}'
+\eta({\bf r},{\bf r}',t-s)\dot{\gamma}({\bf r}',s)
+\label{GenNewtonian}
+\end{align}
+where  $\eta({\bf r},{\bf  r}',t)$  is the  shear viscosity  non-local
+memory kernel.  This is the real-space  version of the wave number and
+frequency     dependent    viscosity     studied    in     Generalized
+Hydrodynamics.  For  steady  state flows,  the  constitutive  equation
+becomes
+\begin{align}
+  P^{xy}({\bf r})&=-\int_{-\infty}^{\infty} d{\bf r}'
+\eta({\bf r},{\bf r}')\dot{\gamma}({\bf r}')
+\label{GenNewtonianSS}
+\end{align}
+where the shear viscosity non-local kernel $\eta({\bf r},{\bf r}')$ in
+(\ref{GenNewtonianSS})  has  different  physical dimensions  from  the
+memory kernel $\eta({\bf r},{\bf r}',t)$ in (\ref{GenNewtonian}).  For
+homogeneous  fluids, translation  invariance  implies that  $\eta({\bf
+  r},{\bf r}')=\eta({\bf  r}-{\bf r}')$  which is  just a  function of
+just   one  variable   in  planar   flows.   Under   this  simplifying
+circumnstances  Zhang  et   al.   \cite{Zhang2004}  considered  planar
+Poiseuille  and  Couette  flows  with NEMD  and  evaluated  the  shear
+viscosity  non-local kernel.  Further  work in
+this        direction        was        pursued        in        Refs.
+\cite{Hansen2007,Todd2008a,Cadusch2008}    where    the    wave-number
+dependent  shear viscosity  for steady  states for  the CWA  fluid was
+computed. It was shown that  the non-locality stands for 2-3 molecular
+diameters.   Todd et  al.   \cite{Todd2008} showed  by using  analytic
+arguments, that (space) nonlocality dominates transport phenomena when
+the variation in the  strain rate is of the order of  the width of the
+viscosity kernel.
+
+It should be  emphasized that all the simulation  work mentioned above
+in which  the non-local  viscosity kernel or  the LADM  viscosity have
+been explicitly  computed deal  with \textit{steady  state} situations
+for which the dynamic evolution of the  flow plays no role. We are not
+aware of any study of \textit{spontaneously} evolving hydrodynamics at
+nanoscale that  make use  of a non-local  viscosity. Therefore,  it is
+pertinent to question the validity of such an approach.
+
+The strategy  that we follow in  order to answer
+the question about non-locality of hydrodynamics is based on the study
+of  \textit{equilibrium time  correlation functions}  of the  discrete
+hydrodynamic variables.  The idea is that a constitutive equation like
+(\ref{GenNewtonian})     should     govern     the     non-equilibrium
+\textit{averages}  of the  momentum  density  field.  Through  Onsager
+regression hypothesis, near equilibrium the correlation functions will
+obey the  same equation as  the one  for the averages  and, therefore,
+from the study of the correlation of the momentum density field we may
+extract information about the viscosity  kernel.  We pursue this route
+through the  well-stablished Mori projector technique  that allows one
+to construct \textit{linear} equations  for the correlation functions.
+The  technique produces  formally  exact governing  equations for  the
+correlation matrix of the selected  CG variables.  These equations are
+integro-differential equations that contain  a memory kernel, which is
+not trivial to  compute explicitly.  Therefore, a  clear separation of
+time  scales is  usually invoked  in such  a way  that an  approximate
+Markovian  differential  equation  is  obtained.   Unfortunately,  the
+resulting Green-Kubo expressions for the transport coefficients suffer
+from   the  well-known   plateau  problem   \cite{Espanol1998},  first
+described in the seminal work by Kirkwood \cite{Kirkwood1949}. In order to avoid the plateau problem, in Section \ref{Sec:Mori} we propose an alternative formulation for the transport coefficientes in terms of a  \textit{corrected} Green-Kubo formulae that
+does  not suffer  from the  plateau problem. We will use this expression  in order to evaluate the non-local
+transport coefficients.
+
+The distinctive feature of the  Markovian approximation in Mori theory
+is  to  predict  a  (matrix) exponential  decay  of  correlations.  An
+important  point of  the present  paper is  to compute  explicitly the
+matrix  exponential  and to  validate  to  what extent  the  predicted
+solution from  the Markovian approximation describes  the actual decay
+of the correlations.
+
+The chapter is structured as follows. In Section \ref{Sec:Mori} we summarize
+Mori theory in  order to set the notation and  particularize it to the
+discrete transverse momentum variable, both in real and Fourier space, and we offer the corrected Green-Kubo formula which avoid the plateau problem.
+In Section \ref{Sec:Sim} we present the simulation results and we conclude
+in Section \ref{Sec:ConclusionsChapPBC}.
 
 
 \section{Mori theory}
@@ -2939,7 +3157,7 @@ periodic boundary conditions is fairly local, and can be described with
 
 \newpage
 \section{Conclusions}
-\label{Sec:Conclusions}
+\label{Sec:ConclusionsChapPBC}
 In the first part of this chapter -- Section \ref{Sec:Mori} -- we have addressed  the plateau problem that  appears in
 the  expression of  transport  coefficient in  terms  of the  standard
 Green-Kubo running integrals.  In the  case of Markovian dynamics with
@@ -3029,7 +3247,7 @@ we saw in Chapter \ref{Chap:BC}.
 
 
 
-\chapter{Correlations of transverse momentum}\label{Chap:TransMomentum}
+\chapter{Correlations of transverse momentum}\label{Chap:Walls}
 \markboth{Correlation of transverse momentum}{}
 \epigraph{\textit{Descubrir es ver de otro modo lo que nadie ha percibido.}}{Blanco Nocturno \\ RICARDO PLIGIA}
 \section{Introduction}
@@ -3044,7 +3262,7 @@ we saw in Chapter \ref{Chap:BC}.
 \end{figure}
 \section{Summary}
 
-\chapter{MD, BC eta estrella y gamma estrella}\label{cap.}
+\chapter{MD, BC eta estrella y gamma estrella}\label{Chap:Coeff}
 \epigraph{\textit{It is remarkable how long men will believe in the bottomlessness of a pond without taking the trouble to sound it}}{Walden \\ HENRY DAVID THOREAU}
 \markboth{Co}{}
 \section{Introduction}
