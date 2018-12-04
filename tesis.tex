@@ -2849,7 +2849,7 @@ slowly, in an  apparent algebraic way as can be  seen in logscale in the inset.}
 \begin{figure}[h!]
   \centering
   \includegraphics[scale=0.45]{CtFourier-PBC}
-  \caption[Diagonal $\tilde{C}_{\mu\nu}(t)$]{The diagonal $\tilde{C}_{\mu\mu}(t)$ of the Fourier transform
+  \caption[Diagonal $\tilde{C}_{\mu\nu}(t)$ for PBC]{The diagonal $\tilde{C}_{\mu\mu}(t)$ of the Fourier transform
   of the correlation  matrix $C(t)$ for different values  of the time.
 In      descending     order      the     plotted      times go from $t=0.10$ to $t=0.20$ in intervals of $0.02$. }
 \label{fig:CtFourier-PBC}
@@ -2858,9 +2858,8 @@ In      descending     order      the     plotted      times go from $t=0.10$ to
 \begin{figure}[h!]
   \centering
   \includegraphics[scale=0.45]{CtFourier-PBC-exp}
-  \caption[Evolution of different eigenvalues $\tilde{C}_{\mu\nu}(t)$]{
-  In      descending     order      the     plotted      times     go from
-  $t=0$ to $t=0.20$ in intervals of $0.02$.  The  evolution of  the different
+  \caption[Evolution of different eigenvalues $\tilde{C}_{\mu\nu}(t)$ for PBC]{
+  The  evolution of  the different
   eigenvalues  $\tilde{C}_{\mu\mu}(t)$ of  the  correlation matrix  of
   momentum  as  a  function  of   time  in  a  lin-lin  plot  (left)
   and   log-lin   plot
@@ -3246,22 +3245,62 @@ coefficients related to slip at the wall appear in confined fluids, as
 we saw in Chapter \ref{Chap:BC}.
 
 
-
+% CHAPTER 6
 \chapter{Correlations of transverse momentum}\label{Chap:Walls}
 \markboth{Correlation of transverse momentum}{}
 \epigraph{\textit{Descubrir es ver de otro modo lo que nadie ha percibido.}}{Blanco Nocturno \\ RICARDO PLIGIA}
 \section{Introduction}
 
-
-
+\section{The CG variables and its dynamics}
 \begin{figure}
     \centering
     \includegraphics[scale=0.3]{system_nodes_walls}
     \caption[Walls box]{A visual representation of the MD simulation with a sketch of the binning used. In red are depicted the nodal planes used.}
     \label{fig:WallsBox}
 \end{figure}
+
+
+
+
+\section{Simulations}
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.4]{Ct-matrix-WALLS-66nodes}
+\caption[Correlation matrix $C(t)$ at $t=0$ and $t=0.6$ for confined fluid - 66 nodes.]{The   correlation    matrix   $C_{\mu\nu}(t)=\llangle
+g_{\mu}(t)  g_\nu\rrangle$ for  $t=0$ (left) and $t=0.6$ (right).}
+\label{fig:Ct-matrix-WALLS-66nodes}
+\end{figure}
+
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[scale=0.45]{CtRec-WALLS-66nodes-exp}
+  \caption[Evolution of different eigenvalues $\tilde{C}_{\mu\nu}(t)$ for confined fluid - 66 nodes.]{
+  The  evolution of  the different
+  eigenvalues  $\tilde{C}_{\mu\mu}(t)$ of  the  correlation matrix  of
+  momentum  as  a  function  of   time  in  a  lin-lin  plot  (left)
+  and   log-lin   plot
+  (right). Also  plotted are  a vertical line  at $t=\tau=0.3$  and a
+  horizontal  line  at  the   value  $2\times10^{-5}$,  signaling  the
+  threshold below which statistical errors give spurious results. }
+\label{fig:CtRec-WALLS-66nodes-exp}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+\includegraphics[scale=0.45]{LambdatRec-WALLS-66nodes}
+\caption[Diagonal elements  $\tilde{\Lambda}_{\mu\mu}(t)$ of $\Lambda(t)$ in the reciprocal space - 66nodes.]{The  diagonal elements  $\tilde{\Lambda}_{\mu\mu}(t)$ of  the
+  $\Lambda(t)$ in the reciprocal space defined in (\ref{}), as a
+  function of  $\mu$ (left)  and $t$  (right).  In  the top  panel, in
+  ascending  order the  plotted times  go  from $t=0$  to $t=0.20$  in
+  intervals of $0.02$.}
+\label{fig:LambdatRec-WALLS-66nodes}
+\end{figure}
+
 \section{Summary}
 
+
+%CHAPTER 7
 \chapter{MD, BC eta estrella y gamma estrella}\label{Chap:Coeff}
 \epigraph{\textit{It is remarkable how long men will believe in the bottomlessness of a pond without taking the trouble to sound it}}{Walden \\ HENRY DAVID THOREAU}
 \markboth{Co}{}
