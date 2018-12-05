@@ -32,7 +32,7 @@ bibTex/PlateauProblem.bib
 bibTex/Reviews.bib
 bibTex/Shin.bib
 bibTex/walls.bib
-./books/*
+books
 
 # Large files and Gnuplot files # These files must be save in a external memory
 ###############
@@ -40,5 +40,4 @@ notebooks/66nodes/PBC/Ct-PBC-1000steps.dat
 notebooks/66nodes/PBC/Sxzt-PBC-1000steps.dat
 notebooks/66nodes/PBC/Sxzt-PBC.dat
 notebooks/66nodes/WALLS/Ct-WALLS-66nodes.dat
-./notebooks/filesGNUPLOT
 
