@@ -152,6 +152,7 @@ celebrated Green-Kubo formulae \cite{Green1952,Kubo1957}.
 \epigraph{\textit{There is no future. There is no past. Do you see? Time is simultaneous, an intricately structured jewel that humans insist on viewing one edge at a time, when the whole design is visible in every facet.}}{Watchmen \\ ALAN MOORE}
 
 \section{Introduction}
+\Note{Introducción de Evans y Morriss buena para añadir más intro. histórica}
 It was in the nineteen century when the Statistical Mechanics (SM) was born mainly because of the work of Ludwing Boltzmann (1844-1906) and Josiah Willard Gibbs (1839-1903). The goal was to reconcile the Thermodynamics with the microscopic laws. 
 
 Thermodynamics was well-established because it draws its concepts from experiments while the attemps to understand it from the Newton's laws collided with problems such as the imposibility of taking into account the interactions between all the particles of a thermodynamic system, the highly nontrivial of theses interactions, the huge number of degrees of freedom or the Loschmidt's paradox\footnote{The second law of thermodynamics estabishes that the entropy of an isolated system increases with time. This can be understood as a time direction imposed by the increasing of the entropy. Furthermore, Newton's laws are reversible. According to Josef Loschmidt (1821-1895) this apparently conflict could be the responsible of the imposibility to derive the laws of the thermodynamics from the microscopic laws.}. 
@@ -1492,11 +1493,11 @@ Referencia: Tesis de Arturo.}
 %In Chapters \ref{Chap:Theory} and \ref{Chap:Planar} we have derived the dynamic equations of a fluid in contact with a solid sphere and we have discretized the resulting equations using the Kawasaki-Gunton projector operator technique.  
 %In this chapter and the following ones we will study through Mori theory the space and time locality of a simple fluid in periodic boundary conditions and a fluid in between tow solid slab. 
 %
-%In the first part of this chapter -- Section \ref{Sec:Mori} -- we offer a simple non-trivial solution to the plateau problem by proposing a new corrected Green-Kubo formulae for the transport coefficientes. This new expression for the transport coefficientes reduces to the standart Green-Kubo formula in the limit of large separation of time scales, but corrects it in those situations where the separation of time scales is not extreme but the Markovian approximation still holds, allowing one to use transport coefficientes instead of memory kernels. 
+%In the first part of this chapter -- Sec. \ref{Sec:Mori} -- we offer a simple non-trivial solution to the plateau problem by proposing a new corrected Green-Kubo formulae for the transport coefficientes. This new expression for the transport coefficientes reduces to the standart Green-Kubo formula in the limit of large separation of time scales, but corrects it in those situations where the separation of time scales is not extreme but the Markovian approximation still holds, allowing one to use transport coefficientes instead of memory kernels. 
 
 
 The behaviour of a fluid at large scales is governed by the well-known
-Navier-Stokes equations of hydrodynamics. These equations are based in the conservation of mass, momentum and energy, and are supplemented with
+Navier-Stokes equations of hydrodynamics. These equations are based on the conservation of mass, momentum and energy, and are supplemented with
 boundary conditions  at the  frontier of the  fluid domain.   When the
 scales  probed are  shrinked  to  the nanoscale  as,  for example,  in
 nanochanels and  nanopores, the Navier-Stokes equations  are no longer
@@ -1527,8 +1528,7 @@ particles, average velocity  and energy of the particles  in that bin, as we sho
 In this chapter we reframe in  real space (as opposed
 to Fourier space) the discussion of  non-locality in time and space of
 hydrodynamics for unconfined fluids. The  methodology will be  transferrable to
-confined fluids allowing  us to discuss wall  effects (layering, slip,
-Kapitza  resistances, etc.)   in the Chapter \ref{Chap:Walls} and \ref{Chap:Coeff}.  More  specifically, the
+confined fluids allowing  us to discuss wall  effects in Chapters \ref{Chap:Walls} and \ref{Chap:Coeff}.  More  specifically, the
 objective  here  is  to  assess  to what  extent  it  makes  sense  to
 approximate  the  dynamics of  discrete  hydrodynamic  variables in  a
 Markovian  way  while,  at  the same  time,  use  non-local  transport
@@ -1538,21 +1538,26 @@ coefficients.
 In the study of shear flow of simple fluids at the nanoscale, as those
 occuring  in  nanoscale  pores,  there   seems  to  be  two  different
 approaches in the literature.  The first approach is the Local Average
-Density Model  (LADM) introduced by Davis  et al.  \cite{Bitsanis1987}
-while the second  approach is the non-local viscosity  model. The LADM
-assumes that  local transport coefficients of  inhomogeneous fluids in
-narrow capillary pores can be  set equal to the transport coefficients
-of homogeneous  fluids at  the ``smoothed'' local  densities in  a way
-similar to what  is done in Equilibrium Density  Functional Theory for
-the formulation of Weighted Density  Approximation models for the free
-energy functional  \cite{Tarazona2008}.  This somewhat  heuristic idea
+Density Model  (LADM) introduced by Bitsanis  et al.  \cite{Bitsanis1987}
+while the second  approach is the non-local viscosity  model. 
+The LADM assumes that the local transport coefficients of an inhomogeneous
+fluid can be set equal to the corresponding homogeneous transport coefficientes calculated at a locally averaged density in a way similar to what  is done in Equilibrium Density  Functional Theory for the formulation of Weighted Density  Approximation models for the free energy functional \cite{Tarazona2008}.  %Eq 7.27
+
+%The LADM
+%assumes that  local transport coefficients of  inhomogeneous fluids in
+%narrow capillary pores can be  set equal to the transport coefficients
+%of homogeneous  fluids at  the ``smoothed'' local  densities in  a way
+%similar to what  is done in Equilibrium Density  Functional Theory for
+%the formulation of Weighted Density  Approximation models for the free
+%energy functional  \cite{Tarazona2008}.  
+This somewhat  heuristic idea
 was given a rigorous foundation from a kinetic theory for dense fluids
 proposed by Pozhar et al.  \cite{Pozhar1991a}.  From the computational
 side,   Bitsanis  et   al  \cite{Bitsanis1987}   used  Non-Equilibrium
 Molecular  Dynamics (NEMD)  to produce  Couette-like flows  in several
 external conservative fields and it was shown that the LADM gives good
 results.    More     recent    work    by    Hoang     and    Galliero
-\cite{Hoang2012a,Hoang2012b,Hoang2013} use  NEMD to  measure viscosity
+\cite{Hoang2012a,Hoang2012b} use  NEMD to  measure viscosity
 with LADM and they find good agreement for liquids but not so good for
 gases.
 
@@ -1564,7 +1569,7 @@ $\dot{\gamma}$ in the form \cite{EvansMorris2008}
 \begin{align}
   P^{xy}({\bf r},t)&=-\int_0^t ds \int_{-\infty}^{\infty} d{\bf r}'
 \eta({\bf r},{\bf r}',t-s)\dot{\gamma}({\bf r}',s)
-\label{GenNewtonian}
+\label{GenNewtonian}   %Figura 2.3. de Evans y Morris. 
 \end{align}
 where  $\eta({\bf r},{\bf  r}',t)$  is the  shear viscosity  non-local
 memory kernel.  This is the real-space  version of the wave number and
@@ -1622,7 +1627,7 @@ time  scales is  usually invoked  in such  a way  that an  approximate
 Markovian  differential  equation  is  obtained.   Unfortunately,  the
 resulting Green-Kubo expressions for the transport coefficients suffer
 from   the  well-known   plateau  problem   \cite{Espanol1998},  first
-described in the seminal work by Kirkwood \cite{Kirkwood1949}. In order to avoid the plateau problem, in Section \ref{Sec:Mori} we propose an alternative formulation for the transport coefficientes in terms of a  \textit{corrected} Green-Kubo formulae that
+described in the seminal work by Kirkwood \cite{Kirkwood1949}. In order to avoid the plateau problem, in Sec. \ref{Sec:Mori} we propose an alternative formulation for the transport coefficientes in terms of a  \textit{corrected} Green-Kubo formulae that
 does  not suffer  from the  plateau problem. We will use this expression  in order to evaluate the non-local
 transport coefficients.
 
@@ -1633,11 +1638,11 @@ matrix  exponential  and to  validate  to  what extent  the  predicted
 solution from  the Markovian approximation describes  the actual decay
 of the correlations.
 
-The chapter is structured as follows. In Section \ref{Sec:Mori} we summarize
+The chapter is structured as follows. In Sec. \ref{Sec:Mori} we summarize
 Mori theory in  order to set the notation and  particularize it to the
 discrete transverse momentum variable, both in real and Fourier space, and we offer the corrected Green-Kubo formula which avoid the plateau problem.
-In Section \ref{Sec:Sim} we present the simulation results and we conclude
-in Section \ref{Sec:ConclusionsChapPBC}.
+In Sec. \ref{Sec:Sim} we present the simulation results and we conclude
+in Sec. \ref{Sec:ConclusionsChapPBC}.
 
 
 \section{Mori theory}
@@ -2102,7 +2107,7 @@ corrected Green-Kubo formula.
 
 \section{Mori theory for shear hydrodynamics}
 \label{Sec:MoriShearHydro}
-In this section, we use Mori theory in the notation presented in Section \ref{Sec:Mori} for predicting the dynamics of equilibrium correlations of transverse momentum density in a periodic box in the time domain. 
+In this section, we use Mori theory in the notation presented in Sec. \ref{Sec:Mori} for predicting the dynamics of equilibrium correlations of transverse momentum density in a periodic box in the time domain. 
 \subsection{The CG variables}
 In Chapter \ref{Chap:Planar} we gave a detailed description of the definitions of the geometry and the definition of the CG variables. In this section we have a system like Fig. (\ref{fig:PBCBox})
 The simulation periodic box of  dimensions $L_x,L_y,L_z$ is divided in
@@ -2197,7 +2202,7 @@ equilibrium average, is
 where the $\llangle\cdots\rrangle$ denotes the equilibrium average and
 $T$ is for transpose. 
 
-Mori theory for correlations presented in Section (\ref{Sec:Mori}) allows us to obtain the evolution of the matrix of correlations $C(t)$ as
+Mori theory for correlations presented in Sec. (\ref{Sec:Mori}) allows us to obtain the evolution of the matrix of correlations $C(t)$ as
 \begin{align}
     \frac{d}{dt}C(t) = -(L+M^*)\cdot C^{-1}(0)\cdot C(t),
 \end{align}
@@ -2741,7 +2746,7 @@ In the local approximation, the relaxation time (\ref{taumu}) is given by
 
 \section{Simulations}
 \label{Sec:Sim}
-In Section (\ref{Sec:MoriShearHydro}) we saw that the  two main  quantities of  concern  are the  correlation matrix  of
+In Sec. (\ref{Sec:MoriShearHydro}) we saw that the  two main  quantities of  concern  are the  correlation matrix  of
 discrete momentum  $C(t)$ and the  correlation matrix of  the discrete
 stress  that appears  in  the Green-Kubo  running integral  $\eta(t)$.
 These two  matrices can be measured  from MD simulations. In  order to
@@ -2763,9 +2768,19 @@ Fourier transforms  $\tilde{C}(t),\tilde{\eta}(t)$ which  are diagonal
 matrices  due to  traslation invariance.  
 
 \subsection{Simulation set up}
-A  system  of particles  interacting  with  a Lennard-Jones  potential
-truncated at  $\sigma=2.5$ has been  simulated in PBC with  the LAMMPS
-code.  The box  size is $40\times40\times30$, the  number of particles with mass $m=1$
+Interactions between equal particles has been simulated in PBC with the LAMMPS code. The interaction between particles is describeb by a truncated Lennard-Jones (LJ) potential,
+\begin{align}
+  V_{ij}(r_{ij}) = \left\lbrace
+  \begin{array}{ll}
+    4\epsilon_{ij}\left[\left(\frac{\sigma_{ij}}{r_{ij}}\right)^{12}-\left(\frac{\sigma_{ij}}{r_{ij}}\right)^6\right] & \textup{if } r_{ij}\leq r_c \\
+    0 & \textup{if } r_{ij}>r_c
+  \end{array}
+  \right.
+\end{align}
+where $r_{ij}$ is the distance between particles $i$ and $j$, $\epsilon_{ij}$ is the depth of the potential well, $\sigma_{ij}$ is the distance at which $V_{ij}$ is zero, and $r_c$ is the cutoff radius (taken equal to $2.5\sigma_{ij}$). The parameters $\epsilon_{ij}$ and $\sigma_{ij}$ take the value 1. 
+
+In Fig. \ref{system_nodes_periodic} a squeme of the simulation is showe is showed.
+The box  size is $40\times40\times30$, the  number of particles with mass $m=1$
 is $N=28749$, and the time step is $0.002$ in reduced units.  After an
 equilibration  of  $10^5$ timesteps  with  a  Langevin thermostate  to
 produce a microstate typical  from a thermodynamic point corresponding
@@ -3157,7 +3172,7 @@ periodic boundary conditions is fairly local, and can be described with
 \newpage
 \section{Conclusions}
 \label{Sec:ConclusionsChapPBC}
-In the first part of this chapter -- Section \ref{Sec:Mori} -- we have addressed  the plateau problem that  appears in
+In the first part of this chapter -- Sec. \ref{Sec:Mori} -- we have addressed  the plateau problem that  appears in
 the  expression of  transport  coefficient in  terms  of the  standard
 Green-Kubo running integrals.  In the  case of Markovian dynamics with
 not an extreme separation of time  scales, the decay of the Green-Kubo
@@ -3177,13 +3192,13 @@ matrix   given    by   the    non-zero   infinite   time    limit   in
 Eq. (\ref{GKCorrected}).
 
 
-In the second part of this chapter -- Sections \ref{Sec:MoriShearHydro} and \ref{Sec:Sim} --  we  have computed from  MD simulations  the equilibrium
+In the second part of this chapter -- Sec.s \ref{Sec:MoriShearHydro} and \ref{Sec:Sim} --  we  have computed from  MD simulations  the equilibrium
 time-dependent correlation matrix of  the discrete transverse momentum
 density.   Under  the Markovian  approximation,  Mori  theory gives  a
 definite prediction for the correlation  matrix in terms of a decaying
-matrix exponential.   As we  have discussed in Section \ref{Sec:MarkovianAprox}, the  Markovian prediction
+matrix exponential.   As we  have discussed in Sec. \ref{Sec:MarkovianAprox}, the  Markovian prediction
 \textit{cannot}  hold for  very small  times. Only after a time $\tau$ in which the memory
-has fade out one can expect a Markovian approximation to hold. We validated it though MD simulations in Section \ref{Sec:ValidateMarkov}.
+has fade out one can expect a Markovian approximation to hold. We validated it though MD simulations in Sec. \ref{Sec:ValidateMarkov}.
 
 
 A number of conclusions can be drawn from the simulation results:
@@ -3313,17 +3328,35 @@ g_{\mu}(t)  g_\nu\rrangle$ for  $t=0$ (left) and $t=0.6$ (right).}
 \section{Summary}
 
 \appendix
-\chapter{List of Acronyms}\label{aped.A}
+\chapter{Contributions}\label{Ap:Contributions}
+The following published articles and posters are related with this dissertation.
+\begin{enumerate}
+  \item Nanoscale hydrodynamics near solids.
+  \item Discrete hydrodynamics near solids for planar flows.
+  \item Revisiting the plateau problem in the Green-Kubo formula.
+  \item Space and time locality of discrete hydrodynamics.
+  \item Non-Markovian behaviour of discrete hydrodynamics near solids.
+  \item The slip boundary condition from MD simulations revisited.
+  \item Fises Sevilla
+  \item Ucrania
+  \item IWNET
+  \item Fises Madrid
+\end{enumerate}
+
+
+\chapter{List of Acronyms}\label{Ap:Acronyms}
 \begin{tabular}{l l}
     CM & Classical Mechanics \\
-    FFT & Fast Fourier Transform \\
     GLE & Generalized Langevin Equation \\
+    LADM & Local Average Density Model \\
+    LJ & Lennard-Jondes \\
     MD & Molecular Dynamics \\
+    NEMD & Non-Equilibrium Molecular Dynamics\\
     SM & Statistical Mechanics \\
     ToCG & Theory of Coarse-Graining \\
 \end{tabular}
 
-\chapter{Notation, conventions and quotes}\label{aped.B}
+\chapter{Notation, conventions and quotes}\label{Ap:Notation}
 
 Functions of microstates z in phase space are denoted with a hat as in $\hat{A}(z)$. We follow this convention except for probability densities, as in $\rho_t(z)$. Operators are denoted with ${\cal CALIGRAPHIC}$ symbols. Vectors and matrices are denoted with {\bf boldfaces}.
 %We use a number of superscripts for matrices. $M^T$ is the transpose of $M$ , $M^S = (M+M^T )/2$ is the symmetric part of the matrix M while $M^A = (M-M^T )/2$ is the antisymmetric part. 

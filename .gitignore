@@ -21,7 +21,7 @@ tesis.pdf
 ehthumbs.db
 Thumbs.db
 
-# Libraries #
+# Libraries and books #
 #############
 bibTex/ABENGOA.bib
 bibTex/Experimental.bib
@@ -32,6 +32,7 @@ bibTex/PlateauProblem.bib
 bibTex/Reviews.bib
 bibTex/Shin.bib
 bibTex/walls.bib
+./books
 
 # Large files and Gnuplot files # These files must be save in a external memory
 ###############
