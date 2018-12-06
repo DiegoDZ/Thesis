@@ -10,6 +10,7 @@
 \usepackage{fancyhdr}
 \usepackage{epigraph}
 \usepackage{caption}
+\usepackage{hyperref}
 \captionsetup[figure]{font=footnotesize,labelfont=footnotesize}
 \graphicspath{{./figures/}}
 %To use a kind of times new roman font style
@@ -135,7 +136,7 @@ of  time scales  happens, in  general, when  the evolution  of the  CG
 variables  is the  result of  many minuscule  and fast  contributions.
 Under  the Markovian  approximation, the  resulting governing  dynamic
 equations    are   non-linear    differential   equations    for   the
-non-equilibrium averages  of the  CG variables in  the Kawasaki-Gunton
+nonequilibrium averages  of the  CG variables in  the Kawasaki-Gunton
 projector or stochastic  differential equations (SDE) in  the Mori and
 Zwanzig projectors.   Within the  Markovian approximation  one obtains
 the  transport coefficients  governing  the irreversible  part of  the
@@ -149,7 +150,7 @@ celebrated Green-Kubo formulae \cite{Green1952,Kubo1957}.
 %CHAPTER 1
 \chapter{Nonequilibrium Statistical Mechanics}\label{Chap:NESM}
 \markboth{Nonequilibrium Statistical Mechanics}{}
-\epigraph{\textit{There is no future. There is no past. Do you see? Time is simultaneous, an intricately structured jewel that humans insist on viewing one edge at a time, when the whole design is visible in every facet.}}{Watchmen \\ ALAN MOORE}
+\epigraph{\textit{There is no future. There is no past. Do you see? Time is simultaneous, an intricately structured jewel that humans insist on viewing one edge at a time, when the whole design is visible in every facet.}}{Watchmen \\ ALAN MOORE} 
 
 \section{Introduction}
 \Note{Introducción de Evans y Morriss buena para añadir más intro. histórica}
@@ -395,13 +396,13 @@ After a while the ice cubes "disappear" and the glass of water reaches an homoge
 Nevertheless, if I let the glass of water on my desk, the water will begin to evaporate slowly because the equilibration of the system was not a real equilibrium state. 
 Moreover, over the years the glass will deteriorate. 
 Further, the process will never reach an equilibrium state.
-Of course, we may distinguish "different levels" of non-equilibrium. 
+Of course, we may distinguish "different levels" of nonequilibrium. 
 Focusing on the time we figure out that the process during the ice cubes are melting is not the same as the deterioration of the glass over the years. The second one is much slower than the first one and allows us to talk about a state of quasi-equilibrium. 
 
 The above example shows that a system can be at a equilibrium state depending on the time scale of the observation. The degradation of the glass along the years is very slow in contrast with the melting of the ice cubes. Therefore, at the time scale of our observations we can found functions that evolve very slow; the may be considered as dynamic invariantes that determine the equilibrium properties of the system. 
 
 %Frase del libro de Pep
-The theory of non-equilibrium that we present is based on this notion of
+The theory of nonequilibrium that we present is based on this notion of
 having several “equilibrium time scales” and takes advantage of the partial equilibration of
 the system in the time scale of evolution of the selected CG variables.
 
@@ -414,7 +415,7 @@ Therefore,the system is approximately described, in the appropriate time scale, 
 Quasi-equilibrium is connected with the notion of separation of time scales. As we said, the CG variables evolve slowly compared with the rest of degrees of freedom, which is, in fact, a necessary condition to obtain differential equations for the evolution of the CG variables. If there is not a well-separated time scales we may obtain dynamic equations but not simple at all, with complicated memory terms. This situation is referred to as a non-Markovian dynamics, to distinguish it from Markovian desciption in which the future state of the system is only determined by the present, but not for the past of the system. 
 
 \section{The entropy}\label{sec:TheEntropy}
-As well as in equilibrium, in non-equilibrium situations entropy plays a fundamental role. In this section we present the entropy functional proposed by Jaynes \cite{Jaynes1957}.
+As well as in equilibrium, in nonequilibrium situations entropy plays a fundamental role. In this section we present the entropy functional proposed by Jaynes \cite{Jaynes1957}.
 
 Suppose that we know the averages of the CG variables of a given system 
 \begin{align}
@@ -566,7 +567,7 @@ is
   \label{ave}
 \end{equation}
 where $\rho_t$ is
-the non-equilibrium solution of the Liouville equation. As it is shown
+the nonequilibrium solution of the Liouville equation. As it is shown
 in  \cite{Grabert1982},  for  isolated systems  with a time-independent
 Hamiltonian,  the   averages  (\ref{ave})  evolve  according   to  the
 following closed exact equation
@@ -1151,7 +1152,7 @@ If we replace $\mu({\bf r})$ by the Eq. (\ref{chempot}) and use (\ref{nu}), we f
   +\underbrace{{\cal F}[\rho,{\bf R}]}_{\rm potential}
 \label{oleg2}
 \end{align}
-\Pendiente{Desde ecuación (51) del paper hasta el final de la sección. En principio no veo que sea necesario añadirlo, pero me queda pensarlo detenidamente.}
+\Note{Desde ecuación (51) del paper hasta el final de la sección. En principio no veo que sea necesario añadirlo, pero me queda pensarlo detenidamente.}
 
 \section{The transport equations}
 In this section we will obtain the transport equation for a fluid in contact with a solid sphere. In section (\ref{sec:Grabert}) we obtained an expression for the evolution of the selected variables using the technique of projection operators which consists of an irreversible part and a reversible one. 
@@ -1495,23 +1496,21 @@ Referencia: Tesis de Arturo.}
 %
 %In the first part of this chapter -- Sec. \ref{Sec:Mori} -- we offer a simple non-trivial solution to the plateau problem by proposing a new corrected Green-Kubo formulae for the transport coefficientes. This new expression for the transport coefficientes reduces to the standart Green-Kubo formula in the limit of large separation of time scales, but corrects it in those situations where the separation of time scales is not extreme but the Markovian approximation still holds, allowing one to use transport coefficientes instead of memory kernels. 
 
-
-The behaviour of a fluid at large scales is governed by the well-known
-Navier-Stokes equations of hydrodynamics. These equations are based on the conservation of mass, momentum and energy, and are supplemented with
-boundary conditions  at the  frontier of the  fluid domain.   When the
+The well-known Navier-Stokes equations of hydrodynamics govern the behaviour of a fluid at large scales \cite{Bird1987, Clarke1995,Rubbert1968}. These equations are based on the conservation of mass, momentum and energy, and are supplemented with
+boundary conditions  at the  frontier of the  fluid domain. When the
 scales  probed are  shrinked  to  the nanoscale  as,  for example,  in
 nanochanels and  nanopores, the Navier-Stokes equations  are no longer
 appropriate. Typically,  the atomic structure  of the fluid  starts to
 manifest, and this  leads to a number of interesting  effects, such as
 the layering of the density near  the walls and the appearance of slip
 at the walls.  As a general feature,  the fluid starts to  behave in a
-non-local way  in both space and  time.  For unconfined fluids  at the
-nanoscale the methods of Generalized Hydrodynamics \cite{Mountain1977,
+nonlocal way  in both space and  time.  For unconfined fluids  at the
+nanoscale the methods of Generalized Hydrodynamics \cite{Boon1980,Mountain1977,
  Hansen2013,Alley1984}  have been very succesfull  in order
 to  characterize the  dynamics of  fluids  at nanoscales. These scales can  be
 probed with neutron scattering techniques.  Generalized hydrodynamics
 considers wavenumber  and frequency dependent  transport coefficients,
-reflecting non-locality in  space and time, respectively,  in order to
+reflecting nonlocality in  space and time, respectively,  in order to
 extend the validity of the hydrodynamic equations to molecular scales.
 Correlation functions of conserved hydrodynamic  and non-hydrodynamic
 variables are defined in Fourier space and measured in MD simulations,
@@ -1526,12 +1525,12 @@ is  typically  done by  binning  space  and  measuring the  number  of
 particles, average velocity  and energy of the particles  in that bin, as we showed in Chapter \ref{Chap:Planar}.
 
 In this chapter we reframe in  real space (as opposed
-to Fourier space) the discussion of  non-locality in time and space of
+to Fourier space) the discussion of  nonlocality in time and space of
 hydrodynamics for unconfined fluids. The  methodology will be  transferrable to
 confined fluids allowing  us to discuss wall  effects in Chapters \ref{Chap:Walls} and \ref{Chap:Coeff}.  More  specifically, the
 objective  here  is  to  assess  to what  extent  it  makes  sense  to
 approximate  the  dynamics of  discrete  hydrodynamic  variables in  a
-Markovian  way  while,  at  the same  time,  use  non-local  transport
+Markovian  way  while,  at  the same  time,  use  nonlocal  transport
 coefficients. 
 
 
@@ -1539,7 +1538,7 @@ In the study of shear flow of simple fluids at the nanoscale, as those
 occuring  in  nanoscale  pores,  there   seems  to  be  two  different
 approaches in the literature.  The first approach is the Local Average
 Density Model  (LADM) introduced by Bitsanis  et al.  \cite{Bitsanis1987}
-while the second  approach is the non-local viscosity  model. 
+while the second  approach is the nonlocal viscosity  model. 
 The LADM assumes that the local transport coefficients of an inhomogeneous
 fluid can be set equal to the corresponding homogeneous transport coefficientes calculated at a locally averaged density in a way similar to what  is done in Equilibrium Density  Functional Theory for the formulation of Weighted Density  Approximation models for the free energy functional \cite{Tarazona2008}.  %Eq 7.27
 
@@ -1562,56 +1561,61 @@ with LADM and they find good agreement for liquids but not so good for
 gases.
 
 The second approach that has been used in the description of fluids at
-the nanoscale  is based  on the  notion of a  non-local (in  space and
+the nanoscale  is based  on the  notion of a  nonlocal (in  space and
 time)  generalization of  Newton's  constitutive  equation for  planar
-shear  flows in  which  the  stress is  related  to  the strain  field
-$\dot{\gamma}$ in the form \cite{EvansMorris2008}
+shear  flows. Evans and Morriss \cite{EvansMorris2008} proposed a nonlocal constitutive equation in  which  the  stress is  related  to  the strain  field $\dot{\gamma}$ in the form
 \begin{align}
   P^{xy}({\bf r},t)&=-\int_0^t ds \int_{-\infty}^{\infty} d{\bf r}'
 \eta({\bf r},{\bf r}',t-s)\dot{\gamma}({\bf r}',s)
-\label{GenNewtonian}   %Figura 2.3. de Evans y Morris. 
+\label{GenNewtonian}   %Ecuación 2.77 de Evans y Morriss. 
 \end{align}
-where  $\eta({\bf r},{\bf  r}',t)$  is the  shear viscosity  non-local
+where  $P^{xy}({\bf r}, t)$ is the $xy$ pressure tensor element and $\eta({\bf r},{\bf  r}',t)$  is the  shear viscosity  nonlocal
 memory kernel.  This is the real-space  version of the wave number and
-frequency     dependent    viscosity     studied    in     Generalized
-Hydrodynamics.  For  steady  state flows,  the  constitutive  equation
+frequency     dependent    viscosity \cite{EvansMorriss2008}     studied    in     Generalized
+Hydrodynamics, that is 
+\begin{align}
+  P^{yx}(k,t) = -\int_0^t ds\eta(k,t-s)\dot{\gamma}(k,s)
+\end{align}
+\Note{Entender también de forma intuitiva la viscosidad no local. Es decir, la dependencia $\eta(r,r')$. ¿Donde se está midiendo la viscosidad, en r o r'?}
+%Ecuación 4.47 de Evans y Morriss.
+For  steady  state flows,  the  constitutive  equation
 becomes
 \begin{align}
   P^{xy}({\bf r})&=-\int_{-\infty}^{\infty} d{\bf r}'
 \eta({\bf r},{\bf r}')\dot{\gamma}({\bf r}')
 \label{GenNewtonianSS}
 \end{align}
-where the shear viscosity non-local kernel $\eta({\bf r},{\bf r}')$ in
+where the shear viscosity nonlocal kernel $\eta({\bf r},{\bf r}')$ in
 (\ref{GenNewtonianSS})  has  different  physical dimensions  from  the
 memory kernel $\eta({\bf r},{\bf r}',t)$ in (\ref{GenNewtonian}).  For
 homogeneous  fluids, translation  invariance  implies that  $\eta({\bf
   r},{\bf r}')=\eta({\bf  r}-{\bf r}')$  which is  just a  function of
 just   one  variable   in  planar   flows.   Under   this  simplifying
 circumnstances  Zhang  et   al.   \cite{Zhang2004}  considered  planar
-Poiseuille  and  Couette  flows  with NEMD  and  evaluated  the  shear
-viscosity  non-local kernel.  Further  work in
+Poiseuille  and  Couette  Weeks-Chandler-Andersen (WCA) flows  with NEMD  and  evaluated  the  shear
+viscosity  nonlocal kernel.  Further  work in
 this        direction        was        pursued        in        Refs.
-\cite{Hansen2007,Todd2008a,Cadusch2008}    where    the    wave-number
-dependent  shear viscosity  for steady  states for  the CWA  fluid was
-computed. It was shown that  the non-locality stands for 2-3 molecular
+\cite{Hansen2007,Todd2008a,Cadusch2008}    where    the    wavenumber
+dependent  shear viscosity  for steady  states for  the WCA fluid was
+computed. It was shown that  the nonlocality stands for 2-3 molecular
 diameters.   Todd et  al.   \cite{Todd2008} showed  by using  analytic
 arguments, that (space) nonlocality dominates transport phenomena when
 the variation in the  strain rate is of the order of  the width of the
 viscosity kernel.
 
 It should be  emphasized that all the simulation  work mentioned above
-in which  the non-local  viscosity kernel or  the LADM  viscosity have
+in which  the nonlocal  viscosity kernel or  the LADM  viscosity have
 been explicitly  computed deal  with \textit{steady  state} situations
 for which the dynamic evolution of the  flow plays no role. We are not
 aware of any study of \textit{spontaneously} evolving hydrodynamics at
-nanoscale that  make use  of a non-local  viscosity. Therefore,  it is
+nanoscale that  make use  of a nonlocal  viscosity. Therefore,  it is
 pertinent to question the validity of such an approach.
 
 The strategy  that we follow in  order to answer
-the question about non-locality of hydrodynamics is based on the study
+the question about nonlocality of hydrodynamics is based on the study
 of  \textit{equilibrium time  correlation functions}  of the  discrete
 hydrodynamic variables.  The idea is that a constitutive equation like
-(\ref{GenNewtonian})     should     govern     the     non-equilibrium
+(\ref{GenNewtonian})     should     govern     the     nonequilibrium
 \textit{averages}  of the  momentum  density  field.  Through  Onsager
 regression hypothesis, near equilibrium the correlation functions will
 obey the  same equation as  the one  for the averages  and, therefore,
@@ -1628,7 +1632,7 @@ Markovian  differential  equation  is  obtained.   Unfortunately,  the
 resulting Green-Kubo expressions for the transport coefficients suffer
 from   the  well-known   plateau  problem   \cite{Espanol1998},  first
 described in the seminal work by Kirkwood \cite{Kirkwood1949}. In order to avoid the plateau problem, in Sec. \ref{Sec:Mori} we propose an alternative formulation for the transport coefficientes in terms of a  \textit{corrected} Green-Kubo formulae that
-does  not suffer  from the  plateau problem. We will use this expression  in order to evaluate the non-local
+does  not suffer  from the  plateau problem. We will use this expression  in order to evaluate the nonlocal
 transport coefficients.
 
 The distinctive feature of the  Markovian approximation in Mori theory
@@ -2024,7 +2028,7 @@ practice, as small as possible in  order to detect a plateau value for
 $\Lambda(t)$,  and for  which  statistical errors  have  not yet  been
 amplified to a  catastrophic level.  
 
-
+\Pendiente{
 We note  that there are  situations in  which the
 standard  Green-Kubo running  integral indeed  display a  well-defined
 plateau.  This can only happen if  some of the assumptions made in the
@@ -2096,13 +2100,13 @@ the trivial form ${\bf 0}={\bf 0}\esc \boldsymbol{\Theta}(0,t)\esc{\bf
   0}$ and $\boldsymbol{\Theta}(0,t)$ is no longer constrained to decay
 to  zero anymore  and may  display a  well-defined plateau,  as it  is
 observed  empirically. However,  for values  of ${\bf  k}\neq 0$,  the
-resulting (non-local) viscosities suffer  necessarily from the plateau
+resulting (nonlocal) viscosities suffer  necessarily from the plateau
 problem and  require the  correction presented in  this paper  for its
 actual  evaluation.   In forthcoming  publications  we  will show  how
-non-local transport  coefficients for discrete hydrodynamics  with and
+nonlocal transport  coefficients for discrete hydrodynamics  with and
 without confining walls can be unambiguously measured by using the new
 corrected Green-Kubo formula.
-
+} %Fin pendiente
 
 
 \section{Mori theory for shear hydrodynamics}
@@ -2210,7 +2214,7 @@ where we have use the equations (\ref{AproxC}), (\ref{Lambda}) and the normalize
 \begin{align}
   c(t)=C^{-1}(0)\esc C(t)
 \end{align}
-\Pendiente{Note that the reversible matrix $L$ vanishes because it involves an equilibrium average of a function that is even in the momentum variables}. Therefore
+Note that the reversible matrix $L$ vanishes because it involves an equilibrium average of a function that is even in the momentum variables \Note{Comprobarlo}. Therefore
 \begin{align}
     \frac{d}{dt}C(t) = -k_BTM^*\cdot c(t)
     \label{AproxCg}
@@ -2285,7 +2289,7 @@ we have
   M(t)=F^T\esc\eta(t)\esc F
 \label{Mtfef}
 \end{align}
-where  the  \textit{non-local  viscosity  Green-Kubo  matrix}  is  the
+where  the  \textit{nonlocal  viscosity  Green-Kubo  matrix}  is  the
 running  time integral  of the  correlation  of the  stress tensor  at
 different bins,
 \begin{align}
@@ -2293,7 +2297,7 @@ different bins,
   \llangle \hat{\sigma}^{13}(t')\hat{\sigma}^{13}\rrangle
 \label{non-loc}
 \end{align}
-Note that  for a homogeneous system  (as one with PBC),  the non-local
+Note that  for a homogeneous system  (as one with PBC),  the nonlocal
 viscosity    matrix   is    translationally    invariant,   this    is
 $\eta_{\mu\nu}=\eta(|\mu-\nu|)$.  This kind  of matrices  commute with
 the forward differencing matrix
@@ -2343,14 +2347,14 @@ plateau, as it should decay according to the time derivative of $C(t)$
 and,  hence, from  (\ref{AproxC})  as the  correlation matrix  $C(t)$
 itself.
 
-\subsection{The  friction   matrix  $M^*$  and  the   non-local  shear
+\subsection{The  friction   matrix  $M^*$  and  the   nonlocal  shear
   viscosity matrix}
 By analogy with  (\ref{MmunuMat}), we assume that the  friction matrix $M^*$ in
 (\ref{AproxCg}) has the structure
 \begin{align}
   M^*=-\Delta\esc \eta^*
 \end{align}
-for a  certain  matrix  $\eta^*$  referred to  as  the  non-local  shear
+for a  certain  matrix  $\eta^*$  referred to  as  the  nonlocal  shear
 viscosity  matrix.  The Markovian  dynamics  (\ref{AproxCg})
 becomes
 \begin{align}
@@ -2453,14 +2457,14 @@ these two equations
 \label{FouFin}
 \end{align}
 These two expressions are mathematically  equivalent but they allow to
-obtain   the    non-local   shear    viscosity   in    Fourier   space
+obtain   the    nonlocal   shear    viscosity   in    Fourier   space
 $\tilde{\eta}_{\mu\mu}^*$ either  from the correlation of  momemtum or
 from the  correlation of stress.   The existence  of a plateau  in the
 time-dependent  functions of  the  right hand  side in  (\ref{FouFin})
 constitute both, a validation of  the Markovian assumption, as well as
-a way to computate the non-local shear viscosity.
+a way to computate the nonlocal shear viscosity.
 
-If we wish  to recover the non-local shear viscosity  in real space we
+If we wish  to recover the nonlocal shear viscosity  in real space we
 need   to  know   all   their  eigenvalues.    However,  the   element
 $\tilde{\eta}_{00}$  cannot be  computed  from (\ref{FouFin})  because
 $\tilde{c}_{00}=0$.  Note that this value  can be obtained directly by
@@ -2507,9 +2511,9 @@ we finally reach
 Therefore, the eigenvalue $\tilde{\eta}_{00}(t)$ can be computed independently from
 the local shear viscosity.
 
-\subsection{The non-local kinematic viscosity matrix}
-It is convenient to introduce the non-local kinematic viscosity matrix
-$\nu^*$ as  the non-local shear  viscosity matrix $\eta^*$  divided by
+\subsection{The nonlocal kinematic viscosity matrix}
+It is convenient to introduce the nonlocal kinematic viscosity matrix
+$\nu^*$ as  the nonlocal shear  viscosity matrix $\eta^*$  divided by
 some ``mass density''. As we will see, the notion of locality in space
 is best addressed with the kinematic  viscosity and that is the reason
 of introducing it here. In  a discrete setting, the connection between
@@ -2569,7 +2573,7 @@ express Eq. (\ref{AproxCg1}) in the form
 \frac{d}{dt}C(t)= \Delta\esc \nu^*\esc C(t)
 \label{SDECpi}
 \end{align}
-where we  have introduced  the non-local  \textit{kinematic} viscosity
+where we  have introduced  the nonlocal  \textit{kinematic} viscosity
 matrix through the matrix
 \begin{align}
 \nu^*&\equiv  \eta^*\esc{\cal V}\esc \rho^{-1}
@@ -2581,8 +2585,8 @@ takes the diagonal form
 \begin{align}
   \tilde{\nu}_\mu^*&=  \frac{{\cal V}_\mu \tilde{\eta}_\mu^*}{\tilde{\rho}_\mu}
 \end{align}
-We now show why we refer to the matrix $\eta^*$ as the non-local shear
-viscosity  and  to  the  matrix $\nu^*$  as  the  non-local  kinematic
+We now show why we refer to the matrix $\eta^*$ as the nonlocal shear
+viscosity  and  to  the  matrix $\nu^*$  as  the  nonlocal  kinematic
 viscosity.   According   to  Mori  theory,  which   encompass  Onsager
 regression  hypothesis, the  evolution  of the  average  value of  the
 discrete momentum should evolve according to a vector equation analogous to
@@ -2626,7 +2630,7 @@ integro-differential  equation
   \frac{d}{dt} g^1(z)&=\int dz'{\eta}^*(z-z')\partial^2_{z'} v^1(z')
 \label{congx}
 \end{align}
-This is  a non-local generalization  of the diffusion equation  of the
+This is  a nonlocal generalization  of the diffusion equation  of the
 continuum transverse  momentum,
 \begin{align}
   \partial_t g^1(z)&=\nu^*_0\partial^2_{z}g^1(z')
@@ -2636,7 +2640,7 @@ Eq.   (\ref{congx3})   is  obtained  from  (\ref{congx})   by  setting
 $\eta^*(z-z')=\eta^*_0\delta(z-z')$,   where   the   local   kinematic
 viscosity is  $\nu^*_0=\eta^*_0/\rho$.  Therefore, it is  justified to
 refer to the matrix $\eta^*_{\mu\nu}$ introduced in (\ref{non-loc}) as
-the  non-local shear  viscosity matrix  and to  $v_\mu$ introduced  in
+the  nonlocal shear  viscosity matrix  and to  $v_\mu$ introduced  in
 (\ref{vel}) as the velocity.
 
 
@@ -2692,8 +2696,8 @@ Eq. (\ref{congx3}) is simply
 \label{gloc}
 \end{align}
 By comparing  this discrete equation  in the local  approximation with
-the non-local  discrete equation  (\ref{dgDnug}) we conclude  that the
-local approximation of the non-local viscosity matrix $\nu^*$ becomes a
+the nonlocal  discrete equation  (\ref{dgDnug}) we conclude  that the
+local approximation of the nonlocal viscosity matrix $\nu^*$ becomes a
 diagonal matrix of the form
 \begin{align}
 \nu_{\mu\mu'}^*&\simeq \nu_0 \delta_{\mu\mu'}
@@ -2734,9 +2738,9 @@ In the local approximation, the relaxation time (\ref{taumu}) is given by
 %These two  matrices can be measured  from MD simulations. In  order to
 %test the locality in time, we use the simple prediction (\ref{solexp})
 %for the  eigenvalues of the correlation  matrix. In order to  test the
-%non-locality  in space,  from Eq.   (\ref{FouFin}) we  will infer  the
+%nonlocality  in space,  from Eq.   (\ref{FouFin}) we  will infer  the
 %nonlocal shear viscosity matrix  $\tilde{\eta}^*$ and from the Fourier
-%transform   of  (\ref{nustar})   the  non-local   kinematic  viscosity
+%transform   of  (\ref{nustar})   the  nonlocal   kinematic  viscosity
 %$\tilde{\nu}^*$. The local  approximation in space will be  good if we
 %can approximate  $\tilde{\nu}^*$ as in (\ref{numunu0}).   Once we have
 %measured  $\Lambda^*$  or  equivalently  $\eta^*$ or  $\nu^*$  we  can
@@ -2752,9 +2756,9 @@ stress  that appears  in  the Green-Kubo  running integral  $\eta(t)$.
 These two  matrices can be measured  from MD simulations. In  order to
 test the locality in time, we use the simple prediction (\ref{solexp})
 for the  eigenvalues of the correlation  matrix. In order to  test the
-non-locality  in space,  from Eq.   (\ref{FouFin}) we  will infer  the
+nonlocality  in space,  from Eq.   (\ref{FouFin}) we  will infer  the
 nonlocal shear viscosity matrix  $\tilde{\eta}^*$ and from the Fourier
-transform   of  (\ref{nustar})   the  non-local   kinematic  viscosity
+transform   of  (\ref{nustar})   the  nonlocal   kinematic  viscosity
 $\tilde{\nu}^*$. The local  approximation in space will be  good if we
 can approximate  $\tilde{\nu}^*$ as in (\ref{numunu0}).   Once we have
 measured  $\Lambda^*$  or  equivalently  $\eta^*$ or  $\nu^*$  we  can
@@ -2762,7 +2766,7 @@ compare  the  prediction  (\ref{Cmunut})  from Mori  theory  with  the
 correlation matrix measured in the simulation.
 
 The objective of this section is to present the simulations we made to measure the
-momentum  correlation  matrix  $C(t)$  and  the  Green-Kubo  non-local
+momentum  correlation  matrix  $C(t)$  and  the  Green-Kubo  nonlocal
 viscosity $\eta(t)$.   From these primary quantities,  we obtain their
 Fourier transforms  $\tilde{C}(t),\tilde{\eta}(t)$ which  are diagonal
 matrices  due to  traslation invariance.  
@@ -2944,7 +2948,7 @@ observed  in the  central region  is spureous  and due  to statistical
 errors.   These   errors  increase  with   time.   We  also   plot  in
 Fig. \ref{fig:LambdatFourier-PBC}  the theoretical prediction  of this
 matrix in the local approximation  given in Eq. (\ref{taumuloc}) for a
-fitted value  of the  local kinematic  viscosity of  $\nu_0=1.48$. \Pendiente{This value corresponds to the kinematic viscosity of a fluid with density $\rho=0.6$ andtemperature $T=2.0$ \cite{Woodcock2006}}.  We
+fitted value  of the  local kinematic  viscosity of  $\nu_0=1.48$. \Pendiente{This value corresponds to the kinematic viscosity of a fluid with density $\rho=0.6$ and temperature $T=2.0$ \cite{Woodcock2006}}.  We
 observe that  the local approximation (\ref{taumuloc})  gives a fairly
 reasonable approximation  for the converged  value $\tilde{\Lambda}^*$
 of the  relaxation matrix in Fourier  space.  In the right  panel, we
@@ -2997,14 +3001,14 @@ we may  obtain the relaxation  matrix $\Lambda^*$ in real space which,  by compa
 $\Lambda^*=\Delta\nu^*$. From Eq.  (\ref{Cmunut}) we can
 now  have the  prediction of  Mori theory  for the  correlation matrix
 $C(t)$.  In Fig.  \ref{fig:Predictionsmumu-PBC} we compare the autocorrelation
-$C_{\mu\mu}(t)$ measured in  MD with the predictions  of the non-local
+$C_{\mu\mu}(t)$ measured in  MD with the predictions  of the nonlocal
 (orange) and local  (green) theories.  The arrow is at  $t=\tau$ where the
 three curves  coincide by  construction.  The  agreement of  the three
 curves  is  excellent beyond  $\tau$.   This  is best  appreciated  in
 logscale (right panel). The curving at long times,
 reflecting the  finite size  of the simulation  box \Pendiente{(see  appendix)} is
 captured in  both theories.  The inset  in the left panel of Fig.  \ref{fig:Predictionsmumu-PBC}
-shows a zoom at short times,  where one appreciates that the non-local
+shows a zoom at short times,  where one appreciates that the nonlocal
 theory gives  a better  prediction than the  local prediction  but, of
 course,  yields  poor results  at  very  short  times. Note  that  the
 Markovian theory leads to a cusp at $t=0$ in the correlation while the
@@ -3014,16 +3018,16 @@ correlation.
 \begin{figure}[h!]
   \centering
 \includegraphics[scale=0.45]{Predictionsmumu-PBC}
-\caption[Comparison of autocorrelation $C_{\mu\mu}$ with the predicions for PBC system]{Comparison of autocorrelation $C_{\mu\mu}(t)$ with the predictions of the non-local (orange) and local (green) theries. The left panel is in linscale and the right panel in logscale. The red line is at $t=\tau$ where the three curves coincide by construction. The inset shows a zoom at short times.}
+\caption[Comparison of autocorrelation $C_{\mu\mu}$ with the predicions for PBC system]{Comparison of autocorrelation $C_{\mu\mu}(t)$ with the predictions of the nonlocal (orange) and local (green) theries. The left panel is in linscale and the right panel in logscale. The red line is at $t=\tau$ where the three curves coincide by construction. The inset shows a zoom at short times.}
 \label{fig:Predictionsmumu-PBC}
 \end{figure}
 
-In Fig. \ref{fig:Predictionsmumu+1-PBC} we compare the cross correlation $C_{\mu\mu+1}(t)$ in the same way as we did with the autocorrelation in Fig. \ref{fig:Predictionsmumu-PBC}. The agreement of the the three curves (predictions, non-local and local theories) is excellent beyond $\tau$, but we appreciate that for long times \Note{the local prediction is better than the non-local prediction}. 
+In Fig. \ref{fig:Predictionsmumu+1-PBC} we compare the cross correlation $C_{\mu\mu+1}(t)$ in the same way as we did with the autocorrelation in Fig. \ref{fig:Predictionsmumu-PBC}. The agreement of the the three curves (predictions, nonlocal and local theories) is excellent beyond $\tau$, but we appreciate that for long times \Note{the local prediction is better than the nonlocal prediction}. 
 
 \begin{figure}[h!]
   \centering
 \includegraphics[scale=0.45]{Predictionsmumu+1-PBC}
-\caption[Comparison of cross correlation $C_{\mu\mu+1}$ with the predicions for PBC system]{Comparison of autocorrelation $C_{\mu\mu+1}(t)$ with the predictions of the non-local (orange) and local (green) theries. The left panel is in linscale and the right panel in logscale. The red line is at $t=\tau$ where the three curves coincide by construction. The inset shows a zoom at short times.}
+\caption[Comparison of cross correlation $C_{\mu\mu+1}$ with the predicions for PBC system]{Comparison of autocorrelation $C_{\mu\mu+1}(t)$ with the predictions of the nonlocal (orange) and local (green) theries. The left panel is in linscale and the right panel in logscale. The red line is at $t=\tau$ where the three curves coincide by construction. The inset shows a zoom at short times.}
 \label{fig:Predictionsmumu+1-PBC}
 \end{figure}
 
@@ -3037,14 +3041,14 @@ predictions.
 
 
 
-\subsection{The Green-Kubo non-local viscosity matrix}
-In   this  section,   we  discuss   the  non-local   viscosity  matrix
+\subsection{The Green-Kubo nonlocal viscosity matrix}
+In   this  section,   we  discuss   the  nonlocal   viscosity  matrix
 $\eta_{\mu\nu}(\tau)$  defined   Eq.   (\ref{non-loc}).    To  compute
 $\eta_{\mu\nu}(t)$   we    record   the   stress   tensor    per   bin
 $\hat{\sigma}_\mu$,  defined in  (\ref{sbin}),  and  compute the  time
 integral     of     the      equilibrium     correlation     $\llangle
 \hat{\sigma}_{\mu}(t)\hat{\sigma}_\nu\rrangle$.         In        Fig.
-\ref{fig:Etat-PBC}  we  plot  the non-local  shear  viscosity
+\ref{fig:Etat-PBC}  we  plot  the nonlocal  shear  viscosity
 matrix  $\eta_{\mu\nu}(t)$  for  $\mu=30$   and  different  values  of
 $\nu=30-40$.   We observe  that  $\eta_{\mu\nu}(t)$ starts  from 0  at
 $t=0$  and  attains a  maximum  at  a  time  that increases  with  the
@@ -3053,13 +3057,13 @@ a plateau after the maximum, the logscale representation in the bottom
 panel of Fig.  \ref{fig:Etat-PBC} reveals that such a plateau
 does  not exist  as a  very slow  algebraic decay  is apparent.   This
 result reveals strikingly that  the standard Green-Kubo expression for
-the non-local  viscosity has no plateau  and cannot be used  to define
-the non-local viscosity  because there is no a priori  criteria to fix
+the nonlocal  viscosity has no plateau  and cannot be used  to define
+the nonlocal viscosity  because there is no a priori  criteria to fix
 the  upper  limit   of  integration  $\tau$.   Of   course,  from  Eq.
 (\ref{etaExact})  we already  observed  that $\eta(t)$  cannot have  a
 plateau because the time derivative of the correlation function decays
 at  long times.   Note  that the  non-existence of  a  plateau in  the
-non-local viscosity matrix $\eta(t)$ is  in clear contrast to the case
+nonlocal viscosity matrix $\eta(t)$ is  in clear contrast to the case
 of  the Green-Kubo  running  integral for  the  local shear  viscosity
 $\eta_0(t)$ which,  according to Eqs.  (\ref{eta00})  and (\ref{etat})
 is proportional to the sum of all the function $\eta_{\mu\nu}(t)$ that
@@ -3068,7 +3072,7 @@ decay  in a  quasi  algebraic  manner.
 \begin{figure}[h!]
   \centering
 \includegraphics[scale=0.45]{Etat-PBC}
-\caption[The non-local viscosity as a function of time for PBC system]{The non-local viscosity $\eta_{\mu\nu}(t)$ as a function of time, for $\mu=30$ and, in descending order, $\nu=30-40$. The left panel is in linscale, while the right panel in logscale. The inset is a zoom and the red line is at $t=\tau$.}
+\caption[The nonlocal viscosity as a function of time for PBC system]{The nonlocal viscosity $\eta_{\mu\nu}(t)$ as a function of time, for $\mu=30$ and, in descending order, $\nu=30-40$. The left panel is in linscale, while the right panel in logscale. The inset is a zoom and the red line is at $t=\tau$.}
 \label{fig:Etat-PBC}
 \end{figure}
 
@@ -3077,7 +3081,7 @@ In Fig.
 \ref{fig:KinVisc0t-PBC} we plot $\nu_0(t)$  which we recall that
 is the sum  of the curves in  the left panel of Fig. \ref{fig:Etat-PBC} divided by the density. We observe  a very neat
 plateau.  Of course, the plateau cannot extend indefinitely because of
-the  finite number  of terms  involved  in the  sum (\ref{eta00}).  \Pendiente{We
+the  finite number  of terms  involved  in the  sum (\ref{eta00}).  \Note{ Entnder bien :We
 expect that after  an estimated time of the order  of $L^2/\nu_0$ that
 takes the vorticity to diffuse the entire system size the plateau will
 curve down.  In our system  this time is  $\sim 600$, well  beyond our
@@ -3090,8 +3094,8 @@ $\nu_0(t)$ will start to decrease due to finite size effects.}
 \label{fig:KinVisc0t-PBC}
 \end{figure}
 
-By following a  strategy similar to the one given  in \Pendiente{Referencia paper correción GK?} we
-have shown in  Eq. (\ref{FouFin}) how to evaluate  the non-local shear
+By following a  strategy similar to the one given  in Sec. \ref{Sec:Mori} \Note{Sección o referenciar paper?} we
+have shown in  Eq. (\ref{FouFin}) how to evaluate  the nonlocal shear
 viscosity  matrix  $\tilde{\eta}^*_{\mu\mu}$  not  from  the  standard
 Green-Kubo  formula but  rather from  a corrected  version of  it that
 accounts for the  fact that the Green-Kubo running  integral decays as
@@ -3108,7 +3112,7 @@ In    Fig.      \ref{fig:EtaStartFourier-PBC}    we    show     the    function
 $\tilde{\eta}_{\mu\mu}(t)$  as a  function of  time for  the different
 modes.   We observe  that, whenever  the  statistics allow  for it,  a
 reasonable plateau  is obtained. Therefore,  it is possible  to define
-the  non-local  shear  viscosity  matrix  $\eta^*_{\mu\nu}$  from  the
+the  nonlocal  shear  viscosity  matrix  $\eta^*_{\mu\nu}$  from  the
 Fourier transform  of the plateau  value $\tilde{\eta}_{\mu\mu}(\tau)$
 where $\tau=0.2$.  This  is shown in Fig.  \ref{fig:CompareEtas-PBC} where the
 diagonal structure  is apparent,  with a width  that has  around $\sim
@@ -3150,7 +3154,7 @@ periodic boundary conditions is fairly local, and can be described with
 \begin{figure}[h!]
   \centering
 \includegraphics[scale=0.45]{CompareEtas-PBC}
-\caption[Comparison $\eta^*_{30,\nu}$ and $eta_{30,\nu}$]{The non-local shear viscosity $\eta_{\mu\nu}$ (blue) and its corrected form $\eta^*_{\mu\nu}$ (orange) for $\mu=30$ as a function of node index $\nu$ at $t=0.2$.}
+\caption[Comparison $\eta^*_{30,\nu}$ and $eta_{30,\nu}$]{The nonlocal shear viscosity $\eta_{\mu\nu}$ (blue) and its corrected form $\eta^*_{\mu\nu}$ (orange) for $\mu=30$ as a function of node index $\nu$ at $t=0.2$.}
 \label{fig:CompareEtas-PBC}
 \end{figure}
 
@@ -3159,13 +3163,13 @@ periodic boundary conditions is fairly local, and can be described with
 \begin{figure}[h!]
   \centering
 \includegraphics[scale=0.45]{EtaStartFourier-PBC}
-\caption[The non-local shear viscosity kernel for PBC system]{The non-local shear viscosity kernel from corrected Green-Kubo formula $\tilde{\eta}^*_{\mu\mu}=\frac{\tilde{\eta_{\mu\mu}(t)}}{\tilde{c}_{\mu\mu}(t)}$}
+\caption[The nonlocal shear viscosity kernel for PBC system]{The nonlocal shear viscosity kernel from corrected Green-Kubo formula $\tilde{\eta}^*_{\mu\mu}=\frac{\tilde{\eta_{\mu\mu}(t)}}{\tilde{c}_{\mu\mu}(t)}$}
 \label{fig:EtaStartFourier-PBC}
 \end{figure}
 \begin{figure}[h!]
   \centering
 \includegraphics[scale=0.45]{KinVisctFourier-PBC}
-\caption[The eigenvalues of the non-local kinematic viscosity matrix for PBC system]{The eigenvalues of the non-local kinematic viscosity matrix defined in Eq. (\ref{kinViscFourier}) as a function of time (right panel), and as a function of the mode index por times from t=0 to t=0.2 in ascending order in intervals of $0.01$. The orange line at $\nu_0=1.48$ is plotted in order to guide the eye in the plateau region.}
+\caption[The eigenvalues of the nonlocal kinematic viscosity matrix for PBC system]{The eigenvalues of the nonlocal kinematic viscosity matrix defined in Eq. (\ref{kinViscFourier}) as a function of time (right panel), and as a function of the mode index por times from t=0 to t=0.2 in ascending order in intervals of $0.01$. The orange line at $\nu_0=1.48$ is plotted in order to guide the eye in the plateau region.}
 \label{fig:KinVisctFourier-PBC}
 \end{figure}
 
@@ -3206,8 +3210,8 @@ A number of conclusions can be drawn from the simulation results:
 \item We  have observed that  the relaxation matrix  $\Lambda(t)$ does
   indeed  plateau to  a  constant value  $\Lambda^*$, indicating  that
   after  the  time $\tau$  the  decay  of  the correlation  matrix  is
-  exponential  and  hence Markovian.   \Pendiente{This  time  is not  excessively
-    large, capturing about  80\% of the total decay  of the correlation}.
+  exponential  and  hence Markovian. This  time  is not  excessively
+    large, capturing about  80\% of the total decay  of the correlation.
   The  Markovian approximation  predicts a  quasi-algebraic long  time
   tail  that gives  excellent agreement  with the  simulation results.
   Trully algebraic  decay is  obtained only  in the  thermodynamic and
@@ -3219,23 +3223,23 @@ A number of conclusions can be drawn from the simulation results:
   Markovian (local in time) approximation is valid, the local in space
   approximation of the kinematic  shear viscosity matrix gives already
   very accurate results.
-\item The \textit{non-local}  shear viscosity defined in  terms of the
+\item The \textit{nonlocal}  shear viscosity defined in  terms of the
   Green-Kubo  formula  as  the  time  integral  of  the  stress-stress
   correlation does  not show a  plateau. Quite remarkably, the  sum of
-  the  (non-plateau) non-local  shear viscosity  matrix elements  does
+  the  (non-plateau) nonlocal  shear viscosity  matrix elements  does
   indeed   have  a   plateau.    This  plateau   corresponds  to   the
   \textit{local}  viscosity  computed  in   the  usual  way  from  its
   Green-Kubo  formula. The  existence  of this  plateau  in the  local
   viscosity is due to global momentum conservation.
 \end{enumerate}
-These facts suggest that the usefulness of a non-local shear viscosity
+These facts suggest that the usefulness of a nonlocal shear viscosity
 in a  Markovian description  of correlation functions  of hydrodynamic
 variables is small.  On one hand, its Green-Kubo expression is useless
 as it does not have a plateau and, on the other, a local approximation
 with well-defined plateau already provides excellent results.
 
 Steady states situations in which the Markovian approximation is valid
-automatically may  still require the  use of non-local in  space shear
+automatically may  still require the  use of nonlocal in  space shear
 viscosities for its correct description \cite{.}.
 
 In  this chapter  we  have  limited  ourselves to  the  discrete
@@ -3255,7 +3259,7 @@ Despite of considering the simplest case such as  simple fluid  in periodic  bou
 confined in between parallel solid walls.  The computational burden in
 that case is much larger  because traslation invariance cannot be used
 in order to increase statistics.
-In  addition   to  the   non-local  shear  viscosity,   new  transport
+In  addition   to  the   nonlocal  shear  viscosity,   new  transport
 coefficients related to slip at the wall appear in confined fluids, as
 we saw in Chapter \ref{Chap:BC}.
 
@@ -3386,8 +3390,8 @@ The derivative of a composite function is expressed as
     \frac{\partial}{\partial x}F(g(x))=\frac{\partial F}{\partial g}(g(x))\frac{\partial g}{\partial x}(x)
 \end{align}
 
+The quotes in the beginning of each chapter are taken from books I read over the time I have spent working in this dissertation, the last four years. I have respected the language in which the writter wrote the novel.
 
-The quotes in the beginning of each chapter are taken from books I read over the time a spend working in this dissertation, the last four years. I have respected the language in which the writter wrote the novel. 
 
 
 \section*{Physical parameters and variables}
@@ -3485,6 +3489,208 @@ physical point of view it means that if a bin has a positive momentum,
 the  rest of  the bins  should have  a negative  momentum in  order to
 comply  with  a  zero  total momentum,  resulting  into  the  negative
 covariance (\ref{Cneg}).
+
+
+\chapter{The continuum limit}
+\label{Ap:Cont}
+\Note{Think meaning of this. Supplementary material?}
+\Pendiente{
+In this appendix we discuss the continuum limit of the discrete theory
+and compute analytically the  Green function.  This calculations allow
+one to understand  why the discrete theory does  not reproduce exactly
+the usual hydrodynamic  algebraic tails in the  correlations.  Only in
+both,  the  continuum  and   thermodynamic  limits  one  recovers  the
+algebraic tails.
+
+Consider the  explicit analytical  solution of the  correlation matrix
+$C(t)$  given  in  Eq. (\ref{Cmunut}).   By  introducing  $L_z={N_{\rm
+    bin}}\Delta z$ one may write
+\begin{align}
+  C_{\mu\nu}(t)=\sum_{\nu'}\Delta z \frac{1}{L_z}\sum_{n}\exp\left\{i\frac{2\pi}{L_z}\Delta z (\mu-\nu')n\right\}
+\exp\left\{-\tilde{\nu}_n\frac{2}{\Delta z^2}\left(1-\cos\frac{\Delta z 2\pi}{L_z}n\right)t\right\}C_{\nu'\nu}(0)
+\end{align}
+
+Note that we may take the continuum limit ${N_{\rm bin}}\to\infty$ with ${N_{\rm bin}}\Delta z=L_z$ constant, and $\mu\Delta z=z$, $\nu \Delta z =z'$, $ \nu' \Delta z =z''$. In this way
+the above discrete equation becomes the continuum
+\begin{align}
+  C_{zz'}(t)=\frac{1}{L_z}\int dz''\sum_{n}\exp\left\{i\frac{2\pi}{L_z}(z-z'')n\right\}
+\exp\left\{-\tilde{\nu}_n\left(\frac{2\pi}{L_z}n\right)^2t\right\}C_{z''z}(0)
+\end{align}
+
+We now  show that this continuum  limit of the discrete  result is, in
+fact, identical to the  solution of the continuum integro-differential
+equation  (\ref{congx}).   If we  assume  that  the density  field  is
+constant  and that  the velocity  is given  by $v^1=g^1/\rho_0$  where
+$\rho_0$ is the average constant density
+\begin{align}
+  \frac{d}{dt} g^1(z)&=\int dz'{\nu}(z-z')\partial^2_{z'} g^1(z')
+\label{pgz}
+\end{align}
+where the kinematic viscosity  kernel is $\nu(z)=\eta(z)/\rho_0$.  The
+field $g(z,t)$  is defined  in the domain  $z\in[0,L_z]$ with  PBC. By
+using the Fourier series decomposition
+\begin{align}
+  g(z,t)&=\sum_{n=-\infty}^{\infty} \tilde{g}_n(t) \exp\left\{i\frac{2\pi}{L_z}nz\right\}
+\nonumber\\
+\tilde{g}_n(t)&=\frac{1}{L_z}\int_0^{L_z}dzg(z,t)  \exp\left\{-i\frac{2\pi}{L_z}nz\right\}
+\end{align}
+ we arrive at
+\begin{align}
+&  \sum_{n=-\infty}^{+\infty}\dot{g}_n(t)\exp\left\{i\frac{2\pi}{L_z}nz\right\}
+\nonumber\\=&-  \sum_{n=-\infty}^{+\infty}{g}_n(t)\left(\frac{2\pi}{L_z}n\right)^2
+\int_0^{L_z}dz'\nu(z-z')\exp\left\{i\frac{2\pi}{L_z}nz'\right\}
+\label{Fou1}
+\end{align}
+Note that
+\begin{align}
+&  \int_0^{L_z}dz'\nu(z-z')\exp\left\{i\frac{2\pi}{L_z}nz'\right\}
+\nonumber\\
+=&
+-\int_{z-L_z}^z dz''\nu(z'')\exp\left\{-i\frac{2\pi}{L_z}nz''\right\} \exp\left\{i\frac{2\pi}{L_z}z\right\}
+\nonumber\\
+=&\tilde{\nu}_n\exp\left\{i\frac{2\pi}{L_z}z\right\}
+\label{nutilde}
+\end{align}
+where the Fourier transform of the kinematic viscosity kernel is
+\begin{align}
+  \tilde{\nu}_n&=\int_{0}^{L_z} dz'\nu(z')\exp\left\{-i\frac{2\pi}{L_z}nz'\right\} 
+\end{align}
+This kernel is   independent   of  $z$,   despite   the   integration  limits   in
+(\ref{nutilde}), because  the kinematic viscosity kernel  is symmetric
+$\nu(z)=\nu(-z)$, and periodic $\nu(z)=\nu(L_z-z)$.
+
+Eq. (\ref{Fou1}) becomes
+\begin{align}
+\dot{g}_n(t)
+&=-  {g}_n(t)\left(\frac{2\pi}{L_z}n\right)^2\tilde{\nu}_n
+\label{Fou2}
+\end{align}
+whose solution is an exponential. Therefore, we may write the solution
+of (\ref{pgz}) in the form 
+\begin{align}
+  g(z,t)&=\int_0^{L_z} dz G(z-z',t)g(z',0)  
+\end{align}
+where the Green's function is 
+\begin{align}
+  G(z,t)&=\frac{1}{L_z}\sum_{n=-\infty}^\infty \exp\left\{-\tilde{\nu}_n\left(\frac{2\pi}{L_z}n\right)^2t+
+i\frac{2\pi}{L_z}nz\right\}
+\label{Green1}
+\end{align}
+Note  that total  momentum is  conserved and  that we  may choose  the
+reference system in such a way that total momentum is zero. This ammounts to
+set the Fourier coefficient
+\begin{align}
+  g_0(t)=\frac{1}{L_z}\int_0^{L_z}dz g(z,t)
+\end{align}
+which  is  the total  momentum  divided  by  the  box size,  and  that
+satisfies   $\dot{g}_0(t)=0$,   to   be   exactly   zero,   this   is,
+$g_0(t)=0$. Then, we delete from the Green's function the term
+$n=0$ or, equivalently, use the following ``rest'' Green's function
+\begin{align}
+  G(z,t)&=\frac{1}{L_z}\left[\sum_{n=-\infty}^\infty \exp\left\{-\tilde{\nu}_n\left(\frac{2\pi}{L_z}n\right)^2t+
+i\frac{2\pi}{L_z}nz\right\}-1\right]
+\end{align}
+The meaning of the Green's function is that it gives the response to a Dirac delta-like initial
+perturbation. In the case that total momentum is zero, the initial singular perturbation is of the form
+\begin{align}
+  g(z,0)=mv_0 \delta(z-L_z/2)-mv_0/L_z
+\end{align}
+This is, initially all the fluid is moving backwards, while a portion of fluid at $z=L_z/2$ is moving
+forward.
+
+Finally, consider the continuum local hydrodynamic prediction that starts from the hydrodynamic equation
+\begin{align}
+  \frac{d}{dt} g(z,t) &= \nu_0 \partial_z^2 g(z,t)
+\label{Diff1}
+\end{align}
+for a field $g(z,t)$ in the domain $z\in[0,L_z]$ with PBC.
+One easily finds that the Fourier coefficients obey
+\begin{align}
+  \frac{d}{dt}\tilde{g}_n(t)=-\nu_0\left(\frac{2\pi}{L_z}n\right)^2 g_n(t)
+\label{Fou0}
+\end{align}
+to be compared with (\ref{Fou2}). This shows that the continuum  local prediction is again
+given by (\ref{numunu0}).
+
+\subsection{The Green's function}
+One of the values of the  Fourier expression of the exponential matrix
+(\ref{Cmunut}) is  that we may get  a feeling of the  behaviour of the
+continuum limit and the thermodynamic  limit. 
+
+Note that, according to Onsager's regreesion hypothesis, the evolution
+of the average profile is given by 
+\begin{align}
+  g_\mu(t)&=\exp\{\Delta\esc\nu t\}_{\mu\nu}  g_\nu(0)
+\label{gevol}
+\end{align}
+where the Fourier representation of the matrix exponential is given by
+\begin{align}
+  \exp\{\Delta\esc\nu t\}_{\mu\nu} &=
+\frac{1}{{N_{\rm bin}}}\sum_{\mu'=0}^{{N_{\rm bin}}-1}\exp\left\{i\frac{2\pi}{{N_{\rm bin}}}(\mu-\nu)\mu'\right\}
+\nonumber\\
+\times&\exp\left\{-\tilde{\nu}_{\mu'}\frac{2}{\Delta z^2}\left(1-\cos\frac{2\pi}{{N_{\rm bin}}}\mu'\right)t\right\}
+\end{align}
+The matrix  exponential may be  understood as the Green's  function of
+the problem.  We choose as initial  profile a Dirac delta like function at
+the origin, suitably displaced to have a zero value of total momentum,
+this is
+\begin{align}
+  g_\mu(0)=\frac{\delta_{\mu 0}}{\Delta z}g_0-\frac{1}{{N_{\rm bin}}\Delta z}g_0
+\label{Inig}
+\end{align}
+that  satisfies  $\sum_{\mu=0}^{{N_{\rm bin}}-1}g_\mu(0)=0$.  If  we  insert  this
+initial profile into (\ref{gevol}), we have
+\begin{align}
+  g_\mu(t)&=
+g_0\frac{1}{{N_{\rm bin}}\Delta z}\sum_{\mu'=1}^{{N_{\rm bin}}-1}\exp\left\{i\frac{2\pi}{{N_{\rm bin}}}(\mu-\nu)\mu'\right\}
+\nonumber\\
+\times&\exp\left\{-\tilde{\nu}_{\mu'}\frac{2}{\Delta z^2}\left(1-\cos\frac{2\pi}{{N_{\rm bin}}}\mu'\right)t\right\}
+\label{gmut}
+\end{align}
+where note  that the  term $\mu'=0$  is now  absent.  Note  that total
+momentum   is   conserved    at   all   times   $\sum_{\mu=0}^{{N_{\rm
+      bin}}-1}g_\mu(t)=0$.   Therefore, we  may  visualize the  matrix
+exponential through  the evolution of  an initial profile of  the form
+(\ref{Inig}).
+
+\begin{figure}
+%  \includegraphics[scale=.6]{GreenFunction2.eps}
+%  \includegraphics[scale=.6]{Green01.eps}
+\caption{Green's function (\ref{gmut}) that gives the average $g_\mu(t)$ for an initial Dirac delta like initial profile (\ref{Inig}). The length of the box is $L_z=24$, and the number of nodes is ${N_{\rm bin}}=112$}
+\label{GreenFunction2}
+\end{figure}
+\begin{figure}
+%  \includegraphics[scale=.6]{GreenFunction3.eps}
+%  \includegraphics[scale=.6]{Green02.eps}
+\caption{Value of $g_{\mu=0}(t)$ for an initial Dirac delta like initial profile (\ref{Inig}). The length of the box is $L_z=24,48,96 $, and the number of nodes is ${N_{\rm bin}}=112,224,448$ for increasing curves (leading to the thermodynamic limit). This shows that the shoulder is due to the size of the box. As we approach the thermodynamic limit, the decay seems to approach $t^{-1/2}$, as plotted.}
+\label{GreenFunction3}
+\end{figure}
+\begin{figure}
+%  \includegraphics[scale=.6]{Green04.eps}
+%  \includegraphics[scale=.6]{Green03.eps}
+  \caption{Value  of $g_{\mu=0}(t)$  for an  initial Dirac  delta like
+    initial profile (\ref{Inig}).  The length  of the box is $L_z=24$,
+    and the number  of nodes is ${N_{\rm bin}}=112,224,448$  for increasing curves
+    (leading to the  continuum limit). This shows that  as we increase
+    the resolution, we converge towards  a singular function at $t=0$,
+    related to  the divergence with  $\Delta z^{-1}$. At  large times,
+    all  curves  behave in  the  same  way.  The line  corresponds  to
+    $\propto  t^{-1/2}$.  Only  in   both  limits  (thermodynamic  and
+    continuum   limits)   we   approach  an   algebraic   decay   with
+    $t^{-1/2}$. }
+\label{GreenFunction4}
+\end{figure}
+\begin{figure}
+%  \includegraphics[scale=.6]{GreenFunction5.eps}
+\caption{Same as in Fig. \ref{GreenFunction4} in a linear plot.}
+\label{GreenFunction5}
+\end{figure}
+
+}
+
+
+
+
 
 \cleardoublepage
 \addcontentsline{toc}{chapter}{List of figures} % para que aparezca en el indice de contenidos
