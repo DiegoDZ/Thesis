@@ -1645,7 +1645,7 @@ of the correlations.
 The chapter is structured as follows. In Sec. \ref{Sec:Mori} we summarize
 Mori theory in  order to set the notation and  particularize it to the
 discrete transverse momentum variable, both in real and Fourier space, and we offer the corrected Green-Kubo formula which avoid the plateau problem.
-In Sec. \ref{Sec:Sim} we present the simulation results and we conclude
+In Sec. \ref{Sec:SimPBC} we present the simulation results and we conclude
 in Sec. \ref{Sec:ConclusionsChapPBC}.
 
 
@@ -2748,8 +2748,8 @@ In the local approximation, the relaxation time (\ref{taumu}) is given by
 %correlation matrix measured in the simulation.
 
 
-\section{Simulations}
-\label{Sec:Sim}
+\section{MD simulations}
+\label{Sec:SimPBC}
 In Sec. (\ref{Sec:MoriShearHydro}) we saw that the  two main  quantities of  concern  are the  correlation matrix  of
 discrete momentum  $C(t)$ and the  correlation matrix of  the discrete
 stress  that appears  in  the Green-Kubo  running integral  $\eta(t)$.
@@ -2772,6 +2772,7 @@ Fourier transforms  $\tilde{C}(t),\tilde{\eta}(t)$ which  are diagonal
 matrices  due to  traslation invariance.  
 
 \subsection{Simulation set up}
+\label{Sec:SimSetUpPBC}
 Interactions between equal particles has been simulated in PBC with the LAMMPS code. The interaction between particles is describeb by a truncated Lennard-Jones (LJ) potential,
 \begin{align}
   V_{ij}(r_{ij}) = \left\lbrace
@@ -2780,6 +2781,7 @@ Interactions between equal particles has been simulated in PBC with the LAMMPS c
     0 & \textup{if } r_{ij}>r_c
   \end{array}
   \right.
+  \label{LJ}
 \end{align}
 where $r_{ij}$ is the distance between particles $i$ and $j$, $\epsilon_{ij}$ is the depth of the potential well, $\sigma_{ij}$ is the distance at which $V_{ij}$ is zero, and $r_c$ is the cutoff radius (taken equal to $2.5\sigma_{ij}$). The parameters $\epsilon_{ij}$ and $\sigma_{ij}$ take the value 1. 
 
@@ -3196,7 +3198,7 @@ matrix   given    by   the    non-zero   infinite   time    limit   in
 Eq. (\ref{GKCorrected}).
 
 
-In the second part of this chapter -- Sec.s \ref{Sec:MoriShearHydro} and \ref{Sec:Sim} --  we  have computed from  MD simulations  the equilibrium
+In the second part of this chapter -- Sec.s \ref{Sec:MoriShearHydro} and \ref{Sec:SimPBC} --  we  have computed from  MD simulations  the equilibrium
 time-dependent correlation matrix of  the discrete transverse momentum
 density.   Under  the Markovian  approximation,  Mori  theory gives  a
 definite prediction for the correlation  matrix in terms of a decaying
@@ -3279,9 +3281,53 @@ we saw in Chapter \ref{Chap:BC}.
 \end{figure}
 
 
+\section{MD simulations}
+\label{Sec:SimWALLS}
+\subsection{Simulation set up}
+A system of particles interacting  with a LJ potential \ref{LJ}
+truncated at $\sigma=2.5$ has been simulated with the LAMMPS code. The
+box size  is $40\times40\times33$,  the number  of fluid  particles is
+$N=28.175$ and  the time step  is $0.002$ in reduced  units.  Periodic
+boundary conditions  (PBC) are assumed  in all directions.   Two solid
+walls in the $xy$ plane confine the fluid as is shown in Fig. \ref{system_nodes_walls}.  The bottom wall is made of
+two layers  of LJ  particles located  in a  simple cubic  lattice with
+lattice spacing  $\sigma$. The top  wall is made  of two layers  of LJ
+particles  in a  similar  cubic  lattice.  The  location  of the  four
+crystalline planes  are $z=0,1,31,32$  in LJ units.   Due to  PBC, the
+distance between  the layers of  solid particles which are  in contact
+with   the  fluid   is  $3\sigma$   beyond  the   cutoff  of   the  LJ
+potential. Therefore, the fluid particles occupy a space of $30\sigma$
+and  do  not  interact  with  the  periodic  images  in  the  vertical
+direction.
 
+After an equilibration of $10^5$ timesteps with a Langevin thermostate
+to   produce  a   microstate  typical   from  a   thermodynamic  point
+corresponding  to  $T=2,\rho=0.6$ in  reduced  units,  the system  is
+evolved  under  NVE microcanonical  conditions  for  a further  $10^5$
+timesteps.  After this equilibration  phase, production runs of $12\times 10^6$
+time steps are launched and the transverse correlations are computed exactly in the same way as the explained in Sec. \ref{Sec:SimSetUpPBC}.
 
-\section{Simulations}
+\subsection{Thin bins with $\Delta z = 0.5\sigma$}
+The $z$  axis is binned  in $66$ bins of  width of half  the molecular
+size, $\Delta z=0.5\sigma$.  The  correlation matrix of the transverse
+momentum of different bins is computed, requiring a total of $66\times
+66$ time correlations  functions  in each  simulation.   
+The support of  the correlation matrix  is extended only  up to a  time of
+$t=2$ in reduced units, which  is sufficient to measure the relaxation
+matrix.   A  few  selected  elements of  the  correlation  matrix  are
+computed with a very long support of $t=30$ in reduced units, in order
+to test the predictions of the theory at long times.
+
+The time correlation  matrix is shown in  Fig.  \ref{fig:Ct-matrix-WALLS-66nodes} at
+two different  times, $t=0$ and  $t=0.6$ in  reduced LJ units.   For the
+covariance,  at $t=0$,  we  observe the  reminiscense  of the  density
+layering near  the wall in the  form of peaks.  As  time proceeds, the
+diagonal of  the correlation  widens and  decreases in  height.  Nodes
+$\mu=0,1,64,65$ contain  no fluid, while  node $\mu=2,62$ have  a very
+small  contribution  from  the  fluid but not negligible.  This means  that  out  of  the
+$66\times66$ correlation matrix, we strip off a band of zeros, leaving
+a matrix of $61\times61$ non-zero elements.
+
 \begin{figure}[h!]
 \centering
 \includegraphics[scale=0.4]{Ct-matrix-WALLS-66nodes}
@@ -3290,6 +3336,25 @@ g_{\mu}(t)  g_\nu\rrangle$ for  $t=0$ (left) and $t=0.6$ (right).}
 \label{fig:Ct-matrix-WALLS-66nodes}
 \end{figure}
 
+We plot in Fig.  \ref{fig:CtRec-WALLS-66nodes-exp}  all the 61 non-zero eigenvalues, in
+descending  order,  as a  function  of  time. Statistical  errors  are
+manifest in  the log-lin  plot, in spite  of the  overall high-quality
+statistics. Also  clear from the log-lin  plot is the linear  decay of
+the eigenvalues  beyond a certain  time, signaled by the  vertical red
+line  located at  $\tau=0.2$.   Note that  at  $t=0$ the  correlation
+matrix has zero  time derivative due to time  reversal invariance, and
+this reflects in the parabolic,  not exponential, initial decay of the
+eigenvalues \Note{Esto comentarlo también en PBC}.  In Fig.  \ref{fig:LambdatRec-WALLS-66nodes}  we show
+the      function      $\tilde{\Lambda}_{\mu}(t)$      defined      in
+(\ref{LambdatRec}). We only plot this  function for the data where the
+eigenvalues   $\tilde{C}_{\mu}(t)>2\times10^{-5}$,    which   is   the
+horizontal line plotted in the left panel in Fig.  \ref{fig:CtRec-WALLS-66nodes-exp}.  Below this value, which is
+two  order  of  magnitude  smaller   than  the  value  at  $t=0$,  the
+statistical errors  in the inverse  matrix blow up  exponentially, and
+lead to an inverse that varies  erratically and is not reliable.  With
+this cutoff,  a very  nice plateau  is observed  for the  lower modes,
+reflecting the  exponential decay of  the eigenvalues as shown  in the
+middle panel.
 
 \begin{figure}[h!]
   \centering
@@ -3299,7 +3364,7 @@ g_{\mu}(t)  g_\nu\rrangle$ for  $t=0$ (left) and $t=0.6$ (right).}
   eigenvalues  $\tilde{C}_{\mu\mu}(t)$ of  the  correlation matrix  of
   momentum  as  a  function  of   time  in  a  lin-lin  plot  (left)
   and   log-lin   plot
-  (right). Also  plotted are  a vertical line  at $t=\tau=0.3$  and a
+  (right). Also  plotted are  a vertical line  at $t=\tau=0.2$  and a
   horizontal  line  at  the   value  $2\times10^{-5}$,  signaling  the
   threshold below which statistical errors give spurious results. }
 \label{fig:CtRec-WALLS-66nodes-exp}
@@ -3310,9 +3375,7 @@ g_{\mu}(t)  g_\nu\rrangle$ for  $t=0$ (left) and $t=0.6$ (right).}
 \includegraphics[scale=0.45]{LambdatRec-WALLS-66nodes}
 \caption[Diagonal elements  $\tilde{\Lambda}_{\mu\mu}(t)$ of $\Lambda(t)$ in the reciprocal space - 66nodes.]{The  diagonal elements  $\tilde{\Lambda}_{\mu\mu}(t)$ of  the
   $\Lambda(t)$ in the reciprocal space defined in (\ref{}), as a
-  function of  $\mu$ (left)  and $t$  (right).  In  the top  panel, in
-  ascending  order the  plotted times  go  from $t=0$  to $t=0.20$  in
-  intervals of $0.02$.}
+  function of $t$.}
 \label{fig:LambdatRec-WALLS-66nodes}
 \end{figure}
 
@@ -3368,7 +3431,7 @@ The following published articles and posters are related with this dissertation.
     CM & Classical Mechanics \\
     GLE & Generalized Langevin Equation \\
     LADM & Local Average Density Model \\
-    LJ & Lennard-Jondes \\
+    LJ & Lennard-Jones \\
     MD & Molecular Dynamics \\
     NEMD & Non-Equilibrium Molecular Dynamics\\
     SM & Statistical Mechanics \\
