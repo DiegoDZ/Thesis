@@ -2907,7 +2907,7 @@ decay. Also we have represented in black and dashed lines the values of the eige
 
 
 \subsection{Validation of the Markov property}
-\label{Sec:ValidateMarkov}
+\label{Sec:ValidateMarkovPBC}
 When the  Markov equation (\ref{AproxC})  is valid, we have  that the
 eigenvalues of  the correlation matrix decay  exponentially, according
 to the prediction (\ref{SDECpiDiag}).  In order to better discriminate
@@ -3298,14 +3298,14 @@ distance between  the layers of  solid particles which are  in contact
 with   the  fluid   is  $3\sigma$   beyond  the   cutoff  of   the  LJ
 potential. Therefore, the fluid particles occupy a space of $30\sigma$
 and  do  not  interact  with  the  periodic  images  in  the  vertical
-direction.
+direction. Note that the space occupied by the fluid is equal to the case exposed in the previous chapter, in which the fluid is unconfined. 
 
 After an equilibration of $10^5$ timesteps with a Langevin thermostate
 to   produce  a   microstate  typical   from  a   thermodynamic  point
 corresponding  to  $T=2,\rho=0.6$ in  reduced  units,  the system  is
 evolved  under  NVE microcanonical  conditions  for  a further  $10^5$
 timesteps.  After this equilibration  phase, production runs of $12\times 10^6$
-time steps are launched and the transverse correlations are computed exactly in the same way as the explained in Sec. \ref{Sec:SimSetUpPBC}.
+time steps are launched and the transverse correlations are computed with the LAMMPS command \textit{ave/correlate} as it was explained in Sec. \ref{Sec:SimSetUpPBC}. 
 
 \subsection{Thin bins with $\Delta z = 0.5\sigma$}
 The $z$  axis is binned  in $66$ bins of  width of half  the molecular
@@ -3313,7 +3313,7 @@ size, $\Delta z=0.5\sigma$.  The  correlation matrix of the transverse
 momentum of different bins is computed, requiring a total of $66\times
 66$ time correlations  functions  in each  simulation.   
 The support of  the correlation matrix  is extended only  up to a  time of
-$t=2$ in reduced units, which  is sufficient to measure the relaxation
+$t=1$ in reduced units, which  is sufficient to measure the relaxation
 matrix.   A  few  selected  elements of  the  correlation  matrix  are
 computed with a very long support of $t=30$ in reduced units, in order
 to test the predictions of the theory at long times.
@@ -3335,6 +3335,26 @@ a matrix of $61\times61$ non-zero elements.
 g_{\mu}(t)  g_\nu\rrangle$ for  $t=0$ (left) and $t=0.6$ (right).}
 \label{fig:Ct-matrix-WALLS-66nodes}
 \end{figure}
+
+Next, we consider the time-dependent eigenvalues $\tilde{C}_\mu(t)$ of
+the correlation matrix $C(t)$.  The eigenvector basis depends slightly
+in time. We have checked that by  using the matrix $E(t)$ at the fixed
+times  $t=0.15,0.30$  instead  of  the  time-dependent  matrix  $E(t)$  in
+(\ref{diag}), the  correlation matrix $C(t)$  essentially diagonalizes
+with  the same  eigenvalues,  therefore  validating the  approximation
+(\ref{Ctilde}). i
+This can be seen in Fig. \ref{fig:LambdatBasis-WALLS-66nodes}, 
+where it plotted for clarity only $15$ elements of the diagonal of the matrix $\tilde{\Lambda}(t)$ in three different basis: 
+$E(0.15)$, $E(0.30)$ and $E(t)$. 
+\begin{figure}[h!]
+  \centering
+\includegraphics[scale=0.45]{LambdatBasis-WALLS-66nodes}
+\caption[Diagonal elements  $\tilde{\Lambda}_{\mu\mu}(t)$ of $\Lambda(t)$ in three different basis - 66nodes.]{The  diagonal elements  $\tilde{\Lambda}_{\mu\mu}(t)$ of  the
+  $\Lambda(t)$ in three basis:
+$E(0.15)$ (dashed blue lines), $E(0.30)$ (dashed green lines) and $E(t)$ (solid orange lines). }
+\label{fig:LambdatBasis-WALLS-66nodes}
+\end{figure}
+
 
 We plot in Fig.  \ref{fig:CtRec-WALLS-66nodes-exp}  all the 61 non-zero eigenvalues, in
 descending  order,  as a  function  of  time. Statistical  errors  are
@@ -3379,6 +3399,18 @@ middle panel.
 \label{fig:LambdatRec-WALLS-66nodes}
 \end{figure}
 
+One  interesting feature  of the  spectrum of  the correlation  matrix
+shown  in  Fig.  \ref{fig:CtRec-WALLS-66nodes-exp}  are  the  smallest two  eigenvalues
+corresponding to $\mu=60,61$  that are clearly separated from the rest.
+This eigenvalues are plotted in isolation for clarity in the left panel
+of  Fig.  \ref{fig:EigenvaluesVectors-WALLS-66nodes}.   Note that  these eigenvalues  have a
+distinct negative tail. This implies that  these modes do not decay in
+an exponential way at all. The corresponding eigenvectors are shown in
+the  right  panel of  Fig.   \ref{fig:EigenvaluesVectors-WALLS-66nodes}.   Note that  these
+eigenvectors  are  localised  near   the  walls  and,  therefore,  the
+contribution  of this  eigenvectors  into  the spectral  decomposition
+(\ref{spectral}) boils  down to  a sort of  bounce-back effect  of the
+fluid in the direction parallel to the walls.
 
 \begin{figure}[h!]
   \centering
@@ -3387,11 +3419,126 @@ middle panel.
 \label{fig:EigenvaluesVectors-WALLS-66nodes}
 \end{figure}
 
+The fact  that there are  eigenvalues that decay in  a non-exponential
+way indicates  that the dynamics  is non-Markovian, at least  near the
+walls. The non-Markovian effects could  be small, however, as only one
+eigenvalue  is clearly  non-exponential.  In  order to  appreciate the
+actual effect  of this  non-Markovian contribution to  the correlation
+matrix in real space, we define the relaxation matrix in Fourier space
+as   $\tilde{\Lambda}^*=\tilde{\Lambda}(\tau)$  for   $\tau=0.2$.   As
+appreciated in Fig.   \ref{fig:LambdatRec-WALLS-66nodes}, this time
+$\tau$ seems to  be a compromise for the minimum  time at which almost
+all the elements $\tilde{\Lambda}_\mu(t)$ have reached the plateau and
+yet the statistical errors due to  the inverse of the eigenvalues have
+not exploded.   From $\tilde{\Lambda}^*$  we construct  the relaxation
+matrix $\Lambda^*$ in  real space and, from  Eq.  (\ref{Cpredict}), we
+obtain the prediction $C^{\rm  predict}(t)$ of the correlation matrix.
+We plot in Fig. \ref{fig:Predictions-WALLS-66nodes} the  comparison of the measured and the
+predicted correlation matrix  for particular elements $C_{\mu\mu}(t)$
+of the matrix  along the diagonal.  In particular,  we choose $\mu=33$
+which is in the middle of the  channel and $\mu=2,3$ which are the two
+bins closer to the walls that have already fluid in it (bins $\mu=0,1$
+do not contain  fluid particles due to the presence  of the wall).  In
+the  top  panel  of  Fig.   \ref{fig:Predictions-WALLS-66nodes} are  the  results  for  the
+autocorrelation in the middle of  the channel. The inset is a zoom at short times. The right plot, in logscale,
+has  a support  up  to  $t=30$. The  agreement  between predicted  and
+measured correlations is excellent in  the middle of the channel.  The
+middle  and  bottom  panels  in Fig.   \ref{fig:Predictions-WALLS-66nodes}  describing  the
+comparison   near   the   solid   wall,   however,   show   noticeable
+discrepancies.   Very close  to  the wall,  for  $\mu=2$ the  measured
+correlation displays  a bump,  better noticed  in the  logscale plot,
+that  probably  reflects  the   ``bounce-back''  contribution  of  the
+eigenvalues  $\mu=59,60$ in  the correlation  matrix (\ref{spectral}).
+The  measured  autocorrelation  remains positive,  though,  while  the
+predicted correlation  becomes negative.  Therefore, we  conclude that
+the measured relaxation  matrix $\Lambda^*$ does not  allow to predict
+through (\ref{InFull-C})  the correct  momentum correlations  near the
+wall.   This is  clear sign  that the  dynamics near  the wall  is not
+Markovian.
+
+
 \begin{figure}[h!]
   \centering
 \includegraphics[scale=0.45]{Predictions-WALLS-66nodes}
 \caption[Predicted autocorrelations of $C(t)$ for 66 nodes.]{The predicted (orange) and the measured (blue) values of the autocorrelation $C_{\mu\mu}(t)$ at different values of $\mu$ (top $\mu=33$, middle $\mu=3$ and bottom $\mu=2$). The predicted and measured correlations coincide by construction at $t=\tau=0.2$, where the vertical red line is. The inset shows a zoom at short times. The right panel is the same in logscale, where the correlations extends up to time $t=30$.}
 \label{fig:Predictions-WALLS-66nodes}
+\end{figure}
+
+\subsection{Thick bins with $\Delta z = 2\sigma$}
+In  order to  assess the  effect  of the  bin width  on the  Markovian
+character of the  dynamics of the discrete momentum  variable, we have
+conducted simulations  of the  same system but  with 33  nodal planes,
+giving bins  of a  size $\Delta  z=\sigma$, and  with 17  nodal planes
+giving a  bin width of  $\Delta z=2\sigma$.  The phenomenology  for 33
+nodes  is very  similar to  the one  for 66  nodes.  We  still observe
+negative eigenvalues and non-Markovian behaviour, although the effects
+are not so pronounced  as for 66 nodes. 
+\Note{Poner el gráfico de los autovalores para 33 nodos.}
+In  Fig.
+\ref{fig:CtRec-WALLS-17nodes}   left   panel   the   time   dependent   eigenvalues
+$\tilde{C}_{\mu}(t)$  of  the  $17\times 17$  correlation  matrix  are
+plotted as a function of time.  In the right panel, the logscale plot
+shows a fairly linear decay, signaling exponential behaviour.  This is
+more  clearly   seen  in   Fig. \ref{LambdatRec-WALLS-17nodes},  where   the  function
+$\tilde{\Lambda}_\mu(t)$  defined  in  (\ref{LambdatRec})  displays  a
+plateau.   We select  the  plateau time  $\tau=0.3$  and measure  the
+relaxation matrix $\Lambda^*$ as the Fourier transform of the diagonal
+matrix  $\tilde{\Lambda}_{\mu}^*(\tau)$.   In  this way,  we  can  now
+construct the  prediction (\ref{Cpredict}) for the  correlation matrix
+$C(t)$ in real space. We  plot in Fig.  \ref{fig:Predictions-WALLS-17nodes} some selected
+autocorrelations corresponding  to bins $\mu=7$  in the middle  of the
+channel,  $\mu=4$ which  is  a  quarter distance  from  the wall,  and
+$\mu=1$  the  first   bin  with  fluid  (bin  $\mu=0$   has  no  fluid
+contribution).   We   observe  an  excellent  agreement   between  the
+predicted and measured correlations.  This agreement is also very good
+for the  cross-correlations, as shown in  Fig. \ref{fig:PredictionsCross-WALLS-17nodes}. Note
+that the  cross-correlation $C_{8,7}(t)$ is non-zero  at $t=0$ because
+the momentum at a  given node is defined in terms  of a finite element
+basis  function.  For neighbouring  nodes,  the  finite element  basis
+overlap  and this  gives  rise  to the  non-zero  value  of the  cross
+correlation.  On  the other  hand, for nodes  separated by  two units,
+where the finite elements no  longer overlap, the cross correlation at
+$t=0$ vanishes, as it is clear for $C_{3,5}(t)$.
+
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[scale=0.45]{CtRec-WALLS-17nodes-exp}
+  \caption[Evolution of different eigenvalues $\tilde{C}_{\mu\nu}(t)$ for confined fluid - 17 nodes.]{
+  The  evolution of  the different
+  eigenvalues  $\tilde{C}_{\mu\mu}(t)$ of  the  correlation matrix  of
+  momentum  as  a  function  of   time  in  a  lin-lin  plot  (left)
+  and   log-lin   plot
+  (right). Also  plotted are  a vertical line  at $t=\tau=0.3$  and a
+  horizontal  line  at  the   value  $5\times10^{-6}$,  signaling  the
+  threshold below which statistical errors give spurious results. }
+\label{fig:CtRec-WALLS-17nodes-exp}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+\includegraphics[scale=0.45]{LambdatRec-WALLS-17nodes}
+\caption[Diagonal elements  $\tilde{\Lambda}_{\mu\mu}(t)$ of $\Lambda(t)$ in the reciprocal space - 17nodes.]{The  diagonal elements  $\tilde{\Lambda}_{\mu\mu}(t)$ of  the
+  $\Lambda(t)$ in the reciprocal space defined in (\ref{}), as a
+  function of $t$.}
+\label{fig:LambdatRec-WALLS-17nodes}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+\includegraphics[scale=0.45]{Predictions-WALLS-17nodes}
+\caption[Predicted autocorrelations of $C(t)$ for 17 nodes.] {Autocorrelations $C_{\mu\mu}(t)$  for different  bins $\mu=1$
+  (bottom),  $\mu=4$  (middle),  and  $\mu=7$ (top).  The  right panel  is  in 
+  logscale with a support up to $t=30$. The red line is plot at $t=0.3$}
+\label{fig:Predictions-WALLS-17nodes}
+\end{figure}
+
+
+\begin{figure}[h!]
+  \centering
+\includegraphics[scale=0.45]{PredictionsCross-WALLS-17nodes}
+\caption[Predicted autocorrelations of $C(t)$ for 17 nodes.]{The crosscorrelations between nodes $\mu=3,\nu=5$ (bottom) and  $\mu=8,\nu=7$ (top). The right pael is in logscale, and the red line is plot at $t=30$.}
+\label{fig:PredictionsCross-WALLS-17nodes}
 \end{figure}
 
 
