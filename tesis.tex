@@ -1912,6 +1912,7 @@ is not used.
 
 
 \subsection{A corrected Green-Kubo formula with no plateau problem}
+\label{Sec:CorrectedGK}
 We now  consider a procedure that  allows one to define  the transport
 coefficients from  a modified version  of the Green-Kubo  formula even
 when no  plateau exists, \textit{provided}  the dynamics can  still be
@@ -2110,9 +2111,10 @@ corrected Green-Kubo formula.
 
 
 \section{Mori theory for shear hydrodynamics}
-\label{Sec:MoriShearHydro}
+\label{Sec:MoriPBC}
 In this section, we use Mori theory in the notation presented in Sec. \ref{Sec:Mori} for predicting the dynamics of equilibrium correlations of transverse momentum density in a periodic box in the time domain. 
 \subsection{The CG variables}
+\label{Sec:CGVariablesPBC}
 In Chapter \ref{Chap:Planar} we gave a detailed description of the definitions of the geometry and the definition of the CG variables. In this section we have a system like Fig. (\ref{fig:PBCBox})
 The simulation periodic box of  dimensions $L_x,L_y,L_z$ is divided in
 its $L_z$  direction in  $N_{\rm bin}$ \textit{nodal  planes} labelled
@@ -2128,11 +2130,19 @@ is equal to the node  $N_{\rm bin}$.
     \caption[Periodic box]{A visual representation of the MD simulation with a sketch of the binning used. In red are depicted the nodal planes used.}
     \label{fig:PBCBox}
 \end{figure}
+We carefully  distinguish between  \textit{nodes} and
+\textit{bins}:  nodes are  points  in  the $z$  axis,  while bins  are
+segments in this axis.  In 3D, nodes are planes, while bins are slabs.
+As it  will become apparent, from  a microscopic point of  view, mass,
+momentum, and force  densities are defined at the  nodes, while stress
+is  defined  at  the  bins.   Each   bin  is  a  layer  of  dimensions
+$L_x,L_y,\Delta z$. 
+
 
 As CG variables we choose  the set of discrete hydrodynamic
 variables,  which are  the  mass density  $\hat{\rho}_\mu(z)$ and  the
 momentum  density $\hat{\bf  g}_\mu(z)$  defined at  the nodal  points
-$\mu$
+$\mu$   \Note{Realmente la única variable relevante es el momento.}
 \begin{align}
 \hat{\rho}_\mu(z)&= \sum_i^Nm_i\delta_\mu({\bf r}_i)
 % \nonumber\\
@@ -2750,7 +2760,7 @@ In the local approximation, the relaxation time (\ref{taumu}) is given by
 
 \section{MD simulations}
 \label{Sec:SimPBC}
-In Sec. (\ref{Sec:MoriShearHydro}) we saw that the  two main  quantities of  concern  are the  correlation matrix  of
+In Sec. (\ref{Sec:MoriPBC}) we saw that the  two main  quantities of  concern  are the  correlation matrix  of
 discrete momentum  $C(t)$ and the  correlation matrix of  the discrete
 stress  that appears  in  the Green-Kubo  running integral  $\eta(t)$.
 These two  matrices can be measured  from MD simulations. In  order to
@@ -3198,7 +3208,7 @@ matrix   given    by   the    non-zero   infinite   time    limit   in
 Eq. (\ref{GKCorrected}).
 
 
-In the second part of this chapter -- Sec.s \ref{Sec:MoriShearHydro} and \ref{Sec:SimPBC} --  we  have computed from  MD simulations  the equilibrium
+In the second part of this chapter -- Sec. \ref{Sec:MoriPBC} and Sec. \ref{Sec:SimPBC} --  we  have computed from  MD simulations  the equilibrium
 time-dependent correlation matrix of  the discrete transverse momentum
 density.   Under  the Markovian  approximation,  Mori  theory gives  a
 definite prediction for the correlation  matrix in terms of a decaying
@@ -3273,23 +3283,146 @@ we saw in Chapter \ref{Chap:BC}.
 \section{Introduction}
 
 \section{The CG variables and its dynamics}
+We  consider a  LJ  fluid system  confined  in between  two
+parallel solid walls made of LJ particles fixed in a simple
+cubic lattice as is represented in Fig. \ref{fig:WallsBox}. The walls are  along the directions $x^1,x^2$.  Because
+of  traslational  invariance along  the  walls,  we bin  the  vertical
+direction $x^3$ in layers paralel to  the planar walls. In the same way as was exposed in Sec. \ref{Sec:CGVariablesPBC} the box length
+$L_z$ is divided  in $N_{\rm bin}$ bins labelled with  an index $\mu$.
+The bins are separated by $N_{\rm bin}$ nodes (actually, nodal planes)
+located  at $z_\mu=\mu  \Delta z$,  $\mu=0,\cdots,N_{\rm bin}-1$  with
+$\Delta z=L_z/N_{\rm bin}$.  We assume  that we have periodic boundary
+conditions in the  $x_3$ direction, albeit due to the  walls the fluid
+will never  cross the periodic boundary.   The node $\mu=0$ is equal to the node
+$N_{\rm bin}$.   
 \begin{figure}
     \centering
     \includegraphics[scale=0.3]{system_nodes_walls}
     \caption[Walls box]{A visual representation of the MD simulation with a sketch of the binning used. In red are depicted the nodal planes used.}
     \label{fig:WallsBox}
 \end{figure}
+As in unconfined fluid simulations, we have checked that the correlations   $\llangle   \hat{\bf
+  g}^1_\mu(t)\hat{\bf     g}^3_\nu\rrangle$,    $\llangle     \hat{\bf
+  g}^1_\mu(t)\hat{\rho}_\nu\rrangle$     are    vanishingly     small,
+corroborating  the predictions  of the  theory. Therefore,  as far  as
+shear motion of  the fluid is concerned, a level  of description given
+by the  parallel component  $\hat{\bf g}^1_\mu$ should  be sufficient.
+We will consider elsewhere the  more general situation that allows one
+to  study compression  of the  fluid in  the direction  normal to  the
+walls.
 
+The central quantity in this chapter, as well as in Chapter \ref{Chap:PBC}, is the equilibrium correlation matrix $C(t)$ of the CG variables given by
+\begin{align}
+  C(t)=\llangle \hat{g}(t) \hat{g}^T\rrangle
+\end{align}
+where  $T$  stands  for  transpose.   According  to  Mori  theory  the
+correlation matrix decays in a linear way,
+\begin{align}
+ \frac{d}{dt}C(t)&= -\Lambda^*\esc C(t)
+\label{InFull-C}
+\end{align}
+where  the  relaxation  matrix   $\Lambda^*$  is  a  constant  $N_{\rm
+  bin}\times N_{\rm  bin}$ matrix. The relaxation  matrix subsumes all
+  the transport coefficients  of the system. As shown  in Sec. \ref{Sec:MoriPBC},
+the relaxation  matrix can  be decomposed  into a  non-local viscosity
+contribution and non-local friction contributions, all defined through
+Green-Kubo expressions,  suitably corrected  with the method  given in
+Sec. \ref{Sec:CorrectedGK}.  As discussed in  Sec.  \ref{Sec:MarkovianAprox} a  Markovian equation
+like (\ref{InFull-C}) is expected to hold only after a time $\tau$ has
+elapsed. 
+
+The Markovian relaxation equation (\ref{InFull-C}) predicts the following
+evolution equation for correlation matrix
+\begin{align}
+  C^{\rm predict}(t)&=\exp\{-\Lambda^* (t-\tau)\}C(\tau)
+\label{Cpredict}
+\end{align}
+where we  have introduced  the matrix  exponential through  its Taylor
+series and have taken into account that Eq.  (\ref{InFull-C}) can only
+be valid after  a time $\tau$. The elements of  the matrix exponential
+do not  need to  decay as  exponential functions. As  we will  see, in
+fact,  the decay  is  quasi-algebraic.   
+
+In order to have an easier  identification of whether the evolution of
+the  matrix  exponential  is   described  by  the  Markovian  equation
+(\ref{InFull-C}) it  proves convenient to diagonalize  the correlation
+matrix.   We introduce  eigenvalues  $\tilde{C}_\mu$ and  eigenvectors
+$u_\mu$ in such a way that the  the correlation matrix is given by the
+spectral decomposition
+\begin{align}
+  C(t)&=\sum_\mu^{N_{\rm bin}}\tilde{C}_\mu(t) u_\mu(t) \otimes u_\mu^T(t)
+\label{spectral}
+\end{align}
+The unitary matrix $E(t)$ that  has as columns the eigenvectors allows
+to diagonalize the correlation matrix, this is
+\begin{align}
+  E^{-1}(t)\esc C(t)\esc E(t)=\tilde{C}(t)
+\label{diag}
+\end{align}
+where $\tilde{C}(t)={\rm Diag}[\tilde{C}_1(t),\cdots,\tilde{C}_{N_{\rm
+    bin}}(t)]$ is a diagonal matrix  containing the eigenvalues in the
+diagonal.   If  the  system  was traslation  invariant  in  the  $x^3$
+dimension, the  matrix $E(t)$ would  be given by  the time-independent
+discrete Fourier  transform, as discussed  in Chapter  \ref{Chap:PBC}.   In the
+present problem where the solid walls break traslation invariance, the
+unitary  matrix  $E(t)$ is  time  dependent.   As a  consequence,  the
+diagonal matrix $\tilde{C}(t)$ evolves according to
+\begin{align}
+\frac{d}{dt}  \tilde{C}(t)&=-\tilde{\Lambda}^*\esc \tilde{C}(t)
+  +\frac{d }{dt}(E^{-1}(t)) \esc C(t)\esc E(t)\nonumber\\
+  &+E(t)\esc C(t)\esc \frac{d }{dt}E(t)  
+\label{dc}
+\end{align}
+%\begin{align}
+%\frac{d}{dt}  \tilde{C}(t)&=-\tilde{\Lambda}^*\esc \tilde{C}(t)
+%+\frac{d }{dt}E(t) \esc E^{-1}(t) \esc \tilde{C}(t)\nonumber\\
+%&+\tilde{C}(t)\esc \frac{d }{dt}E(t) \esc E^{-1}(t)  
+%\label{dc}
+%\end{align}
+In Sec. \ref{Sec:ThinBins} we will show that the time dependence of the unitary  matrix is
+very weak, $\dot{E}\simeq 0$, and allows one to approximate Eq. (\ref{dc}) as
+\begin{align}
+\frac{d}{dt}  \tilde{C}(t)&\simeq-\tilde{\Lambda}^*\esc \tilde{C}(t)
+\label{Ctilde}
+\end{align}
+where,   consistently,  the   matrix  $\tilde{\Lambda}^*$   has  small
+off-diagonal elements.   Therefore, we  arrive at the  conclusion that
+the eigenvalues  $\tilde{c}_\mu(t)$ of  the correlation  matrix evolve
+according to a single exponential
+\begin{align}
+  \tilde{C}_\mu(t)&=\exp\{-\tilde{\Lambda}_{\mu\mu} (t-\tau)\}  \tilde{C}_\mu(\tau)
+\end{align}
+where we have  taken into account that the  Markovian approximation is
+valid only after the time $\tau$. This is one signature of the validity of the
+Markovian equation (\ref{InFull-C}). Another signature of the validity is obtained from
+each component of (\ref{Ctilde}) that shows that the function defined
+as
+\begin{align}
+  \tilde{\Lambda}_{\mu}(t)&\equiv -\frac{1}{{\tilde{C}}_{\mu}(t)}\frac{d{\tilde{C}}_{\mu}}{dt}(t)
+\label{LambdatRec}
+\end{align}
+should,  after  a time  $\tau$  reach  the  constant plateau  value  $
+\tilde{\Lambda}_{\mu\mu}^*$.  Note  that the eigenvalues  should decay
+exponentially  and,  therefore,  $  \tilde{\Lambda}_{\mu}(t)$  is  the
+product  of an  exponentially decaying  function and  an exponentially
+exploding function. This means that we need high quality statistics in
+order  to have  sensible values  for $  \tilde{\Lambda}_{\mu}(t)$.  We
+also realize that no matter how good our statistics is, we will always
+encounter sufficiently large times where the exponential amplification
+of statistical errors render  the function $ \tilde{\Lambda}_{\mu}(t)$
+meaningless.
 
 \section{MD simulations}
 \label{Sec:SimWALLS}
+The objetive of this section is to present the simulations we made to measure the matrix of correlations $C(t)$ in order to validate the markoviam aproximation of a confined fluid. We will deal with bines of diferent size, $\Delta z$. \Pendiente{falta un poco más de intro.}
+
 \subsection{Simulation set up}
 A system of particles interacting  with a LJ potential \ref{LJ}
 truncated at $\sigma=2.5$ has been simulated with the LAMMPS code. The
 box size  is $40\times40\times33$,  the number  of fluid  particles is
 $N=28.175$ and  the time step  is $0.002$ in reduced  units.  Periodic
 boundary conditions  (PBC) are assumed  in all directions.   Two solid
-walls in the $xy$ plane confine the fluid as is shown in Fig. \ref{system_nodes_walls}.  The bottom wall is made of
+walls in the $xy$ plane confine the fluid as is shown in Fig. \ref{fig:WallsBox}.  The bottom wall is made of
 two layers  of LJ  particles located  in a  simple cubic  lattice with
 lattice spacing  $\sigma$. The top  wall is made  of two layers  of LJ
 particles  in a  similar  cubic  lattice.  The  location  of the  four
@@ -3308,6 +3441,7 @@ timesteps.  After this equilibration  phase, production runs of $12\times 10^6$
 time steps are launched and the transverse correlations are computed with the LAMMPS command \textit{ave/correlate} as it was explained in Sec. \ref{Sec:SimSetUpPBC}. 
 
 \subsection{Thin bins with $\Delta z = 0.5\sigma$}
+\label{Sec:ThinBins}
 The $z$  axis is binned  in $66$ bins of  width of half  the molecular
 size, $\Delta z=0.5\sigma$.  The  correlation matrix of the transverse
 momentum of different bins is computed, requiring a total of $66\times
@@ -3475,11 +3609,11 @@ negative eigenvalues and non-Markovian behaviour, although the effects
 are not so pronounced  as for 66 nodes. 
 \Note{Poner el gráfico de los autovalores para 33 nodos.}
 In  Fig.
-\ref{fig:CtRec-WALLS-17nodes}   left   panel   the   time   dependent   eigenvalues
+\ref{fig:CtRec-WALLS-17nodes-exp}   (left   panel)   the   time   dependent   eigenvalues
 $\tilde{C}_{\mu}(t)$  of  the  $17\times 17$  correlation  matrix  are
 plotted as a function of time.  In the right panel, the logscale plot
 shows a fairly linear decay, signaling exponential behaviour.  This is
-more  clearly   seen  in   Fig. \ref{LambdatRec-WALLS-17nodes},  where   the  function
+more  clearly   seen  in   Fig. \ref{fig:LambdatRec-WALLS-17nodes},  where   the  function
 $\tilde{\Lambda}_\mu(t)$  defined  in  (\ref{LambdatRec})  displays  a
 plateau.   We select  the  plateau time  $\tau=0.3$  and measure  the
 relaxation matrix $\Lambda^*$ as the Fourier transform of the diagonal
