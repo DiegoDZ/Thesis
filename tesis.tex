@@ -672,7 +672,7 @@ with the present  formalism \cite{Grabert1982} but we  do not consider
 them here for simplicity.
 
 
-\section{Summary}
+\section{Conclusions}
 
 
 
@@ -1459,13 +1459,13 @@ as
 
 
 
-\section{Summary}
+\section{Conclusions}
 
 %CHAPTER 3
 \chapter{Boundary conditions}\label{Chap:BC}
 \markboth{Boundary conditions}{}
 \section{Introduction}
-\section{Summary}
+\section{Conclusions}
 
 %CHAPTER 4
 \chapter{Planar flows}\label{Chap:Planar}
@@ -1483,7 +1483,7 @@ equations  with the  top  down discretization  of continuum  equations
 Referencia: Tesis de Arturo.}
 
 
-\section{Summary}
+\section{Conclusions}
 
 %CHAPTER 5
 \chapter{Space and time locality of hydrodynamics in periodic boundary conditions}\label{Chap:PBC}
@@ -2115,7 +2115,7 @@ corrected Green-Kubo formula.
 In this section, we use Mori theory in the notation presented in Sec. \ref{Sec:Mori} for predicting the dynamics of equilibrium correlations of transverse momentum density in a periodic box in the time domain. 
 \subsection{The CG variables}
 \label{Sec:CGVariablesPBC}
-In Chapter \ref{Chap:Planar} we gave a detailed description of the definitions of the geometry and the definition of the CG variables. In this section we have a system like Fig. (\ref{fig:PBCBox})
+In Chapter \ref{Chap:Planar} we gave a detailed description of the definitions of the geometry and the definition of the CG variables. In this section we have a system like the showed in Fig. \ref{fig:PBCBox}
 The simulation periodic box of  dimensions $L_x,L_y,L_z$ is divided in
 its $L_z$  direction in  $N_{\rm bin}$ \textit{nodal  planes} labelled
 with   an    index   $\mu$   located   at    $z_\mu=\mu   \Delta   z$,
@@ -2741,7 +2741,7 @@ In the local approximation, the relaxation time (\ref{taumu}) is given by
 \label{taumuloc}
 \end{align}
 
-%\subsection{Summary of the theory}
+%\subsection{Conclusions of the theory}
 %The  two main  quantities of  concern  are the  correlation matrix  of
 %discrete momentum  $C(t)$ and the  correlation matrix of  the discrete
 %stress  that appears  in  the Green-Kubo  running integral  $\eta(t)$.
@@ -2795,7 +2795,7 @@ Interactions between equal particles has been simulated in PBC with the LAMMPS c
 \end{align}
 where $r_{ij}$ is the distance between particles $i$ and $j$, $\epsilon_{ij}$ is the depth of the potential well, $\sigma_{ij}$ is the distance at which $V_{ij}$ is zero, and $r_c$ is the cutoff radius (taken equal to $2.5\sigma_{ij}$). The parameters $\epsilon_{ij}$ and $\sigma_{ij}$ take the value 1. 
 
-In Fig. \ref{system_nodes_periodic} a squeme of the simulation is showe is showed.
+In Fig. \ref{fig:system_nodes_periodic} a snapshot of the simulation is showed.
 The box  size is $40\times40\times30$, the  number of particles with mass $m=1$
 is $N=28749$, and the time step is $0.002$ in reduced units.  After an
 equilibration  of  $10^5$ timesteps  with  a  Langevin thermostate  to
@@ -3414,7 +3414,10 @@ meaningless.
 
 \section{MD simulations}
 \label{Sec:SimWALLS}
-The objetive of this section is to present the simulations we made to measure the matrix of correlations $C(t)$ in order to validate the markoviam aproximation of a confined fluid. We will deal with bines of diferent size, $\Delta z$. \Pendiente{falta un poco más de intro.}
+The objetive of this section is to present the simulations we made to measure the matrix of correlations $C(t)$ in order to validate the Markoviam aproximation of a confined fluid. 
+We follow the strategy presented in Chapter \ref{Sec:SimPBC}. Because the translational invariance is broken for confined fluids, it used, instead of the Fourier basis, the eigenvector basis of $C(t)$. 
+In the first part of this section we deal with a sWe will deal with bines of diferent size, $\Delta z$.  
+We deal with a system in which the space occupied by the fluid is exactly the same as in the case of an unconfined fluid. In the first part of this section the fluid region is divided in bins in which $Delta z$ is the same as the used in Chapter \ref{Chap:PBC}. In the second part, the size of the bins is doubled. 
 
 \subsection{Simulation set up}
 A system of particles interacting  with a LJ potential \ref{LJ}
@@ -3604,10 +3607,17 @@ character of the  dynamics of the discrete momentum  variable, we have
 conducted simulations  of the  same system but  with 33  nodal planes,
 giving bins  of a  size $\Delta  z=\sigma$, and  with 17  nodal planes
 giving a  bin width of  $\Delta z=2\sigma$.  The phenomenology  for 33
-nodes  is very  similar to  the one  for 66  nodes.  We  still observe
-negative eigenvalues and non-Markovian behaviour, although the effects
-are not so pronounced  as for 66 nodes. 
-\Note{Poner el gráfico de los autovalores para 33 nodos.}
+nodes  is very  similar to  the one  for 66  nodes.  
+\Pendiente{In Fig. \ref{} we still observe negative eigenvalues and non-Markovian behaviour, although the effects are not so pronounced as for 66 nodes.}  
+For 17 nodes the layering of the density field is not capture, as it showed in Fig. \ref{fig:DensityProfile-WALLS}
+\begin{figure}[h!]
+  \centering
+\includegraphics[scale=0.45]{DensityProfile-WALLS}
+\caption[Fluid density profile for 66 and 17 nodes.]{The equilibrium average discrete density for thin bins (blue) and thick bins (orange). The thick bins do not capture the layering of the density field.}
+\label{fig:DensityProfile-WALLS}
+\end{figure}
+
+
 In  Fig.
 \ref{fig:CtRec-WALLS-17nodes-exp}   (left   panel)   the   time   dependent   eigenvalues
 $\tilde{C}_{\mu}(t)$  of  the  $17\times 17$  correlation  matrix  are
@@ -3633,6 +3643,7 @@ overlap  and this  gives  rise  to the  non-zero  value  of the  cross
 correlation.  On  the other  hand, for nodes  separated by  two units,
 where the finite elements no  longer overlap, the cross correlation at
 $t=0$ vanishes, as it is clear for $C_{3,5}(t)$.
+
 
 
 \begin{figure}[h!]
@@ -3676,19 +3687,22 @@ $t=0$ vanishes, as it is clear for $C_{3,5}(t)$.
 \end{figure}
 
 
-\section{Summary}
+
+
+
+\section{Conclusions}
 
 %CHAPTER 7
 \chapter{MD, BC eta estrella y gamma estrella}\label{Chap:Coeff}
 \epigraph{\textit{It is remarkable how long men will believe in the bottomlessness of a pond without taking the trouble to sound it}}{Walden \\ HENRY DAVID THOREAU}
 \markboth{Co}{}
 \section{Introduction}
-\section{Summary}
+\section{Conclusions}
 
 
 \chapter{Conclusions}\label{cap.Conclusions}
 %\epigraph{\it{El auténtico corredor corre hasta el final.}}{El corredor \\ JOHN L. PARKER}
-\section{Summary}
+\section{Conclusions}
 
 \appendix
 \chapter{Contributions}\label{Ap:Contributions}
