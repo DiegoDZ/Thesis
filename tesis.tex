@@ -75,6 +75,7 @@ blablabla
 blablabla
 
 
+
 \chapter*{Resumen} % si no queremos que añada la palabra "Capitulo"
 %\addcontentsline{toc}{section}{Resumen} % si queremos que aparezca en el índice
 \markboth{RESUMEN}{RESUMEN} % encabezado
@@ -145,10 +146,16 @@ CG  variables.   These formulae  for  transport  coefficients are  the
 celebrated Green-Kubo formulae \cite{Green1952,Kubo1957}.
 
 
+Chapter \ref{Chap:Theory} corresponds to the published paper \ref{Camargo20018}.\\
+Chapter \ref{Chap:Planar} corresonds to the publised paper \ref{}.\\
+Chapter \ref{Chap:PBC} corresponds to the published paper \ref{} and \ref{}.\\
+Chapter \ref{Chap:Walls} corresponds to the publised paper \ref{} and \ref{}.\\
+Chapter \ref{Chap:Slip} corresponds to the publised paper \ref{}.\\
 
 
 %CHAPTER 1
-\chapter{Nonequilibrium Statistical Mechanics}\label{Chap:NESM}
+\chapter{Nonequilibrium Statistical Mechanics}
+\label{Chap:NESM}
 \markboth{Nonequilibrium Statistical Mechanics}{}
 \epigraph{\textit{There is no future. There is no past. Do you see? Time is simultaneous, an intricately structured jewel that humans insist on viewing one edge at a time, when the whole design is visible in every facet.}}{Watchmen \\ ALAN MOORE} 
 
@@ -1461,11 +1468,11 @@ as
 
 \section{Conclusions}
 
-%CHAPTER 3
-\chapter{Boundary conditions}\label{Chap:BC}
-\markboth{Boundary conditions}{}
-\section{Introduction}
-\section{Conclusions}
+%%CHAPTER 3
+%\chapter{Boundary conditions}\label{Chap:BC}
+%\markboth{Boundary conditions}{}
+%\section{Introduction}
+%\section{Conclusions}
 
 %CHAPTER 4
 \chapter{Planar flows}\label{Chap:Planar}
@@ -1852,10 +1859,14 @@ For  $t\to\infty$ we  expect a  decorrelation  in the  form $  \langle
 \hat{A}\rangle \langle  F^+\rangle =0$.   Therefore, as a  function of
 $t$, the matrix $M^+(t)$ starts from 0  and decays to 0 at large times
 and, in  general, we do not  expect to find a  time-independent matrix
-$M^*$  out  of  $M^+(t)$.   This problem  was  recognized  already  by
+$M^*$  out  of  $M^+(t)$.   
+In other words: one cannot extend  the upper limit of
+integration of  the Green-Kubo formulae  to infinity because,  in that
+limit, the transport  coefficients vanish. 
+This problem  was  recognized  already  by
 Kirkwood      as      the      so     called      plateau      problem
 %\cite{Kirkwood1949,Espanol_Zuniga1993}.
-\cite{Kirkwood1949}
+\cite{Kirkwood1949, Espanol1992}.
 
 The usual  way to  accept that  $M^+(t)\simeq M^*$  is to  assume that
 $M^+(t)$ increases  very rapidly, in  a ``molecular'' time  scale, and
@@ -3281,6 +3292,74 @@ we saw in Chapter \ref{Chap:BC}.
 \markboth{Correlation of transverse momentum}{}
 \epigraph{\textit{Descubrir es ver de otro modo lo que nadie ha percibido.}}{Blanco Nocturno \\ RICARDO PLIGIA}
 \section{Introduction}
+In Chapter \ref{Chap:PBC} we have demonstrated
+through MD simulations that the Markovian assumption
+is  valid  for  the  description   of  correlations  of  the  discrete
+transverse momentum \textit{beyond} certain  time.  We have shown that
+beyond  this   time,  hydrodynamics  is  essentially   local  in  time
+\textit{and} space.  
+In this chapter we follow the same strategy as for unconfined fluids in order to study the Markpvian behaviour of a fluid in between two solid slabs. 
+
+
+As we mentioned in the introduction to Chapter \ref{Chap:PBC}, at nanoscopic scales,  a fluid
+starts displaying its  molecular structure in phenomena  like the wall
+ordering.   In  addition, slip  of  the  fluid  at the  walls  becomes
+noticeable.   The  usual  local hydrodynamic  description  with  local
+transport coefficients  and no  slip boundary  conditions needs  to be
+adequately modified in  order to address the  peculiar fluid behaviour
+at  nanoscales. Slip  at nanoscales  has  received a  large amount  of
+attention from the simulation point  of view since the pioneering work
+of Thomson and Robins \cite{Thompson1990,Koplik1995,Thompson1997}.
+
+We  have presented  in  Chapter \ref{Chap:Theory}  a  derivation of  the
+equations of hydrodynamics in the  presence of solid walls that govern
+the  averages of  the  mass  and momentum  density  fields. A  crucial
+feature of this theory is that the effect of the walls on the fluid is
+not through boundary conditions but  rather through forces confined to
+the vicinity  of the solid wall.  In a recent work, Camargo et \Note{Referencia Segundo paper camargo} showed  how  boundary  conditions  can  be  derived  when  the  flows  are  of
+macroscopic  character.  The  theory  gives  the usual  Navier  slip
+boundary  condition  with   microscopically  defined  parameters  that
+coincide      with      those      of     Bocquet      and      Barrat
+\cite{Bocquet1994}.  
+
+The only crucial  assumption made in the formulation of  the theory in
+Chapter \ref{Chap:Theory} is  that the dynamics  is Markovian, this  is, that
+the hydrodynamic equations do not  have integral memory terms.  It is,
+therefore, important to test through MD simulations that the Markovian
+approximation is  correct.  Comparison with MD  simulation require the
+introduction  of discrete  equations. To  achieve this  goal, we  have
+proposed in Chapter \ref{Chap:Planar} a  discrete hydrodynamic theory  for planar
+flows near  solid walls  that can  be understood  as a  finite element
+discretization of  the continuum  theory presented in Chapter \ref{Chap:Theory}.
+The size of the bins enter  the discrete theory as an intrinsic length
+scale. The forces on fluid elements are due to the effect of non-local
+stress tensor and non-local surface forces due to the walls.
+
+In the  theory presented in Chapter \ref{Chap:Theory}, based  on the
+projection  operator technique,  the Markovian  approximation produces
+formal expressions in  terms of Green-Kubo formulae  for the transport
+coefficients.    However  these   expressions  are   formal  for   two
+reasons. First they involve the  so called projected dynamics which is
+uncomputable from MD  simulations. The usual step  of substituting the
+projected dynamics  by the real  Hamiltonian dynamics is  not entirely
+justified. The second  problem is that the  Green-Kubo formulae suffer
+from the plateau problem \cite{Kirkwood1949,Espanol1992}.  
+In Sec. \ref{Sec:CorrectedGK} we have  presented a   new  corrected   Green-Kubo  expression   for  transport
+coefficients that does not suffer from the plateau problem.
+
+The  theory presented  in Chapter \ref{Chap:Theory} describes  the
+evolution of non-equilibrium ensemble averages  and it is based on the
+Kawasaki-Gunton  projector \cite{Grabert1982}.   It is  non-linear and
+involves the  free energy functional familiar  from Density Functional
+Theory.  For the case of  the transverse momentum, the Kawasaki-Gunton
+projector gives  a very simple  linear equation that does  not involve
+the free  energy functional.   A very similar  linear equation  can be
+obtained  in an  alternative way  from the  simpler Mori  theory, that
+always produces  linear equations.   In order  to address  the plateau
+problem  it proves  very  convenient to  have a  theory  not only  for
+averages but also for time correlation functions and both are provided
+in Mori theory.  \Note{Esto se hace en este capítulo?}
+
 
 \section{The CG variables and its dynamics}
 We  consider a  LJ  fluid system  confined  in between  two
@@ -3693,7 +3772,8 @@ $t=0$ vanishes, as it is clear for $C_{3,5}(t)$.
 \section{Conclusions}
 
 %CHAPTER 7
-\chapter{MD, BC eta estrella y gamma estrella}\label{Chap:Coeff}
+\chapter{MD, BC eta estrella y gamma estrella}
+\label{Chap:Slip}
 \epigraph{\textit{It is remarkable how long men will believe in the bottomlessness of a pond without taking the trouble to sound it}}{Walden \\ HENRY DAVID THOREAU}
 \markboth{Co}{}
 \section{Introduction}
@@ -4055,8 +4135,8 @@ exponential through  the evolution of  an initial profile of  the form
 \listoffigures % indice de figuras
 
 \cleardoublepage
-\addcontentsline{toc}{chapter}{List of tables} % para que aparezca en el indice de contenidos
-\listoftables % indice de tablas
+%\addcontentsline{toc}{chapter}{List of tables} % para que aparezca en el indice de contenidos
+%\listoftables % indice de tablas
 
 \bibliographystyle{unsrt}
 \bibliography{bibTex/thesis-library}
