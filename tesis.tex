@@ -153,7 +153,9 @@ Chapter \ref{Chap:Walls} corresponds to the publised paper \ref{} and \ref{}.\\
 Chapter \ref{Chap:Slip} corresponds to the publised paper \ref{}.\\
 
 
+%-----------------------------------------------------------------
 %CHAPTER 1
+%-----------------------------------------------------------------
 \chapter{Nonequilibrium Statistical Mechanics}
 \label{Chap:NESM}
 \markboth{Nonequilibrium Statistical Mechanics}{}
@@ -683,7 +685,9 @@ them here for simplicity.
 
 
 
+%-----------------------------------------------------------------
 %CHAPTER 2
+%-----------------------------------------------------------------
 \chapter{Continuous hydrodynamics theory for liquids near solids}\label{Chap:Theory}
 \markboth{Continuous hydrodynamics theory for liquids near solids}{}
 \epigraph{\textit{Le temps est une invention du mouvement. Celui qui ne bouge pas ne voit pas le temps passer.}}{Métaphysique des tubes \\ AMÉLIE NOTHOMB}
@@ -1468,31 +1472,141 @@ as
 
 \section{Conclusions}
 
-%%CHAPTER 3
-%\chapter{Boundary conditions}\label{Chap:BC}
-%\markboth{Boundary conditions}{}
-%\section{Introduction}
-%\section{Conclusions}
 
-%CHAPTER 4
-\chapter{Planar flows}\label{Chap:Planar}
-\markboth{Planar flows}{}
+%-----------------------------------------------------------------
+%CHAPTER 3
+%-----------------------------------------------------------------
+\chapter{Discrete hydrodynamics near solids for planar flows}\label{Chap:Planar}
+\markboth{Discrete hydrodynamics near solids for planar flows}{}
 \section{Introduction}
+In the last chapter we  have constructed  from  first
+principles a theory  for hydrodynamics in contact with  solids.    Based   on    the   Kawasaki-Gunton   projector
+\cite{Kawasaki1973,Grabert1982}, the theory  governs the average value
+of the hydrodynamic variables in the  presence of a solid sphere.  The
+essential ingredients of  the theory are the  conventional free energy
+functional of DFT that governs the  layering of the density field, and
+the presence  of irreversible  forces that  are concentrated  near the
+solid surface and that are the responsible at the coarse-grained level
+of transmitting the  interactions of the solid atoms to  the fluid. 
 
-\Note{ Esto viene de la intro del paper 5. Alternatively,  the method  of planes  \cite{Davis1996,Travis2000} has
-been used to  define discrete hydrodynamic variables.  In  a number of
-works
-\cite{Espanol2009i,DelaTorre2011,DelaTorre2015,EspanolDonev2015},   we
-have  discussed  refined strategies  for  the  definition of  discrete
-hydrodynamic variables  in real  space.  The  main objective  of these
-strategies is to match the  bottom up derivation of discrete evolution
-equations  with the  top  down discretization  of continuum  equations
-Referencia: Tesis de Arturo.}
+In   spite   of   its   elegance,   the   theory presented  cannot yet  be validated  through simulations
+for two  reasons. First,  the amount of  information required  in the
+hydrodynamic equations  is exceedingly  large. Non-local  higher order
+tensors are  required leading  to an  untractable number  of different
+components.   Second, in  order to  compare with  MD simulations,  one
+necessarily requires  a discrete version  of such a  theory. Particles
+need to be sorted into bins in order to measure ``fields'' in MD.  In this chapter we produce  the discrete hydrodynamic
+equations involving a tractable amount of measurable information. The
+discrete quantities  appearing in the  theory can be  measured through
+equilibrium MD  simulations, and the  theory may be then  validated by
+comparing  with non-equilibrium  MD  simulations.   Such a  comparison
+allows  us to  validate the  only  assumption on  which the  continuum
+Dynamic Density Functional Theory given in Chapter \ref{Chap:Theory} is
+based,  which  is  the   Markovian  assumption.   This  validation  conforms the core of the present dissertation  where we  have observed
+that  only for  sufficiently large  discretization cells,  larger than
+molecular  sizes, one  observes  Markovian behaviour.   In the  strict
+continuum limit of  very small cells, a Markovian theory  is unable to
+describe  the numerical  results. Therefore, this  gives  further
+motivation to introduce the  present discrete hydrodynamic theory with
+its intrinsic built  in length scale given by  the discretization cell
+size.
+
+\section{Simpler theory}
+The hydrodynamic theory  (\ref{finaleq}) requires
+an extremely  large amount of  information in order to  be predictive,
+which  is almost  a  contradiction. In particular,
+we  need to  know the  transport  coefficients which  are, in  general
+non-local,  but  most  dramatically,   tensorial  in  character.   The
+Green-Kubo expressions  (\ref{GK}) correlate the  different components
+of the  microscopic force vector that  the solid exerts on  the fluid,
+and the microscopic stress tensor, defined both in (\ref{sigma}).  The
+number  of components  of the  tensorial kernels  is very  large.  The
+viscosity  tensor, being  a fourth  order tensor  has in  principle 81
+components, but the symmetry of  the microscopic stress tensor reduces
+the number  to 36 independent  components.  The tensors  ${\bf G},{\bf
+  H}$ are third  order tensors and, on account of  the symmetry of the
+microscopic stress  tensor, have 21 independent  components, while the
+number of independent  components of the second  order friction tensor
+is 9.   Onsager reciprocity reduces  the total  number to 23  which is
+still a very large number of components to consider.
+
+For  this reason,  we will  consider a  theory that  is restricted  to
+\textit{planar walls}.   The concept of  ``surface'' is subtle  from a
+microscopic  point of  view.   In fact,  the solid  is  made of  point
+particles that act like centers of  force for the fluid particles. The
+concept of  surface of a  solid and its  actual position needs  to be,
+therefore, related  to the  interactions between  fluid and  solid, as
+discussed in \cite{CamargoBC2018}.
+
+In this chapter we assume that the walls, or rather the interactions felt
+by the fluid due to the  walls, are statistically planar and isotropic,
+i.e.  invariant under translations in the plane of the wall, and under
+rotations around an axis perpendicular to the walls.
+In  addition,  we  will  restrict ourselves  to  \textit{planar  flow}
+situations  in  which  the  hydrodynamic  flow  depends  only  on  the
+coordinate  perpendicular to  the wall,  i.e.  it  is invariant  under
+translations tangent to the walls.
+In  this way,  the planar  flows  to be considered
+include shear  flows (Poiseuille and  Couette, for example)  and sound
+wave  propagation perpendicular  to the  walls but  not, for  example,
+sound waves that propagate parallel to the walls.
+
+In order to  validate through computer simulations  a continuum theory
+like the one presented in Chapter  \ref{Chap:Theory} one needs to follow
+three consecutive  steps that  require a  discrete framework.   In the
+first  step, equilibrium  MD simulations  should  be run  in order  to
+measure  the non-local  transport kernels.   In the  second step,  the
+discrete  equations  with  the   measured  kernels  should  be  solved
+numerically in order to predict the flow field given a certain initial
+velocity  profile.  In  the  third  step, one  should  run a  separate
+non-equilibrium MD simulation with  the same initial velocity profile.
+By   averaging  over   several   initial  microscopic   configurations
+corresponding  to   this  initial   velocity  flow  one   obtains  the
+non-equilibrium  average time  evolution  of the  velocity profile  as
+measured  from MD.   The  comparison of  the predicted  time-dependent
+velocity   profile   with   the    result   obtained   directly   from
+non-equilibrium MD simulations allows one to validate the theory.
+
+\textit{All  these  steps  require  the  discretization  of  space  in
+  slabs}. In the  first step, this is necessary in  order to deal with
+  \Note{the Dirac delta functions that appear  in the force density and stress
+  tensor (\ref{sigma}) whose correlations give  rise to the kernels}. The
+second step  requires a discretization  in order to  solve numerically
+Eqs.  (\ref{finaleq}).  Finally, in  the third step the discretization
+is required in  order to measure the density and  velocity fields.  It
+is  important that  the discretization  in these  three steps  is done
+consistently. We have  discussed in Refs. \Note{De la torre et al.?} \cite{DelaTorre2015,EspanolDonev2015} how  a method based
+on  finite elements  allows one  to construct  the  CG discrete  variables
+evolving according  to dynamic  equations that  are consistent  with a
+finite  element  discretization of  the  continuum  equations. In  this chapter, the  finite elements are defined in 3D  but taking into
+account the translation invariance  of the
+flow  field along the directions parallel to the
+walls.
+
+
+\section{Discretization methodology}
+We bin  the system  in layers  parallel to the  planar walls.   The box
+length $L_z$ is  divided in $N_{\rm bin}$ bins labeled  with an index
+$\mu$.  Each bin  is a layer or slab of  dimensions $L_x,L_y,\Delta z$
+with $\Delta  z=L_z/N_{\rm bin}$.  The  bins are separated  by $N_{\rm
+  bin}$ nodes  (actually, nodal  planes) located at  $z_\mu=\mu \Delta
+z$,  $\mu=0,\cdots,N_{\rm bin}-1$.   We assume  that we  have periodic
+boundary  conditions  in  the  $x_3$ direction  and,  therefore,  node
+$\mu=0$ is equal to the  node $N_{\rm bin}$.  We carefully distinguish
+between \textit{nodes} and \textit{bins}: nodes  are points in the $z$
+axis, while bins are segments in  this axis.  In 3D, nodes are planes,
+while bins are slabs.  As it  will become apparent, from a microscopic
+point of view, mass, momentum, and  force densities are defined at the
+nodes, while stress is defined at the bins.
+
 
 
 \section{Conclusions}
 
-%CHAPTER 5
+
+%-----------------------------------------------------------------
+%CHAPTER 4
+%-----------------------------------------------------------------
 \chapter{Space and time locality of hydrodynamics in periodic boundary conditions}\label{Chap:PBC}
 \markboth{Space and time locality of hydrodynamics in PBC}{}
 \epigraph{\textit{Time is longer than any distance.}}{Absalom, Absalom! \\ WILLIAM FAULKNER}
@@ -3225,7 +3339,7 @@ density.   Under  the Markovian  approximation,  Mori  theory gives  a
 definite prediction for the correlation  matrix in terms of a decaying
 matrix exponential.   As we  have discussed in Sec. \ref{Sec:MarkovianAprox}, the  Markovian prediction
 \textit{cannot}  hold for  very small  times. Only after a time $\tau$ in which the memory
-has fade out one can expect a Markovian approximation to hold. We validated it though MD simulations in Sec. \ref{Sec:ValidateMarkov}.
+has fade out one can expect a Markovian approximation to hold. We validated it though MD simulations in Sec. \ref{Sec:ValidateMarkovPBC}.
 
 
 A number of conclusions can be drawn from the simulation results:
@@ -3276,7 +3390,7 @@ non-conserved variables in the list  of CG variables.  For example, by
 including the stress tensor and heat flux as additional variables, one
 expects  to  capture the  viscoelastic  and  memory effects  that  are
 required to describe the dynamics  of the conserved variables at small
-time scales \cite{Khayat1989,Mryglod1995,Bryk2010}.
+time scales \cite{Khayat1989,mryglod1995,Bryk2010}.
 
 Despite of considering the simplest case such as  simple fluid  in periodic  boundary conditions, the  same methodology used here  will be  used in the following chapters for  the case  of fluids
 confined in between parallel solid walls.  The computational burden in
@@ -3284,10 +3398,12 @@ that case is much larger  because traslation invariance cannot be used
 in order to increase statistics.
 In  addition   to  the   nonlocal  shear  viscosity,   new  transport
 coefficients related to slip at the wall appear in confined fluids, as
-we saw in Chapter \ref{Chap:BC}.
+Camargo et al. presented in \cite{CamargoBC2018}.
 
 
-% CHAPTER 6
+%-----------------------------------------------------------------
+% CHAPTER 5
+%-----------------------------------------------------------------
 \chapter{Markovian behaviour near solids}\label{Chap:Walls}
 \markboth{Markovian behaviour near solids}{}
 \epigraph{\textit{Descubrir es ver de otro modo lo que nadie ha percibido.}}{Blanco Nocturno \\ RICARDO PLIGIA}
@@ -3320,7 +3436,7 @@ the vicinity  of the solid wall.  In a recent work, Camargo et al. \cite{Camargo
 macroscopic  character.  The  theory  gives  the usual  Navier  slip
 boundary  condition  with   microscopically  defined  parameters  that
 coincide      with      those      of     Bocquet      and      Barrat
-\cite{Bocquet1994}.  
+\cite{Bocquet1994}.
 
 The only crucial  assumption made in the formulation of  the theory in
 Chapter \ref{Chap:Theory} is  that the dynamics  is Markovian, this  is, that
@@ -3853,7 +3969,9 @@ transport matrices enter  into the microscopic definition  of the slip
 length.
 
 
-%CHAPTER 7
+%-----------------------------------------------------------------
+%CHAPTER 6
+%-----------------------------------------------------------------
 \chapter{MD, BC eta estrella y gamma estrella}
 \label{Chap:Slip}
 \epigraph{\textit{It is remarkable how long men will believe in the bottomlessness of a pond without taking the trouble to sound it}}{Walden \\ HENRY DAVID THOREAU}
