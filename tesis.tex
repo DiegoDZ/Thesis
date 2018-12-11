@@ -3288,8 +3288,8 @@ we saw in Chapter \ref{Chap:BC}.
 
 
 % CHAPTER 6
-\chapter{Correlations of transverse momentum}\label{Chap:Walls}
-\markboth{Correlation of transverse momentum}{}
+\chapter{Markovian behaviour near solids}\label{Chap:Walls}
+\markboth{Markovian behaviour near solids}{}
 \epigraph{\textit{Descubrir es ver de otro modo lo que nadie ha percibido.}}{Blanco Nocturno \\ RICARDO PLIGIA}
 \section{Introduction}
 In Chapter \ref{Chap:PBC} we have demonstrated
@@ -3316,7 +3316,7 @@ equations of hydrodynamics in the  presence of solid walls that govern
 the  averages of  the  mass  and momentum  density  fields. A  crucial
 feature of this theory is that the effect of the walls on the fluid is
 not through boundary conditions but  rather through forces confined to
-the vicinity  of the solid wall.  In a recent work, Camargo et \Note{Referencia Segundo paper camargo} showed  how  boundary  conditions  can  be  derived  when  the  flows  are  of
+the vicinity  of the solid wall.  In a recent work, Camargo et al. \cite{CamargoBC2018} showed  how  boundary  conditions  can  be  derived  when  the  flows  are  of
 macroscopic  character.  The  theory  gives  the usual  Navier  slip
 boundary  condition  with   microscopically  defined  parameters  that
 coincide      with      those      of     Bocquet      and      Barrat
@@ -3358,7 +3358,7 @@ obtained  in an  alternative way  from the  simpler Mori  theory, that
 always produces  linear equations.   In order  to address  the plateau
 problem  it proves  very  convenient to  have a  theory  not only  for
 averages but also for time correlation functions and both are provided
-in Mori theory.  \Note{Esto se hace en este capítulo?}
+in Mori theory.  
 
 
 \section{The CG variables and its dynamics}
@@ -3689,12 +3689,6 @@ giving a  bin width of  $\Delta z=2\sigma$.  The phenomenology  for 33
 nodes  is very  similar to  the one  for 66  nodes.  
 \Pendiente{In Fig. \ref{} we still observe negative eigenvalues and non-Markovian behaviour, although the effects are not so pronounced as for 66 nodes.}  
 For 17 nodes the layering of the density field is not capture, as it showed in Fig. \ref{fig:DensityProfile-WALLS}
-\begin{figure}[h!]
-  \centering
-\includegraphics[scale=0.45]{DensityProfile-WALLS}
-\caption[Fluid density profile for 66 and 17 nodes.]{The equilibrium average discrete density for thin bins (blue) and thick bins (orange). The thick bins do not capture the layering of the density field.}
-\label{fig:DensityProfile-WALLS}
-\end{figure}
 
 
 In  Fig.
@@ -3765,11 +3759,99 @@ $t=0$ vanishes, as it is clear for $C_{3,5}(t)$.
 \label{fig:PredictionsCross-WALLS-17nodes}
 \end{figure}
 
-
-
-
-
 \section{Conclusions}
+In this chapter we have considered  the discrete hydrodynamics of  a LJ
+fluid  confined  between   two  rigid  parallel  walls   of  fixed  LJ
+particles. We  measure the correlation  matrix $C(t)$ of  component of
+the discrete momentum density which is  parallel to the walls.  According
+to  Mori theory,  under the  Markovian approximation  this correlation
+should decay  in a  matrix exponential form  with a  relaxation matrix
+$\Lambda^*$ that  can be  obtained from the  plateau region  where the
+decay  of  $C(t)$  is  exponential.  By  looking  at  the  eigenvalues
+$\tilde{C}_\mu(t)$  of the  correlation  matrix,  the Markov  property
+translates into an  exponential decay of all the  eigenvalues. We have
+observed that  for bins  smaller than  molecular dimensions  $\Delta z
+\leq  \sigma$,  where  $\sigma$  is  the  LJ  diameter,  some  of  the
+eigenvalues do  not decay  as exponential  and become  negative.  Even
+though we can estimate a relaxation matrix from the plateau that gives
+good predictions away  from the wall, the correlations  near the walls
+are poorly described by the Markovian theory.
+
+When we  increase the  size of  the bins, up  to $\Delta  z=2\sigma$, a
+Markovian theory gives excellent results, where all the eigenvalues of
+the   correlation  function   decay   exponentially,  a   well-defined
+relaxation  matrix  $\Lambda^*$ can  be  measured,  and the  resulting
+predictions  with  this  relaxation  matrix reproduce  very  well  the
+measured correlation matrix.
+
+The present chapter follows the  methodology of Chapter \ref{Chap:PBC}  where we
+have  discussed  the  correlation  matrix  of  the  discrete  momentum
+parallel to  the bins in  an \textit{unconfined} system  with periodic
+boundary  conditions.  We  have  observed there  that the  correlation
+matrix for the discrete momentum defined  in thin bins of size $\Delta
+z= 0.5\sigma$ behaves in a Markovian way. Of course, this behaviour is
+observed  only beyond  certain time  $\tau$, as  observed also  in the
+present chapter.  It is clear that the breaking of the Markov assumption
+for thin bins is due to the presence of the walls, which is consistent
+with  the   observation  that  the  eigenvectors   of  the  non-Markov
+eigenvalues are different  from zero only near the  walls. The physics
+behind this non-Markov  behaviour for thin bins is  not entirely clear
+but  we note  that for  thin bins,  we are  resolving scales  that are
+comparable   to   the   ``roughness''    of   the   lattice   of   the
+walls. Therefore, it is plausible that the bump in the autocorrelation
+of the  bin close  to the lattice  shown in the  bottom panel  of Fig.
+\ref{fig:Predictions-WALLS-66nodes} is  due to a  ``caging effect'' of the  fluid particles 
+due to the lattice. Such a caging would be undetectable for much wider
+bins, as it appears to be the case.
+
+In  the  present  paper,  we  have  only  discussed  the  dynamics  of
+transverse momentum.   With the same  methodology, we can  discuss the
+coupled  dynamics of  the  density  and the  normal  component of  the
+momentum.   It is  not yet  clear to  us whether  the highly  resolved
+hydrodynamics near  the wall, that  reproduce the density  layering as
+shown in  Fig.  \ref{fig:DensityProfile-WALLS} is  Markovian or  not. In any  case, we
+expect that the study of perpendicular sound waves confined in between
+parallel walls deserves further study.
+
+\begin{figure}[h!]
+  \centering
+\includegraphics[scale=0.45]{DensityProfile-WALLS}
+\caption[Fluid density profile for 66 and 17 nodes.]{The equilibrium average discrete density for thin bins (blue) and thick bins (orange). The thick bins do not capture the layering of the density field.}
+\label{fig:DensityProfile-WALLS}
+\end{figure}
+
+The  fact that  hydrodynamics near  walls is  non-Markovian at  highly
+resolved  scales  has a  number  of  implications. For example, in Chapter \ref{Chap:Theory} the coarse delta function introduced in the hydrodynamic fields can not be a Dirac delta functions as we presented in \cite{Camargo2018}. 
+\Note{Esto no hará falta añadirlo porque voy a cambiar el capítulo 2. For  example,  the
+continuum theory  described in Chapter \ref{Chap:Theory} can  only make
+sense if the hydrodynamic fields are  defined not with the Dirac delta
+function, but  rather with  coarse delta  functions with  an intrinsic
+length  scale  larger than  molecular  dimensions  as, for  example  a
+normalized Gaussian  of width  $\sigma$.  As  a consequence,  the free
+energy functional  that emerges from  such a coarsely  defined density
+field  is not  directly  given by  the usual  free  energy density  in
+Equilibrium  Density Functional  Theory, which  is, in  fact, the  one
+particle distribution function.  In fact,  a local model for the free energy 
+is expected for  the former. The resulting free  energy functional for
+coarsely  defined density  cannot  resolve the  density layering  near
+walls.   It is  obvious now  that in  order to  describe the  resolved
+dynamics of the density layering  near a wall requires a non-Markovian
+theory  or,   alternatively,  a   Markovian  theory   with  additional
+non-hydrodynamic variables.  Perhaps the  stress tensor is a candidate
+to capture the apparent viscoelasticity of the density layering.}
+
+Note   that   it    only   make   sense   to    speak   of   transport
+\textit{coefficients} (or matrices of) in theories that are Markovian,
+otherwise  one  needs   transport  \textit{memory  kernels}.   Another
+implication of  non-Markovianity of  highly resolved  hydrodynamics is
+that in order  to speak about the the  non-local friction coefficients
+as the ones  described by Camargo et al. in \cite{CamargoBC2018} one  has to ensure
+that the  bins are larger  than the  molecular size. In  the following chapter we will  measure  the non-local  viscosity and  non-local
+friction matrices that are buried in the relaxation matrix $\Lambda^*$
+and  that  have  not  been  considered in  this chapter.  These
+transport matrices enter  into the microscopic definition  of the slip
+length.
+
 
 %CHAPTER 7
 \chapter{MD, BC eta estrella y gamma estrella}
