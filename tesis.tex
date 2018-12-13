@@ -88,6 +88,67 @@ blablabla
 \chapter{Introduction}\label{Chap:Intro}
 \markboth{Introduction}{Introduction}
 
+\Note{Viene de la introducción del paper I}
+There  is great  interest  in  the behaviour  of  fluids  in the  nano
+\cite{Bocquet2010} and micro  \cite{Lauga2005,Bocquet2011} scales.  At
+nanoscales  the structure  of the  fluid starts  playing an  important
+role.  The standard  description of structured fluids is  based on the
+(classic) Density Functional Theory \cite{Evans1979}, with the density
+functional   capturing  all   the  relevant   information  about   the
+\textit{equilibrium} state  of the fluid.   In recent years  there has
+been a  great interest in  obtaining \textit{dynamic} versions  of the
+Density Functional Theory  (DDFT) that would allow one  to discuss not
+only equilibrium structured fluids and its correlations but also their
+dynamic  behaviour \cite{Lowen2003,Evans2016}.   Since the  pioneering
+work by Marconi and Tarazona  \cite{Marconi2000}, which was based on a
+Smoluchowski description  for colloidal particles,  several approaches
+have been considered  for the formulation of dynamic  versions of DFT,
+ranging from  kinetic theory  \cite{Guo2006}, to  projection operators
+\cite{Espanol2009d},  and variational  approaches \cite{Schmidt2013}.
+Most    existing    works     deal    with    colloidal    suspensions
+\cite{Goddard2012,Evans2016}. However, there exist  still a gap in the
+treatment  of the dynamics of \textit{simple}  fluids \textit{near  solids} at  scales
+where  the  structure  of  the  fluid  is  relevant.   Note  that  the
+interaction of  the solid with  the fluid  is the responsible  for the
+structuring  of the  density  field near  a wall  (which  is a  purely
+reversible and equilibrium effect) but also for irreversible processes
+that can be understood, at macroscales, as boundary conditions for the
+fluid \cite{Bedeaux1976,Bocquet1994}.
+
+In  Ref.   \cite{Espanol2009d}  we   have  formulated  DDFT  based  on
+projection operator  techniques, where the  density field is  the only
+relevant variable.  This is appropriate for colloidal systems that are
+suspended in  a solvent acting as  a thermal bath.  In  that case, the
+density field should  be rather understood as  the concentration field
+which,  being  conserved, is  expected  to  be  a slow  variable.   By
+selecting  the density  field as  the only  relevant variable,  we are
+implicitly assuming that the density  evolves in time scales which are
+much larger than  the time scales corresponding to  other variables in
+the system.  In contrast to  colloidal systems, simple fluids have the
+momentum density and energy density  as conserved variables, and these
+variables may  evolve in  comparable time scales  as the  density.  We
+have  recently extended  DDFT  to {\em  non-isothermal} situations  by
+including the energy density  field \cite{Anero2013}.  Recent attempts
+in that direction  have also been taken  by Schmidt \cite{Schmidt2011}
+and Wittkowski et al.  \cite{Wittkowski2012}.  The resulting theory is
+valid  for \textit{quiescent}  fluids  or solids  in which  convective
+motion is not present.  In the  present work, we consider the mass and
+momentum density fields of a fluid, allowing to address moving fluids,
+but  we do  not  consider energy  transfer. This  is,  we assume  that
+momentum transfer is  not affected by energy fluxes. This  is the case
+in isothermal  processes or even under  slight temperature differences
+whenever the adiabatic coefficient is  close to one, as corresponds to
+a practically  incompressible liquid  like water at  room temperature.
+The  natural thermodynamic  potential is  the free  energy functional,
+instead   of   an   entropy   functional   as   introduced   in   Ref.
+\cite{Anero2013}.  In future work we will address the energy transport
+at nanoscales.
+\Note{Fin de la introducción del paper I}
+
+
+
+
+
 
 
 In Chapter \ref{Chap:NESM} we introduce the Non-Equilibrium Statistical Mechanics
@@ -688,10 +749,177 @@ them here for simplicity.
 %-----------------------------------------------------------------
 %CHAPTER 2
 %-----------------------------------------------------------------
-\chapter{Continuous hydrodynamics theory for liquids near solids}\label{Chap:Theory}
-\markboth{Continuous hydrodynamics theory for liquids near solids}{}
+\chapter{Coarse hydrodynamics theory for liquids near solids}\label{Chap:Theory}
+\markboth{Coarse hydrodynamics theory for liquids near solids}{}
 \epigraph{\textit{Le temps est une invention du mouvement. Celui qui ne bouge pas ne voit pas le temps passer.}}{Métaphysique des tubes \\ AMÉLIE NOTHOMB}
 \section{Introduction}
+As it was mentioned in the Introduction, Density Functional Theory (DFT) is a successful and well-established theory for the study of the structure of simple and complex fluids at equilibrium. The theory has been generalized to dynamical situations when the underlying dynamics is diffusive as in, for example, colloidal systems. However, there is no such a clear foundation for Dynamic DFT (DDFT) for the case of \textit{simple} fluids in contact with solid walls. In this chapter, we derive DDFT for simple fluids by including not only the mass density field but also the momentum density field of the fluid. The standard projection operator method based on the Kawasaki-Gunton operator is used for deriving the equations for the average value of these fields. 
+
+%The solid is described as featureless under the assumption that all the internal degrees of freedom of the solid relax much faster than those of the fluid (solid elasticity is irrelevant). 
+%The fluid moves according to a set of {\em non-local} hydrodynamic equations that include explicitly the forces due to the solid. 
+%These forces are of two types, reversible forces emerging from the free energy density functional, and accounting for impenetrability of the solid, and irreversible forces that involve the velocity of both the fluid and the solid. 
+%These forces are localized in the vicinity of the solid surface. The resulting hydrodynamic equations should allow one to study dynamical regimes of simple fluids in contact with solid objects in isothermal situations.
+We consider a fluid in contact with a 
+large  spherical  solid  particle  in  order  to  address  fluid-solid
+interactions.   In  usual DFT  approaches,  a  solid wall  is  usually
+represented with  an {\em  external hard  potential}.  In  the present
+description, a solid  wall is treated with  a coarse-grained procedure
+in which  the atoms of the  wall are eliminated from  the description,
+under the assumption that any elastic (or any other) degree of freedom
+of the  solid is much faster  than the time scales  of the surrounding
+fluid.  The  density functional that  emerges now depends not  only on
+the density  field of the fluid  but also on the  overall CG variables
+that we use to describe the solid.  For simplicity, we focus on a particularly simple particle shape, a solid spherical particle.  By considering the interaction of a  fluid with a solid sphere, we  may address the issue
+of total momentum  conservation that may become rather  obscure if one
+considers ``planar walls with infinite mass''.  Of course, many of the
+results that we obtain will be  easily transferred to planar walls, as
+limits in which the  mass and the radius of the  solid sphere are both
+very large.   In addition, we  take a spherical particle  because then
+only the  position and  momentum of  the center of  mass of  the solid
+particle is required in order  to have a coarse-grained description of
+the solid.  For non-spherical particles,  it is necessary, in general,
+to include also the orientation  and angular velocity of the particle,
+as this is expected to play an important role in the dynamics.  Still,
+even in the spherical particle case,  it may be important to introduce
+angular velocity in order to  have accurate results.  However, for the
+sake of simplicity and presentation  of the basic results, we restrict
+ourselves in this paper to the simplest case without angular variables
+for the  solid particle. Also, and  for the sake of  simplicity, we do
+not  consider the  intrinsic spin  of the  fluid, that  may become  an
+important        relevant         variable        at        nanoscales
+\cite{Hansen2009,Hansen2011a}.
+
+The main result of this chapter is a set of dynamic equations that
+govern the non-equilibrium \textit{averages} of hydrodynamic variables
+and  the time-dependent  position  and momentum  of  the sphere.   The
+dynamic equations  are of the form  of \textit{non-local} hydrodynamic
+equations  for  the mass  and  momentum  density fields  coupled  with
+Newton's  laws for  the center  of mass  of the  solid particle.   The
+coarse-grained forces between the fluid  and the solid have reversible
+and  dissipative contributions,  both localized  in a  boundary region
+near  the  solid surface.   The  hydrodynamic  equations obtained  can
+describe  the structuring  of the  fluid near  the solid  particle and
+non-local flow effects that may be important at nano scales.
+
+The  present  theory  is   both,  i)  a
+generalization  of density  functional  theory  to dynamic  situations
+\textit{in simple  fluids} (fluids that obey  a Hamiltonian dynamics),
+and ii) a full description,  at the coarse-grained hydrodynamic level,
+of the solid-wall interactions.  The theory describes hydrodynamics at
+scales  where the  molecular structure  of the  fluid is  apparent. At
+these   scales   the   concept    of   boundary   condition   is   not
+applicable. Instead, the interaction of  the fluid with the solid wall
+is described with  reversible and irreversible forces  confined at the
+vicinity of the wall.
+
+Because  of the  two  aspects of  the present  theory  that have  been
+already mentioned, i.e i) non-local hydrodynamics and ii) interactions
+with solid walls, we discuss previous  work in these two areas in what
+follows.
+
+\subsection{Non-local hydrodynamics}
+This   chapter    relies   on   the   pioneering    work   by   Piccirelli
+\cite{Piccirelli1968}  who, following  Robertson \cite{Robertson1966},
+derived  hydrodynamic   equations  explicitly  from   the  microscopic
+dynamics  of  the fluid  system.   The  resulting   exact  hydrodynamic  equations
+contained  non-local  transport  coefficients   defined  in  terms  of
+Green-Kubo formulae.  In  similar terms, Grossmann \cite{Grossmann1970}
+presented a derivation of non-local  hydrodynamics of simple fluids by
+using  essentially  the  same  ideas behind  the  projection  operator
+technique.    While   the    theory   provided   non-local   transport
+coefficients, no connection was made in these early works with Density
+Functional Theory,  which was not  yet developed in those  days.  Such
+non-local  versions  for hydrodynamics  are  necessary  when the  flow
+fields vary rapidly in space,  in the range of molecular correlations.
+The  probing of  nanoscales in  MD simulations  has demonstrated  this
+point                         very                        convincingly
+\cite{Zhang2004,Hansen2007,Todd2008a,Hansen2011}.
+
+\subsection{Fluid-solid  interactions}
+Usually, at the hydrodynamic level  of description, the interaction of
+a fluid with a solid is described through boundary conditions. Seminal
+work  on  the understanding  of  boundary  conditions as  irreversible
+interfacial processes  was given  by Bedeaux,  Albano, and  Mazur, who
+introduced  interfacial  transport   coefficients  entering  into  the
+boundary       conditions      \cite{Bedeaux1976}.        While      a
+fluctuation-dissipation   theorem   was   formulated  for   the   slip
+coefficient  \cite{Bedeaux1977},  which  could suggest  a  microscopic
+evaluation  of  the  interfacial  boundary coefficients  in  terms  of
+molecular dynamics, it  was not until the contribution  by Bocquet and
+Barrat  that microscopic  expressions for  the interfacial  mechanical
+\cite{Bocquet1994}  and   thermal  \cite{Barrat2003}   slip  transport
+coefficients were given.   This work was a  conceptual breakthrough in
+the extensive field of flow slip at solid surfaces.  However, a debate
+was  initiated  by  Petravic  and  Harrowell  \cite{Petravic2007}  who
+pointed out  that the  Green-Kubo expression  proposed by  Bocquet and
+Barrat provides  not an intrinsic  solid-fluid property but  rather it
+depends on the geometry of the setup. This is due to the fact that the
+original expression reflects the total  fluid friction for shear flow,
+including the slip friction at both  interfaces as well as the viscous
+friction  in   the  fluid  \cite{Hansen2011,Kannam2011}.    Hansen  et
+al. \cite{Hansen2011} propose to look at a thin slab of fluid near the
+wall  and propose  a phenomenological  Langevin equation  relating the
+velocity of the  center of mass of  the fluid slab and  the force that
+the wall exerts on the slab. The friction coefficient may be computed
+from  equilibrium  MD  simulations  by  comparing  the  velocity-force
+correlation to the velocity-velocity correlations of the slab. Another
+recent approach has considered a Generalized Langevin Equation for the
+velocity of a  single atom of the fluid near  a wall \cite{Huang2014}.
+Recent  work  by   Ramos-Alvarado  et  al.   \cite{Ramos-Alvarado2016}
+compares the above different approaches and concludes that simulations
+are  very  sensitive  to  post-processing  issues,  leaving  the  story
+somewhat inconclusive.
+
+Our  theoretical approach  is not  restricted to  parallel flow  (i.e.
+fluid   slabs)  as   is  typically   considered  in   simulation  work
+\cite{Bocquet1994,Petravic2007,Hansen2011,Kannam2011,Ramos-Alvarado2016}.
+Most derivations of  Green-Kubo expressions for friction  are based on
+linear response theory where the  Hamiltonian is slightly perturbed by
+an external  forcing \cite{Bocquet1994,Huang2014}.   We follow  here a
+different  approach  in  obtaining   directly  the  full  hydrodynamic
+equations from the  microscopic dynamics.  In this  way, the transport
+coefficients  that  we obtain  are  the  ones  that really  enter  the
+equations  of hydrodynamics  in  any general  flow configuration,  not
+limited to homogeneous isotropic flat walls.
+
+Note that  all the  mentioned work  on MD  simulations is  directed to
+compute  the  transport  coefficients  that appear  in  slip  boundary
+conditions.  When one descends to  the nanoscale, however, the picture
+of the effect  of the solid-fluid interactions in terms  of a boundary
+condition on an idealized surface  is questionable.  For the scales in
+which nanostructure is  visible, e.g.  layering near the  wall, we aim
+at  describing  the  fluid solid  interaction  through  coarse-grained
+forces that extend  in a short range from the  solid. \Note{No lo entiendo:An early attempt
+to use a ``friction field''  appeared in Ref. \cite{Sokhan2002}.  Only
+when the  fluid is  macroscopic, we  would expect  these forces  to be
+treated as  singular forces such that  its effect can be  described as
+truly boundary  conditions on  the fluid. } Recently, Camargo et al. \cite{CamargoBC2018} describe how the present theory gives rise to boundary conditions when the flows are macroscopic.
+
+A precursor of the work presented in this chapter can be found in \cite{Cukier1980}.  that considered a Brownian
+hard  sphere in  a  sea of  small  hard spheres  and  used both,  Mori
+projection  operator  and  kinetic   theory,  to  derive  hydrodynamic
+equations  coupled to  the motion  of the  Brownian particle  (without
+boundary conditions).   Our method is  more general in  that continuum
+pair-wise   potentials   are   allowed   for,   and   the   non-linear
+Kawasaki-Gunton  projection operator  \cite{Kawasaki1973a} is  used for
+the   coarse-graining   procedure   instead  of   the   simpler   Mori
+projector \cite{Huang2014},   the   latter   being  limited   to   near
+equilibrium linear  equations of motion \cite{Grabert1982}.   A theory
+of  coarse-graining based  on  the Kawasaki-Gunton  projector gives  a
+universal structure based on  the usual thermodynamic potentials.  The
+use  of  the  Kawasaki-Gunton  projector  allows  us  to  express  the
+reversible  part of  the dynamics  in a  way that  generalizes Density
+Functional Theory to moving fluids.
+
+Finally, Cadusch et al.  \cite{Cadusch2008}  show   that  the  use  of  a
+non-local translation invariant kernel is not exempt  of problems in high
+density fluids in strong nanoconfinement. They state: ``the fundamental
+theoretical  challenge  that  remains   is  to  include  the  position
+dependence  into   the  kernel   so  that   it  becomes   a  genuinely
+inhomogeneous function  of space and  also to appropriately  model the
+boundary conditions at the  fluid–wall interface, including stick/slip
+boundary conditions.'' The present work addresses this challenge.
+
 
 \section{The system and the relevant variables}
 In this section we use the ToCG described in the previous chapter for describing hydrodynamically a liquid near a solid. 
@@ -760,13 +988,14 @@ relevant variables the  mass and momentum density fields  of the liquid
 and  the   center  of  mass   position  and  momentum  of   the  solid
 sphere. These are given by the following set of phase functions 
 \begin{align}
-  \hat{\rho}_{\bf r}(z) &=\sum^{N}_im\delta({\bf r}-{\bf q}_i),
+  \hat{\overline{\rho}}_{\bf r}(z) &=\sum^{N}_im\overline{\delta}({\bf r}-{\bf q}_i),
 &&\hat{\bf R}(z)=\frac{1}{N'}\sum_{i'}^{N'}{\bf q}_{i'}
 \nonumber\\
-  \hat{\bf g}_{\bf r}(z) &=\sum^{N}_i{\bf p}_i\delta({\bf r}-{\bf q}_i),
+  \hat{\overline{\bf g}}_{\bf r}(z) &=\sum^{N}_i{\bf p}_i\overline{\delta}({\bf r}-{\bf q}_i),
 &&\hat{\bf P}(z)=\sum_{i'}^{N'}{\bf p}_{i'}
 \label{CGvar}
 \end{align}
+where $\overline{\delta}({\bf r}-{\bf r}_i)$ is a coarse delta function as, for example, a normalized Gaussian.
 In these phase  functions, the position ${\bf r}$ plays  the role of a
 continuous index labeling  the phase function. The  position ${\bf r}$
 may take any value in  $\mathbb{R}^3$, or its periodic counterpart, as
@@ -808,14 +1037,14 @@ iL  \hat{\bf g}_{\bf r}(z) &=& -\boldsymbol{\nabla}{\cdot} \hat{{\bf K}}_{\bf r}
 \end{eqnarray}
 Here, the kinetic stress tensor is 
 \begin{align}
-  \hat{{\bf K}}_{\bf r}(z) &=\sum^{N}_i{\bf p}_i{\bf v}_i
-\delta({\bf r}-{\bf q}_i)
+  \hat{{\bf K}}_{\bf r} &=\sum^{N}_i{\bf p}_i{\bf v}_i
+\overline{\delta}({\bf r}-{\bf q}_i)
 \end{align}
-and the total force density $\hat{\bf F}^l_{\bf r}(z)$  on the liquid
+and the total  force density $\hat{\bf F}^l_{\bf r}(z)$  on the liquid
 is defined as
 \begin{align}
   \hat{\bf F}^l_{\bf r}(z) &
-=\sum_i^N-\frac{\partial U}{\partial {\bf q}_i}\delta({\bf r}-{\bf q}_i)
+=\sum_i^N-\frac{\partial U}{\partial {\bf q}_i}\overline{\delta}({\bf r}-{\bf q}_i)
 \label{Frtot}
 \end{align}
 We may decompose  this force density into the
@@ -826,9 +1055,9 @@ solid   exerts  on  the   liquid,  this   is,
   r}(z)&=\hat{\bf  F}^{\rm l\to  l}_{\bf r}(z)  +\hat{\bf  F}^{\rm s\to
   l}_{\bf r}(z) 
 \nonumber\\
-\hat{\bf F}^{\rm l\to l}_{\bf r}(z) &= \sum^{NN}_{ij}\hat{\bf F}_{ij}\delta({\bf r}-{\bf q}_i)
+\hat{\bf F}^{\rm l\to l}_{\bf r}(z) &= \sum^{NN}_{ij}\hat{\bf F}_{ij}\overline{\delta}({\bf r}-{\bf q}_i)
 \nonumber\\
-\hat{\bf F}^{\rm s\to l}_{\bf r}(z) &= \sum^{NN'}_{ij'}\hat{\bf F}_{ij'}\delta({\bf r}-{\bf q}_i)
+\hat{\bf F}^{\rm s\to l}_{\bf r}(z) &= \sum^{NN'}_{ij'}\hat{\bf F}_{ij'}\overline{\delta}({\bf r}-{\bf q}_i)
 \label{Fr}
 \end{align}
 where $\hat{\bf F}_{ij'}$ is the force  that atom $j'$ of the solid
@@ -841,31 +1070,31 @@ that the solid object exerts on the liquid at the point ${\bf r}$.
 We may write the force that the liquid exerts on te liquid 
 \begin{align}
   \hat{\bf F}^{\rm l\to l}_{\bf r}(z) &= \frac{1}{2}\sum^{NN}_{ij}\hat{\bf F}_{ij}
-(\delta({\bf r}-{\bf q}_i)-\delta({\bf r}-{\bf q}_j))
+(\overline\delta({\bf r}-{\bf q}_i)-\overline\delta({\bf r}-{\bf q}_j))
 \end{align}
 where we  have used that  the indices are  dummy. By using  a standard
 trick \cite{Schofield1982,Grabert1982}, we  may express the difference
 of the Dirac delta functions in terms of a divergence
-\begin{align}
-\delta({\bf r}-{\bf q}_i)-\delta({\bf r}-{\bf q}_j)
+\begin{eqnarray}
+\overline\delta({\bf r}-{\bf q}_i)-\overline\delta({\bf r}-{\bf q}_j)
 =&\int_0^1d\epsilon\frac{d}{d\epsilon}
-\delta({\bf r}-{\bf q}_j-\epsilon{\bf q}_{ij})
+\overline\delta({\bf r}-{\bf q}_j-\epsilon{\bf q}_{ij})
 \nonumber\\
 =&-\nabla\int_0^1d\epsilon{\bf q}_{ij}
-    \delta({\bf r}-{\bf q}_j\Note{-\epsilon{\bf q}_{ij}})
+\overline\delta({\bf r}-{\bf q}_j-\epsilon{\bf q}_{ij})
 \nonumber\\
 \label{trick}
-\end{align}
+\end{eqnarray}
 \Note{Aclarar si es $-\epsilon q_{ij}$ o $\epsilon q_{ij}$.}
 
 The liquid  force density  $\hat{\bf F}^{\rm  l\to l}_{\bf  r}(z)$ can
 then be expressed  as the divergence of the  microscopic virial stress
 tensor, this is
 \begin{align}
-\hat{\bf F}^{\rm l\to l}_{\bf r}(z)&=-\boldsymbol{\nabla}\cdot \hat{\boldsymbol{\Pi}}_{\bf r}(z)
+\hat{\bf F}^{\rm l\to l}_{\bf r}(z)&=-\boldsymbol{\nabla}{\cdot} \hat{\boldsymbol{\Pi}}_{\bf r}(z)
 \nonumber\\
 \hat{\boldsymbol{\Pi}}_{\bf r}(z)&\equiv \frac{1}{2}\sum^{N}_{ij}{\bf q}_{ij}\hat{\bf F}_{ij}
-\int_0^{1}d\epsilon\delta({\bf r}-{\bf q}_i-\epsilon{\bf q}_{ij})
+\int_0^{1}d\epsilon \overline\delta({\bf r}-{\bf q}_i+\epsilon{\bf q}_{ij})
 \label{micfluxes}
 \end{align}
 The time derivative of the momentum density (\ref{ildens}) becomes
@@ -880,15 +1109,14 @@ where     $\hat{\boldsymbol{\sigma}}_{\bf r}(z)=\hat{{\bf K}}_{\bf
 r}(z)+\hat{\boldsymbol{\Pi}}_{\bf r}(z)$  is the microscopic stress
 tensor of the fluid, this is
 \begin{align}
-  \hat{\boldsymbol{\sigma}}_{\bf r}(z)=&
+  \hat{\boldsymbol{\sigma}}_{\bf r}=&
 \sum^{N}_i{\bf p}_i{\bf v}_i
-\delta({\bf r}-{\bf q}_i)\nonumber\\
+\overline\delta({\bf r}-{\bf q}_i)\nonumber\\
 &+
 \frac{1}{2}\sum^{N}_{ij}{\bf q}_{ij}\hat{\bf F}_{ij}
-\int_0^{1}d\epsilon\delta({\bf r}-{\bf q}_i-\epsilon{\bf q}_{ij})
+\int_0^{1}d\epsilon \overline\delta({\bf r}-{\bf q}_i+\epsilon{\bf q}_{ij})
 \label{sigma}
 \end{align}
-
 For the solid object we have that the action of the Liouville operator gives
 \begin{align}
     iL\hat{\bf R}(z) &=\frac{\hat{\bf P}(z)}{M}
@@ -1648,7 +1876,7 @@ particles, average velocity  and energy of the particles  in that bin, as we sho
 In this chapter we reframe in  real space (as opposed
 to Fourier space) the discussion of  nonlocality in time and space of
 hydrodynamics for unconfined fluids. The  methodology will be  transferrable to
-confined fluids allowing  us to discuss wall  effects in Chapters \ref{Chap:Walls} and \ref{Chap:Coeff}.  More  specifically, the
+confined fluids allowing  us to discuss wall  effects in Chapters \ref{Chap:Walls} and \ref{Chap:Slip}.  More  specifically, the
 objective  here  is  to  assess  to what  extent  it  makes  sense  to
 approximate  the  dynamics of  discrete  hydrodynamic  variables in  a
 Markovian  way  while,  at  the same  time,  use  nonlocal  transport
@@ -1684,7 +1912,7 @@ gases.
 The second approach that has been used in the description of fluids at
 the nanoscale  is based  on the  notion of a  nonlocal (in  space and
 time)  generalization of  Newton's  constitutive  equation for  planar
-shear  flows. Evans and Morriss \cite{EvansMorris2008} proposed a nonlocal constitutive equation in  which  the  stress is  related  to  the strain  field $\dot{\gamma}$ in the form
+shear  flows. Evans and Morriss \cite{EvansMorriss2008} proposed a nonlocal constitutive equation in  which  the  stress is  related  to  the strain  field $\dot{\gamma}$ in the form
 \begin{align}
   P^{xy}({\bf r},t)&=-\int_0^t ds \int_{-\infty}^{\infty} d{\bf r}'
 \eta({\bf r},{\bf r}',t-s)\dot{\gamma}({\bf r}',s)
@@ -2908,7 +3136,7 @@ matrices  due to  traslation invariance.
 
 \subsection{Simulation set up}
 \label{Sec:SimSetUpPBC}
-Interactions between equal particles has been simulated in PBC with the LAMMPS code. The interaction between particles is describeb by a truncated Lennard-Jones (LJ) potential,
+Interactions between equal particles has been simulated in PBC with the open source code LAMMPS \cite{Plimpton1995}. The interaction between particles is describeb by a truncated Lennard-Jones (LJ) potential,
 \begin{align}
   V_{ij}(r_{ij}) = \left\lbrace
   \begin{array}{ll}
@@ -3616,7 +3844,7 @@ We deal with a system in which the space occupied by the fluid is exactly the sa
 
 \subsection{Simulation set up}
 A system of particles interacting  with a LJ potential \ref{LJ}
-truncated at $\sigma=2.5$ has been simulated with the LAMMPS code. The
+truncated at $\sigma=2.5$ has been simulated with the open source code LAMMPS \cite{Plimpton1995}. The
 box size  is $40\times40\times33$,  the number  of fluid  particles is
 $N=28.175$ and  the time step  is $0.002$ in reduced  units.  Periodic
 boundary conditions  (PBC) are assumed  in all directions.   Two solid
