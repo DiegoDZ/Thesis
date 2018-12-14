@@ -485,8 +485,8 @@ Therefore,the system is approximately described, in the appropriate time scale, 
 Quasi-equilibrium is connected with the notion of separation of time scales. As we said, the CG variables evolve slowly compared with the rest of degrees of freedom, which is, in fact, a necessary condition to obtain differential equations for the evolution of the CG variables. If there is not a well-separated time scales we may obtain dynamic equations but not simple at all, with complicated memory terms. This situation is referred to as a non-Markovian dynamics, to distinguish it from Markovian desciption in which the future state of the system is only determined by the present, but not for the past of the system. 
 
 \section{The entropy}\label{sec:TheEntropy}
-As well as in equilibrium, in nonequilibrium situations entropy plays a fundamental role. In this section we present the entropy functional proposed by Jaynes \cite{Jaynes1957}.
-
+As well as in equilibrium, in nonequilibrium situations entropy plays a fundamental role. 
+%In this section we present the entropy functional proposed by Jaynes \cite{Jaynes1957}.
 Suppose that we know the averages of the CG variables of a given system 
 \begin{align}
     a = {\rm Tr}[{\hat{A}}\rho] ,
@@ -502,10 +502,10 @@ Note that we have introduced the classical trace operator ${\rm Tr}[\cdots]$
     {\rm Tr}[\hat{A}\rho] = \int dz\rho(z)\hat{A}(z) 
 \end{align}
 
-There are many possible ensembles $\rho(z)$ which can reproduce the macroscopic information, but we would like to take the one which gives us the least biased macroscopic information.
+There are $n$ possible ensembles $\rho(z)$ which can reproduce the macroscopic information, but we would like to take the one which gives us the least biased macroscopic information.
 In the theory of probability this problem is called "Principle of Insufficient Reason" because with the information given we are not able to obtain all the possible ensembles (we would need $(n-2)$ more conditions apart from (\ref{ave0}-\ref{intrho})).
 
-Jaynes proposes that the distribution of probability we should use is that which maximises the Shannon's entropy functional subject to the constraints 
+Jaynes \cite{Jaynes1957} proposes that the distribution of probability we should use is that which maximises the Shannon's entropy functional subject to the constraints 
 \begin{align}
     H[\rho] = -\sum_i\rho(z_i){\rm ln}(\rho(z_i)),
     \label{ShannonEntropy}
@@ -1177,13 +1177,21 @@ grand-canonical partition function defined as
  \sum_{N=0}^\infty \frac{1}{N!h^{3N}}
 \int dqdp dq'dp'
 \nonumber\\
-&\times\exp\left\{-\beta H_N(z)-\beta \sum_{i=1}^Nm\lambda_\rho({\bf
-    r}_i)-\beta \sum_{i=1}^N{\bf p}_i\esc\boldsymbol{\lambda}_g({\bf q}_i)\right\}
+&\times\exp\left\{-\beta H_N-\beta \sum_{i=1}^Nm \overline{\lambda_\rho}({\bf
+    r}_i)-\beta \sum_{i=1}^N{\bf p}_i\esc\overline{\boldsymbol{\lambda}_g}({\bf q}_i)\right\}
 \nonumber\\
 &\times\exp\left\{-\beta \boldsymbol{\lambda}_{R}\esc\hat{\bf R}(z)
 -\beta \boldsymbol{\lambda}_{P}\esc\hat{\bf P}(z)\right\}
 \label{xiln}
 \end{align}
+where we have introduced the coarse conjugate variables as
+  \begin{align}
+\overline{\lambda_\rho}({\bf q}_i)&=
+\int d{\bf r}\lambda_{\rho}({\bf r})\overline{\delta}({\bf r}-{\bf q}_i)
+\nonumber\\
+\overline{\boldsymbol{\lambda}_g}({\bf q}_i)&=
+\int d{\bf r}\boldsymbol{\lambda}_g({\bf r})\overline{\delta}({\bf r}-{\bf q}_i)
+  \end{align}
 The conjugate fields $\lambda$ of the CG variables (\ref{CGvar}) are fixed by the condition that the averages of the CG variables with the relevant ensemble coincide with the averages $\rho({\bf  r}),{\bf  g}({\bf
   r}),{\bf  R},{\bf  P}$  computed  with  the 
   solution of  the Liouville equation (we omit the time  dependence for simplicity). This conditions can be expressed as in Eqs. (\ref{cg1}) 
@@ -1233,18 +1241,18 @@ Note that the hydrodynamic functional  is the negative of the corresponding entr
 \label{lno}
 \end{align}
 
-It is possible to find the explicit expression of $\lambda_{\rho}({\bf r})$ and $\boldsymbol{\lambda}_g({\bf r})$ by performing the momentum integrals in Eq. (\ref{xiln}). Replacing in Eq. (\ref{xiln}) the Hamiltonian (\ref{H}) and the momentum of the solid (\ref{CGvar}) we obtain 
+It is possible to find the explicit expression of $\lambda_{g}({\bf r})$ and $\boldsymbol{\lambda}_{\bf P}$ by performing the momentum integrals in Eq. (\ref{xiln}). Replacing in Eq. (\ref{xiln}) the Hamiltonian (\ref{H}) and the momentum of the solid (\ref{CGvar}) we obtain 
 \begin{align}
 \Xi[\lambda]
 &\equiv
 \sum_{N=0}^\infty \frac{1}{N!h^{3N}}
 \int dqdpdq'dp'
 \nonumber \\
-&\times\exp\left\{-\beta U(z)-\beta \sum_{i=1}^Nm\lambda_\rho({\bf
+&\times\exp\left\{-\beta U(z)-\beta \sum_{i=1}^Nm\bar{\lambda}_\rho({\bf
     r}_i) -\beta \boldsymbol{\lambda}_{R}\esc\hat{\bf R}(z) \right\}
 \nonumber \\
 &\times
-\exp\left\{-\beta \left(\sum_{i=1}^N\frac{{\bf p}_i^2}{2m_i} + \sum_{i=1}^{N'}\frac{{\bf p}_{i'}^2}{2m_{i'}} \right) - \beta \sum_{i=1}^N{\bf p}_i\esc\boldsymbol{\lambda}_g({\bf q}_i) 
+\exp\left\{-\beta \left(\sum_{i=1}^N\frac{{\bf p}_i^2}{2m_i} + \sum_{i=1}^{N'}\frac{{\bf p}_{i'}^2}{2m_{i'}} \right) - \beta \sum_{i=1}^N{\bf p}_i\esc\boldsymbol{\bar{\lambda}}_g({\bf q}_i) 
 -\beta \boldsymbol{\lambda}_P\sum_{i=1}^{N'}{\bf p}_{i'}\right\}
 \end{align}
 We may group the terms in this way
@@ -1254,11 +1262,11 @@ We may group the terms in this way
 \sum_{N=0}^\infty \frac{1}{N!h^{3N}}
 \int dqdpdq'dp'
 \nonumber \\
-&\times\exp\left\{-\beta U(z)-\beta \sum_{i=1}^Nm\lambda_\rho({\bf
+&\times\exp\left\{-\beta U(z)-\beta \sum_{i=1}^Nm\bar{\lambda}_\rho({\bf
     r}_i) -\beta \boldsymbol{\lambda}_{R}\esc\hat{\bf R}(z) \right\}
 \nonumber \\
 &\times
-\exp\left\{-\beta \sum_{i=1}^N\left(\frac{{\bf p}_i^2}{2m_i} + {\bf p}_i\esc\boldsymbol{\lambda}_g({\bf q}_i)\right)\right\}
+\exp\left\{-\beta \sum_{i=1}^N\left(\frac{{\bf p}_i^2}{2m_i} + {\bf p}_i\esc\boldsymbol{\bar{\lambda}}_g({\bf q}_i)\right)\right\}
 \exp\left\{-\beta \sum_{i=1}^{N'}\left(\frac{{\bf p}_{i'}^2}{2m_{i'}} + \boldsymbol{\lambda}_P{\bf p}_{i'}\right) \right\}
 \end{align}
 We perform the Gaussian integrals over momenta by using 
@@ -1272,8 +1280,8 @@ reaching the following expression
  \sum_{N=0}^\infty \frac{1}{N!}
 \int \frac{dq}{\Lambda^{3N}}\frac{dq'}{\Lambda^{3N'}}e^{-\beta U}
 \nonumber\\
-&\times&\exp\left\{-\beta \sum_{i=1}^N\left(m\lambda_\rho({\bf
-    r}_i)-\frac{m}{2}\boldsymbol{\lambda}_{g}^2({\bf q}_i)\right)\right\}
+&\times&\exp\left\{-\beta \sum_{i=1}^N\left(m\bar{\lambda}_\rho({\bf
+    r}_i)-\frac{m}{2}\boldsymbol{\bar{\lambda}}_{g}^2({\bf q}_i)\right)\right\}
 \nonumber\\
 &\times&\exp\left\{-\beta \left(\boldsymbol{\lambda}_R\cdot\hat{\bf R}-\frac{M'}{2}\boldsymbol{\lambda}_{P}^2\right)\right\},
 \label{xiln2}
@@ -1282,6 +1290,14 @@ where we have introduced the thermal wavelength
 \begin{align}
 \Lambda=\left(\frac{h^2\beta}{2\pi m}\right)^{\frac{1}{2}}
 \end{align}
+and the coarse conjugate variables as
+  \begin{align}
+\overline{\lambda_\rho}({\bf q}_i)&=
+\int d{\bf r}\lambda_{\rho}({\bf r})\overline{\delta}({\bf r}-{\bf q}_i)
+\nonumber\\
+\overline{\boldsymbol{\lambda}_g}({\bf q}_i)&=
+\int d{\bf r}\boldsymbol{\lambda}_g({\bf r})\overline{\delta}({\bf r}-{\bf q}_i)
+  \end{align}
 Together with Eq. (\ref{rgo}) and Eq. (\ref{oh})
 \begin{align}
   \rho({\bf r}) &=\frac{\delta \Phi [\lambda]}{\delta \lambda_\rho({\bf r}) } = \frac{1}{\Xi[\lambda]} \frac{\delta\Xi [\lambda]}{\delta \lambda_{\rho}({\bf r})} = m
@@ -1313,13 +1329,13 @@ where we have defined the following grand potential
  \sum_{N=0}^\infty \frac{1}{N!}
 \int \frac{dq}{\Lambda^{3N}}\frac{dq'}{\Lambda^{3N'}}\nonumber\\
 &\times
-\exp\left\{-\beta  \left(U-\sum_{i=1}^N m\cdot\mu({\bf
+\exp\left\{-\beta  \left(U-\sum_{i=1}^N m\cdot\bar{\mu}({\bf
     r}_i)+ \boldsymbol{\lambda}_R\cdot\hat{\bf R}\right)\right\}
 \label{xpos}
 \end{align}
 and the chemical potential per unit mass has been introduced as
 \begin{align}
-  \mu({\bf r})&\equiv\frac{1}{2}\lambda_g^2({\bf r})-\lambda_\rho({\bf r})
+  \bar{\mu}({\bf r})&\equiv\frac{1}{2}\bar{\lambda}_g^2({\bf r})-\bar{\lambda}_\rho({\bf r})
 \label{chempot}
 \end{align}
 
@@ -1394,7 +1410,7 @@ If we replace $\mu({\bf r})$ by the Eq. (\ref{chempot}) and use (\ref{nu}), we f
 \Note{Desde ecuación (51) del paper hasta el final de la sección. En principio no veo que sea necesario añadirlo, pero me queda pensarlo detenidamente.}
 
 \section{The transport equations}
-In this section we will obtain the transport equation for a fluid in contact with a solid sphere. In section (\ref{sec:Grabert}) we obtained an expression for the evolution of the selected variables using the technique of projection operators which consists of an irreversible part and a reversible one. 
+In this section we will obtain the transport equation for a fluid in contact with a solid sphere. In Sec. (\ref{sec:Grabert}) we obtained an expression for the evolution of the selected variables using the technique of projection operators which consists of an irreversible part and a reversible one. 
 \subsection{Exact reversible dynamics}
 In this subsection we consider the reversible part for the case that the CG variables are those in Eqs. (\ref{CGvar}).
 For the mass density we have
@@ -1693,6 +1709,95 @@ as
 \nonumber\\
 \label{Ms}
 \end{align}
+Note that momentum conservation implies that the gain rate of the total momentum
+of the fluid is equal to the loss rate of momentum of the particle
+\begin{align}
+  \int d{\bf r} iL\hat{\bf g}_{\bf r}&=-iL\hat{\bf P}
+\label{iLgiLP}
+\end{align}
+The conservation of momenta then implies the following relationships between
+elements of the dissipative matrix
+\begin{align}
+M^{gP}_{{\bf r}}&=-\int d{\bf r}'M^{gg}_{{\bf r}{\bf r}'}
+\nonumber\\
+M^{PP}&= - \int d{\bf r}M^{Pg}_{{\bf r}}
+\end{align}
+and this leads in Eq. (\ref{IrrMark1}) to 
+\begin{align}
+  \partial_t{\bf g}({\bf r})&=-\int d{\bf r}'M^{gg}_{{\bf r}{\bf r}'}\left({\bf v}({\bf r}')-{\bf V}\right)
+\nonumber\\
+\frac{d}{dt}{\bf P}(t)&=\int d{\bf r}\int d{\bf r}'M^{gg}_{{\bf r}{\bf r}'}\left({\bf v}({\bf r}')-{\bf V}\right)
+\label{IrrMark2}\end{align}
+which contain only  the matrix element $M^{gg}_{{\bf  r}{\bf r}'}$ and are
+manifestly  Galilean   invariant.   By  using  Eqs.   (\ref{gls})  and
+(\ref{Pfsl}) {in} the  definition  of $M^{gg}_{{\bf  r}{\bf r}'}$  in
+Eq. (\ref{Ms}),  and inserting  the result in  the equation  of motion
+(\ref{IrrMark1}) one obtains
+\begin{align}
+\left.  \partial_t{\bf g}^\alpha({\bf r})\right|_{\rm irr}&= \boldsymbol{\nabla}_{\bf r}^{\beta}\boldsymbol{\Sigma}^{\alpha\beta}({\bf r}) +\boldsymbol{{\cal S}}^\alpha({\bf r}) 
+\nonumber\\
+\left.\frac{d}{dt}{\bf P}^\alpha(t)\right|_{\rm irr}&=-\int d{\bf r}'   \boldsymbol{{\cal S}}^\alpha({\bf r}')
+\label{Irr}
+\end{align}
+where the fluid stress tensor is
+\begin{align}
+  \boldsymbol{\Sigma}^{\alpha\beta}({\bf r})&=
+\int d{\bf r}'
+\boldsymbol{\eta}^{\alpha\beta\alpha'\beta'}_{{\bf r}{\bf r}'}
+\boldsymbol{\nabla}_{{\bf r}'}^{\beta'}{\bf v}^{\alpha'}({\bf r}')
+\label{FluidStress}
+\end{align}
+and the \textit{irreversible surface force density} on the fluid is defined as
+\begin{align}
+\boldsymbol{{\cal S}}^\alpha({\bf r})=&
+-\int d{\bf r}'{\bf G}^{\alpha\alpha'\beta'}_{{\bf r}{\bf r}'}
+\boldsymbol{\nabla}_{{\bf r}'}^{\beta'} {\bf v}^{\alpha'}({\bf r}')
+\nonumber\\
++\boldsymbol{\nabla}_{{\bf r}}^{\beta}&\int d{\bf r}'{\bf H}^{\alpha\beta\alpha'}_{{\bf r}{\bf r}'}
+( {\bf v}^{\alpha'}({\bf r}')-{\bf V}^{\alpha'})
+\nonumber\\
+-&\int d{\bf r}'
+\boldsymbol{\gamma}^{\alpha\alpha'}_{{\bf r}{\bf r}'}( {\bf v}^{\alpha'}({\bf r}')
+-{\bf V}^{\alpha'})
+\label{Irreversibleforces}
+\end{align}
+We use Einstein's sum over repeated indices convention (see Appendix \ref{Ap:Notation}).
+In   these    expressions   we    have   introduced    the   following
+\textit{non-local}  transport   coefficients:  the   viscosity  kernel
+$\boldsymbol{\eta}_{{\bf r}{\bf r}'}$ (fourth  order tensor), the slip
+kernels ${\bf  H}_{{\bf r}{\bf r}'},{\bf G}_{{\bf  r}{\bf r}'}$ (third
+order  tensors), and  the  friction kernel  $\boldsymbol{\gamma}_{{\bf
+    r}{\bf  r}'}$ (second  order  tensor).  They  are  defined by  the
+Green-Kubo formulae
+\begin{align}
+  \boldsymbol{\eta}_{{\bf  r}{\bf r}'} &\equiv
+\frac{1}{k_BT}\int_0^{\Delta t} dt'\langle 
+{\cal Q}_t\hat{\boldsymbol{\sigma}}_{{\bf r}}(t')
+{\cal Q}_t\hat{\boldsymbol{\sigma}}_{{\bf r}'}\rangle^{\lambda(t)}
+\nonumber\\
+{\bf H}_{{\bf r}{\bf r}'}&\equiv\frac{1}{k_BT}\int_0^{\Delta t} dt'
+\langle {\cal Q}_t\hat{\boldsymbol{\sigma}}_{{\bf r}}(t')
+{\cal Q}_t\hat{\bf F}^{\rm s\to l}_{{\bf r}'}\rangle^{\lambda(t)}
+\nonumber\\
+{\bf G}_{{\bf r}{\bf r}'}&\equiv\frac{1}{k_BT}\int_0^{\Delta t} dt'
+\langle {\cal Q}_t\hat{\bf F}^{\rm s\to l}_{{\bf r}}(t')
+{\cal Q}_t\hat{\boldsymbol{\sigma}}_{{\bf r}'}\rangle^{\lambda(t)}
+\nonumber\\
+\boldsymbol{\gamma}_{{\bf  r}{\bf r}'}&\equiv\frac{1}{k_BT}\int_0^{\Delta t} dt'
+\langle 
+{\cal Q}_t\hat{\bf F}^{\rm s\to l}_{{\bf r}}(t')
+{\cal Q}_t\hat{\bf F}^{\rm s\to l}_{{\bf r}'}\rangle^{\lambda(t)}
+\label{GK}
+\end{align}
+These transport  kernels are state  dependent, i.e.  functions  of the
+time  dependent  averages  of  the  relevant  variables,  through  the
+dependence of  the relevant ensemble  on these averages.  The explicit
+form of the projected currents appearing in these expressions is given
+in the Appendix \ref{App:Projected}.
+
+
+
+\section{The final equations of nano-hydrodynamics} 
 
 
 
