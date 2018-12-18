@@ -10,12 +10,14 @@
 \usepackage{fancyhdr}
 \usepackage{epigraph}
 \usepackage{caption}
+\usepackage{psfrag}
 \usepackage{hyperref}
 \captionsetup[figure]{font=footnotesize,labelfont=footnotesize}
 \graphicspath{{./figures/}}
 %To use a kind of times new roman font style
 \usepackage{mathptmx}
 \usepackage{newtxtext,newtxmath}
+\usepackage[titletoc]{appendix}
 %To modify the space before title of each chapter
 %\usepackage{titlesec}
 %\titleformat{\chapter}[display]   
@@ -23,14 +25,22 @@
 %\titlespacing*{\chapter}{0pt}{-10pt}{40pt}
 %Modificar encabezado y pie de página.
 \pagestyle{fancy}
+\fancypagestyle{chapters}{%
 \fancyhead{}
 \fancyhead[LE,RO]{\thepage}
 \fancyhead[RE]{Nanoscale hydrodynamics near solids}
 \fancyhead[LO]{{\color{Gray}CHAPTER \thechapter.} \leftmark }
 \fancyfoot{}
+\renewcommand{\headrulewidth}{1pt}
+}
 %\fancyfoot[LE,RO]{\thepage}
 %\fancyfoot[LO,CE]{Chapter \thechapter}
 %\fancyfoot[CO,RE]{Author Name}
+\fancypagestyle{noHeader}{%
+\fancyhead{}
+\renewcommand{\headrulewidth}{0pt}
+}
+
 %New commands
 \renewcommand{\thefootnote}{\roman{footnote}}
 \newcommand{\esc}{\!\cdot\!}
@@ -40,6 +50,13 @@
 \newcommand{\Tirar}[1]{{\color{Magenta}#1}}   % tirar
 \newcommand{\llangle}{\left\langle}
 \newcommand{\rrangle}{\right\rangle}
+\newcommand{\llg}{\left\lgroup}
+\newcommand{\rlg}{\right\rgroup}
+\newcommand{\bra}{\llbracket}
+\newcommand{\ket}{\rrbracket}
+\newcommand{\cc}{\!\parallel\!}
+\newcommand{\GK}[2]{\langle#1 \cc #2\rangle}
+\newcommand{\GKrest}[2]{\langle#1 \cc #2\rangle^0}
 
 \begin{document}
 
@@ -56,7 +73,7 @@
 $\ $
 \thispagestyle{empty} % para que no se numere esta pagina
 
-
+\pagestyle{noHeader}
 \chapter*{}
 \pagenumbering{Roman} % para comenzar la numeracion de paginas en numeros romanos
 \begin{flushright}
@@ -85,7 +102,9 @@ blablabla
 
 \pagenumbering{arabic}
 \setcounter{chapter}{-1}
+
 \chapter{Introduction}\label{Chap:Intro}
+\pagestyle{chapters}  %define page style for the chapters
 \markboth{Introduction}{Introduction}
 
 \Note{Viene de la introducción del paper I}
@@ -616,7 +635,7 @@ conjugate to (\ref{cg1})
 \end{align}
 
 
-\section{The dynamics}\label{sec:Grabert}
+\section{The dynamics}\label{Sec:Grabert}
 In general it is possible to derive the evolution equation for a given
 dynamic  variable  by  using  the technique  of  projection  operators
 \cite{Kawasaki1973a,Grabert1982}. The projection operator method can be
@@ -1436,8 +1455,8 @@ conserved by  the reversible part  of the dynamics.
 \Note{Desde ecuación (55) del paper hasta el final de la sección. En principio no veo que sea necesario añadirlo, pero me queda pensarlo detenidamente.}
 
 \section{The transport equations}
-In this section we will obtain the transport equation for a fluid in contact with a solid sphere. In Sec. (\ref{sec:Grabert}) we obtained an expression for the evolution of the selected variables using the technique of projection operators which consists of an irreversible part and a reversible one. 
-\subsection{Exact reversible dynamics}
+In this section we will obtain the transport equation for a fluid in contact with a solid sphere. In Sec. (\ref{Sec:Grabert}) we obtained an expression for the evolution of the selected variables using the technique of projection operators which consists of an irreversible part and a reversible one. 
+\subsection{Exact reversible dynamics}\label{Sec:ExactCont}
 In this subsection we consider the reversible part for the case that the CG variables are those in Eqs. (\ref{CGvar}).
 For the mass density we have
 \begin{align}
@@ -1867,7 +1886,7 @@ in the dissipative part of the dynamics.
 \chapter{Discrete hydrodynamics near solids for planar flows}\label{Chap:Planar}
 \markboth{Discrete hydrodynamics near solids for planar flows}{}
 \section{Introduction}
-In the last chapter we  have constructed  from  first
+In Chapter \ref{Chap:Theory} we  have constructed  from  first
 principles a theory  for hydrodynamics in contact with  solids.    Based   on    the   Kawasaki-Gunton   projector
 \cite{Kawasaki1973,Grabert1982}, the theory  governs the average value
 of the hydrodynamic variables in the  presence of a solid sphere.  The
@@ -1986,6 +2005,436 @@ axis, while bins are segments in  this axis.  In 3D, nodes are planes,
 while bins are slabs.  As it  will become apparent, from a microscopic
 point of view, mass, momentum, and  force densities are defined at the
 nodes, while stress is defined at the bins.
+
+We  introduce the  characteristic function  of the  bin $\chi_\mu({\bf
+  r})$ that  takes the value  1 if  ${\bf r}$ is  in the bin  and zero
+otherwise.  Its explicit form is given by the unit function
+\begin{align}
+\chi_\mu({\bf r})&=\theta(z_{\mu+ 1}-x_3)\theta(x_3-z_\mu)=\chi_\mu(x_3)
+\label{chi}
+\end{align}
+where $\theta(x)$ is  the Heaviside step function,  $z_{\mu+1}$ is the
+position  of the  upper  boundary of  the layer,  and  $z_\mu$ is  the
+corresponding  position  of  the  lower boundary  of  the  layer.   The set of characteristic
+functions form  a partition of  unity, i.e.  by summing
+over all the bins we have
+\begin{align}
+  \sum_{\mu=1}^{N_{\rm bin}}\chi_\mu({\bf r})&=1
+\label{PartitionUnity}
+\end{align}
+The volume  integral of the  characteristic function gives  the volume
+${\cal V}_\mu$ of the bin
+\begin{align}
+{\cal V}_\mu&=  \int d{\bf r}\chi_\mu({\bf r})= L_xL_y\Delta z
+\end{align}
+
+For each node, we  introduce  a finite element linear  basis  function
+$\Phi_\mu({\bf r})$
+\begin{align}
+  \Phi_\mu({\bf r})=\chi_\mu(x_3)\frac{z_{\mu+1}-x_3}{\Delta z}+\chi_{\mu-1}(x_3)\frac{x_3-z_{\mu-1}}{\Delta z}
+\end{align}
+that depends only on the $x_3$ component of ${\bf r}$. 
+The finite element basis functions $\Phi_\mu({\bf r})$ also form a partition of unity, i.e.
+\begin{align}
+  \sum_\mu\Phi_\mu({\bf r})=1
+\label{partition}
+\end{align}
+
+We plot  in Figure  \ref{psichi} the  basis function  $\Phi_\mu(x_3)$ of
+node  $\mu$ and  the  characteristic function  $\chi_\mu(x_3)$ of  bin
+$\mu$.
+\begin{figure}[h]
+  \centering
+\includegraphics[scale=0.3]{psichi}
+\caption{The basis function $\Phi_\mu(x_3)$ of node $\mu$ (blue) and the characteristic function $\chi_\mu(x_3)$ of bin $\mu$ (orange).}
+\label{psichi}
+\end{figure}
+
+The gradient of the basis function is
+\begin{align}
+\boldsymbol{\nabla}\Phi_\mu({\bf r})&=-\frac{\chi_\mu({\bf r})-\chi_{\mu-1}({\bf r})}{\Delta z}{\bf e}_3
+\label{partialpsi}
+\end{align}
+where ${\bf e}_3$ is the unit vector in the normal direction.
+
+Following  Ref. \cite{EspanolDonev2015},  we  now introduce  dual basis  functions
+$\delta_\mu({\bf  r})$ and  $\psi_\mu({\bf r})$.   The basis  function
+$\delta_\mu({\bf r})$ is used to  discretize a continuum field $v({\bf
+  r})$ by defining the discrete values $v_\mu$ according to
+\begin{align}
+  v_\mu&=\int d{\bf r}v({\bf r})\delta_\mu({\bf r})
+\label{Disc}
+\end{align}
+On the other hand,  the  basis function  $\psi_\mu({\bf r})$ allows one
+to construct a continuum field out of a discrete set of values through
+interpolation, this is
+\begin{align}
+  \overline{v}({\bf r}) &=v_\mu\psi_\mu({\bf r})
+\label{Cont}
+\end{align}
+In this chapter, overlined fields indicate  fields interpolated from
+a set of discrete values. 
+The basis functions are required to
+satisfy the biorthonormality condition
+\begin{align}
+  \int d{\bf r}\delta_\mu({\bf r})\psi_\nu({\bf r})=\delta_{\mu\nu}
+\label{biortho}
+\end{align}
+where $\delta_{\mu\nu}$ is the Kronecker delta. 
+It proves convenient to introduce the following 
+parenthetical notation for space integrals
+\begin{align}
+  \llg \cdots\rlg &=\int d{\bf r}\cdots
+\label{notation}
+\end{align}
+and the biorthonormality condition (\ref{biortho}) becomes
+\begin{align}
+\llg\delta_\mu\psi_\nu\rlg=\delta_{\mu\nu}
+\label{biortho2}
+\end{align}
+We stipulate that the relation between both basis function is linear
+\begin{align}
+  \delta_\mu({\bf r})&=\sum_\nu M^\delta_{\mu\nu}\psi_\nu({\bf r})
+\nonumber\\
+  \psi_\mu({\bf r})&=\sum_\nu M^\psi_{\mu\nu}\delta_\nu({\bf r})
+\label{dual}
+\end{align}
+and, then, the biorthonormality condition (\ref{biortho}) implies that 
+the matrices are given by
+\begin{align}
+  M^\delta_{\mu\nu}&= \llg\delta_\mu\delta_\nu\rlg
+\nonumber\\
+  M^\psi_{\mu\nu}&= \llg\psi_\mu\psi_\nu\rlg
+\label{MM}
+\end{align}
+and these two matrices are inverse of each other.
+
+The biorthonormality  condition ensures the consistency  property that
+if  we  discretize  as  in (\ref{Disc})  an  interpolated  field  like
+(\ref{Cont}) we get
+\begin{align}
+  c_\mu&=\int d{\bf r}\delta_\mu({\bf r})\overline{c}({\bf r})
+=\sum_\nu\int d{\bf r}\delta_\mu({\bf r})\psi_\nu({\bf r})c_\nu=c_\mu
+\end{align}
+Therefore,  the   discretization  of   an  interpolated   field  gives
+consistently back the original discrete field, and no errors are accumulated in the process.
+
+Let us now specify the actual form of the basis functions.  The finite
+element basis  function $\Phi_\mu({\bf  r})$ has an  associated volume
+${\cal V}_\mu$ defined as
+\begin{align}
+  {\cal V}_{\mu}&=\int d{\bf r}\Phi_\mu({\bf r})
+\end{align}
+and the usual mass matrix of the finite element method is 
+\begin{align}
+M^\Phi_{\mu\nu}&=\llg\Phi_\mu\Phi_\nu\rlg  
+\label{Mphi}
+\end{align}
+ and has dimensions of volume. This matrix satisfies 
+\begin{align}
+\sum_\mu M^\Phi_{\mu\nu} &={\cal V}_\nu
+\end{align}
+and, by multiplying with the inverse on both sides
+\begin{align}
+\sum_\mu {\cal V}_\mu M^{\Phi-1}_{\mu\nu}&=1
+\label{sumM}
+\end{align}
+for all $\nu$.
+
+The discrete  Dirac delta function is  defined in terms of  the finite
+element basis function according to
+\begin{align}
+  \delta_\mu({\bf r})\equiv\frac{\Phi_\mu({\bf r})}{{\cal V}_\mu}
+\label{DelFE}
+\end{align}
+The matrices $M^\delta_{\mu\nu}, M^\psi_{\mu\nu}$ defined in (\ref{MM}) are related to
+the mass matrix of the finite element basis (\ref{Mphi}) through
+\begin{align}
+  M^\delta_{\mu\nu}&=\frac{  M^\Phi_{\mu\nu}}{{\cal V}_\mu{\cal V}_\nu}
+\nonumber\\
+  M^\psi_{\mu\nu}&={\cal V}_\mu M^{\Phi-1}_{\mu\nu}{\cal V}_\nu
+\label{MdMp}
+\end{align}
+Given the definition (\ref{DelFE}) for the discrete Dirac delta function,  the interpolant basis function given in (\ref{dual}) takes the form
+\begin{align}
+  \psi_\mu({\bf r})&
+={\cal V}_\mu \sum_\nu M^{\Phi-1}_{\mu\nu} \Phi_\nu({\bf r})
+\label{PsiFE}
+\end{align}
+in terms of the finite element basis function set.
+
+\section{The  discrete hydrodynamics equations derived
+with the Kawasaki-Gunton projector}
+\label{Sec:derivation}
+In this section, we present a derivation of the governing equations of
+the  dynamics   of  the   non-equilibrium  average  of   the  discrete
+hydrodynamic  variables  from first  principles,  i.e.   based on  the
+projection operator  technique \cite{Grabert1982}, summarized  in Sec.
+\ref{Sec:Grabert} of Chapter \ref{Chap:NESM}.   The coarse-grained variables that we
+consider in this chapter are the  total Hamiltonian $\hat{H}(z)$
+and the discrete mass and momentum fields, which are defined according to
+\begin{align}
+\hat{\rho}_\mu(z)&= \sum_i^Nm_i\delta_\mu({\bf r}_i)
+\nonumber\\
+\hat{\bf g}_\mu(z)&= \sum_i^N{\bf p}_i\delta_\mu({\bf r}_i)
+\label{rhogmumic}
+\end{align}
+No macrocopic variables are assumed fot he solid, because we assumed that it is a very massive wall with definite location.
+The  phase  functions (\ref{rhogmumic}),  as  opposed  to  the  microscopic  functions
+(\ref{CGvar}) can be  measured directly in a  MD simulation. The
+continuum (\ref{CGvar}) and discrete (\ref{rhogmumic}) variables
+are connected by
+\begin{align}
+\hat{\rho}_\mu(z)&= \int d{\bf r}\delta_\mu({\bf r})\hat{\rho}_{\bf r}(z)
+\nonumber\\
+\hat{\bf g}_\mu(z)&=\int d{\bf r}\delta_\mu({\bf r})\hat{\bf g}_{\bf r}(z)
+\label{rhogmumiccont}
+\end{align}
+The  discrete mass  and momentum  densities are  defined at  the nodal
+points. We see from (\ref{rhogmumic}) that  the mass density at a node
+receives a contribution of the mass of fluid molecule $i$ that depends
+on  the distance  of  this  molecule to  the  nodal  plane $\mu$,  and
+similarly    for   the    momentum.     The   microscopic    variables
+(\ref{rhogmumic}) give,  essentially, the number of  particles and the
+average velocity of the particles (per  unit volume) that happen to be
+``around'' the nodal plane $\mu$.
+
+By the very
+selection of the  variables (\ref{rhogmumic}) as the  CG variables, we
+are  making a  strong assumption  about  the situations  in which  the
+theory may be applicable.  For  example, the resulting theory will not
+be able to describe situations in which a sound wave is propagating in
+the direction \textit{parallel} to the  walls, because such a wave has
+variations in the parallel direction that cannot be captured by the CG
+variables.  However,  it will  allow us  to discuss  sound propagation
+\textit{perpendicular}  to the  walls.   It is  expected  that the  CG
+variables (\ref{rhogmumic})  will feel the  effects of the walls  in a
+very integrated form, in which the isotropy and translation invariance
+of the  walls will be a  very good approximation.  In  that sense, for
+those situations  in which the  resulting dynamic equations  are valid
+(i.e.  parallel flow),  the assumed isotropy of the  walls is expected
+to be  valid.  
+\Note{ No añado lo siguiente porque no he podido leer las notas. No he encointrado la referencia. \\The  calculations presented in what follows  are very
+similar to  the ones described  in Ref. \cite{Donev}, except  that the
+present  calculation  deals  with ``canonical''  averages  instead  of
+``microcanonical''  averages  as  in   Ref.  \cite{Donev}.  They  also
+crucially  differ in  that  the present  derivation  accounts for  the
+presence of confining walls.}
+
+\subsection{The time derivatives}
+The time derivatives  of the CG variables  (\ref{rhogmumic}) are given
+through the action of the Liouville operator
+\begin{align}
+i{\cal L}  \hat{\rho}_{\mu}(z)&=\sum_{i=1}^N{\bf p}_i\esc\boldsymbol{\nabla}\delta_\mu({\bf q}_i)
+\nonumber\\
+i{\cal L}  \hat{\bf g}_{\mu}(z)&=\sum_{i=1}^N{\bf p}_i{\bf v}_i\esc\boldsymbol{\nabla}\delta_\mu({\bf q}_i)
++\hat{\bf F}_\mu(z)
+\label{iLMicrhogmu}
+\end{align}
+In the expression (\ref{iLMicrhogmu}) we see that the momentum density
+changes through two different mechanism,  the convective motion of the
+particles and  the forces on  the particles.  The total  force density
+$\hat{\bf F}_\mu$ felt by the fluid particles at node $\mu$ is
+\begin{align}
+\hat{\bf F}_\mu&=    \hat{\bf F}^{\rm s\to l}_\mu+  \hat{\bf F}^{\rm l\to l}_\mu
+\end{align}
+where $  \hat{\bf F}^{\rm  s\to l}_\mu$  is the  force density  on the
+fluid  at node  $\mu$ due  to the  solid and  $ \hat{\bf  F}^{\rm l\to
+  l}_\mu$ is the force  density on the fluid at node  $\mu$ due to the
+fluid. These forces are defined as
+\begin{align}
+ \hat{\bf F}^{\rm s\to l}_\mu &\equiv\sum_{ij'}\hat{\bf F}_{ij'}\delta_\nu({\bf r}_i)
+ \nonumber\\
+ \hat{\bf F}^{\rm l\to l}_\mu &\equiv\sum_{ij}\hat{\bf F}_{ij}\delta_\nu({\bf r}_i)
+\label{Fbin}
+\end{align}
+Recall that solid atoms have  primed indices and fluid atoms have unprimed indices.
+
+
+For future reference,  we express the time derivative  of the discrete
+momentum density field  in terms of a discrete stress  tensor. 
+The  gradient   of  the  discrete   delta  function  is   given,  from
+(\ref{partialpsi}) and (\ref{DelFE}), by
+\begin{align}
+  \boldsymbol{\nabla}\delta_\mu({\bf r})=-\frac{1}{{\cal V}_\mu}\frac{\chi_\mu(x_3)-\chi_{\mu-1}(x_3)}{\Delta z} {\bf e}_{3}
+\end{align}
+This means that the convective part can be expressed in the form
+\begin{align}
+  \sum_{i=1}^N{\bf p}_i{\bf v}_i\esc\boldsymbol{\nabla}\delta_\mu({\bf q}_i)&=
+-\frac{1}{{\cal V}_\mu} \sum_{i=1}^N{\bf p}_i{\bf v}_i\esc{\bf e}_{3}\frac{\chi_\mu(x_3)-\chi_{\mu-1}(x_3)}{\Delta z}
+\nonumber\\ 
+\end{align}
+For the force due to the fluid we may use the trick
+\begin{align}
+{\bf F}_\mu^{\rm l\to l}&=  \sum_{ij}^N\hat{\bf F}_{ij}\delta_\mu({\bf q}_i)
+\nonumber\\
+&=\frac{1}{2}\sum_{ij}^N\hat{\bf F}_{ij}
+(\delta_\mu({\bf q}_i)-\delta_\mu({\bf q}_j))
+\nonumber\\
+&=\frac{1}{2}\sum_{ij}^N\hat{\bf F}_{ij}\int_0^1d\epsilon \frac{d}{d\epsilon}
+\delta_\mu({\bf q}_j+\epsilon{\bf q}_{ij})
+\nonumber\\
+&=\frac{1}{2}\sum_{ij}^N\hat{\bf F}_{ij}{\bf q}_{ij}\esc\int_0^1d\epsilon 
+\boldsymbol{\nabla}\delta_\mu({\bf q}_j+\epsilon{\bf q}_{ij})
+\end{align}
+Therefore we have
+\begin{align}
+ &  \sum_{ij}^N\hat{\bf F}_{ij}\delta_\mu({\bf q}_i)
+=\frac{1}{2}\sum_{ij}^N\hat{\bf F}_{ij}{\bf q}_{ij}\esc{\bf e}_{3}\nonumber\\
+& 
+\times
+\int_0^1d\epsilon 
+\frac{1}{{\cal V}_\mu}\frac{\chi_\mu({\bf q}_j+\epsilon{\bf q}_{ij})-\chi_{\mu-1}({\bf q}_j+\epsilon{\bf q}_{ij})}{\Delta z} 
+\nonumber\\
+& 
+=\frac{1}{{\cal V}_\mu}\frac{1}{2}\sum_{ij}^N\hat{\bf F}_{ij}{\bf q}_{ij}\esc{\bf e}_{3}
+\frac{z_\mu(i,j)-z_{\mu-1}(i,j)}{\Delta z} 
+\label{Fvir}
+\end{align}
+where we have introduced the geometric factor 
+\begin{align}
+z_\mu(i,j)&=  \int_0^{1}d\epsilon\chi_\mu({\bf r}_i-\epsilon{\bf r}_{ij})
+\nonumber\\
+&=  \int_0^{1}d\epsilon
+\theta(z_{\mu+1}-z_i+\epsilon z_{ij})\theta(z_i-\epsilon z_{ij}-z_\mu)
+\nonumber\\
+&= \frac{1}{z_{ij}} \int_0^{z_{ij}}dz
+\theta(z_{\mu+1}-z_i+z)\theta(z_i-z_\mu-z)
+\label{int}
+\end{align}
+The integral can be easily computed with the result
+\begin{align}
+ z_\mu(i,j)=&\frac{1}{z_{ij}}\left[(z_j-z_\mu) \theta(z_{\mu+1}-z_{j},z_\mu-z_{j} )\right.
+\nonumber\\
+&-(z_i-z_\mu) \theta(z_{\mu+1}-z_i,z_\mu-z_i)
+\nonumber\\
+&-(z_{j}-z_{\mu+1}) \theta(z_{\mu+1}-z_{j})
+\nonumber\\
+&\left.+(z_i-z_{\mu+1}) \theta (z_{\mu+1}-z_i)\right]
+\end{align}
+where  $\theta(a,b)=\theta(a)\theta(b)$  takes  the value  1  if  both
+$a,b>0$, and  zero otherwise.  Note that  $z_\mu(i,j)=z_\mu(j,i)$.  If
+both particles are within the bin,  then $ z_\mu(i,j)=1$.  If the line
+joining  the   particles  does  not   cross  the  bin   (for  example,
+$z_i,z_j<z_\mu$) then  $z_\mu(i,j)=0$.  If both particles  are outside
+the  bin, but  the line  joining the  particles crosses  the bin  (for
+example,                $z_i<z_\mu,z_j>z_{\mu+1}$)                then
+$z_\mu(i,j)=\frac{z_{\mu+1}-z_\mu}{z_j-z_i}$. Finally, if one particle
+is   in    the   bin,   and    the   other   outside    (for   example
+$z_\mu<z_i<z_{\mu+1},               z_j>z_{\mu+1}$)               then
+$z_\mu(i,j)=\frac{z_{\mu+1}-z_i}{z_j-z_i}$.  In  summary, $z_\mu(i,j)$
+is  the fraction  of  the segment  of  the \textit{vertical}  distance
+between particles $i,j$ that happens to  be within the bin $\mu$. 
+%Note that by Thale's theorem this fraction  is equal to the fraction of the \textit{length} of the segment joining particles $i,j$ that happens to be  inside  the bin.  
+The  partition  of unity  (\ref{PartitionUnity})
+implies also that
+\begin{align}
+  \sum_\mu z_{\mu}(i,j) =1
+\label{zmu1}
+\end{align}
+as can be seen easily from the definition (\ref{int}).
+
+By                collecting                the                results
+(\ref{iLMicrhogmu}),(\ref{Fbin}),(\ref{Fvir}) we end  up
+with the final form of the time derivative of the discrete momentum variable
+\begin{align}
+  i{\cal L}\hat{\bf g}_\mu(z) &=\hat{\bf F}_\mu^{\rm s\to l}(z)-\frac{\hat{\boldsymbol{\sigma}}_\mu(z)-\hat{\boldsymbol{\sigma}}_{\mu-1}(z)}{\Delta z}\esc{\bf e}_3
+\label{Equivalence}
+\end{align}
+where we have introduced the discrete stress tensor of bin $\mu$ through
+\begin{align}
+ \hat{ \boldsymbol{\sigma}}_{\mu}
+% &=\hat{\bf K}_\mu+\hat{\boldsymbol{\Pi}}_{\mu}
+% \nonumber\\
+&=
+\frac{1}{{\cal V}_\mu} \left[\sum_i{\bf p}_i{\bf v}_i\chi_\mu({\bf r}_i)
++\frac{1}{2}\sum^{N}_{ij}{\bf r}_{ij}\hat{\bf F}_{ij}z_\mu(i,j)\right]
+\label{sbin}
+\end{align}
+The form of  Eq. (\ref{Equivalence}) makes explicit  that the momentum
+density changes due to the force density due to the solid wall and the
+discrete gradient of  the fluid stress tensor. This  separation of the
+force on the fluid into  solid-fluid and fluid-fluid interactions is at
+the basis of the final structure of the hydrodynamic equations.
+
+Note  that, while  the force  is discretized  with the  basis function
+$\Phi_\mu({\bf r})$, the stress is discretized with the characteristic
+function $\chi_\mu({\bf  r})$. Therefore, forces are  defined on nodal
+points    while    stresses    are    defined    on    bins.     Refs.
+\cite{Schindler2010,Lion2012} have  considered the definition  of local
+pressure following similar lines.
+
+
+The partitions  of unity (\ref{PartitionUnity}) and  (\ref{zmu1}) ensure
+that the arithmetic average of the stress tensor of the bins gives the
+total stress tensor of the system, this is
+\begin{align}
+\frac{1}{N_{\rm bin}}\sum_{\mu=1}^{N_{\rm bin}}\hat{\boldsymbol{\sigma}}_{\mu}=\hat{\boldsymbol{\sigma}}
+\end{align}
+where the total fluid stress tensor of the system is defined in the usual way as
+\begin{align}
+  \hat{\boldsymbol{\sigma}}=\frac{1}{V}\left[\sum_{i}{\bf p}_i{\bf v}_i
++\frac{1}{2}\sum_{ij}{\bf r}_{ij}\hat{\bf F}_{ij}\right]
+\end{align}
+and the total volume of the system is $V=L_xL_yL_z$.
+
+\subsection{Exact reversible part of the dynamics}
+As shown in Sec. \ref{Sec:ExactCont} of Chapter \ref{Chap:Theory} , the reversible part
+of  the dynamics  is  given by  the average  of  the microscopic  time
+derivatives with respect to the  relevant ensemble.  The explicit form
+of the relevant ensemble and the corresponding averages leading to the
+reversible  part   of  the   dynamics  are   given  in   the  Appendix
+\ref{Ap:KG}.  There  it is  shown  that  the  reversible part  of  the
+dynamics is given by the \textit{exact} equations
+\begin{align}
+  \llangle i{\cal L}\hat{\rho}_\mu\rrangle^{\lambda{\bf v}} &=
+\llg\llangle \hat{\rho}\rrangle^{\lambda{\bf v}}
+\overline{\bf v}\esc\boldsymbol{\nabla}\delta_{\mu}\rlg
+\nonumber\\
+  \llangle i{\cal L}\hat{\bf g}_\mu\rrangle^{\lambda{\bf v}} &=
+\llg\llangle \hat{\rho}\rrangle^{\lambda{\bf v}}
+\overline{\bf v}\overline{\bf v}\esc\boldsymbol{\nabla}\delta_{\mu}\rlg
++\llg\delta_\mu\llangle\hat{\rho}\rrangle^{\lambda{\bf v}}\boldsymbol{\nabla}\overline{\mu}\rlg
+\label{ExactRev}
+\end{align}
+where we have used the  notation (\ref{notation}) for space integrals,
+the  notation  (\ref{Cont})  for interpolated  fields,  and  $\llangle
+\hat{\rho}_{\bf  r}\rrangle^{\lambda{\bf v}}$  is the  average of  the
+microscopic  density field  (\ref{rhogmiccont})  with  respect to  the
+relevant  ensemble.  The  chemical potential  field per  unit mass  is
+defined by
+\begin{align}
+  \overline{\mu}({\bf r})&=\overline{\lambda}({\bf r})-\frac{\overline{\bf v}^2({\bf r})}{2}
+\end{align}
+where the interpolated conjugate variables are defined as
+\begin{align}
+  \overline{\lambda}({\bf r})&={\lambda}_{\mu}\psi_\mu({\bf r})
+\nonumber\\
+  \overline{\bf v}({\bf r})&={\bf v}_{\mu}\psi_\mu({\bf r})
+\end{align}
+The conjugate variables $\lambda_\mu,{\bf v}_\mu$ are functions of the
+CG variables $\rho_\mu,{\bf g}_\mu$. In particular, the velocity ${\bf
+  v}_\mu$ is given by
+\begin{align}
+{\bf g}_\mu&=\rho_{\mu\nu}{\bf v}_\nu
+\label{nu}
+\end{align}
+where  the mass density matrix is defined by
+\begin{align}
+  \rho_{\mu\nu} =\int d{\bf r}
+\delta_\mu({\bf r})\psi_\nu({\bf r})\llangle\hat{\rho}_{\bf r}\rrangle^{\lambda{\bf v}}
+\label{rhomunu}
+\end{align}
+We  discuss  in  the  Appendix \ref{Ap:KG} the  connection  between  the  chemical
+potential and the discrete free energy.
+
+
+
+
+
+
+
+
 
 
 
@@ -4372,7 +4821,12 @@ length.
 %\epigraph{\it{El auténtico corredor corre hasta el final.}}{El corredor \\ JOHN L. PARKER}
 \section{Conclusions}
 
-\appendix
+%---------
+% APPENDIX
+%---------
+\pagestyle{noHeader}
+\begin{appendices}
+%\appendix
 \chapter{Contributions}\label{Ap:Contributions}
 The following published articles and posters are related with this dissertation.
 \begin{enumerate}
@@ -4420,7 +4874,7 @@ The quotes in the beginning of each chapter are taken from books I read over the
 
 
 
-\section*{Physical parameters and variables}
+\chapter{Physical parameters and variables}
 \begin{tabular}{l l}
     N & Number of particles \\
     M & Number of nodes \\
@@ -4852,6 +5306,636 @@ sphere is due to the gradient of the free energy functional
 \label{Fls}
 \end{align}
 
+\chapter{Details of the derivation of discrete hydrodynamics}{Details of the derivation of discrete hydrodynamic
+  with the Kawasaki-Gunton projector}
+\label{Ap:KG}
+\Note{Pendiente repasar todo este apéndice}
+In this  appendix we  give the  details needed  to obtain  the dynamic
+equations of the discrete  hydrodynamic variables using the projection
+operator   method.    We   refer   to   the    textbook   by   Grabert
+\cite{Grabert1982}  and  to our  previous  work \cite{Camargo2018}  to set  the  notation.
+\section{The relevant ensemble}
+The  relevant ensemble  is  at  the core  of  the projection  operator
+formalism \cite{Grabert1982}. It is an  approximation to the real time
+dependent  ensemble obeying  Liouville's  equation, and  it allows  to
+express the real ensemble in terms  of the CG variables at the present
+time and in the past, leading to closed equations for the CG variables.
+The  relevant  ensemble is  obtained  by  maximizing the  Gibbs-Jaynes
+functional
+\begin{align}
+  {\cal S}[\rho]=-k_B{\rm Tr}\left[\rho\ln\frac{\rho}{\rho_0}\right]
+\end{align}
+where   $\rho_0=\frac{1}{N!h^{3N}}$  is   a   constant  that   renders
+dimensionless the argument of the  logarithm. Here, the trace denotes
+an integration over phase space. Specifically 
+\begin{align}
+  {\rm Tr}\left[\cdots\right]&=\sum_{N=0}^\infty \frac{1}{N!h^{3N}}
+\int dzdz'\cdots
+\end{align}
+where $z$  are the degrees  of freedom of the  fluid and $z'$  are the
+degrees of  freedom of the  solid.  Note that  for the trace  in phase
+space we are using a macrocanonical trace concerning the fluid degrees
+of freedom and a canonical trace for the solid degrees of freedom. The
+use of the macrocanonical ensemble for the liquid is standard in DFT.
+
+The maximization is done
+subject  to  provide   the  correct  averages  of   the  CG  variables
+(\ref{rhogmumic})  (plus   the  total   energy).  This  result   in  a
+generalized canonical ensemble of the form
+\begin{eqnarray}
+  \overline{\rho}(z)&=&\frac{1}{\Xi(\lambda,{\bf v})}\exp\left\{-\beta H_N(z)
+-\beta\left(M^\psi_{\mu\nu}\lambda_\nu \hat{\rho}_{\mu}(z)
+-M^\psi_{\mu\nu}{\bf v}_\nu\esc\hat{\bf g}_{\mu}(z)\right)\right\}
+\label{relensln}
+\end{eqnarray}
+Here,      the     Lagrange      multipliers     are      $\beta,\beta
+M^\psi_{\mu\nu}\lambda_\mu,-\beta  M^\psi_{\mu\nu}{\bf   v}_\mu$  where
+$\beta, \lambda_\mu,{\bf  v}_\mu$ will  be interpreted as  the inverse
+temperature,  chemical  potential  per  unit mass  and  the  velocity,
+respectively.    The   normalization   factor   is   the   generalized
+grand-canonical partition function defined as
+\begin{align}
+&\Xi(\lambda,{\bf v})\equiv \sum_{N=0}^\infty \frac{1}{N!h^{3N}}
+\int dzdz'
+\exp\left\{-\beta H_N-\beta\left( M^\psi_{\mu\nu}\lambda_\nu\hat{\rho}_{\mu}(z)
+-M^\psi_{\mu\nu}{\bf v}_\nu\esc\hat{\bf g}_{\mu}(z)\right)\right\}
+\label{xiln0}
+\end{align}
+
+We may integrate over the solid degrees of freedom $z'$, with the result
+\begin{align}
+&\Xi(\lambda,{\bf v})
+\equiv
+ \sum_{N=0}^\infty \frac{1}{N!h^{3N}}
+\int dz
+\exp\left\{-\beta (H^l(z)+V^{\rm sl}(z))-\beta
+\left(M^\psi_{\mu\nu}\lambda_\nu\hat{\rho}_{\mu}(z)
+-M^\psi_{\mu\nu}{\bf v}_\nu\esc\hat{\bf g}_{\mu}(z)\right)\right\}
+\label{xiln}
+\end{align}
+where the CG effective potential $V^{\rm sl}(z)$ captures, in a CG way the interaction
+of the fluid atoms with the solid walls and it is defined as
+\begin{align}
+  \exp\{-\beta V^{\rm sl}(z)\}=\int dz' 
+  \exp\{-\beta H^{\rm s}(z')+V(z,z')\}
+\end{align}
+We may separate the integrals over position and momenta explicitly in  the partition
+function  (\ref{xiln})
+\begin{align}
+\Xi(\lambda,{\bf v})
+&\equiv
+ \sum_{N=0}^\infty \frac{1}{N!h^{3N}}
+\int dq
+\exp\left\{-\beta V(z)-\beta
+M^\psi_{\mu\nu}\lambda_\nu\hat{\rho}_{\mu}(z)\right\}
+\int dp
+\exp\left\{-\beta\sum_i\frac{{\bf p}_i^2}{2m_i}+\beta M^\psi_{\mu\nu}{\bf v}_\nu\esc\sum_i{\bf p}_i\delta_\mu({\bf q}_i)\right\}
+\label{xiln2}
+\end{align}
+where $V(z)=V^{ll}(z)+V^{sl}(z)$ is the potential energy of the fluid. 
+
+The  integral  over  momenta  is  just a  Gaussian  integral.  In  the
+calculations that  follow we  will need  the following  integrals over
+momenta
+\begin{align}
+\Omega_0&\equiv  \int dp
+\exp\left\{-\beta\sum_i\frac{{\bf p}_i^2}{2m_i}+\beta M^\psi_{\mu\nu}{\bf v}_\nu\esc\sum_i{\bf p}_i\delta_\mu({\bf q}_i)\right\}
+\nonumber\\
+\Omega_1&\equiv\int dp {\bf p}_i
+\exp\left\{-\beta\sum_i\frac{{\bf p}_i^2}{2m_i}+\beta M^\psi_{\mu\nu}{\bf v}_\nu\esc\sum_i{\bf p}_i\delta_\mu({\bf q}_i)\right\}
+\nonumber\\
+\Omega_2&\equiv\int dp {\bf p}_i{\bf p}_i
+\exp\left\{-\beta\sum_i\frac{{\bf p}_i^2}{2m_i}+\beta M^\psi_{\mu\nu}{\bf v}_\nu\esc\sum_i{\bf p}_i\delta_\mu({\bf q}_i)\right\}
+\end{align}
+The first integral is   a particular  example  of the  following
+Gaussian integral
+\begin{align}
+  \Omega_0(J)&= \int dp \exp\left\{-\frac{1}{2}p^T Ap+J^Tp\right\}
+=\frac{(2\pi)^{N/2}}{\det A^{1/2}}
+\exp\left\{\frac{1}{2}J^TA^{-1}J\right\}
+\label{CGGJ2}
+\end{align}
+for the particular form 
+\begin{align}
+  A_{ij}&\to \frac{\beta}{m_i}\delta_{ij}{\bf 1}
+\nonumber\\
+J_i&\to \beta M^\psi_{\mu\nu}{\bf v}_\nu\delta_\mu({\bf r}_i)=\beta {\bf v}_\mu\psi_\mu({\bf r}_i)
+\nonumber\\
+A_{ij}^{-1}J_j&\to {\bf v}_\mu\psi_\mu({\bf r}_i)m_i
+\end{align}
+The other integrals can  be  obtained  from  the
+derivatives of the Gaussian integral (\ref{CGGJ2})
+\begin{align}
+\frac{\partial  \Omega_0}{\partial J}(J)
+& = \int dp p \exp\left\{-\frac{1}{2}p^T Ap+J^Tp\right\}
+=\Omega_0(J) A^{-1}J
+\nonumber\\
+\frac{\partial^2  \Omega_0}{\partial J\partial J}(J)
+&= \int dp pp \exp\left\{-\frac{1}{2}p^T Ap+J^Tp\right\}
+=\Omega_0(J)\left[A^{-1}+ (A^{-1}J) (A^{-1}J)\right]
+\label{CGGJ3}
+\end{align}
+We have the following results
+\begin{align}
+  \Omega_0 &=(2\pi k_BTm)^{3N/2}\exp\left\{\frac{\beta}{2}\sum_i{\bf v}_\mu\psi_\mu({\bf q}_i)m_i
+\psi_\nu({\bf q}_i){\bf v}_\nu\right\}=
+(2\pi k_BTm)^{3N/2}\exp\left\{\frac{\beta}{2}\hat{\cal M}_{\mu\nu}(q){\bf v}_\mu{\bf v}_\nu\right\}
+\nonumber\\
+  \Omega_1 &=\Omega_0  {\bf v}_\mu\psi_\mu({\bf r}_i)m_i
+\nonumber\\
+  \Omega_2 &=\Omega_0\left[k_BTm\delta_{ij}{\bf 1}+m^2{\bf v}_\mu\psi_\mu({\bf r}_i) {\bf v}_\nu\psi_\nu({\bf r}_i)\right]
+\label{Omegas}
+\end{align}
+where we have introduced the following matrix with dimensions of mass
+\begin{align}
+  \hat{\cal M}_{\mu\nu}(z)&=\sum_im_i\psi_\mu({\bf q}_i)\psi_\nu({\bf q}_i)=\llg\psi_\mu\psi_\nu\hat{\rho}\rlg
+\label{calM}
+\end{align}
+that  is a  function of  the coordinates  of the  particles.   
+
+After  the  integration  of   momenta  the  grand  partition  function
+(\ref{xiln2}) becomes
+\begin{align}
+\Xi(\lambda,{\bf v})\equiv \sum_{N=0}^\infty \frac{1}{N!}
+\int \frac{dq}{\Lambda^{3N}}
+\exp\left\{-\beta V(q)-\beta M^\psi_{\mu\nu}\lambda_\nu\hat{\rho}_{\mu}(z)+\frac{\beta}{2}\hat{\cal M}_{\mu\nu}(q){\bf v}_\mu \esc{\bf v}_\nu
+\right\}
+\label{xiln2b}
+\end{align}
+where the thermal wavelength $\Lambda$ is  
+\begin{align}
+  \Lambda =\left(\frac{h^2}{2\pi mk_BT}\right)^{1/2}
+\end{align}
+
+
+The  conjugate  fields  $\lambda_\mu,{\bf  v}_\mu$ are  fixed  by  the
+condition that the averages of the CG variables (\ref{rhogmumic}) with
+the  relevant ensemble  (\ref{relensln})  coincide  with the  averages
+$\rho_\mu,{\bf g}_\mu$ computed with the  real ensemble (i.e. the
+solution of the Liouville equation). This condition can be expressed as
+\begin{align}
+  \rho_\mu &=M^\delta_{\mu\nu}\frac{\partial \Phi(\lambda,{\bf v})}{\partial \lambda_\nu }
+\nonumber\\
+  {\bf g}_\mu &=-M^\delta_{\mu\nu}\frac{\partial \Phi(\lambda,{\bf v})}{\partial {\bf v}_\nu }
+\label{rgo}
+\end{align}
+where the generalized grand-canonical potential is given by
+\begin{eqnarray}
+  \Phi (\lambda,{\bf v})&\equiv&-k_BT \ln\Xi (\lambda,{\bf v})
+\label{oh}
+\end{eqnarray}
+Because the function $ \Phi(\lambda,{\bf  v})$ is convex the conjugate
+variables  $\lambda,{\bf  v}$  are  in  one  to  one  connection  with
+$\rho,{\bf  g}$.  Therefore,  the  functions $\lambda(\rho,{\bf  g})$,
+${\bf  v}(\rho,{\bf g})$,  exist  and are  unique.   We can  therefore
+switch  from  the conjugate  variables  $\lambda,{\bf  v}$ to  the  CG
+variables  $\rho,{\bf g}$.  One way  to do  it is  through a  Legendre
+transform.   In   an  alternative   and  complementary  way,   in  the
+Kawasaki-Gunton method, one  defines the entropy of  the present level
+of description as the result of evaluating the Gibbs-Jaynes entropy at
+the  maximum, given  by  the relevant  ensemble (\ref{relensln}).  The
+result is
+\begin{align}
+  S(\rho,{\bf g}) &=k_B\beta\left[E-\Phi(\lambda,{\bf v})
++\rho_\mu M^\psi_{\mu\nu}\lambda_\nu-{\bf g}_\mu\esc M^\psi_{\mu\nu}{\bf v}_\nu\right]
+\end{align}
+where  here  the  conjugate  variables $\lambda,{\bf  v}$  are  to  be
+understood as functions  of the averages $\rho,{\bf  g}$.  This allows one
+to understand the following {\em hydrodynamic function}
+\begin{align}
+  {\cal H}(\rho,{\bf g}) &=\Phi(\lambda,{\bf v})
+ - M^\psi_{\mu\nu}\lambda_\nu \rho_\mu+M^\psi_{\mu\nu}{\bf v}_\nu\esc {\bf g}_\mu
+\label{oleg}
+\end{align}
+as  the  free  energy  of  the  level  of  description  determined  by
+$\rho_\mu,{\bf g}_\mu$. The derivatives of the entropy are given by
+
+\begin{align}
+\frac{\partial S}{\partial \rho_\mu} (\rho,{\bf g}) &=\beta M^\psi_{\mu\nu}\lambda_\nu
+\nonumber\\
+\frac{\partial S}{\partial {\bf g}_\mu} (\rho,{\bf g}) &=- \beta M^\psi_{\mu\nu}{\bf v}_\nu
+\label{derS}
+\end{align}
+This gives the form of the conjugate variables in terms of the CG variables.
+
+It is possible to find the  explicit expression for ${\bf v}_\mu$ as a
+function of the CG variables $\rho_\mu,{\bf g}_\mu$.  The velocity and
+momentum  density field  are  related through  (\ref{rgo}).  By  using
+(\ref{oh}) and (\ref{xiln2}) one is lead directly to the explicit form
+of the conjugate variables
+\begin{align}
+{\bf g}_\mu&=M^\delta_{\mu\mu'}\llangle \hat{\cal M}_{\mu'\nu}\rrangle^{\lambda {\bf v}} {\bf v}_\nu =\rho_{\mu\nu}{\bf v}_\nu
+\label{nu2}
+\end{align}
+where the  matrix $\hat{\cal M}_{\mu'\nu}$ is  defined in (\ref{calM})
+and we have introduced the density matrix defined by
+\begin{align}
+  \rho_{\mu\nu} =\int d{\bf r}
+\delta_\mu({\bf r})\psi_\nu({\bf r})\llangle\hat{\rho}_{\bf r}\rrangle^{\lambda{\bf v}}
+\end{align}
+where $\llangle\cdots\rrangle^{\lambda{\bf v}}$  is the average  with respect
+to   the  relevant   ensemble   (\ref{relensln}). 
+\section{The chemical potential}
+We now consider the chemical potential  in order to express it in
+terms  of  the mass density.  The  partition function  (\ref{xiln2})
+contains  in  its  definition the  matrix  $\hat{\cal  M}_{\mu\nu}(z)$
+defined  in (\ref{calM}).   Under the  LFSA   (\ref{LFSA}),
+this matrix becomes
+\begin{align}
+  \hat{\cal M}_{\mu\nu}(z)
+&\simeq\hat{\rho}_\sigma(z)\llg\psi_\sigma\psi_\mu\psi_\nu\rlg
+\label{Mapprox}
+\end{align}
+and the partition function (\ref{xiln2}) becomes
+\begin{align}
+\Xi(\lambda,{\bf v})\equiv \sum_{N=0}^\infty \frac{1}{N!}
+\int \frac{dq}{\Lambda^{3N}}
+\exp\left\{-\beta V(z)+\beta\mu_\sigma\hat{\rho}_{\sigma}(z)
+\right\}
+\label{xiln3}
+\end{align}
+where we have introduced the discrete chemical potential per unit mass as
+\begin{align}
+\mu_\sigma&=\frac{1}{2}\llg\psi_\sigma\overline{\bf v}^2\rlg-  \lambda_\sigma
+\label{ChemPot}
+\end{align}
+Note  that, under  the LFSA,  the  partition function  depends on  the
+conjugate variables  $\lambda_\sigma,{\bf v}_\sigma$ only  through the
+combination  $\mu_\sigma$.   It makes  sense  to  introduce the  grand
+potential depending only on the variables $\mu$
+\begin{align}
+  \Phi^{\rm pos}(\mu)&=-k_BT\ln \Xi(\lambda,{\bf v})
+\end{align}
+that satisfies
+\begin{align}
+-\frac{\partial \Phi^{\rm pos}}{\partial\mu_\sigma}&=
+\llangle \hat{\rho}_\sigma\rrangle^{\lambda{\bf v}}
+\end{align}
+
+The free  energy function $F(\rho)$ is given by  the Legendre
+transform
+\begin{align}
+  F(\rho)&\equiv  \Phi^{\rm pos}(\mu)+\sum_\sigma \mu_\sigma \rho_\sigma
+\label{leg}
+\end{align}
+whose derivatives are given by 
+\begin{align}
+   \frac{\partial F}{\partial\rho_\sigma}(\rho) &=\mu_\sigma
+\label{Fd2}
+\end{align}
+We may now express the hydrodynamic function (\ref{oleg}) as
+\begin{align}
+  {\cal H}(\rho,{\bf g}) &=  \frac{1}{2}{\cal M}_{\mu\nu}{\bf v}_\mu\esc{\bf v}_\nu
++ F(\rho)
+\label{oleg2}
+\end{align}
+where we introduce the matrix
+\begin{align}
+  {\cal M}_{\mu\nu}={\rho}_\sigma\llg\psi_\sigma\psi_\mu\psi_\nu\rlg
+\label{AvecalM}
+\end{align}
+with dimensions  of mass.  The  hydrodynamic functional ${\cal  H}$ in
+(\ref{oleg2}),  which is  the free  energy  function of  the level  of
+description given by $\rho_\mu,{\bf g}_\mu$ is expressed as the sum of
+a  kinetic part  and a  ``potential'' part  given in  terms of  a free
+energy function of the level of description given by $\rho_\mu$ alone.
+Note   that  we   may   also  express   the  hydrodynamic   functional
+as       \begin{align}      {\cal       H}(\rho,{\bf      g})       &=
+  \frac{1}{2}\llg\overline{\rho}\overline{\bf v}^2\rlg + F(\rho)
+\label{oleg3}
+\end{align}
+where we have used the explicit form of the matrix in (\ref{AvecalM}).
+This   expression  (\ref{oleg3})   corresponds  to   the continuum  hydrodynamic
+functional  %(compare with (\ref{FreeHydro}))
+\begin{align}
+  {\cal H}[\rho,{\bf g}]&=\frac{1}{2}\int d{\bf r}\rho({\bf r}){\bf v}^2({\bf r})+{\cal F}[\rho]
+\end{align}
+evaluated  at the  interpolated fields,  provided
+that  the  microscopically  defined   free  energy  functional  ${\cal
+  F}[\rho]$ and free energy  function $F(\rho)$ are related according
+to (\ref{DefF}).
+
+
+\section{The reversible part of the dynamics}
+The reversible part of the dynamics is given by the relevant ensemble 
+average of the time derivatives
+We  consider now  the reversible  part for  the momentum  equation. 
+It
+involves the relevant  ensemble average of the time  derivative of the
+momentum  variable in  (\ref{iLMicrhogmu}), this is
+\begin{align}
+  \llangle i{\cal L}\hat{\rho}_\mu\rrangle^{\lambda{\bf v}} &=\llangle \sum_{i=1}^N{\bf p}_i\esc\boldsymbol{\nabla}\delta_\mu({\bf q}_i)\rrangle^{\lambda{\bf v}}
+\nonumber\\
+  \llangle i{\cal L}\hat{\bf g}_\mu\rrangle^{\lambda{\bf v}} &=
+  \llangle \sum_{i=1}^N{\bf F}_i\delta_\mu({\bf q}_i)\rrangle^{\lambda{\bf v}}
++  \llangle \sum_{i=1}^N{\bf p}_i{\bf v}_i\boldsymbol{\nabla}\delta_\mu({\bf q}_i)\rrangle^{\lambda{\bf v}}
+\end{align}
+In all their  glory, the averages over the relevant  ensemble have the
+form
+\begin{align}
+  \llangle i{\cal L}\hat{\rho}_\mu\rrangle^{\lambda{\bf v}} &= 
+\frac{1}{\Xi} \sum_{N=0}^\infty \frac{1}{N!h^{3N}}\int dq dp 
+\exp\left\{-\beta V(q)-\beta \sum_i\frac{{\bf p}_i^2}{2m_i}-\beta M^\psi_{\mu\nu}\lambda_\nu\hat{\rho}_{\mu}(z)+\beta M^\psi_{\mu\nu}{\bf v}_\nu\esc\hat{\bf g}_\mu(z)\right\}\sum_{i=1}^N{\bf p}_i\esc\boldsymbol{\nabla}\delta_\mu({\bf q}_i)
+\nonumber\\
+&= 
+\frac{1}{\Xi} \sum_{N=0}^\infty \frac{1}{N!h^{3N}}\int dq p 
+\exp\left\{-\beta V(q)-\beta M^\psi_{\mu\nu}\lambda_\nu\hat{\rho}_{\mu}(z)\right\}\sum_{i=1}^N\boldsymbol{\nabla}\delta_\mu({\bf q}_i)\esc
+\nonumber\\
+&\times \int dp{\bf p}_i\exp\left\{-\beta \sum_i\frac{{\bf p}_i^2}{2m_i}+\beta M^\psi_{\mu\nu}{\bf v}_\nu\esc\hat{\bf g}_\mu(z)\right\}
+\nonumber\\
+  \llangle i{\cal L}\hat{\bf g}_\mu\rrangle^{\lambda{\bf v}} &=
+  \llangle \sum_{i=1}^N{\bf F}_i\delta_\mu({\bf q}_i)\rrangle^{\lambda{\bf v}}
++\frac{1}{\Xi} \sum_{N=0}^\infty \frac{1}{N!h^{3N}}\int dq p 
+\exp\left\{-\beta V(q)-\beta M^\psi_{\mu\nu}\lambda_\nu\hat{\rho}_{\mu}(z)\right\}\sum_{i=1}^N\boldsymbol{\nabla}\delta_\mu({\bf q}_i)\esc
+\nonumber\\
+&\times \frac{1}{m}\int dp{\bf p}_i{\bf p}_i\exp\left\{-\beta \sum_i\frac{{\bf p}_i^2}{2m_i}+\beta M^\psi_{\mu\nu}{\bf v}_\nu\esc\hat{\bf g}_\mu(z)\right\}
+\label{Revrho}
+\end{align}
+and   we  recognize   the   momentum   integrals  (\ref{Omegas}).   By
+substituting these results (\ref{Omegas}) in (\ref{Revrho}) we obtain
+\begin{align}
+  \llangle i{\cal L}\hat{\rho}_\mu\rrangle^{\lambda{\bf v}} &= 
+\frac{1}{\Xi} \sum_{N=0}^\infty \frac{1}{N!h^{3N}}\int dq p 
+\exp\left\{-\beta V(q)-\beta M^\psi_{\mu\nu}\lambda_\nu\hat{\rho}_{\mu}(z)
++\frac{\beta}{2}\hat{\cal M}_{\mu\nu}(q){\bf v}_\mu \esc{\bf v}_\nu\right\}\sum_{i=1}^N\boldsymbol{\nabla}\delta_\mu({\bf q}_i)\esc m{\bf v}_\mu\psi_\mu({\bf q}_i)
+\nonumber\\
+  \llangle i{\cal L}\hat{\bf g}_\mu\rrangle^{\lambda{\bf v}} &=
+  \llangle \sum_{i=1}^N{\bf F}_i\delta_\mu({\bf q}_i)\rrangle^{\lambda{\bf v}}
+\nonumber\\
+&+\frac{1}{\Xi} \sum_{N=0}^\infty \frac{1}{N!h^{3N}}\int dq p 
+\exp\left\{-\beta V(q)-\beta M^\psi_{\mu\nu}\lambda_\nu\hat{\rho}_{\mu}(z)+\frac{\beta}{2}\hat{\cal M}_{\mu\nu}(q){\bf v}_\mu \esc{\bf v}_\nu\right\}
+\nonumber\\
+&\times \sum_{i=1}^N\left[k_BTm_i{\bf 1} 
++ 
+{\bf v}_\mu\psi_{\mu}({\bf q}_i)
+{\bf v}_\nu\psi_{\nu}({\bf q}_i)\right]
+\esc\boldsymbol{\nabla}\delta_\mu({\bf q}_i)
+\label{Revrho3}
+\end{align}
+By introducing the identity $\int d{\bf r}\delta({\bf r}-{\bf q}_i)=1$
+inside these expressions  and using the definition  of the microscopic
+mass density (\ref{rhogmiccont}) we arrive at the final expression for
+the reversible part of the dynamics
+\begin{align}
+  \llangle i{\cal L}\hat{\rho}_\mu\rrangle^{\lambda{\bf v}} &=   {\bf v}_\nu \esc \llg\psi_\nu\boldsymbol{\nabla}\delta_\mu
+\llangle \hat{\rho}\rrangle^{\lambda{\bf v}}\rlg
+\nonumber\\
+  \llangle i{\cal L}\hat{\bf g}_\mu\rrangle^{\lambda{\bf v}} &={\bf F}_\mu(\rho,{\bf g})
++ k_BT \llg \llangle\hat{\rho}\rrangle^{\lambda{\bf v}}\boldsymbol{\nabla}\delta_\mu\rlg
++{\bf v}_\sigma{\bf v}_\nu
+\llg\psi_\sigma\psi_\nu\llangle \hat{\rho}\rrangle^{\lambda{\bf v}}
+\esc\boldsymbol{\nabla}\delta_{\mu}\rlg
+\end{align}
+where we have introduced
+\begin{align}
+{\bf F}_\mu(\rho,{\bf g})&=    \llangle \sum_{i=1}^N{\bf F}_i\delta_\mu({\bf q}_i)\rrangle^{\lambda{\bf v}}
+\end{align}
+Note  that, as  for any  phase function  that does  not depend  on the
+momenta,  the  average  of  the microscopic  density  field  with  the
+relevant ensemble takes the form
+\begin{align}
+  \llangle \hat{\rho}_{\bf r}\rrangle^{\lambda{\bf v}} &= 
+\frac{1}{\Xi} \sum_{N=0}^\infty \frac{1}{N!h^{3N}}\int dq p 
+\exp\left\{-\beta V(q)-\beta M^\psi_{\mu\nu}\lambda_\nu\hat{\rho}_{\mu}(z)
++\frac{\beta}{2}\hat{\cal M}_{\mu\nu}(q){\bf v}_\mu \esc{\bf v}_\nu\right\}
+\sum_{i=1}^N\delta({\bf r}-{\bf q}_i)  
+\end{align}
+The average of  the force term in the momentum  equation is an average
+of a function that does not depend on momentum.  Explicitly
+\begin{align}
+{\bf F}_\mu(\rho,{\bf g})
+&=  {\rm Tr}\left[\frac{1}{\Xi}\exp\{-\beta \hat{H}(z)\}
+\sum_i\hat{\bf F}_i\delta_\mu({\bf r}_i)
+\exp\left\{-\beta M^\psi_{\mu\nu}(\lambda_\nu\hat{\rho}_\mu(z)-{\bf v}_\nu\esc\hat{\bf g}_\mu(z))\right\}
+\right]
+\label{Kmuexact}
+\end{align}
+By using Hamilton's equation ${\bf F}_i=-\frac{\partial \hat{H}}{\partial {\bf q}_i}$ we have
+\begin{align}
+{\bf F}_\mu(\rho,{\bf g})&= {\rm Tr}\left[\frac{1}{\Xi}\exp\{-\beta \hat{H}(z)\}
+\sum_i-\frac{\partial H}{\partial {\bf r}_i}\delta_\mu({\bf r}_i)\exp\left\{-\beta M^\psi_{\mu\nu}(\lambda_\nu\hat{\rho}_\mu(z)-{\bf v}_\nu\esc\hat{\bf g}_\mu(z))\right\}
+\right]
+\nonumber\\
+&= k_BT {\rm Tr}\left[\frac{1}{\Xi}
+\sum_i\frac{\partial \exp\{-\beta \hat{H}(z)\}}{\partial {\bf r}_{i}}\delta_\mu({\bf r}_i)\exp\left\{-\beta M^\psi_{\mu\nu}(\lambda_\nu\hat{\rho}_\mu(z)-{\bf v}_\nu\esc\hat{\bf g}_\mu(z))\right\}
+\right]
+\nonumber\\
+&= -k_BT {\rm Tr}\left[\frac{1}{\Xi}\exp\{-\beta \hat{H}(z)\}
+\sum_i\frac{\partial }{\partial {\bf r}_i}\left(\delta_\mu({\bf r}_i)\exp\left\{-\beta M^\psi_{\mu\nu}(\lambda_\nu\hat{\rho}_\mu(z)-{\bf v}_\nu\esc\hat{\bf g}_\mu(z))\right\}\right)
+\right]
+\nonumber\\
+&= -k_BT {\rm Tr}\left[\frac{1}{\Xi}\exp\{-\beta \hat{H}(z)\}
+\sum_i\boldsymbol{\nabla}\delta_\mu({\bf r}_i)\exp\left\{-\beta M^\psi_{\mu\nu}(\lambda_\nu\hat{\rho}_\mu(z)-{\bf v}_\nu\esc\hat{\bf g}_\mu(z))\right\}
+\right]
+\nonumber\\
+& -k_BT {\rm Tr}\left[\frac{1}{\Xi}\exp\{-\beta \hat{H}(z)\}
+\sum_i\delta_\mu({\bf r}_i)\frac{\partial }{\partial {\bf r}_i}
+\exp\left\{-\beta M^\psi_{\mu\nu}(\lambda_\nu\hat{\rho}_\mu(z)-{\bf v}_\nu\esc\hat{\bf g}_\mu(z))\right\}
+\right]
+\nonumber\\
+&= -\frac{k_BT}{m}\int d{\bf r}\llangle\hat{\rho}_{\bf r}\rrangle^{\lambda{\bf v}}
+\boldsymbol{\nabla}\delta_\mu({\bf r})
+ + {\rm Tr}\left[\overline{\rho}
+\sum_i\delta_\mu({\bf r}_i)
+\frac{\partial }{\partial {\bf r}_i}
+M^\psi_{\mu\nu}(\lambda_\nu\hat{\rho}_\mu(z)-{\bf v}_\nu\esc\hat{\bf g}_\mu(z))\right]
+\end{align}
+Let us compute the second term
+\begin{align}
+ {\rm Tr}\left[\overline{\rho}
+\sum_i\delta_\mu({\bf r}_i)
+\frac{\partial }{\partial {\bf r}_i}
+\left( M^\psi_{\mu\nu}(\lambda_\nu\hat{\rho}_\mu(z)-{\bf v}_\nu\esc\hat{\bf g}_\mu(z))\right)
+\right]
+&= \lambda_\nu
+{\rm Tr}\left[\overline{\rho}
+\sum_i\psi_\nu({\bf r}_i)m_i\boldsymbol{\nabla}\delta_\mu({\bf r}_i)\right]
+- {\bf v}_\nu\esc
+{\rm Tr}\left[\overline{\rho}
+\sum_i\psi_\nu({\bf r}_i){\bf p}_i\boldsymbol{\nabla}\delta_\mu({\bf r}_i)
+\right]
+\nonumber\\
+&=\lambda_\nu \int d{\bf r}\psi_\nu({\bf r})\boldsymbol{\nabla}\delta_\mu({\bf r})\llangle \hat{\rho}_{\bf r}\rrangle^{\lambda{\bf v}}
+- \int d{\bf r}\psi_\nu({\bf r})
+\boldsymbol{\nabla}\delta_\mu({\bf r})\llangle \hat{\bf g}_{\bf r}\rrangle^{\lambda{\bf v}}\esc{\bf v}_\nu
+\end{align}
+The relevant ensemble average of the microscopic momentum involves
+a momentum integral that it is readily obtained with the result
+\begin{align}
+  \llangle \hat{\bf g}_{\bf r}\rrangle^{\lambda{\bf v}}={\bf v}_{\mu'}\psi_{\mu'}({\bf r})
+\llangle\hat{\rho}_{\bf r}\rrangle^{\lambda{\bf v}}=\overline{\bf v}({\bf r})\llangle\hat{\rho}_{\bf r}\rrangle^{\lambda{\bf v}}
+\end{align}
+The final expression for the average force density is
+\begin{align}
+  {\bf F}_\mu(\rho,{\bf g})&= 
+-\frac{k_BT}{m}\int d{\bf r}\llangle\hat{\rho}_{\bf r}\rrangle^{\lambda{\bf v}}
+\boldsymbol{\nabla}\delta_\mu({\bf r})+\int d{\bf r}\overline{\lambda}({\bf r})\boldsymbol{\nabla}\delta_\mu({\bf r})\llangle \hat{\rho}_{\bf r}\rrangle^{\lambda{\bf v}}
+-\int d{\bf r}\delta_\mu({\bf r})
+\boldsymbol{\nabla}\left(\frac{\overline{\bf v}^2({\bf r})}{2}\right)
+\llangle\hat{\rho}_{\bf r}\rrangle^{\lambda{\bf v}}
+\end{align}
+This may be written with the use of the  notation (\ref{notation}) for the integral over space  in the compact form
+\begin{align}
+  {\bf F}_\mu(\rho,{\bf g})&= 
+-\frac{k_BT}{m}\llg\llangle\hat{\rho}\rrangle^{\lambda{\bf v}}
+\boldsymbol{\nabla}\delta_\mu\rlg
++\llg\delta_\mu\boldsymbol{\nabla}\overline{\lambda}\llangle \hat{\rho}\rrangle^{\lambda{\bf v}}\rlg
+-\frac{1}{2}\llg\delta_\mu
+\boldsymbol{\nabla}\overline{\bf v}^2
+\llangle\hat{\rho}\rrangle^{\lambda{\bf v}}\rlg
+\nonumber\\
+&=-\frac{k_BT}{m}\llg\llangle\hat{\rho}\rrangle^{\lambda{\bf v}}
+\boldsymbol{\nabla}\delta_\mu\rlg
++\llg\delta_\mu\llangle\hat{\rho}\rrangle^{\lambda{\bf v}}\boldsymbol{\nabla}\overline{\mu}\rlg
+\end{align} 
+where we have introduced the interpolated chemical potential  per unit mass field
+\begin{align}
+  \overline{\mu}({\bf r}) &=\overline{\lambda}({\bf r})-\frac{1}{2}\overline{\bf v}^2({\bf r})
+\end{align}
+In summary, by collecting results, the reversible part of the mass and
+momentum evolution is given by
+\begin{align}
+  \llangle i{\cal L}\hat{\rho}_\mu\rrangle^{\lambda{\bf v}} &=
+\llg\llangle \hat{\rho}\rrangle^{\lambda{\bf v}}
+\overline{\bf v}\esc\boldsymbol{\nabla}\delta_{\mu}\rlg
+\nonumber\\
+  \llangle i{\cal L}\hat{\bf g}_\mu\rrangle^{\lambda{\bf v}} &=
+\llg\llangle \hat{\rho}\rrangle^{\lambda{\bf v}}
+\overline{\bf v}\overline{\bf v}\esc\boldsymbol{\nabla}\delta_{\mu}\rlg
++\llg\delta_\mu\llangle\hat{\rho}\rrangle^{\lambda{\bf v}}\boldsymbol{\nabla}\overline{\mu}\rlg
+\end{align}
+
+\section{The connection between the  free energy functional and the
+  free energy function}
+First we  address the connection between  the thermodynamic potentials
+of the two  levels of description given by the  continuum CG variables
+$\hat{A}_{\bf r}(z)=\hat{\rho}_{\bf r}(z),\hat{\bf  g}_{\bf r}(z)$ and
+the  discrete CG  variables $\hat{A}_\mu(z)=\hat{\rho}_\mu(z),\hat{\bf
+  g}_\mu(z)$.   The continuum  and discrete  CG variables  are related
+according to
+\begin{align}
+  \hat{A}_\mu(z)&=\int d{\bf r}\delta_\mu({\bf r})\hat{A}_{\bf r}(z)
+\end{align}
+At   the   continuum  level   we   have   a  thermodynamic   potential
+$\Phi[\lambda]$ which is a \textit{functional} of the conjugate fields
+$\lambda_{\bf r}$,  denoted with square parenthesis.   At the discrete
+level    the   thermodynamic    potential    $\Phi(\lambda)$   is    a
+\textit{function}, denoted with rounded parenthesis, of $\lambda_\mu$.
+The  microscopic  definition  of  both  potentials  is  given  as  the
+logarithm  of  a  partition  function.  At  the  continuum  level  the
+thermodynamic potential is
+\begin{align}
+  \Phi[\lambda]=-k_BT\ln{\rm Tr}\left[\rho^{\rm eq}\exp\left\{-\beta\int d{\bf r}\lambda_{\bf r}\hat{A}_{\bf r}\right\}\right]
+ \end{align}
+and at the discrete level it is 
+  \begin{align}
+  \Phi(\lambda)=-k_BT\ln{\rm Tr}\left[\rho^{\rm eq}\exp\left\{-\beta\lambda_{\mu}M^\psi_{\mu\nu}\hat{A}_{\nu}\right\}\right]
+\end{align}
+Note that  the conjugate  variables in  the discrete  are conveniently
+defined as $\lambda_{\mu}M^\psi_{\mu\nu}$ for reasons that will become
+apparent soon.   The matrix $M^\psi_{\mu\nu}$ defined  in (\ref{MdMp})
+has dimensions of volume and plays  the role of the ``volume element''
+$d{\bf  r}$  at the  discrete  level.   With  this definition  of  the
+conjugate variables  at the  discrete level  it is  straightforward to
+show that the  connection between the two  thermodynamic potentials is
+given by
+\begin{align}
+  \Phi[\overline{\lambda}]&=  \Phi(\lambda)
+% \nonumber\\
+% &{\blue {\rm Tr}\left[\rho^{\rm eq}\exp\left\{-\lambda_\mu\int d{\bf r}\psi_\mu({\bf r})\hat{A}_{\bf r}\right\}\right]}
+% \nonumber\\
+% &{\blue ={\rm Tr}\left[\rho^{\rm eq}\exp\left\{-\lambda_\mu M^\psi_{\mu\nu}\int d{\bf r}\delta_\nu({\bf r})\hat{A}_{\bf r}\right\}\right]}
+\label{Phiphi}
+\end{align}
+where we have  evaluated the thermodynamic potential  of the continuum
+level at the interpolated conjugate field $\overline{\lambda}_{\bf r}$
+defined as
+\begin{align}
+  \overline{\lambda}_{\bf r}\equiv\lambda_\mu\psi_\mu({\bf r})
+\end{align}
+The   mathematical   identity    (\ref{Phiphi})   relating   the   two
+thermodynamic potentials may suggest  that a similar connection exists
+between the  free energies, which  are defined  at both levels  by the
+Legendre transforms
+\begin{align}
+  {\cal F}[a]&=\Phi[\lambda]-\int d{\bf r}\lambda_{\bf r}a_{\bf r}
+\nonumber\\
+  {\cal F}(a)&=\Phi(\lambda)- \lambda_\mu M^\psi_{\mu\nu}a_\nu
+\label{FF0}
+\end{align}
+The conjecture is that these two free energies are related according to
+\begin{align}
+  {\cal F}[\overline{a}]={\cal F}(a)
+\label{FF}
+\end{align}
+where the interpolated field is given by
+\begin{align}
+  \overline{a}_{\bf r}=\psi_\mu({\bf r})a_\mu
+\end{align}
+Note  that  (\ref{FF})  is  the  prescription that  we  have  used  to
+\textit{define}  the  free  energy  at   the  discrete  level  in  the
+Petrov-Galerkin discretization. Therefore,  if (\ref{FF}) is correct,
+we  would  have  a  connection between  the  discretized  free  energy
+functional and the actual free  energy of the discrete level.  However
+(\ref{FF})  is  only correct  in  an  approximate  way. In  order  for
+(\ref{FF}) to be true it is necessary that
+\begin{align}
+  \lambda_{\bf r}[\overline{a}]&=\overline{\lambda}_{\bf r}(a)
+\end{align}
+or more explicitly
+\begin{align}
+  \lambda_{\bf r}[a_\mu\psi_\mu]&=\lambda_\mu(a)\psi_\mu({\bf r})
+\label{ll}
+\end{align}
+It is straightforward to show that if (\ref{ll}) is true, then (\ref{FF}) is
+also true. Because the connection between the conjugate variables and
+the CG variables is one to one, (\ref{ll}) would imply that
+\begin{align}
+  a_{\bf r}[\overline{\lambda}]&=\overline{a}_{\bf r}
+\end{align}
+or more explicitly
+\begin{align}
+  a_{\bf r}[\lambda_\mu(a)\psi_\mu]&=a_\mu\psi_\mu({\bf r})
+\label{aa}
+\end{align}
+As we know that the averages are  given in terms of the derivatives of
+the thermodynamic potential, the right hand side of Eq. (\ref{aa}) is, in fact
+\begin{align}
+a_\mu\psi_\mu({\bf r})&=\frac{\partial \Phi}{\partial\lambda_\mu}(\lambda(a))\psi_\mu({\bf r})
+\label{aa2}
+\end{align}
+By using (\ref{Phiphi}) we have
+\begin{align}
+ \frac{\delta\Phi}{\delta \lambda_{\bf r}}[\lambda_\mu(a)\psi_\mu]
+&=\frac{\partial }{\partial\lambda_\mu}\Phi[\lambda_\nu(a)\psi_\nu]\psi_\mu({\bf r})
+\nonumber\\
+&=\int d{\bf r}'\frac{\delta \Phi}{\delta\lambda_{{\bf r}'}}[\lambda_\nu(a)\psi_\nu]\psi_\mu({\bf r}')
+\psi_\mu({\bf r})
+\nonumber\\
+\nonumber\\
+&=\int d{\bf r}'a_{{\bf r}'}[\overline{\lambda}]A({\bf r}',{\bf r})
+\label{aa3}
+\end{align}
+where $A({\bf r},{\bf r})=\psi_\mu({\bf r})\psi_\mu({\bf r}')$.
+Therefore, we have that Eq. (\ref{aa}) takes the form
+\begin{align}
+    a_{\bf r}[\overline{\lambda}]&=\int d{\bf r}'a_{{\bf r}'}[\overline{\lambda}]A({\bf r}',{\bf r})
+\end{align}
+which  would be  true if  $A({\bf r},{\bf  r}')$ was  the Dirac  delta
+function. This argument disproof the conjecture (\ref{FF}) but it also
+shows  that for  realizations of  the fields  that are  ``sufficiently
+smooth'' on  the length scale  of the bin, the  \textit{definition} of
+the  discrete free  energy $F(a)$  with the  prescription (\ref{DefF})
+gives the correct statistical  mechanics definition (\ref{FF0}) of the
+discrete free energy ${\cal F}(a)$.
+
+The relationship (\ref{FF}) is very useful because it allows one to obtain
+the discrete free energy $F(a)$ at the discrete level once we know the
+free energy  functional ${\cal F}[a]$ at  the continuum. As we  have a
+vast amount  of knowledge in  equilibrium DFT about useful  models for
+the free  energy functional  ${\cal F}[\rho]$  this allows one to readily
+obtain the free energy function at the discrete level $F(\rho)$.
+
 
 
 
@@ -4863,6 +5947,7 @@ sphere is due to the gradient of the free energy functional
 
 \chapter{The covariance}
 \label{Ap:Cov}
+\Note{Pendiente repasar este apéndice.}
 In  this  appendix,  we  compute   explicitly  the  covariance  of  the
 transverse momentum density  which is given by  the molecular ensemble
 average
@@ -4952,7 +6037,7 @@ covariance (\ref{Cneg}).
 \chapter{The continuum limit}
 \label{Ap:Cont}
 \Note{Think meaning of this. Supplementary material?}
-\Pendiente{
+\Note{Pendiente rehacer todo este apéndice}
 In this appendix we discuss the continuum limit of the discrete theory
 and compute analytically the  Green function.  This calculations allow
 one to understand  why the discrete theory does  not reproduce exactly
@@ -5070,7 +6155,7 @@ One easily finds that the Fourier coefficients obey
 to be compared with (\ref{Fou2}). This shows that the continuum  local prediction is again
 given by (\ref{numunu0}).
 
-\subsection{The Green's function}
+\section{The Green's function}
 One of the values of the  Fourier expression of the exponential matrix
 (\ref{Cmunut}) is  that we may get  a feeling of the  behaviour of the
 continuum limit and the thermodynamic  limit. 
@@ -5144,11 +6229,7 @@ exponential through  the evolution of  an initial profile of  the form
 \label{GreenFunction5}
 \end{figure}
 
-}
-
-
-
-
+\end{appendices}
 
 \cleardoublepage
 \addcontentsline{toc}{chapter}{List of figures} % para que aparezca en el indice de contenidos
