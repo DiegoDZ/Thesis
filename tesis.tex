@@ -2400,7 +2400,7 @@ dynamics is given by the \textit{exact} equations
 where we have used the  notation (\ref{notation}) for space integrals,
 the  notation  (\ref{Cont})  for interpolated  fields,  and  $\llangle
 \hat{\rho}_{\bf  r}\rrangle^{\lambda{\bf v}}$  is the  average of  the
-microscopic  density field  (\ref{rhogmiccont})  with  respect to  the
+microscopic  density field  (\ref{CGvar})  with  respect to  the
 relevant  ensemble.  The  chemical potential  field per  unit mass  is
 defined by
 \begin{align}
@@ -2428,6 +2428,227 @@ where  the mass density matrix is defined by
 We  discuss  in  the  Appendix \ref{Ap:KG} the  connection  between  the  chemical
 potential and the discrete free energy.
 
+\subsection{Approximate reversible dynamics}
+The reversible part  of the dynamics (\ref{ExactRev}) is  not given in
+\textit{explicit} form in terms of the discrete CG variables, that are
+hidden inside  the Lagrange multipliers $\lambda_\mu,{\bf  v}_\mu$ and
+the  average $\llangle  \hat{\rho}_{\bf r}\rrangle^{\lambda{\bf  v}}$.
+We consider  now an approximation  that will make the  exact equations
+(\ref{ExactRev}) explicit in the  CG variables.  This approximation is
+named  \textit{linear   for  spiky   approximation}  (LFSA)   in  Ref.
+\cite{Donev}  \Note{No encuentro la referencia}  and  consists on  approximating within  ensemble averages
+the  ``spiky''  fields  (\ref{rhogmumiccont}) with  piece-wise  linear
+functions as
+\begin{align}
+  \hat{\rho}_{\bf r}(z)&\simeq \hat{\rho}_{\sigma}(z)\psi_\sigma({\bf r})
+\nonumber\\
+  \hat{\bf g}_{\bf r}(z)&\simeq \hat{\bf g}_{\sigma}(z)\psi_\sigma({\bf r})
+\label{LFSA}
+\end{align}
+\Note{Repensar esto}
+The left  hand side contains  sums of coarse  delta functions,
+while the  right hand  side are piece-wise  linear functions  given in
+terms   of   the  discrete   values   $\hat{\rho}_{\sigma}(z), \hat{\bf
+  g}_\sigma(z)$.   This  approximation  is  expected  to  hold  inside
+ensemble averages and to be a good one if there are many particles per
+bin. 
+
+In the LFSA, the average of the density field becomes explicit
+in the discrete density variables \Note{Repasar significado de $\rho(r)$, $\rho_\mu$ y $\hat{\rho}_\mu$}
+\begin{align}
+  \llangle \hat{\rho}_{\bf r}\rrangle^{\lambda{\bf v}}&\simeq\rho_\mu\psi_\mu({\bf r})=\overline{\rho}({\bf r})
+\end{align}
+\Note{Desarrollo hasta final de sección ok!}
+and the density matrix (\ref{rhomunu}) becomes explicit in the discrete density 
+\begin{align}
+  \rho_{\mu\nu} \simeq \llg\delta_\mu\psi_\nu\psi_\sigma\rlg\rho_\sigma
+=\llg\delta_\mu\psi_\nu\overline{\rho}\rlg
+\label{calR1}
+\end{align}
+Therefore, the discrete velocity  field (\ref{nu}) is given explicitly
+in terms of the discrete mass and momentum densities by
+\begin{align}
+{\bf v}_\mu&=\rho^{-1}_{\mu\nu}{\bf g}_\nu
+\label{un}
+\end{align}
+
+
+Under this  linear for spiky  approximation the reversible  part (\ref{ExactRev}) takes
+the \textit{explicit} form
+\begin{align}
+\llangle i{\cal L}  \hat{\rho}_{\mu}\rrangle^\lambda&= 
+\llg \overline{\rho}\;\overline{\bf v}\esc\boldsymbol{\nabla}\delta_\mu\rlg
+\nonumber\\
+\llangle i{\cal L}  \hat{\bf g}_{\mu}\rrangle^\lambda &=
+\llg\overline{\rho}\;\overline{\bf v}\;\overline{\bf v}\esc\boldsymbol{\nabla}\delta_{\mu}\rlg
++\llg\delta_\mu\overline{\rho}\boldsymbol{\nabla}\overline{\mu}\rlg
+\label{RevDis}
+\end{align}
+These equations are explicit in the CG variables because the fields
+$\overline{\rho}({\bf r}),\overline{\bf v}({\bf r})$ are explicit
+functions of the discrete CG variables $\rho_\mu,{\bf v}_\mu$.
+
+\subsection{Irreversible part of the dynamics}
+As shown in  Sec. \ref{Sec:Grabert} of Chapter  \ref{Chap:NESM}, the  irreversible part of the
+dynamics in  the projection operator  method is given by  the standard
+form
+\begin{align}
+  \sum_jD_{ij}\frac{\partial S}{\partial a_j}
+\label{IrrDis0}
+\end{align}
+where $S$ is the entropy and the dissipative matrix is given by
+\begin{align}
+  D_{ij}=\frac{1}{k_BT}\int_0^\tau\llangle {\cal Q}i{\cal L}\hat{A}_i(t){\cal Q}i{\cal L}\hat{A}_j\rrangle^{\lambda}
+\end{align}
+where $\llangle\cdots\rrangle^\lambda$  is an  average taken  with the
+relevant  ensemble.  Therefore,  the dissipative  matrix  depends,  in
+general on the state of the CG variables.  In the present case, the CG
+variables are $\hat{\rho}_\mu$ and $\hat{\bf g}_\mu$.   In the
+LFSA (\ref{LFSA}) the time derivative of the density is given by
+\begin{align}
+  i{\cal L}\hat{\rho}_\mu(z)&=\int d{\bf r}\hat{\bf g}_{\bf r}(z)\esc\boldsymbol{\nabla}\delta_\mu({\bf r})
+\nonumber\\
+&\simeq \hat{\bf g}_\nu(z)\llg\psi_\nu\boldsymbol{\nabla}\delta_\mu\rlg
+\end{align}
+We see  that this time  derivative is given  in terms of  the discrete
+momentum which is a CG  variable itself and, therefore, the associated
+projected  current vanishes,  ${\cal Q}i{\cal  L}\hat{\rho}_\mu(z)=0$.
+This leads to a much simpler dissipative matrix.
+% \footnote{In  this  approximation  we are  assuming  that  the
+%   Brenner diffusion coefficients are  negligibly small}. 
+The derivatives of the entropy are  given in Eqs.  (\ref{derS}) in the
+Appendix \ref{Ap:KG}, and we  may write the irreversible  terms (\ref{IrrDis0}) in
+the form
+\begin{align}
+\left(\begin{array}{cc}
+0&0\\
+0&{\bf D}_{\mu\nu}
+\end{array}\right)\left(
+\begin{array}{c}
+{\cal V}_\nu \tilde{\lambda}_\nu\\
+-{\cal V}_\nu \tilde{\bf v}_\nu
+\end{array}\right)
+\label{IrrDis}
+\end{align}
+where the dissipative matrix is given by
+\begin{align}
+{\bf D}_{\mu\nu}&=  \frac{1}{k_BT}
+\int_0^\tau dt \llangle {\cal Q}i{\cal L}\hat{\bf g}_\mu(t){\cal Q}i{\cal L}\hat{\bf g}_\nu\rrangle^{\lambda{\bf v}} 
+\label{Dmunu}
+\end{align}
+and we have introduced the discrete fields
+\begin{align}
+\tilde{\lambda}_\mu&={M^\Phi}^{-1}_{\mu\nu}{\cal V}_{\nu}\lambda_{\nu}
+\nonumber\\
+\tilde{\bf v}_\mu&={M^\Phi}^{-1}_{\mu\nu}{\cal V}_{\nu}{\bf v}_{\nu}
+\label{overlined}
+\end{align}
+\Note{Tilde para distinguirlas de las variables conjugadas continuas obtenidas a partir de las discretas}
+
+By  using  now  the  decomposition  (\ref{Equivalence})  of  the  time
+derivative  of   the  momentum  density  in   the  dissipative  matrix
+(\ref{Dmunu}),  we  obtain  the  following irreversible  part  of  the
+dynamics
+\begin{align}
+&\left.\frac{d}{dt}\rho_\mu\right|_{\rm irr}= 0
+\nonumber\\
+&\left.\frac{d}{dt}{\bf g}_\mu\right|_{\rm irr}=
+\nonumber\\
+&-\sum_{\nu=1}^{N_{\rm bin}}{\cal V}_\nu \frac{{\bf e}_3\esc\left[\boldsymbol{\eta}_{\mu\nu}-\boldsymbol{\eta}_{\mu-1\nu}-\boldsymbol{\eta}_{\mu\nu-1}+\boldsymbol{\eta}_{\mu-1\nu-1}\right]}{\Delta z^2}:{\bf e}_3\tilde{\bf v}_\nu
+\nonumber\\
+&+\sum_{\nu=1}^{N_{\rm bin}}{\cal V}_\nu\frac{\left[{\bf G}_{\mu\nu}-{\bf G}_{\mu\nu-1}\right]}{\Delta z}:{\bf e}_3\tilde{\bf v}_\nu
+\nonumber\\
+&+\sum_{\nu=1}^{N_{\rm bin}}{\cal V}_\nu\frac{{\bf e}_3\esc\left[{\bf H}_{\mu\nu}-{\bf H}_{\mu-1\nu}\right]}{\Delta z}\esc(\tilde{\bf v}_\nu-{\bf V})
+\nonumber\\
+&-\sum_{\nu=1}^{N_{\rm bin}}{\cal V}_\nu\boldsymbol{\gamma}_{\mu\nu}\esc(\tilde{\bf v}_\nu-{\bf V})
+\label{Irr-Fin}
+\end{align}
+where we have introduced the following tensorial transport matrices
+\begin{align}
+\boldsymbol{\eta}_{\mu\nu}
+&=\frac{1}{k_BT}\int_0^{\tau} dt
+\left\langle {\cal Q}\hat{\boldsymbol{\sigma}}_{\mu}(t){\cal Q}\hat{\boldsymbol{\sigma}}_{\nu}
+\right\rangle^{\lambda{\bf v}}
+\nonumber\\
+{\bf G}_{\mu\nu}&=\frac{1}{k_BT}\int_0^{\tau} dt
+\left\langle{\cal Q}\hat{\bf F}^{\rm s\to l}_\mu(t)
+{\cal Q}\hat{\boldsymbol{\sigma}}_\nu
+\right\rangle^{\lambda{\bf v}}
+\nonumber\\
+{\bf H}_{\mu\nu}&=
+\frac{1}{k_BT}\int_0^{\tau} dt
+\left\langle{\cal Q}\hat{\boldsymbol{\sigma}}_\mu(t){\cal Q}\hat{\bf F}^{\rm s\to l}_\nu\right\rangle^{\lambda{\bf v}}
+\nonumber\\
+\boldsymbol{\gamma}_{\mu\nu}
+&=\frac{1}{k_BT}\int_0^{\tau} dt
+\left\langle 
+{\cal Q}\hat{\bf F}^{\rm s\to l}_\mu(t)
+{\cal Q}\hat{\bf F}^{\rm s\to l}_\nu\right\rangle^{\lambda{\bf v}}
+\label{MolTransportCoeff}
+\end{align}
+The  transport  kernels  (\ref{MolTransportCoeff}) are  given  through
+Green-Kubo  formulae.  The  transport  coefficients  are, in  general,
+dependent on the CG state of  the system, through the average with the
+relevant  ensemble.  This  poses a  large complication  in its  actual
+evaluation. \Note{We simply  assume  that we  may
+approximate the relevant  ensemble by the equilibrium  ensemble in the
+calculation  of the  transport coefficients,  in such  a way  that the
+transport coefficients  do not depend  on local values of  density and
+momenta}.  They depend only on  the global thermodynamic point at which
+the equilibrium correlations are computed.
+
+\subsection{The final discretized equations}
+By   collecting  the   reversible   (\ref{RevDis})  and   irreversible
+(\ref{Irr-Fin})  parts of  the dynamics  we  obtain the  final set  of
+discrete equations
+\begin{align}
+\frac{d}{dt}\rho_\mu=&  \llg\overline{\rho} \; \overline{\bf v}\boldsymbol{\nabla}\delta_\mu \rlg
+\nonumber\\
+\frac{d}{dt}{\bf g}_\mu=&
+\llg\overline{\rho} \overline{\bf v}\;\overline{\bf v}\esc\boldsymbol{\nabla}\delta_{\mu}\rlg
+-\llg\overline{\rho}\delta_{\mu}\boldsymbol{\nabla}\delta_{\nu}\rlg
+\frac{\partial  F}{\partial \rho_{\nu}}(\rho)
+\nonumber\\
+-&\sum_{\nu=1}^{N_{\rm bin}}{\cal V}_\nu \frac{{\bf e}_3\esc\left[\boldsymbol{\eta}_{\mu\nu}-\boldsymbol{\eta}_{\mu-1\nu}-\boldsymbol{\eta}_{\mu\nu-1}+\boldsymbol{\eta}_{\mu-1\nu-1}\right]}{\Delta z^2}:{\bf e}_3\overline{\bf v}_\nu
+\nonumber\\
++&\sum_{\nu=1}^{N_{\rm bin}}{\cal V}_\nu\frac{\left[{\bf G}_{\mu\nu}-{\bf G}_{\mu\nu-1}\right]}{\Delta z}:{\bf e}_3\overline{\bf v}_\nu
+\nonumber\\
++&\sum_{\nu=1}^{N_{\rm bin}}{\cal V}_\nu\frac{{\bf e}_3\esc\left[{\bf H}_{\mu\nu}-{\bf H}_{\mu-1\nu}\right]}{\Delta z}\esc(\overline{\bf v}_\nu-{\bf V})
+\nonumber\\
+-&\sum_{\nu=1}^{N_{\rm bin}}{\cal V}_\nu\boldsymbol{\gamma}_{\mu\nu}\esc(\overline{\bf v}_\nu-{\bf V})
+\label{TheoryDiscFin}
+\end{align}
+Note  that Eq.   (\ref{TheoryDiscFin})  contains  information about  a
+single planar wall.   In the case of two planar  walls as those needed
+in MD simulations,  we need to consider the force  density due to both
+walls, which will be of the form
+\begin{align}
+\boldsymbol{{\cal S}}^\pm_\mu
+=&+\sum_{\nu=1}^{N_{\rm bin}}{\cal V}_\nu\frac{\left[{\bf G}^{\pm}_{\mu\nu}-{\bf G}^{\pm}_{\mu\nu-1}\right]}{\Delta z}\esc {\bf e}_3\overline{\bf v}_\nu
+\nonumber\\
+&+\sum_{\nu=1}^{N_{\rm bin}}{\cal V}_\nu\frac{{\bf e}_3\esc\left[{\bf H}^{\pm}_{\mu\nu}-{\bf H}^{\pm}_{\mu-1\nu}\right]}{\Delta z}
+\esc(\overline{\bf v}_\nu-{\bf V}^\pm)
+\nonumber\\
+&-\sum_{\nu=1}^{N_{\rm bin}}{\cal V}_\nu\boldsymbol{\gamma}^{\pm}_{\mu\nu}\esc(\overline{\bf v}_\nu-{\bf V}^\pm)
+\label{Spm}
+\end{align}
+where  $\pm$ means  upper  or  lower wall,  which  may have  different
+velocities ${\bf V}^\pm$ in general.
+
+Note that  the surface  density force  $\boldsymbol{{\cal S}}^\pm_\mu$
+due  to  the  walls  contains   the  transport  kernels  that  involve
+Green-Kubo correlation  with the  microscopic force  $\hat{\bf F}^{\rm
+  s\to l}_\mu$  that the solid atoms  exert on the fluid.   Due to the
+finite range  of interaction of  the microscopic force,  the resulting
+surface force  $\boldsymbol{{\cal S}}^\pm_\mu$ is different  from zero
+only on those bins $\mu$ close to the walls that fall within the range
+of  interaction of  the microscopic  force. Its  worth noting that  the
+present discrete theory does not  require any boundary condition to be
+applied on any of the bins close to the solid. The forces on the fluid
+due to the solid are taken into account explicitly without need of any
+boundary condition.
+
+\subsection{Symmetry assumptions}
 
 
 
@@ -4849,6 +5070,7 @@ The following published articles and posters are related with this dissertation.
     GLE & Generalized Langevin Equation \\
     LADM & Local Average Density Model \\
     LJ & Lennard-Jones \\
+    LFSA & Linear For Spiky Approximation \\
     MD & Molecular Dynamics \\
     NEMD & Non-Equilibrium Molecular Dynamics\\
     SM & Statistical Mechanics \\
@@ -5674,7 +5896,7 @@ substituting these results (\ref{Omegas}) in (\ref{Revrho}) we obtain
 \end{align}
 By introducing the identity $\int d{\bf r}\delta({\bf r}-{\bf q}_i)=1$
 inside these expressions  and using the definition  of the microscopic
-mass density (\ref{rhogmiccont}) we arrive at the final expression for
+mass density (\ref{CGvar}) we arrive at the final expression for
 the reversible part of the dynamics
 \begin{align}
   \llangle i{\cal L}\hat{\rho}_\mu\rrangle^{\lambda{\bf v}} &=   {\bf v}_\nu \esc \llg\psi_\nu\boldsymbol{\nabla}\delta_\mu
