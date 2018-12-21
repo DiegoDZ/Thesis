@@ -2415,7 +2415,7 @@ where the interpolated conjugate variables are defined as
   \overline{\bf v}({\bf r})&={\bf v}_{\mu}\psi_\mu({\bf r})
 \end{align}
 The conjugate variables $\lambda_\mu,{\bf v}_\mu$ are functions of the
-CG variables $\rho_\mu,{\bf g}_\mu$. In particular, the velocity ${\bf
+CG variables averages $\rho_\mu,{\bf g}_\mu$, computed with the real ensemble (i.e. the solution of the Liouville equation). In particular, the velocity ${\bf
   v}_\mu$ is given by
 \begin{align}
 {\bf g}_\mu&=\rho_{\mu\nu}{\bf v}_\nu
@@ -2456,11 +2456,10 @@ ensemble averages and to be a good one if there are many particles per
 bin. 
 
 In the LFSA, the average of the density field becomes explicit
-in the discrete density variables \Note{Repasar significado de $\rho(r)$, $\rho_\mu$ y $\hat{\rho}_\mu$}
+in the discrete density variables. 
 \begin{align}
   \llangle \hat{\rho}_{\bf r}\rrangle^{\lambda{\bf v}}&\simeq\rho_\mu\psi_\mu({\bf r})=\overline{\rho}({\bf r})
 \end{align}
-\Note{Desarrollo hasta final de sección ok!}
 and the density matrix (\ref{rhomunu}) becomes explicit in the discrete density 
 \begin{align}
   \rho_{\mu\nu} \simeq \llg\delta_\mu\psi_\nu\psi_\sigma\rlg\rho_\sigma
@@ -2611,13 +2610,13 @@ discrete equations
 -\llg\overline{\rho}\delta_{\mu}\boldsymbol{\nabla}\delta_{\nu}\rlg
 \frac{\partial  F}{\partial \rho_{\nu}}(\rho)
 \nonumber\\
--&\sum_{\nu=1}^{N_{\rm bin}}{\cal V}_\nu \frac{{\bf e}_3\esc\left[\boldsymbol{\eta}_{\mu\nu}-\boldsymbol{\eta}_{\mu-1\nu}-\boldsymbol{\eta}_{\mu\nu-1}+\boldsymbol{\eta}_{\mu-1\nu-1}\right]}{\Delta z^2}:{\bf e}_3\overline{\bf v}_\nu
+-&\sum_{\nu=1}^{N_{\rm bin}}{\cal V}_\nu \frac{{\bf e}_3\esc\left[\boldsymbol{\eta}_{\mu\nu}-\boldsymbol{\eta}_{\mu-1\nu}-\boldsymbol{\eta}_{\mu\nu-1}+\boldsymbol{\eta}_{\mu-1\nu-1}\right]}{\Delta z^2}:{\bf e}_3\tilde{\bf v}_\nu
 \nonumber\\
-+&\sum_{\nu=1}^{N_{\rm bin}}{\cal V}_\nu\frac{\left[{\bf G}_{\mu\nu}-{\bf G}_{\mu\nu-1}\right]}{\Delta z}:{\bf e}_3\overline{\bf v}_\nu
++&\sum_{\nu=1}^{N_{\rm bin}}{\cal V}_\nu\frac{\left[{\bf G}_{\mu\nu}-{\bf G}_{\mu\nu-1}\right]}{\Delta z}:{\bf e}_3\tilde{\bf v}_\nu
 \nonumber\\
 +&\sum_{\nu=1}^{N_{\rm bin}}{\cal V}_\nu\frac{{\bf e}_3\esc\left[{\bf H}_{\mu\nu}-{\bf H}_{\mu-1\nu}\right]}{\Delta z}\esc(\overline{\bf v}_\nu-{\bf V})
 \nonumber\\
--&\sum_{\nu=1}^{N_{\rm bin}}{\cal V}_\nu\boldsymbol{\gamma}_{\mu\nu}\esc(\overline{\bf v}_\nu-{\bf V})
+-&\sum_{\nu=1}^{N_{\rm bin}}{\cal V}_\nu\boldsymbol{\gamma}_{\mu\nu}\esc(\tilde{\bf v}_\nu-{\bf V})
 \label{TheoryDiscFin}
 \end{align}
 Note  that Eq.   (\ref{TheoryDiscFin})  contains  information about  a
@@ -3359,7 +3358,7 @@ the particles that happen to be ``around'' the nodal plane $\mu$.  The rationale
 Note that the finite  element basis  functions $\Phi_\mu({\bf  r})$  form a
 partition of unity, i.e.
 \begin{align}
-  \sum_\mu\Phi_\mu({\bf r})=1
+  \sum_\mu\Phi_{\mu=1}^{N_{\rm bin}}({\bf r})=1
 \label{PartUnit}
 \end{align}
 The  partition  of unity  implies  that  if  we compute  the  discrete
