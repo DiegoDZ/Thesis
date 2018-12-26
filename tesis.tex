@@ -1,4 +1,5 @@
 \documentclass[a4paper,openright,12pt]{book}
+%\documentclass[b5paper,openright,12pt]{book}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx,color}
 \usepackage[dvipsnames]{xcolor}
@@ -1886,6 +1887,7 @@ in the dissipative part of the dynamics.
 \chapter{Discrete hydrodynamics near solids for planar flows}\label{Chap:Planar}
 \markboth{Discrete hydrodynamics near solids for planar flows}{}
 \section{Introduction}
+\Note{Este capítulo lo reduciría para que la tesis no ocupe tantas páginas. Simplemente comentaría que tenemos un artículo en el que se discretizan las ecuaciones obtenidas en el capítulo 1. Pondría el método de discretización y la ecuaciones resultantes discretizadas. De todos modos, aquí presento un capítulo en el que está todo lo que aparece en el paper excepto la sección en la que se obtienen las mismas ecuaciones discretizadas con el método de Petrov-Galerkin.}
 In Chapter \ref{Chap:Theory} we  have constructed  from  first
 principles a theory  for hydrodynamics in contact with  solids.    Based   on    the   Kawasaki-Gunton   projector
 \cite{Kawasaki1973,Grabert1982}, the theory  governs the average value
@@ -2544,7 +2546,6 @@ and we have introduced the discrete fields
 \tilde{\bf v}_\mu&={M^\Phi}^{-1}_{\mu\nu}{\cal V}_{\nu}{\bf v}_{\nu}
 \label{overlined}
 \end{align}
-\Note{Tilde para distinguirlas de las variables conjugadas continuas obtenidas a partir de las discretas}
 
 By  using  now  the  decomposition  (\ref{Equivalence})  of  the  time
 derivative  of   the  momentum  density  in   the  dissipative  matrix
@@ -2591,11 +2592,11 @@ The  transport  kernels  (\ref{MolTransportCoeff}) are  given  through
 Green-Kubo  formulae.  The  transport  coefficients  are, in  general,
 dependent on the CG state of  the system, through the average with the
 relevant  ensemble.  This  poses a  large complication  in its  actual
-evaluation. \Note{We simply  assume  that we  may
+evaluation. We simply  assume  that we  may
 approximate the relevant  ensemble by the equilibrium  ensemble in the
 calculation  of the  transport coefficients,  in such  a way  that the
 transport coefficients  do not depend  on local values of  density and
-momenta}.  They depend only on  the global thermodynamic point at which
+momenta.  They depend only on  the global thermodynamic point at which
 the equilibrium correlations are computed.
 
 \subsection{The final discretized equations}
@@ -2614,7 +2615,7 @@ discrete equations
 \nonumber\\
 +&\sum_{\nu=1}^{N_{\rm bin}}{\cal V}_\nu\frac{\left[{\bf G}_{\mu\nu}-{\bf G}_{\mu\nu-1}\right]}{\Delta z}:{\bf e}_3\tilde{\bf v}_\nu
 \nonumber\\
-+&\sum_{\nu=1}^{N_{\rm bin}}{\cal V}_\nu\frac{{\bf e}_3\esc\left[{\bf H}_{\mu\nu}-{\bf H}_{\mu-1\nu}\right]}{\Delta z}\esc(\overline{\bf v}_\nu-{\bf V})
++&\sum_{\nu=1}^{N_{\rm bin}}{\cal V}_\nu\frac{{\bf e}_3\esc\left[{\bf H}_{\mu\nu}-{\bf H}_{\mu-1\nu}\right]}{\Delta z}\esc(\tilde{\bf v}_\nu-{\bf V})
 \nonumber\\
 -&\sum_{\nu=1}^{N_{\rm bin}}{\cal V}_\nu\boldsymbol{\gamma}_{\mu\nu}\esc(\tilde{\bf v}_\nu-{\bf V})
 \label{TheoryDiscFin}
@@ -2625,12 +2626,12 @@ in MD simulations,  we need to consider the force  density due to both
 walls, which will be of the form
 \begin{align}
 \boldsymbol{{\cal S}}^\pm_\mu
-=&+\sum_{\nu=1}^{N_{\rm bin}}{\cal V}_\nu\frac{\left[{\bf G}^{\pm}_{\mu\nu}-{\bf G}^{\pm}_{\mu\nu-1}\right]}{\Delta z}\esc {\bf e}_3\overline{\bf v}_\nu
+=&+\sum_{\nu=1}^{N_{\rm bin}}{\cal V}_\nu\frac{\left[{\bf G}^{\pm}_{\mu\nu}-{\bf G}^{\pm}_{\mu\nu-1}\right]}{\Delta z}\esc {\bf e}_3\tilde{\bf v}_\nu
 \nonumber\\
 &+\sum_{\nu=1}^{N_{\rm bin}}{\cal V}_\nu\frac{{\bf e}_3\esc\left[{\bf H}^{\pm}_{\mu\nu}-{\bf H}^{\pm}_{\mu-1\nu}\right]}{\Delta z}
-\esc(\overline{\bf v}_\nu-{\bf V}^\pm)
+\esc(\tilde{\bf v}_\nu-{\bf V}^\pm)
 \nonumber\\
-&-\sum_{\nu=1}^{N_{\rm bin}}{\cal V}_\nu\boldsymbol{\gamma}^{\pm}_{\mu\nu}\esc(\overline{\bf v}_\nu-{\bf V}^\pm)
+&-\sum_{\nu=1}^{N_{\rm bin}}{\cal V}_\nu\boldsymbol{\gamma}^{\pm}_{\mu\nu}\esc(\tilde{\bf v}_\nu-{\bf V}^\pm)
 \label{Spm}
 \end{align}
 where  $\pm$ means  upper  or  lower wall,  which  may have  different
@@ -2650,17 +2651,347 @@ due to the solid are taken into account explicitly without need of any
 boundary condition.
 
 \subsection{Symmetry assumptions}
+We now take  advantage of the assumption that the  system is isotropic
+when we rotate  it with respect to an axis  perpendicular to the walls
+and reflect  it with respect  to a  plane containing the  axis.  These
+symmetries reflect into an enormous simplification of the structure of
+the fourth order tensor  $\boldsymbol{\eta}_{\mu\nu}$, the third order
+tensors  ${\bf  G}_{\mu\nu},{\bf  H}_{\mu\nu}$ and  the  second  order
+tensor  $\boldsymbol{\gamma}_{\mu\nu}$.   Camargo et al. discussed in
+\cite{CamargoBC2018} what are  the most  general forms  of the
+tensors                     ${\bf                     G}_{\mu\nu},{\bf
+  H}_{\mu\nu},\boldsymbol{\gamma}_{\mu\nu}$  satisfying  the  required
+symmetries.  In Appendix \ref{Ap:Iso} we discuss
+the most general fourth order tensor $\boldsymbol{\eta}_{\mu\nu}$ with
+the required  symmetries.  We  introduce normal  ${\bf n}{\bf  n}$ and
+tangential  ${\bf T}=\boldsymbol{\delta}-{\bf  n}{\bf n}$  projectors.
+We note that the tangential projector satisfies
+\begin{align}
+{\bf  T}^{\alpha  z}=\delta^{\alpha z}-{\bf n}^\alpha{\bf n}^3=0\quad\quad \forall \alpha
+\label{T3}
+\end{align}
+and, therefore, the required components of the viscosity tensor for an
+isotropic  wall are  given,  from  Eq (\ref{viscosityTangential}) in the Appendix
+\begin{align}
+  \boldsymbol{\eta}^{\alpha z\gamma z}&=  
+\eta^{\bot} {\bf n}^\alpha  {\bf n}^\gamma  +\eta^{||} {\bf T}^{\alpha\gamma}
+\end{align}
+\Pendiente{The  required components  of the  third order
+tensors are, from  Eqs (??) of Ref. \cite{CamargoBC2018}}
+\begin{align}
+{\bf G}^{\alpha\beta z}
+&=G^{||}{\bf T}^{\alpha\beta}+
+G^{\bot}{\bf n}^{\alpha}{\bf n}^{\beta}
+\nonumber\\
+{\bf H}^{\alpha z\gamma}
+&=H^{||}{\bf T}^{\alpha\gamma}+
+H^{\bot}{\bf n}^{\alpha}{\bf n}^{\gamma}
+\end{align}
+and the second order friction tensor becomes, under
+isotropic symmetry 
+\begin{align}
+\boldsymbol{\gamma}
+&=\gamma^{||}{\bf T}^{\alpha\beta}+
+\gamma^{\bot}{\bf n}^{\alpha}{\bf n}^{\beta}
+\end{align}
+In these expressions the transport kernels are
+\begin{align}
+\eta^{\bot}_{\mu\nu}&
+= \frac{1}{k_BT}\int_0^\tau  dt\langle 
+{\cal Q}\hat{\boldsymbol{\sigma}}^{zz}_\mu(t)
+{\cal Q}\hat{\boldsymbol{\sigma}}^{zz}_\nu\rangle
+\nonumber\\
+\eta^{||}_{\mu\nu}&
+=\frac{1}{k_BT}\int_0^\tau  dt\left\langle 
+{\cal Q}\hat{\boldsymbol{\sigma}}^{xz}_\mu(t){\cal Q}\hat{\boldsymbol{\sigma}}^{xz}_\nu
+\right\rangle
+\nonumber\\
+G^{||}_{\mu\nu}&
+=\frac{1}{k_BT} \int_0^\tau  dt
+\left\langle{\cal Q}\hat{\bf F}^{x}_\mu(t)
+{\cal Q}\hat{\boldsymbol{\sigma}}^{xz}_\nu
+\right\rangle
+\nonumber\\
+G^{\bot}_{\mu\nu}&=\frac{1}{k_BT} \int_0^\tau  dt
+\left\langle {\cal Q}\hat{\bf F}^{z}_\mu(t)
+{\cal Q}\hat{\boldsymbol{\sigma}}^{zz}_\nu
+\right\rangle
+\nonumber\\
+H^{||}_{\mu\nu}&
+=\frac{1}{k_BT} 
+\int_0^\tau  dt
+\left\langle{\cal Q}\hat{\boldsymbol{\sigma}}^{xz}_\mu(t){\cal Q}\hat{\bf F}^{x}_\nu\right\rangle
+\nonumber\\
+H^\bot_{\mu\nu}&=\frac{1}{k_BT} 
+\int_0^\tau  dt\left\langle {\cal Q}\hat{\boldsymbol{\sigma}}^{zz}_\mu(t){\cal Q}\hat{\bf F}^{z}_\nu\right\rangle
+\nonumber\\
+\gamma^{\bot}_{\mu\nu}&=
+\frac{1}{k_BT} \int_0^\tau  dt\left\langle 
+{\cal Q}\hat{\bf F}^{z}_\mu(t){\cal Q}\hat{\bf F}^{z}_\nu
+\right\rangle
+\nonumber\\
+\gamma^{||}_{\mu\nu}&=
+\frac{1}{k_BT} \int_0^\tau  dt
+\left\langle 
+{\cal Q}\hat{\bf F}^{x}_\mu(t)
+{\cal Q}\hat{\bf F}^{x}_\nu\right\rangle
+\label{summary_munu}
+\end{align}
 
 
+When we assume rotational invariance, it makes sense to look separately to the 
+the different components of the dynamic equation (\ref{TheoryDiscFin}).
+The density $\rho_\mu$ and normal  component of the momentum $g^{z}_\mu$
+evolve according to
+\begin{align}
+\frac{d}{dt}\rho_\mu=&  \llg\overline{\rho} \; \overline{v}^{z}{\nabla}^{z}\delta_\mu \rlg
+\nonumber\\
+\frac{d}{dt}{g}^{z}_\mu=&
+\llg\overline{\rho}\; \overline{v}^{z}\;\overline{v}^{z}{\nabla}^{z}\delta_{\mu}\rlg
+-\llg\overline{\rho}\delta_{\mu}{\nabla}^{z}\delta_{\nu}\rlg
+\frac{\partial  F}{\partial \rho_{\nu}}(\rho)
+\nonumber\\
+&+M_{\mu\nu}^{\bot}{\cal V}_\nu(\tilde{v}^{z}_\nu-V^{z})
+\label{SoundDisc}
+\end{align}
+where the dissipative matrix is defined as
+\begin{align}
+M^{\bot}_{\mu\nu} 
+=&-\frac{\left[\eta^\bot_{\mu\nu}-\eta^\bot_{\mu-1\nu}-\eta^\bot_{\mu\nu-1}+\eta^\bot_{\mu-1\nu-1}\right]}{\Delta z^2}
+\nonumber\\
+&+\frac{\left[{G}^\bot_{\mu\nu}-{G}^\bot_{\mu\nu-1}\right]}{\Delta z}
++\frac{\left[{H}^\bot_{\mu\nu}-{H}^\bot_{\mu-1\nu}\right]}{\Delta z}
+-{\gamma}^\bot_{\mu\nu}
+\label{Mbot}
+\end{align}
+
+On the other  hand, the parallel component  $g^\alpha_\mu$ for $\alpha
+=x,y$  of  the  discrete  momentum density  evolves  independently  of
+$\rho_\mu,g^{z}_\mu$, according to
+\begin{align}
+  \frac{d}{dt}{g}^\alpha_\mu=&-M_{\mu\nu}^{||}{\cal V}_\nu(\tilde{v}^\alpha_\nu-V^\alpha)
+\label{ShearDisc}
+\end{align}
+where the dissipative matrix in this equation is
+\begin{align}
+M^{||}_{\mu\nu} 
+=&-\frac{\left[\eta^{||}_{\mu\nu}-\eta^{||}_{\mu-1\nu}-\eta^{||}_{\mu\nu-1}+\eta^{||}_{\mu-1\nu-1}\right]}{\Delta z^2}
+\nonumber\\
+&+\frac{\left[{G}^{||}_{\mu\nu}-{G}^{||}_{\mu\nu-1}\right]}{\Delta z}
++\frac{\left[{H}^{||}_{\mu\nu}-{H}^{||}_{\mu-1\nu}\right]}{\Delta z}
+-{\gamma}^{||}_{\mu\nu}
+\label{Mpar}
+\end{align}
+Eqs (\ref{SoundDisc})-(\ref{Mpar}) along with the Green-Kubo integrals
+(\ref{summary_munu})  are  one  of  the main  result  of  this chapter.
+They  display the  discrete hydrodynamics  of a  fluid confined
+by  parallel  walls  and  moving  with a  flow  that  is  translation
+invariant along the walls.
+
+Note that  one prediction  of these equations  is that  the tangential
+velocity  components are  uncoupled from  the dynamics  of the  normal
+component and the density. Also,  the tangent components do not depend
+on the  free energy of  the system.  This means that  shearing motions
+do not affect the structure of the density field.
 
 
+%\section{A finite element discretization}
+%\label{Sec:Galerkin}
+%In this section, we show that if we discretize the continuum equations
+%(\ref{finaleq}) with  a Petrov-Galerkin finite  element discretization
+%method,  and assume  that the  transport kernels  are isotropic  under
+%rotations  around the axis  perpendicular  to the  slabs,  we recover  the
+%discrete equations (\ref{TheoryDiscFin}) that have been obtained directly
+%from the projection operator technique.
+%
+%The  first  step  of  the Petrov-Galerkin  method  to  discretize  the
+%continuum  equations  (\ref{finaleq}),  (\ref{FluidStress}) and (\ref{Irreversibleforces})  proceeds  by
+%inserting (\ref{FluidStress}) and (\ref{Irreversibleforces}) into (\ref{finaleq}) and then multiply with
+%$\delta_\mu({\bf  r})$  and  integrate  over ${\bf  r}$.   After  some
+%integration by parts one gets
+%\begin{align}
+%\frac{d}{dt}\rho_\mu=&\int d{\bf r}\boldsymbol{\nabla}\delta_\mu({\bf r})\cdot\rho({\bf r}){\bf v}({\bf r})
+%\nonumber\\
+%\frac{d}{dt}{\bf g}_\mu=&\int d{\bf r}\boldsymbol{\nabla}\delta_\mu({\bf r})\esc\rho({\bf r}){\bf v}({\bf r}){\bf v}({\bf r})
+%\nonumber\\
+%&-\int d{\bf r}\delta_\mu({\bf r})\rho({\bf r})\boldsymbol{\nabla}\frac{\delta{\cal F}}{\delta\rho({\bf r})}
+%\nonumber\\
+%&-\int d{\bf r}\boldsymbol{\nabla}\delta_\mu({\bf r})\esc
+%\int d{\bf r}'\boldsymbol{\eta}_{{\bf r}{\bf r}'}:{\boldsymbol{\nabla}^\prime}{\bf v}({\bf r}')
+%\nonumber\\
+%&-\int d{\bf r}\delta_\mu({\bf r})\int d{\bf r}'{\bf G}_{{\bf r}{\bf r}'}:
+%{\boldsymbol{\nabla}^\prime} {\bf v}({\bf r}')
+%\nonumber\\
+%&-\int d{\bf r}\boldsymbol{\nabla}\delta_\mu({\bf r})\esc \int d{\bf r}'{\bf H}_{{\bf r}{\bf r}'}
+%\esc ( {\bf v}({\bf r}')-{\bf V})
+%\nonumber\\
+%&-\int d{\bf r}\boldsymbol{\nabla}\delta_\mu({\bf r})\int d{\bf r}'
+%\boldsymbol{\gamma}_{{\bf r}{\bf r}'}\esc( {\bf v}({\bf r}')
+%-{\bf V})
+%\label{fulldelta}
+%\end{align}
+%
+%According  to Eq.  (\ref{Cont}), from  the discrete  values $\rho_\mu,
+%{\bf  v}_\mu$  of the  density  and  velocity  of  node $\mu$  we  may
+%construct  continuum  fields  $\overline{\rho}({\bf  r}),\overline{\bf
+%  v}({\bf  r})$ through  the  interpolation with  the basis  functions
+%$\psi_\mu({\bf r})$
+%\begin{align}
+%\overline{\rho}({\bf r})&=\sum_\mu{\rho}_\mu\psi_\mu({\bf r})
+%\nonumber\\
+%\overline{\bf  v}({\bf r})&=\sum_\mu{\bf v}_\mu \psi_\mu({\bf r})
+%\label{interpolated}
+%\end{align}
+%Sum  over  repeated  indices  is implied.   
+%In terms of  the finite element basis functions $\Phi_\mu({\bf r})$ we may write
+%(\ref{interpolated})  in the form 
+%\begin{align}
+%\overline{\rho}({\bf r})&=\sum_\mu\tilde{\rho}_\mu\Phi_\mu({\bf r})
+%\nonumber\\
+%\overline{\bf  v}({\bf r})&= \sum_\mu\tilde{\bf v}_\mu\Phi_\mu({\bf r})
+%\label{interpolated2}
+%\end{align}
+%where  we  have  used  (\ref{PsiFE})   and  the  the  discrete  fields
+%$\tilde{\bf  v}_\mu$ is  defined in  (\ref{overlined}) with  a similar
+%definition for $\tilde{\rho}_\mu,$.
+%
+%The second step in the  Petrov-Galerkin approximation is to substitute
+%the actual fields $\rho({\bf r}), {\bf  v}({\bf r})$ in the right hand
+%side    of   (\ref{fulldelta})    with    the   interpolated    fields
+%(\ref{interpolated})
+%\begin{align}
+% {\rho}({\bf r})&\simeq \overline{\rho}({\bf r})
+%\nonumber\\
+% {\bf v}({\bf r})&\simeq \overline{\bf v}({\bf r})
+%\label{vapprox}
+%\end{align}
+%In general, we  expect that the approximation  (\ref{vapprox}) will be
+%accurate if the bin width $\Delta z$ is sufficiently small as compared
+%with  the  length  scale  of variation  of  the  hydrodynamic  fields.
+%
+%Because  the interpolated  fields are  determined by  the discrete  CG
+%variables,  we end  up with  the following  closed system  of ordinary
+%differential equations for the discrete CG variables
+%\begin{align}
+%\frac{d}{dt}\rho_\mu=&  \llg\overline{\rho} \; \overline{\bf v}\boldsymbol{\nabla}\delta_\mu \rlg
+%\nonumber\\
+%\frac{d}{dt}{\bf g}_\mu=&
+%\llg\overline{\rho}\; \overline{\bf v}\;\overline{\bf v}\esc\boldsymbol{\nabla}\delta_{\mu}\rlg
+%-\llg\delta_{\mu}\overline{\rho}\boldsymbol{\nabla}\frac{\delta{\cal F}}{\delta\rho}\rlg
+%\nonumber\\
+%-& \sum_\nu\left[
+%\int d{\bf r}\int d{\bf r}'
+%\boldsymbol{\nabla}\delta_{\mu}({\bf r})
+%\boldsymbol{\eta}_{{\bf r}{\bf r}'}:
+%{\boldsymbol{\nabla}^\prime} \Phi_\nu({\bf r}')\right]\overline{\bf v}_\nu
+%\nonumber\\
+%-& 
+% \sum_\nu\left[\int d{\bf r}\int d{\bf r}'
+%\delta_{\mu}({\bf r}){\bf G}_{{\bf r}{\bf r}'}:{\boldsymbol{\nabla}^\prime}\Phi_\nu({\bf r}')\right]
+%\overline{\bf v}_\nu
+%\nonumber\\
+%-& 
+% \sum_\nu\left[\int d{\bf r}\int d{\bf r}'
+%\boldsymbol{\nabla}\delta_{\mu}({\bf r})
+%{\bf H}_{{\bf r}{\bf r}'}\Phi_\nu({\bf r}')\right]
+%\esc(\overline{\bf v}_\nu-{\bf V})
+%\nonumber\\
+%-&
+% \sum_\nu\left[\int d{\bf r}\int d{\bf r}'
+%\delta_{\mu}({\bf r})\boldsymbol{\gamma}_{{\bf r}{\bf r}'}\Phi_\nu({\bf r}')\right](\overline{\bf v}_\nu-{\bf V})
+%\label{fulldeltapsi}
+%\end{align}
+%Note that the terms
+%\begin{align}
+%  \llg \overline{\rho} \; \overline{\bf v}\boldsymbol{\nabla}\delta_\mu\rlg
+%&= \sum_{\nu\nu'}\overline{\rho}_{\nu}\overline{\bf v}_{\nu'} \cdot\llg\Phi_{\nu}\Phi_{\nu'}\boldsymbol{\nabla}\delta_{\mu}\rlg
+%\end{align}
+%etc, are  explicit  functions of  the discrete  variables, where  the term
+%within  parenthesis in  the  right  hand side  is  a purely  geometric
+%quantity.
 
-
-
-
+In Ref. \cite{CamargoDiscrete2018} we show that if we discretize the continuum equations (\ref{finaleq}) 
+with a Petrov-Galerkin finite element discretization method, and assume that the 
+transport kernels are isotropic under rotations around the axis perpendicular to 
+the slabs, we recover the discrete equations \ref{TheoryDiscFin} that have been 
+obtained directly from the projection operator technique that starts directly from the discrete variables (\ref{CGvar}). This consistency property is very pleasant and is a consequence of the particular way of defining the CG variables (\ref{CGvar}), in terms of finite element basis functions.
 
 
 \section{Conclusions}
+In Chapter \ref{Chap:Theory} we presented  a continuum isothermal
+hydrodynamic  theory  for  simple  fluids in  the  presence  of  solid
+walls. The theory describes solid-fluid interaction through reversible
+repulsive forces  that prevent leaking  of the fluid inside  the solid
+and irreversible forces concentrated near  the walls. Camargo et al. shown in
+\cite{CamargoBC2018} that  the effect of  the forces that  the solid exert  on the
+fluid can be described, when  flow fields and geometry are macroscopic
+(much larger than molecular scales), as boundary conditions.
+
+Despite  its elegance,  this  general  theory is  very  complex as  it
+involves a  large number  of non-local  tensorial kernels  (related to
+viscous and friction forces).  In addition, as it is formulated at the
+continuum level,  transport kernels involve correlations  of the local
+stress tensor and force densities  which involve coarse delta functions
+and that cannot  possibly be computed in MD simulations.   In order to
+tackle these problems,  in this chapter we  have presented from
+first principles a hydrodynamic theory for planar geometries and flows
+involving  discrete mass  and  momentum density  variables defined  in
+terms of finite element basis functions.  By the very selection of the
+CG defined in slabs, we expect to have reasonable predictions from the
+discrete theory  only in the  case that the flows  are translationally
+invariant in the direction parallel  to the walls.  Only eight kernels
+are required  in order  to describe planar  flows in  isotropic walls,
+$\eta^{||},G^{||},H^{||},\gamma^{||}$                              and
+$\eta^{\bot},G^{\bot},H^{\bot},\gamma^{\bot}$.    Onsager  reciprocity
+reduces further  the number of kernels  to six, because the  $H$'s are
+transposes of the $G$'s.  The  kernel $\eta^{||}$ appearing for a flow
+parallel to the walls (i.e. pure  shear) plays the role of a non-local
+shear  viscosity  kernel  while  $\eta^{\bot}$ can  be  understood  as
+non-local bulk viscosity kernel needed to discuss a flow perpendicular
+to the walls,  i.e. sound.  The rest of kernels  $G,H,\gamma$ give the
+overall magnitude of the irreversible  forces that the solid exerts on
+the fluid.
+
+Even for the simplest case of a shear flow (i.e. no compression waves)
+in which  the dynamics is linear  in the velocity field  and that does
+not require a free energy function, one obtains a non-trivial equation
+(\ref{ShearDisc}). This  equation is not  trivial as it  describes the
+interaction of the fluid with the solid walls not in terms of boundary
+condition but rather in terms of irreversible surface forces.
+
+The discrete hydrodynamic equations obtained  in the present paper are
+the first  step towards the  validation of the  continuum hydrodynamic
+equations    in   the    presence    of   walls    as   obtained    in Chapter \ref{Chap:Theory}. Only discrete equations  can be dealt with MD
+simulations. 
+%Importantly, we have shown  in the present paper that the
+%microscopically derived discrete  equations (\ref{TheoryDiscFin}) have
+%the  same form  as a  finite element  discretization of  the continuum
+%non-local  hydrodynamic  equations  (\ref{finaleq}) obtained  in  Ref.
+%\cite{Camargo2018} when particularized to planar flow configurations.
+
+A  crucial observation  is that  the discrete  theory has  a built  in
+length scale given by the width of the bins.  The two main assumptions
+under which  the discrete hydrodynamic  theory is obtained are  1) the
+Markov  assumption and  2)  Linear for  spiky  assumption (LFSA).   We
+expect that the validity of both  assumptions is linked to the size of
+the bins used.  In fact, we  have conducted MD simulations in order to
+evaluate  the kernels  $\eta^{||},G^{||},H^{||},\gamma^{||}$ appearing
+in Eq (\ref{ShearDisc})  describing shear flow. We  have also compared
+the predictions of  the discrete equations with  direct measurement of
+the   flows   starting   from   non-equilibrium   conditions.    These
+simulations, that will  be detailed in the following chapters, show that
+for bin sizes $\Delta z$ smaller  than the molecular size the dynamics
+near the walls is non-Markovian. Only for bins larger than a molecular
+size,  the  Markov   approximation  is  shown  to   be  valid. 
+%These observations  suggest  that  the   continuum  theory  leading  to  Eqs
+%(\ref{finaleq})  obtained  in  Ref.  \cite{Camargo2018}  needs  to  be
+%re-interpreted  in terms  of  continuum hydrodynamic  fields that  are
+%defined not with a Dirac delta function as in Eqs (\ref{rhogmiccont}),
+%but rather with a coarse delta  function as, for example, a normalized
+%Gaussian of  supramolecular width.  
+The resulting  hydrodynamic fields vary on length  scales of supramolecular size and  cannot capture, for example, the density layering near walls.
+
+
 
 
 %-----------------------------------------------------------------
@@ -5031,15 +5362,16 @@ length.
 %-----------------------------------------------------------------
 %CHAPTER 6
 %-----------------------------------------------------------------
-\chapter{MD, BC eta estrella y gamma estrella}
+\chapter{The slip boundary condition from MD simulations}
 \label{Chap:Slip}
 \epigraph{\textit{It is remarkable how long men will believe in the bottomlessness of a pond without taking the trouble to sound it}}{Walden \\ HENRY DAVID THOREAU}
-\markboth{Co}{}
+\markboth{The slip boundary condition from MD simulations}{}
 \section{Introduction}
+
 \section{Conclusions}
 
 
-\chapter{Conclusions}\label{cap.Conclusions}
+\chapter{Conclusions}\label{Chap:Conclusions}
 %\epigraph{\it{El auténtico corredor corre hasta el final.}}{El corredor \\ JOHN L. PARKER}
 \section{Conclusions}
 
@@ -5063,7 +5395,6 @@ The following published articles and posters are related with this dissertation.
   \item IWNET
   \item Fises Madrid
 \end{enumerate}
-
 
 \chapter{List of Acronyms}\label{Ap:Acronyms}
 \begin{tabular}{l l}
@@ -6162,10 +6493,131 @@ obtain the free energy function at the discrete level $F(\rho)$.
 
 
 
+\chapter{Isotropic fourth order tensors}
+\label{Ap:Iso}
+In the  Appendix of  Ref. \cite{CamargoBC2018}  Camargo et al. consider  the second  and third
+order tensors that are invariant under  a rotation around an axis with
+unit vector  ${\bf n}$  and a  reflection around any
+plane containing ${\bf n}$. In this chapter  we consider  the general
+form  of a  fourth order  tensor satisfying these symmetries following the same route as in \cite{CamargoBC2018}.
+The general  form  is  a linear  combinations  of the  tensor
+products      of     fourth      rank     of      ${\bf     n}^\alpha$
+and ${\bf T}^{\alpha\beta}=\boldsymbol{\delta}^{\alpha\beta}-{\bf n}^{\alpha}{\bf n}^{\beta}$ which are
+\begin{align}
+ {\bf n}^\alpha  {\bf n}^\beta   {\bf n}^\gamma   {\bf n}^\delta && && && && && &&
+\nonumber\\
+{\bf n}^\alpha  {\bf n}^\beta {\bf T}^{\gamma\delta} &&  
+{\bf n}^\alpha  {\bf n}^\gamma {\bf T}^{\beta\delta} &&
+{\bf n}^\alpha  {\bf n}^\delta {\bf T}^{\beta\gamma} &&
+{\bf n}^\beta  {\bf n}^\gamma {\bf T}^{\alpha\delta} &&  
+{\bf n}^\beta  {\bf n}^\delta {\bf T}^{\alpha\gamma} &&
+{\bf n}^\gamma  {\bf n}^\delta {\bf T}^{\alpha\beta} &&
+\nonumber\\
+{\bf T}^{\alpha\beta}{\bf T}^{\gamma\delta}&&
+{\bf T}^{\alpha\gamma}{\bf T}^{\beta\delta}&&
+{\bf T}^{\alpha\delta}{\bf T}^{\beta\gamma}&& && && &&
+\end{align}
+The only  allowed linear combination  of the tensors that  ensure that
+the fourth  order tensor is  symmetric with  respect to its  first two
+indices and symmetric with respect to its last two indices is given by
 
+\begin{align}
+\boldsymbol{\eta}_{{\bf r}{\bf r}'}^{\alpha\beta\gamma\delta}  
+&=
+\eta^{(1)}_{{\bf r}{\bf r}'}{\bf T}^{\alpha\beta}{\bf T}^{\gamma\delta}
++\eta^{(2)}_{{\bf r}{\bf r}'}({\bf T}^{\alpha\gamma}{\bf T}^{\beta\delta}
++{\bf T}^{\alpha\delta}{\bf T}^{\beta\gamma})
++\eta^{(3)}_{{\bf r}{\bf r}'} {\bf n}^\alpha  {\bf n}^\beta   {\bf n}^\gamma   {\bf n}^\delta 
+\nonumber\\
+&+\eta^{(4)}_{{\bf r}{\bf r}'}(
+{\bf n}^\alpha  {\bf n}^\gamma {\bf T}^{\beta\delta}+ 
+{\bf n}^\beta  {\bf n}^\gamma {\bf T}^{\alpha\delta}+ 
+{\bf n}^\alpha  {\bf n}^\delta {\bf T}^{\beta\gamma}+ 
+{\bf n}^\beta  {\bf n}^\delta {\bf T}^{\alpha\gamma}) 
++\eta^{(5)}_{{\bf r}{\bf r}'}{\bf n}^\alpha  {\bf n}^\beta {\bf T}^{\gamma\delta} 
++\eta^{(6)}_{{\bf r}{\bf r}'}{\bf T}^{\alpha\beta} {\bf n}^\gamma  {\bf n}^\delta 
+\label{viscosityTangential}
+\end{align}
+In Ref. \cite{Schindler2010} a similar decomposition has been considered for the viscosity
+tensor.
 
+Note that
+the  projector satisfies
+\begin{align}
+  {\bf T}^{\alpha\beta}  {\bf T}^{\beta\gamma}&= {\bf T}^{\alpha\gamma} 
+\nonumber\\
+  {\bf T}^{\alpha\beta}{\bf n}^\alpha&=0
+\nonumber\\
+  {\bf T}^{\alpha\beta}{\bf n}^\beta&=0
+\nonumber\\
+  {\bf T}^{\alpha\alpha}&=2
+\nonumber\\
+  {\bf T}^{\alpha\beta}  {\bf T}^{\alpha\beta}&=2
+\label{tprop}
+\end{align}
 
+With the help of the properties (\ref{tprop}), we may now construct the full contractions
+\begin{align}
+\boldsymbol{\eta}_{{\bf r}{\bf r}'}^{\alpha\beta\gamma\delta}{\bf T}^{\alpha\beta}{\bf T}^{\gamma\delta}&=  4\eta^{(1)}_{{\bf r}{\bf r}'}+4\eta^{(2)}_{{\bf r}{\bf r}'}
+\nonumber\\
+\boldsymbol{\eta}_{{\bf r}{\bf r}'}^{\alpha\beta\gamma\delta}{\bf T}^{\alpha\gamma}{\bf T}^{\beta\delta}&=  2\eta^{(1)}_{{\bf r}{\bf r}'}+6\eta^{(2)}_{{\bf r}{\bf r}'}
+\nonumber\\
+\boldsymbol{\eta}_{{\bf r}{\bf r}'}^{\alpha\beta\gamma\delta}{\bf n}^\alpha{\bf n}^\beta{\bf n}^\gamma{\bf n}^\delta&= \eta^{(3)}_{{\bf r}{\bf r}'}
+\nonumber\\
+\boldsymbol{\eta}_{{\bf r}{\bf r}'}^{\alpha\beta\gamma\delta}{\bf n}^\alpha  {\bf n}^\gamma {\bf T}^{\beta\delta} &=2\eta^{(4)}_{{\bf r}{\bf r}'}
+\nonumber\\
+\boldsymbol{\eta}_{{\bf r}{\bf r}'}^{\alpha\beta\gamma\delta}{\bf n}^\alpha  {\bf n}^\beta {\bf T}^{\gamma\delta} &=2\eta^{(5)}_{{\bf r}{\bf r}'}
+\nonumber\\
+\boldsymbol{\eta}_{{\bf r}{\bf r}'}^{\alpha\beta\gamma\delta}{\bf T}^{\alpha\beta} {\bf n}^\gamma  {\bf n}^\delta &=2\eta^{(6)}_{{\bf r}{\bf r}'}
+\label{VT}
+\end{align}
 
+By  using  the  Green-Kubo  expression (\ref{GK})  for  the  viscosity
+tensor, we  end up with  explicit microscopic expressions for  the six
+kernels. They are
+\begin{align}
+  \eta^{(1)}_{{\bf r}{\bf r}'}+\eta^{(2)}_{{\bf r}{\bf r}'}
+&=
+\frac{1}{k_BT}\int_0^\tau  dt\left\langle 
+\frac{{\cal Q}\hat{\boldsymbol{\sigma}}^{11}_{{\bf r}}(t)+{\cal Q}\hat{\boldsymbol{\sigma}}^{22}_{{\bf r}}(t)}{2}
+\frac{{\cal Q}\hat{\boldsymbol{\sigma}}^{11}_{{\bf r}'}+{\cal Q}\hat{\boldsymbol{\sigma}}^{22}_{{\bf r}'}}{2}
+\right\rangle^\lambda 
+\nonumber\\
+ \eta^{(1)}_{{\bf r}{\bf r}'}+3\eta^{(2)}_{{\bf r}{\bf r}'}
+&=\frac{1}{k_BT}\int_0^\tau  dt\left\langle 
+\frac{{\cal Q}\hat{\boldsymbol{\sigma}}^{11}_{{\bf r}}(t){\cal Q}\hat{\boldsymbol{\sigma}}^{11}_{{\bf r}'}
++{\cal Q}\hat{\boldsymbol{\sigma}}^{22}_{{\bf r}}(t){\cal Q}\hat{\boldsymbol{\sigma}}^{22}_{{\bf r}'}}{2}
+\right\rangle^\lambda 
++\frac{1}{k_BT}\int_0^\tau  dt\left\langle 
+{\cal Q}\hat{\boldsymbol{\sigma}}^{21}_{{\bf r}}(t){\cal Q}\hat{\boldsymbol{\sigma}}^{21}_{{\bf r}'}
+\right\rangle^\lambda 
+\nonumber\\
+\eta^{(3)}_{{\bf r}{\bf r}'}&= 
+ \frac{1}{k_BT}\int_0^\tau  dt\langle 
+{\cal Q}\hat{\boldsymbol{\sigma}}^{33}_{{\bf r}}(t)
+{\cal Q}\hat{\boldsymbol{\sigma}}^{33}_{{\bf r}'}\rangle^\lambda 
+\nonumber\\
+\eta^{(4)}_{{\bf r}{\bf r}'}&=
+\frac{1}{k_BT}\int_0^\tau  dt\left\langle 
+\frac{1}{2}\left(
+{\cal Q}\hat{\boldsymbol{\sigma}}^{13}_{{\bf r}}(t){\cal Q}\hat{\boldsymbol{\sigma}}^{13}_{{\bf r}'}
++
+{\cal Q}\hat{\boldsymbol{\sigma}}^{23}_{{\bf r}}(t){\cal Q}\hat{\boldsymbol{\sigma}}^{23}_{{\bf r}'}
+\right)\right\rangle^\lambda 
+\nonumber\\
+\eta^{(5)}_{{\bf r}{\bf r}'}&=
+\frac{1}{k_BT}\int_0^\tau  dt\left\langle 
+{\cal Q}\hat{\boldsymbol{\sigma}}^{33}_{{\bf r}}(t)
+\frac{1}{2}\left({\cal Q}\hat{\boldsymbol{\sigma}}^{11}_{{\bf r}'}+
+{\cal Q}\hat{\boldsymbol{\sigma}}^{22}_{{\bf r}'}\right)\right\rangle^\lambda 
+\nonumber\\
+\eta^{(6)}_{{\bf r}{\bf r}'}&=
+\frac{1}{k_BT}\int_0^\tau  dt\left\langle 
+\frac{1}{2}\left({\cal Q}\hat{\boldsymbol{\sigma}}^{11}_{{\bf r}}(t)+
+{\cal Q}\hat{\boldsymbol{\sigma}}^{22}_{{\bf r}}(t)\right)
+{\cal Q}\hat{\boldsymbol{\sigma}}_{{\bf r}'}^{33}\right\rangle^\lambda 
+\label{VT-GK}
+\end{align}
 
 
 \chapter{The covariance}
