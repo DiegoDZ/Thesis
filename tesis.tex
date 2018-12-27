@@ -2000,7 +2000,7 @@ $\mu$.  Each bin  is a layer or slab of  dimensions $L_x,L_y,\Delta z$
 with $\Delta  z=L_z/N_{\rm bin}$.  The  bins are separated  by $N_{\rm
   bin}$ nodes  (actually, nodal  planes) located at  $z_\mu=\mu \Delta
 z$,  $\mu=0,\cdots,N_{\rm bin}-1$.   We assume  that we  have periodic
-boundary  conditions  in  the  $x_3$ direction  and,  therefore,  node
+boundary  conditions  in  the  $z$ direction  and,  therefore,  node
 $\mu=0$ is equal to the  node $N_{\rm bin}$.  We carefully distinguish
 between \textit{nodes} and \textit{bins}: nodes  are points in the $z$
 axis, while bins are segments in  this axis.  In 3D, nodes are planes,
@@ -2012,7 +2012,7 @@ We  introduce the  characteristic function  of the  bin $\chi_\mu({\bf
   r})$ that  takes the value  1 if  ${\bf r}$ is  in the bin  and zero
 otherwise.  Its explicit form is given by the unit function
 \begin{align}
-\chi_\mu({\bf r})&=\theta(z_{\mu+ 1}-x_3)\theta(x_3-z_\mu)=\chi_\mu(x_3)
+\chi_\mu({\bf r})&=\theta(z_{\mu+ 1}-z)\theta(z-z_\mu)=\chi_\mu(z)
 \label{chi}
 \end{align}
 where $\theta(x)$ is  the Heaviside step function,  $z_{\mu+1}$ is the
@@ -2021,7 +2021,7 @@ corresponding  position  of  the  lower boundary  of  the  layer.   The set of c
 functions form  a partition of  unity, i.e.  by summing
 over all the bins we have
 \begin{align}
-  \sum_{\mu=1}^{N_{\rm bin}}\chi_\mu({\bf r})&=1
+  \sum_{\mu}^{N_{\rm bin}}\chi_\mu({\bf r})&=1
 \label{PartitionUnity}
 \end{align}
 The volume  integral of the  characteristic function gives  the volume
@@ -2033,31 +2033,31 @@ ${\cal V}_\mu$ of the bin
 For each node, we  introduce  a finite element linear  basis  function
 $\Phi_\mu({\bf r})$
 \begin{align}
-  \Phi_\mu({\bf r})=\chi_\mu(x_3)\frac{z_{\mu+1}-x_3}{\Delta z}+\chi_{\mu-1}(x_3)\frac{x_3-z_{\mu-1}}{\Delta z}
+  \Phi_\mu({\bf r})=\chi_\mu(z)\frac{z_{\mu+1}-z}{\Delta z}+\chi_{\mu-1}(z)\frac{z-z_{\mu-1}}{\Delta z}
 \end{align}
-that depends only on the $x_3$ component of ${\bf r}$. 
+that depends only on the $z$ component of ${\bf r}$. 
 The finite element basis functions $\Phi_\mu({\bf r})$ also form a partition of unity, i.e.
 \begin{align}
   \sum_\mu\Phi_\mu({\bf r})=1
 \label{partition}
 \end{align}
 
-We plot  in Figure  \ref{psichi} the  basis function  $\Phi_\mu(x_3)$ of
-node  $\mu$ and  the  characteristic function  $\chi_\mu(x_3)$ of  bin
+We plot  in Figure  \ref{psichi} the  basis function  $\Phi_\mu(z)$ of
+node  $\mu$ and  the  characteristic function  $\chi_\mu(z)$ of  bin
 $\mu$.
 \begin{figure}[h]
   \centering
 \includegraphics[scale=0.3]{psichi}
-\caption{The basis function $\Phi_\mu(x_3)$ of node $\mu$ (blue) and the characteristic function $\chi_\mu(x_3)$ of bin $\mu$ (orange).}
+\caption{The basis function $\Phi_\mu(z)$ of node $\mu$ (blue) and the characteristic function $\chi_\mu(z)$ of bin $\mu$ (orange).}
 \label{psichi}
 \end{figure}
 
 The gradient of the basis function is
 \begin{align}
-\boldsymbol{\nabla}\Phi_\mu({\bf r})&=-\frac{\chi_\mu({\bf r})-\chi_{\mu-1}({\bf r})}{\Delta z}{\bf e}_3
+\boldsymbol{\nabla}\Phi_\mu({\bf r})&=-\frac{\chi_\mu({\bf r})-\chi_{\mu-1}({\bf r})}{\Delta z}{\bf n}
 \label{partialpsi}
 \end{align}
-where ${\bf e}_3$ is the unit vector in the normal direction.
+where ${\bf n}$ is the unit vector in the normal direction.
 
 Following  Ref. \cite{EspanolDonev2015},  we  now introduce  dual basis  functions
 $\delta_\mu({\bf  r})$ and  $\psi_\mu({\bf r})$.   The basis  function
@@ -2138,7 +2138,7 @@ M^\Phi_{\mu\nu}&=\llg\Phi_\mu\Phi_\nu\rlg
 \end{align}
 and, by multiplying with the inverse on both sides
 \begin{align}
-\sum_\mu {\cal V}_\mu M^{\Phi-1}_{\mu\nu}&=1
+  \sum_\mu {\cal V}_\mu \left[M^{\Phi}\right]^{-1}_{\mu\nu}&=1
 \label{sumM}
 \end{align}
 for all $\nu$.
@@ -2154,13 +2154,13 @@ the mass matrix of the finite element basis (\ref{Mphi}) through
 \begin{align}
   M^\delta_{\mu\nu}&=\frac{  M^\Phi_{\mu\nu}}{{\cal V}_\mu{\cal V}_\nu}
 \nonumber\\
-  M^\psi_{\mu\nu}&={\cal V}_\mu M^{\Phi-1}_{\mu\nu}{\cal V}_\nu
+M^\psi_{\mu\nu}&={\cal V}_\mu \left[M^{\Phi}\right]^{-1}_{\mu\nu}{\cal V}_\nu
 \label{MdMp}
 \end{align}
 Given the definition (\ref{DelFE}) for the discrete Dirac delta function,  the interpolant basis function given in (\ref{dual}) takes the form
 \begin{align}
   \psi_\mu({\bf r})&
-={\cal V}_\mu \sum_\nu M^{\Phi-1}_{\mu\nu} \Phi_\nu({\bf r})
+  ={\cal V}_\mu \sum_\nu \left[M^{\Phi}\right]^{-1}_{\mu\nu} \Phi_\nu({\bf r})
 \label{PsiFE}
 \end{align}
 in terms of the finite element basis function set.
@@ -2247,9 +2247,9 @@ fluid  at node  $\mu$ due  to the  solid and  $ \hat{\bf  F}^{\rm l\to
   l}_\mu$ is the force  density on the fluid at node  $\mu$ due to the
 fluid. These forces are defined as
 \begin{align}
- \hat{\bf F}^{\rm s\to l}_\mu &\equiv\sum_{ij'}\hat{\bf F}_{ij'}\delta_\nu({\bf r}_i)
+ \hat{\bf F}^{\rm s\to l}_\mu &\equiv\sum_{ij'}\hat{\bf F}_{ij'}\delta_\mu({\bf q}_i)
  \nonumber\\
- \hat{\bf F}^{\rm l\to l}_\mu &\equiv\sum_{ij}\hat{\bf F}_{ij}\delta_\nu({\bf r}_i)
+ \hat{\bf F}^{\rm l\to l}_\mu &\equiv\sum_{ij}\hat{\bf F}_{ij}\delta_\mu({\bf q}_i)
 \label{Fbin}
 \end{align}
 Recall that solid atoms have  primed indices and fluid atoms have unprimed indices.
@@ -2260,17 +2260,17 @@ momentum density field  in terms of a discrete stress  tensor.
 The  gradient   of  the  discrete   delta  function  is   given,  from
 (\ref{partialpsi}) and (\ref{DelFE}), by
 \begin{align}
-  \boldsymbol{\nabla}\delta_\mu({\bf r})=-\frac{1}{{\cal V}_\mu}\frac{\chi_\mu(x_3)-\chi_{\mu-1}(x_3)}{\Delta z} {\bf e}_{3}
+  \boldsymbol{\nabla}\delta_\mu({\bf r})=-\frac{1}{{\cal V}_\mu}\frac{\chi_\mu(z)-\chi_{\mu-1}(z)}{\Delta z} {\bf n}
 \end{align}
 This means that the convective part can be expressed in the form
 \begin{align}
   \sum_{i=1}^N{\bf p}_i{\bf v}_i\esc\boldsymbol{\nabla}\delta_\mu({\bf q}_i)&=
--\frac{1}{{\cal V}_\mu} \sum_{i=1}^N{\bf p}_i{\bf v}_i\esc{\bf e}_{3}\frac{\chi_\mu(x_3)-\chi_{\mu-1}(x_3)}{\Delta z}
+-\frac{1}{{\cal V}_\mu} \sum_{i=1}^N{\bf p}_i{\bf v}_i\esc{\bf n}\frac{\chi_\mu(z)-\chi_{\mu-1}(z)}{\Delta z}
 \nonumber\\ 
 \end{align}
 For the force due to the fluid we may use the trick
 \begin{align}
-{\bf F}_\mu^{\rm l\to l}&=  \sum_{ij}^N\hat{\bf F}_{ij}\delta_\mu({\bf q}_i)
+  \hat{{\bf F}}_\mu^{\rm l\to l}&=  \sum_{ij}^N\hat{\bf F}_{ij}\delta_\mu({\bf q}_i)
 \nonumber\\
 &=\frac{1}{2}\sum_{ij}^N\hat{\bf F}_{ij}
 (\delta_\mu({\bf q}_i)-\delta_\mu({\bf q}_j))
@@ -2284,20 +2284,20 @@ For the force due to the fluid we may use the trick
 Therefore we have
 \begin{align}
  &  \sum_{ij}^N\hat{\bf F}_{ij}\delta_\mu({\bf q}_i)
-=\frac{1}{2}\sum_{ij}^N\hat{\bf F}_{ij}{\bf q}_{ij}\esc{\bf e}_{3}\nonumber\\
+=\frac{1}{2}\sum_{ij}^N\hat{\bf F}_{ij}{\bf q}_{ij}\esc{\bf n}\nonumber\\
 & 
 \times
 \int_0^1d\epsilon 
 \frac{1}{{\cal V}_\mu}\frac{\chi_\mu({\bf q}_j+\epsilon{\bf q}_{ij})-\chi_{\mu-1}({\bf q}_j+\epsilon{\bf q}_{ij})}{\Delta z} 
 \nonumber\\
 & 
-=\frac{1}{{\cal V}_\mu}\frac{1}{2}\sum_{ij}^N\hat{\bf F}_{ij}{\bf q}_{ij}\esc{\bf e}_{3}
+=\frac{1}{{\cal V}_\mu}\frac{1}{2}\sum_{ij}^N\hat{\bf F}_{ij}{\bf q}_{ij}\esc{\bf n}
 \frac{z_\mu(i,j)-z_{\mu-1}(i,j)}{\Delta z} 
 \label{Fvir}
 \end{align}
 where we have introduced the geometric factor 
 \begin{align}
-z_\mu(i,j)&=  \int_0^{1}d\epsilon\chi_\mu({\bf r}_i-\epsilon{\bf r}_{ij})
+z_\mu(i,j)&=  \int_0^{1}d\epsilon\chi_\mu({\bf q}_i-\epsilon{\bf q}_{ij})
 \nonumber\\
 &=  \int_0^{1}d\epsilon
 \theta(z_{\mu+1}-z_i+\epsilon z_{ij})\theta(z_i-\epsilon z_{ij}-z_\mu)
@@ -2342,7 +2342,7 @@ By                collecting                the                results
 (\ref{iLMicrhogmu}),(\ref{Fbin}),(\ref{Fvir}) we end  up
 with the final form of the time derivative of the discrete momentum variable
 \begin{align}
-  i{\cal L}\hat{\bf g}_\mu(z) &=\hat{\bf F}_\mu^{\rm s\to l}(z)-\frac{\hat{\boldsymbol{\sigma}}_\mu(z)-\hat{\boldsymbol{\sigma}}_{\mu-1}(z)}{\Delta z}\esc{\bf e}_3
+  i{\cal L}\hat{\bf g}_\mu(z) &=\hat{\bf F}_\mu^{\rm s\to l}(z)-\frac{\hat{\boldsymbol{\sigma}}_\mu(z)-\hat{\boldsymbol{\sigma}}_{\mu-1}(z)}{\Delta z}\esc{\bf n}
 \label{Equivalence}
 \end{align}
 where we have introduced the discrete stress tensor of bin $\mu$ through
@@ -2556,11 +2556,11 @@ dynamics
 \nonumber\\
 &\left.\frac{d}{dt}{\bf g}_\mu\right|_{\rm irr}=
 \nonumber\\
-&-\sum_{\nu=1}^{N_{\rm bin}}{\cal V}_\nu \frac{{\bf e}_3\esc\left[\boldsymbol{\eta}_{\mu\nu}-\boldsymbol{\eta}_{\mu-1\nu}-\boldsymbol{\eta}_{\mu\nu-1}+\boldsymbol{\eta}_{\mu-1\nu-1}\right]}{\Delta z^2}:{\bf e}_3\tilde{\bf v}_\nu
+&-\sum_{\nu=1}^{N_{\rm bin}}{\cal V}_\nu \frac{{\bf n}\esc\left[\boldsymbol{\eta}_{\mu\nu}-\boldsymbol{\eta}_{\mu-1\nu}-\boldsymbol{\eta}_{\mu\nu-1}+\boldsymbol{\eta}_{\mu-1\nu-1}\right]}{\Delta z^2}:{\bf n}\tilde{\bf v}_\nu
 \nonumber\\
-&+\sum_{\nu=1}^{N_{\rm bin}}{\cal V}_\nu\frac{\left[{\bf G}_{\mu\nu}-{\bf G}_{\mu\nu-1}\right]}{\Delta z}:{\bf e}_3\tilde{\bf v}_\nu
+&+\sum_{\nu=1}^{N_{\rm bin}}{\cal V}_\nu\frac{\left[{\bf G}_{\mu\nu}-{\bf G}_{\mu\nu-1}\right]}{\Delta z}:{\bf n}\tilde{\bf v}_\nu
 \nonumber\\
-&+\sum_{\nu=1}^{N_{\rm bin}}{\cal V}_\nu\frac{{\bf e}_3\esc\left[{\bf H}_{\mu\nu}-{\bf H}_{\mu-1\nu}\right]}{\Delta z}\esc(\tilde{\bf v}_\nu-{\bf V})
+&+\sum_{\nu=1}^{N_{\rm bin}}{\cal V}_\nu\frac{{\bf n}\esc\left[{\bf H}_{\mu\nu}-{\bf H}_{\mu-1\nu}\right]}{\Delta z}\esc(\tilde{\bf v}_\nu-{\bf V})
 \nonumber\\
 &-\sum_{\nu=1}^{N_{\rm bin}}{\cal V}_\nu\boldsymbol{\gamma}_{\mu\nu}\esc(\tilde{\bf v}_\nu-{\bf V})
 \label{Irr-Fin}
@@ -2611,11 +2611,11 @@ discrete equations
 -\llg\overline{\rho}\delta_{\mu}\boldsymbol{\nabla}\delta_{\nu}\rlg
 \frac{\partial  F}{\partial \rho_{\nu}}(\rho)
 \nonumber\\
--&\sum_{\nu=1}^{N_{\rm bin}}{\cal V}_\nu \frac{{\bf e}_3\esc\left[\boldsymbol{\eta}_{\mu\nu}-\boldsymbol{\eta}_{\mu-1\nu}-\boldsymbol{\eta}_{\mu\nu-1}+\boldsymbol{\eta}_{\mu-1\nu-1}\right]}{\Delta z^2}:{\bf e}_3\tilde{\bf v}_\nu
+-&\sum_{\nu=1}^{N_{\rm bin}}{\cal V}_\nu \frac{{\bf n}\esc\left[\boldsymbol{\eta}_{\mu\nu}-\boldsymbol{\eta}_{\mu-1\nu}-\boldsymbol{\eta}_{\mu\nu-1}+\boldsymbol{\eta}_{\mu-1\nu-1}\right]}{\Delta z^2}:{\bf n}\tilde{\bf v}_\nu
 \nonumber\\
-+&\sum_{\nu=1}^{N_{\rm bin}}{\cal V}_\nu\frac{\left[{\bf G}_{\mu\nu}-{\bf G}_{\mu\nu-1}\right]}{\Delta z}:{\bf e}_3\tilde{\bf v}_\nu
++&\sum_{\nu=1}^{N_{\rm bin}}{\cal V}_\nu\frac{\left[{\bf G}_{\mu\nu}-{\bf G}_{\mu\nu-1}\right]}{\Delta z}:{\bf n}\tilde{\bf v}_\nu
 \nonumber\\
-+&\sum_{\nu=1}^{N_{\rm bin}}{\cal V}_\nu\frac{{\bf e}_3\esc\left[{\bf H}_{\mu\nu}-{\bf H}_{\mu-1\nu}\right]}{\Delta z}\esc(\tilde{\bf v}_\nu-{\bf V})
++&\sum_{\nu=1}^{N_{\rm bin}}{\cal V}_\nu\frac{{\bf n}\esc\left[{\bf H}_{\mu\nu}-{\bf H}_{\mu-1\nu}\right]}{\Delta z}\esc(\tilde{\bf v}_\nu-{\bf V})
 \nonumber\\
 -&\sum_{\nu=1}^{N_{\rm bin}}{\cal V}_\nu\boldsymbol{\gamma}_{\mu\nu}\esc(\tilde{\bf v}_\nu-{\bf V})
 \label{TheoryDiscFin}
@@ -2626,9 +2626,9 @@ in MD simulations,  we need to consider the force  density due to both
 walls, which will be of the form
 \begin{align}
 \boldsymbol{{\cal S}}^\pm_\mu
-=&+\sum_{\nu=1}^{N_{\rm bin}}{\cal V}_\nu\frac{\left[{\bf G}^{\pm}_{\mu\nu}-{\bf G}^{\pm}_{\mu\nu-1}\right]}{\Delta z}\esc {\bf e}_3\tilde{\bf v}_\nu
+=&+\sum_{\nu=1}^{N_{\rm bin}}{\cal V}_\nu\frac{\left[{\bf G}^{\pm}_{\mu\nu}-{\bf G}^{\pm}_{\mu\nu-1}\right]}{\Delta z}\esc {\bf n}\tilde{\bf v}_\nu
 \nonumber\\
-&+\sum_{\nu=1}^{N_{\rm bin}}{\cal V}_\nu\frac{{\bf e}_3\esc\left[{\bf H}^{\pm}_{\mu\nu}-{\bf H}^{\pm}_{\mu-1\nu}\right]}{\Delta z}
+&+\sum_{\nu=1}^{N_{\rm bin}}{\cal V}_\nu\frac{{\bf n}\esc\left[{\bf H}^{\pm}_{\mu\nu}-{\bf H}^{\pm}_{\mu-1\nu}\right]}{\Delta z}
 \esc(\tilde{\bf v}_\nu-{\bf V}^\pm)
 \nonumber\\
 &-\sum_{\nu=1}^{N_{\rm bin}}{\cal V}_\nu\boldsymbol{\gamma}^{\pm}_{\mu\nu}\esc(\tilde{\bf v}_\nu-{\bf V}^\pm)
@@ -4877,7 +4877,7 @@ $L_z$ is divided  in $N_{\rm bin}$ bins labelled with  an index $\mu$.
 The bins are separated by $N_{\rm bin}$ nodes (actually, nodal planes)
 located  at $z_\mu=\mu  \Delta z$,  $\mu=0,\cdots,N_{\rm bin}-1$  with
 $\Delta z=L_z/N_{\rm bin}$.  We assume  that we have periodic boundary
-conditions in the  $x_3$ direction, albeit due to the  walls the fluid
+conditions in the  $z$ direction, albeit due to the  walls the fluid
 will never  cross the periodic boundary.   The node $\mu=0$ is equal to the node
 $N_{\rm bin}$.   
 \begin{figure}
