@@ -1894,7 +1894,6 @@ in the dissipative part of the dynamics.
 \chapter{Discrete hydrodynamics near solids for planar flows}\label{Chap:Planar}
 \markboth{Discrete hydrodynamics near solids for planar flows}{}
 \section{Introduction}
-\Note{Este capítulo lo reduciría para que la tesis no ocupe tantas páginas. Simplemente comentaría que tenemos un artículo en el que se discretizan las ecuaciones obtenidas en el capítulo 1. Pondría el método de discretización y la ecuaciones resultantes discretizadas. De todos modos, aquí presento un capítulo en el que está todo lo que aparece en el paper excepto la sección en la que se obtienen las mismas ecuaciones discretizadas con el método de Petrov-Galerkin.}
 In Chapter \ref{Chap:Theory} we  have constructed  from  first
 principles a theory  for hydrodynamics in contact with  solids.    Based   on    the   Kawasaki-Gunton   projector
 \cite{Kawasaki1973,Grabert1982}, the theory  governs the average value
@@ -1905,27 +1904,74 @@ the presence  of irreversible  forces that  are concentrated  near the
 solid surface and that are the responsible at the coarse-grained level
 of transmitting the  interactions of the solid atoms to  the fluid. 
 
-In   spite   of   its   elegance,   the   theory presented  cannot yet  be validated  through simulations
-for two  reasons. First,  the amount of  information required  in the
+In   spite   of   its   elegance,   the   theory   as   presented   in
+Chapter \ref{Chap:Theory}  cannot yet  be validated  through simulations
+for two  reasons.  First,  the amount of  information required  in the
 hydrodynamic equations  is exceedingly  large. Non-local  higher order
 tensors are  required leading  to an  untractable number  of different
 components.   Second, in  order to  compare with  MD simulations,  one
 necessarily requires  a discrete version  of such a  theory. Particles
-need to be sorted into bins in order to measure ``fields'' in MD.  In this chapter we produce  the discrete hydrodynamic
-equations involving a tractable amount of measurable information. The
-discrete quantities  appearing in the  theory can be  measured through
-equilibrium MD  simulations, and the  theory may be then  validated by
-comparing  with non-equilibrium  MD  simulations.   Such a  comparison
-allows  us to  validate the  only  assumption on  which the  continuum
-Dynamic Density Functional Theory given in Chapter \ref{Chap:Theory} is
-based,  which  is  the   Markovian  assumption.   This  validation  conforms the core of the present dissertation  where we  have observed
-that  only for  sufficiently large  discretization cells,  larger than
-molecular  sizes, one  observes  Markovian behaviour.   In the  strict
-continuum limit of  very small cells, a Markovian theory  is unable to
-describe  the numerical  results. Therefore, this  gives  further
+need to  be sorted into  cells in order  to measure ``fields''  in MD.
+The  purpose  of  the  present   paper  is  to  produce  the  discrete
+hydrodynamic  equations involving  a  tractable  amount of  measurable
+information. The  discrete quantities appearing  in the theory  can be
+measured through  equilibrium MD  simulations, and  the theory  may be
+then validated by comparing with non-equilibrium MD simulations.  Such
+a comparison  allows us to validate  the only assumption on  which the
+continuum hydrodynamic equations (\ref{finaleq}) are
+based, which  is the  Markovian assumption.   This validation  will be
+presented in the following chapters, where  we have observed  that only
+for  sufficiently large  discretization cells,  larger than  molecular
+sizes,  one observes  Markovian  behaviour.  In  the strict  continuum
+limit of  very small cells, a  Markovian theory is unable  to describe
+the numerical  results.  Therefore, the Markovian  continuum theory of
+Chapter \ref{Chap:Theory} is valid only in  terms  of  coarse  delta
+functions.   This  gives  further
 motivation to introduce the  present discrete hydrodynamic theory with
 its intrinsic built  in length scale given by  the discretization cell
 size.
+
+In  the  present work  we  derive  with  the technique  of  projection
+operators the  evolution equation for the  non-equilibrium averages of
+the discrete  hydrodynamic variables.   The methodology  follows Refs. \Note{Faltan referencias}
+\cite{Espanol2009i,Espanol2009c,DelaTorre2015,EspanolDonev2015}  where
+a  set of  discrete hydrodynamic  variables are  introduced through  a
+finite  element   basis  function   set.   The   present  work   is  a
+generalization of the results  of Ref.  \cite{EspanolDonev2015} in the
+presence of solid walls and for the particular case of parallel flows.
+The method for deriving the  average evolution of hydrodynamics admits
+a straightforward generalization in  terms of fluctuating hydrodynamic
+equations as those  in Ref. \cite{EspanolDonev2015}, this  time in the
+presence  of  solid  walls,  and will  be  presented  elsewhere.   One
+interesting benefit of the discretization methodology that we consider
+in this paper is that  the final discrete evolution equations obtained
+from first principles are identical to a finite element discretization
+of the  continuum equations  (\ref{finaleq}),  once isotropy
+and translation invariance along the wall is assumed for the flow.
+
+
+
+%In   spite   of   its   elegance,   the   theory presented  cannot yet  be validated  through simulations
+%for two  reasons. First,  the amount of  information required  in the
+%hydrodynamic equations  is exceedingly  large. Non-local  higher order
+%tensors are  required leading  to an  untractable number  of different
+%components.   Second, in  order to  compare with  MD simulations,  one
+%necessarily requires  a discrete version  of such a  theory. Particles
+%need to be sorted into bins in order to measure ``fields'' in MD.  In this chapter we produce  the discrete hydrodynamic
+%equations involving a tractable amount of measurable information. The
+%discrete quantities  appearing in the  theory can be  measured through
+%equilibrium MD  simulations, and the  theory may be then  validated by
+%comparing  with non-equilibrium  MD  simulations.   Such a  comparison
+%allows  us to  validate the  only  assumption on  which the  continuum
+%Dynamic Density Functional Theory given in Chapter \ref{Chap:Theory} is
+%based,  which  is  the   Markovian  assumption.   This  validation  conforms the core of the present dissertation  where we  have observed
+%that  only for  sufficiently large  discretization cells,  larger than
+%molecular  sizes, one  observes  Markovian behaviour.   In the  strict
+%continuum limit of  very small cells, a Markovian theory  is unable to
+%describe  the numerical  results. Therefore, this  gives  further
+%motivation to introduce the  present discrete hydrodynamic theory with
+%its intrinsic built  in length scale given by  the discretization cell
+%size.
 
 \section{Simpler theory}
 The hydrodynamic theory  (\ref{finaleq}) requires
@@ -1947,7 +1993,7 @@ is 9.   Onsager reciprocity reduces  the total  number to 23  which is
 still a very large number of components to consider.
 
 For  this reason,  we will  consider a  theory that  is restricted  to
-\textit{planar walls}.   The concept of  ``surface'' is subtle  from a
+\textit{planar walls}. Specifically, two solid walls made of atoms located at fixed lattice positions enclose our fluid system. The concept of  ``surface'' is subtle  from a
 microscopic  point of  view.   In fact,  the solid  is  made of  point
 particles that act like centers of  force for the fluid particles. The
 concept of  surface of a  solid and its  actual position needs  to be,
@@ -1985,13 +2031,13 @@ non-equilibrium MD simulations allows one to validate the theory.
 
 \textit{All  these  steps  require  the  discretization  of  space  in
   slabs}. In the  first step, this is necessary in  order to deal with
-  \Note{the Dirac delta functions that appear  in the force density and stress
-  tensor (\ref{sigma}) whose correlations give  rise to the kernels}. The
+the Dirac delta functions that appear  in the force density and stress
+  tensor (\ref{sigma}), whose correlations give  rise to the kernels. The
 second step  requires a discretization  in order to  solve numerically
 Eqs.  (\ref{finaleq}).  Finally, in  the third step the discretization
 is required in  order to measure the density and  velocity fields.  It
 is  important that  the discretization  in these  three steps  is done
-consistently. We have  discussed in Refs. \Note{De la torre et al.?} \cite{DelaTorre2015,EspanolDonev2015} how  a method based
+consistently. We have  discussed in Refs. \Note{Me falta la referencia de arturo} \cite{DelaTorre2015,EspanolDonev2015} how  a method based
 on  finite elements  allows one  to construct  the  CG discrete  variables
 evolving according  to dynamic  equations that  are consistent  with a
 finite  element  discretization of  the  continuum  equations. In  this chapter, the  finite elements are defined in 3D  but taking into
@@ -2204,7 +2250,7 @@ are connected by
 \label{rhogmumiccont}
 \end{align}
 The  discrete mass  and momentum  densities are  defined at  the nodal
-points. We see from (\ref{rhogmumic}) that  the mass density at a node
+planes. We see from (\ref{rhogmumic}) that  the mass density at a node
 receives a contribution of the mass of fluid molecule $i$ that depends
 on  the distance  of  this  molecule to  the  nodal  plane $\mu$,  and
 similarly    for   the    momentum.     The   microscopic    variables
@@ -2212,7 +2258,32 @@ similarly    for   the    momentum.     The   microscopic    variables
 average velocity of the particles (per  unit volume) that happen to be
 ``around'' the nodal plane $\mu$.
 
-By the very
+%By the very
+%selection of the  variables (\ref{rhogmumic}) as the  CG variables, we
+%are  making a  strong assumption  about  the situations  in which  the
+%theory may be applicable.  For  example, the resulting theory will not
+%be able to describe situations in which a sound wave is propagating in
+%the direction \textit{parallel} to the  walls, because such a wave has
+%variations in the parallel direction that cannot be captured by the CG
+%variables.  However,  it will  allow us  to discuss  sound propagation
+%\textit{perpendicular}  to the  walls.   It is  expected  that the  CG
+%variables (\ref{rhogmumic})  will feel the  effects of the walls  in a
+%very integrated form, in which the isotropy and translation invariance
+%of the  walls will be a  very good approximation.  In  that sense, for
+%those situations  in which the  resulting dynamic equations  are valid
+%(i.e.  parallel flow),  the assumed isotropy of the  walls is expected
+%to be  valid.  
+%\Note{No he encontrado la referencia de Donev.} 
+%
+%The  calculations presented in what follows  are very
+%similar to  the ones described  in Ref. \cite{Donev}, except  that the
+%present  calculation  deals  with ``canonical''  averages  instead  of
+%``microcanonical''  averages  as  in   Ref.  \cite{Donev}.  They  also
+%crucially  differ in  that  the present  derivation  accounts for  the
+%presence of confining walls.
+
+No macroscopic variables are assumed  for the solid, because we assume
+that it  is a very massive  wall with definite location.   By the very
 selection of the  variables (\ref{rhogmumic}) as the  CG variables, we
 are  making a  strong assumption  about  the situations  in which  the
 theory may be applicable.  For  example, the resulting theory will not
@@ -2226,13 +2297,10 @@ very integrated form, in which the isotropy and translation invariance
 of the  walls will be a  very good approximation.  In  that sense, for
 those situations  in which the  resulting dynamic equations  are valid
 (i.e.  parallel flow),  the assumed isotropy of the  walls is expected
-to be  valid.  
-\Note{No he encontrado la referencia de Donev.} 
-
-The  calculations presented in what follows  are very
+to be  valid.  The  calculations presented in what follows  are very
 similar to  the ones described  in Ref. \cite{Donev}, except  that the
 present  calculation  deals  with ``canonical''  averages  instead  of
-``microcanonical''  averages  as  in   Ref.  \cite{Donev}.  They  also
+``microcanonical''  averages.  They  also
 crucially  differ in  that  the present  derivation  accounts for  the
 presence of confining walls.
 
@@ -2240,10 +2308,10 @@ presence of confining walls.
 The time derivatives  of the CG variables  (\ref{rhogmumic}) are given
 through the action of the Liouville operator
 \begin{align}
-i{\cal L}  \hat{\rho}_{\mu}(z)&=\sum_{i=1}^N{\bf p}_i\esc\boldsymbol{\nabla}\delta_\mu({\bf q}_i)
+i{\cal L}  \hat{\rho}_{\mu}&=\sum_{i=1}^N{\bf p}_i\esc\boldsymbol{\nabla}\delta_\mu({\bf q}_i)
 \nonumber\\
-i{\cal L}  \hat{\bf g}_{\mu}(z)&=\sum_{i=1}^N{\bf p}_i{\bf v}_i\esc\boldsymbol{\nabla}\delta_\mu({\bf q}_i)
-+\hat{\bf F}_\mu(z)
+i{\cal L}  \hat{\bf g}_{\mu}&=\sum_{i=1}^N{\bf p}_i{\bf v}_i\esc\boldsymbol{\nabla}\delta_\mu({\bf q}_i)
++\hat{\bf F}_\mu
 \label{iLMicrhogmu}
 \end{align}
 In the expression (\ref{iLMicrhogmu}) we see that the momentum density
@@ -2353,7 +2421,7 @@ By                collecting                the                results
 (\ref{iLMicrhogmu}),(\ref{Fbin}),(\ref{Fvir}) we end  up
 with the final form of the time derivative of the discrete momentum variable
 \begin{align}
-  i{\cal L}\hat{\bf g}_\mu(z) &=\hat{\bf F}_\mu^{\rm s\to l}(z)-\frac{\hat{\boldsymbol{\sigma}}_\mu(z)-\hat{\boldsymbol{\sigma}}_{\mu-1}(z)}{\Delta z}\esc{\bf n}
+  i{\cal L}\hat{\bf g}_\mu(z) &=\hat{\bf F}_\mu^{\rm s\to l}-\frac{\hat{\boldsymbol{\sigma}}_\mu-\hat{\boldsymbol{\sigma}}_{\mu-1}}{\Delta z}\esc{\bf n}
 \label{Equivalence}
 \end{align}
 where we have introduced the discrete stress tensor of bin $\mu$ through
@@ -2375,7 +2443,7 @@ the basis of the final structure of the hydrodynamic equations.
 Note  that, while  the force  is discretized  with the  basis function
 $\Phi_\mu({\bf r})$, the stress is discretized with the characteristic
 function $\chi_\mu({\bf  r})$. Therefore, forces are  defined on nodal
-points    while    stresses    are    defined    on    bins.     Refs.
+planes    while    stresses    are    defined    on    bins.     Refs.
 \cite{Schindler2010,Lion2012} have  considered the definition  of local
 pressure following similar lines.
 
@@ -2403,13 +2471,13 @@ reversible  part   of  the   dynamics  are   given  in   the  Appendix
 dynamics is given by the \textit{exact} equations
 \begin{align}
   \llangle i{\cal L}\hat{\rho}_\mu\rrangle^{\lambda{\bf v}} &=
-\llg\llangle \hat{\rho}\rrangle^{\lambda{\bf v}}
+  \llg\llangle \hat{\rho}_{\bf r}\rrangle^{\lambda{\bf v}}
 \overline{\bf v}\esc\boldsymbol{\nabla}\delta_{\mu}\rlg
 \nonumber\\
   \llangle i{\cal L}\hat{\bf g}_\mu\rrangle^{\lambda{\bf v}} &=
-\llg\llangle \hat{\rho}\rrangle^{\lambda{\bf v}}
+\llg\llangle \hat{\rho}_{\bf r}\rrangle^{\lambda{\bf v}}
 \overline{\bf v}\overline{\bf v}\esc\boldsymbol{\nabla}\delta_{\mu}\rlg
-+\llg\delta_\mu\llangle\hat{\rho}\rrangle^{\lambda{\bf v}}\boldsymbol{\nabla}\overline{\mu}\rlg
++\llg\delta_\mu\llangle\hat{\rho}_{\bf r}\rrangle^{\lambda{\bf v}}\boldsymbol{\nabla}\overline{\mu}\rlg
 \label{ExactRev}
 \end{align}
 where we have used the  notation (\ref{notation}) for space integrals,
@@ -2448,42 +2516,42 @@ The reversible part  of the dynamics (\ref{ExactRev}) is  not given in
 hidden inside  the Lagrange multipliers $\lambda_\mu,{\bf  v}_\mu$ and
 the  average $\llangle  \hat{\rho}_{\bf r}\rrangle^{\lambda{\bf  v}}$.
 We consider  now an approximation  that will make the  exact equations
-(\ref{ExactRev}) explicit in the  CG variables.  This approximation is
-named  \textit{linear   for  spiky   approximation}  (LFSA)   in  Ref.
-\cite{Donev} and  consists on  approximating within  ensemble averages
-the  ``spiky''  fields  (\ref{rhogmumiccont}) with  piece-wise  linear
-functions as
+(\ref{ExactRev}) explicit in the CG variables.  This approximation has
+been named  as the \textit{linear  for spiky approximation}  (LFSA) in
+Ref.   \cite{Donev},  and  consists on  approximating,  within  ensemble
+averages,  the ``spiky''  fields (\ref{rhogmumiccont})  with piece-wise
+linear functions as
 \begin{align}
-  \hat{\rho}_{\bf r}(z)&\simeq \hat{\rho}_{\sigma}(z)\psi_\sigma({\bf r})
+  \hat{\rho}_{\bf r}&\simeq \sum_\sigma\hat{\rho}_{\sigma} \psi_\sigma({\bf r})
 \nonumber\\
-  \hat{\bf g}_{\bf r}(z)&\simeq \hat{\bf g}_{\sigma}(z)\psi_\sigma({\bf r})
+  \hat{\bf g}_{\bf r} &\simeq \sum_\sigma\hat{\bf g}_{\sigma} \psi_\sigma({\bf r})
 \label{LFSA}
 \end{align}
-The left  hand side contains  sums of coarse  delta functions,
+The left  hand side contains  sums of singular Dirac  delta functions,
 while the  right hand  side are piece-wise  linear functions  given in
-terms   of   the  discrete   values   $\hat{\rho}_{\sigma}(z), \hat{\bf
-  g}_\sigma(z)$.   This  approximation  is  expected  to  hold  inside
+terms   of   the  discrete   values   $\hat{\rho}_{\sigma} ,\hat{\bf
+  g}_\sigma $.   This  approximation  is  expected  to  hold  inside
 ensemble averages and to be a good one if there are many particles per
-bin. \Note{Pensar un poco mejor por qué} 
+bin. 
 
 In the LFSA, the average of the density field becomes explicit
-in the discrete density variables. 
+in the discrete density variables
 \begin{align}
-  \llangle \hat{\rho}_{\bf r}\rrangle^{\lambda{\bf v}}&\simeq\rho_\mu\psi_\mu({\bf r})=\overline{\rho}({\bf r})
+  \llangle \hat{\rho}_{\bf r}\rrangle^{\lambda{\bf v}}&\simeq
+\sum_\mu\rho_\mu\psi_\mu({\bf r})=\overline{\rho}({\bf r})
 \end{align}
 and the density matrix (\ref{rhomunu}) becomes explicit in the discrete density 
 \begin{align}
-  \rho_{\mu\nu} \simeq \llg\delta_\mu\psi_\nu\psi_\sigma\rlg\rho_\sigma
+  \rho_{\mu\nu} \simeq \sum_\sigma\llg\delta_\mu\psi_\nu\psi_\sigma\rlg\rho_\sigma
 =\llg\delta_\mu\psi_\nu\overline{\rho}\rlg
 \label{calR1}
 \end{align}
 Therefore, the discrete velocity  field (\ref{nu}) is given explicitly
 in terms of the discrete mass and momentum densities by
 \begin{align}
-{\bf v}_\mu&=\rho^{-1}_{\mu\nu}{\bf g}_\nu
+{\bf v}_\mu&=\sum_\nu\rho^{-1}_{\mu\nu}{\bf g}_\nu
 \label{un}
 \end{align}
-
 
 Under this  linear for spiky  approximation the reversible  part (\ref{ExactRev}) takes
 the \textit{explicit} form
@@ -2496,9 +2564,17 @@ the \textit{explicit} form
 +\llg\delta_\mu\overline{\rho}\boldsymbol{\nabla}\overline{\mu}\rlg
 \label{RevDis}
 \end{align}
-These equations are explicit in the CG variables because the fields
-$\overline{\rho}({\bf r}),\overline{\bf v}({\bf r})$ are explicit
-functions of the discrete CG variables $\rho_\mu,{\bf v}_\mu$.
+These equations  are explicit in  the CG variables because  the fields
+$\overline{\rho}({\bf  r}),\overline{\bf  v}({\bf  r})$  are  explicit
+functions  of the  discrete CG  variables $\rho_\mu,{\bf  v}_\mu$.  As
+shown  in  the  Appendix  \ref{Ap:KG}, the  last  term  involving  the
+chemical potential admits the following form
+\begin{align}
+  \llg\delta_\mu\overline{\rho}\boldsymbol{\nabla}\overline{\mu}\rlg&=
+-\sum_\nu\llg\overline{\rho}\delta_{\mu}\boldsymbol{\nabla}\delta_{\nu}\rlg
+\frac{\partial  F}{\partial \rho_{\nu}}(\rho)
+\end{align}
+where the free energy function depends only on the discrete density field.
 
 \subsection{Irreversible part of the dynamics}
 As shown in  Sec. \ref{Sec:Grabert} of Chapter  \ref{Chap:NESM}, the  irreversible part of the
@@ -2512,19 +2588,18 @@ where $S$ is the entropy and the dissipative matrix is given by
 \begin{align}
   D_{ij}=\frac{1}{k_BT}\int_0^\tau\llangle {\cal Q}i{\cal L}\hat{A}_i(t){\cal Q}i{\cal L}\hat{A}_j\rrangle^{\lambda}
 \end{align}
-where $\llangle\cdots\rrangle^\lambda$  is an  average taken  with the
-relevant  ensemble.  Therefore,  the dissipative  matrix  depends,  in
+%where $\llangle\cdots\rrangle^\lambda$  is an  average taken  with the relevant  ensemble.
+Therefore,  the dissipative  matrix  depends,  in
 general on the state of the CG variables.  In the present case, the CG
 variables are $\hat{\rho}_\mu$ and $\hat{\bf g}_\mu$.   In the
 LFSA (\ref{LFSA}) the time derivative of the density is given by
 \begin{align}
-  i{\cal L}\hat{\rho}_\mu(z)&=\int d{\bf r}\hat{\bf g}_{\bf r}(z)\esc\boldsymbol{\nabla}\delta_\mu({\bf r})
-\nonumber\\
-&\simeq \hat{\bf g}_\nu(z)\llg\psi_\nu\boldsymbol{\nabla}\delta_\mu\rlg
+  i{\cal L}\hat{\rho}_\mu &=\int d{\bf r}\hat{\bf g}_{\bf r} \esc\boldsymbol{\nabla}\delta_\mu({\bf r})
+\simeq \sum_\nu\hat{\bf g}_\nu \llg\psi_\nu\boldsymbol{\nabla}\delta_\mu\rlg
 \end{align}
 We see  that this time  derivative is given  in terms of  the discrete
 momentum which is a CG  variable itself and, therefore, the associated
-projected  current vanishes,  ${\cal Q}i{\cal  L}\hat{\rho}_\mu(z)=0$.
+projected  current vanishes,  ${\cal Q}i{\cal  L}\hat{\rho}_\mu =0$.
 This leads to a much simpler dissipative matrix.
 % \footnote{In  this  approximation  we are  assuming  that  the
 %   Brenner diffusion coefficients are  negligibly small}. 
@@ -2532,7 +2607,11 @@ The derivatives of the entropy are  given in Eqs.  (\ref{derS}) in the
 Appendix \ref{Ap:KG}, and we  may write the irreversible  terms (\ref{IrrDis0}) in
 the form
 \begin{align}
-\left(\begin{array}{cc}
+\left.\frac{d}{dt}\left(\begin{array}{c}
+\rho_\mu\\
+{\bf g}_\mu
+\end{array}\right)\right|_{\rm irr}
+&=\sum_\nu\left(\begin{array}{cc}
 0&0\\
 0&{\bf D}_{\mu\nu}
 \end{array}\right)\left(
@@ -2550,12 +2629,16 @@ where the dissipative matrix is given by
 \end{align}
 and we have introduced the discrete fields
 \begin{align}
-\tilde{\lambda}_\mu&={M^\Phi}^{-1}_{\mu\nu}{\cal V}_{\nu}\lambda_{\nu}
+\tilde{\lambda}_\mu&=\sum_\nu{\cal V}_{\nu}\left[M^\Phi\right]^{-1}_{\mu\nu}\lambda_{\nu}
 \nonumber\\
-\tilde{\bf v}_\mu&={M^\Phi}^{-1}_{\mu\nu}{\cal V}_{\nu}{\bf v}_{\nu}
+\tilde{\bf v}_\mu&=\sum_\nu{\cal V}_{\nu}\left[M^\Phi\right]^{-1}_{\mu\nu}{\bf v}_{\nu}
 \label{overlined}
 \end{align}
+% These quantities $ \tilde{\rho}_\mu, \tilde{\bf v}_\mu$
+% are  a  smoothed  representation  of the  original  discrete  CG
+% variables $\rho_{\mu} {\bf v}_{\mu}$.
 
+% \newpage
 By  using  now  the  decomposition  (\ref{Equivalence})  of  the  time
 derivative  of   the  momentum  density  in   the  dissipative  matrix
 (\ref{Dmunu}),  we  obtain  the  following irreversible  part  of  the
@@ -2565,43 +2648,59 @@ dynamics
 \nonumber\\
 &\left.\frac{d}{dt}{\bf g}_\mu\right|_{\rm irr}=
 \nonumber\\
-&-\sum_{\nu=1}^{N_{\rm bin}}{\cal V}_\nu \frac{{\bf n}\esc\left[\boldsymbol{\eta}_{\mu\nu}-\boldsymbol{\eta}_{\mu-1\nu}-\boldsymbol{\eta}_{\mu\nu-1}+\boldsymbol{\eta}_{\mu-1\nu-1}\right]}{\Delta z^2}:{\bf n}\tilde{\bf v}_\nu
+&-\sum_{\nu}{\cal V}_\nu \frac{{\bf n}\esc\left[\boldsymbol{\eta}_{\mu\nu}-\boldsymbol{\eta}_{\mu-1\nu}-\boldsymbol{\eta}_{\mu\nu-1}+\boldsymbol{\eta}_{\mu-1\nu-1}\right]}{\Delta z^2}:{\bf n}\tilde{\bf v}_\nu
 \nonumber\\
-&+\sum_{\nu=1}^{N_{\rm bin}}{\cal V}_\nu\frac{\left[{\bf G}_{\mu\nu}-{\bf G}_{\mu\nu-1}\right]}{\Delta z}:{\bf n}\tilde{\bf v}_\nu
+&+\sum_{\nu}{\cal V}_\nu\frac{\left[{\bf G}_{\mu\nu}-{\bf G}_{\mu\nu-1}\right]}{\Delta z}\esc{\bf n}\tilde{\bf v}_\nu
 \nonumber\\
-&+\sum_{\nu=1}^{N_{\rm bin}}{\cal V}_\nu\frac{{\bf n}\esc\left[{\bf H}_{\mu\nu}-{\bf H}_{\mu-1\nu}\right]}{\Delta z}\esc(\tilde{\bf v}_\nu-{\bf V})
+&+\sum_{\nu}{\cal V}_\nu\frac{{\bf n}\esc\left[{\bf H}_{\mu\nu}-{\bf H}_{\mu-1\nu}\right]}{\Delta z}\esc(\tilde{\bf v}_\nu-{\bf V})
 \nonumber\\
-&-\sum_{\nu=1}^{N_{\rm bin}}{\cal V}_\nu\boldsymbol{\gamma}_{\mu\nu}\esc(\tilde{\bf v}_\nu-{\bf V})
+&-\sum_{\nu}{\cal V}_\nu\boldsymbol{\gamma}_{\mu\nu}\esc(\tilde{\bf v}_\nu-{\bf V})
 \label{Irr-Fin}
 \end{align}
 where we have introduced the following tensorial transport matrices
 \begin{align}
 \boldsymbol{\eta}_{\mu\nu}
+% &\equiv  \int \frac{d{\bf r}}{{\cal V}_\mu}
+% \int \frac{d{\bf r}'}{{\cal V}_\nu}
+% \chi_\mu({\bf r})
+% \eta^{||}_{{\bf r}{\bf r}'}\chi_\nu({\bf r})
+% \nonumber\\
 &=\frac{1}{k_BT}\int_0^{\tau} dt
 \left\langle {\cal Q}\hat{\boldsymbol{\sigma}}_{\mu}(t){\cal Q}\hat{\boldsymbol{\sigma}}_{\nu}
-\right\rangle^{\lambda{\bf v}}
+\right\rangle
 \nonumber\\
 {\bf G}_{\mu\nu}&=\frac{1}{k_BT}\int_0^{\tau} dt
 \left\langle{\cal Q}\hat{\bf F}^{\rm s\to l}_\mu(t)
 {\cal Q}\hat{\boldsymbol{\sigma}}_\nu
-\right\rangle^{\lambda{\bf v}}
+\right\rangle
+%\nonumber\\
+% &{\red \equiv \int \frac{d{\bf r}}{{\cal V}_\mu}\int \frac{d{\bf r}'}{{\cal V}_\nu}
+% \psi_\mu({\bf r})G^{||}_{{\bf r}{\bf r}'}
+% \chi_\nu({\bf r}')}
 \nonumber\\
 {\bf H}_{\mu\nu}&=
 \frac{1}{k_BT}\int_0^{\tau} dt
-\left\langle{\cal Q}\hat{\boldsymbol{\sigma}}_\mu(t){\cal Q}\hat{\bf F}^{\rm s\to l}_\nu\right\rangle^{\lambda{\bf v}}
+\left\langle{\cal Q}\hat{\boldsymbol{\sigma}}_\mu(t){\cal Q}\hat{\bf F}^{\rm s\to l}_\nu\right\rangle
+% {\red \equiv \int \frac{d{\bf r}}{{\cal V}_\mu}\int \frac{d{\bf r}'}{{\cal V}_\nu}
+% \chi_\mu({\bf r})
+% H^{||}_{{\bf r}{\bf r}'}
+% \psi_\nu({\bf r}')}
 \nonumber\\
 \boldsymbol{\gamma}_{\mu\nu}
+% \equiv \int \frac{d{\bf r}}{{\cal V}_\mu} \frac{d{\bf r}'}{{\cal V}_\nu}
+% \psi_\mu({\bf r})\gamma^{||}_{{\bf r}{\bf r}'}\psi_\nu({\bf r}')
+% \nonumber\\
 &=\frac{1}{k_BT}\int_0^{\tau} dt
 \left\langle 
 {\cal Q}\hat{\bf F}^{\rm s\to l}_\mu(t)
-{\cal Q}\hat{\bf F}^{\rm s\to l}_\nu\right\rangle^{\lambda{\bf v}}
+{\cal Q}\hat{\bf F}^{\rm s\to l}_\nu\right\rangle
 \label{MolTransportCoeff}
 \end{align}
 The  transport  kernels  (\ref{MolTransportCoeff}) are  given  through
 Green-Kubo  formulae.  The  transport  coefficients  are, in  general,
 dependent on the CG state of  the system, through the average with the
 relevant  ensemble.  This  poses a  large complication  in its  actual
-evaluation. We simply  assume  that we  may
+evaluation.  We simply  assume  that we  may
 approximate the relevant  ensemble by the equilibrium  ensemble in the
 calculation  of the  transport coefficients,  in such  a way  that the
 transport coefficients  do not depend  on local values of  density and
@@ -2617,47 +2716,54 @@ discrete equations
 \nonumber\\
 \frac{d}{dt}{\bf g}_\mu=&
 \llg\overline{\rho} \overline{\bf v}\;\overline{\bf v}\esc\boldsymbol{\nabla}\delta_{\mu}\rlg
--\llg\overline{\rho}\delta_{\mu}\boldsymbol{\nabla}\delta_{\nu}\rlg
+-\sum_\nu\llg\overline{\rho}\delta_{\mu}\boldsymbol{\nabla}\delta_{\nu}\rlg
 \frac{\partial  F}{\partial \rho_{\nu}}(\rho)
 \nonumber\\
--&\sum_{\nu=1}^{N_{\rm bin}}{\cal V}_\nu \frac{{\bf n}\esc\left[\boldsymbol{\eta}_{\mu\nu}-\boldsymbol{\eta}_{\mu-1\nu}-\boldsymbol{\eta}_{\mu\nu-1}+\boldsymbol{\eta}_{\mu-1\nu-1}\right]}{\Delta z^2}:{\bf n}\tilde{\bf v}_\nu
+-&\sum_{\nu}{\cal V}_\nu \frac{{\bf n}\esc\left[\boldsymbol{\eta}_{\mu\nu}-\boldsymbol{\eta}_{\mu-1\nu}-\boldsymbol{\eta}_{\mu\nu-1}+\boldsymbol{\eta}_{\mu-1\nu-1}\right]}{\Delta z^2}:{\bf n}\tilde{\bf v}_\nu
 \nonumber\\
-+&\sum_{\nu=1}^{N_{\rm bin}}{\cal V}_\nu\frac{\left[{\bf G}_{\mu\nu}-{\bf G}_{\mu\nu-1}\right]}{\Delta z}:{\bf n}\tilde{\bf v}_\nu
++&\sum_{\nu}{\cal V}_\nu\frac{\left[{\bf G}_{\mu\nu}-{\bf G}_{\mu\nu-1}\right]}{\Delta z}\esc{\bf n}\tilde{\bf v}_\nu
 \nonumber\\
-+&\sum_{\nu=1}^{N_{\rm bin}}{\cal V}_\nu\frac{{\bf n}\esc\left[{\bf H}_{\mu\nu}-{\bf H}_{\mu-1\nu}\right]}{\Delta z}\esc(\tilde{\bf v}_\nu-{\bf V})
++&\sum_{\nu}{\cal V}_\nu\frac{{\bf n}\esc\left[{\bf H}_{\mu\nu}-{\bf H}_{\mu-1\nu}\right]}{\Delta z}\esc(\tilde{\bf v}_\nu-{\bf V})
 \nonumber\\
--&\sum_{\nu=1}^{N_{\rm bin}}{\cal V}_\nu\boldsymbol{\gamma}_{\mu\nu}\esc(\tilde{\bf v}_\nu-{\bf V})
+-&\sum_{\nu}{\cal V}_\nu\boldsymbol{\gamma}_{\mu\nu}\esc(\tilde{\bf v}_\nu-{\bf V})
 \label{TheoryDiscFin}
 \end{align}
-Note  that Eq.   (\ref{TheoryDiscFin})  contains  information about  a
-single planar wall.   In the case of two planar  walls as those needed
-in MD simulations,  we need to consider the force  density due to both
-walls, which will be of the form
-\begin{align}
-\boldsymbol{{\cal S}}^\pm_\mu
-=&+\sum_{\nu=1}^{N_{\rm bin}}{\cal V}_\nu\frac{\left[{\bf G}^{\pm}_{\mu\nu}-{\bf G}^{\pm}_{\mu\nu-1}\right]}{\Delta z}\esc {\bf n}\tilde{\bf v}_\nu
-\nonumber\\
-&+\sum_{\nu=1}^{N_{\rm bin}}{\cal V}_\nu\frac{{\bf n}\esc\left[{\bf H}^{\pm}_{\mu\nu}-{\bf H}^{\pm}_{\mu-1\nu}\right]}{\Delta z}
-\esc(\tilde{\bf v}_\nu-{\bf V}^\pm)
-\nonumber\\
-&-\sum_{\nu=1}^{N_{\rm bin}}{\cal V}_\nu\boldsymbol{\gamma}^{\pm}_{\mu\nu}\esc(\tilde{\bf v}_\nu-{\bf V}^\pm)
-\label{Spm}
-\end{align}
-where  $\pm$ means  upper  or  lower wall,  which  may have  different
-velocities ${\bf V}^\pm$ in general.
+% Note  that Eq.   (\ref{TheoryDiscFin})  contains  information about  a
+% single planar wall.   In the case of two planar  walls as those needed
+% in MD simulations,  we need to consider the force  density due to both
+% walls, which will be of the form
+% \begin{align}
+% \boldsymbol{{\cal S}}^\pm_\mu
+% =&+\sum_{\nu}{\cal V}_\nu\frac{\left[{\bf G}^{\pm}_{\mu\nu}-{\bf G}^{\pm}_{\mu\nu-1}\right]}{\Delta z}\esc {\bf n}\overline{\bf v}_\nu
+% \nonumber\\
+% &+\sum_{\nu}{\cal V}_\nu\frac{{\bf n}\esc\left[{\bf H}^{\pm}_{\mu\nu}-{\bf H}^{\pm}_{\mu-1\nu}\right]}{\Delta z}
+% \esc(\overline{\bf v}_\nu-{\bf V}^\pm)
+% \nonumber\\
+% &-\sum_{\nu}{\cal V}_\nu\boldsymbol{\gamma}^{\pm}_{\mu\nu}\esc(\overline{\bf v}_\nu-{\bf V}^\pm)
+% \label{Spm}
+% \end{align}
+% where  $\pm$ means  upper  or  lower wall,  which  may have  different
+% velocities ${\bf V}^\pm$ in general.
 
-Note that  the surface  density force  $\boldsymbol{{\cal S}}^\pm_\mu$
-due  to  the  walls  contains   the  transport  kernels  that  involve
-Green-Kubo correlation  with the  microscopic force  $\hat{\bf F}^{\rm
-  s\to l}_\mu$  that the solid atoms  exert on the fluid.   Due to the
-finite range  of interaction of  the microscopic force,  the resulting
-surface force  $\boldsymbol{{\cal S}}^\pm_\mu$ is different  from zero
-only on those bins $\mu$ close to the walls that fall within the range
-of  interaction of  the microscopic  force. Its  worth noting that  the
-present discrete theory does not  require any boundary condition to be
-applied on any of the bins close to the solid. The forces on the fluid
-due to the solid are taken into account explicitly without need of any
-boundary condition.
+% Note that  the surface  density force  $\boldsymbol{{\cal S}}^\pm_\mu$
+% due  to  the  walls  contains   the  transport  kernels  that  involve
+% Green-Kubo correlation  with the  microscopic force  $\hat{\bf F}^{\rm
+%   s\to l}_\mu$  that the solid atoms  exert on the fluid.   Due to the
+% finite range  of interaction of  the microscopic force,  the resulting
+% surface force  $\boldsymbol{{\cal S}}^\pm_\mu$ is different  from zero
+% only on those bins $\mu$ close to the walls that fall within the range
+% of  interaction of  the microscopic  force. Its  worth noting that  the
+% present discrete theory does not  require any boundary condition to be
+% applied on any of the bins close to the solid. The forces on the fluid
+% due to the solid are taken into account explicitly without need of any
+% boundary condition.
+
+These equations are a closed system of ordinary differential equations
+that  govern the  evolution of  the discrete  variables $\rho_\mu,{\bf
+  g}_\mu$. Note  that the transport  kernels (\ref{MolTransportCoeff})
+contain too many  components. We consider next how  they simplify when
+we assume that the walls are isotropic and traslation invariant.
+
 
 \subsection{Symmetry assumptions}
 We now take  advantage of the assumption that the  system is isotropic
@@ -2676,17 +2782,19 @@ the required  symmetries.  We  introduce normal  ${\bf n}{\bf  n}$ and
 tangential  ${\bf T}=\boldsymbol{\delta}-{\bf  n}{\bf n}$  projectors.
 We note that the tangential projector satisfies
 \begin{align}
-{\bf  T}^{\alpha  z}=\delta^{\alpha z}-{\bf n}^\alpha{\bf n}^3=0\quad\quad \forall \alpha
+{\bf  T}^{\alpha  z}=\delta^{\alpha z}-{\bf n}^\alpha{\bf n}^z=0\quad\quad \forall \alpha=x,y,z
 \label{T3}
 \end{align}
 and, therefore, the required components of the viscosity tensor for an
-isotropic  wall are  given,  from  Eq (\ref{viscosityTangential}) in the Appendix
+isotropic wall  are given, from Eq  (\ref{viscosityTangential}) in the
+Appendix \ref{}, by
 \begin{align}
   \boldsymbol{\eta}^{\alpha z\gamma z}&=  
-\eta^{\bot} {\bf n}^\alpha  {\bf n}^\gamma  +\eta^{||} {\bf T}^{\alpha\gamma}
+\eta^{||} {\bf T}^{\alpha\gamma}+\eta^{\bot} {\bf n}^\alpha  {\bf n}^\gamma 
+\label{etasimple}
 \end{align}
-\Pendiente{The  required components  of the  third order
-tensors are, from  Eqs (??) of Ref. \cite{CamargoBC2018}}
+The  required components  of the  third order
+tensors are, from  Eqs. (\ref{}) of Ref. \cite{CamargoBC2018}
 \begin{align}
 {\bf G}^{\alpha\beta z}
 &=G^{||}{\bf T}^{\alpha\beta}+
@@ -2695,6 +2803,7 @@ G^{\bot}{\bf n}^{\alpha}{\bf n}^{\beta}
 {\bf H}^{\alpha z\gamma}
 &=H^{||}{\bf T}^{\alpha\gamma}+
 H^{\bot}{\bf n}^{\alpha}{\bf n}^{\gamma}
+\label{GH}
 \end{align}
 and the second order friction tensor becomes, under
 isotropic symmetry 
@@ -2702,18 +2811,24 @@ isotropic symmetry
 \boldsymbol{\gamma}
 &=\gamma^{||}{\bf T}^{\alpha\beta}+
 \gamma^{\bot}{\bf n}^{\alpha}{\bf n}^{\beta}
+\label{gg}
 \end{align}
 In these expressions the transport kernels are
 \begin{align}
+\eta^{||}_{\mu\nu}&
+=\frac{1}{k_BT}\int_0^\tau  dt\left\langle 
+{\cal Q}\hat{\boldsymbol{\sigma}}^{xz}_\mu(t){\cal Q}\hat{\boldsymbol{\sigma}}^{xz}_\nu
+\right\rangle
+\nonumber\\
 \eta^{\bot}_{\mu\nu}&
 = \frac{1}{k_BT}\int_0^\tau  dt\langle 
 {\cal Q}\hat{\boldsymbol{\sigma}}^{zz}_\mu(t)
 {\cal Q}\hat{\boldsymbol{\sigma}}^{zz}_\nu\rangle
 \nonumber\\
-\eta^{||}_{\mu\nu}&
-=\frac{1}{k_BT}\int_0^\tau  dt\left\langle 
-{\cal Q}\hat{\boldsymbol{\sigma}}^{xz}_\mu(t){\cal Q}\hat{\boldsymbol{\sigma}}^{xz}_\nu
-\right\rangle
+\eta^{\bot}_{\mu\nu}&
+= \frac{1}{k_BT}\int_0^\tau  dt\langle 
+{\cal Q}\hat{\boldsymbol{\sigma}}^{zz}_\mu(t)
+{\cal Q}\hat{\boldsymbol{\sigma}}^{zz}_\nu\rangle
 \nonumber\\
 G^{||}_{\mu\nu}&
 =\frac{1}{k_BT} \int_0^\tau  dt
@@ -2734,21 +2849,26 @@ H^{||}_{\mu\nu}&
 H^\bot_{\mu\nu}&=\frac{1}{k_BT} 
 \int_0^\tau  dt\left\langle {\cal Q}\hat{\boldsymbol{\sigma}}^{zz}_\mu(t){\cal Q}\hat{\bf F}^{z}_\nu\right\rangle
 \nonumber\\
-\gamma^{\bot}_{\mu\nu}&=
-\frac{1}{k_BT} \int_0^\tau  dt\left\langle 
-{\cal Q}\hat{\bf F}^{z}_\mu(t){\cal Q}\hat{\bf F}^{z}_\nu
-\right\rangle
-\nonumber\\
 \gamma^{||}_{\mu\nu}&=
 \frac{1}{k_BT} \int_0^\tau  dt
 \left\langle 
 {\cal Q}\hat{\bf F}^{x}_\mu(t)
 {\cal Q}\hat{\bf F}^{x}_\nu\right\rangle
+\nonumber\\
+\gamma^{\bot}_{\mu\nu}&=
+\frac{1}{k_BT} \int_0^\tau  dt\left\langle 
+{\cal Q}\hat{\bf F}^{z}_\mu(t){\cal Q}\hat{\bf F}^{z}_\nu
+\right\rangle
 \label{summary_munu}
 \end{align}
+These expressions have  been obtained by suitable  contractions of the
+tensors  in Eqs  (\ref{etasimple})-(\ref{gg})  with ${\bf  n}$ or  the
+tracing them out, and then  using the microscopic expressions given in
+(\ref{MolTransportCoeff}).
 
 
-When we assume rotational invariance, it makes sense to look separately to the 
+\subsection{Normal and tangent evolution}
+When we assume the above symmetries, it makes sense to look separately to the 
 the different components of the dynamic equation (\ref{TheoryDiscFin}).
 The density $\rho_\mu$ and normal  component of the momentum $g^{z}_\mu$
 evolve according to
@@ -2776,7 +2896,7 @@ M^{\bot}_{\mu\nu}
 
 On the other  hand, the parallel component  $g^\alpha_\mu$ for $\alpha
 =x,y$  of  the  discrete  momentum density  evolves  independently  of
-$\rho_\mu,g^{z}_\mu$, according to
+$\rho_\mu,g^{z}_\mu$, and according to
 \begin{align}
   \frac{d}{dt}{g}^\alpha_\mu=&-M_{\mu\nu}^{||}{\cal V}_\nu(\tilde{v}^\alpha_\nu-V^\alpha)
 \label{ShearDisc}
@@ -2788,142 +2908,338 @@ M^{||}_{\mu\nu}
 \nonumber\\
 &+\frac{\left[{G}^{||}_{\mu\nu}-{G}^{||}_{\mu\nu-1}\right]}{\Delta z}
 +\frac{\left[{H}^{||}_{\mu\nu}-{H}^{||}_{\mu-1\nu}\right]}{\Delta z}
--{\gamma}^{||}_{\mu\nu}
+\nonumber\\
+&-{\gamma}^{||}_{\mu\nu}
 \label{Mpar}
 \end{align}
 Eqs (\ref{SoundDisc})-(\ref{Mpar}) along with the Green-Kubo integrals
-(\ref{summary_munu})  are  one  of  the main  result  of  this chapter.
-They  display the  discrete hydrodynamics  of a  fluid confined
-by  parallel  walls  and  moving  with a  flow  that  is  translation
-invariant along the walls.
-
-Note that  one prediction  of these equations  is that  the tangential
-velocity  components are  uncoupled from  the dynamics  of the  normal
-component and the density. Also,  the tangent components do not depend
-on the  free energy of  the system.  This means that  shearing motions
-do not affect the structure of the density field.
+(\ref{summary_munu})  are  one  of  the main  result  of  the  present
+paper. They display the discrete  hydrodynamics of a fluid confined by
+parallel walls  and moving with  a flow that is  translation invariant
+along the walls. These equations predict that the tangential component
+of the momentum do not depend on  the free energy of the system and is
+uncoupled  from  the   dynamics  of  the  normal   component  and  the
+density.  This  means that  shearing
+motions do not affect the structure of the density field.
 
 
-%\section{A finite element discretization}
-%\label{Sec:Galerkin}
-%In this section, we show that if we discretize the continuum equations
-%(\ref{finaleq}) with  a Petrov-Galerkin finite  element discretization
-%method,  and assume  that the  transport kernels  are isotropic  under
-%rotations  around the axis  perpendicular  to the  slabs,  we recover  the
-%discrete equations (\ref{TheoryDiscFin}) that have been obtained directly
-%from the projection operator technique.
-%
-%The  first  step  of  the Petrov-Galerkin  method  to  discretize  the
-%continuum  equations  (\ref{finaleq}),  (\ref{FluidStress}) and (\ref{Irreversibleforces})  proceeds  by
-%inserting (\ref{FluidStress}) and (\ref{Irreversibleforces}) into (\ref{finaleq}) and then multiply with
-%$\delta_\mu({\bf  r})$  and  integrate  over ${\bf  r}$.   After  some
-%integration by parts one gets
-%\begin{align}
-%\frac{d}{dt}\rho_\mu=&\int d{\bf r}\boldsymbol{\nabla}\delta_\mu({\bf r})\cdot\rho({\bf r}){\bf v}({\bf r})
-%\nonumber\\
-%\frac{d}{dt}{\bf g}_\mu=&\int d{\bf r}\boldsymbol{\nabla}\delta_\mu({\bf r})\esc\rho({\bf r}){\bf v}({\bf r}){\bf v}({\bf r})
-%\nonumber\\
-%&-\int d{\bf r}\delta_\mu({\bf r})\rho({\bf r})\boldsymbol{\nabla}\frac{\delta{\cal F}}{\delta\rho({\bf r})}
-%\nonumber\\
-%&-\int d{\bf r}\boldsymbol{\nabla}\delta_\mu({\bf r})\esc
-%\int d{\bf r}'\boldsymbol{\eta}_{{\bf r}{\bf r}'}:{\boldsymbol{\nabla}^\prime}{\bf v}({\bf r}')
-%\nonumber\\
-%&-\int d{\bf r}\delta_\mu({\bf r})\int d{\bf r}'{\bf G}_{{\bf r}{\bf r}'}:
-%{\boldsymbol{\nabla}^\prime} {\bf v}({\bf r}')
-%\nonumber\\
-%&-\int d{\bf r}\boldsymbol{\nabla}\delta_\mu({\bf r})\esc \int d{\bf r}'{\bf H}_{{\bf r}{\bf r}'}
-%\esc ( {\bf v}({\bf r}')-{\bf V})
-%\nonumber\\
-%&-\int d{\bf r}\boldsymbol{\nabla}\delta_\mu({\bf r})\int d{\bf r}'
-%\boldsymbol{\gamma}_{{\bf r}{\bf r}'}\esc( {\bf v}({\bf r}')
-%-{\bf V})
-%\label{fulldelta}
-%\end{align}
-%
-%According  to Eq.  (\ref{Cont}), from  the discrete  values $\rho_\mu,
-%{\bf  v}_\mu$  of the  density  and  velocity  of  node $\mu$  we  may
-%construct  continuum  fields  $\overline{\rho}({\bf  r}),\overline{\bf
-%  v}({\bf  r})$ through  the  interpolation with  the basis  functions
-%$\psi_\mu({\bf r})$
-%\begin{align}
-%\overline{\rho}({\bf r})&=\sum_\mu{\rho}_\mu\psi_\mu({\bf r})
-%\nonumber\\
-%\overline{\bf  v}({\bf r})&=\sum_\mu{\bf v}_\mu \psi_\mu({\bf r})
-%\label{interpolated}
-%\end{align}
-%Sum  over  repeated  indices  is implied.   
-%In terms of  the finite element basis functions $\Phi_\mu({\bf r})$ we may write
-%(\ref{interpolated})  in the form 
-%\begin{align}
-%\overline{\rho}({\bf r})&=\sum_\mu\tilde{\rho}_\mu\Phi_\mu({\bf r})
-%\nonumber\\
-%\overline{\bf  v}({\bf r})&= \sum_\mu\tilde{\bf v}_\mu\Phi_\mu({\bf r})
-%\label{interpolated2}
-%\end{align}
-%where  we  have  used  (\ref{PsiFE})   and  the  the  discrete  fields
-%$\tilde{\bf  v}_\mu$ is  defined in  (\ref{overlined}) with  a similar
-%definition for $\tilde{\rho}_\mu,$.
-%
-%The second step in the  Petrov-Galerkin approximation is to substitute
-%the actual fields $\rho({\bf r}), {\bf  v}({\bf r})$ in the right hand
-%side    of   (\ref{fulldelta})    with    the   interpolated    fields
-%(\ref{interpolated})
-%\begin{align}
-% {\rho}({\bf r})&\simeq \overline{\rho}({\bf r})
-%\nonumber\\
-% {\bf v}({\bf r})&\simeq \overline{\bf v}({\bf r})
-%\label{vapprox}
-%\end{align}
-%In general, we  expect that the approximation  (\ref{vapprox}) will be
-%accurate if the bin width $\Delta z$ is sufficiently small as compared
-%with  the  length  scale  of variation  of  the  hydrodynamic  fields.
-%
-%Because  the interpolated  fields are  determined by  the discrete  CG
-%variables,  we end  up with  the following  closed system  of ordinary
-%differential equations for the discrete CG variables
-%\begin{align}
-%\frac{d}{dt}\rho_\mu=&  \llg\overline{\rho} \; \overline{\bf v}\boldsymbol{\nabla}\delta_\mu \rlg
-%\nonumber\\
-%\frac{d}{dt}{\bf g}_\mu=&
-%\llg\overline{\rho}\; \overline{\bf v}\;\overline{\bf v}\esc\boldsymbol{\nabla}\delta_{\mu}\rlg
-%-\llg\delta_{\mu}\overline{\rho}\boldsymbol{\nabla}\frac{\delta{\cal F}}{\delta\rho}\rlg
-%\nonumber\\
-%-& \sum_\nu\left[
-%\int d{\bf r}\int d{\bf r}'
-%\boldsymbol{\nabla}\delta_{\mu}({\bf r})
-%\boldsymbol{\eta}_{{\bf r}{\bf r}'}:
-%{\boldsymbol{\nabla}^\prime} \Phi_\nu({\bf r}')\right]\overline{\bf v}_\nu
-%\nonumber\\
-%-& 
-% \sum_\nu\left[\int d{\bf r}\int d{\bf r}'
-%\delta_{\mu}({\bf r}){\bf G}_{{\bf r}{\bf r}'}:{\boldsymbol{\nabla}^\prime}\Phi_\nu({\bf r}')\right]
-%\overline{\bf v}_\nu
-%\nonumber\\
-%-& 
-% \sum_\nu\left[\int d{\bf r}\int d{\bf r}'
-%\boldsymbol{\nabla}\delta_{\mu}({\bf r})
-%{\bf H}_{{\bf r}{\bf r}'}\Phi_\nu({\bf r}')\right]
-%\esc(\overline{\bf v}_\nu-{\bf V})
-%\nonumber\\
-%-&
-% \sum_\nu\left[\int d{\bf r}\int d{\bf r}'
-%\delta_{\mu}({\bf r})\boldsymbol{\gamma}_{{\bf r}{\bf r}'}\Phi_\nu({\bf r}')\right](\overline{\bf v}_\nu-{\bf V})
-%\label{fulldeltapsi}
-%\end{align}
-%Note that the terms
-%\begin{align}
-%  \llg \overline{\rho} \; \overline{\bf v}\boldsymbol{\nabla}\delta_\mu\rlg
-%&= \sum_{\nu\nu'}\overline{\rho}_{\nu}\overline{\bf v}_{\nu'} \cdot\llg\Phi_{\nu}\Phi_{\nu'}\boldsymbol{\nabla}\delta_{\mu}\rlg
-%\end{align}
-%etc, are  explicit  functions of  the discrete  variables, where  the term
-%within  parenthesis in  the  right  hand side  is  a purely  geometric
-%quantity.
 
-In Ref. \cite{CamargoDiscrete2018} we show that if we discretize the continuum equations (\ref{finaleq}) 
-with a Petrov-Galerkin finite element discretization method, and assume that the 
-transport kernels are isotropic under rotations around the axis perpendicular to 
-the slabs, we recover the discrete equations \ref{TheoryDiscFin} that have been 
-obtained directly from the projection operator technique that starts directly from the discrete variables (\ref{CGvar}). This consistency property is very pleasant and is a consequence of the particular way of defining the CG variables (\ref{CGvar}), in terms of finite element basis functions.
+\newpage
+\section{A finite element discretization}
+\label{Sec:Galerkin}
+In this section, we show that if we discretize the continuum equations
+(\ref{finaleq}) with  a Petrov-Galerkin finite  element discretization
+method,  and assume  that the  transport kernels  are isotropic  under
+rotations  around the axis  perpendicular  to the  slabs,  we recover  the
+discrete equations (\ref{TheoryDiscFin}) that have been obtained directly
+from the projection operator technique.
+
+The  first  step  of  the Petrov-Galerkin  method  to  discretize  the
+continuum  equations  (\ref{finaleq}),  (\ref{ViscSurf})  proceeds  by
+inserting (\ref{ViscSurf}) into (\ref{finaleq}) and then multiply with
+$\delta_\mu({\bf  r})$  and  integrate  over ${\bf  r}$.   After  some
+integration by parts one gets
+\begin{align}
+\frac{d}{dt}\rho_\mu=&\int d{\bf r}\boldsymbol{\nabla}\delta_\mu({\bf r})\cdot\rho({\bf r}){\bf v}({\bf r})
+\nonumber\\
+\frac{d}{dt}{\bf g}_\mu=&\int d{\bf r}\boldsymbol{\nabla}\delta_\mu({\bf r})\esc\rho({\bf r}){\bf v}({\bf r}){\bf v}({\bf r})
+\nonumber\\
+&-\int d{\bf r}\delta_\mu({\bf r})\rho({\bf r})\boldsymbol{\nabla}\frac{\delta{\cal F}}{\delta\rho({\bf r})}
+\nonumber\\
+&-\int d{\bf r}\boldsymbol{\nabla}\delta_\mu({\bf r})\esc
+\int d{\bf r}'\boldsymbol{\eta}_{{\bf r}{\bf r}'}:{\boldsymbol{\nabla}^\prime}{\bf v}({\bf r}')
+\nonumber\\
+&-\int d{\bf r}\delta_\mu({\bf r})\int d{\bf r}'{\bf G}_{{\bf r}{\bf r}'}:
+{\boldsymbol{\nabla}^\prime} {\bf v}({\bf r}')
+\nonumber\\
+&-\int d{\bf r}\boldsymbol{\nabla}\delta_\mu({\bf r})\esc \int d{\bf r}'{\bf H}_{{\bf r}{\bf r}'}
+\esc ( {\bf v}({\bf r}')-{\bf V})
+\nonumber\\
+&-\int d{\bf r}\boldsymbol{\nabla}\delta_\mu({\bf r})\int d{\bf r}'
+\boldsymbol{\gamma}_{{\bf r}{\bf r}'}\esc( {\bf v}({\bf r}')
+-{\bf V})
+\label{fulldelta}
+\end{align}
+
+According  to Eq.  (\ref{Cont}), from  the discrete  values $\rho_\mu,
+{\bf  v}_\mu$  of the  density  and  velocity  of  node $\mu$  we  may
+construct  continuum  fields  $\overline{\rho}({\bf  r}),\overline{\bf
+  v}({\bf  r})$ through  the  interpolation with  the basis  functions
+$\psi_\mu({\bf r})$
+\begin{align}
+\overline{\rho}({\bf r})&=\sum_\mu{\rho}_\mu\psi_\mu({\bf r})
+\nonumber\\
+\overline{\bf  v}({\bf r})&=\sum_\mu{\bf v}_\mu \psi_\mu({\bf r})
+\label{interpolated}
+\end{align}
+In terms of  the finite element basis functions $\Phi_\mu({\bf r})$ we may write
+(\ref{interpolated})  in the form 
+\begin{align}
+\overline{\rho}({\bf r})&=\sum_\mu\tilde{\rho}_\mu\Phi_\mu({\bf r})
+\nonumber\\
+\overline{\bf  v}({\bf r})&= \sum_\mu\tilde{\bf v}_\mu\Phi_\mu({\bf r})
+\label{interpolated2}
+\end{align}
+where  we  have  used  (\ref{PsiFE})   and  the   discrete  field
+$\tilde{\bf  v}_\mu$ is  defined in  (\ref{overlined}) with  a similar
+definition for $\tilde{\rho}_\mu,$.
+
+The second step in the  Petrov-Galerkin approximation is to substitute
+the actual fields $\rho({\bf r}), {\bf  v}({\bf r})$ in the right hand
+side    of   (\ref{fulldelta})    with    the   interpolated    fields
+(\ref{interpolated})
+\begin{align}
+ {\rho}({\bf r})&\simeq \overline{\rho}({\bf r})
+\nonumber\\
+ {\bf v}({\bf r})&\simeq \overline{\bf v}({\bf r})
+\label{vapprox}
+\end{align}
+In general, we  expect that the approximation  (\ref{vapprox}) will be
+accurate if the bin width $\Delta z$ is sufficiently small as compared
+with  the  length  scale  of variation  of  the  hydrodynamic  fields.
+
+Because  the interpolated  fields are  determined by  the discrete  CG
+variables,  we end  up with  the following  closed system  of ordinary
+differential equations for the discrete CG variables
+\begin{align}
+\frac{d}{dt}\rho_\mu=&  \llg\overline{\rho} \; \overline{\bf v}\boldsymbol{\nabla}\delta_\mu \rlg
+\nonumber\\
+\frac{d}{dt}{\bf g}_\mu=&
+\llg\overline{\rho}\; \overline{\bf v}\;\overline{\bf v}\esc\boldsymbol{\nabla}\delta_{\mu}\rlg
+-\llg\delta_{\mu}\overline{\rho}\boldsymbol{\nabla}\frac{\delta{\cal F}}{\delta\rho}\rlg
+\nonumber\\
+-& \sum_\nu\left[
+\int d{\bf r}\int d{\bf r}'
+\boldsymbol{\nabla}\delta_{\mu}({\bf r})
+\boldsymbol{\eta}_{{\bf r}{\bf r}'}:
+{\boldsymbol{\nabla}^\prime} \Phi_\nu({\bf r}')\right]\overline{\bf v}_\nu
+\nonumber\\
+-& 
+ \sum_\nu\left[\int d{\bf r}\int d{\bf r}'
+\delta_{\mu}({\bf r}){\bf G}_{{\bf r}{\bf r}'}:{\boldsymbol{\nabla}^\prime}\Phi_\nu({\bf r}')\right]
+\overline{\bf v}_\nu
+\nonumber\\
+-& 
+ \sum_\nu\left[\int d{\bf r}\int d{\bf r}'
+\boldsymbol{\nabla}\delta_{\mu}({\bf r})
+{\bf H}_{{\bf r}{\bf r}'}\Phi_\nu({\bf r}')\right]
+\esc(\overline{\bf v}_\nu-{\bf V})
+\nonumber\\
+-&
+ \sum_\nu\left[\int d{\bf r}\int d{\bf r}'
+\delta_{\mu}({\bf r})\boldsymbol{\gamma}_{{\bf r}{\bf r}'}\Phi_\nu({\bf r}')\right](\overline{\bf v}_\nu-{\bf V})
+\label{fulldeltapsi}
+\end{align}
+Note that the terms
+\begin{align}
+  \llg \overline{\rho} \; \overline{\bf v}\boldsymbol{\nabla}\delta_\mu\rlg
+&= \sum_{\nu\nu'}\overline{\rho}_{\nu}\overline{\bf v}_{\nu'} \cdot\llg\Phi_{\nu}\Phi_{\nu'}\boldsymbol{\nabla}\delta_{\mu}\rlg
+\end{align}
+etc, are  explicit  functions of  the discrete  variables, where  the term
+within  parenthesis in  the  right  hand side  is  a purely  geometric
+quantity.
+
+
+\subsection{The free energy}
+The  only  term  that  is  not  explicit  in  the  discrete  variables
+$\rho_\mu,{\bf v}_\mu$ in Eqs. (\ref{fulldeltapsi}) is the term
+in the  momentum equation involving  the functional derivative  of the
+free energy  functional. In order  to have an explicit  expression, we
+need to discretize the  equilibrium density \textit{functional} ${\cal
+  F}[\rho]$ and convert it into a  free energy  \textit{function}
+$F(\rho)$.    The    way    to   proceed    was    introduced    in
+Ref. \cite{DelaTorre2015}.   We define  the free energy function $F(\rho)$
+ as  the result of  evaluating the free energy  functional at
+the interpolated field, this is
+\begin{align}
+  F(\rho)&\equiv{\cal F}[\rho_\mu\psi_\mu]
+\label{DefF}
+\end{align}
+In the  Appendix \ref{Ap:KG} we  demonstrate that the free  energy function
+$F(\rho)$ defined  ``numerically''in this  way is, under  a reasonable
+approximation,  the free  energy function  that is  obtained from  the
+statistical  mechanics  of  the  level of  description  given  by  the
+discrete CG variables (\ref{rhogmumic}).
+
+The partial derivative of the free energy function is
+\begin{align}
+\frac{\partial  F}{\partial \rho_\mu}(\rho)&=\int d{\bf r}'\frac{\delta {\cal F}}{\delta \rho({\bf r}')}[\rho_\mu\psi_\mu]\psi_\mu({\bf r}')
+\end{align}
+By multiplying with respect to $\delta_\mu({\bf r})$ and summing over $\mu$ we have
+\begin{align}
+\sum_\mu\delta_\mu({\bf r})\frac{\partial  F}{\partial \rho_\mu}(\rho)
+&=\int d{\bf r}'\frac{\delta {\cal F}}{\delta \rho({\bf r}')}[\rho_\mu\psi_\mu]
+\sum_\mu\psi_\mu({\bf r}')\delta_\mu({\bf r})
+\end{align}
+The  function
+\begin{align}
+\Delta({\bf  r},{\bf  r}')&\equiv\sum_\mu\psi_\mu({\bf  r}')\delta_\mu({\bf r})  
+\label{Delta}
+\end{align}
+ is  very similar to a  Dirac delta function
+(it  has a  width  of the  order  of  the bins  and  is normalized  to
+unity).  When  quantities  change  little  from bin  to  bin,  we  may
+approximate $\Delta({\bf r},{\bf r}')\simeq \delta({\bf r}-{\bf r}')$,
+leading to
+\begin{align}
+\frac{\delta {\cal F}}{\delta \rho({\bf r})}[\rho_\mu\psi_\mu]
+&\simeq\sum_\mu\delta_\mu({\bf r})\frac{\partial  F}{\partial \rho_\mu}(\rho)
+\label{gradF}
+\end{align}
+Therefore, the term in the momentum equation is
+\begin{align}
+-\llg
+\delta_{\mu}\overline{\rho}\boldsymbol{\nabla}\frac{\delta{\cal F}}{\delta\rho}\rlg
+\simeq  -\sum_\nu\llg\overline{\rho}\delta_{\mu}\boldsymbol{\nabla}\delta_{\nu}\rlg
+\frac{\partial  F}{\partial \rho_{\nu}}(\rho)
+\end{align}
+which is now a term that depends explicitly on the discrete values of the density $\rho_\mu$.
+
+\subsection{The transport kernels}
+We   now  consider   each  term   within  square   brackets  in 
+Eqs. (\ref{fulldeltapsi}). The first one is, after using the expression
+(\ref{partialpsi}) for the derivatives of the basis functions
+
+\begin{align}
+&\int \frac{d{\bf r}}{{\cal V}_\mu}
+\int \frac{d{\bf r}'}{{\cal V}_\nu}
+\boldsymbol{\nabla}\Phi_\mu({\bf r})
+\esc\boldsymbol{\eta}_{{\bf r}{\bf r}'}\esc
+{\boldsymbol{\nabla}^\prime}\Phi_\nu({\bf r}')
+\nonumber\\
+&=
+\frac{1}{\Delta z^2}\int \frac{d{\bf r}}{{\cal V}_\mu}
+\int \frac{d{\bf r}'}{{\cal V}_\nu}
+(\chi_\mu(z)-\chi_{\mu-1}(z))
+\nonumber\\
+&\times{\bf n}\esc\boldsymbol{\eta}_{{\bf r}{\bf r}'}\esc{\bf n}(\chi_\nu(z)-\chi_{\nu-1}(z))
+\nonumber\\
+&=
+\frac{1}{\Delta z^2} {\bf n}\esc\left[\boldsymbol{\eta}_{\mu\nu}-\boldsymbol{\eta}_{\mu-1\nu}-\boldsymbol{\eta}_{\mu\nu-1}+\boldsymbol{\eta}_{\mu-1\nu-1}\right]\esc{\bf n}
+\label{TC1}
+\end{align}
+where we have introduced the discrete non-local viscosity kernel as
+\begin{align}
+\boldsymbol{\eta}_{\mu\nu}&\equiv  \int \frac{d{\bf r}}{{\cal V}_\mu}
+\int \frac{d{\bf r}'}{{\cal V}_\nu}
+\chi_\mu({\bf r})
+\boldsymbol{\eta}_{{\bf r}{\bf r}'}\chi_\nu({\bf r}')
+\label{s2disc}
+\end{align}
+% We have to consider the special cases corresponding to
+% the outmost nodes $1,M+1$. The cases are $\mu=1,\nu=1$
+% \begin{align}
+% &\int \frac{d{\bf r}}{{\cal V}_1}
+% \int \frac{d{\bf r}'}{{\cal V}_\nu}
+% \boldsymbol{\nabla}^{z}\psi_1({\bf r})
+% \eta^{||}_{{\bf r}{\bf r}'}
+% {\boldsymbol{\nabla}^\prime}^{z}\psi_\nu({\bf r}')
+% \nonumber\\
+% &=
+% \frac{1}{\Delta z^2}\int \frac{d{\bf r}}{{\cal V}_1}
+% \int \frac{d{\bf r}'}{{\cal V}_1}
+% \chi_1 (z)
+% \eta^{||}_{{\bf r}{\bf r}'}\chi_1(z)
+% \nonumber\\
+% &=
+% \frac{1}{\Delta z^2}\eta^{||}_{11}
+% \label{TC1b}
+% \end{align}
+% The case $\mu=1,\nu=2,M+1$
+% \begin{align}
+% &\int \frac{d{\bf r}}{{\cal V}_1}
+% \int \frac{d{\bf r}'}{{\cal V}_\nu}
+% \boldsymbol{\nabla}^{z}\psi_1({\bf r})
+% \eta^{||}_{{\bf r}{\bf r}'}
+% {\boldsymbol{\nabla}^\prime}^{z}\psi_\nu({\bf r}')
+% \nonumber\\
+% &=
+% \frac{1}{\Delta z^2}\int \frac{d{\bf r}}{{\cal V}_1}
+% \int \frac{d{\bf r}'}{{\cal V}_\nu}
+% \chi_1 (z)
+% \eta^{||}_{{\bf r}{\bf r}'}(\chi_\nu(z)-\chi_{\nu-1}(z))
+% \nonumber\\
+% &=
+% \frac{1}{\Delta z^2} \left[\eta^{||}_{1\nu}-\eta^{||}_{1\nu-1}\right]
+% \label{TC1c}
+% \end{align}
+% Next, the case $\mu=2,\cdots,M+1$ and $\nu=1$
+% \begin{align}
+% &\int \frac{d{\bf r}}{{\cal V}_\mu}
+% \int \frac{d{\bf r}'}{{\cal V}_\nu}
+% \boldsymbol{\nabla}^{z}\psi_\mu({\bf r})
+% \eta^{||}_{{\bf r}{\bf r}'}
+% {\boldsymbol{\nabla}^\prime}^{z}\psi_1({\bf r}')
+% \nonumber\\
+% &=
+% \frac{1}{\Delta z^2}\int \frac{d{\bf r}}{{\cal V}_\mu}
+% \int \frac{d{\bf r}'}{{\cal V}_\nu}
+% (\chi_\mu(z)-\chi_{\mu-1}(z))
+% \nonumber\\
+% &\times\eta^{||}_{{\bf r}{\bf r}'}\chi_1(z)
+% \nonumber\\
+% &=
+% \frac{1}{\Delta z^2} \left[\eta^{||}_{\mu 1}-\eta^{||}_{\mu-1, 1}\right]
+% \label{TC1c}
+% \end{align}
+
+The second square bracket in (\ref{fulldeltapsi}) is
+\begin{align}
+&\int \frac{d{\bf r}}{{\cal V}_\mu}\int \frac{d{\bf r}'}{{\cal V}_\nu}
+\Phi_\mu({\bf r}){\bf G}_{{\bf r}{\bf r}'}\esc{\boldsymbol{\nabla}^\prime}\Phi_\nu({\bf r}')
+\nonumber\\
+&=-\frac{1}{\Delta z}\int \frac{d{\bf r}}{{\cal V}_\mu}\int \frac{d{\bf r}'}{{\cal V}_\nu}
+\Phi_\mu({\bf r})G^{||}_{{\bf r}{\bf r}'}
+(\chi_\nu({\bf r}')-\chi_{\nu-1}({\bf r}'))
+\nonumber\\
+&=-\frac{1}{\Delta z}\left[{\bf G}_{\mu\nu}-{\bf G}_{\mu\nu-1}\right]\esc{\bf n}
+\label{TC4b}
+\end{align}
+where we have introduced
+\begin{align}
+{\bf G}_{\mu\nu}&\equiv \int \frac{d{\bf r}}{{\cal V}_\mu}\int \frac{d{\bf r}'}{{\cal V}_\nu}
+\Phi_\mu({\bf r}){\bf G}_{{\bf r}{\bf r}'}
+\chi_\nu({\bf r}')
+\end{align}
+The third square bracket is 
+\begin{align}
+&-\frac{1}{\Delta z}\int \frac{d{\bf r}}{{\cal V}_\mu}\int \frac{d{\bf r}'}{{\cal V}_\nu}
+(\chi_\mu({\bf r})-\chi_{\mu-1}({\bf r})){\bf n}\esc
+{\bf H}_{{\bf r}{\bf r}'}\Phi_\nu({\bf r}')
+\nonumber\\
+&=-\frac{1}{\Delta z}{\bf n}\esc\left[{\bf H}_{\mu\nu}-{\bf H}_{\mu-1\nu}\right]
+\end{align}
+where
+\begin{align}
+{\bf H}_{\mu\nu}&\equiv \int \frac{d{\bf r}}{{\cal V}_\mu}\int \frac{d{\bf r}'}{{\cal V}_\nu}
+\chi_\mu({\bf r}){\bf H}_{{\bf r}{\bf r}'}
+\Phi_\nu({\bf r}')
+\label{TC4}
+\end{align}
+The last square bracket in (\ref{fulldeltapsi}) is
+\begin{align}
+\boldsymbol{\gamma}_{\mu\nu}&\equiv \int \frac{d{\bf r}}{{\cal V}_\mu} \frac{d{\bf r}'}{{\cal V}_\nu}
+\Phi_\mu({\bf r})\boldsymbol{\gamma}_{{\bf r}{\bf r}'}\Phi_\nu({\bf r}')
+\label{apgammmunu}
+\end{align}
+Once  we use  the  microscopic expressions  given  in (\ref{GK})  with
+(\ref{sigma}), the discrete  kernels $\boldsymbol{\eta}_{\mu\nu}, {\bf
+  G}_{\mu\nu},      {\bf     H}_{\mu\nu},\boldsymbol{\gamma}_{\mu\nu}$
+introduced    in    (\ref{TC1})-(\ref{TC4})    turn    out    to    be
+\textit{identical} to (\ref{MolTransportCoeff}). 
+
+In summary, by using a Petrov-Galerkin discretization of the continuum
+equations (\ref{finaleq}) we  obtain a set of  discrete equations that
+are  identical to  the ones  obtained  with the  method of  projection
+operators  that  starts directly  from  the  Hamiltonian dynamics  and
+considers the  evolution of the discrete  variables (\ref{rhogmumic}).
+This consistency property is very pleasant and is a consequence of the
+particular  way of  defining  the CG  variables (\ref{rhogmumic}),  in
+terms of finite element basis functions.
+
+
+
+
 
 
 \section{Conclusions}
@@ -3665,7 +3981,7 @@ $L_x,L_y,\Delta z$.
 
 As CG variables we choose  the set of discrete hydrodynamic
 variables,  which are  the  mass density  $\hat{\rho}_\mu(z)$ and  the
-momentum  density $\hat{\bf  g}_\mu(z)$  defined at  the nodal  points
+momentum  density $\hat{\bf  g}_\mu(z)$  defined at  the nodal  planes
 $\mu$   \Note{Realmente la única variable relevante es el momento.}
 \begin{align}
 \hat{\rho}_\mu(z)&= \sum_i^Nm_i\delta_\mu({\bf r}_i)
@@ -6331,98 +6647,99 @@ indices and symmetric with respect to its last two indices is given by
 &=
 \eta^{(1)}_{{\bf r}{\bf r}'}{\bf T}^{\alpha\beta}{\bf T}^{\gamma\delta}
 +\eta^{(2)}_{{\bf r}{\bf r}'}({\bf T}^{\alpha\gamma}{\bf T}^{\beta\delta}
-+{\bf T}^{\alpha\delta}{\bf T}^{\beta\gamma})
-+\eta^{(3)}_{{\bf r}{\bf r}'} {\bf n}^\alpha  {\bf n}^\beta   {\bf n}^\gamma   {\bf n}^\delta 
++{\bf T}^{\alpha\delta}{\bf T}^{\beta\gamma}) 
+\eta^{(3)}_{{\bf r}{\bf r}'} {\bf n}^\alpha  {\bf n}^\beta   {\bf n}^\gamma   {\bf n}^\delta 
 \nonumber\\
 &+\eta^{(4)}_{{\bf r}{\bf r}'}(
 {\bf n}^\alpha  {\bf n}^\gamma {\bf T}^{\beta\delta}+ 
 {\bf n}^\beta  {\bf n}^\gamma {\bf T}^{\alpha\delta}+ 
 {\bf n}^\alpha  {\bf n}^\delta {\bf T}^{\beta\gamma}+ 
 {\bf n}^\beta  {\bf n}^\delta {\bf T}^{\alpha\gamma}) 
-+\eta^{(5)}_{{\bf r}{\bf r}'}{\bf n}^\alpha  {\bf n}^\beta {\bf T}^{\gamma\delta} 
+\nonumber \\
+&+\eta^{(5)}_{{\bf r}{\bf r}'}{\bf n}^\alpha  {\bf n}^\beta {\bf T}^{\gamma\delta} 
 +\eta^{(6)}_{{\bf r}{\bf r}'}{\bf T}^{\alpha\beta} {\bf n}^\gamma  {\bf n}^\delta 
 \label{viscosityTangential}
 \end{align}
-In Ref. \cite{Schindler2010} a similar decomposition has been considered for the viscosity
-tensor.
-
-Note that
-the  projector satisfies
-\begin{align}
-  {\bf T}^{\alpha\beta}  {\bf T}^{\beta\gamma}&= {\bf T}^{\alpha\gamma} 
-\nonumber\\
-  {\bf T}^{\alpha\beta}{\bf n}^\alpha&=0
-\nonumber\\
-  {\bf T}^{\alpha\beta}{\bf n}^\beta&=0
-\nonumber\\
-  {\bf T}^{\alpha\alpha}&=2
-\nonumber\\
-  {\bf T}^{\alpha\beta}  {\bf T}^{\alpha\beta}&=2
-\label{tprop}
-\end{align}
-
-With the help of the properties (\ref{tprop}), we may now construct the full contractions
-\begin{align}
-\boldsymbol{\eta}_{{\bf r}{\bf r}'}^{\alpha\beta\gamma\delta}{\bf T}^{\alpha\beta}{\bf T}^{\gamma\delta}&=  4\eta^{(1)}_{{\bf r}{\bf r}'}+4\eta^{(2)}_{{\bf r}{\bf r}'}
-\nonumber\\
-\boldsymbol{\eta}_{{\bf r}{\bf r}'}^{\alpha\beta\gamma\delta}{\bf T}^{\alpha\gamma}{\bf T}^{\beta\delta}&=  2\eta^{(1)}_{{\bf r}{\bf r}'}+6\eta^{(2)}_{{\bf r}{\bf r}'}
-\nonumber\\
-\boldsymbol{\eta}_{{\bf r}{\bf r}'}^{\alpha\beta\gamma\delta}{\bf n}^\alpha{\bf n}^\beta{\bf n}^\gamma{\bf n}^\delta&= \eta^{(3)}_{{\bf r}{\bf r}'}
-\nonumber\\
-\boldsymbol{\eta}_{{\bf r}{\bf r}'}^{\alpha\beta\gamma\delta}{\bf n}^\alpha  {\bf n}^\gamma {\bf T}^{\beta\delta} &=2\eta^{(4)}_{{\bf r}{\bf r}'}
-\nonumber\\
-\boldsymbol{\eta}_{{\bf r}{\bf r}'}^{\alpha\beta\gamma\delta}{\bf n}^\alpha  {\bf n}^\beta {\bf T}^{\gamma\delta} &=2\eta^{(5)}_{{\bf r}{\bf r}'}
-\nonumber\\
-\boldsymbol{\eta}_{{\bf r}{\bf r}'}^{\alpha\beta\gamma\delta}{\bf T}^{\alpha\beta} {\bf n}^\gamma  {\bf n}^\delta &=2\eta^{(6)}_{{\bf r}{\bf r}'}
-\label{VT}
-\end{align}
-
-By  using  the  Green-Kubo  expression (\ref{GK})  for  the  viscosity
-tensor, we  end up with  explicit microscopic expressions for  the six
-kernels. They are
-\begin{align}
-  \eta^{(1)}_{{\bf r}{\bf r}'}+\eta^{(2)}_{{\bf r}{\bf r}'}
-&=
-\frac{1}{k_BT}\int_0^\tau  dt\left\langle 
-\frac{{\cal Q}\hat{\boldsymbol{\sigma}}^{11}_{{\bf r}}(t)+{\cal Q}\hat{\boldsymbol{\sigma}}^{22}_{{\bf r}}(t)}{2}
-\frac{{\cal Q}\hat{\boldsymbol{\sigma}}^{11}_{{\bf r}'}+{\cal Q}\hat{\boldsymbol{\sigma}}^{22}_{{\bf r}'}}{2}
-\right\rangle^\lambda 
-\nonumber\\
- \eta^{(1)}_{{\bf r}{\bf r}'}+3\eta^{(2)}_{{\bf r}{\bf r}'}
-&=\frac{1}{k_BT}\int_0^\tau  dt\left\langle 
-\frac{{\cal Q}\hat{\boldsymbol{\sigma}}^{11}_{{\bf r}}(t){\cal Q}\hat{\boldsymbol{\sigma}}^{11}_{{\bf r}'}
-+{\cal Q}\hat{\boldsymbol{\sigma}}^{22}_{{\bf r}}(t){\cal Q}\hat{\boldsymbol{\sigma}}^{22}_{{\bf r}'}}{2}
-\right\rangle^\lambda 
-+\frac{1}{k_BT}\int_0^\tau  dt\left\langle 
-{\cal Q}\hat{\boldsymbol{\sigma}}^{21}_{{\bf r}}(t){\cal Q}\hat{\boldsymbol{\sigma}}^{21}_{{\bf r}'}
-\right\rangle^\lambda 
-\nonumber\\
-\eta^{(3)}_{{\bf r}{\bf r}'}&= 
- \frac{1}{k_BT}\int_0^\tau  dt\langle 
-{\cal Q}\hat{\boldsymbol{\sigma}}^{33}_{{\bf r}}(t)
-{\cal Q}\hat{\boldsymbol{\sigma}}^{33}_{{\bf r}'}\rangle^\lambda 
-\nonumber\\
-\eta^{(4)}_{{\bf r}{\bf r}'}&=
-\frac{1}{k_BT}\int_0^\tau  dt\left\langle 
-\frac{1}{2}\left(
-{\cal Q}\hat{\boldsymbol{\sigma}}^{13}_{{\bf r}}(t){\cal Q}\hat{\boldsymbol{\sigma}}^{13}_{{\bf r}'}
-+
-{\cal Q}\hat{\boldsymbol{\sigma}}^{23}_{{\bf r}}(t){\cal Q}\hat{\boldsymbol{\sigma}}^{23}_{{\bf r}'}
-\right)\right\rangle^\lambda 
-\nonumber\\
-\eta^{(5)}_{{\bf r}{\bf r}'}&=
-\frac{1}{k_BT}\int_0^\tau  dt\left\langle 
-{\cal Q}\hat{\boldsymbol{\sigma}}^{33}_{{\bf r}}(t)
-\frac{1}{2}\left({\cal Q}\hat{\boldsymbol{\sigma}}^{11}_{{\bf r}'}+
-{\cal Q}\hat{\boldsymbol{\sigma}}^{22}_{{\bf r}'}\right)\right\rangle^\lambda 
-\nonumber\\
-\eta^{(6)}_{{\bf r}{\bf r}'}&=
-\frac{1}{k_BT}\int_0^\tau  dt\left\langle 
-\frac{1}{2}\left({\cal Q}\hat{\boldsymbol{\sigma}}^{11}_{{\bf r}}(t)+
-{\cal Q}\hat{\boldsymbol{\sigma}}^{22}_{{\bf r}}(t)\right)
-{\cal Q}\hat{\boldsymbol{\sigma}}_{{\bf r}'}^{33}\right\rangle^\lambda 
-\label{VT-GK}
-\end{align}
+%In Ref. \cite{Schindler2010} a similar decomposition has been considered for the viscosity
+%tensor.
+%
+%Note that
+%the  projector satisfies
+%\begin{align}
+%  {\bf T}^{\alpha\beta}  {\bf T}^{\beta\gamma}&= {\bf T}^{\alpha\gamma} 
+%\nonumber\\
+%  {\bf T}^{\alpha\beta}{\bf n}^\alpha&=0
+%\nonumber\\
+%  {\bf T}^{\alpha\beta}{\bf n}^\beta&=0
+%\nonumber\\
+%  {\bf T}^{\alpha\alpha}&=2
+%\nonumber\\
+%  {\bf T}^{\alpha\beta}  {\bf T}^{\alpha\beta}&=2
+%\label{tprop}
+%\end{align}
+%
+%With the help of the properties (\ref{tprop}), we may now construct the full contractions
+%\begin{align}
+%\boldsymbol{\eta}_{{\bf r}{\bf r}'}^{\alpha\beta\gamma\delta}{\bf T}^{\alpha\beta}{\bf T}^{\gamma\delta}&=  4\eta^{(1)}_{{\bf r}{\bf r}'}+4\eta^{(2)}_{{\bf r}{\bf r}'}
+%\nonumber\\
+%\boldsymbol{\eta}_{{\bf r}{\bf r}'}^{\alpha\beta\gamma\delta}{\bf T}^{\alpha\gamma}{\bf T}^{\beta\delta}&=  2\eta^{(1)}_{{\bf r}{\bf r}'}+6\eta^{(2)}_{{\bf r}{\bf r}'}
+%\nonumber\\
+%\boldsymbol{\eta}_{{\bf r}{\bf r}'}^{\alpha\beta\gamma\delta}{\bf n}^\alpha{\bf n}^\beta{\bf n}^\gamma{\bf n}^\delta&= \eta^{(3)}_{{\bf r}{\bf r}'}
+%\nonumber\\
+%\boldsymbol{\eta}_{{\bf r}{\bf r}'}^{\alpha\beta\gamma\delta}{\bf n}^\alpha  {\bf n}^\gamma {\bf T}^{\beta\delta} &=2\eta^{(4)}_{{\bf r}{\bf r}'}
+%\nonumber\\
+%\boldsymbol{\eta}_{{\bf r}{\bf r}'}^{\alpha\beta\gamma\delta}{\bf n}^\alpha  {\bf n}^\beta {\bf T}^{\gamma\delta} &=2\eta^{(5)}_{{\bf r}{\bf r}'}
+%\nonumber\\
+%\boldsymbol{\eta}_{{\bf r}{\bf r}'}^{\alpha\beta\gamma\delta}{\bf T}^{\alpha\beta} {\bf n}^\gamma  {\bf n}^\delta &=2\eta^{(6)}_{{\bf r}{\bf r}'}
+%\label{VT}
+%\end{align}
+%
+%By  using  the  Green-Kubo  expression (\ref{GK})  for  the  viscosity
+%tensor, we  end up with  explicit microscopic expressions for  the six
+%kernels. They are
+%\begin{align}
+%  \eta^{(1)}_{{\bf r}{\bf r}'}+\eta^{(2)}_{{\bf r}{\bf r}'}
+%&=
+%\frac{1}{k_BT}\int_0^\tau  dt\left\langle 
+%\frac{{\cal Q}\hat{\boldsymbol{\sigma}}^{11}_{{\bf r}}(t)+{\cal Q}\hat{\boldsymbol{\sigma}}^{22}_{{\bf r}}(t)}{2}
+%\frac{{\cal Q}\hat{\boldsymbol{\sigma}}^{11}_{{\bf r}'}+{\cal Q}\hat{\boldsymbol{\sigma}}^{22}_{{\bf r}'}}{2}
+%\right\rangle^\lambda 
+%\nonumber\\
+% \eta^{(1)}_{{\bf r}{\bf r}'}+3\eta^{(2)}_{{\bf r}{\bf r}'}
+%&=\frac{1}{k_BT}\int_0^\tau  dt\left\langle 
+%\frac{{\cal Q}\hat{\boldsymbol{\sigma}}^{11}_{{\bf r}}(t){\cal Q}\hat{\boldsymbol{\sigma}}^{11}_{{\bf r}'}
+%+{\cal Q}\hat{\boldsymbol{\sigma}}^{22}_{{\bf r}}(t){\cal Q}\hat{\boldsymbol{\sigma}}^{22}_{{\bf r}'}}{2}
+%\right\rangle^\lambda 
+%+\frac{1}{k_BT}\int_0^\tau  dt\left\langle 
+%{\cal Q}\hat{\boldsymbol{\sigma}}^{21}_{{\bf r}}(t){\cal Q}\hat{\boldsymbol{\sigma}}^{21}_{{\bf r}'}
+%\right\rangle^\lambda 
+%\nonumber\\
+%\eta^{(3)}_{{\bf r}{\bf r}'}&= 
+% \frac{1}{k_BT}\int_0^\tau  dt\langle 
+%{\cal Q}\hat{\boldsymbol{\sigma}}^{33}_{{\bf r}}(t)
+%{\cal Q}\hat{\boldsymbol{\sigma}}^{33}_{{\bf r}'}\rangle^\lambda 
+%\nonumber\\
+%\eta^{(4)}_{{\bf r}{\bf r}'}&=
+%\frac{1}{k_BT}\int_0^\tau  dt\left\langle 
+%\frac{1}{2}\left(
+%{\cal Q}\hat{\boldsymbol{\sigma}}^{13}_{{\bf r}}(t){\cal Q}\hat{\boldsymbol{\sigma}}^{13}_{{\bf r}'}
+%+
+%{\cal Q}\hat{\boldsymbol{\sigma}}^{23}_{{\bf r}}(t){\cal Q}\hat{\boldsymbol{\sigma}}^{23}_{{\bf r}'}
+%\right)\right\rangle^\lambda 
+%\nonumber\\
+%\eta^{(5)}_{{\bf r}{\bf r}'}&=
+%\frac{1}{k_BT}\int_0^\tau  dt\left\langle 
+%{\cal Q}\hat{\boldsymbol{\sigma}}^{33}_{{\bf r}}(t)
+%\frac{1}{2}\left({\cal Q}\hat{\boldsymbol{\sigma}}^{11}_{{\bf r}'}+
+%{\cal Q}\hat{\boldsymbol{\sigma}}^{22}_{{\bf r}'}\right)\right\rangle^\lambda 
+%\nonumber\\
+%\eta^{(6)}_{{\bf r}{\bf r}'}&=
+%\frac{1}{k_BT}\int_0^\tau  dt\left\langle 
+%\frac{1}{2}\left({\cal Q}\hat{\boldsymbol{\sigma}}^{11}_{{\bf r}}(t)+
+%{\cal Q}\hat{\boldsymbol{\sigma}}^{22}_{{\bf r}}(t)\right)
+%{\cal Q}\hat{\boldsymbol{\sigma}}_{{\bf r}'}^{33}\right\rangle^\lambda 
+%\label{VT-GK}
+%\end{align}
 
 
 \chapter{The covariance}
