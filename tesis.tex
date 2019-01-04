@@ -2812,6 +2812,7 @@ isotropic symmetry
 \label{gg}
 \end{align}
 In these expressions the transport kernels are
+\Note{Añadir superíndice $\lambda$ ${\bf v}$ }
 \begin{align}
 \eta^{||}_{\mu\nu}&
 =\frac{1}{k_BT}\int_0^\tau  dt\left\langle 
@@ -2912,7 +2913,7 @@ M^{||}_{\mu\nu}
 \end{align}
 Eqs (\ref{SoundDisc})-(\ref{Mpar}) along with the Green-Kubo integrals
 (\ref{summary_munu})  are  one  of  the main  result  of  the  present
-paper. They display the discrete  hydrodynamics of a fluid confined by
+chapter. They display the discrete  hydrodynamics of a fluid confined by
 parallel walls  and moving with  a flow that is  translation invariant
 along the walls. These equations predict that the tangential component
 of the momentum do not depend on  the free energy of the system and is
@@ -2933,8 +2934,8 @@ discrete equations (\ref{TheoryDiscFin}) that have been obtained directly
 from the projection operator technique.
 
 The  first  step  of  the Petrov-Galerkin  method  to  discretize  the
-continuum  equations  (\ref{finaleq}),  (\ref{ViscSurf})  proceeds  by
-inserting (\ref{ViscSurf}) into (\ref{finaleq}) and then multiply with
+continuum  equations  (\ref{finaleq}),  (\ref{FluidStress}) and (\ref{Irreversibleforces})  proceeds  by
+inserting the Eqs. (\ref{FluidStress}) and (\ref{Irreversibleforces}) into (\ref{finaleq}) and then multiply with
 $\delta_\mu({\bf  r})$  and  integrate  over ${\bf  r}$.   After  some
 integration by parts one gets
 \begin{align}
@@ -3033,7 +3034,7 @@ Note that the terms
   \llg \overline{\rho} \; \overline{\bf v}\boldsymbol{\nabla}\delta_\mu\rlg
 &= \sum_{\nu\nu'}\overline{\rho}_{\nu}\overline{\bf v}_{\nu'} \cdot\llg\Phi_{\nu}\Phi_{\nu'}\boldsymbol{\nabla}\delta_{\mu}\rlg
 \end{align}
-etc, are  explicit  functions of  the discrete  variables, where  the term
+etc, \Note{¿Y este etc? Mirar paper} are  explicit  functions of  the discrete  variables, where  the term
 within  parenthesis in  the  right  hand side  is  a purely  geometric
 quantity.
 
@@ -3282,7 +3283,7 @@ not require a free energy function, one obtains a non-trivial equation
 interaction of the fluid with the solid walls not in terms of boundary
 condition but rather in terms of irreversible surface forces.
 
-The discrete hydrodynamic equations obtained  in the present paper are
+The discrete hydrodynamic equations obtained  in this chapter are
 the first  step towards the  validation of the  continuum hydrodynamic
 equations    in   the    presence    of   walls    as   obtained    in Chapter \ref{Chap:Theory}. Only discrete equations  can be dealt with MD
 simulations. 
@@ -6303,8 +6304,8 @@ solid degrees of freedom $\hat{z}'$, with the result
 -M^\psi_{\mu\nu}{\bf v}_\nu\esc\hat{\bf g}_{\mu} \right)\right\}
 \label{xiln}
 \end{align}
-where the CG effective potential $\hat{V}^{\rm sl}(z)$ captures, in a CG way the interaction
-of the fluid atoms with the solid walls and it is defined as
+where the CG effective potential $\hat{V}^{\rm sl}(z)$ captures, in a CG way, the interaction
+of the fluid atoms with the solid walls. It is defined as
 \begin{align}
   \exp\{-\beta \hat{V}^{\rm sl}(\hat{z})\}=\int d\hat{z}' 
   \exp\{-\beta \hat{H}^{\rm s}(\hat{z}')+\hat{V}(\hat{z},\hat{z}')\}
@@ -6603,13 +6604,10 @@ momentum evolution is given by
 
 
 \section{The approximate form of the reversible part of the dynamics}
-
-
-
-
+\Note{Pendiente de pegar aquí la versión definitva del paper}
 \section{The connection between the  free energy functional and the
   free energy function}
-\Note{Pendiente}
+\Note{Pendiente de pegar aquí la versión definitva del paper aunque me falta darle una vueltecilla más.}
 
 
 
