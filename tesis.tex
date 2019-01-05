@@ -1,4 +1,4 @@
-\documentclass[a4paper,openright,11pt]{book}
+\documentclass[a4paper,openright,12pt]{book}
 %\documentclass[b5paper,openright,12pt]{book}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx,color}
@@ -71,40 +71,43 @@
 
 
 \newpage
-$\ $
+\pagestyle{noHeader}
+Info requerida por la escuela de doctorado
 \thispagestyle{empty} % para que no se numere esta pagina
 
-\pagestyle{noHeader}
-\chapter*{}
+%\pagestyle{noHeader}
+%\chapter*{}
+%\pagenumbering{Roman} % para comenzar la numeracion de paginas en numeros romanos
+%\begin{flushright}
+%blablabla
+%\end{flushright}
+\newpage
 \pagenumbering{Roman} % para comenzar la numeracion de paginas en numeros romanos
-\begin{flushright}
-blablabla
-\end{flushright}
+
+\tableofcontents % indice de contenidos
 
 \chapter*{Acknowledgments} % si no queremos que añada la palabra "Capitulo"
 %\addcontentsline{toc}{chapter}{Agradecimientos} % si queremos que aparezca en el índice
 \markboth{Acknowledgments}{Acknowledgments} % encabezado 
 blablabla
 
-
 \chapter*{Abstract} % si no queremos que añada la palabra "Capitulo"
 %\addcontentsline{toc}{section}{Abstract} % si queremos que aparezca en el índice
 \markboth{Abstract}{Abstract} % encabezado
 blablabla
 
-
-
 \chapter*{Resumen} % si no queremos que añada la palabra "Capitulo"
 %\addcontentsline{toc}{section}{Resumen} % si queremos que aparezca en el índice
-\markboth{RESUMEN}{RESUMEN} % encabezado
+\markboth{Resumen}{Resumen} % encabezado
 blablabla
 
-\tableofcontents % indice de contenidos
+%\pagenumbering{arabic}
+%\setcounter{chapter}{-1}
 
-\pagenumbering{arabic}
 \setcounter{chapter}{-1}
-
 \chapter{Introduction}\label{Chap:Intro}
+\pagenumbering{arabic}
+%\setcounter{chapter}{-1}
 \pagestyle{chapters}  %define page style for the chapters
 \markboth{Introduction}{Introduction}
 
@@ -1893,6 +1896,7 @@ in the dissipative part of the dynamics.
 %-----------------------------------------------------------------
 \chapter{Discrete hydrodynamics near solids for planar flows}\label{Chap:Planar}
 \markboth{Discrete hydrodynamics near solids for planar flows}{}
+\epigraph{\textit{Nothing got inside the head without becoming pictures.}}{The corrections \\ JONATHAN FRANZEN}
 \section{Introduction}
 In Chapter \ref{Chap:Theory} we  have constructed  from  first
 principles a theory  for hydrodynamics in contact with  solids.    Based   on    the   Kawasaki-Gunton   projector
@@ -5694,10 +5698,16 @@ length.
 
 \section{Conclusions}
 
-
+%-----------------------------------------------------------------
+%CHAPTER CONCLUSIONS
+%-----------------------------------------------------------------
 \chapter{Conclusions}\label{Chap:Conclusions}
-%\epigraph{\it{El auténtico corredor corre hasta el final.}}{El corredor \\ JOHN L. PARKER}
-\section{Conclusions}
+\epigraph{\it{El auténtico corredor corre hasta el final.}}{El corredor \\ JOHN L. PARKER}
+
+
+\bibliographystyle{unsrt}
+\bibliography{bibTex/thesis-library}
+
 
 %---------
 % APPENDIX
@@ -7034,6 +7044,6 @@ exponential through  the evolution of  an initial profile of  the form
 %\addcontentsline{toc}{chapter}{List of tables} % para que aparezca en el indice de contenidos
 %\listoftables % indice de tablas
 
-\bibliographystyle{unsrt}
-\bibliography{bibTex/thesis-library}
+%\bibliographystyle{unsrt}
+%\bibliography{bibTex/thesis-library}
 \end{document}
