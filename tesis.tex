@@ -1,5 +1,5 @@
-\documentclass[a4paper,openright,12pt]{book}
-%\documentclass[b5paper,openright,12pt]{book}
+%\documentclass[a4paper,openright,11pt]{book}
+\documentclass[b5paper,openright,11pt]{book}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx,color}
 \usepackage[dvipsnames]{xcolor}
@@ -20,10 +20,10 @@
 \usepackage{newtxtext,newtxmath}
 \usepackage[titletoc]{appendix}
 %To modify the space before title of each chapter
-%\usepackage{titlesec}
-%\titleformat{\chapter}[display]   
-%{\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{20pt}{\Huge}   
-%\titlespacing*{\chapter}{0pt}{-10pt}{40pt}
+\usepackage{titlesec}
+\titleformat{\chapter}[display]   
+{\normalfont\huge\bf}{\chaptertitlename\ \thechapter}{20pt}{\Huge}   
+\titlespacing*{\chapter}{0pt}{-10pt}{40pt}
 %Modificar encabezado y pie de página.
 \pagestyle{fancy}
 \fancypagestyle{chapters}{%
@@ -59,8 +59,123 @@
 \newcommand{\GK}[2]{\langle#1 \cc #2\rangle}
 \newcommand{\GKrest}[2]{\langle#1 \cc #2\rangle^0}
 
-\begin{document}
+%% Some details about the dissertation.
+%\title{Nanoscale hydrodynamics near solids}
+%\author{Diego Duque Zumajo}
+%\advisor{Dr. Pep Español Garrigós}
+%
+%
+%% ... about the degree.
+%\degree{Programa de doctorado en Ciencias}
+%
+%\field{Sciences}
+%\degreeyear{2019}
+%\degreemonth{March}
+%\department{Department of Fundamental Physics\\Faculty of Sciences}
+%
+%% ... about the candidate's previous degrees.
+%\pdOneName{Master Universitario en Combustibles y Energías para el futuro}
+%\pdOneSchool{Universidad Nacional de Educación a Distancia}
+%\pdOneYear{2015}
+%
+%\newcommand{\firstpage}{
+%  \thispagestyle{empty}
+%
+%\begin{flushright}
+%  \includegraphics[height=64pt]{logoED}
+%\end{flushright}
+%\vspace*\{\fill}
+%
+%\vspace{5pt}
+%\begin{center}
+%\Huge \textsc{Tesis Doctoral} \normalsize \\
+%
+%\vspace{20pt}
+%
+%\Huge {\@degreeyear} \normalsize \\
+%\vspace{5pt} 
+%\today
+%\vspace{40pt}
+%
+%\textsc{\Huge \textcolor{midgrey}{\thetitle} \normalsize} \\
+%
+%\vspace{20pt}
+%
+%\textsc{\Large \theauthor \normalsize} \\
+%
+%\vspace{20pt}
+%
+%\textsc{\large \@pdOneName \normalsize} \\
+%
+%\vspace{50pt}
+%
+%\tikz[remember picture,overlay] \node[opacity=0.1,inner sep=0pt] at (current page.center){\includegraphics[width=0.6\paperwidth,height=0.6\paperwidth]{escudoUNED}};
+%
+%\vspace{15pt}
+%
+%\textsc{\Large \textcolor{midgrey}{\@degree} \normalsize} \\
+%\vspace{20pt}
+%\textsc{\large Director: \@advisor\normalsize} \\
+%\end{center}
+%\vspace*{\fill}
+%}
+%\renewcommand{\maketitle}{
+%\firstpage
+%}
+%
+%\newcommand{\copyrightpage}{
+%\newpage
+%\thispagestyle{empty}
+%\begin{flushright}
+%\includegraphics[height=48pt]{logoED}
+%\end\{flushright}
+%\vspace*{\fill}
+%
+%{\scshape \noindent Doctoral dissertation at the Department of
+%Fundamental Physics in the Faculty of Science, UNED.}
+%\vspace{0.5em}
+%
+%\noindent \begin{tabular}{lp{10cm}}
+%\noindent {\bf  Title:}  & Nanoscale hydrodynamics near solids\\
+%\noindent {\bf Author:} & Diego Duque Zumajo
+%, M. Sc. in Energies and Fuels for the future. \\
+%\noindent {\bf Director:} & Dr. Pep Español Garrigós.
+%\\
+%\end{tabular}
+%\vspace*{\fill}
+%
+%{\scshape \noindent Tesis doctoral presentada en el Departamento
+%de Física Fundamental de la Universidad Nacional de Educación a Distancia.}
+%\vspace{0.5em}
+%
+%\noindent \begin{tabular}{lp{10cm}}
+%
+%\noindent {\bf Título:} &  Hidrodinámica cerca de paredes. \\
+%\noindent {\bf Autor:} & Diego Duque Zumajo, Máster Universitario en Energías y Combustibles para el futuro. \\
+%\noindent {\bf Director:} & Dr. Pep Español Garrigós.\\
+%\end{tabular}
+%\vspace*{\fill}
+%\noindent\textcolor{SchoolColor}{\rule{\textwidth}{2pt}}\par
+%% \noindent\rule{\textwidth}{0.1em}
+%\begin{center}
+%\includegraphics{UNED/by-nc-sa.eps} \\
+%
+%\scshape \noindent \small \copyright \ \small \theauthor, 
+%\@degreeyear \\
+%This work is licensed under a Creative Commons
+%Attribution-NonCommercial-ShareAlike 4.0 International \\
+%(CC BY-NC-SA 4.0) License.
+%\end{center}
+%\newpage
+%\rm
+%}
+%
+%\begin{document}
+%%\maketitle
+%%\copyrightpage
 
+
+\begin{document}
 \begin{titlepage}
 \begin{center}
 \begin{Huge}
@@ -75,12 +190,12 @@
 Info requerida por la escuela de doctorado
 \thispagestyle{empty} % para que no se numere esta pagina
 
-%\pagestyle{noHeader}
-%\chapter*{}
-%\pagenumbering{Roman} % para comenzar la numeracion de paginas en numeros romanos
-%\begin{flushright}
-%blablabla
-%\end{flushright}
+%%\pagestyle{noHeader}
+%%\chapter*{}
+%%\pagenumbering{Roman} % para comenzar la numeracion de paginas en numeros romanos
+%%\begin{flushright}
+%%blablabla
+%%\end{flushright}
 \newpage
 \pagenumbering{Roman} % para comenzar la numeracion de paginas en numeros romanos
 
@@ -240,13 +355,12 @@ Chapter \ref{Chap:Slip} corresponds to the publised paper \ref{}.\\
 %-----------------------------------------------------------------
 %CHAPTER 1
 %-----------------------------------------------------------------
-\chapter{Nonequilibrium Statistical Mechanics}
+\chapter{Nonequilibrium \\ Statistical Mechanics}
 \label{Chap:NESM}
 \markboth{Nonequilibrium Statistical Mechanics}{}
 \epigraph{\textit{There is no future. There is no past. Do you see? Time is simultaneous, an intricately structured jewel that humans insist on viewing one edge at a time, when the whole design is visible in every facet.}}{Watchmen \\ ALAN MOORE} 
 
 \section{Introduction}
-\Note{Introducción de Evans y Morriss buena para añadir más intro. histórica}
 It was in the nineteen century when the Statistical Mechanics (SM) was born mainly because of the work of Ludwing Boltzmann (1844-1906) and Josiah Willard Gibbs (1839-1903). The goal was to reconcile the Thermodynamics with the microscopic laws. 
 
 Thermodynamics was well-established because it draws its concepts from experiments while the attemps to understand it from the Newton's laws collided with problems such as the imposibility of taking into account the interactions between all the particles of a thermodynamic system, the highly nontrivial of theses interactions, the huge number of degrees of freedom or the Loschmidt's paradox\footnote{The second law of thermodynamics estabishes that the entropy of an isolated system increases with time. This can be understood as a time direction imposed by the increasing of the entropy. Furthermore, Newton's laws are reversible. According to Josef Loschmidt (1821-1895) this apparently conflict could be the responsible of the imposibility to derive the laws of the thermodynamics from the microscopic laws.}. 
@@ -260,6 +374,11 @@ A beautiful but rough example about how Statistical Mechanics works can be found
 He imagines a large musical ensemble playing in concert.
 The "global" sound produced by the musicians is analogue to the thermodynamic variables obtained from the colisions between the particles in the system. 
 The music can me analized from two levels: the global level, where the harmony and the musical form take an important role, and the individual level, in which we focus in what the musicians are playing to produce the global sound. "In this zooming in and out", in words of Rickles, "from the whole system to its parts, that characterizes the relationship between statistical mechanics and thermodynamics: you won't see harmonies in a single bassoon; likewise, you won't see pressure or temperature in an individual molecule."
+
+The equilibrium theory of SM provides an interpretation for he equilibrium thermodynamics systems from a molecular point of view. 
+Nevertheless, most of the phenomena present in the Nature are in nonequilibrium situations. 
+Before Green \cite{Green1952, Green1954} formulated in the 50's the Nonequilibrium Statistical Mechanics (NESM) in the way we know nowadays, Einstein \cite{Einstein1905}, Onsager \cite{Onsager1931} and Kirkwood \cite{Kirkwood1946} made important contributions. It was in the decade of the 60's when Zwanzig \cite{Zwanzig1961} and Mori \cite{Mori1965} reformulated the theory using the technique of the projection operators \cite{Grabert1982}. 
+
 
 In this chapter, we review fundamental concepts of SM such as phase space, phase point and phase trajectory.
 We introduce from Classical Mechanics (CM) the Hamilton's equations to describe the time evolution of a phase point in the phase space. 
@@ -440,6 +559,7 @@ which is called the Liouville theorem. It shows that if we take a volume in the 
 \begin{figure}
     \centering
     \includegraphics[scale=0.9]{Liouville}
+    %\includegraphics[width=\linewidth]{Liouville}
     \caption[The Liouville theorem]{Conservation of the volume in the phase space along time. We show two different shapes but with equal volume. The Liouville theorem establishes that the volume will be the same.}
     \label{fig:LiouvilleTh}
 \end{figure}
@@ -609,7 +729,7 @@ Finally, (3) shows the second derivative of $\Phi[\lambda]$.
 If $\langle\delta A_{\mu}\delta A_{\nu}\rangle$ is definite positive, $\frac{\delta^2}{\partial\lambda_{\mu}\partial\lambda_{\nu}}$ must be definite negative ((3) in Fig. \ref{fig:PhiConvex}). 
 \begin{figure}
     \centering
-    \includegraphics[scale=0.6]{PhiConvex}
+    \includegraphics[width=\linewidth]{PhiConvex}
     \caption[Connection one to one between $\lambda$ and $a$]{Representation of the convex functional $\Phi[\lambda]$ and its first and second derivative.}
     \label{fig:PhiConvex}
 \end{figure}
@@ -2106,7 +2226,7 @@ node  $\mu$ and  the  characteristic function  $\chi_\mu(z)$ of  bin
 $\mu$.
 \begin{figure}[h]
   \centering
-\includegraphics[scale=0.3]{psichi}
+\includegraphics[scale=0.25]{psichi}
 \caption{The basis function $\Phi_\mu(z)$ of node $\mu$ (blue) and the characteristic function $\chi_\mu(z)$ of bin $\mu$ (orange).}
 \label{psichi}
 \end{figure}
@@ -4673,7 +4793,8 @@ manner that we describe below.
 
 \begin{figure}[h!]
 \centering
-\includegraphics[scale=0.4]{Ct-matrix-PBC}
+%\includegraphics[scale=0.4]{Ct-matrix-PBC}
+\includegraphics[width=\linewidth]{Ct-matrix-PBC}
 \caption[Correlation matrix $C(t)$ at $t=0$ and $t=0.6$ for PBC system.]{The   correlation    matrix   $C_{\mu\nu}(t)=\llangle
 g_{\mu}(t)  g_\nu\rrangle$ for  $t=0$ (left) and $t=0.6$ (right).}
 \label{fig:Ct-matrix-PBC}
@@ -4694,7 +4815,7 @@ covariance in the Appendix \ref{Ap:Cov}.
 
 \begin{figure}[h!]
 \centering
-\includegraphics[scale=0.45]{Ct-mu30nu-PBC}
+\includegraphics[scale=0.41]{Ct-mu30nu-PBC}
 \caption[$C_{30\nu}(t)$ for PBC system.]{$C_{\mu\nu}(t)=\llangle  g_{\mu}(t) g_\nu\rrangle$  for $\nu=30$
  as a  function of node index  $\nu$ and for times $t=0, 0.2, 0.4, 0.6$ in descending order.}
  \label{fig:Ct-mu30nu-PBC} 
@@ -4711,7 +4832,7 @@ hydrodynamics.
 
 \begin{figure}[h!]
 \centering
-\includegraphics[scale=0.45]{Ct-mu30nu30-PBC}
+\includegraphics[scale=0.41]{Ct-mu30nu30-PBC}
 \caption[Autocorrelation for PBC system.]{The autocorrelation
   $\llangle g_{\mu}(t) g_\mu\rrangle$ (for  any $\mu$)
   . The correlation  decays very
@@ -4722,7 +4843,8 @@ slowly, in an  apparent algebraic way as can be  seen in logscale in the inset.}
 
 \begin{figure}[h!]
   \centering
-  \includegraphics[scale=0.45]{CtFourier-PBC}
+  %\includegraphics[scale=0.41]{CtFourier-PBC}
+  \includegraphics[scale=0.41]{CtFourier-PBC}
   \caption[Diagonal $\tilde{C}_{\mu\nu}(t)$ for PBC]{The diagonal $\tilde{C}_{\mu\mu}(t)$ of the Fourier transform
   of the correlation  matrix $C(t)$ for different values  of the time.
 In      descending     order      the     plotted      times go from $t=0.10$ to $t=0.20$ in intervals of $0.02$. }
@@ -4731,7 +4853,8 @@ In      descending     order      the     plotted      times go from $t=0.10$ to
 
 \begin{figure}[h!]
   \centering
-  \includegraphics[scale=0.45]{CtFourier-PBC-exp}
+  %\includegraphics[scale=0.41]{CtFourier-PBC-exp}
+  \includegraphics[width=\linewidth]{CtFourier-PBC-exp}
   \caption[Evolution of different eigenvalues $\tilde{C}_{\mu\nu}(t)$ for PBC]{
   The  evolution of  the different
   eigenvalues  $\tilde{C}_{\mu\mu}(t)$ of  the  correlation matrix  of
@@ -4781,7 +4904,8 @@ Note that for times $t>\tau$ we have that $\tilde{\Lambda}_{\mu\mu}(t)\to \frac{
 where the relaxation time is given in Eq. (\ref{taumu}).
 \begin{figure}[h!]
   \centering
-\includegraphics[scale=0.45]{LambdatFourier-PBC}
+%\includegraphics[scale=0.41]{LambdatFourier-PBC}
+\includegraphics[width=\linewidth]{LambdatFourier-PBC}
 \caption[Diagonal elements  $\tilde{\Lambda}_{\mu\mu}(t)$ of  the Fourier transform of $\Lambda(t)$]{The  diagonal elements  $\tilde{\Lambda}_{\mu\mu}(t)$ of  the
   Fourier transform of $\Lambda(t)$ defined in (\ref{AproxCtau}), as a
   function of  $\mu$ (left)  and $t$  (right).  In  the top  panel, in
@@ -4840,7 +4964,7 @@ is given by
 
 \begin{figure}[h!]
   \centering
-\includegraphics[scale=0.45]{CompareLambdas-PBC}
+\includegraphics[scale=0.41]{CompareLambdas-PBC}
 \caption[Comparison $\tilde{\Lambda}^*_{\mu\mu}$ and $\tilde{\Lambda}_{\mu\mu}(\tau)$]{Comparison $\tilde{\Lambda}^*_{\mu\mu}=\tilde{\Lambda}_{\mu\mu}(\tau)$ for $\tau=0.2$ with $\tilde{\Lambda}^{\rm loc}_{\mu\mu}$ in Eq. (\ref{Lambdaloc}) with $\nu_0=1.48$. The red line has slope $1$ and it is for guide the eye.}
 \label{fig:CompareLambdas-PBC}
 \end{figure}
@@ -4872,7 +4996,8 @@ correlation.
 
 \begin{figure}[h!]
   \centering
-\includegraphics[scale=0.45]{Predictionsmumu-PBC}
+%\includegraphics[scale=0.41]{Predictionsmumu-PBC}
+\includegraphics[width=\linewidth]{Predictionsmumu-PBC}
 \caption[Comparison of autocorrelation $C_{\mu\mu}$ with the predicions for PBC system]{Comparison of autocorrelation $C_{\mu\mu}(t)$ with the predictions of the nonlocal (orange) and local (green) theries. The left panel is in linscale and the right panel in logscale. The red line is at $t=\tau$ where the three curves coincide by construction. The inset shows a zoom at short times.}
 \label{fig:Predictionsmumu-PBC}
 \end{figure}
@@ -4881,7 +5006,8 @@ In Fig. \ref{fig:Predictionsmumu+1-PBC} we compare the cross correlation $C_{\mu
 
 \begin{figure}[h!]
   \centering
-\includegraphics[scale=0.45]{Predictionsmumu+1-PBC}
+%\includegraphics[scale=0.41]{Predictionsmumu+1-PBC}
+\includegraphics[width=\linewidth]{Predictionsmumu+1-PBC}
 \caption[Comparison of cross correlation $C_{\mu\mu+1}$ with the predicions for PBC system]{Comparison of autocorrelation $C_{\mu\mu+1}(t)$ with the predictions of the nonlocal (orange) and local (green) theries. The left panel is in linscale and the right panel in logscale. The red line is at $t=\tau$ where the three curves coincide by construction. The inset shows a zoom at short times.}
 \label{fig:Predictionsmumu+1-PBC}
 \end{figure}
@@ -4926,7 +5052,8 @@ decay  in a  quasi  algebraic  manner.
 
 \begin{figure}[h!]
   \centering
-\includegraphics[scale=0.45]{Etat-PBC}
+%\includegraphics[scale=0.41]{Etat-PBC}
+\includegraphics[width=\linewidth]{Etat-PBC}
 \caption[The nonlocal viscosity as a function of time for PBC system]{The nonlocal viscosity $\eta_{\mu\nu}(t)$ as a function of time, for $\mu=30$ and, in descending order, $\nu=30-40$. The left panel is in linscale, while the right panel in logscale. The inset is a zoom and the red line is at $t=\tau$.}
 \label{fig:Etat-PBC}
 \end{figure}
@@ -4944,7 +5071,7 @@ observation  span. After  this  time  we expect  that  the plateau  in
 $\nu_0(t)$ will start to decrease due to finite size effects.}
 \begin{figure}[h!]
   \centering
-\includegraphics[scale=0.45]{KinVisc0t-PBC}
+\includegraphics[scale=0.41]{KinVisc0t-PBC}
 \caption[The local kinematic viscosity for PBC system]{The local kinematic viscosity $\nu_0(t)=\eta_0(t)/\rho^{\rm eq}$ as a function of time where the shear viscosity is computed with the data from Fig. \ref{fig:Etat-PBC}. A horizontal orange line at $\nu_0=1.48$ is also plotted in order to guide the eye in the plateau region.}
 \label{fig:KinVisc0t-PBC}
 \end{figure}
@@ -5008,7 +5135,7 @@ periodic boundary conditions is fairly local, and can be described with
 
 \begin{figure}[h!]
   \centering
-\includegraphics[scale=0.45]{CompareEtas-PBC}
+\includegraphics[scale=0.41]{CompareEtas-PBC}
 \caption[Comparison $\eta^*_{30,\nu}$ and $eta_{30,\nu}$]{The nonlocal shear viscosity $\eta_{\mu\nu}$ (blue) and its corrected form $\eta^*_{\mu\nu}$ (orange) for $\mu=30$ as a function of node index $\nu$ at $t=0.2$.}
 \label{fig:CompareEtas-PBC}
 \end{figure}
@@ -5017,13 +5144,14 @@ periodic boundary conditions is fairly local, and can be described with
 
 \begin{figure}[h!]
   \centering
-\includegraphics[scale=0.45]{EtaStartFourier-PBC}
+\includegraphics[scale=0.41]{EtaStartFourier-PBC}
 \caption[The nonlocal shear viscosity kernel for PBC system]{The nonlocal shear viscosity kernel from corrected Green-Kubo formula $\tilde{\eta}^*_{\mu\mu}=\frac{\tilde{\eta_{\mu\mu}(t)}}{\tilde{c}_{\mu\mu}(t)}$}
 \label{fig:EtaStartFourier-PBC}
 \end{figure}
 \begin{figure}[h!]
   \centering
-\includegraphics[scale=0.45]{KinVisctFourier-PBC}
+%\includegraphics[scale=0.41]{KinVisctFourier-PBC}
+\includegraphics[width=\linewidth]{KinVisctFourier-PBC}
 \caption[The eigenvalues of the nonlocal kinematic viscosity matrix for PBC system]{The eigenvalues of the nonlocal kinematic viscosity matrix defined in Eq. (\ref{kinViscFourier}) as a function of time (right panel), and as a function of the mode index por times from t=0 to t=0.2 in ascending order in intervals of $0.01$. The orange line at $\nu_0=1.48$ is plotted in order to guide the eye in the plateau region.}
 \label{fig:KinVisctFourier-PBC}
 \end{figure}
@@ -5380,7 +5508,8 @@ a matrix of $61\times61$ non-zero elements.
 
 \begin{figure}[h!]
 \centering
-\includegraphics[scale=0.4]{Ct-matrix-WALLS-66nodes}
+%\includegraphics[scale=0.4]{Ct-matrix-WALLS-66nodes}
+\includegraphics[width=\linewidth]{Ct-matrix-WALLS-66nodes}
 \caption[Correlation matrix $C(t)$ at $t=0$ and $t=0.6$ for confined fluid - 66 nodes.]{The   correlation    matrix   $C_{\mu\nu}(t)=\llangle
 g_{\mu}(t)  g_\nu\rrangle$ for  $t=0$ (left) and $t=0.6$ (right).}
 \label{fig:Ct-matrix-WALLS-66nodes}
@@ -5398,7 +5527,7 @@ where it plotted for clarity only $15$ elements of the diagonal of the matrix $\
 $E(0.15)$, $E(0.30)$ and $E(t)$. 
 \begin{figure}[h!]
   \centering
-\includegraphics[scale=0.45]{LambdatBasis-WALLS-66nodes}
+\includegraphics[scale=0.41]{LambdatBasis-WALLS-66nodes}
 \caption[Diagonal elements  $\tilde{\Lambda}_{\mu\mu}(t)$ of $\Lambda(t)$ in three different basis - 66nodes.]{The  diagonal elements  $\tilde{\Lambda}_{\mu\mu}(t)$ of  the
   $\Lambda(t)$ in three basis:
 $E(0.15)$ (dashed blue lines), $E(0.30)$ (dashed green lines) and $E(t)$ (solid orange lines). }
@@ -5428,7 +5557,8 @@ middle panel.
 
 \begin{figure}[h!]
   \centering
-  \includegraphics[scale=0.45]{CtRec-WALLS-66nodes-exp}
+  %\includegraphics[scale=0.41]{CtRec-WALLS-66nodes-exp}
+  \includegraphics[width=\linewidth]{CtRec-WALLS-66nodes-exp}
   \caption[Evolution of different eigenvalues $\tilde{C}_{\mu\nu}(t)$ for confined fluid - 66 nodes.]{
   The  evolution of  the different
   eigenvalues  $\tilde{C}_{\mu\mu}(t)$ of  the  correlation matrix  of
@@ -5442,7 +5572,7 @@ middle panel.
 
 \begin{figure}[h!]
   \centering
-\includegraphics[scale=0.45]{LambdatRec-WALLS-66nodes}
+\includegraphics[scale=0.41]{LambdatRec-WALLS-66nodes}
 \caption[Diagonal elements  $\tilde{\Lambda}_{\mu\mu}(t)$ of $\Lambda(t)$ in the reciprocal space - 66nodes.]{The  diagonal elements  $\tilde{\Lambda}_{\mu\mu}(t)$ of  the
   $\Lambda(t)$ in the reciprocal space defined in (\ref{}), as a
   function of $t$.}
@@ -5464,7 +5594,8 @@ fluid in the direction parallel to the walls.
 
 \begin{figure}[h!]
   \centering
-\includegraphics[scale=0.45]{EigenvaluesVectors-WALLS-66nodes}
+%\includegraphics[scale=0.41]{EigenvaluesVectors-WALLS-66nodes}
+\includegraphics[width=\linewidth]{EigenvaluesVectors-WALLS-66nodes}
 \caption[Eigenvalues and eigenvectors near the walls for 66 nodes.]{The eigenvalues $\tilde{C}_{\mu}(t)$ of the correlation matrix $C(t)$ for $\mu=59,60$ which are identical and superimpose (left) and the corresponding eigenvectors $u_{\mu}$ in blue and orange, respectively (right).}
 \label{fig:EigenvaluesVectors-WALLS-66nodes}
 \end{figure}
@@ -5509,7 +5640,8 @@ Markovian.
 
 \begin{figure}[h!]
   \centering
-\includegraphics[scale=0.45]{Predictions-WALLS-66nodes}
+%\includegraphics[scale=0.41]{Predictions-WALLS-66nodes}
+\includegraphics[width=\linewidth]{Predictions-WALLS-66nodes}
 \caption[Predicted autocorrelations of $C(t)$ for 66 nodes.]{The predicted (orange) and the measured (blue) values of the autocorrelation $C_{\mu\mu}(t)$ at different values of $\mu$ (top $\mu=33$, middle $\mu=3$ and bottom $\mu=2$). The predicted and measured correlations coincide by construction at $t=\tau=0.2$, where the vertical red line is. The inset shows a zoom at short times. The right panel is the same in logscale, where the correlations extends up to time $t=30$.}
 \label{fig:Predictions-WALLS-66nodes}
 \end{figure}
@@ -5555,7 +5687,8 @@ $t=0$ vanishes, as it is clear for $C_{3,5}(t)$.
 
 \begin{figure}[h!]
   \centering
-  \includegraphics[scale=0.45]{CtRec-WALLS-17nodes-exp}
+  %\includegraphics[scale=0.41]{CtRec-WALLS-17nodes-exp}
+  \includegraphics[width=\linewidth]{CtRec-WALLS-17nodes-exp}
   \caption[Evolution of different eigenvalues $\tilde{C}_{\mu\nu}(t)$ for confined fluid - 17 nodes.]{
   The  evolution of  the different
   eigenvalues  $\tilde{C}_{\mu\mu}(t)$ of  the  correlation matrix  of
@@ -5569,7 +5702,7 @@ $t=0$ vanishes, as it is clear for $C_{3,5}(t)$.
 
 \begin{figure}[h!]
   \centering
-\includegraphics[scale=0.45]{LambdatRec-WALLS-17nodes}
+\includegraphics[scale=0.41]{LambdatRec-WALLS-17nodes}
 \caption[Diagonal elements  $\tilde{\Lambda}_{\mu\mu}(t)$ of $\Lambda(t)$ in the reciprocal space - 17nodes.]{The  diagonal elements  $\tilde{\Lambda}_{\mu\mu}(t)$ of  the
   $\Lambda(t)$ in the reciprocal space defined in (\ref{}), as a
   function of $t$.}
@@ -5578,7 +5711,8 @@ $t=0$ vanishes, as it is clear for $C_{3,5}(t)$.
 
 \begin{figure}[h!]
   \centering
-\includegraphics[scale=0.45]{Predictions-WALLS-17nodes}
+%\includegraphics[scale=0.41]{Predictions-WALLS-17nodes}
+\includegraphics[width=\linewidth]{Predictions-WALLS-17nodes}
 \caption[Predicted autocorrelations of $C(t)$ for 17 nodes.] {Autocorrelations $C_{\mu\mu}(t)$  for different  bins $\mu=1$
   (bottom),  $\mu=4$  (middle),  and  $\mu=7$ (top).  The  right panel  is  in 
   logscale with a support up to $t=30$. The red line is plot at $t=0.3$}
@@ -5588,7 +5722,8 @@ $t=0$ vanishes, as it is clear for $C_{3,5}(t)$.
 
 \begin{figure}[h!]
   \centering
-\includegraphics[scale=0.45]{PredictionsCross-WALLS-17nodes}
+%\includegraphics[scale=0.41]{PredictionsCross-WALLS-17nodes}
+\includegraphics[width=\linewidth]{PredictionsCross-WALLS-17nodes}
 \caption[Predicted crosscorrelations of $C(t)$ for 17 nodes.]{The crosscorrelations between nodes $\mu=3,\nu=5$ (bottom) and  $\mu=8,\nu=7$ (top). The right pael is in logscale, and the red line is plot at $t=30$.}
 \label{fig:PredictionsCross-WALLS-17nodes}
 \end{figure}
@@ -5649,7 +5784,7 @@ parallel walls deserves further study.
 
 \begin{figure}[h!]
   \centering
-\includegraphics[scale=0.45]{DensityProfile-WALLS}
+\includegraphics[scale=0.41]{DensityProfile-WALLS}
 \caption[Fluid density profile for 66 and 17 nodes.]{The equilibrium average discrete density for thin bins (blue) and thick bins (orange). The thick bins do not capture the layering of the density field.}
 \label{fig:DensityProfile-WALLS}
 \end{figure}
