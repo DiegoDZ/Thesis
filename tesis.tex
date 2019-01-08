@@ -20,17 +20,17 @@
 \usepackage{newtxtext,newtxmath}
 \usepackage[titletoc]{appendix}
 %To modify the space before title of each chapter
-\usepackage{titlesec}
-\titleformat{\chapter}[display]   
-{\normalfont\huge\bf}{\chaptertitlename\ \thechapter}{20pt}{\Huge}   
-\titlespacing*{\chapter}{0pt}{-10pt}{40pt}
+%\usepackage{titlesec}
+%\titleformat{\chapter}[display]   
+%{\normalfont\huge\bf}{\chaptertitlename\ \thechapter}{20pt}{\Huge}   
+%\titlespacing*{\chapter}{0pt}{-10pt}{40pt}
 %Modificar encabezado y pie de página.
 \pagestyle{fancy}
 \fancypagestyle{chapters}{%
 \fancyhead{}
 \fancyhead[LE,RO]{\thepage}
 \fancyhead[RE]{Nanoscale hydrodynamics near solids}
-\fancyhead[LO]{{\color{Gray}CHAPTER \thechapter.} \leftmark }
+\fancyhead[LO]{{\color{Gray}CHAPTER \thechapter } \leftmark }
 \fancyfoot{}
 \renewcommand{\headrulewidth}{1pt}
 }
@@ -355,29 +355,30 @@ Chapter \ref{Chap:Slip} corresponds to the publised paper \ref{}.\\
 %-----------------------------------------------------------------
 %CHAPTER 1
 %-----------------------------------------------------------------
-\chapter{Nonequilibrium \\ Statistical Mechanics}
+\chapter{Non-Equilibrium \\ Statistical Mechanics}
 \label{Chap:NESM}
-\markboth{Nonequilibrium Statistical Mechanics}{}
+\markboth{Non-Equilibrium Statistical Mechanics}{}
 \epigraph{\textit{There is no future. There is no past. Do you see? Time is simultaneous, an intricately structured jewel that humans insist on viewing one edge at a time, when the whole design is visible in every facet.}}{Watchmen \\ ALAN MOORE} 
 
 \section{Introduction}
-It was in the nineteen century when the Statistical Mechanics (SM) was born mainly because of the work of Ludwing Boltzmann (1844-1906) and Josiah Willard Gibbs (1839-1903). The goal was to reconcile the Thermodynamics with the microscopic laws. 
+It was in the nineteen century when the Statistical Mechanics (SM) was born mainly because of the work of Ludwing Boltzmann and Josiah Willard Gibbs. The goal was to reconcile the Thermodynamics with the microscopic laws. 
 
-Thermodynamics was well-established because it draws its concepts from experiments while the attemps to understand it from the Newton's laws collided with problems such as the imposibility of taking into account the interactions between all the particles of a thermodynamic system, the highly nontrivial of theses interactions, the huge number of degrees of freedom or the Loschmidt's paradox\footnote{The second law of thermodynamics estabishes that the entropy of an isolated system increases with time. This can be understood as a time direction imposed by the increasing of the entropy. Furthermore, Newton's laws are reversible. According to Josef Loschmidt (1821-1895) this apparently conflict could be the responsible of the imposibility to derive the laws of the thermodynamics from the microscopic laws.}. 
+Thermodynamics was well-established because it draws its concepts from experiments while the attemps to understand it from the Newton's laws collided with problems such as the imposibility of taking into account the interactions between all the particles of a thermodynamic system, the highly nontrivial of theses interactions, the huge number of degrees of freedom or the Loschmidt's paradox\footnote{The second law of thermodynamics estabishes that the entropy of an isolated system increases with time. This can be understood as a time direction imposed by the increasing of the entropy. Furthermore, Newton's laws are reversible. According to Josef Loschmidt this apparently conflict could be the responsible of the imposibility to derive the laws of the thermodynamics from the microscopic laws.}. 
 To avoid these problems physicist realized that the macro properties of a thermodynamic system does not strongly depend on the exact dynamics of every particle, but more on the averages that eventually polish the details of the behaviour of the particles. 
 Thus, the link between the microscopic and macroscopic theory of matter can be stated appling statistical techniques to the microscopical mechanics laws. 
-The connection is posible to the notion of ensemble, which is a collection of imaginary systems with a set of common macroscopic properties.  
+The connection is posible to the notion of \textit{ensemble}, which is a collection of imaginary systems with a set of common macroscopic properties.  
 
-In this way we may define Statistical Mechanics as a theoretical framework which allows to study the macro-properties of a many-body system from the dynamics of its microcopic constituents.
-Therefore, we may roughly say that Statistical Mechanics acts as a bridge between two levels of description: microscopic level governed by the Newton's laws of motion and the macroscopic level where which is measure with experiments.
-A beautiful but rough example about how Statistical Mechanics works can be found in the latter book of Dean Rickles, {\it Philosophy of Physics} \cite{Rickles2016}.
+In this way we may define SM as a theoretical framework which allows to study the macro-properties of a many-body system from the dynamics of its microcopic constituents.
+Therefore, we may roughly say that SM acts as a bridge between two levels of description: microscopic level governed by the Newton's laws of motion and the macroscopic level where which is measure with experiments.
+A beautiful but rough example about how SM works can be found in the latter book of Dean Rickles, {\it Philosophy of Physics} \cite{Rickles2016}.
 He imagines a large musical ensemble playing in concert.
 The "global" sound produced by the musicians is analogue to the thermodynamic variables obtained from the colisions between the particles in the system. 
 The music can me analized from two levels: the global level, where the harmony and the musical form take an important role, and the individual level, in which we focus in what the musicians are playing to produce the global sound. "In this zooming in and out", in words of Rickles, "from the whole system to its parts, that characterizes the relationship between statistical mechanics and thermodynamics: you won't see harmonies in a single bassoon; likewise, you won't see pressure or temperature in an individual molecule."
 
-The equilibrium theory of SM provides an interpretation for he equilibrium thermodynamics systems from a molecular point of view. 
-Nevertheless, most of the phenomena present in the Nature are in nonequilibrium situations. 
-Before Green \cite{Green1952, Green1954} formulated in the 50's the Nonequilibrium Statistical Mechanics (NESM) in the way we know nowadays, Einstein \cite{Einstein1905}, Onsager \cite{Onsager1931} and Kirkwood \cite{Kirkwood1946} made important contributions. It was in the decade of the 60's when Zwanzig \cite{Zwanzig1961} and Mori \cite{Mori1965} reformulated the theory using the technique of the projection operators \cite{Grabert1982}. 
+The equilibrium theory of SM provides an interpretation for the equilibrium thermodynamic systems from a molecular point of view.
+However, most of the phenomena present in the Nature are in nonequilibrium situations. 
+Einstein \cite{Einstein1905}, Onsager \cite{Onsager1931} and Kirkwood \cite{Kirkwood1946} made important contributions to Non-Equilibrium Statistical Mechanics (NESM) years before Green \cite{Green1952, Green1954}, in the fifties, formulated it as we know nowadays. 
+It was in the 60's when Zwanzig \cite{Zwanzig1961} and Mori \cite{Mori1965} reformulated the theory using the technique of the projection operators \cite{Grabert1982}. 
 
 
 In this chapter, we review fundamental concepts of SM such as phase space, phase point and phase trajectory.
@@ -389,10 +390,10 @@ We introduce the concept of probability density in order to take into account ou
 Therefore, the evolution of a phase point in the phase space converts into a stochastic process where the evolution of the probability density  is governed by the Liouville equation.
 We review the Lioville theorem that tell us that the evolution of a bunch of phase point inside a volume must be conserved (i.e. the volumen must be the same but not the shape). 
 
-In this chapter, we will review the Theory of Coarse-Graining (ToCG) which allows one to describe the dynamics with variables that capture the essential information of the system. 
-These variables are called Coarse-Grained variables (CG variables) and evolve much more slowy than the neglected variables. 
+In this chapter, we review the Theory of Coarse-Graining (ToCG) which allows one to describe the dynamics with variables that capture the essential information of the system and evolve much more slowy than the neglected ones. 
+%These selected coarse variables evolve much more slowy than the neglected variables. 
 
-Finally, we will introduce the time-dependent projection operator technique to derive the evolution equation of the CG variables. This technique is an aproximation of the time dependent ensemble, solution of the Liouville equation, with a relevant ensemble plus a correction responsible of the irreversible behaviour. This relevant ensemble is obtained maximizing the entropy functional of Gibbs-Jaynes. 
+Finally, we introduce the time-dependent projection operator technique to derive the evolution equation of the selected variables. This technique is an aproximation of the time dependent ensemble, solution of the Liouville equation, with a relevant ensemble plus a correction responsible of the irreversible behaviour. This relevant ensemble is obtained maximizing the entropy functional of Gibbs-Jaynes. 
 
 
 \section{Hamilton's equations and the evolution of the microstates}
