@@ -46,8 +46,8 @@
 \renewcommand{\thefootnote}{\roman{footnote}}
 \newcommand{\esc}{\!\cdot\!}
 \newcommand{\Note}[1]{{\bf \color{red}#1}}    % comments and notes
-\newcommand{\Cambio}[1]{{\color{blue}#1}}     % cambio con respecto a los artículos
-\newcommand{\Pendiente}[1]{{\color{green}#1}} % pendiente
+\newcommand{\Pep}[1]{{\color{blue}#1}}     % del libro de Pep
+\newcommand{\Pendiente}[1]{{\color{green}#1}} % Revisar
 \newcommand{\Tirar}[1]{{\color{Magenta}#1}}   % tirar
 \newcommand{\llangle}{\left\langle}
 \newcommand{\rrangle}{\right\rangle}
@@ -243,6 +243,7 @@ The quotes in the beginning of each chapter are taken from books I read over the
 %\setcounter{chapter}{-1}
 \pagestyle{chapters}  %define page style for the chapters
 \markboth{Introduction}{Introduction}
+\epigraph{\textit{Descubrir es ver de otro modo lo que nadie ha percibido.}}{Blanco Nocturno \\ RICARDO PLIGIA}
 
 \Note{Viene de la introducción del paper I}
 There  is great  interest  in  the behaviour  of  fluids  in the  nano
@@ -376,7 +377,7 @@ Chapter \ref{Chap:Slip} corresponds to the publised paper \ref{}.\\
 \chapter{Non-Equilibrium \\ Statistical Mechanics}
 \label{Chap:NESM}
 \markboth{Non-Equilibrium Statistical Mechanics}{}
-\epigraph{\textit{There is no future. There is no past. Do you see? Time is simultaneous, an intricately structured jewel that humans insist on viewing one edge at a time, when the whole design is visible in every facet.}}{Watchmen \\ ALAN MOORE} 
+\epigraph{\textit{Le temps est une invention du mouvement. Celui qui ne bouge pas ne voit pas le temps passer.}}{Métaphysique des tubes \\ AMÉLIE NOTHOMB}
 
 \section{Introduction}
 It was in the nineteen century when the Statistical Mechanics (SM) was born mainly because of the work of Ludwing Boltzmann and Josiah Willard Gibbs. The goal was to reconcile the Thermodynamics with the microscopic laws. 
@@ -602,7 +603,7 @@ Therefore, the time evolution of the probability density is
 \end{align}
 Note that we may express the Lioville equation (\ref{LiouvilleEq}) in the following form
 \begin{align}
-    \frac{d\rho_t(z)}{dt} = 0 ,
+    \frac{d\rho_t(z)}{dt} = 0 
     \label{LiouvilleTh}
 \end{align}
 This is called the {\it Liouville theorem}. It shows that if we take a volume in the phase space bounded by a surface and we follow it during time evolution, we will observe that the surface will move and so do the points (microstates) inside the surface but the volume will remain the same. The reason is that the phase trajectories can not cross because this implies that they started at the same point. In other words: the volume in phase space must be conserved, as we can see in Figure \ref{fig:LiouvilleTh}.
@@ -631,9 +632,9 @@ This is called the {\it Liouville theorem}. It shows that if we take a volume in
 %\end{align}
 \section{The Theory of Coarse-Graining and the CG variables}
 The ToCG consists on eliminate the "useless" information about a system in order to have a simplified version described by a set of selected variables with time scales much larger than the typical molecular scales. 
+We may acquire a lot of information about the system during the simplification process because we have to separate the essential details from the irrelevant ones. 
 %Frase copiada del libro de Pep 
-\Tirar{In the simplication process we may acquire a lot of information about the system by focusing in the essential details and not being distracted by overwhelming number of irrelevant details. }
-% 
+%In the simplication process we may acquire a lot of information about the system by focusing in the essential details and not being distracted by overwhelming number of irrelevant details.
 
 %Referencia Theory of simple liquids
 One of the advantages of the ToCG is to allow to simulated systems with a computer that otherwise it would not be possible or would be computationally expensive. 
@@ -644,8 +645,8 @@ The dimensions of the particles are of the order of tens or hundreds nanometers 
 
 %Copiado del libro de Pep
 A system may be described at different {\it levels of description} depending on the amount of information which one retains macroscopically. The state of a system at a given level of description is described by a set of {\it coarse grained variables} (CG variables), which are functions of the microscopic state $z$ of the system and, therefore, are phase functions $\hat{A}(z)$. 
-\Tirar{The symbol $\hat{A}(z)$ denotes a collection of phase functions each one labeled with a discrete index. 
-For example, $\hat{A}=\{\hat{A}_{\mu}(z), \mu=1,\cdots, M\}$. Also, we will consider phase functions that are fields $\hat{A}=\{\hat{A}_{\bf r}(z), {\bf r}\in\mathbb{R}^3\}$ and we understand that the CG variables are labeled with a continuum indes ${\bf r}$. }
+%The symbol $\hat{A}(z)$ denotes a collection of phase functions each one labeled with a discrete index. 
+%For example, $\hat{A}=\{\hat{A}_{\mu}(z), \mu=1,\cdots, M\}$. Also, we will consider phase functions that are fields $\hat{A}=\{\hat{A}_{\bf r}(z), {\bf r}\in\mathbb{R}^3\}$ and we understand that the CG variables are labeled with a continuum indes ${\bf r}$. 
 
 The identification of the CG variables is the most important step in the ToCG in order to describe macroscopically a system with many degrees of freedom. There are few guiding principles for the identification of the CG variables such as select the dynamic invariants of the system or observe the features of the system because maybe there is a variable that captures that feature \cite{Karttunen2004}.
 
@@ -657,7 +658,7 @@ The equation that governs the evolution of the CG variables are the Hamilton's e
 The macroscopic level is the level of Thermodynamics. The CG variables at this level are the dynamical invariants of the system. Because these variables are constant in time and the time scale is infinite there is not a dynamic equation for them.  %E, V, M, T
 Between these two levels there is the {\it mesoscopic level}, in which the coarse level is included.
 
-\Pendiente{The principal objetive of the ToCG is to derive the dynamic equations of the CG variables. The two ideas that allow for derivation of dynamic equations are quasi-equilibrium and separation of time scales.}
+The main objetive of the ToCG is to derive the dynamic equations of the CG variables. Two ideas allow us for the derivation of the dynamic equations: quasi-equilibrium and separation of time scales.
 
 \subsection{Quasi-equilibrium and separation of time scales}
 %Two ice cubes are melting inside a glass of water while I am writting this notes. 
@@ -673,10 +674,11 @@ The second one is much slower than the first one and allows we may say that it i
 
 The above example shows that a system can be at a equilibrium state depending on the time scale of the observation. The degradation of the glass over the years is very slow in contrast with the melting of the ice cubes. Therefore, at the time scale of our observations we can found functions that evolve very slow; the may be considered as dynamic invariants that determine the equilibrium properties of the system. 
 
+In this dissertation the notion of several "equilibriums time scales" is crucial because we take advantage of the partial equilibration of the system in the time scale of evolution of the CG variables. 
 %Frase del libro de Pep
-The theory of non-equilibrium that we present is based on this notion of
-having several “equilibrium time scales” and takes advantage of the partial equilibration of
-the system in the time scale of evolution of the selected CG variables.
+%The theory of non-equilibrium that we present is based on this notion of
+%having several “equilibrium time scales” and takes advantage of the partial equilibration of
+%the system in the time scale of evolution of the selected CG variables.
 At the typical time scale of a given level of description, we will observe that the system reaches a quasi-equilibrium state in which the CG variables are dynamics invariants. 
 The fast degrees of freedom rapidly reach the equilibrium while the CG variables evolve slowly. 
 When quasi-equilibrium is valid, the CG variables which describe our system at this level of description evolve much slowly than the CG of the other more detailed level of description down in the hierarchy of level of descriptions. 
@@ -685,7 +687,7 @@ Therefore, the system is approximately described, in the appropriate time scale,
 
 Quasi-equilibrium is connected with the notion of separation of time scales. 
 As we said, the CG variables evolve slowly compared with the rest of degrees of freedom, which is, in fact, a necessary condition to obtain differential equations for the evolution of the CG variables. 
-If there is not a well-separated time scales we may obtain dynamic equations but not simple at all, with complicated memory terms, as we will see in Sec. \ref{Sec:Grabert.} 
+If there is not a well-separated time scales we may obtain dynamic equations but not simple at all, with complicated memory terms, as we will see in Sec. \ref{Sec:Grabert}. 
 This situation is referred to as a {\it non-Markovian} dynamics, to distinguish it from {\it Markovian} desciption in which the future state of the system is only determined by the present but not for the past of the system. 
 
 \section{The entropy}\label{Sec:TheEntropy}
@@ -5313,7 +5315,7 @@ Camargo et al. presented in \cite{CamargoBC2018}.
 %-----------------------------------------------------------------
 \chapter{Markovian behaviour near solids}\label{Chap:Walls}
 \markboth{Markovian behaviour near solids}{}
-\epigraph{\textit{Descubrir es ver de otro modo lo que nadie ha percibido.}}{Blanco Nocturno \\ RICARDO PLIGIA}
+\epigraph{\textit{There is no future. There is no past. Do you see? Time is simultaneous, an intricately structured jewel that humans insist on viewing one edge at a time, when the whole design is visible in every facet.}}{Watchmen \\ ALAN MOORE} 
 \section{Introduction}
 In Chapter \ref{Chap:PBC} we have demonstrated
 through MD simulations that the Markovian assumption
