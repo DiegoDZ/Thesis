@@ -354,7 +354,7 @@ of  time scales  happens, in  general, when  the evolution  of the  CG
 variables  is the  result of  many minuscule  and fast  contributions.
 Under  the Markovian  approximation, the  resulting governing  dynamic
 equations    are   non-linear    differential   equations    for   the
-nonequilibrium averages  of the  CG variables in  the Kawasaki-Gunton
+non-equilibrium averages  of the  CG variables in  the Kawasaki-Gunton
 projector or stochastic  differential equations (SDE) in  the Mori and
 Zwanzig projectors.   Within the  Markovian approximation  one obtains
 the  transport coefficients  governing  the irreversible  part of  the
@@ -373,9 +373,9 @@ Chapter \ref{Chap:Slip} corresponds to the publised paper \ref{}.\\
 %-----------------------------------------------------------------
 %CHAPTER 1
 %-----------------------------------------------------------------
-\chapter{Overview of Non-Equilibrium \\ Statistical Mechanics}
+\chapter{Non-Equilibrium \\ Statistical Mechanics}
 \label{Chap:NESM}
-\markboth{Overview of Non-Equilibrium Statistical Mechanics}{}
+\markboth{Non-Equilibrium Statistical Mechanics}{}
 \epigraph{\textit{There is no future. There is no past. Do you see? Time is simultaneous, an intricately structured jewel that humans insist on viewing one edge at a time, when the whole design is visible in every facet.}}{Watchmen \\ ALAN MOORE} 
 
 \section{Introduction}
@@ -394,7 +394,7 @@ The "global" sound produced by the musicians is analogue to the thermodynamic va
 The music can me analized from two levels: the global level, where the harmony and the musical form take an important role, and the individual level, in which we focus in what the musicians are playing to produce the global sound. "In this zooming in and out", in words of Rickles, "from the whole system to its parts, that characterizes the relationship between statistical mechanics and thermodynamics: you won't see harmonies in a single bassoon; likewise, you won't see pressure or temperature in an individual molecule."
 
 The equilibrium theory of SM provides an interpretation for the equilibrium thermodynamic systems from a molecular point of view.
-However, most of the phenomena present in the Nature are in nonequilibrium situations. 
+However, most of the phenomena present in the Nature are in non-equilibrium situations. 
 Einstein \cite{Einstein1905}, Onsager \cite{Onsager1931} and Kirkwood \cite{Kirkwood1946} made important contributions to Non-Equilibrium Statistical Mechanics (NESM) years before Green \cite{Green1952, Green1954}, in the fifties, formulated it as we know nowadays. 
 It was in the 60's when Zwanzig \cite{Zwanzig1961} and Mori \cite{Mori1965} reformulated the theory using the technique of the projection operators \cite{Grabert1982}. 
 
@@ -643,47 +643,55 @@ For example, colloidal suspensions are dispersions of mesoscopic particles suspe
 The dimensions of the particles are of the order of tens or hundreds nanometers and they move in time scales of nanoseconds or microseconds, whereas the dimensions of the molecules of the solvent are a fraction of a nanometer (for example, in the case of a molecule of water typically of the order of $0.21$ nm) and their time scales are of the order of picoseconds. To treat this kind of asymmetric systems from a microscopic point of view is unworkable with methods such as molecular dynamics simulation, but if our interest resides on the mesoscopic behaviour the problem is hightly simplified using coarse-graining techniques.    
 
 %Copiado del libro de Pep
-A system may be described at different {\it levels of description} depending on the amount of information which one retains macroscopically. The state of a system at a given level of description is described by a set of {\it coarse grained variables} (CG variables), which are functions of the microscopic state $z$ of the system and, therefore, are phase functions $\hat{A}(z)$. The symbol $\hat{A}(z)$ denotes a collection of phase functions each one labeled with a discrete index. 
-\Tirar{For example, $\hat{A}=\{\hat{A}_{\mu}(z), \mu=1,\cdots, M\}$. Also, we will consider phase functions that are fields $\hat{A}=\{\hat{A}_{\bf r}(z), {\bf r}\in\mathbb{R}^3\}$ and we understand that the CG variables are labeled with a continuum indes ${\bf r}$. }
+A system may be described at different {\it levels of description} depending on the amount of information which one retains macroscopically. The state of a system at a given level of description is described by a set of {\it coarse grained variables} (CG variables), which are functions of the microscopic state $z$ of the system and, therefore, are phase functions $\hat{A}(z)$. 
+\Tirar{The symbol $\hat{A}(z)$ denotes a collection of phase functions each one labeled with a discrete index. 
+For example, $\hat{A}=\{\hat{A}_{\mu}(z), \mu=1,\cdots, M\}$. Also, we will consider phase functions that are fields $\hat{A}=\{\hat{A}_{\bf r}(z), {\bf r}\in\mathbb{R}^3\}$ and we understand that the CG variables are labeled with a continuum indes ${\bf r}$. }
 
 The identification of the CG variables is the most important step in the ToCG in order to describe macroscopically a system with many degrees of freedom. There are few guiding principles for the identification of the CG variables such as select the dynamic invariants of the system or observe the features of the system because maybe there is a variable that captures that feature \cite{Karttunen2004}.
 
-As we said, different levels of description gives us different amount of information. Coaser levels have a smaller number of variables (slow variables) and in consecuence captures less information. On the other hand, in fine levels the number of variables is so hight that allow to capture too much information. Therefore, depending on the interests the choose of a level of description will change. A coarse level can describe phenomena that occur at time scales equal or larger than the typical time scale of the level, but it cannot reproduce the behaviour at shorter time scales.
+Different levels of description gives us different amount of information. Coarser levels have a smaller number of variables (slow variables) and in consecuence captures less information. On the other hand, in fine levels the number of variables is so hight that allow to capture too much information. Therefore, depending on the interests the choose of a level of description will change. A coarse level can describe phenomena that occur at time scales equal or larger than the typical time scale of the level, but it cannot reproduce the behaviour at shorter time scales.
 
-There are two levels of description particulary important: the microcopic and macroscopic levels. The microscopic level has the position and momenta of all particles of the system as the set of variables characterizing the state of the system. The equation that governs the evolution fo the CG variables are the Hamilton's equations (\ref{compactHamiltonEqs}) and the time scale is the typical collision or vibration time. The macroscopic level is the level of Thermodynamics. The CG variables at this level are the dynamical invariants of the system. Because these variables are constant in time and the time scale is infinite there is not a dynamic equation for them. Between these two levels there is the mesoscopic level, in which the coarse level is included.
+There are two levels of description particulary important: {\it the microcopic and macroscopic levels}. 
+The microscopic level has the position and momenta of all particles of the system as the set of variables characterizing the state of the system. 
+The equation that governs the evolution of the CG variables are the Hamilton's equations (\ref{compactHamiltonEqs}) and the time scale is the typical collision or vibration time. 
+The macroscopic level is the level of Thermodynamics. The CG variables at this level are the dynamical invariants of the system. Because these variables are constant in time and the time scale is infinite there is not a dynamic equation for them.  %E, V, M, T
+Between these two levels there is the {\it mesoscopic level}, in which the coarse level is included.
 
-The principal objetive of the ToCG is to derive the dynamic equations of the CG variables. The two ideas that allow for derivation of dynamic equations are quasi-equilibrium and separation of time scales.
+\Pendiente{The principal objetive of the ToCG is to derive the dynamic equations of the CG variables. The two ideas that allow for derivation of dynamic equations are quasi-equilibrium and separation of time scales.}
 
 \subsection{Quasi-equilibrium and separation of time scales}
-Two ice cubes are melting inside a glass of water while I am writting this notes. 
-The process is slow but not enough to not allow me to see how the ice cubes reduce their size. 
-With a sip of water I can appreciate that the temperature of the water has decreased. 
-After a while the ice cubes "disappear" and the glass of water reaches an homogeneous mixture in an apparently equilibrium. 
-Nevertheless, if I let the glass of water on my desk, the water will begin to evaporate slowly because the equilibration of the system was not a real equilibrium state. 
+%Two ice cubes are melting inside a glass of water while I am writting this notes. 
+Imagine two ice cubes melting inside a glass of water. 
+The process is slow but not enough to let one observe how the ice cubes reduce their size. 
+With a sip of water is possible to appreciate that the temperature of the water has decreased. 
+After a while the ice cubes "disappear" and the glass water reaches an homogeneous mixture in an apparently equilibrium. 
+Nevertheless, if we let the glass on a desk, the water will begin to evaporate slowly because the equilibration of the system is not a real equilibrium state. 
 Moreover, over the years the glass will deteriorate. 
-Further, the process will never reach an equilibrium state.
-Of course, we may distinguish "different levels" of nonequilibrium. 
-Focusing on the time we figure out that the process during the ice cubes are melting is not the same as the deterioration of the glass over the years. The second one is much slower than the first one and allows us to talk about a state of quasi-equilibrium. 
+Further, the process will never reach an equilibrium state, but we may distinguish "different levels" of non-equilibrium. 
+Focusing on the time we figure out that the process during the ice cubes are melting is not the same as the deterioration of the glass over the years.
+The second one is much slower than the first one and allows we may say that it is at {\it quasi-equilibrium}. 
 
-The above example shows that a system can be at a equilibrium state depending on the time scale of the observation. The degradation of the glass along the years is very slow in contrast with the melting of the ice cubes. Therefore, at the time scale of our observations we can found functions that evolve very slow; the may be considered as dynamic invariantes that determine the equilibrium properties of the system. 
+The above example shows that a system can be at a equilibrium state depending on the time scale of the observation. The degradation of the glass over the years is very slow in contrast with the melting of the ice cubes. Therefore, at the time scale of our observations we can found functions that evolve very slow; the may be considered as dynamic invariants that determine the equilibrium properties of the system. 
 
 %Frase del libro de Pep
-The theory of nonequilibrium that we present is based on this notion of
+The theory of non-equilibrium that we present is based on this notion of
 having several “equilibrium time scales” and takes advantage of the partial equilibration of
 the system in the time scale of evolution of the selected CG variables.
-
 At the typical time scale of a given level of description, we will observe that the system reaches a quasi-equilibrium state in which the CG variables are dynamics invariants. 
 The fast degrees of freedom rapidly reach the equilibrium while the CG variables evolve slowly. 
 When quasi-equilibrium is valid, the CG variables which describe our system at this level of description evolve much slowly than the CG of the other more detailed level of description down in the hierarchy of level of descriptions. 
 %Frase del libro de Pep
-Therefore,the system is approximately described, in the appropriate time scale, with a generalized equilibrium ensemble, called the relevant ensemble or quasi-equilibrium ensemble, that takes into account the CG variables in its definition, as if they were dynamical invariants of the system.
+Therefore, the system is approximately described, in the appropriate time scale, with a generalized equilibrium ensemble, called the {\it relevant ensemble} or quasi-equilibrium ensemble, that takes into account the CG variables in its definition as if they were dynamical invariants of the system.
 
-Quasi-equilibrium is connected with the notion of separation of time scales. As we said, the CG variables evolve slowly compared with the rest of degrees of freedom, which is, in fact, a necessary condition to obtain differential equations for the evolution of the CG variables. If there is not a well-separated time scales we may obtain dynamic equations but not simple at all, with complicated memory terms. This situation is referred to as a non-Markovian dynamics, to distinguish it from Markovian desciption in which the future state of the system is only determined by the present, but not for the past of the system. 
+Quasi-equilibrium is connected with the notion of separation of time scales. 
+As we said, the CG variables evolve slowly compared with the rest of degrees of freedom, which is, in fact, a necessary condition to obtain differential equations for the evolution of the CG variables. 
+If there is not a well-separated time scales we may obtain dynamic equations but not simple at all, with complicated memory terms, as we will see in Sec. \ref{Sec:Grabert.} 
+This situation is referred to as a {\it non-Markovian} dynamics, to distinguish it from {\it Markovian} desciption in which the future state of the system is only determined by the present but not for the past of the system. 
 
 \section{The entropy}\label{Sec:TheEntropy}
-As well as in equilibrium, in nonequilibrium situations entropy plays a fundamental role. 
+As well as in equilibrium, in non-equilibrium situations entropy plays a fundamental role. 
 %In this section we present the entropy functional proposed by Jaynes \cite{Jaynes1957}.
-Suppose that we know the averages of the CG variables of a given system 
+Suppose that we know the averages of the CG variables, $\hat{A}(z)$, of a given system 
 \begin{align}
     a = {\rm Tr}[{\hat{A}}\rho] ,
     \label{ave0}
@@ -705,11 +713,11 @@ Note that
 
 
 There are $n$ possible ensembles $\rho(z)$ which can reproduce the macroscopic information, but we would like to take the one which gives us the least biased macroscopic information.
-In the theory of probability this problem is called "Principle of Insufficient Reason" because with the information given we are not able to obtain all the possible ensembles (we would need $(n-2)$ more conditions apart from (\ref{ave0}-\ref{intrho})).
+In the theory of probability this problem is called "Principle of Insufficient Reason" because with the information given we are not able to obtain all the possible ensembles (we would need $(n-2)$ more conditions apart from \ref{ave0} and \ref{intrho}).
 
-Jaynes \cite{Jaynes1957} proposes that the distribution of probability we should use is that which maximises the Shannon's entropy functional subject to the constraints 
+Jaynes \cite{Jaynes1957} proposes that the distribution of probability we should use is that which maximises the Shannon's entropy functional subject to the constraints  
 \begin{align}
-    H[\rho] = -\sum_i\rho(z_i){\rm ln}(\rho(z_i)),
+    H[\rho] = -\sum_i\rho(z_i){\rm ln}(\rho(z_i))
     \label{ShannonEntropy}
 \end{align}
 Note that this functional applies to discrete distributions. However, the Gibbs-Jaynes entropy functional $S[\rho]$ is analogous to ($\ref{ShannonEntropy}$) but for continuos set of states $z$
@@ -771,7 +779,7 @@ change of variables  from $\lambda$ to $a$ can be  inverted to provide
 $\lambda[a]$.   Therefore, there  is  a  one to  one  connection
 between the  pair of conjugate  variables $\lambda$ and  $a$.
 
-Suppose that $a$ is a discrete variable and $\Phi[\lambda]$ the convex functional plotted in Figure \ref{fig:PhiConvex} (1). 
+Suppose that $a$ is a discrete variable and $\Phi[\lambda]$ the convex functional plotted in the pannel (1) of the Figure \ref{fig:PhiConvex}. 
 In (2) is showed the conection one to one between $\lambda$ and $a$ when the functional $\Phi[\lambda]$ is convex.
 Finally, (3) shows the second derivative of $\Phi[\lambda]$.  
 \begin{align}
@@ -839,7 +847,7 @@ is
   \label{ave}
 \end{equation}
 where $\rho_t$ is
-the nonequilibrium solution of the Liouville equation. As it is shown
+the non-equilibrium solution of the Liouville equation. As it is shown
 in  \cite{Grabert1982},  for  isolated systems  with a time-independent
 Hamiltonian,  the   averages  (\ref{ave})  evolve  according   to  the
 following closed exact equation
@@ -3627,7 +3635,7 @@ The strategy  that we follow in  order to answer
 the question about nonlocality of hydrodynamics is based on the study
 of  \textit{equilibrium time  correlation functions}  of the  discrete
 hydrodynamic variables.  The idea is that a constitutive equation like
-(\ref{GenNewtonian})     should     govern     the     nonequilibrium
+(\ref{GenNewtonian})     should     govern     the     non-equilibrium
 \textit{averages}  of the  momentum  density  field.  Through  Onsager
 regression hypothesis, near equilibrium the correlation functions will
 obey the  same equation as  the one  for the averages  and, therefore,
