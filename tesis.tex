@@ -606,7 +606,7 @@ Note that we may express the Lioville equation (\ref{LiouvilleEq}) in the follow
     \frac{d\rho_t(z)}{dt} = 0 
     \label{LiouvilleTh}
 \end{align}
-This is called the {\it Liouville theorem}. It shows that if we take a volume in the phase space bounded by a surface and we follow it during time evolution, we will observe that the surface will move and so do the points (microstates) inside the surface but the volume will remain the same. The reason is that the phase trajectories can not cross because this implies that they started at the same point. In other words: the volume in phase space must be conserved, as we can see in Figure \ref{fig:LiouvilleTh}.
+This is called the {\it Liouville theorem}. It shows that if we take a volume in the phase space bounded by a surface and we follow it during time evolution, we will observe that the surface will move and so do the points (microstates) inside the surface but the volume will remain the same. The reason is that the phase trajectories can not cross because this implies that they started at the same point. In other words: the volume in phase space must be conserved, as we can see in Fig. \ref{fig:LiouvilleTh}.
 
 \begin{figure}
     \centering
@@ -693,7 +693,7 @@ This situation is referred to as a {\it non-Markovian} dynamics, to distinguish 
 \section{The entropy}\label{Sec:TheEntropy}
 As well as in equilibrium, in non-equilibrium situations entropy plays a fundamental role. 
 %In this section we present the entropy functional proposed by Jaynes \cite{Jaynes1957}.
-Suppose that we know the averages of the CG variables, $\hat{A}(z)$, of a given system 
+Suppose that we know the averages of the CG variables $\hat{A}(z)$ of a given system 
 \begin{align}
     a = {\rm Tr}[{\hat{A}}\rho] ,
     \label{ave0}
@@ -781,21 +781,27 @@ change of variables  from $\lambda$ to $a$ can be  inverted to provide
 $\lambda[a]$.   Therefore, there  is  a  one to  one  connection
 between the  pair of conjugate  variables $\lambda$ and  $a$.
 
-Suppose that $a$ is a discrete variable and $\Phi[\lambda]$ the convex functional plotted in the pannel (1) of the Figure \ref{fig:PhiConvex}. 
-In (2) is showed the conection one to one between $\lambda$ and $a$ when the functional $\Phi[\lambda]$ is convex.
-Finally, (3) shows the second derivative of $\Phi[\lambda]$.  
+%positive definiteness is a sufficient condition for strict convexity. However in these case, positive definiteness is indeed directly implied since the second derivative is a positive definitive matrix.
+%From https://math.stackexchange.com/questions/210187/relation-between-positive-definite-matrix-and-strictly-convex-function
+
+\Tirar{
+In order to show that, let us suppose that $a$ is a discrete variable and $\Phi[\lambda]$ the convex functional plotted in the left pannel of the Fig. \ref{fig:PhiConvex}. 
+In the middle pannel is showed the conection one to one between $\lambda$ and $a$ when the functional $\Phi[\lambda]$ is convex.
+Finally, the right pannel shows the second derivative of $\Phi[\lambda]$ 
 \begin{align}
     \frac{\partial^2 \Phi}{\partial\lambda_{\mu}\partial\lambda_{\nu}}[\lambda]
     =\frac{\partial a_{\mu}}{\partial\lambda_{\nu}}
     =-\langle\delta A_{\mu}\delta A_{\nu}\rangle^{\lambda}
 \end{align}
-If $\langle\delta A_{\mu}\delta A_{\nu}\rangle$ is definite positive, $\frac{\delta^2}{\partial\lambda_{\mu}\partial\lambda_{\nu}}$ must be definite negative ((3) in Fig. \ref{fig:PhiConvex}). 
+Because $\langle\delta A_{\mu}\delta A_{\nu}\rangle$ is definite positive (and, therefore, convex), $\frac{\delta^2}{\partial\lambda_{\mu}\partial\lambda_{\nu}}$ must be definite negative (right pannel in Fig. \ref{fig:PhiConvex}). This implies that $\Phi[\lambda]$ must to be convex, as is shown in the left pannel of Fig. \ref{fig:PhiConvex}.
 \begin{figure}
     \centering
     \includegraphics[width=\linewidth]{PhiConvex}
     \caption[Connection one to one between $\lambda$ and $a$]{Representation of the convex functional $\Phi[\lambda]$ and its first and second derivative.}
     \label{fig:PhiConvex}
 \end{figure}
+}
+
 
 This argument is  valid for  any pair  of conjugate variables  and it
 only depends on  the definition of the  conjugate variables introduced
@@ -864,25 +870,25 @@ The reversible term is given by
 v_i(t) = {\rm Tr}[\overline{\rho}_t  iL \hat{A}_i]
 \label{vit}
 \end{equation}
-where $iL$ is the Liouville operator (\ref{iL})
+where $iL$ is the Liouville operator (\ref{iL}).
 
 The  relevant
 ensemble $\overline{\rho}_t$  is of  the form (\ref{relens1}),  with a
 time   dependent  conjugate   variable  $\lambda(t)$.   The  conjugate
 variables  $\lambda$ are  selected in  such  a way  that the  averages
-$a(t)$ of the  real and of the relevant ensemble  coincide.  Note that
+$a(t)$ of the  real (i.e. the  solution of the Liouville equation) and of the relevant ensemble  coincide.  Note that
 if   only  the   reversible  term   $v_i(t)$  would   be  present   in
-Eq. (\ref{ex}), we would be  approximating the actual ensemble that it
-is a  solution of the Liouville  equation with a relevant  ensemble of
-the form (\ref{relens1}) where the conjugate field $\lambda(t)$ is now
+Eq. (\ref{ex}), we would be  approximating the actual ensemble 
+with a relevant  ensemble of
+the form (\ref{relens1}), where the conjugate field $\lambda(t)$ is now
 a function of time.  The error  in this approximation is, in fact, the
 memory term which describes  irreversible behaviour.  The irreversible
 term in Eq. (\ref{ex}) involves the memory kernel
 \begin{equation}
 K_{ij}(t,t') =
-{\rm Tr}[\overline{\rho}_{t'} 
+{\rm Tr}\left[\overline{\rho}_{t'} 
 \left({\cal Q}_{t'} iL\hat{A}_j\right) G_{t't}
-\left({\cal Q}_{t } iL\hat{A}_i\right)]
+\left({\cal Q}_{t } iL\hat{A}_i\right)\right]
 \label{ker}
 \end{equation}
 where   the  Kawasaki-Gunton   projection  operator   ${\cal  Q}_{t'}$
@@ -903,6 +909,7 @@ G_{t't}&=&1
 \nonumber\\
 &=&T_-\exp\left\{\int_{t'}^t dt''  iL{\cal Q}_{t''}\right\}
 \end{eqnarray}
+\Pendiente{where $T_-$ ensures that the operators are ordered from left to right as time increases.} \Note{¿Correcto?}
 Eq.   (\ref{ex}) is  a closed  exact equation  for the  time dependent
 averages $a(t)$.  The only assumption  taken in deriving (\ref{ex}) is
 that the initial  ensemble to be used in the  Liouville equation is of
@@ -942,7 +949,7 @@ evolution of  the relevant variables.  The  dissipative matrix depends
 in general  on the  relevant variables  through the  relevant ensemble
 and, as such, it is a function of time.  The dissipative matrix is, to
 the  extent that  the  Markov property  holds,  positive definite  and
-satisfies Onsager's reciprocity \cite{Grabert1982}.
+satisfies Onsager's reciprocity \cite{Grabert1982}. \Note{¿Onsager's reciprocity: $D_{ij}=D_{ji}$?}
 
 It is straightforward  to show that the  dynamic equations (\ref{ex2})
 have  as  a  Lyapunov   function  the  entropy  (\ref{entropya})  and,
@@ -954,7 +961,15 @@ with the present  formalism \cite{Grabert1982} but we  do not consider
 them here for simplicity.
 
 
-\section{Conclusions}
+\section{Summary}
+
+In this chapter we have introduced two important concepts that holds this dissertation. The first one is the quasi-equilibrium, and states that what we refer to equilibrium of a system depends of the time window we use. The second one, the separation of time scales,  is a consecuence of the first one.Markovian.
+
+We have introduced the relevant ensemble, $\bar{rho}$, based on the idea that the least biased probability distribution function is the one which maximazes the Shannon's entropy functional, which evaluated at its maximum (i.e. the relevant ensemble) is equal to the entropy function $S[a]$ obtained as the legendre transform of the thermodynamic potential $\Phi[\lambda]$.
+
+Finally, following the textbook of Grabert \cite{Grabert1982}, we have shown the general form of the dynamic equation of the relevant variables of a system, which has two terms, reversible and irreversible. The last one cointa the information about the past, is the term of memory. We have simplified it assuming the markovian aproximation. The memory-less equation obtained let us in the following chapter to obtain the dynamic equations of a CG variables of a system consisting on a liquid between two solid slabs.  
+
+
 
 
 
@@ -2071,7 +2086,7 @@ in the dissipative part of the dynamics.
 
 \Note{Falta desde Let us discuss}
 
-\section{Conclusions}
+\section{Summary}
 
 
 %-----------------------------------------------------------------
@@ -2284,7 +2299,7 @@ The finite element basis functions $\Phi_\mu({\bf r})$ also form a partition of 
 \label{partition}
 \end{align}
 
-We plot  in Figure  \ref{psichi} the  basis function  $\Phi_\mu(z)$ of
+We plot  in Fig.  \ref{psichi} the  basis function  $\Phi_\mu(z)$ of
 node  $\mu$ and  the  characteristic function  $\chi_\mu(z)$ of  bin
 $\mu$.
 \begin{figure}[h]
@@ -3428,7 +3443,7 @@ terms of finite element basis functions.
 
 
 
-\section{Conclusions}
+\section{Summary}
 In Chapter \ref{Chap:Theory} we presented  a continuum isothermal
 hydrodynamic  theory  for  simple  fluids in  the  presence  of  solid
 walls. The theory describes solid-fluid interaction through reversible
@@ -3668,7 +3683,7 @@ The chapter is structured as follows. In Sec. \ref{Sec:Mori} we summarize
 Mori theory in  order to set the notation and  particularize it to the
 discrete transverse momentum variable, both in real and Fourier space, and we offer the corrected Green-Kubo formula which avoid the plateau problem.
 In Sec. \ref{Sec:SimPBC} we present the simulation results and we conclude
-in Sec. \ref{Sec:ConclusionsChapPBC}.
+in Sec. \ref{Sec:SummaryChapPBC}.
 
 
 \section{Mori theory}
@@ -4767,7 +4782,7 @@ In the local approximation, the relaxation time (\ref{taumu}) is given by
 \label{taumuloc}
 \end{align}
 
-%\subsection{Conclusions of the theory}
+%\subsection{Summary of the theory}
 %The  two main  quantities of  concern  are the  correlation matrix  of
 %discrete momentum  $C(t)$ and the  correlation matrix of  the discrete
 %stress  that appears  in  the Green-Kubo  running integral  $\eta(t)$.
@@ -5220,8 +5235,8 @@ periodic boundary conditions is fairly local, and can be described with
 \end{figure}
 
 \newpage
-\section{Conclusions}
-\label{Sec:ConclusionsChapPBC}
+\section{Summary}
+\label{Sec:SummaryChapPBC}
 In the first part of this chapter -- Sec. \ref{Sec:Mori} -- we have addressed  the plateau problem that  appears in
 the  expression of  transport  coefficient in  terms  of the  standard
 Green-Kubo running integrals.  In the  case of Markovian dynamics with
@@ -5791,7 +5806,7 @@ $t=0$ vanishes, as it is clear for $C_{3,5}(t)$.
 \label{fig:PredictionsCross-WALLS-17nodes}
 \end{figure}
 
-\section{Conclusions}
+\section{Summary}
 In this chapter we have considered  the discrete hydrodynamics of  a LJ
 fluid  confined  between   two  rigid  parallel  walls   of  fixed  LJ
 particles. We  measure the correlation  matrix $C(t)$ of  component of
@@ -5894,7 +5909,7 @@ length.
 \markboth{The slip boundary condition from MD simulations}{}
 \section{Introduction}
 
-\section{Conclusions}
+\section{Summary}
 
 %-----------------------------------------------------------------
 %CHAPTER CONCLUSIONS
