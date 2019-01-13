@@ -243,7 +243,7 @@ The quotes in the beginning of each chapter are taken from books I read over the
 %\setcounter{chapter}{-1}
 \pagestyle{chapters}  %define page style for the chapters
 \markboth{Introduction}{Introduction}
-\epigraph{\textit{Descubrir es ver de otro modo lo que nadie ha percibido.}}{Blanco Nocturno \\ RICARDO PLIGIA}
+\epigraph{\textit{Falta cita.}}{Título \\ AUTOR}
 
 \Note{Viene de la introducción del paper I}
 There  is great  interest  in  the behaviour  of  fluids  in the  nano
@@ -963,14 +963,11 @@ them here for simplicity.
 
 \section{Summary}
 
-In this chapter we have introduced two important concepts that holds this dissertation. The first one is the quasi-equilibrium, and states that what we refer to equilibrium of a system depends of the time window we use. The second one, the separation of time scales,  is a consecuence of the first one.Markovian.
+In this chapter we have introduced two important concepts that holds this dissertation. The first one, quasi-equilibrium, states that what we refer to equilibrium of a system depends on the time window we take. If the time of obervation is shorter than the time in which some variables evolve, we may use this variables as CG variables. Because the other variables evolve faster we may assume that are irrelevant for the selected level of description. Therefore, we say that the slow and faster variables evolve in different time scales, which is the second important concept of this chapter. Only when there is a well-separation of time scales we obtain tractable time evolution equation without memory terms. This is known as Markovian descripcion to distinguish from the non-Markovian description in which the present state is determined by the past. 
 
-We have introduced the relevant ensemble, $\bar{rho}$, based on the idea that the least biased probability distribution function is the one which maximazes the Shannon's entropy functional, which evaluated at its maximum (i.e. the relevant ensemble) is equal to the entropy function $S[a]$ obtained as the legendre transform of the thermodynamic potential $\Phi[\lambda]$.
+Under the Markovian aproximation, we obtain the general form of the memory-less dynamic equation of the selected variables. In the next chapter we will use this equation to obtain the dynamic equations of the CG variables of a system consisting on a liquid between two solid slabs.  
 
-Finally, following the textbook of Grabert \cite{Grabert1982}, we have shown the general form of the dynamic equation of the relevant variables of a system, which has two terms, reversible and irreversible. The last one cointa the information about the past, is the term of memory. We have simplified it assuming the markovian aproximation. The memory-less equation obtained let us in the following chapter to obtain the dynamic equations of a CG variables of a system consisting on a liquid between two solid slabs.  
-
-
-
+%We have introduced the relevant ensemble, $\bar{rho}$, based on the idea that the least biased probability distribution function is the one which maximazes the Shannon's entropy functional, which evaluated at its maximum (i.e. the relevant ensemble) is equal to the entropy function $S[a]$ obtained as the legendre transform of the thermodynamic potential $\Phi[\lambda]$.
 
 
 %-----------------------------------------------------------------
@@ -978,7 +975,8 @@ Finally, following the textbook of Grabert \cite{Grabert1982}, we have shown the
 %-----------------------------------------------------------------
 \chapter{Coarse hydrodynamics theory for liquids near solids}\label{Chap:Theory}
 \markboth{Coarse hydrodynamics theory for liquids near solids}{}
-\epigraph{\textit{Le temps est une invention du mouvement. Celui qui ne bouge pas ne voit pas le temps passer.}}{Métaphysique des tubes \\ AMÉLIE NOTHOMB}
+\epigraph{\textit{There is no future. There is no past. Do you see? Time is simultaneous, an intricately structured jewel that humans insist on viewing one edge at a time, when the whole design is visible in every facet.}}{Watchmen \\ ALAN MOORE} 
+
 \section{Introduction}
 As it was mentioned in the Introduction, Density Functional Theory (DFT) is a successful and well-established theory for the study of the structure of simple and complex fluids at equilibrium. The theory has been generalized to dynamical situations when the underlying dynamics is diffusive as in, for example, colloidal systems. However, there is no such a clear foundation for Dynamic DFT (DDFT) for the case of \textit{simple} fluids in contact with solid walls. In this chapter, we derive DDFT for simple fluids by including not only the mass density field but also the momentum density field of the fluid. The standard projection operator method based on the Kawasaki-Gunton operator is used for deriving the equations for the average value of these fields. 
 
@@ -5330,7 +5328,7 @@ Camargo et al. presented in \cite{CamargoBC2018}.
 %-----------------------------------------------------------------
 \chapter{Markovian behaviour near solids}\label{Chap:Walls}
 \markboth{Markovian behaviour near solids}{}
-\epigraph{\textit{There is no future. There is no past. Do you see? Time is simultaneous, an intricately structured jewel that humans insist on viewing one edge at a time, when the whole design is visible in every facet.}}{Watchmen \\ ALAN MOORE} 
+\epigraph{\textit{Descubrir es ver de otro modo lo que nadie ha percibido.}}{Blanco Nocturno \\ RICARDO PLIGIA}
 \section{Introduction}
 In Chapter \ref{Chap:PBC} we have demonstrated
 through MD simulations that the Markovian assumption
@@ -5915,7 +5913,7 @@ length.
 %CHAPTER CONCLUSIONS
 %-----------------------------------------------------------------
 \chapter{Conclusions}\label{Chap:Conclusions}
-\epigraph{\it{El auténtico corredor corre hasta el final.}}{El corredor \\ JOHN L. PARKER}
+\epigraph{\textit{The runner runs truly to the end.}}{Once a runner \\ JOHN L. PARKER}
 
 
 \bibliographystyle{unsrt}
