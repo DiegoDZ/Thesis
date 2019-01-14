@@ -1158,28 +1158,22 @@ Consider a liquid system of $N$ monoatomic molecules described
 with the position and momenta of  their center of mass.  The molecules
 are allowed to move through  space unrestrictedly. To avoid the issues
 of  an infinite  number  of particles  required  in the  thermodynamic
-limit, and to make closer contact with molecular dynamics simulations,
+limit, and to make closer contact with MD simulations,
 we simply  assume that  the system  has periodic  boundary conditions.
 Interacting with that sea of liquid molecules there is a group of $N'$
 bonded atoms forming  what we would understand at a macroscopic level
-as a solid object of spherical shape. \Note{By considering the interaction of a liquid with a solid sphere, we may address the issue of total momentum conservation that may become rather obscure if one considers ``planar walls with infinite mass''.}
-In addition, we take a solid sphere because then only the position and the momentum of the center of mass is required in order to have a coarse-grained description of the solid sphere. For non-spherical particles, it is necessary, in general, to include also the orientation  and angular velocity of the sphere, as this is expected to play an important role in the dynamics. 
-Still, even in the spherical object case, it may be important to introduce angular velocity in order to have accurate results. 
-However, for the sake of simplicity and presentation of the basic results, we restrict ourselves in this paper to the simplest case without angular variables for the solid sphere.  
-
-
-At the microscopic level the system is described  by the set of
-as this is expected to play an important role in the dynamics. Still, all  positions  ${\bf  q}_i$  and  momenta  ${\bf  p}_i=m_i{\bf  v}_i$
+as a solid object of spherical shape. 
+At the microscopic level the system is described  by the set of all  positions  ${\bf  q}_i$  and  momenta  ${\bf  p}_i=m_i{\bf  v}_i$
 ($i=1,\cdots,N$) of the liquid atoms plus the positions ${\bf q}_{i'}$
 and  momenta ${\bf  p}_{i'}=m_{i'}{\bf v}_{i'}$  ($i'=1,\cdots,N'$) of
 the atoms  of the solid  sphere.  For  compactness we will  denote the
-microstate in either  of the following forms $z$  or ${q,p,q',p'}$. We
+microstate in either  of the following forms $z$  or ${q,p,q',p'}$. From now, we
 will distinguish  with a prime  the labels of  the atoms of  the solid
 sphere from the  unprimed labels of the liquid  atoms.  The microstate
 of  the  system  evolves  according to  Hamilton's  equations  with  a
 Hamiltonian given by
 \begin{eqnarray}
-H(z) &=& \sum^N_i \frac{p_i^2}{2m_i} + \sum^{N'}_{i'} \frac{p_{i'}^2}{2m_{i'}}
+H_N(z) &=& \sum^N_i \frac{p_i^2}{2m_i} + \sum^{N'}_{i'} \frac{p_{i'}^2}{2m_{i'}}
 + U(z)
 \label{H}
 \end{eqnarray}
@@ -1210,19 +1204,20 @@ particle  surrounded  by  the  (possibly  infinite  in  extension,  or
 periodic)  liquid. A solid is
   regarded as a collection of  bounded atoms (that is, their relative
 distances  do  not  increase  without   bound)  that  are  moving  and
-vibrating. The spherical  shape of the particle  should be understood,
-of course, in a statistical sense.
+vibrating. 
+%The spherical  shape of the particle  should be understood,
+%of course, in a statistical sense.
 
 \subsection{The relevant variables}
 We describe the system at a coarse grained level by selecting as
-relevant variables the  mass and momentum density fields  of the liquid
+relevant variables the mass and momentum density fields  of the liquid
 and  the   center  of  mass   position  and  momentum  of   the  solid
 sphere. These are given by the following set of phase functions 
 \begin{align}
-  \hat{\rho}_{\bf r}(z) &=\sum^{N}_im\overline{\delta}({\bf r}-{\bf q}_i),
+  \hat{\rho}_{\bf r}(z) &=\sum^{N}_im\overline{\delta}({\bf r}-{\bf q}_i)
 &&\hat{\bf R}(z)=\frac{1}{N'}\sum_{i'}^{N'}{\bf q}_{i'}
 \nonumber\\
-  \hat{\bf g}_{\bf r}(z) &=\sum^{N}_i{\bf p}_i\overline{\delta}({\bf r}-{\bf q}_i),
+  \hat{\bf g}_{\bf r}(z) &=\sum^{N}_i{\bf p}_i\overline{\delta}({\bf r}-{\bf q}_i)
 &&\hat{\bf P}(z)=\sum_{i'}^{N'}{\bf p}_{i'}
 \label{CGvar}
 \end{align}
@@ -1231,7 +1226,7 @@ In these phase  functions, the position ${\bf r}$ plays  the role of a
 continuous index labeling  the phase function. The  position ${\bf r}$
 may take any value in  $\mathbb{R}^3$, or its periodic counterpart, as
 we  do  not  have  any  restriction to  the  possible  motion  of  the
-particles. \Pendiente{The hamiltonian (\ref{H}) is also a relevant variable.}
+particles. As was mentioned in \ref{Chap:NESM} the hamiltonian (\ref{H}) is also a relevant variable.
 
 For the sake of simplicity, we do not include orientational degrees of
 freedom of the  solid for the time being.  Note  that by selecting the
@@ -1250,7 +1245,7 @@ in  simulation work,  where the  solid  is  assumed to  be made  of
 ``frozen''  particles that  act  as simple  generators  of forces  not
 reacting back  to the presence of  the liquid. In this  case, the solid
 should be modeled as a static external field acting on the liquid. The
-structure of the theory changes in this case as we will discuss later.
+structure of the theory changes in this case as we will discuss later. \Note{Seguro?}
 
 \subsection{The time derivatives of the relevant variables}
 The time derivatives  of the coarse variables play  a fundamental role
@@ -1268,7 +1263,7 @@ iL  \hat{\bf g}_{\bf r}(z) &=& -\boldsymbol{\nabla}{\cdot} \hat{{\bf K}}_{\bf r}
 \end{eqnarray}
 Here, the kinetic stress tensor is 
 \begin{align}
-  \hat{{\bf K}}_{\bf r} &=\sum^{N}_i{\bf p}_i{\bf v}_i
+  \hat{{\bf K}}_{\bf r}(z) &=\sum^{N}_i{\bf p}_i{\bf v}_i
 \overline{\delta}({\bf r}-{\bf q}_i)
 \end{align}
 and the total  force density $\hat{\bf F}^l_{\bf r}(z)$  on the liquid
@@ -1296,7 +1291,7 @@ exerts on  atom $i$ of  the liquid.   This is, $\hat{\bf  F}^{\rm l\to
   l}_{\bf r}(z)  $ is  the microscopic force  density that  the liquid
 exerts on the liquid molecules that are around the point ${\bf r}$ and
 $\hat{\bf F}^{\rm s\to l}_{\bf r}(z)$ is the microscopic force density
-that the solid object exerts on the liquid at the point ${\bf r}$.
+that the solid object exerts on the liquid around the point ${\bf r}$.
 
 We may write the force that the liquid exerts on the liquid 
 \begin{align}
@@ -1316,11 +1311,11 @@ of the Dirac delta functions in terms of a divergence
 \nonumber\\
 \label{trick}
 \end{eqnarray}
-\Note{Aclarar si es $-\epsilon q_{ij}$ o $\epsilon q_{ij}$.}
 
 The liquid  force density  $\hat{\bf F}^{\rm  l\to l}_{\bf  r}(z)$ can
 then be expressed  as the divergence of the  microscopic virial stress
 tensor, this is
+\Note{Si Eq. (\ref{trick}), entonces el $\epsilon$ de Eq. (\ref{micfluxes}) tiene que ser negativo.}
 \begin{align}
 \hat{\bf F}^{\rm l\to l}_{\bf r}(z)&=-\boldsymbol{\nabla}{\cdot} \hat{\boldsymbol{\Pi}}_{\bf r}(z)
 \nonumber\\
@@ -1350,7 +1345,7 @@ tensor of the fluid, this is
 \end{align}
 For the solid object we have that the action of the Liouville operator gives
 \begin{align}
-    iL\hat{\bf R}(z) &=\frac{\hat{\bf P}(z)}{M}
+    iL\hat{\bf R}(z) &=\frac{\hat{\bf P}(z)}{M'}
   \nonumber\\
     iL\hat{\bf P}(z) &=-\int  d{\bf r} \hat{\bf F}^{\rm s\to l}_{\bf r}(z)
    \label{Pfsl}  
@@ -1369,6 +1364,7 @@ argument holds when the domain of integration is periodic.
 
 
 Summarizing, the time derivatives of the relevant variables of the system are
+\Note{Recordar: gradiente/divergencia}
 \begin{align}
     iL \hat{\rho}_{\bf r}(z) &= -\boldsymbol{\nabla}\esc\hat{\bf g}_{\bf r}(z)
 \nonumber\\
@@ -1381,7 +1377,7 @@ iL\hat{\bf g}_{\bf r}(z)
 \end{align}
 
 \section{The relevant ensemble and the grand potential}
-In section \ref{Sec:TheEntropy} we obtained that the ensemble which maximizes the Gibbs-Jaynes entropy function (\ref{entropy}) is of the type
+In Sec. \ref{Sec:TheEntropy} we obtained that the ensemble which maximizes the Gibbs-Jaynes entropy function (\ref{entropy}) is of the type
 \begin{equation}
 \overline{\rho}(z) = \frac{1}{Z[\lambda]} \rho_0\exp\{-\lambda\!\cdot\!\hat{A}(z)\}
 %\label{relens1}
@@ -1425,7 +1421,7 @@ where we have introduced the coarse conjugate variables as
   \end{align}
 The conjugate fields $\lambda$ of the CG variables (\ref{CGvar}) are fixed by the condition that the averages of the CG variables with the relevant ensemble coincide with the averages $\rho({\bf  r}),{\bf  g}({\bf
   r}),{\bf  R},{\bf  P}$  computed  with  the 
-  solution of  the Liouville equation (we omit the time  dependence for simplicity). This conditions can be expressed as in Eqs. (\ref{cg1}) 
+  solution of  the Liouville equation (we omit the time  dependence for simplicity). This conditions can be expressed as in Eq. (\ref{cg1}) through the followig expressions 
 \begin{align}
   \rho({\bf r}) &=\frac{\delta \Phi [\lambda]}{\delta \lambda_\rho({\bf r}) }
 &&{\bf R} =\frac{\partial \Phi [\lambda]}{\partial \boldsymbol{\lambda}_R }
@@ -1434,19 +1430,19 @@ The conjugate fields $\lambda$ of the CG variables (\ref{CGvar}) are fixed by th
 &&{\bf P} =\frac{\partial \Phi [\lambda]}{\partial \boldsymbol{\lambda}_P }
 \label{rgo}
 \end{align}
-where the $\lambda$-dependent grand-canonical potential is given, as in Eq. (\ref{PhiLambda}) by
+where the $\lambda$-dependent {\em grand-canonical potential} is given, as in Eq. (\ref{PhiLambda}) by
 \begin{eqnarray}
   \Phi [\lambda]&\equiv&-k_BT \ln\Xi [\lambda]
 \label{oh}
 \end{eqnarray}
-As we saw in section (\ref{Sec:TheEntropy}), there is a one to one connection between the CG variables and the conjugate ones becasuse the functional $\Phi[\lambda]$ is convex.  
+As we saw in Sec. (\ref{Sec:TheEntropy}), there is a one to one connection between the CG variables and the conjugate ones becasuse the functional $\Phi[\lambda]$ is convex.  
 Therefore, the  functionals $\lambda_{\rho}[\rho,{\bf  g},{\bf R},{\bf
   P}]$,   $\boldsymbol{\lambda}_g[\rho,{\bf   g},{\bf  R},{\bf   P}]$,
 $\boldsymbol{\lambda}_R[\rho,{\bf      g},{\bf      R},{\bf      P}]$,
 $\boldsymbol{\lambda}_P[\rho,{\bf g},{\bf  R},{\bf P}]$ exist  and are
 unique.   We  can  therefore   switch  from  the  conjugate  variables
-$\lambda$   to  the   relevant   variables  $a$   and  construct   the
-corresponding hydrodynamic functional.The   hydrodynamic functional   is    given   by   the   Legendre    transform   of   the $\lambda$-dependent grand canonical potential, this is
+ to  the   relevant   variables  and  construct   the
+ corresponding {\em hydrodynamic functional} given   by   the   Legendre    transform   of   the $\lambda$-dependent grand-canonical potential, this is
 \begin{align}
 {\cal H}[\rho,{\bf g},{\bf R},{\bf P}] &=
 \Phi [\lambda_\rho,\boldsymbol{\lambda}_g,\boldsymbol{\lambda}_R,\boldsymbol{\lambda}_P]
@@ -1483,7 +1479,7 @@ It is possible to find the explicit expression of $\lambda_{g}({\bf r})$ and $\b
     r}_i) -\beta \boldsymbol{\lambda}_{R}\esc\hat{\bf R}(z) \right\}
 \nonumber \\
 &\times
-\exp\left\{-\beta \left(\sum_{i=1}^N\frac{{\bf p}_i^2}{2m_i} + \sum_{i=1}^{N'}\frac{{\bf p}_{i'}^2}{2m_{i'}} \right) - \beta \sum_{i=1}^N{\bf p}_i\esc\boldsymbol{\bar{\lambda}}_g({\bf q}_i) 
+\exp\left\{-\beta \left(\sum_{i=1}^N\frac{{\bf p}_i^2}{2m_i} + \sum_{i=1}^{N'}\frac{{\bf p}_{i'}^2}{2m_{i'}} \right) - \beta \sum_{i=1}^N{\bf p}_i\esc\boldsymbol{\lambda}_g({\bf q}_i) 
 -\beta \boldsymbol{\lambda}_P\sum_{i=1}^{N'}{\bf p}_{i'}\right\}
 \end{align}
 We may group the terms in this way
@@ -1493,11 +1489,11 @@ We may group the terms in this way
 \sum_{N=0}^\infty \frac{1}{N!h^{3N}}
 \int dqdpdq'dp'
 \nonumber \\
-&\times\exp\left\{-\beta U(z)-\beta \sum_{i=1}^Nm\bar{\lambda}_\rho({\bf
+&\times\exp\left\{-\beta U(z)-\beta \sum_{i=1}^Nm\lambda_\rho({\bf
     r}_i) -\beta \boldsymbol{\lambda}_{R}\esc\hat{\bf R}(z) \right\}
 \nonumber \\
 &\times
-\exp\left\{-\beta \sum_{i=1}^N\left(\frac{{\bf p}_i^2}{2m_i} + {\bf p}_i\esc\boldsymbol{\bar{\lambda}}_g({\bf q}_i)\right)\right\}
+\exp\left\{-\beta \sum_{i=1}^N\left(\frac{{\bf p}_i^2}{2m_i} + {\bf p}_i\esc\boldsymbol{\lambda}_g({\bf q}_i)\right)\right\}
 \exp\left\{-\beta \sum_{i=1}^{N'}\left(\frac{{\bf p}_{i'}^2}{2m_{i'}} + \boldsymbol{\lambda}_P{\bf p}_{i'}\right) \right\}
 \end{align}
 We perform the Gaussian integrals over momenta by using 
@@ -1517,7 +1513,7 @@ reaching the following expression
 &\times&\exp\left\{-\beta \left(\boldsymbol{\lambda}_R\cdot\hat{\bf R}-\frac{M'}{2}\boldsymbol{\lambda}_{P}^2\right)\right\},
 \label{xiln2}
 \end{eqnarray}
-where we have introduced the thermal wavelength 
+where we have introduced the thermal wavelength  \Note{Aunque no hay problemas de confusión, le pongo un subíndice a esta $\Lambda$ para que no coincida con la $\Lambda$ que usamos en las correlaciones?}
 \begin{align}
 \Lambda=\left(\frac{h^2\beta}{2\pi m}\right)^{\frac{1}{2}}
 \label{ThermalWave}
@@ -1557,6 +1553,7 @@ where we have defined the following grand potential
     r}_i)+ \boldsymbol{\lambda}_R\cdot\hat{\bf R}\right)\right\}
 \label{xpos}
 \end{align}
+\Note{Superíndice pos se refiere a positions?}
 and the chemical potential per unit mass has been introduced as
 \begin{align}
   \mu({\bf r})&\equiv\frac{1}{2}\lambda_g^2({\bf r})-\lambda_\rho({\bf r})
@@ -5968,8 +5965,9 @@ The following published articles and posters are related with this dissertation.
 \chapter{Physical parameters and variables}
 \begin{tabular}{l l}
     $m$ & mass particles \\
+    $M'$ & mass solid sphere \\
     $M$ & mass solid walls \\
-    $N$ & Number of particles \\
+    $N$ & Number of liquid particles \\
     $N_{\rm bins}$ & Number of nodes \\
     $k_B$ & Boltzmann's constant \\
     $T$ & Temperature \\
@@ -6451,7 +6449,7 @@ grand-canonical partition function defined as
 \begin{align}
 &\Xi(\lambda,{\bf v})\equiv \sum_{N=0}^\infty \frac{1}{N!h^{3N}}
   \int d\hat{z}d\hat{z}'
-\exp\left\{-\beta \hat{H}_N-\beta\left( M^\psi_{\mu\nu}\lambda_\nu\hat{\rho}_{\mu}
+  \exp\left\{-\beta \hat{H}_N(z)-\beta\left( M^\psi_{\mu\nu}\lambda_\nu\hat{\rho}_{\mu}
 -M^\psi_{\mu\nu}{\bf v}_\nu\esc\hat{\bf g}_{\mu}\right)\right\}
 \label{xiln0}
 \end{align}
@@ -6466,7 +6464,7 @@ in the form
   \rho_\mu &=M^\delta_{\mu\nu}\frac{\partial \Phi(\lambda,{\bf v})}{\partial \lambda_\nu }
 \nonumber\\
   {\bf g}_\mu &=-M^\delta_{\mu\nu}\frac{\partial \Phi(\lambda,{\bf v})}{\partial {\bf v}_\nu }
-\label{rgo}
+\label{rgoApp}
 \end{align}
 where we have used that the matrices $M^\delta, M^\psi$, defined in (\ref{MdMp}), are inverse of
 each other.  
@@ -6517,7 +6515,7 @@ solid degrees of freedom $\hat{z}'$, with the result
 \exp\left\{-\beta (\hat{H}^l +\hat{V}^{\rm sl} )-\beta
 \left(M^\psi_{\mu\nu}\lambda_\nu\hat{\rho}_{\mu} 
 -M^\psi_{\mu\nu}{\bf v}_\nu\esc\hat{\bf g}_{\mu} \right)\right\}
-\label{xiln}
+\label{xilnApp}
 \end{align}
 where the CG effective potential $\hat{V}^{\rm sl}(z)$ captures, in a CG way, the interaction
 of the fluid atoms with the solid walls. It is defined as
@@ -6526,7 +6524,7 @@ of the fluid atoms with the solid walls. It is defined as
   \exp\{-\beta \hat{H}^{\rm s}(\hat{z}')+\hat{V}(\hat{z},\hat{z}')\}
 \end{align}
 We may separate the integrals over position and momenta explicitly in  the partition
-function  (\ref{xiln})
+function  (\ref{xilnApp})
 \begin{align}
 \Xi(\lambda,{\bf v})
 &\equiv
@@ -6537,7 +6535,7 @@ M^\psi_{\mu\nu}\lambda_\nu\hat{\rho}_{\mu}(\hat{z})\right\}
 \times \nonumber \\
 &\int d\hat{p}
 \exp\left\{-\beta\sum_i\frac{{\bf p}_i^2}{2m_i}+\beta M^\psi_{\mu\nu}{\bf v}_\nu\esc\sum_i{\bf p}_i\delta_\mu({\bf q}_i)\right\}
-\label{xiln2}
+\label{xilnApp2}
 \end{align}
 where $\hat{V}(\hat{z})=\hat{V}^{ll}(\hat{z})+\hat{V}^{sl}(\hat{z})$ is the potential energy of the fluid. 
 
@@ -6601,7 +6599,7 @@ where we have introduced the following matrix with dimensions of mass
 This matrix is a  function of  the coordinates  of the  particles.   
 
 By using the result for $\Omega_0$ in (\ref{Omegas}),  the  grand  partition  function
-(\ref{xiln2}) becomes
+(\ref{xilnApp2}) becomes
 \begin{align}
 \Xi(\lambda,{\bf v})\equiv \sum_{N=0}^\infty \frac{1}{N!}
 \int \frac{dq}{\Lambda^{3N}}
@@ -6620,7 +6618,7 @@ where the thermal wavelength $\Lambda$ is  defined in (\ref{ThermalWave}).
 It is possible to find the  explicit expression for the velocity ${\bf
   v}_\mu$ as  a function of  the CG variables  $\rho_\mu,{\bf g}_\mu$.
 The  velocity   and  momentum   density  field  are   related  through
-(\ref{rgo}).   By  using  (\ref{oh})  and (\ref{xiln2})  one  is  lead
+(\ref{rgoApp}).   By  using  (\ref{oh})  and (\ref{xiln2})  one  is  lead
 directly to the explicit form of the conjugate variables
 \begin{align}
 {\bf g}_\mu&=M^\delta_{\mu\mu'}\llangle \hat{\cal M}_{\mu'\nu}\rrangle^{\lambda {\bf v}} {\bf v}_\nu =\rho_{\mu\nu}{\bf v}_\nu
