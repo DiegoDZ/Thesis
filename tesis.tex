@@ -1570,7 +1570,7 @@ The Legendre transform of the gran potential for a simple liquid gives the class
 -\boldsymbol{\lambda}_R\frac{\partial \Phi^{\rm pos}}{\partial \lambda_R}[\mu,\boldsymbol{\lambda}_R] 
 \label{legPrev}
 \end{align}
-The derivatives we need of the functional (\ref{xpos}) are \Note{(No me salen estas dos expresiones)}
+The derivatives we need of the functional (\ref{xpos}) are
 \begin{align}
  \frac{\delta \Phi^{\rm pos}}{\delta \mu({\bf r})}[\mu,\boldsymbol{\lambda}_R]&=-
 \langle \hat{\rho}_{\bf r}\rangle^{\mu,\boldsymbol{\lambda}_R}
@@ -1590,7 +1590,7 @@ function.  Therefore, the  connection between $\langle \hat{\rho}_{\bf
 the phase functions  $ \hat{\rho}_{\bf r}, \hat{\bf R}$  do not depend
 on particle's momenta, we have that the averages are given by
 \begin{align}
-  \langle \hat{\rho}_{\bf r}\rangle^{\mu,\boldsymbol{\lambda}_R} &={\rm Tr}[\overline{\rho}\hat{\rho}_{\bf r}]=\rho_{\bf r}
+  \langle \hat{\rho}_{\bf r}\rangle^{\mu,\boldsymbol{\lambda}_R} &={\rm Tr}[\overline{\rho}\hat{\rho}_{\bf r}]=\rho({\bf r})
 \nonumber\\
   \langle \hat{\bf R}\rangle^{\mu,\boldsymbol{\lambda}_R} &={\rm Tr}[\overline{\rho}\hat{\bf R}]={\bf R}
 \end{align}
@@ -1608,7 +1608,7 @@ Finally, we have the free energy functional ${\cal  F}[\rho,{\bf R}]$ of a struc
 \end{align}
 whose derivatives are given by 
 \begin{align}
-   \frac{\delta {\cal F}}{\delta\rho({\bf r})}[\rho,{\bf R}] &=\mu({\bf r},{\bf R})
+   \frac{\delta {\cal F}}{\delta\rho({\bf r})}[\rho,{\bf R}] &=\mu({\bf r})
 \nonumber\\
    \frac{\partial {\cal F}}{\partial{\bf R}}[\rho,{\bf R}] &=-\boldsymbol{\lambda}_R
 \label{Fd2}
@@ -1624,7 +1624,7 @@ We can obtain an expression for the  hydrodynamic functional (\ref{oleg}) replac
 If we replace $\mu({\bf r})$ by the Eq. (\ref{chempot}) and use (\ref{nu}), we finally arrive to an expression of the hydrodynamic functional ${\cal H}$ which is the sum of a kinetic part and a ``potential'' part. 
 \begin{align}
   {\cal H}[\rho,{\bf g},{\bf R},{\bf P}] &=   
-  \underbrace{\int d{\bf r}\frac{{\bf g}^2({\bf r})}{2\rho({\bf r})} +\frac{{\bf P}^2}{2M'}}_{kinetic}
+  \underbrace{\int d{\bf r}\frac{{\bf g}^2({\bf r})}{2\rho({\bf r})} +\frac{{\bf P}^2}{2M'}}_{\rm kinetic}
   +\underbrace{{\cal F}[\rho,{\bf R}]}_{\rm potential}
 \label{oleg2}
 \end{align}
@@ -2701,7 +2701,7 @@ CG variables averages $\rho_\mu,{\bf g}_\mu$, computed with the real ensemble (i
   v}_\mu$ is given by
 \begin{align}
   {\bf g}_\mu&=\sum_{\nu}\rho_{\mu\nu}{\bf v}_\nu
-\label{nu}
+\label{vnu}
 \end{align}
 where  the mass density matrix is defined by
 \begin{align}
@@ -6492,7 +6492,7 @@ to define  the following coarse-grained Hamiltonian
 \begin{align}
   {\cal H}(\rho,{\bf g}) &=\Phi(\lambda,{\bf v})
  - M^\psi_{\mu\nu}\lambda_\nu \rho_\mu+M^\psi_{\mu\nu}{\bf v}_\nu\esc {\bf g}_\mu
-\label{oleg}
+\label{olegApp}
 \end{align}
 as  the  free  energy  of  the  level  of  description  determined  by
 $\rho_\mu,{\bf g}_\mu$. The derivatives of the entropy are given by
