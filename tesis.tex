@@ -1291,7 +1291,7 @@ exerts on  atom $i$ of  the liquid.   This is, $\hat{\bf  F}^{\rm l\to
   l}_{\bf r}(z)  $ is  the microscopic force  density that  the liquid
 exerts on the liquid molecules that are around the point ${\bf r}$ and
 $\hat{\bf F}^{\rm s\to l}_{\bf r}(z)$ is the microscopic force density
-that the solid object exerts on the liquid around the point ${\bf r}$.
+that the solid object exerts on the liquid at the point ${\bf r}$.
 
 We may write the force that the liquid exerts on the liquid 
 \begin{align}
@@ -1621,14 +1621,14 @@ We can obtain an expression for the  hydrodynamic functional (\ref{oleg}) replac
   \nonumber\\
   &- {\cal F}[\rho,{\bf R}] -\int d{\bf r}\rho({\bf r})\mu({\bf r}) + \frac{{\bf P}^2}{2M'}
 \end{align}
-If we replace $\mu({\bf r})$ by the Eq. (\ref{chempot}) and use (\ref{nu}), we finally arrive to an expression of the hydrodynamic functional ${\cal H}$ which is the sum of a kinetic part and a ``potential'' part. 
+If we replace $\mu({\bf r})$ by the Eq. (\ref{chempot}) and use (\ref{nu}), we finally arrive to an expression of the hydrodynamic functional ${\cal H}$ which is the sum of a kinetic part and a ``potential'' part
 \begin{align}
   {\cal H}[\rho,{\bf g},{\bf R},{\bf P}] &=   
   \underbrace{\int d{\bf r}\frac{{\bf g}^2({\bf r})}{2\rho({\bf r})} +\frac{{\bf P}^2}{2M'}}_{\rm kinetic}
   +\underbrace{{\cal F}[\rho,{\bf R}]}_{\rm potential}
 \label{oleg2}
 \end{align}
-In \Pendiente{Appendix \ref{Ap:Forces}}, $\boldsymbol{\lambda}_R$
+A we show in Appendix \ref{Ap:Forces}, $\boldsymbol{\lambda}_R$
 is just the  average force on the solid due  to the fluid.  Therefore,
 the ``potential''  part ${\cal  F}[\rho,{\bf R}]$ of  the hydrodynamic
 functional  (\ref{oleg})  really  acts  as a  potential  energy  whose
@@ -1636,6 +1636,7 @@ negative gradient  gives the actual  force on the sphere.   For future
 reference,  we  may also  compute  the  functional derivative  of  the
 hydrodynamic functional ${\cal  H}$ with respect to  the density field
 with the result
+\Note{¿No tendría que ser sin el signo menos la siguiente ecuación?}
 \begin{align}
   \frac{\delta {\cal H}}{\delta\rho({\bf r})}[\rho,{\bf g},{\bf R},{\bf P}] &=    
 -\frac{{\bf v}^2({\bf r})}{2}+  \frac{\delta {\cal F}}{\delta\rho({\bf r})}[\rho,{\bf R}]
@@ -5974,6 +5975,155 @@ The following published articles and posters are related with this dissertation.
     $\beta$ & $(k_BT)^{-1}$ \\
 \end{tabular}
 
+\chapter{Forces}  
+\label{Ap:Forces}
+In this appendix we summarize the different forces and force densities
+introduced so far, and present  some results  concerning its
+averages  with the relevant  ensemble.  The  force densities  that the
+fluid or the solid exert on a fluid molecule located at the point ${\bf
+  r}$ are introduced in (\ref{Fr}),
+\begin{eqnarray}
+  \hat{\bf F}^{\rm l\to l}_{\bf r}(z) &\equiv& \sum^{NN}_{ij}\hat{\bf F}_{ij}\bar{\delta}({\bf r}-{\bf q}_i)
+\nonumber\\
+\hat{\bf F}^{\rm s\to l}_{\bf r}(z) &\equiv& \sum^{NN'}_{ij'}\hat{\bf F}_{ij'}\bar{\delta}({\bf r}-{\bf q}_i),
+\label{Fr_ap}
+\end{eqnarray}
+where $\hat{\bf  F}_{ij'}$ is the  force that  atom $j'$ of  the solid
+exerts on  atom $i$ of  the liquid.   This is, $\hat{\bf  F}^{\rm l\to
+  l}_{\bf r}(z) $  is the force density that the  liquid exerts on the
+liquid molecules that are around  the point ${\bf r}$, while $\hat{\bf
+  F}^{\rm  s\to l}_{\bf  r}(z)$ is  the force  density that  the solid
+exerts on the liquid at the point ${\bf r}$.
+
+The total force density on the fluid is
+\begin{align}
+  \hat{\bf F}^l_{\bf r}&=\hat{\bf F}^{\rm l\to l}_{\bf r}+\hat{\bf F}^{\rm s\to l}_{\bf r} =\sum^{N}_{j}-\frac{\partial U}{\partial {\bf q}_{j}}\bar{\delta}({\bf r}-{\bf q}_j)
+\end{align}
+The total force on the fluid and on the solid are
+\begin{align}
+  \hat{\bf F}^l&=\int d{\bf r}\hat{\bf F}^l_{\bf r}
+\nonumber\\
+  \hat{\bf F}^s&= -\hat{\bf F}^l
+\end{align}
+where we have used that the total force
+\begin{align}
+  \hat{\bf F}&=-\sum^N_{i}\frac{\partial U}{\partial {\bf q}_i}
+-\sum^{N'}_{i'}\frac{\partial U}{\partial {\bf q}_{i'}}
+=\hat{\bf F}^l+\hat{\bf F}^s
+\end{align}
+ vanishes because the  potentials are translational invariant (and
+therefore, Newton's third law holds).
+
+Note that we have the result
+\begin{align}
+    \hat{\bf F}^s&= -\int d{\bf r}\hat{\bf F}^{\rm s\to l}_{\bf r}
+\end{align}
+Now, let us consider the average of the total force density on the liquid, Eq. (\ref{Frtot})
+\begin{align}
+{\bf F}^l_{\bf r} &\equiv{\rm Tr}[\overline{\rho}_t \hat{\bf F}^l_{\bf r}] =
+ \langle \hat{\bf F}^l_{\bf r}\rangle^{\mu,\boldsymbol{\lambda}_R}
+\nonumber\\
+&=
+\frac{1}{\Xi[\mu,\boldsymbol{\lambda}_R]}
+ \sum_{N=0}^\infty \frac{1}{N!}
+\int \frac{dq}{\Lambda^{3N}}\frac{dq'}{\Lambda^{3N'}}
+\left[\sum^{N}_{j}-\frac{\partial U}{\partial {\bf q}_{j}}\bar{\delta}({\bf r}-{\bf q}_j)\right]
+\nonumber\\
+&\times e^{-\beta U}
+\exp\left\{-\beta  \left( \boldsymbol{\lambda}_R{\cdot}\hat{\bf R}
+-\sum_{i=1}^N m\mu({\bf q}_i)\right)\right\}
+\end{align}
+where we have  used the definition of the average  with respect to the
+relevant ensemble,  after performing the momentum  integrals. Next, we
+realize that the  derivative of the Boltzmann factor  is the potential
+times the Boltzmann factor itself, this is
+%Hacer la derivada con respecto a q del factor de Boltzmann:
+%\frac{\delta e^{-\beta U}}{\delta q} = \frac{\delta e^{-\beta U}}{\delta q}\frac{\delta U}{\delta q}. Vemos que podemos meter esa derivada en vez de el factor de boltzman y U por separado. 
+\begin{align}
+{\bf F}^l_{\bf r}&=
+\frac{1}{\Xi[\mu,\boldsymbol{\lambda}_R]}
+ \sum_{N=0}^\infty \frac{1}{N!}
+\int \frac{dq}{\Lambda^{3N}}\frac{dq'}{\Lambda^{3N'}}
+\nonumber\\
+&\times \exp\left\{-\beta  \left(\boldsymbol{\lambda}_R{\cdot}\hat{\bf R}
+-\sum_{i=1}^N m\mu({\bf   q}_i)\right)\right\}
+k_BT\sum^{N}_{j}\bar{\delta}({\bf r}-{\bf q}_j)\frac{\partial }{\partial {\bf q}_{j}}e^{-\beta U}
+\end{align}
+Integrate by parts to obtain
+\begin{align}
+{\bf F}^l_{\bf r}&=
+\frac{1}{\Xi[\mu,\boldsymbol{\lambda}_R]}
+ \sum_{N=0}^\infty \frac{1}{N!}
+\int \frac{dq}{\Lambda^{3N}}\frac{dq'}{\Lambda^{3N'}}
+e^{-\beta U}
+k_BT\sum^{N}_{j}-\frac{\partial }{\partial {\bf q}_{j}}\left[\bar{\delta}({\bf r}-{\bf q}_j)
+\exp\left\{-\beta  \left( \boldsymbol{\lambda}_R{\cdot}\hat{\bf R}
+-\sum_{i=1}^N m\mu({\bf q}_i)\right)\right\}\right]
+\nonumber\\
+&=
+\frac{1}{\Xi[\mu,\boldsymbol{\lambda}_R]}
+ \sum_{N=0}^\infty \frac{1}{N!}
+\int \frac{dq}{\Lambda^{3N}}\frac{dq'}{\Lambda^{3N'}}
+e^{-\beta U}
+\sum^{N}_{j}\exp\left\{-\beta  \left( \boldsymbol{\lambda}_R{\cdot}\hat{\bf R}
+-\sum_{i\neq j}^N m\mu({\bf   q}_j)\right)\right\}
+\nonumber\\
+&\times k_BT\left[-\frac{\partial }{\partial {\bf q}_{j}}\bar{\delta}({\bf r}-{\bf q}_j)
+\exp\left\{\beta   m\mu({\bf   q}_j)\right\}\right]
+\nonumber\\
+&=\frac{k_BT}{m}\boldsymbol{\nabla} \rho({\bf r})
+-\rho({\bf r})\boldsymbol{\nabla}\mu({\bf r})
+\label{fllr}
+\end{align}
+By following identical steps, we may compute the average of the total force on the solid ${\bf F}^s$
+and obtain
+\begin{align}
+{\bf F}^s&={\rm Tr}[\overline{\rho}_t \hat{\bf F}^s]=
+ \langle \hat{\bf F}^s\rangle^{\mu,\boldsymbol{\lambda}_R} 
+\nonumber\\
+&=\frac{1}{\Xi[\mu,\boldsymbol{\lambda}_R]}
+ \sum_{N=0}^\infty \frac{1}{N!}
+\int \frac{dq}{\Lambda^{3N}}\frac{dq'}{\Lambda^{3N'}}
+\left[-\sum^{N'}_{i'}\frac{\partial U}{\partial {\bf q}_{i'}}\right]
+e^{-\beta U}
+\exp\left\{-\beta  \left(\sum_{i=1}^N m\mu({\bf
+    q}_i)+ \boldsymbol{\lambda}_R{\cdot}\hat{\bf R}\right)\right\}
+\nonumber\\
+&=
+\frac{1}{\Xi[\mu,\boldsymbol{\lambda}_R]}
+ \sum_{N=0}^\infty \frac{1}{N!}
+\int \frac{dq}{\Lambda^{3N}}\frac{dq'}{\Lambda^{3N'}}
+\exp\left\{-\beta  \left(\sum_{i=1}^N m\mu({\bf
+    q}_i)+ \boldsymbol{\lambda}_R{\cdot}\hat{\bf R}\right)\right\}
+k_BT\left[\sum^{N'}_{i'}\frac{\partial }{\partial {\bf q}_{i'}}\right]e^{-\beta U}
+\nonumber\\
+&=
+\frac{1}{\Xi[\mu,\boldsymbol{\lambda}_R]}
+ \sum_{N=0}^\infty \frac{1}{N!}
+\int \frac{dq}{\Lambda^{3N}}\frac{dq'}{\Lambda^{3N'}}
+e^{-\beta U}
+k_BT\left[-\sum^{N'}_{i'}\frac{\partial }{\partial {\bf q}_{i'}}\right]\exp\left\{-\beta  \left(\sum_{i=1}^N m\mu({\bf
+    q}_i)+ \boldsymbol{\lambda}_R{\cdot}\hat{\bf R}\right)\right\}
+\nonumber\\
+&=
+\frac{1}{\Xi[\mu,\boldsymbol{\lambda}_R]}
+ \sum_{N=0}^\infty \frac{1}{N!}
+\int \frac{dq}{\Lambda^{3N}}\frac{dq'}{\Lambda^{3N'}}
+e^{-\beta U}
+\exp\left\{-\beta  \left(\sum_{i=1}^N m\mu({\bf
+    q}_i)+ \boldsymbol{\lambda}_R{\cdot}\hat{\bf R}\right)\right\}
+\left[\sum^{N'}_{i'}\frac{\partial }{\partial {\bf q}_{i'}}\right] \boldsymbol{\lambda}_R{\cdot}\hat{\bf R}
+\nonumber\\
+&=\boldsymbol{\lambda}_R
+\label{lf}\end{align}
+This  identity  allows  one  to  interpret  physically  the  Lagrange
+multiplier $\boldsymbol{\lambda}_R$ as the  force on the solid sphere.
+By  using (\ref{Fd2})  we obtain  that the  total force  on the  solid
+sphere is due to the gradient of the free energy functional
+\begin{align}
+{\bf F}^s&=-\frac{\partial  {\cal F}}{\partial{\bf R}}[\rho,{\bf R}]
+\label{Fls}
+\end{align}
 
 \chapter{The projected currents}
 \label{Ap:Projected}
@@ -6251,151 +6401,6 @@ the  fluctuations  of  the  density.
 
 
 
-\chapter{Forces}  
-\label{Ap:Forces}
-In this appendix we summarize the different forces and force densities
-introduced so far, and present  some results  concerning its
-averages  with the relevant  ensemble.  The  force densities  that the
-fluid or the solid exert on a fluid molecule located at the point ${\bf
-  r}$ are introduced in (\ref{Fr}),
-\begin{eqnarray}
-\hat{\bf F}^{\rm l\to l}_{\bf r}(z) &\equiv& \sum^{NN}_{ij}\hat{\bf F}_{ij}\delta({\bf r}-{\bf q}_i)
-\nonumber\\
-\hat{\bf F}^{\rm s\to l}_{\bf r}(z) &\equiv& \sum^{NN'}_{ij'}\hat{\bf F}_{ij'}\delta({\bf r}-{\bf q}_i)
-\label{Fr_ap}
-\end{eqnarray}
-where $\hat{\bf  F}_{ij'}$ is the  force that  atom $j'$ of  the solid
-exerts on  atom $i$ of  the liquid.   This is, $\hat{\bf  F}^{\rm l\to
-  l}_{\bf r}(z) $  is the force density that the  liquid exerts on the
-liquid molecules that are around  the point ${\bf r}$, while $\hat{\bf
-  F}^{\rm  s\to l}_{\bf  r}(z)$ is  the force  density that  the solid
-exerts on the liquid at the point ${\bf r}$.
-
-The total force density on the fluid is
-\begin{align}
-\hat{\bf F}^l_{\bf r}&=\hat{\bf F}^{\rm l\to l}_{\bf r}+\hat{\bf F}^{\rm s\to l}_{\bf r} =\sum^{N}_{j}-\frac{\partial U}{\partial {\bf q}_{j}}\delta({\bf r}-{\bf q}_j)
-\end{align}
-The total force on the fluid and on the solid are
-\begin{align}
-  \hat{\bf F}^l&=\int d{\bf r}\hat{\bf F}^l_{\bf r}
-\nonumber\\
-  \hat{\bf F}^s&= -\hat{\bf F}^l
-\end{align}
-where we have used that the total force
-\begin{align}
-  \hat{\bf F}&=-\sum^N_{i}\frac{\partial U}{\partial {\bf q}_i}
--\sum^{N'}_{i'}\frac{\partial U}{\partial {\bf q}_{i'}}
-=\hat{\bf F}^l+\hat{\bf F}^s
-\end{align}
- vanishes because the  potentials are translational invariant (and
-therefore, Newton's third law holds).
-
-Note that we have the result
-\begin{align}
-    \hat{\bf F}^s&= -\int d{\bf r}\hat{\bf F}^{\rm s\to l}_{\bf r}
-\end{align}
-Now, let us consider the average of the total force density on the liquid, Eq. (\ref{Frtot})
-\begin{align}
-{\bf F}^l_{\bf r} &\equiv{\rm Tr}[\overline{\rho}_t \hat{\bf F}^l_{\bf r}] =
- \langle \hat{\bf F}^l_{\bf r}\rangle^{\mu,\boldsymbol{\lambda}_R}
-\nonumber\\
-&=
-\frac{1}{\Xi[\mu,\boldsymbol{\lambda}_R]}
- \sum_{N=0}^\infty \frac{1}{N!}
-\int \frac{dq}{\Lambda^{3N}}\frac{dq'}{\Lambda^{3N'}}
-\left[\sum^{N}_{j}-\frac{\partial U}{\partial {\bf q}_{j}}\delta({\bf r}-{\bf q}_j)\right]
-e^{-\beta U}
-\exp\left\{-\beta  \left( \boldsymbol{\lambda}_R{\cdot}\hat{\bf R}
--\sum_{i=1}^N m\mu({\bf q}_i)\right)\right\}
-\end{align}
-where we have  used the definition of the average  with respect to the
-relevant ensemble,  after performing the momentum  integrals. Next, we
-realize that the  derivative of the Boltzmann factor  is the potential
-times the Boltzmann factor itself, this is
-\begin{align}
-{\bf F}^l_{\bf r}&=
-\frac{1}{\Xi[\mu,\boldsymbol{\lambda}_R]}
- \sum_{N=0}^\infty \frac{1}{N!}
-\int \frac{dq}{\Lambda^{3N}}\frac{dq'}{\Lambda^{3N'}}
-\exp\left\{-\beta  \left(\boldsymbol{\lambda}_R{\cdot}\hat{\bf R}
--\sum_{i=1}^N m\mu({\bf   r}_i)\right)\right\}
-k_BT\sum^{N}_{j}\delta({\bf r}-{\bf q}_j)\frac{\partial }{\partial {\bf q}_{j}}e^{-\beta U}
-\end{align}
-Integrate by parts to obtain
-\begin{align}
-{\bf F}^l_{\bf r}&=
-\frac{1}{\Xi[\mu,\boldsymbol{\lambda}_R]}
- \sum_{N=0}^\infty \frac{1}{N!}
-\int \frac{dq}{\Lambda^{3N}}\frac{dq'}{\Lambda^{3N'}}
-e^{-\beta U}
-k_BT\sum^{N}_{j}-\frac{\partial }{\partial {\bf q}_{j}}\left[\delta({\bf r}-{\bf q}_j)
-\exp\left\{-\beta  \left( \boldsymbol{\lambda}_R{\cdot}\hat{\bf R}
--\sum_{i=1}^N m\mu({\bf q}_i)\right)\right\}\right]
-\nonumber\\
-&=
-\frac{1}{\Xi[\mu,\boldsymbol{\lambda}_R]}
- \sum_{N=0}^\infty \frac{1}{N!}
-\int \frac{dq}{\Lambda^{3N}}\frac{dq'}{\Lambda^{3N'}}
-e^{-\beta U}
-\sum^{N}_{j}\exp\left\{-\beta  \left( \boldsymbol{\lambda}_R{\cdot}\hat{\bf R}
--\sum_{i\neq j}^N m\mu({\bf   q}_j)\right)\right\}
-\nonumber\\
-&\times k_BT\left[-\frac{\partial }{\partial {\bf q}_{j}}\delta({\bf r}-{\bf q}_j)
-\exp\left\{\beta   m\mu({\bf   q}_j)\right\}\right]
-\nonumber\\
-&=\frac{k_BT}{m}\boldsymbol{\nabla} \rho({\bf r})
--\rho({\bf r})\boldsymbol{\nabla}\mu({\bf r})
-\label{fllr}
-\end{align}
-By following identical steps, we may compute the average of the total force on the solid ${\bf F}^s$
-and obtain
-\begin{align}
-{\bf F}^s&={\rm Tr}[\overline{\rho}_t \hat{\bf F}^s]=
- \langle \hat{\bf F}^s\rangle^{\mu,\boldsymbol{\lambda}_R} 
-\nonumber\\
-&=\frac{1}{\Xi[\mu,\boldsymbol{\lambda}_R]}
- \sum_{N=0}^\infty \frac{1}{N!}
-\int \frac{dq}{\Lambda^{3N}}\frac{dq'}{\Lambda^{3N'}}
-\left[-\sum^{N'}_{i'}\frac{\partial U}{\partial {\bf q}_{i'}}\right]
-e^{-\beta U}
-\exp\left\{-\beta  \left(\sum_{i=1}^N m\mu({\bf
-    r}_i)+ \boldsymbol{\lambda}_R{\cdot}\hat{\bf R}\right)\right\}
-\nonumber\\
-&=
-\frac{1}{\Xi[\mu,\boldsymbol{\lambda}_R]}
- \sum_{N=0}^\infty \frac{1}{N!}
-\int \frac{dq}{\Lambda^{3N}}\frac{dq'}{\Lambda^{3N'}}
-\exp\left\{-\beta  \left(\sum_{i=1}^N m\mu({\bf
-    r}_i)+ \boldsymbol{\lambda}_R{\cdot}\hat{\bf R}\right)\right\}
-k_BT\left[\sum^{N'}_{i'}\frac{\partial }{\partial {\bf q}_{i'}}\right]e^{-\beta U}
-\nonumber\\
-&=
-\frac{1}{\Xi[\mu,\boldsymbol{\lambda}_R]}
- \sum_{N=0}^\infty \frac{1}{N!}
-\int \frac{dq}{\Lambda^{3N}}\frac{dq'}{\Lambda^{3N'}}
-e^{-\beta U}
-k_BT\left[-\sum^{N'}_{i'}\frac{\partial }{\partial {\bf q}_{i'}}\right]\exp\left\{-\beta  \left(\sum_{i=1}^N m\mu({\bf
-    r}_i)+ \boldsymbol{\lambda}_R{\cdot}\hat{\bf R}\right)\right\}
-\nonumber\\
-&=
-\frac{1}{\Xi[\mu,\boldsymbol{\lambda}_R]}
- \sum_{N=0}^\infty \frac{1}{N!}
-\int \frac{dq}{\Lambda^{3N}}\frac{dq'}{\Lambda^{3N'}}
-e^{-\beta U}
-\exp\left\{-\beta  \left(\sum_{i=1}^N m\mu({\bf
-    r}_i)+ \boldsymbol{\lambda}_R{\cdot}\hat{\bf R}\right)\right\}
-\left[\sum^{N'}_{i'}\frac{\partial }{\partial {\bf q}_{i'}}\right] \boldsymbol{\lambda}_R{\cdot}\hat{\bf R}
-\nonumber\\
-&=\boldsymbol{\lambda}_R
-\label{lf}\end{align}
-This  identity  allows  one  to  interpret  physically  the  Lagrange
-multiplier $\boldsymbol{\lambda}_R$ as the  force on the solid sphere.
-By  using (\ref{Fd2})  we obtain  that the  total force  on the  solid
-sphere is due to the gradient of the free energy functional
-\begin{align}
-{\bf F}^s&=-\frac{\partial  {\cal F}}{\partial{\bf R}}[\rho,{\bf R}]
-\label{Fls}
-\end{align}
 
 \chapter{Details of the derivation of discrete hydrodynamics}
 \label{Ap:KG}
