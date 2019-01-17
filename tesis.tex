@@ -1695,11 +1695,11 @@ We will compute the terms of Eq. (\ref{grev1}) taking advantage of the Galilean 
 
 The Galilean operator changes the velocity arguments from ${\bf v}_i\to {\bf v}_i-{\bf v}({\bf q}_i)$ for each $i$ fluid particle, this is
 \begin{align}
-&  {\cal G}\hat{F}({\bf q}_1,\cdots{\bf q}_N,{\bf p}_1,\cdots{\bf p}_N)
+&  {\cal G}\hat{F}({\bf q}_1,\cdots,{\bf q}_N;{\bf p}_1,\cdots,{\bf p}_N)
 \nonumber\\
-=&\hat{F}({\bf q}_1,\cdots{\bf q}_N,{\bf p}_1+m_1{\bf v}({\bf q}_1),\cdots{\bf p}_N+m_N{\bf v}({\bf q}_N))
+=&\hat{F}({\bf q}_1,\cdots,{\bf q}_N;{\bf p}_1-m_1{\bf v}({\bf q}_1),\cdots,{\bf p}_N-m_N{\bf v}({\bf q}_N))
 \end{align}
-The intuitive meaning of the Galilean operator is that when applied to a phase function gives how it is seen in a reference frame that moves with the flow field. \Note{Entender bien la forma intuitiva}. Within any trace this is just a change of variables. Therefore, we have the property
+The intuitive meaning of the Galilean operator is that when applied to a phase function gives how it is seen in a reference frame that moves with the flow field. \Note{Entiendo qué es lo que hace el operador Galileano pero no veo la diferencia entre $v_i$ (velocidad de la partícula i) y $v(q_i)$ (velocidad del fluido en la posición en la que se encuentra la partícula i)}. Within any trace this is just a change of variables. Therefore, we have the property
 \begin{align}
   {\rm Tr}[\bar{\rho}_t\hat{F}] &= {\rm Tr}[({\cal G}\bar{\rho}_t)({\cal G}\hat{F})] \nonumber \\
   \label{Gprop}
@@ -1708,8 +1708,8 @@ The action of the Galilean operator on the relevant variables is
 \begin{align}
   {\cal G}\hat{\rho}_{\bf r} &= \hat{\rho}_{\bf r} \nonumber\\
   {\cal G}\hat{g}_{\bf r} &= \hat{g}_{\bf r} + {\bf v}({\bf r})\hat{\rho}_{\bf r} \nonumber \\
-  {\cal G}\hat{R}(z) &= \hat{R}(z) \nonumber\\
-  {\cal G}\hat{P}(z) &= \hat{P}(z)
+  {\cal G}\hat{\bf R}(z) &= \hat{\bf R}(z) \nonumber\\
+  {\cal G}\hat{\bf P}(z) &= \hat{\bf P}(z)
 \end{align}
 Therefore, the action of ${\cal G}$ on the relevant ensemble is \Note{(En el paper aparece $\rho^{eq}$ y no sé de dónde sale...)}
 \begin{align}
@@ -1718,8 +1718,8 @@ Therefore, the action of ${\cal G}$ on the relevant ensemble is \Note{(En el pap
 \exp\left\{\beta\int d{\bf r}\mu({\bf r})\hat{\rho}_{\bf r}(z)\right\}
 \nonumber\\
 &\times
-\exp\left\{-\beta \boldsymbol{\lambda}_{R}(t)\esc\hat{\bf R}
--\beta \boldsymbol{\lambda}_{P}(t)\esc\hat{\bf P}\right\}
+\exp\left\{-\beta \boldsymbol{\lambda}_{R}(t)\esc\hat{\bf R}(z)
+-\beta \boldsymbol{\lambda}_{P}(t)\esc\hat{\bf P}(z)\right\}
 \label{resrelens}
 \end{align}
 where  the chemical  potential per  unit mass  has been  introduced in
