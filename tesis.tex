@@ -1693,11 +1693,11 @@ part of the momentum density evolution equation is
 We will compute the terms of Eq. (\ref{grev1}) taking advantage of the Galilean operator. 
 
 
-The Galilean operator changes the velocity arguments from ${\bf v}_i\to {\bf v}_i-{\bf v}({\bf q}_i)$ for each $i$ fluid particle, this is
+The Galilean operator changes the velocity arguments from ${\bf v}_i\to {\bf v}_i+{\bf v}({\bf q}_i)$ for each $i$ fluid particle, this is
 \begin{align}
 &  {\cal G}\hat{F}({\bf q}_1,\cdots,{\bf q}_N;{\bf p}_1,\cdots,{\bf p}_N)
 \nonumber\\
-=&\hat{F}({\bf q}_1,\cdots,{\bf q}_N;{\bf p}_1-m_1{\bf v}({\bf q}_1),\cdots,{\bf p}_N-m_N{\bf v}({\bf q}_N))
+=&\hat{F}({\bf q}_1,\cdots,{\bf q}_N;{\bf p}_1+m_1{\bf v}({\bf q}_1),\cdots,{\bf p}_N+m_N{\bf v}({\bf q}_N))
 \end{align}
 The intuitive meaning of the Galilean operator is that when applied to a phase function gives how it is seen in a reference frame that moves with the flow field. \Note{Entiendo qué es lo que hace el operador Galileano pero no veo la diferencia entre $v_i$ (velocidad de la partícula i) y $v(q_i)$ (velocidad del fluido en la posición en la que se encuentra la partícula i)}. Within any trace this is just a change of variables. Therefore, we have the property
 \begin{align}
@@ -1723,7 +1723,7 @@ Therefore, the action of ${\cal G}$ on the relevant ensemble is \Note{(En el pap
 \label{resrelens}
 \end{align}
 where  the chemical  potential per  unit mass  has been  introduced in
-Eq.  (\ref{chempot}).  \Note{Esta expresión de la colectividad relevante es gaussiana en momento pero el último término hace que sea lineal. ¿Por qué utilizamos el operador galileano si $\bar{\rho}_t$ sigue siendo gaussiana y con término lineal?}
+Eq.  (\ref{chempot}). \Pendiente{Under the action of the Galilean operator, the relevant ensemble is gaussian in momentum and zero centered.}  
 The  action  of the  Galilean  operator on  the
 microscopic kinetic stress tensor is
 \begin{align}
@@ -1735,7 +1735,7 @@ microscopic kinetic stress tensor is
 \end{align}
 Using (\ref{Gprop}) we have
 \begin{align}
-  {\rm Tr}[\bar{\rho}_t\hat{{\bf K}}]={\rm Tr}[({\cal G}\bar{\rho}_t)({\cal G}\hat{{\bf K}}_{\bf r})]
+  {\rm Tr}[\bar{\rho}_t\hat{{\bf K}}_{\bf r}]={\rm Tr}[({\cal G}\bar{\rho}_t)({\cal G}\hat{{\bf K}}_{\bf r})]
 \end{align}
 
 By noting that the ensemble (\ref{resrelens}) is Gaussian in momenta, we have finally \Note{No consigo llegar a la siguiente expresión}
@@ -1755,7 +1755,7 @@ Now, let us consider the average of the total force density on the liquid, Eq. (
 \frac{1}{\Xi[\mu,\boldsymbol{\lambda}_R]}
  \sum_{N=0}^\infty \frac{1}{N!}
 \int \frac{dq}{\Lambda^{3N}}\frac{dq'}{\Lambda^{3N'}}
-\left[\sum^{N}_{j}-\frac{\partial U}{\partial {\bf q}_{j}}\delta({\bf r}-{\bf q}_j)\right]
+\left[\sum^{N}_{j}-\frac{\partial U}{\partial {\bf q}_{j}}\bar{\delta}({\bf r}-{\bf q}_j)\right]
 e^{-\beta U}
 \nonumber\\
 &\times \exp\left\{-\beta  \left( \boldsymbol{\lambda}_R\cdot\hat{\bf R}
@@ -1773,7 +1773,7 @@ times the Boltzmann factor itself, this is
 \exp\left\{-\beta  \left(\boldsymbol{\lambda}_R\cdot\hat{\bf R}
 -\sum_{i=1}^N m\mu({\bf   r}_i)\right)\right\}
 \nonumber\\
-&\times k_BT\sum^{N}_{j}\delta({\bf r}-{\bf q}_j)\frac{\partial }{\partial {\bf q}_{j}}e^{-\beta U}
+&\times k_BT\sum^{N}_{j}\bar{\delta}({\bf r}-{\bf q}_j)\frac{\partial }{\partial {\bf q}_{j}}e^{-\beta U}
 \end{align}
 Integrate by parts to obtain
 \begin{align}
@@ -1782,7 +1782,7 @@ Integrate by parts to obtain
  \sum_{N=0}^\infty \frac{1}{N!}
 \int \frac{dq}{\Lambda^{3N}}\frac{dq'}{\Lambda^{3N'}}
 e^{-\beta U}
-k_BT\sum^{N}_{j}-\frac{\partial }{\partial {\bf q}_{j}}\left[\delta({\bf r}-{\bf q}_j)
+k_BT\sum^{N}_{j}-\frac{\partial }{\partial {\bf q}_{j}}\left[\bar{\delta}({\bf r}-{\bf q}_j)
 \exp\left\{-\beta  \left( \boldsymbol{\lambda}_R\cdot\hat{\bf R}
 -\sum_{i=1}^N m\mu({\bf q}_i)\right)\right\}\right]
 \nonumber\\
@@ -1794,7 +1794,7 @@ e^{-\beta U}
 \sum^{N}_{j}\exp\left\{-\beta  \left( \boldsymbol{\lambda}_R\cdot\hat{\bf R}
 -\sum_{i\neq j}^N m\mu({\bf   q}_j)\right)\right\}
 \nonumber\\
-&\times k_BT\left[-\frac{\partial }{\partial {\bf q}_{j}}\delta({\bf r}-{\bf q}_j)
+&\times k_BT\left[-\frac{\partial }{\partial {\bf q}_{j}}\bar{\delta}({\bf r}-{\bf q}_j)
 \exp\left\{\beta   m\mu({\bf   q}_j)\right\}\right]
 \nonumber\\
 &=\frac{k_BT}{m}\boldsymbol{\nabla} \rho({\bf r})
