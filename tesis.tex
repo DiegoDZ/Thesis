@@ -231,7 +231,7 @@ The derivative of a composite function is expressed as
     \frac{\partial}{\partial x}F(g(x))=\frac{\partial F}{\partial g}(g(x))\frac{\partial g}{\partial x}(x) \nonumber
 \end{align}
 
-The quotes in the beginning of each chapter are taken from books I read over the time I have spent working in this dissertation, the last four years. I have respected the language in which the writter wrote the novel.
+The quotes in the beginning of each chapter are taken from books I read over the time I have spent working in this dissertation, the last four years. I have respected the language in which the writter wrote the book. 
 
 
 %\pagenumbering{arabic}
@@ -1382,7 +1382,7 @@ In Sec. \ref{Sec:TheEntropy} we obtained that the ensemble which maximizes the G
 \overline{\rho}(z) = \frac{1}{Z[\lambda]} \rho_0\exp\{-\lambda\!\cdot\!\hat{A}(z)\}
 %\label{relens1}
 \end{equation}
-When the CG variables are those in (\ref{CGvar}), the relevant ensemble $\bar{\rho}(z)$ takes the form
+When the CG variables are those in (\ref{CGvar}), the relevant ensemble $\bar{\rho}(z)$ takes the form \Note{En el paper falta el $\rho_0$}
 \begin{eqnarray}
   \overline{\rho}(z)&=&\frac{1}{\Xi[\lambda]}\rho_0\exp\left\{-\beta H_N(z)\right\}
 \nonumber\\
@@ -1518,19 +1518,19 @@ where we have introduced the thermal wavelength  \Note{Aunque no hay problemas d
 \Lambda=\left(\frac{h^2\beta}{2\pi m}\right)^{\frac{1}{2}}
 \label{ThermalWave}
 \end{align}
-Together with Eq. (\ref{rgo}) and Eq. (\ref{oh})
+Together with Eq. (\ref{rgo}) and Eq. (\ref{oh}) \Note{Primera expresión:campo de densidad igual a masa ¿?}
 \begin{align}
   \rho({\bf r}) &=\frac{\delta \Phi [\lambda]}{\delta \lambda_\rho({\bf r}) } = \frac{1}{\Xi[\lambda]} \frac{\delta\Xi [\lambda]}{\delta \lambda_{\rho}({\bf r})} = m
   \nonumber\\
   {\bf g}({\bf r}) &=\frac{\delta \Phi [\lambda]}{\delta \boldsymbol{\lambda}_g({\bf r}) } =\frac{1}{\Xi[\lambda]} \frac{\delta\Xi [\lambda]}{\delta \boldsymbol{\lambda_g}({\bf r})} = -m\cdot\boldsymbol{\lambda}_g({\bf r})
  \nonumber\\
-  {\bf P} &=\frac{\partial \Phi [\lambda]}{\partial \lambda_P} =\frac{1}{\Xi[\lambda]} \frac{\partial\Xi [\lambda]}{\partial \lambda_P} = -M'\cdot\lambda_P
+ {\bf P} &=\frac{\partial \Phi [\lambda]}{\partial \lambda_P} =\frac{1}{\Xi[\lambda]} \frac{\partial\Xi [\lambda]}{\partial \lambda_P} = -M'\cdot\lambda_P
 \end{align}
 This leads directly to the explicit form of the following conjugate variables
 \begin{align}
  \boldsymbol{\lambda}_g({\bf r}) &= -\frac{{\bf g}({\bf r})}{\rho({\bf r})}=-{\bf v}({\bf r})
 \nonumber\\
- \boldsymbol{\lambda}_P &= -\frac{{\bf P}}{M'}
+\boldsymbol{\lambda}_P &= -\frac{{\bf P}}{M'} = -{\bf V}
 \label{nu}
 \end{align}
 and allows  one to interpret  these conjugate variables  as (negative)
@@ -1656,7 +1656,6 @@ variables  inside the  phase space  integrals defining  the partition
 function.  By taking the derivative with  respect to ${\bf u}$ in both
 sides of Eq.  (\ref{fa}) and  setting afterwards ${\bf u}=0$ we obtain
 the identity
-\Note{dot entre $\Delta$ y $\rho$}
 \begin{align}
   \int d{\bf r}\frac{\delta {\cal F}}{\delta \rho_{\bf r}}
 \boldsymbol{\nabla}\rho_{\bf r}&+\frac{\partial {\cal F}}{\partial {\bf R}}=0
@@ -1723,7 +1722,7 @@ Therefore, the action of ${\cal G}$ on the relevant ensemble is \Note{(En el pap
 \label{resrelens}
 \end{align}
 where  the chemical  potential per  unit mass  has been  introduced in
-Eq.  (\ref{chempot}). \Pendiente{Under the action of the Galilean operator, the relevant ensemble is gaussian in momentum and zero centered.}  
+Eq.  (\ref{chempot}). \Pendiente{Under the action of the Galilean operator, the relevant ensemble is Gaussian in momentum and zero centered.}  
 The  action  of the  Galilean  operator on  the
 microscopic kinetic stress tensor is
 \begin{align}
@@ -1738,71 +1737,17 @@ Using (\ref{Gprop}) we have
   {\rm Tr}[\bar{\rho}_t\hat{{\bf K}}_{\bf r}]={\rm Tr}[({\cal G}\bar{\rho}_t)({\cal G}\hat{{\bf K}}_{\bf r})]
 \end{align}
 
-By noting that the ensemble (\ref{resrelens}) is Gaussian in momenta, we have finally \Note{No consigo llegar a la siguiente expresión}
+By noting that the ensemble (\ref{resrelens}) is Gaussian in momenta, we have finally \Note{¿De dónde sale el segundo término de la siguiente expresión? Además, según 2.29, $\rho({\bf r})=m$}
 \begin{align}
   {\rm Tr}[\overline{\rho}_t \hat{{\bf K}}_{\bf r}] &=
 {\bf v}({\bf r}){\bf v}({\bf r}){\rho}({\bf r})+\frac{k_BT}{m}\rho({\bf r})\boldsymbol{\delta}
 \label{api}
 \end{align}
-where $\boldsymbol{\delta}$ is the unit  tensor.  
-
-Now, let us consider the average of the total force density on the liquid, Eq. (\ref{Frtot})
-\begin{align}
-{\bf F}^l_{\bf r} &\equiv{\rm Tr}[\overline{\rho}_t \hat{\bf F}^l_{\bf r}] =
- \langle \hat{\bf F}^l_{\bf r}\rangle^{\mu,\boldsymbol{\lambda}_R}
-\nonumber\\
-&=
-\frac{1}{\Xi[\mu,\boldsymbol{\lambda}_R]}
- \sum_{N=0}^\infty \frac{1}{N!}
-\int \frac{dq}{\Lambda^{3N}}\frac{dq'}{\Lambda^{3N'}}
-\left[\sum^{N}_{j}-\frac{\partial U}{\partial {\bf q}_{j}}\bar{\delta}({\bf r}-{\bf q}_j)\right]
-e^{-\beta U}
-\nonumber\\
-&\times \exp\left\{-\beta  \left( \boldsymbol{\lambda}_R\cdot\hat{\bf R}
--\sum_{i=1}^N m\mu({\bf q}_i)\right)\right\}
-\end{align}
-where we have  used the definition of the average  with respect to the
-relevant ensemble,  after performing the momentum  integrals. Next, we
-realize that the  derivative of the Boltzmann factor  is the potential
-times the Boltzmann factor itself, this is
-\begin{align}
-{\bf F}^l_{\bf r}&=
-\frac{1}{\Xi[\mu,\boldsymbol{\lambda}_R]}
- \sum_{N=0}^\infty \frac{1}{N!}
-\int \frac{dq}{\Lambda^{3N}}\frac{dq'}{\Lambda^{3N'}}
-\exp\left\{-\beta  \left(\boldsymbol{\lambda}_R\cdot\hat{\bf R}
--\sum_{i=1}^N m\mu({\bf   r}_i)\right)\right\}
-\nonumber\\
-&\times k_BT\sum^{N}_{j}\bar{\delta}({\bf r}-{\bf q}_j)\frac{\partial }{\partial {\bf q}_{j}}e^{-\beta U}
-\end{align}
-Integrate by parts to obtain
-\begin{align}
-{\bf F}^l_{\bf r}&=
-\frac{1}{\Xi[\mu,\boldsymbol{\lambda}_R]}
- \sum_{N=0}^\infty \frac{1}{N!}
-\int \frac{dq}{\Lambda^{3N}}\frac{dq'}{\Lambda^{3N'}}
-e^{-\beta U}
-k_BT\sum^{N}_{j}-\frac{\partial }{\partial {\bf q}_{j}}\left[\bar{\delta}({\bf r}-{\bf q}_j)
-\exp\left\{-\beta  \left( \boldsymbol{\lambda}_R\cdot\hat{\bf R}
--\sum_{i=1}^N m\mu({\bf q}_i)\right)\right\}\right]
-\nonumber\\
-&=
-\frac{1}{\Xi[\mu,\boldsymbol{\lambda}_R]}
- \sum_{N=0}^\infty \frac{1}{N!}
-\int \frac{dq}{\Lambda^{3N}}\frac{dq'}{\Lambda^{3N'}}
-e^{-\beta U}
-\sum^{N}_{j}\exp\left\{-\beta  \left( \boldsymbol{\lambda}_R\cdot\hat{\bf R}
--\sum_{i\neq j}^N m\mu({\bf   q}_j)\right)\right\}
-\nonumber\\
-&\times k_BT\left[-\frac{\partial }{\partial {\bf q}_{j}}\bar{\delta}({\bf r}-{\bf q}_j)
-\exp\left\{\beta   m\mu({\bf   q}_j)\right\}\right]
-\nonumber\\
-&=\frac{k_BT}{m}\boldsymbol{\nabla} \rho({\bf r})
--\rho({\bf r})\boldsymbol{\nabla}\mu({\bf r})
-\label{fllr}
-\end{align}
-
-By  collecting (\ref{api})  and  (\ref{fllr})  into  the  momentum  density  equation (\ref{grev1}) we obtain
+where $\boldsymbol{\delta}$ is the unit  tensor.  The last term $ {\rm
+  Tr}[\overline{\rho}_t \hat{\bf F}_{\bf r}]$  in Eq. (\ref{grev1}) is
+computed  in   Eq.  (\ref{fllr})  of  the   appendix.   By  collecting
+(\ref{api})  and  (\ref{fllr})  into  the  momentum  density  equation
+(\ref{grev1}) we obtain
 \begin{align}
 \left.\partial_t {\bf g}({\bf r},t)\right|_{\rm rev} 
 &=-\boldsymbol{\nabla}\cdot\left({\bf v}({\bf r},t)  {\bf g}({\bf r},t)  \right)
@@ -1811,56 +1756,7 @@ By  collecting (\ref{api})  and  (\ref{fllr})  into  the  momentum  density  equ
 \label{grev}
 \end{align}
 
-In order to obtain the dynamics of the solid variables, we need to compute the average of the total force on the solid ${\bf F}^s$. We may follow identical steps as the case of the total force on the fluid ${\bf F}^f$ and obtain
-\begin{align}
-{\bf F}^s&={\rm Tr}[\overline{\rho}_t \hat{\bf F}^s]=
- \langle \hat{\bf F}^s\rangle^{\mu,\boldsymbol{\lambda}_R} 
-\nonumber\\
-&=\frac{1}{\Xi[\mu,\boldsymbol{\lambda}_R]}
- \sum_{N=0}^\infty \frac{1}{N!}
-\int \frac{dq}{\Lambda^{3N}}\frac{dq'}{\Lambda^{3N'}}
-\left[-\sum^{N'}_{i'}\frac{\partial U}{\partial {\bf q}_{i'}}\right]
-e^{-\beta U}
-\exp\left\{-\beta  \left(\sum_{i=1}^N m\mu({\bf
-    r}_i)+ \boldsymbol{\lambda}_R\cdot\hat{\bf R}\right)\right\}
-\nonumber\\
-&=
-\frac{1}{\Xi[\mu,\boldsymbol{\lambda}_R]}
- \sum_{N=0}^\infty \frac{1}{N!}
-\int \frac{dq}{\Lambda^{3N}}\frac{dq'}{\Lambda^{3N'}}
-\exp\left\{-\beta  \left(\sum_{i=1}^N m\mu({\bf
-    r}_i)+ \boldsymbol{\lambda}_R\cdot\hat{\bf R}\right)\right\}
-k_BT\left[\sum^{N'}_{i'}\frac{\partial }{\partial {\bf q}_{i'}}\right]e^{-\beta U}
-\nonumber\\
-&=
-\frac{1}{\Xi[\mu,\boldsymbol{\lambda}_R]}
- \sum_{N=0}^\infty \frac{1}{N!}
-\int \frac{dq}{\Lambda^{3N}}\frac{dq'}{\Lambda^{3N'}}
-e^{-\beta U}
-k_BT\left[-\sum^{N'}_{i'}\frac{\partial }{\partial {\bf q}_{i'}}\right]\exp\left\{-\beta  \left(\sum_{i=1}^N m\mu({\bf
-    r}_i)+ \boldsymbol{\lambda}_R\cdot\hat{\bf R}\right)\right\}
-\nonumber\\
-&=
-\frac{1}{\Xi[\mu,\boldsymbol{\lambda}_R]}
- \sum_{N=0}^\infty \frac{1}{N!}
-\int \frac{dq}{\Lambda^{3N}}\frac{dq'}{\Lambda^{3N'}}
-e^{-\beta U}
-\exp\left\{-\beta  \left(\sum_{i=1}^N m\mu({\bf
-    r}_i)+ \boldsymbol{\lambda}_R\cdot\hat{\bf R}\right)\right\}
-\left[\sum^{N'}_{i'}\frac{\partial }{\partial {\bf q}_{i'}}\right] \boldsymbol{\lambda}_R\cdot\hat{\bf R}
-\nonumber\\
-&=\boldsymbol{\lambda}_R
-\label{lf}\end{align}
-This  identity  allows  one  to  interpret  physically  the  Lagrange
-multiplier $\boldsymbol{\lambda}_R$ as the  force on the solid sphere.
-By  using (\ref{Fd2})  we obtain  that the  total force  on the  solid
-sphere is due to the gradient of the free energy functional
-\begin{align}
-{\bf F}^s&=-\frac{\partial  {\cal F}}{\partial{\bf R}}[\rho,{\bf R}]
-\label{Fls}
-\end{align}
-
-Therefore, the averages with the relevant ensemble of the solid object variables are
+Finally, the averages with the relevant ensemble of the solid object variables are
 \begin{align}
 {\rm Tr}[\overline{\rho}_t  iL\hat{\bf R}] 
 &=\frac{\bf P}{M}
@@ -1868,7 +1764,7 @@ Therefore, the averages with the relevant ensemble of the solid object variables
 {\rm Tr}[\overline{\rho}_t  iL\hat{\bf P}] 
 &=-\frac{\partial {\cal F}}{\partial {\bf R}}[\rho,{\bf R}]
 \end{align}
-where we have used the Eq. (\ref{Fls}).
+where we have used Eq. (\ref{Fls}) in the Appendix.
 
 By collecting the  above results, the reversible part  of the dynamics
 has the form
@@ -1888,6 +1784,153 @@ made so far. We qualify these  equations as reversible because, as can
 be  explicitly  shown,  they   conserve  the  hydrodynamic  functional
 (\ref{oleg}), which  is minus the entropy corresponding
   to this level of description.
+
+
+
+%Now, let us consider the average of the total force density on the liquid, Eq. (\ref{Frtot})
+%\begin{align}
+%{\bf F}^l_{\bf r} &\equiv{\rm Tr}[\overline{\rho}_t \hat{\bf F}^l_{\bf r}] =
+% \langle \hat{\bf F}^l_{\bf r}\rangle^{\mu,\boldsymbol{\lambda}_R}
+%\nonumber\\
+%&=
+%\frac{1}{\Xi[\mu,\boldsymbol{\lambda}_R]}
+% \sum_{N=0}^\infty \frac{1}{N!}
+%\int \frac{dq}{\Lambda^{3N}}\frac{dq'}{\Lambda^{3N'}}
+%\left[\sum^{N}_{j}-\frac{\partial U}{\partial {\bf q}_{j}}\bar{\delta}({\bf r}-{\bf q}_j)\right]
+%e^{-\beta U}
+%\nonumber\\
+%&\times \exp\left\{-\beta  \left( \boldsymbol{\lambda}_R\cdot\hat{\bf R}
+%-\sum_{i=1}^N m\mu({\bf q}_i)\right)\right\}
+%\end{align}
+%where we have  used the definition of the average  with respect to the
+%relevant ensemble,  after performing the momentum  integrals. Next, we
+%realize that the  derivative of the Boltzmann factor  is the potential
+%times the Boltzmann factor itself, this is
+%\begin{align}
+%{\bf F}^l_{\bf r}&=
+%\frac{1}{\Xi[\mu,\boldsymbol{\lambda}_R]}
+% \sum_{N=0}^\infty \frac{1}{N!}
+%\int \frac{dq}{\Lambda^{3N}}\frac{dq'}{\Lambda^{3N'}}
+%\exp\left\{-\beta  \left(\boldsymbol{\lambda}_R\cdot\hat{\bf R}
+%-\sum_{i=1}^N m\mu({\bf   q}_i)\right)\right\}
+%\nonumber\\
+%&\times k_BT\sum^{N}_{j}\bar{\delta}({\bf r}-{\bf q}_j)\frac{\partial }{\partial {\bf q}_{j}}e^{-\beta U}
+%\end{align}
+%Integrate by parts to obtain
+%\begin{align}
+%{\bf F}^l_{\bf r}&=
+%\frac{1}{\Xi[\mu,\boldsymbol{\lambda}_R]}
+% \sum_{N=0}^\infty \frac{1}{N!}
+%\int \frac{dq}{\Lambda^{3N}}\frac{dq'}{\Lambda^{3N'}}
+%e^{-\beta U}
+%\nonumber\\
+%&\times
+%k_BT\sum^{N}_{j}-\frac{\partial }{\partial {\bf q}_{j}}\left[\bar{\delta}({\bf r}-{\bf q}_j)
+%\exp\left\{-\beta  \left( \boldsymbol{\lambda}_R\cdot\hat{\bf R}
+%-\sum_{i=1}^N m\mu({\bf q}_i)\right)\right\}\right]
+%\nonumber\\
+%&=
+%\frac{1}{\Xi[\mu,\boldsymbol{\lambda}_R]}
+% \sum_{N=0}^\infty \frac{1}{N!}
+%\int \frac{dq}{\Lambda^{3N}}\frac{dq'}{\Lambda^{3N'}}
+%e^{-\beta U}
+%\sum^{N}_{j}\exp\left\{-\beta  \left( \boldsymbol{\lambda}_R\cdot\hat{\bf R}
+%-\sum_{i\neq j}^N m\mu({\bf   q}_j)\right)\right\}
+%\nonumber\\
+%&\times k_BT\left[-\frac{\partial }{\partial {\bf q}_{j}}\bar{\delta}({\bf r}-{\bf q}_j)
+%\exp\left\{\beta   m\mu({\bf   q}_j)\right\}\right]
+%\nonumber\\
+%&=\frac{k_BT}{m}\boldsymbol{\nabla}\cdot \rho({\bf r})
+%-\rho({\bf r})\boldsymbol{\nabla}\cdot\mu({\bf r})
+%\label{fllr}
+%\end{align}
+%
+%By  collecting (\ref{api})  and  (\ref{fllr})  into  the  momentum  density  equation (\ref{grev1}), and using (\ref{Fd2}), we obtain
+%\begin{align}
+%\left.\partial_t {\bf g}({\bf r},t)\right|_{\rm rev} 
+%&=-\boldsymbol{\nabla}\cdot\left({\bf v}({\bf r},t)  {\bf g}({\bf r},t)  \right)
+%-\rho({\bf r})\boldsymbol{\nabla}
+%\frac{\delta {\cal F}}{\delta\rho({\bf r})}[\rho,{\bf R}]
+%\label{grev}
+%\end{align}
+%
+%In order to obtain the dynamics of the solid variables, we need to compute the average of the total force on the solid ${\bf F}^s$. We may follow identical steps as the case of the total force on the fluid ${\bf F}^f$ and obtain
+%\begin{align}
+%{\bf F}^s&={\rm Tr}[\overline{\rho}_t \hat{\bf F}^s]=
+% \langle \hat{\bf F}^s\rangle^{\mu,\boldsymbol{\lambda}_R} 
+%\nonumber\\
+%&=\frac{1}{\Xi[\mu,\boldsymbol{\lambda}_R]}
+% \sum_{N=0}^\infty \frac{1}{N!}
+%\int \frac{dq}{\Lambda^{3N}}\frac{dq'}{\Lambda^{3N'}}
+%\left[-\sum^{N'}_{i'}\frac{\partial U}{\partial {\bf q}_{i'}}\right]
+%e^{-\beta U}
+%\exp\left\{-\beta  \left(\sum_{i=1}^N m\mu({\bf
+%    r}_i)+ \boldsymbol{\lambda}_R\cdot\hat{\bf R}\right)\right\}
+%\nonumber\\
+%&=
+%\frac{1}{\Xi[\mu,\boldsymbol{\lambda}_R]}
+% \sum_{N=0}^\infty \frac{1}{N!}
+%\int \frac{dq}{\Lambda^{3N}}\frac{dq'}{\Lambda^{3N'}}
+%\exp\left\{-\beta  \left(\sum_{i=1}^N m\mu({\bf
+%    r}_i)+ \boldsymbol{\lambda}_R\cdot\hat{\bf R}\right)\right\}
+%k_BT\left[\sum^{N'}_{i'}\frac{\partial }{\partial {\bf q}_{i'}}\right]e^{-\beta U}
+%\nonumber\\
+%&=
+%\frac{1}{\Xi[\mu,\boldsymbol{\lambda}_R]}
+% \sum_{N=0}^\infty \frac{1}{N!}
+%\int \frac{dq}{\Lambda^{3N}}\frac{dq'}{\Lambda^{3N'}}
+%e^{-\beta U}
+%k_BT\left[-\sum^{N'}_{i'}\frac{\partial }{\partial {\bf q}_{i'}}\right]\exp\left\{-\beta  \left(\sum_{i=1}^N m\mu({\bf
+%    r}_i)+ \boldsymbol{\lambda}_R\cdot\hat{\bf R}\right)\right\}
+%\nonumber\\
+%&=
+%\frac{1}{\Xi[\mu,\boldsymbol{\lambda}_R]}
+% \sum_{N=0}^\infty \frac{1}{N!}
+%\int \frac{dq}{\Lambda^{3N}}\frac{dq'}{\Lambda^{3N'}}
+%e^{-\beta U}
+%\exp\left\{-\beta  \left(\sum_{i=1}^N m\mu({\bf
+%    r}_i)+ \boldsymbol{\lambda}_R\cdot\hat{\bf R}\right)\right\}
+%\left[\sum^{N'}_{i'}\frac{\partial }{\partial {\bf q}_{i'}}\right] \boldsymbol{\lambda}_R\cdot\hat{\bf R}
+%\nonumber\\
+%&=\boldsymbol{\lambda}_R
+%\label{lf}\end{align}
+%This  identity  allows  one  to  interpret  physically  the  Lagrange
+%multiplier $\boldsymbol{\lambda}_R$ as the  force on the solid sphere.
+%By  using (\ref{Fd2})  we obtain  that the  total force  on the  solid
+%sphere is due to the gradient of the free energy functional
+%\begin{align}
+%{\bf F}^s&=-\frac{\partial  {\cal F}}{\partial{\bf R}}[\rho,{\bf R}]
+%\label{Fls}
+%\end{align}
+%
+%Therefore, the averages with the relevant ensemble of the solid object variables are
+%\begin{align}
+%{\rm Tr}[\overline{\rho}_t  iL\hat{\bf R}] 
+%&=\frac{\bf P}{M}
+%\nonumber\\
+%{\rm Tr}[\overline{\rho}_t  iL\hat{\bf P}] 
+%&=-\frac{\partial {\cal F}}{\partial {\bf R}}[\rho,{\bf R}]
+%\end{align}
+%where we have used the Eq. (\ref{Fls}).
+%
+%By collecting the  above results, the reversible part  of the dynamics
+%has the form
+%\begin{align}
+%\left.  \partial_t\rho({\bf r})\right|_{\rm rev}&=-\boldsymbol{\nabla}\cdot{\bf g}({\bf r})
+%\nonumber\\
+%\left.  \partial_t{\bf g}({\bf r})\right|_{\rm rev}&=-\boldsymbol{\nabla}\cdot\left({\bf g}({\bf r}){\bf v}({\bf r})\right)
+%-\rho({\bf r})\boldsymbol{\nabla} \frac{\delta {\cal F}}{\delta\rho({\bf r})}[\rho,{\bf R}]
+%\nonumber\\
+%\partial_t\left. {\bf R}\right|_{\rm rev}&=\frac{\bf P}{M}
+%\nonumber\\
+%\partial_t\left.{\bf P}\right|_{\rm rev}&=-\frac{\partial {\cal F}}{\partial {\bf R}}[\rho,{\bf R}]
+%\label{rev}
+%\end{align}
+%These reversible  equations are exact  as no approximations  have been
+%made so far. We qualify these  equations as reversible because, as can
+%be  explicitly  shown,  they   conserve  the  hydrodynamic  functional
+%(\ref{oleg}), which  is minus the entropy corresponding
+%  to this level of description.
 
 \subsection{Markovian irreversible dynamics}
 While the  reversible part of  the dynamics (\ref{rev}) is  exact, the
@@ -1940,7 +1983,7 @@ $\sum_jD_{ij}\lambda_j$ in Eq. (\ref{ex2}) now takes the form
 where we have  used (\ref{lno}). The sum over  the continuum ``index''
 ${\bf  r}$ becomes  an integral.   The domain  of integration  of this
 integral  is  $\mathbb{R}^3$,  including  the interior  of  the  solid
-sphere. By  using the  results (\ref{lno}),  (\ref{nu}) that  link the
+sphere. By  using the  results (\ref{lno}) and  (\ref{nu}) that  link the
 functional derivatives of  the CG Hamiltonian with  respect to momenta
 to the velocities, we obtain the following irreversible dynamics
 \begin{align}
@@ -1984,6 +2027,7 @@ and this leads in Eq. (\ref{IrrMark1}) to
   \partial_t{\bf g}({\bf r})&=-\int d{\bf r}'M^{gg}_{{\bf r}{\bf r}'}\left({\bf v}({\bf r}')-{\bf V}\right)
 \nonumber\\
 \frac{d}{dt}{\bf P}(t)&=\int d{\bf r}\int d{\bf r}'M^{gg}_{{\bf r}{\bf r}'}\left({\bf v}({\bf r}')-{\bf V}\right)
+%Esta última expresión se puede dejar en función de M^{Pg} y ver claramente que la derivada de P(t) será "igual" a la fuerza superficial {\cal S}
 \label{IrrMark2}\end{align}
 which contain only  the matrix element $M^{gg}_{{\bf  r}{\bf r}'}$ and are
 manifestly  Galilean   invariant.   By  using  Eqs.   (\ref{gls})  and
@@ -2018,7 +2062,7 @@ and the \textit{irreversible surface force density} on the fluid is defined as
 -{\bf V}^{\alpha'})
 \label{Irreversibleforces}
 \end{align}
-We use Einstein's sum over repeated indices convention (see Appendix \ref{Ap:Notation}).
+Note that we use Einstein's sum over repeated indices convention.
 In   these    expressions   we    have   introduced    the   following
 \textit{non-local}  transport   coefficients:  the   viscosity  kernel
 $\boldsymbol{\eta}_{{\bf r}{\bf r}'}$ (fourth  order tensor), the slip
@@ -2081,13 +2125,175 @@ Eqs.   (\ref{finaleq}), (\ref{GK}),   (\ref{Irreversibleforces}),
 are the  main results of the present  chapter.  They describe
 the isothermal non-local  hydrodynamics of a  simple fluid coupled with
 the motion of an immersed structureless solid sphere.  These equations
-generalize Equilibrium Density Functional Theory for a simple fluid to
+generalize Equilibrium DFT for a simple fluid to
 non-equilibrium situations in  which the fluid may be  moving around a
 solid  sphere.  The  only approximation  that  has been  taken in  the
 derivation is the Markovian approximation that neglects memory effects
 in the dissipative part of the dynamics.
 
-\Note{Falta desde Let us discuss}
+Let  us  discuss  the  physical  meaning of  the  different  terms  in
+Eqs.  (\ref{finaleq}).  The  equation for  the evolution  of the  mass
+density field is  just the continuity equation.  The  equation for the
+momentum density field involves the  usual convective term plus a term
+involving  the  gradient of  the  functional  derivative of  the  free
+energy.  This term describes both,  the ``pressure gradient'' term and
+the reversible coupling between the  fluid and solid sphere. The usual
+pressure gradient term of the Navier-Stokes equations is obtained when
+one  uses   a  local   free  energy  functional   as  will   be  shown
+elsewhere.               The                viscous               term
+$\boldsymbol{\nabla}\esc\boldsymbol{\Sigma}$  in Eqs.  (\ref{finaleq})
+describes   the  internal   friction   of  the   fluid   due  to   its
+self-interaction.  \Pendiente{This  viscous term involving second  derivatives is
+the usual viscosity term of the Navier-Stokes equations, which is here
+expressed in a  non-local form.  The use of  non-local viscosities has
+been   advocated  recently   in   the   field  of   nano-hydrodynamics
+\cite{Zhang2004a,Hansen2007,Todd2008a,Hansen2011}.  A phenomenological
+alternative to address flow problems where density is inhomogeneous is
+to keep using  local hydrodynamics with the viscosity of  the bulk but
+evaluated at the local values of the density\cite{Bitsanis1987}. While
+this   may    lead   to    reasonable   results   (but    not   always
+\cite{Bitsanis1990}), the present  microscopically derived model seems
+to have a firmer basis. The  fourth order viscosity tensor is given in
+terms  of the  correlation of  the  fluctuations of  the fluid  stress
+tensor.  Away from the walls, it is expected that the viscosity tensor
+becomes fully isotropic and dependent only on the distance between the
+points ${\bf r},{\bf r}'$.}
+
+The  force  density  $\boldsymbol{{\cal S}}({\bf  r})$  involving  the
+non-local transport  kernels ${\bf H}_{{\bf r}{\bf  r}'},{\bf G}_{{\bf
+    r}{\bf r}'}, \boldsymbol{\gamma}_{{\bf  r}{\bf r}'}$ describes the
+irreversible interaction between  the solid and the  fluid.  Note that
+these  kernels are  defined  in (\ref{GK})  in  terms of  correlations
+involving the  force density $\hat{\bf  F}^{s\to l}_{\bf r}$  that the
+solid sphere  exerts on the  liquid molecules.  These terms  should be
+understood,  therefore,  as  the   responsible  for  transmitting  the
+irreversible  forces that  the solid  sphere exert  on the  fluid. The
+force density $\hat{\bf F}^{\rm s\to  l}_{\bf r}(z)$ will be different
+from zero only for  those points ${\bf r}$ that are  near of the solid
+sphere.  This means  that the transport kernels  ${\bf G}_{{\bf r}{\bf
+    r}'},{\bf  H}_{{\bf  r}{\bf r}'},\boldsymbol{\gamma}_{{\bf  r}{\bf
+    r}'}$  are highly  localized  near  the atoms  of  the solid  that
+interact with the  fluid.  Note that  \textit{the concept of
+  surface of the solid does not  enter this theory}.  There is no such
+a well-defined  surface in  microscopic terms.  However,  this surface
+can  be defined  \textit{operationally}  by looking  precisely at  the
+singular behaviour of the above  transport kernels.  Indeed, the force
+density $\hat{\bf  F}^{\rm s\to l}_{\bf  r}(z)$ will be  a fluctuating
+vector on the surface of the solid sphere.  If the interaction between
+fluid and solid atoms is purely  repulsive, this force will be most of
+the time  directed outwards the surface  of the solid sphere.   At the
+same time,  because the interaction  between solid and fluid  atoms is
+singular  as  their  separation  vanishes, we  expect  that  $\hat{\bf
+  F}_{\bf r}^{\rm  s\to l}$ will  diverge as ${\bf r}$  approaches the
+solid boundary.  This  divergence will be reflected  in divergences of
+the  transport kernels  as  ${\bf  r}$ or  ${\bf  r}  '$ approach  the
+boundary  of  the  solid.   In   a  similar  way,  the  stress  tensor
+$\hat{\boldsymbol{\sigma}}_{\bf r}$  that depends  only on  fluid atom
+coordinates will be non-zero only outside the solid sphere because the
+interaction with  the solid sphere  refrains to have  liquid molecules
+inside the solid sphere (more  on this later).  Therefore, the surface
+of the solid may be characterized  by the singularity of the transport
+coefficients   ${\bf  H}_{{\bf   r}{\bf   r}'},{\bf  G}_{{\bf   r}{\bf
+    r}'},\boldsymbol{\gamma}_{{\bf r}{\bf  r}'}$ and the  vanishing of
+$\boldsymbol{\eta}_{{\bf r}{\bf r}'}$.
+
+The force density and the stress tensor are assumed to vary in time in
+a time  scale much shorter  than the typical  time scale in  which the
+mass  and  momentum density  of  the  solvent,  and the  position  and
+momentum  of  the solid  sphere  particle  appreciably changes.   This
+separation of time scales is at the  core of the Markovian form of the
+evolution   of   the   CG   dynamics  in   the   projection   operator
+technique. Whether the selected  relevant variables do actually comply
+with  this separation  of time  scales can  only be  assessed from  the
+validity of the  predictions of the resulting theory  as compared with
+actual   simulations  or   experiments.   Note,   however,  that   for
+slowly varying flow  configurations, as  those attained  in steady
+states, the Markovian approximation should be reasonably fulfilled.
+
+\subsection{Conserved quantities, $H$-theorem and the equilibrium state}
+The equations  (\ref{finaleq}) are the equations  of hydrodynamics in
+the  presence of  a solid  spherical particle.  We
+stress  that  the  above  equations conserve  total  mass  and
+momentum, given by
+\begin{align}
+  M_T&=M'+\int d{\bf r}\rho({\bf r})
+\nonumber\\
+{\bf P}_T&={\bf P}+\int d{\bf r}{\bf g}({\bf r})
+\end{align}
+Mass conservation  follows immediately  from the  continuity equation.
+Momentum  conservation  is  a  consequence  of  the  invariance  under
+translations   of   the   free    energy   functional   expressed   in
+Eq.  (\ref{iden1})  that  ensures  that the  reversible  part  of  the
+dynamics  conserves momentum.   The irreversible  part conserves  also
+total  momentum because  the
+momentum lost by the fluid is gained by the solid sphere.
+
+In  addition, the  function ${\cal H}$  evolves in time  in a
+strictly decreasing way, this is
+\begin{align}
+  \frac{d{\cal H}}{dt}(t)\le 0
+\label{Htheo}\end{align}
+where  the  equality sign  occurs  when  the  system has  reached  its
+equilibrium state.  This  is because, while the reversible  part of the
+dynamics conserves  ${\cal H}$,  the irreversible part  of the
+dynamics  fulfills  (\ref{Htheo}), due  to  the positive  semidefinite
+character of  the friction matrix.  
+
+As a consequence, the equilibrium state of Eqs. (\ref{finaleq}) is the
+one that minimizes ${\cal H}$ subject to the constraints of giving the
+actual values of the total mass  and momentum.  In order to obtain the
+equilibrium values of  the relevant variables, one  should minimize the
+following functional without constraints
+\begin{align}
+  {\cal H}-\mu_0\int d{\bf r} \rho({\bf r})-{\bf V}_0\cdot\left[\int d{\bf r}{\bf g}({\bf r})+{\bf P}\right]
+\end{align}
+where    $\mu_0,{\bf   V}_0$    are    the   corresponding    Lagrange
+multipliers. Setting  to zero the derivatives of  the above functional
+gives
+\begin{align}
+  \frac{{\bf v}^2({\bf r})}{2}
++\frac{\delta {\cal F}}{\delta\rho({\bf r})}[\rho,{\bf R}]-\mu_0&=0,\quad
+&&\frac{\partial {\cal F}}{\partial {\bf R}}[\rho,{\bf R}]=0
+\nonumber\\
+{\bf v}({\bf r})-{\bf V}_0&=0,\quad
+&&{\bf V}-{\bf V}_0=0
+\label{eq01}
+\end{align}
+This means that the state of equilibrium has a constant velocity field
+equal  to the  velocity  of  the solid  particle  and, without  losing
+generality, we may take ${\bf V}_0=0$.  We then have the following two
+coupled  equations for  the equilibrium  value that  take the  density
+field and the position of the sphere
+\begin{align}
+\frac{\delta {\cal F}}{\delta\rho({\bf r})}[\rho,{\bf R}]&=\mu_0,\quad
+&&
+\frac{\partial {\cal F}}{\partial {\bf R}}[\rho,{\bf R}]=0
+\label{eq1}
+\end{align}
+From Eqs.   (\ref{Fd2}), the first equation  (\ref{eq1}) simply states
+that  the equilibrium  state  has  a constant  value  of the  chemical
+potential $\mu({\bf  r})=\mu_0$ while the second  equation states that
+the total force on the solid  sphere vanishes at equilibrium. This set
+of two  coupled equations should be  understood as a set  of nonlinear
+equations for  the equilibrium density  field $\rho({\bf r})$  and the
+equilibrium value of the center  of mass position ${\bf R}$ of the sphere.  Translational
+invariance of the system implies that  if ${\bf R},\rho({\bf r})$ is a
+solution of (\ref{eq1}), then  ${\bf R}+{\bf u},\rho({\bf r}+{\bf u})$
+is also  a solution.   Therefore, without loose  of generality  we may
+choose the origin of coordinates at the center of the sphere and ${\bf
+  R}=0$. Then  the equilibrium  density field is  the solution  of the
+first equation.   Note that  for realistic models  of the  free energy
+functional,  the  density field  will  display  oscillations at  short
+length scales due  to the packing of the fluid  near the solid sphere.
+
+
+In the  present theory,  the equilibrium  profile is  the one  that is
+reached  at  long times  due  to  the  evolution of  the  hydrodynamic
+equations.  In this subsection, we have shown how the theory presented
+contains  the usual  prescription  to obtain  the equilibrium  density
+profile in  DFT by minimizing the  free energy
+functional.
+
 
 \section{Summary}
 
@@ -6139,12 +6345,13 @@ explicitly by
 \hat{\bf F}^{\rm s\to l}_{{\bf r}}- {\rm Tr}\left[\overline{\rho}_{t} \hat{\bf F}^{\rm s\to l}_{{\bf r}}\right]
 -(\hat{\bf R}-{\bf R}(t)){\cdot}\frac{\partial}{\partial {\bf R}(t)}
 {\rm Tr}\left[\overline{\rho}_{t} \hat{\bf F}^{\rm s\to l}_{{\bf r}}\right]
--(\hat{\bf P}-{\bf P}(t)){\cdot}\frac{\partial}{\partial {\bf P}(t)}
+\nonumber \\
+&-(\hat{\bf P}-{\bf P}(t)){\cdot}\frac{\partial}{\partial {\bf P}(t)}
 {\rm Tr}\left[\overline{\rho}_{t} \hat{\bf F}^{\rm s\to l}_{{\bf r}}\right]
-\nonumber\\
-&-\int d{\bf r}'(\hat{\rho}_{{\bf r}'}-\rho({\bf r}',t))
+-\int d{\bf r}'(\hat{\rho}_{{\bf r}'}-\rho({\bf r}',t))
 \frac{\delta}{\delta \rho({\bf r}',t)}{\rm Tr}\left[\overline{\rho}_{t'}  \hat{\bf F}^{\rm s\to l}_{{\bf r}}\right]
--\int d{\bf r}'(\hat{\bf g}_{{\bf r}'}-{\bf g}({\bf r}',t))
+\nonumber\\
+&-\int d{\bf r}'(\hat{\bf g}_{{\bf r}'}-{\bf g}({\bf r}',t))
 {\cdot}\frac{\delta}{\delta {\bf g}({\bf r}',t)}{\rm Tr}\left[\overline{\rho}_{t'}  \hat{\bf F}^{\rm s\to l}_{{\bf r}}\right]
 \label{QF0}
 \end{align}
@@ -6173,7 +6380,8 @@ currents become
 \hat{\bf F}^{\rm s\to l}_{{\bf r}}- {\rm Tr}\left[\overline{\rho}_{t} \hat{\bf F}^{\rm s\to l}_{{\bf r}}\right]
 -\int d{\bf r}'(\hat{\rho}_{{\bf r}'}-\rho({\bf r}',t))
 \frac{\delta}{\delta \rho({\bf r}',t)}{\rm Tr}\left[\overline{\rho}_{t'}  \hat{\bf F}^{\rm s\to l}_{{\bf r}}\right]
--\int d{\bf r}'(\hat{\bf g}_{{\bf r}'}-{\bf g}({\bf r}',t)){\cdot}
+\nonumber\\
+&-\int d{\bf r}'(\hat{\bf g}_{{\bf r}'}-{\bf g}({\bf r}',t)){\cdot}
 \frac{\delta}{\delta {\bf g}({\bf r}',t)}{\rm Tr}\left[\overline{\rho}_{t'}  \hat{\bf F}^{\rm s\to l}_{{\bf r}}\right]
 \label{QF}
 \end{align}
@@ -6183,7 +6391,8 @@ and
 \hat{\boldsymbol{\sigma}}_{{\bf r}}- {\rm Tr}\left[\overline{\rho}_{t} \hat{\boldsymbol{\sigma}}_{{\bf r}}\right]
 -\int d{\bf r}'(\hat{\rho}_{{\bf r}'}-\rho({\bf r}',t))
 \frac{\delta}{\delta \rho({\bf r}',t)}{\rm Tr}\left[\overline{\rho}_{t'}\hat{\boldsymbol{\sigma}}_{{\bf r}}\right]
--\int d{\bf r}'(\hat{\bf g}_{{\bf r}'}-{\bf g}({\bf r}',t))
+\nonumber\\
+&-\int d{\bf r}'(\hat{\bf g}_{{\bf r}'}-{\bf g}({\bf r}',t))
 {\cdot}
 \frac{\delta}{\delta {\bf g}({\bf r}',t)}{\rm Tr}\left[\overline{\rho}_{t'}  \hat{\boldsymbol{\sigma}}_{{\bf r}}\right]
 \label{QS1}
@@ -6270,9 +6479,11 @@ Let us now move to the projected current ${\cal Q}_t\hat{\boldsymbol{\sigma}}_{\
 \begin{align}
   {\cal Q}_t\hat{\boldsymbol{\sigma}}_{{\bf r}}&=
 \hat{\boldsymbol{\sigma}}_{{\bf r}}- {\rm Tr}\left[\overline{\rho}_{t} \hat{\boldsymbol{\sigma}}_{{\bf r}}\right]
--\int d{\bf r}'(\hat{\rho}_{{\bf r}'}-\rho({\bf r}',t))
+\nonumber\\
+&-\int d{\bf r}'(\hat{\rho}_{{\bf r}'}-\rho({\bf r}',t))
 \frac{\delta}{\delta \rho({\bf r}',t)}{\rm Tr}\left[\overline{\rho}_{t'}\hat{\boldsymbol{\sigma}}_{{\bf r}}\right]
--\int d{\bf r}'(\hat{\bf g}_{{\bf r}'}-{\bf g}({\bf r}',t))
+\nonumber\\
+&-\int d{\bf r}'(\hat{\bf g}_{{\bf r}'}-{\bf g}({\bf r}',t))
 \frac{\delta}{\delta {\bf g}({\bf r}',t)}{\rm Tr}\left[\overline{\rho}_{t'}  \hat{\boldsymbol{\sigma}}_{{\bf r}}\right]
 \nonumber\\
 &=\hat{\boldsymbol{\sigma}}_{{\bf r}}- {\rm Tr}\left[\overline{\rho}_{t} \hat{\boldsymbol{\sigma}}_{{\bf r}}\right]
