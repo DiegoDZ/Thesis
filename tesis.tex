@@ -961,6 +961,9 @@ with the present  formalism \cite{Grabert1982} but we  do not consider
 them here for simplicity.
 
 
+
+
+
 \section{Summary}
 
 In this chapter we have introduced two important concepts that holds this dissertation. The first one, quasi-equilibrium, states that what we refer to equilibrium of a system depends on the time window we take. If the time of obervation is shorter than the time in which some variables evolve, we may use this variables as CG variables. Because the other variables evolve faster we may assume that are irrelevant for the selected level of description. Therefore, we say that the slow and faster variables evolve in different time scales, which is the second important concept of this chapter. Only when there is a well-separation of time scales we obtain tractable time evolution equation without memory terms. This is known as Markovian descripcion to distinguish from the non-Markovian description in which the present state is determined by the past. 
@@ -1245,7 +1248,7 @@ in  simulation work,  where the  solid  is  assumed to  be made  of
 ``frozen''  particles that  act  as simple  generators  of forces  not
 reacting back  to the presence of  the liquid. In this  case, the solid
 should be modeled as a static external field acting on the liquid. The
-structure of the theory changes in this case as we will discuss later. \Note{Seguro?}
+structure of the theory changes in this case as we will discuss later. 
 
 \subsection{The time derivatives of the relevant variables}
 The time derivatives  of the coarse variables play  a fundamental role
@@ -1663,9 +1666,54 @@ the identity
 \end{align}
 This  identity will be  crucial in  order to  show that  total  momentum is
 conserved by  the reversible part  of the dynamics.  
-%\Note{Desde ecuación (55) del paper hasta el final de la sección. En principio no veo que sea necesario añadirlo, pero me queda pensarlo detenidamente.}
+
+The calculation of the thermodynamic potential (\ref{xpos}) needed for
+the evaluation of the free  energy functional ${\cal F}[\rho,{\bf R}]$
+is very difficult  to perform in general and,  therefore, one needs to  model the
+free energy functional based on intuition and previous experience. A
+particularly simple model that takes into account the effect of the
+fluid-solid interaction is given by
+\begin{align}
+  {\cal F}[\rho,{\bf R}]&={\cal F}_0[\rho]
++\int d{\bf r}\frac{1}{m}
+\rho({\bf r})V({\bf r},{\bf R})
+\label{modelnonlocalF}
+\end{align}
+where ${\cal F}_0[\rho]$ is the  free energy density functional of the
+fluid in the absence of the solid, and all the fluid solid interaction
+is  taken  into  account  through  the second  term  that  involves  a
+\textit{coarse-grained   potential}   $V({\bf  r},{\bf   R})$.    This
+potential  captures  the  effective (reversible)  interaction  between
+solid and fluid atoms.  Note  that even for the case of
+  an   ideal  gas   interacting  with   a  solid   sphere  the   model
+  (\ref{modelnonlocalF})  does not  follow  straightforwardly from  the
+  exact free energy (\ref{leg}) with (\ref{xpos}) due to the integrals
+  over  the solid  degrees  of freedom  of  the interaction  potential
+  between    ideal     gas    particles    and     solid    particles.
+  Eq. (\ref{modelnonlocalF}) is just a natural  candidate to model the free
+  energy $F[\rho,{\bf R}]$. The potential energy $V({\bf r},{\bf R})$
+becomes infinite (or extremely large)  for the points ${\bf r}$ inside
+the solid  sphere. Therefore, the last  term in (\ref{modelnonlocalF})
+makes impossible the realization of density fields with non-zero value
+inside the solid sphere (i.e.  leads to impenetrability of the solid).
+The derivatives of the free energy model (\ref{modelnonlocalF}) are
+\begin{align}
+  \frac{\delta{\cal F}}{\delta\rho({\bf r})}&=\mu_0({\bf r})+V({\bf r},{\bf R})
+\nonumber\\
+\frac{\partial{\cal F}}{\partial{\bf R}}&=-\int d{\bf r}\rho({\bf r}){\bf F}({\bf r},{\bf R})
+\end{align}
+\Note{¿Y la m?}
+
+where $\mu_0({\bf r})$ is the  usual chemical potential of the solvent
+in the  absence of any  solid, and ${\bf  F}({\bf r},{\bf R})$  is the
+effective force, deriving from the potential $V({\bf r},{\bf R})$ that
+the solid sphere  with center of mass  at ${\bf R}$ exerts  on a fluid
+atom at ${\bf r}$.
+
+
 
 \section{The transport equations}
+\label{Sec:TransEqs}
 In this section we will obtain the transport equation for a fluid in contact with a solid sphere. In Sec. \ref{Sec:Grabert} we obtained an expression for the evolution of the selected variables using the technique of projection operators. This expression consists on two terms: the reversible part and the irreversible part. 
 \subsection{Exact reversible dynamics}\label{Sec:ExactCont}
 In this subsection we consider the reversible part for the case that the CG variables are those in Eqs. (\ref{CGvar}).
@@ -1710,7 +1758,7 @@ The action of the Galilean operator on the relevant variables is
   {\cal G}\hat{\bf R}(z) &= \hat{\bf R}(z) \nonumber\\
   {\cal G}\hat{\bf P}(z) &= \hat{\bf P}(z)
 \end{align}
-Therefore, the action of ${\cal G}$ on the relevant ensemble is \Note{(En el paper aparece $\rho^{eq}$ y no sé de dónde sale...)}
+Therefore, the action of ${\cal G}$ on the relevant ensemble is \Note{(En el paper aparece $\rho^{eq}$¿?)}
 \begin{align}
   {\cal G}\overline{\rho}_t &=
 \frac{1}{\Xi[\lambda(t)]}\rho_0
@@ -2346,155 +2394,7 @@ the solid  object is fixed  in space.  These equilibrium  averages can
 be,  therefore,  sampled  through  the  ergodic  hypothesis,  as  time
 averages over long MD simulations in which the solid remains fixed.
 
-The form of the projected currents is computed explicitly in the appendix.
-% \begin{widetext} 
-%   {\blue The relevant ensemble is  a generalized canonical ensemble of
-%     exponential form.  We consider now  the situation in which  we may
-%     approximate the  generalized canonical  ensemble by  a generalized
-%     microcanonical  ensemble, where  the position  and momenta  of the
-%     solid sphere is fixed.
-
-% The average with the  relevant ensemble of an arbitrary phase
-%     function $\hat{B}(z)$ is
-% \begin{align}
-%   {\rm Tr}[\overline{\rho}_t \hat{B}]
-% &=\frac{1}{\Xi[\lambda_l,\lambda_s]}
-%  \sum_{N=0}^\infty \frac{1}{N!h^{3N}}
-% \int dqdp dq'dp'
-% \exp\left\{-\beta H_N-\beta \sum_{i=1}^Nm\lambda_\rho({\bf
-%     r}_i)-\beta \sum_{i=1}^N{\bf p}_i\esc\boldsymbol{\lambda}_g({\bf q}_i)\right\}
-% \nonumber\\
-% &\times\exp\left\{-\beta \boldsymbol{\lambda}_{R}\esc\hat{\bf R}(z)
-% -\beta \boldsymbol{\lambda}_{P}\esc\hat{\bf P}(z)\right\}\hat{B}(z)
-% \nonumber\\
-% &=\int d{\bf R} d{\bf P}
-% \exp\left\{-\beta \boldsymbol{\lambda}_{R}\esc{\bf R}
-% -\beta \boldsymbol{\lambda}_{P}\esc{\bf P}\right\}
-% \frac{1}{\Xi[\lambda_l,\lambda_s]}
-%  \sum_{N=0}^\infty \frac{1}{N!h^{3N}}
-% \int dqdp dq'dp'\nonumber\\
-% &\times
-% \exp\left\{-\beta H_N-\beta \sum_{i=1}^Nm\lambda_\rho({\bf
-%     r}_i)-\beta \sum_{i=1}^N{\bf p}_i\esc\boldsymbol{\lambda}_g({\bf q}_i)\right\}
-% \delta({\bf R}-\hat{\bf R}(z))\delta({\bf P}-\hat{\bf P}(z))\hat{B}(z)
-% \end{align}
-% where  we  have  introduced  the identity  $\int  d{\bf  R}\delta({\bf
-%   R}-\hat{\bf    R}(z))=1$,     etc.     and    we     have    defined
-% $\Xi[\lambda_l,\lambda_s]$,                                       with
-% $\lambda_l=\lambda_\rho,\boldsymbol{\lambda}_g$                    and
-% $\lambda_s=\boldsymbol{\lambda}_{R},\boldsymbol{\lambda}_P$.
-% \begin{align}
-%   {\rm Tr}[\overline{\rho}_t \hat{B}]
-% &=\int d{\bf R} d{\bf P}
-% \exp\left\{-\beta \boldsymbol{\lambda}_{R}\esc{\bf R}
-% -\beta \boldsymbol{\lambda}_{P}\esc{\bf P}\right\}
-% \frac{\Xi[\lambda_l,0]}{\Xi[\lambda_l,\lambda_s]}P_{a}({\bf R},{\bf P})
-% \llangle \hat{B}\rrangle^{\rho {\bf g}}_{{\rm mic} \;{\bf R}{\bf P}}
-% \label{gencanmic}
-% \end{align}
-% where we have defined
-% \begin{align}
-%   \llangle \hat{B}\rrangle^{\rho {\bf g}}_{{\rm mic} \;{\bf R}{\bf P}}&\equiv
-% \frac{1}{\Xi[\lambda_l,0]P_{a}({\bf R},{\bf P})}
-%  \sum_{N=0}^\infty \frac{1}{N!h^{3N}}
-% \int dqdp dq'dp'\nonumber\\
-% &\times
-% \exp\left\{-\beta H_N-\beta \sum_{i=1}^Nm\lambda_\rho({\bf
-%     r}_i)-\beta \sum_{i=1}^N{\bf p}_i\esc\boldsymbol{\lambda}_g({\bf q}_i)\right\}
-% \delta({\bf R}-\hat{\bf R}(z))\delta({\bf P}-\hat{\bf P}(z))\hat{B}(z)
-% \nonumber\\
-% P_{a}({\bf R},{\bf P})&\equiv
-% \frac{1}{\Xi[\lambda_l,0]} \sum_{N=0}^\infty \frac{1}{N!h^{3N}}
-% \int dqdp dq'dp'\nonumber\\
-% &\times
-% \exp\left\{-\beta H_N-\beta \sum_{i=1}^Nm\lambda_\rho({\bf
-%     r}_i)-\beta \sum_{i=1}^N{\bf p}_i\esc\boldsymbol{\lambda}_g({\bf q}_i)\right\}
-% \delta({\bf R}-\hat{\bf R}(z))\delta({\bf P}-\hat{\bf P}(z))
-% \nonumber\\
-% \Xi[\lambda_l,0]&\equiv \sum_{N=0}^\infty \frac{1}{N!h^{3N}}
-% \int dqdp dq'dp'
-% \exp\left\{-\beta H_N-\beta \sum_{i=1}^Nm\lambda_\rho({\bf
-%     r}_i)-\beta \sum_{i=1}^N{\bf p}_i\esc\boldsymbol{\lambda}_g({\bf q}_i)\right\}
-% \end{align}
-% Here $P_{a}({\bf R},{\bf  P})$ is the normalized  probability that the
-% solid sphere  has center of  mass position and momentum  ${\bf R},{\bf
-%   P}$  when the  microscopic ensemble  is the  relevant ensemble  with
-% $\boldsymbol{\lambda}_R=0,\boldsymbol{\lambda}_P=0$.  This probability
-% depends on  the full set  $a$ of  averages of the  relevant variables,
-% because the  conjugate variables $\lambda_\rho,\boldsymbol{\lambda}_g$
-% depend on this full set.  The average $ \llangle \hat{B}\rrangle^{\rho
-%   {\bf g}}_{{\rm mic} \;{\bf R}{\bf  P}}$ is canonical with respect to
-% $\rho,{\bf  g}$  but  microcanonical  with respect  to  ${\bf  R},{\bf
-%   P}$.  Eq.  (\ref{gencanmic})  relates   the  fully  canonical  average  ${\rm
-%   Tr}[\overline{\rho}\hat{B}]$   with  the   partially  microcanonical
-% average  $\llangle \hat{B}\rrangle^{\rho  {\bf  g}}_{{\rm mic}  \;{\bf
-%     R}{\bf P}}$ and can be written as
-
-% \begin{align}
-%   {\rm Tr}[\overline{\rho}_t \hat{B}]&=
-% \int d{\bf R} d{\bf P}G({\bf R},{\bf P})\llangle \hat{B}\rrangle^{\rho {\bf g}}_{{\rm mic} \;{\bf R}{\bf P}}
-% \end{align}
-% with the definition 
-% \begin{align}
-%   G({\bf R},{\bf P})&\equiv
-% \exp\left\{-\beta \boldsymbol{\lambda}_{R}\esc{\bf R}
-% -\beta \boldsymbol{\lambda}_{P}\esc{\bf P}\right\}
-% \frac{\Xi[\lambda_l,0]}{\Xi[\lambda_l,\lambda_s]}P_{a}({\bf R},{\bf P})
-% \end{align}
-% This function can be interpreted as a probability distribution, as it is normalized to unity
-% \begin{align}
-% \int d{\bf R}d{\bf P}    G({\bf R},{\bf P})&=1
-% \end{align}
-% The maximum ${\bf R}^*,{\bf P}^*$ of this probability occurs when
-% \begin{align}
-% \boldsymbol{\lambda}_{R}&=k_BT\frac{\partial}{\partial{\bf R}}
-% \ln P_{a}({\bf R}^*,{\bf P}^*)
-% \nonumber\\
-% \boldsymbol{\lambda}_{P}&=k_BT\frac{\partial}{\partial{\bf P}}
-% \ln P_{a}({\bf R}^*,{\bf P}^*)
-% \end{align}
-% I  would   like  to  find   that  the  solution  is   ${\bf  R}^*={\rm
-%   Tr}[\overline{\rho}_t\hat{\bf     R}]$    and     ${\bf    P}^*={\rm
-%   Tr}[\overline{\rho}_t\hat{\bf         P}]$.          
-
-
-% {\bf The question I want to answer is: How to compute operationally the relevant
-% ensemble averages?}
-
-% }\end{widetext}
-% {\red \subsection{Onsager relations} Onsager  relations arise from the
-%   property of microscopic reversibility  and its effect on equilibrium
-%   correlation functions.   We briefly  review the  argument.  Consider
-%   the  equilibrium   correlation  function  of  two   phase  functions
-%   $\hat{A}(z),\hat{B}(z)$, i.e.
-% \begin{align}
-%   \langle \hat{A}(t)B\rangle^{\rm eq}&=\int dz \rho^{\rm eq}(z)\hat{A}(T_tz)\hat{B}(z)
-% \end{align}
-% where  $T_tz$ is  the  solution of  Hamilton's  equation with  initial
-% condition $z$. A change of  variables $z'=T_tz$ has unit jacobian and,
-% because  the  equilibrium  ensemble  depends  only  on  the  dynamical
-% invariants, we have $\rho^{\rm  eq}(T_tz)=\rho^{\rm eq}(z)$ leading to
-% the stationarity condition.
-% \begin{align}
-%   \langle \hat{A}(t)B\rangle^{\rm eq}&=\int dz \rho^{\rm eq}(z)\hat{A}(T_tz)\hat{B}(z)
-% \nonumber\\
-% &=\int dz' \rho^{\rm eq}(z')\hat{A}(z')\hat{B}(T_{-t}z')=  \langle A\hat{B}(-t)\rangle^{\rm eq}
-% \end{align}
-% On  the other  hand,  microscopic  reversibility implies  $T_t\epsilon
-% z=\epsilon T_{-t}z$  where $\epsilon$  is a  matrix that  reverses the
-% sign of  the momenta in  the microstate  $z$. The change  of variables
-% $\epsilon z'=z$ now gives
-% \begin{align}
-%   \langle \hat{A}(t)B\rangle^{\rm eq}&=\int dz' \rho^{\rm eq}(\epsilon z')\hat{A}(T_t\epsilon z')\hat{B}(\epsilon z')
-% \nonumber\\
-% & =
-% \int dz' \rho^{\rm eq}(z')\hat{A}(\epsilon T_{-t}z')\hat{B}(\epsilon z')
-% \end{align}
-% If both phase functions transform in the same way under time reversal,
-% i.e. $\hat{A}(\epsilon z)=\pm \hat{A}(z)$ $\hat{B}(\epsilon z)=\pm \hat{B}(z)$ this implies
-% \begin{align}
-%   \langle \hat{A}(t)B\rangle^{\rm eq}&=  \langle \hat{A}(-t)B\rangle^{\rm eq}
-% \end{align}
+\Tirar{The form of the projected currents is computed explicitly in the Appendix \ref{Ap:Projected}.}
 
 When we approximate the relevant ensemble with an equilibrium ensemble
 in   the  Green-Kubo   transport  coefficients,   they  become   state
@@ -2507,10 +2407,6 @@ ensemble imply
 \begin{align}
   \langle \hat{A}(t)B\rangle^{\rm eq}&=  \langle A\hat{B}(t)\rangle^{\rm eq}
 \end{align}
-% Once we assume that the correlations are given in terms of equilibrium
-% averages (conditional to  have fixed the sphere), we expect  to have a
-% number  of  time and  space  invariance  symmetries in  the  transport
-% coefficients  that  derive from  the  above  symetry.}  
 The microscopic reversibility
 property reflects into the following  property of correlations
 \begin{align}
@@ -2550,17 +2446,20 @@ H(z) &=& \sum^N_i \frac{p_i^2}{2m_i} + V^{l}(q)+ V^{ls}(q,q')
 where the coordinates of the solid  atoms $q'$ are fixed parameters of
 the  Hamiltonian.  The  relevant variables  are only  the hydrodynamic
 variables of  the solvent. We  may follow all  the steps that  we have
-taken  in Sec.  \ref{Sec:Trans}  for the  present  case.  The  most
+taken  in Sec.  \ref{Sec:TransEqs}  for the  present  case.  The  most
 important  observation is  that the  microscopic force  that the  solid
 exerts on the fluid depends on the microscopic state $z$ of the system
 through the solvent density, \textit{which is a relevant variable}. Indeed,
 \begin{align}
-  \hat{\bf F}^{\rm s\to l}_{\bf r}&=\sum^{NN'}_{ii'}\hat{\bf F}_{ii'}\delta({\bf r}-{\bf q}_i)
+  \hat{\bf F}^{\rm s\to l}_{\bf r}&=\sum^{NN'}_{ij'}\hat{\bf F}_{ij'}\delta({\bf r}-{\bf q}_i)
 \nonumber\\
-&=\sum^{NN'}_{ii'}{\bf F}({\bf r}-{\bf q}_{i'})\delta({\bf r}-{\bf q}_i)
+&=\sum^{NN'}_{ij'}{\bf F}({\bf r}-{\bf q}_{j'})\delta({\bf r}-{\bf q}_i)
 \nonumber\\
 &=\hat{\bf F}({\bf r})\hat{\rho}_{\bf r}(z)
 \end{align}
+\Note{No lo veo}
+
+
 where here  $\hat{\bf F}({\bf r})$  is the  force that all  the frozen
 solid atoms  exert on a fluid  atom located at ${\bf  r}$.  This force
 does not evolve  in time and is not  a dynamic object at all,  it is a
@@ -2571,7 +2470,7 @@ variable, the projected force ${\cal Q}\hat{\bf F}_{{\bf r}}^{\rm s\to
   l}=0$ vanishes exactly.  As a  consequence, \textit{for this type of
   walls  made   of  frozen  atoms,  the   irreversible  surface  force
   $\boldsymbol{{\cal S}}({\bf r})$  vanishes identically}, because all
-the  transport kernels  involving  the projected  force vanish.   This
+  the  transport kernels  involving  the projected  force vanish.  \Note{Repesar el siguiente argumento} This
 gives  a   strong  indication  about   the  physical  origin   of  the
 irreversible surface force in the  present level of description. It is
 due  entirely to  the eliminated  internal degrees  of freedom  of the
@@ -2581,7 +2480,7 @@ degrees of  freedom for the  solid are  very fast relaxing  degrees of
 freedom  towards equilibrium,  it is  precisely the  unaccounted solid
 degrees  of  freedom  the  responsible  for  the  originators  of  the
 irreversible  surface forces  on the  solvent.  This  point is  subtle
-though.   As we  will  see  in a  subsequent  publication, a  slightly
+though.   As we  will  see  in the next chapter, a  slightly
 different  level   of  description,   one  in   which  the   fluid  is
 coarse-grained  not  with  the  local mass  $\hat{\rho}_{\bf  r}$  and
 momentum $\hat{\bf  g}_{\bf r}$ densities  at a given point  of space,
@@ -2595,10 +2494,165 @@ sufficient for the  appearance of the irreversible forces.   This is a
 nice example that  illustrates a very general  concept: Dissipation is
 not an intrinsic  property of the system, but rather  it is a function
 of the level of description used.
-%\cite{PrivateGrabert}
 
 
 \section{Summary}
+In this chapter we have derived DDFT for simple fluid in contact with a solid sphere. We have taken as relevant variables the mass and momentum density fields of the fluid and the center of mass position and momentum of the solid sphere. We have use the Kawasaki-Gunton operator in order to obtain the evolution equations for the average value of these fiels.  
+A crucial assumption in the method of projection operators is that the
+relevant variables should be {\em slow}  in order to have a Markovian,
+memoryless  equation.   Equations with  memory  are  indeed much  more
+difficult to deal with than  memoryless equations.  In the former case
+one  needs  to know  the  specific  form  of  the memory  kernel  {\em
+  function}  instead of  just one  single number,  the transport  {\em
+  coefficient}, which in  the present theory is, in  fact, a non-local
+function  of space.   The equations  (\ref{finaleq}) are  non-local in
+space because  1) the free energy  functional depends in general  in a
+non-local  way on  the  density  field in  order  to  account for  the
+ordering of a fluid near a wall.  And 2), the irreversible part of the
+dynamics involves transport kernels that  are non-local.  Note that we
+assume non-locality  in space  but locality in  time (no  memory), and
+this  may not  be entirely  consistent.  However,  memory kernels  are
+typically uncomputable from MD, as they involve the projected dynamics
+instead of  the real  dynamics. The usual  approximation in  which the
+projected dynamics is substituted with the real, Hamiltonian, dynamics
+is only justified  when, precisely, one has separation  of time scales
+(i.e.   when the  Markovian dynamics  holds).  We  take the  pragmatic
+point of view  in which we give credit to  the Markovian approximation
+but retain spatially non-local  hydrodynamic equations, by hoping that
+non-Markovian effects will not dominate the problem. In particular, we
+believe  that  for  flows  that   vary  slowly  in  time,  the  Markov
+approximation  will hold.   This  excludes, perhaps,  shocks or  other
+strongly varying flows.
+
+The theory presented in Sec.  \ref{Sec:Grabert} (and in which the present chapter is based) is valid for \textit{isolated}
+systems that  decay towards the  unique equilibrium state,  abiding to
+the  Second Law  of Thermodynamics,  and it  does not  allow to  treat
+forced situations  where there are  external forces applied  either to
+the fluid or to  the solid.  In this respect, no  steady states can be
+described by the theory as  it stands.  However, the generalization of
+the  framework to  include external  forcing is  not difficult  and is
+sketched   in   what   follows   by   following   Grabert's   textbook
+\cite{Grabert1982}.   For sufficiently  small  external forcings,  the
+equations of  motion (i.e.   the transport  equations and  free energy
+function) are the same as the  no forced situations, with the external
+forcing appearing  in two places.  On  one hand in the  fluid momentum
+equation a term $\rho({\bf r},t){\bf F}^{\rm ext}({\bf r},t)$ appears,
+where  ${\bf F}^{\rm  ext}({\bf  r},t)$ is  any  external force  field
+acting on a  molecule of fluid that  happens to be at  the point ${\bf
+  r}$.  On the  other  hand,  in the  particle  momentum equation,  an
+additional  force  term ${\bf  F}({\bf  R})$  appears, describing  any
+external force acting on the particle.
+
+The theory  presented is  isothermal.  We have  not considered  in the
+description the  energy density field  of the fluid, nor  the internal
+energy of the  solid sphere.  Instead, only the total  energy has been
+considered as relevant  variable and local transport of  energy is not
+described  by  the present  theory.   Of  course, these  local  energy
+variables  can  be  introduced  in  the  theory,  at  the  expense  of
+additional equations and terms.
+
+A   word  is   in  order   about  the   mathematical  nature   of  the
+integro-differential equations.   From a  mathematical point  of view,
+these equations  require the specification of  (mathematical) boundary
+conditions in order  to have a unique solution. What  are the suitable
+boundary conditions to be specified for Eqs.  (\ref{finaleq})?  In the
+present situation,  where only transient dynamics  towards equilibrium
+can be  investigated, these boundary  conditions appear as  an initial
+value  problem.  In  addition,  note  that we  have  not included  any
+external confining potential that would model the  confinement of the fluid in a
+container.   Only a  sphere in  an  infinite fluid  (or with  periodic
+boundary conditions)  has been  considered.  It is  straightforward to
+include an external potential,  though.  These confining potential are
+such that, by definition, leave the fluid in a closed region of space,
+where outside the region there are no atoms of the fluid.  In order to
+do so, these  confining potentials need to be  singular.  This implies
+that outside the  container region both the mass  density and momentum
+densities of the fluid are zero.
+Note that outside the  container region, both
+the force density $\hat{\bf F}_{\bf  r}^{\rm s\to l}(z)$ and the fluid
+stress tensor  $\hat{\boldsymbol{\sigma}}_{\bf r}(z)$  vanish, because
+there are  no fluid particles  outside. This means that  the transport
+kernels vanish if  ${\bf r}$ or ${\bf r}'$ are  outside the container.
+This should tame  the potentially singular presence of  factors of the
+inverse of the  density appearing in the velocity  field ${\bf v}({\bf
+  r})={\bf  g}({\bf r})/\rho({\bf  r})$.  The  presence of  the sphere
+produces forces  that are highly  localized in a narrow  region around
+the solid particle.  From a thermodynamic  point of view, the issue of
+boundary  conditions   as  emerging   from  ``physics''   rather  than
+``numerical  analysis''   has  also   been  considered  in   the  past
+\cite{Bedeaux1976,Qian2008,Ottinger2008,Sagis2011}.    In    a   fully
+macroscopic phenomenological  theory, the  effect of  the irreversible
+surface  force  is  taken  into account  through  boundary  conditions
+applied  to  the fluid  equations.  Camargo et al. discuss in \cite{CamargoBC2018} 
+the emergence  of  boundary conditions  in a  macroscopic
+theory.  They  consider the  conditions  under  which  the
+localized   irreversible  surface   forces  produce   actual  boundary
+conditions for the hydrodynamic equations.
+
+A  general comment  on the  status of the  present theory  is in
+order.   This  theory is  the  natural  generalization of  Equilibrium
+DFT for simple  fluids, when these fluids are in
+motion and, therefore, out of equilibrium. It allows, in principle, to
+study effects  like how the  structuring of the  fluid near a  wall is
+modified by the flow field. While  it is a coarse-grained theory where
+the relevant  variables are the  hydrodynamic fields, it  captures the
+structure of the fluid at atomic nanoscales.  The value of the present
+theory lies in  that it provides the structure of  the equations.  For
+example, as  compared with previous  work, the present theory  gives a
+neat definition of  all the irreversible forces in a  fluid that arise
+due to the interaction with solids.  In particular, the distinction of
+the forces on the  fluid due to the fluid itself and  due to the solid
+reflects  into the  final structure  of the  irreversible forces  that
+involve  both,  microscopically  defined  slip  coefficients  (due  to
+fluid-solid interactions),  as well as  viscosity kernels (due  to the
+fluid-fluid interactions).  The form of these forces is such that, not
+only friction  forces that depend  on the velocity  difference between
+the fluid  and the solid  appear, but also  forces that depend  on the
+gradients of the velocity field near the solid are present.
+
+All these features are important  assets of the theory. Unfortunately,
+in order  to make the  theory predictive, it  is necessary to  fill in
+some  important information.   The  first input  element  is the  free
+energy  functional   (\ref{modelnonlocalF})  involving   the  standard
+equilibrium  free  energy  functional  ${\cal  F}_0[\rho]$.   One  can
+benefit from the vast amount of  work in the literature addressing the
+construction   of  very   realistic   models  for   the  free   energy
+functional. The  second piece of  information that is required  is the
+dissipative  matrix, that  contains  the \textit{non-local}  transport
+kernels, which are  \textit{tensorial} in nature.  This  means that in
+order to make dynamic predictions with  this theory we have to know in
+advance 50 different functions (tensor  elements after sorting out the
+corresponding symmetries of the stress tensor and Onsager reciprocity)
+of  the six  variables ${\bf  r},{\bf r}'$.   While in  principle, the
+Green-Kubo  expressions  would  allow  for  the  explicit  calculation
+through MD simulations, it is clearly not a feasible program. In order
+to make any advance in the prediction of transport at the nanoscale it
+is necessary to make some approximations  in order to reduce the large
+number of transport  kernels.  In the following chapters,  we will consider situations
+in  which symmetries  of  the  solid surface  and  fluid  flow can  be
+exploited.  In those situations,  the number of Green-Kubo expressions
+is dramatically reduced and can be computed explicitly.
+
+Finally, we remark that the present theory is concerned with the evolution of the \textit{averages} of the relevant variables. 
+The fact that we use a spherical solid particle is just a recourse to deal with momentum conservation, but we have in mind that the particle will be very large and massive for which Brownian motion plays no role. 
+%The  present   theory  is   concerned  with   the  evolution   of  the
+%\textit{averages}  of  the  relevant  variables,  in  this  case,  the
+%hydrodynamic  fields  and  the  momentum and  position  of  the  solid
+%sphere. This precludes  the study of Brownian motion  of the particle.
+%The average  position of a Brownian  particle may be zero  even though
+%the variance  of the position  increases in time.  Brownian  motion is
+%captured by the \textit{probability  distribution} of the position and
+%momenta of the  solid particle.  We are not interested  in the present
+%paper in the  Brownian motion of nanoparticles and the  subtle role of
+%hydrodynamic  fluctuations.   These  issues  was adressed in \cite{EspanolDonev2015}.  In this chapter,
+%we focus on  the time-dependent ensemble averages  of the hydrodynamic
+%fields,  and the  position and  momentum of  the particle  because our
+%interest  in  describing  the  unifying  framework  in  which  Density
+%Functional Theory and  hydrodynamics coexist.  The fact that  we use a
+%spherical  solid particle  is just  a recourse  to deal  with momentum
+%conservation, but we have in mind that the particle will be very large
+%and  massive (in  fact  it  will be  used  eventually  to represent  a
+%\textit{wall}) for which Brownian motion plays no role.
 
 
 %-----------------------------------------------------------------
@@ -6954,7 +7008,7 @@ generalized canonical ensemble of the form
   \overline{\rho}&=&\frac{1}{\Xi(\lambda,{\bf v})}\exp\left\{-\beta \hat{H}_N
 -\beta\left(M^\psi_{\mu\nu}\lambda_\nu \hat{\rho}_{\mu}
 -M^\psi_{\mu\nu}{\bf v}_\nu\esc\hat{\bf g}_{\mu}\right)\right\}
-\label{relensln}
+\label{relenslnAp}
 \end{eqnarray}
 Here,      the     Lagrange      multipliers     are      $\beta,\beta
 M^\psi_{\mu\nu}\lambda_\nu,-\beta  M^\psi_{\mu\nu}{\bf   v}_\nu$  where
@@ -6975,7 +7029,7 @@ grand-canonical partition function defined as
 \end{align}
 The  conjugate  fields  $\lambda_\nu,{\bf  v}_\nu$ are  fixed  by  the
 condition that the averages of the CG variables (\ref{rhogmumic}) with
-the  relevant ensemble  (\ref{relensln})  coincide  with the  averages
+the  relevant ensemble  (\ref{relenslnAp})  coincide  with the  averages
 $\rho_\mu,{\bf g}_\mu$ computed with the  real ensemble (i.e. the
 solution of the Liouville equation). This condition can be expressed in terms of
 the generalized grand-canonical potential (\ref{oh})
@@ -6999,7 +7053,7 @@ transform.   In   an  alternative   and  complementary  way,   in  the
 Kawasaki-Gunton method, one  defines the entropy of  the present level
 of description  as the result  of evaluating the  Gibbs-Jaynes entropy
 (\ref{entropy}) at  the maximum, which  is given by  the relevant
-ensemble (\ref{relensln}).  The result is
+ensemble (\ref{relenslnAp}).  The result is
 \begin{align}
   S(\rho,{\bf g}) &=k_B\beta\left[E-\Phi(\lambda,{\bf v})
 +\rho_\mu M^\psi_{\mu\nu}\lambda_\nu-{\bf g}_\mu\esc M^\psi_{\mu\nu}{\bf v}_\nu\right]
@@ -7151,7 +7205,7 @@ and we have introduced the density matrix defined by
 \delta_\mu({\bf r})\psi_\nu({\bf r})\llangle\hat{\rho}_{\bf r}\rrangle^{\lambda{\bf v}}
 \end{align}
 where $\llangle\cdots\rrangle^{\lambda{\bf v}}$  is the average  with respect
-to   the  relevant   ensemble   (\ref{relensln}). 
+to   the  relevant   ensemble   (\ref{relenslnAp}). 
 
 \section{The exact reversible part of the dynamics}
 The reversible part of the dynamics  is given by the relevant ensemble
