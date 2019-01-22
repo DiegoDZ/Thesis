@@ -2294,6 +2294,309 @@ contains  the usual  prescription  to obtain  the equilibrium  density
 profile in  DFT by minimizing the  free energy
 functional.
 
+\subsection{Approximating the relevant ensemble averages and projected
+  currents}
+It  should be  remarked that  the theory  presented is  valid, as  the
+H-theorem  clearly testifies,  for the  decaying dynamics  towards the
+equilibrium state in isolated systems. It is, therefore, a theory that
+describes, given initial non-equilibrium values for  the averages of the CG variables,
+the subsequent  average evolution towards equilibrium.   One situation
+in which  we will  be interested  is when the  solid particle  is very
+large and  massive.  In these situations, we may assume
+that the spherical particle has initial (average) position ${\bf R}_0$
+and initial  (average) momentum  ${\bf P}_0=0$ and  that, for  all the
+decay evolution of the hydrodynamic fields, these values do not change
+appreciably because the  forces that the fluid exerts  on the particle
+during  its evolution  are  not sufficiently  strong  to modify  these
+variables substantially.
+
+In principle, the  relevant ensemble depends (in a  functional way) on
+the averages of all the relevant  variables of the system.  As this is
+unduly complicated, we  take the approximation in  which the transport
+kernels are evaluated for the {\em equilibrium} values of the relevant
+variables. In  this doing, we assume  that for any other  value of the
+average value of the relevant variables  obtained in the course of the
+dynamics,  the  transport  kernels  do not  change  appreciably.   The
+equilibrium  values  of  the  average  relevant  variables  have  been
+obtained in  Eqs. (\ref{eq01}),  (\ref{eq1}) and are  characterized by
+the following conjugate variables (see Eq. (\ref{nu}) and (\ref{Fd2}))
+\begin{align}
+\mu({\bf r},{\bf R})&=\mu_0
+\nonumber\\
+\boldsymbol{\lambda}_g({\bf r})&=0
+\nonumber\\
+\boldsymbol{\lambda}_P&=0
+\nonumber\\
+\boldsymbol{\lambda}_R&=0
+\end{align}
+Substitution of  these conjugate variables into  the relevant ensemble
+(\ref{relensln})  shows that  the relevant  ensemble becomes  just the
+equilibrium  ensemble.   Of  course  an  equilibrium  average  of  the
+microscopic system  is one  in which the  sampling of  the microscopic
+state involves states where the solid sphere may be located in any 
+position of the physical space, due to Brownian motion. When the solid
+particle is  infinitely massive,  the position of  the center  of mass
+will not  change appreciably in  the time  scale at which  the solvent
+becomes equilibrated.   This is, for  a very massive sphere  we expect
+that the instantaneous  values of their centers of  mass $\hat{\bf R}$
+is  always very  similar to  their average  values. For  massive solid
+objects and,  in particular,  planar walls,  we should  understand the
+averages over  the equilibrium ensemble as  conditional averages where
+the solid  object is fixed  in space.  These equilibrium  averages can
+be,  therefore,  sampled  through  the  ergodic  hypothesis,  as  time
+averages over long MD simulations in which the solid remains fixed.
+
+The form of the projected currents is computed explicitly in the appendix.
+% \begin{widetext} 
+%   {\blue The relevant ensemble is  a generalized canonical ensemble of
+%     exponential form.  We consider now  the situation in which  we may
+%     approximate the  generalized canonical  ensemble by  a generalized
+%     microcanonical  ensemble, where  the position  and momenta  of the
+%     solid sphere is fixed.
+
+% The average with the  relevant ensemble of an arbitrary phase
+%     function $\hat{B}(z)$ is
+% \begin{align}
+%   {\rm Tr}[\overline{\rho}_t \hat{B}]
+% &=\frac{1}{\Xi[\lambda_l,\lambda_s]}
+%  \sum_{N=0}^\infty \frac{1}{N!h^{3N}}
+% \int dqdp dq'dp'
+% \exp\left\{-\beta H_N-\beta \sum_{i=1}^Nm\lambda_\rho({\bf
+%     r}_i)-\beta \sum_{i=1}^N{\bf p}_i\esc\boldsymbol{\lambda}_g({\bf q}_i)\right\}
+% \nonumber\\
+% &\times\exp\left\{-\beta \boldsymbol{\lambda}_{R}\esc\hat{\bf R}(z)
+% -\beta \boldsymbol{\lambda}_{P}\esc\hat{\bf P}(z)\right\}\hat{B}(z)
+% \nonumber\\
+% &=\int d{\bf R} d{\bf P}
+% \exp\left\{-\beta \boldsymbol{\lambda}_{R}\esc{\bf R}
+% -\beta \boldsymbol{\lambda}_{P}\esc{\bf P}\right\}
+% \frac{1}{\Xi[\lambda_l,\lambda_s]}
+%  \sum_{N=0}^\infty \frac{1}{N!h^{3N}}
+% \int dqdp dq'dp'\nonumber\\
+% &\times
+% \exp\left\{-\beta H_N-\beta \sum_{i=1}^Nm\lambda_\rho({\bf
+%     r}_i)-\beta \sum_{i=1}^N{\bf p}_i\esc\boldsymbol{\lambda}_g({\bf q}_i)\right\}
+% \delta({\bf R}-\hat{\bf R}(z))\delta({\bf P}-\hat{\bf P}(z))\hat{B}(z)
+% \end{align}
+% where  we  have  introduced  the identity  $\int  d{\bf  R}\delta({\bf
+%   R}-\hat{\bf    R}(z))=1$,     etc.     and    we     have    defined
+% $\Xi[\lambda_l,\lambda_s]$,                                       with
+% $\lambda_l=\lambda_\rho,\boldsymbol{\lambda}_g$                    and
+% $\lambda_s=\boldsymbol{\lambda}_{R},\boldsymbol{\lambda}_P$.
+% \begin{align}
+%   {\rm Tr}[\overline{\rho}_t \hat{B}]
+% &=\int d{\bf R} d{\bf P}
+% \exp\left\{-\beta \boldsymbol{\lambda}_{R}\esc{\bf R}
+% -\beta \boldsymbol{\lambda}_{P}\esc{\bf P}\right\}
+% \frac{\Xi[\lambda_l,0]}{\Xi[\lambda_l,\lambda_s]}P_{a}({\bf R},{\bf P})
+% \llangle \hat{B}\rrangle^{\rho {\bf g}}_{{\rm mic} \;{\bf R}{\bf P}}
+% \label{gencanmic}
+% \end{align}
+% where we have defined
+% \begin{align}
+%   \llangle \hat{B}\rrangle^{\rho {\bf g}}_{{\rm mic} \;{\bf R}{\bf P}}&\equiv
+% \frac{1}{\Xi[\lambda_l,0]P_{a}({\bf R},{\bf P})}
+%  \sum_{N=0}^\infty \frac{1}{N!h^{3N}}
+% \int dqdp dq'dp'\nonumber\\
+% &\times
+% \exp\left\{-\beta H_N-\beta \sum_{i=1}^Nm\lambda_\rho({\bf
+%     r}_i)-\beta \sum_{i=1}^N{\bf p}_i\esc\boldsymbol{\lambda}_g({\bf q}_i)\right\}
+% \delta({\bf R}-\hat{\bf R}(z))\delta({\bf P}-\hat{\bf P}(z))\hat{B}(z)
+% \nonumber\\
+% P_{a}({\bf R},{\bf P})&\equiv
+% \frac{1}{\Xi[\lambda_l,0]} \sum_{N=0}^\infty \frac{1}{N!h^{3N}}
+% \int dqdp dq'dp'\nonumber\\
+% &\times
+% \exp\left\{-\beta H_N-\beta \sum_{i=1}^Nm\lambda_\rho({\bf
+%     r}_i)-\beta \sum_{i=1}^N{\bf p}_i\esc\boldsymbol{\lambda}_g({\bf q}_i)\right\}
+% \delta({\bf R}-\hat{\bf R}(z))\delta({\bf P}-\hat{\bf P}(z))
+% \nonumber\\
+% \Xi[\lambda_l,0]&\equiv \sum_{N=0}^\infty \frac{1}{N!h^{3N}}
+% \int dqdp dq'dp'
+% \exp\left\{-\beta H_N-\beta \sum_{i=1}^Nm\lambda_\rho({\bf
+%     r}_i)-\beta \sum_{i=1}^N{\bf p}_i\esc\boldsymbol{\lambda}_g({\bf q}_i)\right\}
+% \end{align}
+% Here $P_{a}({\bf R},{\bf  P})$ is the normalized  probability that the
+% solid sphere  has center of  mass position and momentum  ${\bf R},{\bf
+%   P}$  when the  microscopic ensemble  is the  relevant ensemble  with
+% $\boldsymbol{\lambda}_R=0,\boldsymbol{\lambda}_P=0$.  This probability
+% depends on  the full set  $a$ of  averages of the  relevant variables,
+% because the  conjugate variables $\lambda_\rho,\boldsymbol{\lambda}_g$
+% depend on this full set.  The average $ \llangle \hat{B}\rrangle^{\rho
+%   {\bf g}}_{{\rm mic} \;{\bf R}{\bf  P}}$ is canonical with respect to
+% $\rho,{\bf  g}$  but  microcanonical  with respect  to  ${\bf  R},{\bf
+%   P}$.  Eq.  (\ref{gencanmic})  relates   the  fully  canonical  average  ${\rm
+%   Tr}[\overline{\rho}\hat{B}]$   with  the   partially  microcanonical
+% average  $\llangle \hat{B}\rrangle^{\rho  {\bf  g}}_{{\rm mic}  \;{\bf
+%     R}{\bf P}}$ and can be written as
+
+% \begin{align}
+%   {\rm Tr}[\overline{\rho}_t \hat{B}]&=
+% \int d{\bf R} d{\bf P}G({\bf R},{\bf P})\llangle \hat{B}\rrangle^{\rho {\bf g}}_{{\rm mic} \;{\bf R}{\bf P}}
+% \end{align}
+% with the definition 
+% \begin{align}
+%   G({\bf R},{\bf P})&\equiv
+% \exp\left\{-\beta \boldsymbol{\lambda}_{R}\esc{\bf R}
+% -\beta \boldsymbol{\lambda}_{P}\esc{\bf P}\right\}
+% \frac{\Xi[\lambda_l,0]}{\Xi[\lambda_l,\lambda_s]}P_{a}({\bf R},{\bf P})
+% \end{align}
+% This function can be interpreted as a probability distribution, as it is normalized to unity
+% \begin{align}
+% \int d{\bf R}d{\bf P}    G({\bf R},{\bf P})&=1
+% \end{align}
+% The maximum ${\bf R}^*,{\bf P}^*$ of this probability occurs when
+% \begin{align}
+% \boldsymbol{\lambda}_{R}&=k_BT\frac{\partial}{\partial{\bf R}}
+% \ln P_{a}({\bf R}^*,{\bf P}^*)
+% \nonumber\\
+% \boldsymbol{\lambda}_{P}&=k_BT\frac{\partial}{\partial{\bf P}}
+% \ln P_{a}({\bf R}^*,{\bf P}^*)
+% \end{align}
+% I  would   like  to  find   that  the  solution  is   ${\bf  R}^*={\rm
+%   Tr}[\overline{\rho}_t\hat{\bf     R}]$    and     ${\bf    P}^*={\rm
+%   Tr}[\overline{\rho}_t\hat{\bf         P}]$.          
+
+
+% {\bf The question I want to answer is: How to compute operationally the relevant
+% ensemble averages?}
+
+% }\end{widetext}
+% {\red \subsection{Onsager relations} Onsager  relations arise from the
+%   property of microscopic reversibility  and its effect on equilibrium
+%   correlation functions.   We briefly  review the  argument.  Consider
+%   the  equilibrium   correlation  function  of  two   phase  functions
+%   $\hat{A}(z),\hat{B}(z)$, i.e.
+% \begin{align}
+%   \langle \hat{A}(t)B\rangle^{\rm eq}&=\int dz \rho^{\rm eq}(z)\hat{A}(T_tz)\hat{B}(z)
+% \end{align}
+% where  $T_tz$ is  the  solution of  Hamilton's  equation with  initial
+% condition $z$. A change of  variables $z'=T_tz$ has unit jacobian and,
+% because  the  equilibrium  ensemble  depends  only  on  the  dynamical
+% invariants, we have $\rho^{\rm  eq}(T_tz)=\rho^{\rm eq}(z)$ leading to
+% the stationarity condition.
+% \begin{align}
+%   \langle \hat{A}(t)B\rangle^{\rm eq}&=\int dz \rho^{\rm eq}(z)\hat{A}(T_tz)\hat{B}(z)
+% \nonumber\\
+% &=\int dz' \rho^{\rm eq}(z')\hat{A}(z')\hat{B}(T_{-t}z')=  \langle A\hat{B}(-t)\rangle^{\rm eq}
+% \end{align}
+% On  the other  hand,  microscopic  reversibility implies  $T_t\epsilon
+% z=\epsilon T_{-t}z$  where $\epsilon$  is a  matrix that  reverses the
+% sign of  the momenta in  the microstate  $z$. The change  of variables
+% $\epsilon z'=z$ now gives
+% \begin{align}
+%   \langle \hat{A}(t)B\rangle^{\rm eq}&=\int dz' \rho^{\rm eq}(\epsilon z')\hat{A}(T_t\epsilon z')\hat{B}(\epsilon z')
+% \nonumber\\
+% & =
+% \int dz' \rho^{\rm eq}(z')\hat{A}(\epsilon T_{-t}z')\hat{B}(\epsilon z')
+% \end{align}
+% If both phase functions transform in the same way under time reversal,
+% i.e. $\hat{A}(\epsilon z)=\pm \hat{A}(z)$ $\hat{B}(\epsilon z)=\pm \hat{B}(z)$ this implies
+% \begin{align}
+%   \langle \hat{A}(t)B\rangle^{\rm eq}&=  \langle \hat{A}(-t)B\rangle^{\rm eq}
+% \end{align}
+
+When we approximate the relevant ensemble with an equilibrium ensemble
+in   the  Green-Kubo   transport  coefficients,   they  become   state
+independent.  In  this  particular  case,  we  may  justify  Onsager's
+reciprocity for the  transport coefficients.  As it  is well-known, if
+two phase space variables $\hat{A}(z),\hat{B}(z)$ transform under time
+reversal   with  the   same  parity,   the  property   of  microscopic
+reversibility  together  with  the  stationarity  of  the  equilibrium
+ensemble imply
+\begin{align}
+  \langle \hat{A}(t)B\rangle^{\rm eq}&=  \langle A\hat{B}(t)\rangle^{\rm eq}
+\end{align}
+% Once we assume that the correlations are given in terms of equilibrium
+% averages (conditional to  have fixed the sphere), we expect  to have a
+% number  of  time and  space  invariance  symmetries in  the  transport
+% coefficients  that  derive from  the  above  symetry.}  
+The microscopic reversibility
+property reflects into the following  property of correlations
+\begin{align}
+\left\langle \left({\cal Q}{\bf F}_{\bf r}(t)\right)\left({\cal Q} \boldsymbol{\sigma}_{{\bf r}'}\right)\right\rangle^{\rm eq}=
+  \left\langle {\cal Q} \boldsymbol{\sigma}_{{\bf r}'}(t){\cal Q}{\bf F}_{{\bf r}}\right\rangle^{\rm eq}
+\end{align}
+This results in the  following symmetry properties (Onsager relations)
+for the transport kernels
+\begin{align}
+  \boldsymbol{\eta}^{\alpha\beta\alpha'\beta'}_{{\bf  r}{\bf r}'} &=
+  \boldsymbol{\eta}^{\alpha'\beta'\alpha\beta}_{{\bf r}'{\bf  r}}
+\nonumber\\
+{\bf H}^{\alpha\beta\alpha'}_{{\bf r}{\bf r}'}&={\bf G}^{\alpha'\alpha\beta}_{{\bf r}'{\bf  r}}
+\nonumber\\
+\boldsymbol{\gamma}^{\alpha\alpha'}_{{\bf  r}{\bf r}'}&=\boldsymbol{\gamma}^{\alpha'\alpha}_{{\bf r}'{\bf  r}}
+\label{GKsymmetries}
+\end{align}
+
+\subsection{The solid made of frozen atoms}
+In many  simulation works,  solids in contact  with fluid  systems are
+modeled as made of atoms that are  fixed in space.  In this case, the
+atoms of the solid do not evolve according to Hamilton's equations and
+the theory presented  does not apply. In fact, the  atoms of the solid
+need to  be understood  as simple  centers of  force that  generate an
+external field to be imposed on  the fluid. The theory that emerges in
+this case  is very different  from the one  that we have  presented so
+far.  A sketch  of the derivation of the theory  for fixed solid atoms
+is presented in  what follows.  The microstate of the  system is given
+by the coordinates  and positions of the fluid  atoms. The coordinates
+$q'$ of the solid atoms are no longer part of the microscopic state of
+the system but  rather parameters in the Hamiltonian.   Instead of the
+Hamiltonian (\ref{H}) we have now
+\begin{eqnarray}
+H(z) &=& \sum^N_i \frac{p_i^2}{2m_i} + V^{l}(q)+ V^{ls}(q,q')
+\label{Hfrozen}
+\end{eqnarray}
+where the coordinates of the solid  atoms $q'$ are fixed parameters of
+the  Hamiltonian.  The  relevant variables  are only  the hydrodynamic
+variables of  the solvent. We  may follow all  the steps that  we have
+taken  in Sec.  \ref{Sec:Trans}  for the  present  case.  The  most
+important  observation is  that the  microscopic force  that the  solid
+exerts on the fluid depends on the microscopic state $z$ of the system
+through the solvent density, \textit{which is a relevant variable}. Indeed,
+\begin{align}
+  \hat{\bf F}^{\rm s\to l}_{\bf r}&=\sum^{NN'}_{ii'}\hat{\bf F}_{ii'}\delta({\bf r}-{\bf q}_i)
+\nonumber\\
+&=\sum^{NN'}_{ii'}{\bf F}({\bf r}-{\bf q}_{i'})\delta({\bf r}-{\bf q}_i)
+\nonumber\\
+&=\hat{\bf F}({\bf r})\hat{\rho}_{\bf r}(z)
+\end{align}
+where here  $\hat{\bf F}({\bf r})$  is the  force that all  the frozen
+solid atoms  exert on a fluid  atom located at ${\bf  r}$.  This force
+does not evolve  in time and is not  a dynamic object at all,  it is a
+given  vector  function  that  depends parametrically  on  the  frozen
+positions  of the  solid  atom.   Because this  force  depends on  the
+microscopic  state through  the  density field,  which  is a  relevant
+variable, the projected force ${\cal Q}\hat{\bf F}_{{\bf r}}^{\rm s\to
+  l}=0$ vanishes exactly.  As a  consequence, \textit{for this type of
+  walls  made   of  frozen  atoms,  the   irreversible  surface  force
+  $\boldsymbol{{\cal S}}({\bf r})$  vanishes identically}, because all
+the  transport kernels  involving  the projected  force vanish.   This
+gives  a   strong  indication  about   the  physical  origin   of  the
+irreversible surface force in the  present level of description. It is
+due  entirely to  the eliminated  internal degrees  of freedom  of the
+solid  that are  coarse-grained in  the description,  in terms  of the
+center of mass of the solid sphere. While we have assumed that elastic
+degrees of  freedom for the  solid are  very fast relaxing  degrees of
+freedom  towards equilibrium,  it is  precisely the  unaccounted solid
+degrees  of  freedom  the  responsible  for  the  originators  of  the
+irreversible  surface forces  on the  solvent.  This  point is  subtle
+though.   As we  will  see  in a  subsequent  publication, a  slightly
+different  level   of  description,   one  in   which  the   fluid  is
+coarse-grained  not  with  the  local mass  $\hat{\rho}_{\bf  r}$  and
+momentum $\hat{\bf  g}_{\bf r}$ densities  at a given point  of space,
+but rather as the mass $\hat{\rho}_\mu$ and momentum $\hat{\bf g}_\mu$
+densities of  \textit{fluid slabs} labeled with  index $\mu$ (suitable
+for planar geometries), produces irreversible  forces even in the case
+that the solid degrees of freedom are  frozen. This is due to the fact
+that in  the later  level of  description, which  is coarser  than the
+former,  the loss  of information  due to  the use  of fluid  slabs is
+sufficient for the  appearance of the irreversible forces.   This is a
+nice example that  illustrates a very general  concept: Dissipation is
+not an intrinsic  property of the system, but rather  it is a function
+of the level of description used.
+%\cite{PrivateGrabert}
+
 
 \section{Summary}
 
