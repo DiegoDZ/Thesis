@@ -2807,7 +2807,7 @@ second step  requires a discretization  in order to  solve numerically
 Eqs.  (\ref{finaleq}).  Finally, in  the third step the discretization
 is required in  order to measure the density and  velocity fields.  It
 is  important that  the discretization  in these  three steps  is done
-consistently. We have  discussed in Refs. \cite{DelaTorre2015,EspanolDonev2015} how  a method based
+consistently. In Refs. \cite{DelaTorre2015,EspanolDonev2015} s discussed how  a method based
 on  finite elements  allows one  to construct  the  CG discrete  variables
 evolving according  to dynamic  equations that  are consistent  with a
 finite  element  discretization of  the  continuum  equations. 
@@ -2862,7 +2862,7 @@ $\Phi_\mu({\bf r})$
 that depends only on the $z$ component of ${\bf r}$. 
 The finite element basis functions $\Phi_\mu({\bf r})$ also form a partition of unity, i.e.
 \begin{align}
-  \sum_\mu\Phi_\mu({\bf r})=1
+  \sum_\mu^{N_{\rm bin}}\Phi_\mu({\bf r})=1
 \label{partition}
 \end{align}
 
@@ -6531,13 +6531,16 @@ The following published articles and posters are related with this dissertation.
 \chapter{Physical parameters and variables}
 \begin{tabular}{l l}
     $m$ & mass particles \\
+    $L_x, L_y, L_Z$ & dimensions of the simulations box \\
     $M'$ & mass solid sphere \\
     $M$ & mass solid walls \\
     $N$ & Number of liquid particles \\
-    $N_{\rm bins}$ & Number of nodes \\
+    $N_{\rm bins}$ & Number of bins \\
     $k_B$ & Boltzmann's constant \\
     $T$ & Temperature \\
     $\beta$ & $(k_BT)^{-1}$ \\
+    $\Delta z$ & distance between two nodal planes \\
+  $\delta_{\mu\nu}$ & Kronecker delta \\
 \end{tabular}
 
 \chapter{Forces}  
