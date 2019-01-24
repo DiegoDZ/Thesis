@@ -245,6 +245,10 @@ The quotes in the beginning of each chapter are taken from books I read over the
 \markboth{Introduction}{Introduction}
 \epigraph{\textit{Falta cita.}}{Título \\ AUTOR}
 
+\Pendiente{\begin{itemize}
+    \item Hay veces en que defino el hamiltoniano como $\hat{H}(z)$ y otras como $\hat{H}_N(z)$ 
+\end{itemize}}
+
 \Note{Viene de la introducción del paper I}
 There  is great  interest  in  the behaviour  of  fluids  in the  nano
 \cite{Bocquet2010} and micro  \cite{Lauga2005,Bocquet2011} scales.  At
@@ -1355,7 +1359,7 @@ For the solid object we have that the action of the Liouville operator gives
 \end{align} 
 
 Note  that the  total  momentum,  which is  defined  in  terms of  the
-coarse-grained variables as
+CG variables as
 \begin{align}
   \hat{\bf P}_T&=\int d{\bf r} \hat{\bf g}_{\bf r}(z)+\hat{\bf P}(z)
 \end{align}
@@ -2996,7 +3000,7 @@ In this section, we present a derivation of the governing equations of
 the  dynamics   of  the   non-equilibrium  average  of   the  discrete
 hydrodynamic  variables  from first  principles,  i.e.   based on  the
 projection operator  technique \cite{Grabert1982}, summarized  in Sec.
-\ref{Sec:Grabert} of Chapter \ref{Chap:NESM}.   The coarse-grained variables that we
+\ref{Sec:Grabert} of Chapter \ref{Chap:NESM}.   The CG variables that we
 consider in this chapter are the  total Hamiltonian $\hat{H}(z)$
 and the discrete mass and momentum fields, which are defined according to
 \begin{align}
@@ -3005,7 +3009,7 @@ and the discrete mass and momentum fields, which are defined according to
 \hat{\bf g}_\mu&= \sum_i^N{\bf p}_i\delta_\mu({\bf q}_i)
 \label{rhogmumic}
 \end{align}
-No macrocopic variables are assumed fot he solid, because we assumed that it is a very massive wall with definite location.
+No macrocopic variables are assumed for the solid, because we assumed that it is a very massive wall with definite location.
 The  phase  functions (\ref{rhogmumic}),  as  opposed  to  the  microscopic  functions
 (\ref{CGvar}) can be  measured directly in a  MD simulation. The
 continuum (\ref{CGvar}) and discrete (\ref{rhogmumic}) variables
