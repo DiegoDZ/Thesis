@@ -3650,7 +3650,6 @@ These expressions have  been obtained by suitable  contractions of the
 tensors  in Eqs  (\ref{etasimple})-(\ref{gg1})  with ${\bf  n}$ or  the
 tracing them out, and then  using the microscopic expressions given in
 (\ref{MolTransportCoeff}).
-\Note{Mirar papar BC para las contracciones. Hay que añadir toda la parte de los tensores. Apéndice 9 de Camargo. }
 
 \subsection{Normal and tangent evolution}
 When we assume the above symmetries, it makes sense to look separately to the 
@@ -3707,9 +3706,6 @@ uncoupled  from  the   dynamics  of  the  normal   component  and  the
 density.  This  means that  shearing
 motions do not affect the structure of the density field.
 
-
-
-\newpage
 \section{A finite element discretization}
 \label{Sec:Galerkin}
 In this section, we show that if we discretize the continuum equations
@@ -3767,7 +3763,7 @@ In terms of  the finite element basis functions $\Phi_\mu({\bf r})$ we may write
 \end{align}
 where  we  have  used  (\ref{PsiFE})   and  the   discrete  field
 $\tilde{\bf  v}_\mu$ is  defined in  (\ref{overlined}) with  a similar
-definition for $\tilde{\rho}_\mu,$.
+definition for $\tilde{\rho}_\mu$.
 
 The second step in the  Petrov-Galerkin approximation is to substitute
 the actual fields $\rho({\bf r}), {\bf  v}({\bf r})$ in the right hand
@@ -7706,6 +7702,42 @@ order tensors that are invariant under  a rotation around an axis with
 unit vector  ${\bf n}$  and a  reflection around any
 plane containing ${\bf n}$. In this chapter  we consider  the general
 form  of a  fourth order  tensor satisfying these symmetries following the same route as in \cite{CamargoBC2018}.
+We introduce the following two
+symmetric second  order tensors,  that we  call tangential  and normal
+projectors, respectively
+\begin{align}
+  {\bf T}^{\alpha\beta}&\equiv\boldsymbol{\delta}^{\alpha\beta}-{\bf n}^\alpha{\bf n}^\beta
+\nonumber\\
+{\bf  N}^{\alpha\beta}&\equiv{\bf n}^\alpha{\bf n}^\beta
+\end{align}
+The unit tensor may be 
+written as
+\begin{align}
+\boldsymbol{\delta}={\bf t}_1{\bf t}_1^T+{\bf t}_2{\bf t}_2^T+{\bf n}{\bf n}^T
+\end{align}
+where ${\bf  t}_1,{\bf t}_2$ are  unit vectors tangent to  the surface
+and  mutually   orthonormal.   We  take  the   convention  that  ${\bf
+  t}_1\times{\bf  t}_2={\bf n}$,  ${\bf t}_2\times{\bf  n}={\bf t}_1$,
+${\bf     n}\times{\bf     t}_1={\bf    t}_2$.      Therefore,     the
+tangential projector ${\bf T}$ becomes
+\begin{align}
+    {\bf T}^{\alpha\beta}&={\bf t}_1^\alpha{\bf t}_1^\beta+{\bf t}^\alpha_2{\bf t}_2^\beta
+\end{align}
+This projector satisfies
+\begin{align}
+  {\bf T}^{\alpha\beta}  {\bf T}^{\beta\gamma}&= {\bf T}^{\alpha\gamma} 
+\nonumber\\
+  {\bf T}^{\alpha\beta}{\bf n}^\alpha&=0
+\nonumber\\
+  {\bf T}^{\alpha\beta}{\bf n}^\beta&=0
+\nonumber\\
+  {\bf T}^{\alpha\alpha}&=2
+\nonumber\\
+  {\bf T}^{\alpha\beta}  {\bf T}^{\alpha\beta}&=2
+\label{tprop}
+\end{align}
+where repeated indices are summed over. 
+
 The general  form  is  a linear  combinations  of the  tensor
 products      of     fourth      rank     of      ${\bf     n}^\alpha$
 and ${\bf T}^{\alpha\beta}=\boldsymbol{\delta}^{\alpha\beta}-{\bf n}^{\alpha}{\bf n}^{\beta}$ which are
