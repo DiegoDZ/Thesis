@@ -4303,7 +4303,7 @@ denotes an equilibrium average
 \label{esc}
 \end{equation}
 and  $\rho^{eq}(z)$ is  the  equilibrium  ensemble.
-The so called projected or random force is given by
+The so called projected force is given by
 \begin{align}
 F^+(t)&= \exp\{{\cal Q}i{\cal L}t\} {\cal Q}i{\cal L}\hat{A}  
 \label{Proj}
@@ -4348,16 +4348,400 @@ where the time-dependent average of the CG variables is defined as
 \begin{align}
   a(t)&=\int dz \rho_0(z) \exp\{i{\cal L}t\}\hat{A}(z)
 \end{align}
-and we have assumed that the average of the random force with respect
+and we have assumed that the average of the projected force with respect
 to the initial ensemble vanishes, i.e.
 \begin{align}
 \int dz\rho_0(z)\exp\{{\cal Q}i{\cal L}t\} {\cal Q}i{\cal L}\hat{A}(z)=0
 \label{F0}
 \end{align}
+ Note that in deriving (\ref{exact})
+one  assumes  that  the  dynamics   is  given  by  a  time-independent
+Hamiltonian  with  a   well-defined  equilibrium  ensemble  $\rho_{\rm
+  eq}(z)$.   Therefore,   both  (\ref{exactC})   and  (\ref{exactAve})
+describe  the evolution  of  correlations and  averages towards  their
+equilibrium values.
+
+%\subsection{The Markovian approximation}
+%\label{Sec:MarkovianAprox}
+%The Markovian approximation assumes that the there CG variables evolve in a time scale much larger than the memory time scale. This implies that there exists  a time-independent matrix $M^*$
+%such that  the linear integro-differential term  in Eq. (\ref{exactC})
+%can  be  approximated  by  a  memory-less term,  also  linear  in  the
+%correlation matrix
+%\begin{align}
+%\int_0^tdt' \Gamma(t-t')\esc C^{-1}(0)\esc  C(t')&\simeq M^*\esc C^{-1}(0)\esc C(t)
+%\label{Markov1}
+%\end{align}
+%The  Markovian approximation  (\ref{Markov1})  in  the GLE  (\ref{exact})
+%implies the following evolution equation for the CG variables
+%\begin{align}
+%  \frac{d}{dt}\hat{A}(t) = -\Lambda^*\esc \hat{A} (t) +F^+(t),
+%\label{SDE}
+%\end{align}
+%where the dynamic matrix $\Lambda^*$ is defined as
+%\begin{align}
+%\Lambda^*\equiv(L+M^*)\esc C^{-1}(0)  
+%\label{Lambda}
+%\end{align}
+%The evolution of the average of the CG variables (\ref{exactAve}) under the Markovian approximation is
+%\begin{align}
+%  \frac{d}{dt}a(t) = -\Lambda^*\esc a(t)
+%\label{AproxAve}
+%\end{align}
+%And the evolution equation for the correlations (\ref{exactC}) takes the form  
+%\begin{align}
+%    \frac{d}{dt}C(t)&=-\Lambda^*\esc  C(t)
+%\label{AproxC}
+%\end{align}
+%This is  the evolution  equation of the  correlation matrix  under the
+%Markovian   approximation.    The   form   of   (\ref{AproxAve})   and
+%(\ref{AproxC}) illustrate Onsager's  regresion hypothesis, that states
+%that  (correlations  of) fluctuations   decay  as  the  averages.  Eqs
+%(\ref{AproxAve}), (\ref{AproxC}) show  that the transport coefficients
+%that appear in the transport equation for the averages are the same as
+%the  transport   coefficients  governing   the  correlations   of  the
+%fluctuations in equilibrium.
+%
+%
+%The solution of (\ref{AproxC})  is given by
+%the exponential matrix 
+%\begin{align}
+%  C(t)=\exp\{-\Lambda^* t\}\esc C(0)
+%\label{Csol}
+%\end{align}
+%This is  the main  prediction of  Mori theory that  states that  for a
+%linear Markovian theory  the only possibility for a  correlation is to
+%decay  in an  exponential  matrix  way. This  does  not  mean that  the
+%elements of  the correlation matrix  $C(t)$ decay as  $e^{-\alpha t}$,
+%because they are,  in fact, the sum of many  exponential terms that may
+%lead even to quasi-algebraic decays of correlations, as in the case of
+%hydrodynamics. 
+%%Los autovalores de la matriz C(t) decaen de forma exponencial, pero no los elementos de la matriz C(t). Estos, tal y como se observa en las gráficas de correlaciones se ajustan, en escala logarítmica, casi a una recta. Por eso tienen un comportamiento decayendo a cero casi-algebraico.
+%
+%The Markovian Eq.  (\ref{AproxC})  cannot hold at
+%very short times,  because at $t=0$ the  exact equation (\ref{exactC})
+%implies
+%\begin{align}
+%    \frac{d}{dt}C(0)&=-L
+%\end{align}
+%which is only possible in  (\ref{AproxC}) if $M^*=0$. This paradoxical
+%result can  also be obtained  from Eq.  (\ref{Markov1}) because  if we
+%set $t=0$  in that  equation we obtain  again $M^*=0$.   Therefore, we
+%expect (\ref{AproxC}) to  hold  only after a time
+%$t=\tau$  larger than  the  decay of  the memory  kernel.  This is  an
+%important idea to keep in mind: correlations will decay in a Markovian
+%way only  after the time  beyond which memory  is lost. 
+%%The  value of
+%%$\tau$  should be  explicitly measured  in the  procedure to
+%%validate the Markovian approximation.
+%
+%\subsection{The usual Green-Kubo formula is problematic}
+%In the previous section we have seen that the Markovian approximation assume that the memory kernel $\Gamma(t-t')$ decays in a typical molecular time scale in which $C(t')$ does not change appreciably. Therefore, we may approximate $C(t')\simeq C(t)$ within the memory integral, this is
+%\begin{align}
+%  \int_0^tdt' \Gamma(t-t')\esc c(t')&\simeq  \int_0^tdt' \Gamma(t-t')\esc  c(t)
+%\nonumber\\
+%&\equiv
+%M^+(t)\esc c(t)
+%\end{align}
+%where we have introduced the Green-Kubo running integral
+%\begin{align}
+%M^+(t)&\equiv  \int_0^tdt' \Gamma(t') 
+%\label{Mt}
+%\end{align}
+%and the normalized correlation matrix as
+%\begin{align}
+%  c(t)=C^{-1}(0)\esc C(t)
+%\end{align}
+%that at $t=0$ becomes the identity matrix.
+%
+%
+%For the Markovian approximation (\ref{Markov1}) to hold, we would need
+%that the matrix  $M^+(t)$ becomes time-independent.   Unfortunately,  the  matrix
+%$M^+(t)$ vanishes at $t=0$ and decays to zero at long times. In
+%fact,  the projected  force defined  in (\ref{Proj})  is a  total time
+%derivative
+%\begin{eqnarray}
+%  F^+ (t)&=&\frac{d}{dt}\exp\{{\cal Q}i{\cal L}t\} \hat{A}  
+%\end{eqnarray}
+%and, therefore, the time integral  of a total derivative in (\ref{Mt})
+%can be integrated directly leading to
+%\begin{eqnarray}
+%M^+(t)&=&
+%  \llangle\left(\exp\{{\cal Q}i{\cal L}t\}  \hat{A}\right)F^{+T}(0)  \rrangle
+%\label{m+}
+%\end{eqnarray}
+%where we  have used that  $ \langle \hat{A} (0)  F^{+T}(0) \rangle=0$.
+%For  $t\to\infty$ we  expect a  decorrelation  in the  form $  \langle
+%\exp\{{\cal   Q}i{\cal  L}t\}   \hat{A}F^{+T}(0)  \rangle\to   \langle
+%\hat{A}\rangle \langle  F^+\rangle =0$.   Therefore, as a  function of
+%$t$, the matrix $M^+(t)$ starts from 0  and decays to 0 at large times
+%and, in  general, we do not  expect to find a  time-independent matrix
+%$M^*$  out  of  $M^+(t)$.   
+%In other words: one cannot extend  the upper limit of
+%integration of  the Green-Kubo formulae  to infinity because,  in that
+%limit, the transport  coefficients vanish. 
+%This problem  was  recognized  already  by
+%Kirkwood      as      the      so     called      plateau      problem
+%%\cite{Kirkwood1949,Espanol_Zuniga1993}.
+%\cite{Kirkwood1949, Espanol1992}.
+%
+%The usual  way to  accept that  $M^+(t)\simeq M^*$  is to  assume that
+%$M^+(t)$ increases  very rapidly, in  a ``molecular'' time  scale, and
+%then decays  very slowly, displaying a  plateau, in such a  way that a
+%suitable value for $M^*$ is given by
+%\begin{align}
+%  M^* \simeq \int_0^{\tau} dt'\langle F^+ (t') F^{+T}(0)\rangle 
+%\label{GK0}
+%\end{align}
+%where $\tau$ is an  ``intermediate'' time between  the fast
+%increase and slow decrease of $M(t)$.  It is claimed that the value of
+%$\tau$ is immaterial, provided that  such a ``clear separation of time
+%scales''  (i.e.  fast-up, slow-down  structure  of  the memory  kernel
+%$\Gamma(t-t')$) exists.  Eq (\ref{GK0})  is the  celebrated Green-Kubo
+%formula for the transport coefficients.
+%%Immaterial en inglés, haciendo referencia a tau, quiere decir que no importa demasiado el tiempo tau que escojamos a partir del tiempo t a partir del cual empieza a decaer M(t)  
+%
+%
+%The   approximation
+%(\ref{Markov1}) is equivalent to take
+%\begin{eqnarray}
+%  \Gamma(t) &\approx& M^*\delta^+(t)
+%\label{Markap}
+%\end{eqnarray}
+%where   the Dirac delta function
+%$\delta^+(t)$ is normalized as
+%\begin{align}
+%  \int_0^\infty dt \delta^+(t) =1
+%\end{align}
+%To check it we only have to replace in Eq. (\ref{Mt}) the corresponding expression of $\Gamma(t')$ using Eq. (\ref{Markap})
+%
+%Under the  Markovian approximation,  Eq.  (\ref{Markap})  implies that
+%the  random force  is  delta  correlated in  time,  implying that  the
+%ordinary differential equation (\ref{SDE}) should be interpreted as an
+%stochastic  differential  equation (SDE)  for  times  larger than  the
+%correlation of $F^+(t)$.
+%
+%
+%Unfortunately,  there are  situations  in  which \textit{the  Markovian
+%approximation (\ref{Markov1}) is valid but  a plateau in $M^+(t)$ does
+%not  exist}.  Therefore,  one  cannot estimate  $M^*$ directly  from
+%$M^+(t)$ without  incurring in  large error.   Even in  the case  that a
+%well-defined plateau exists, Eq.  (\ref{GK0}) suffers from yet another
+%problem.  Note  that the projected current  (\ref{Proj}) evolves under
+%the  action of  the  projected dynamics  $\exp\{{\cal Q}i{\cal  L}t\}$
+%which  is  uncomputable numerically  in  a  feasible way.   The  usual
+%strategy  is to  approximate  the projected  dynamics  with the  usual
+%unprojected one $\exp\{{\cal Q}i{\cal L}t\}\simeq \exp\{i{\cal L}t\}$.
+%Although this is a rather  uncontrolled approximation, it is the usual
+%one  in   order  to  compute   the  transport  coefficients   from  MD
+%simulations. In the next section we offer an alternative in which this approximation
+%is not used.
+%
+%
+%
+%\subsection{A corrected Green-Kubo formula with no plateau problem}
+%\label{Sec:CorrectedGK}
+%We now  consider a procedure that  allows one to define  the transport
+%coefficients from  a modified version  of the Green-Kubo  formula even
+%when no  plateau exists, \textit{provided}  the dynamics can  still be
+%approximated by a Markovian equation.
+%
+%The action  of Mori projector  operator on the phase  function $i{\cal
+%  L}\hat{A}$ is
+%\begin{align}
+%{\cal Q} i{\cal L}\hat{A} &= i{\cal L}\hat{A}-\llangle i{\cal L}\hat{A} \hat{A}^T\rrangle\esc \llangle\hat{A}\hat{A}^T\rrangle^{-1}\esc \hat{A}
+%\nonumber\\
+%&=
+%i{\cal L}\hat{A}+L\esc C^{-1}(0)\esc \hat{A}  
+%\label{QiLA}
+%\end{align}
+%Consider then the following time integral
+%\begin{align}
+%M(\tau)&\equiv  \int_0^{\tau} dt \llangle {\cal Q} i{\cal L}\hat{A} (t)i{\cal L}\hat{A}^T\rrangle
+%\nonumber\\
+%&=
+%  \int_0^{\tau} dt \llangle i{\cal L}\hat{A}(t) i{\cal L}\hat{A}^T\rrangle
+%%\nonumber\\
+%%&
+%+L\esc C^{-1}(0)\esc   \int_0^{\tau} dt \llangle \hat{A}(t) i{\cal L}\hat{A}^T\rrangle
+%\end{align}
+%where we distinguish $M(t)$ from $M^+(t)$ because the former
+%involves  the real dynamics $\exp\{i{\cal  L}t\}\hat{A}$, while
+%the later involves the projected dynamics $\exp\{{\cal Q}i{\cal  L}t\}\hat{A}$.
+%We have
+%\begin{align}
+%M(\tau)&=
+%  \int_0^{\tau} dt \frac{d}{dt}\llangle \hat{A}(t) i{\cal L}\hat{A}^T\rrangle
+%%\nonumber\\
+%%&
+%-L\esc C^{-1}(0)\esc   \int_0^{\tau} dt \frac{d}{dt}\llangle \hat{A}(t) \hat{A}^T\rrangle
+%\nonumber\\
+%&=\llangle \hat{A}(\tau) i{\cal L}\hat{A}^T\rrangle-\llangle \hat{A}(0) i{\cal L}\hat{A}^T\rrangle
+%%\nonumber\\
+%%&
+%-L\esc C^{-1}(0)\esc   \llangle \hat{A}(\tau) \hat{A}^T\rrangle
+%+L\esc C^{-1}(0)\esc   \llangle \hat{A}(0) \hat{A}^T\rrangle
+%\nonumber\\
+%&=-\frac{d}{dt}C(\tau)-L\esc c(\tau)
+%\label{Math1}
+%\end{align}
+%This is a mathematical identity that  relates the time integral of the
+%correlation  function $\llangle  {\cal Q}  i{\cal L}\hat{A}  (t)i{\cal
+%  L}\hat{A}^T\rrangle$ with  the correlation  function $C(t)$. 
+%
+%
+%If  we now  assume  that  the correlation  function  $C(t)$ obeys  the
+%Markovian   dynamics   (\ref{AproxC})    with   (\ref{Lambda}),   then
+%Eq. (\ref{Math1}) becomes
+%\begin{align}
+%M(\tau)&\simeq M^*\esc c(\tau)
+%\label{GKCorrected0}
+%\end{align}
+%Although   the   time   integral   in    the   left   hand   side   of
+%(\ref{GKCorrected0}) has  no plateau, as  it is obvious by  looking at
+%the decaying correlation in the right  hand side, it is still possible
+%to infer the friction matrix $M^*$ by multiplying (\ref{GKCorrected0})
+%with the inverse of the normalized correlation, leading to
+%\begin{align}
+%M^*&= \int_0^{\tau} dt \llangle {\cal Q} i{\cal L}\hat{A} (t)i{\cal L}\hat{A}^T\rrangle\esc  c^{-1}(\tau)
+%\label{GKCorrected}
+%\end{align}
+%This  is the new  corrected
+%Green-Kubo  formula  to  calculate  the  friction
+%matrix $M^*$. Note that (\ref{GKCorrected})  can not  be true at  $\tau=0$ as  this would
+%imply $M^*=0$.   However, after a  time in the molecular  time scales,
+%the  right  hand  side  of Eq.   (\ref{GKCorrected})  should  be  time
+%independent provided that the  Markovian description (\ref{AproxC}) is
+%valid.  In the limit of very large separation of time scales, when $M(t)$
+% has   a  ``fast-up,  slow-down''
+%structure, we  may assume  that the  normalized correlation  matrix is
+%very close  to its value at  $t=0$ which is just  the identity matrix,
+%this  is  $ c^{-1}(\tau)\simeq  1$.  In  this  case, we  recover  from
+%(\ref{GKCorrected}) the usual  Green-Kubo prescription (\ref{GK0}) for
+%the transport coefficients.
+%
+%
+%In summary, Eq. (\ref{GKCorrected}) shows  a way to infer the friction
+%matrix  $M^*$  in  the  Markovian equation  (\ref{SDE})  from  a  time
+%integral  even when  it is  not  possible to  identify a  well-defined
+%plateau.
+%
+%Because we have inferred $M^*$  from the fact that the  correlation matrix $C(t)$
+%obeys  the Markovian  equation  (\ref{AproxC}), we may obtain the friction matrix $M^*$
+%by introducing the time dependent matrix
+%\begin{align}
+%\Lambda(t)\equiv-    \frac{d}{dt}C(t)\esc C^{-1}(t)
+%\label{AproxCtau}
+%\end{align}
+%From Eq. (\ref{AproxC}),  if the Markov assumption is  correct, after a
+%molecular  time   $\tau$,  $\Lambda(t)$  should   become  a
+%time-independent matrix  $\Lambda^*$
+%\begin{align}
+%  \lim_{t\to \infty}\Lambda(t)=\Lambda^*
+%\label{toLambda*}
+%\end{align}
+%Therefore, from (\ref{Lambda}) we can obtain the friction matrix as
+%\begin{align}
+%M^*&=  -L+ \Lambda^*\esc C(0)
+%\label{AproxCtau0}
+%\end{align}
+%
+%The  method to  obtain  the  matrix $\Lambda^*$  from  the plateau  of
+%$\Lambda(t)$ in  (\ref{AproxCtau}) needs  high quality  statistics for
+%$C(t)$  and  $\frac{dC}{dt}(t)$.   The  same   is  true  for  the  new
+%Green-Kubo  formulae (\ref{GKCorrected}).   In  fact,  ${C}(t)$ is  an
+%exponentially  decaying matrix,  and $C^{-1}(t)$  is an  exponentially
+%growing matrix.   At very large  times, any statistical error  will be
+%exponentially amplified.  This  means also that $\tau$  should be, in
+%practice, as small as possible in  order to detect a plateau value for
+%$\Lambda(t)$,  and for  which  statistical errors  have  not yet  been
+%amplified to a  catastrophic level.  
+%
+%\Pendiente{
+%We note  that there are  situations in  which the
+%standard  Green-Kubo running  integral indeed  display a  well-defined
+%plateau.  This can only happen if  some of the assumptions made in the
+%argument based on the theorem (\ref{Math1}) do not hold.
+%
+%For example, if we take as CG  variable the position ${\bf r}(t)$ of a
+%tagged  particle  in a  fluid,  we  have the  well-known  mathematical
+%identity
+%\begin{align}
+%\frac{1}{2}\frac{d}{dt}\llangle({\bf r}(t)-{\bf r}(0))^2\rrangle&=  \int_0^tdt'\llangle {\bf v}(t)\esc {\bf v}\rrangle 
+%\end{align}
+%where ${\bf  v}(t)$ is  the velocity of  the particle.   This equation
+%would correspond to  (\ref{Math1}). It is clear that  because the root
+%mean square displacement  is a ``correlation'' that does  not decay to
+%zero, the infinite time integral of  the right hand side does not need
+%to decay  to zero.  It actually  gives a non-zero  value given  by the
+%self-diffusion coefficient.
+%
+%Another example  can be  found whenever  we consider  a
+%conserved  quantity.  Consider,  for  example,  the  momentum  density
+%correlation function in an infinite system in Fourier space,
+%\begin{align}
+%\hat{\bf g}_{\bf k}&=\sum_i^N{\bf p}_i\exp\{i{\bf k}\esc{\bf r}_i\}
+%\end{align}
+%The correlation matrix function is
+%\begin{align}
+%  {\bf C}(k,t)&=\llangle \hat{\bf g}_{\bf k}(t)\hat{\bf g}_{-{\bf k}}\rrangle
+%\end{align}
+%Eq. (\ref{Math1}) now becomes
+%\begin{align}
+%\partial_t  C(k,t)&=-\int_0^tdt'\llangle i{\cal L} \hat{\bf g}_{\bf k}(t) i{\cal L}\hat{\bf g}_{-{\bf k}}\rrangle
+%\end{align}
+%The action of the Liouville operator is well-known
+%\begin{align}
+%  i{\cal L}\hat{\bf g}_{\bf k}=-i{\bf k}\esc\hat{\boldsymbol{\sigma}}_{\bf k}
+%\end{align}
+%where $\hat{\boldsymbol{\sigma}}_{\bf k}$ is the Fourier transform of the Irwing-Kirkwood
+%stress tensor.  Therefore, we have
+%\begin{align}
+%\partial_t  C(k,t)&={\bf k}\esc\boldsymbol{\Theta}(k,t)\esc {\bf k}
+%\label{Ck}
+%\end{align}
+%where the fourth order viscosity tensor is defined as the time integral of the
+%stress correlation function
+%\begin{align}
+%\boldsymbol{\Theta}(k,t)&=  \int_0^tdt'\llangle \boldsymbol{\sigma}_{\bf k}(t) \boldsymbol{\sigma}_{-{\bf k}}\rrangle
+%\label{Theta}
+%\end{align}
+%Eq  (\ref{Ck})  is  what  corresponds now  to  (\ref{Math1})  and  the
+%argument  is  that  because   the  correlation  $C(k,t)$  decays,  the
+%viscosity   tensor   $\boldsymbol{\Theta}(k,t)$  \textit{must}   decay
+%towards zero.   This is  true in  general, but  fails for  the very special
+%value of ${\bf k}={\bf 0}$.  At this  value, we see that the left hand
+%side is zero because, for ${\bf k}={\bf 0}$, $\hat{\bf g}_{{\bf k}=\bf 0}$ is
+%the total momentum  of the system.  As we assume  that the equilibrium
+%average of the CG variables vanish, we are implicitly assuming that we
+%are in  the center  of mass  reference frame of  the fluid,  for which
+%total momentum vanishes.  Therefore, the right hand  side of (\ref{Ck})
+%vanishes at  ${\bf k}=0$.  At the same time, for  ${\bf k}=0$  the Irwing-Kirkwood
+%stress tensor becomes the total stress tensor of the fluid
+%\begin{align}
+%  \hat{\boldsymbol{\sigma}}^{\alpha\beta}_{{\bf k}={\bf 0}}=\sum_i{\bf p}_i{\bf v}_i+\frac{1}{2}\sum_{ij}{\bf r}_{ij}{\bf F}_{ ij}
+%\end{align}
+%and     the     isotropic     fourth    order     viscosity     tensor
+%$\boldsymbol{\Theta}(0,t)$ has  only two independent  components given
+%by  the  standard  Green-Kubo  expressions  for  the  shear  and  bulk
+%viscosities.  Therefore, for ${\bf  k}={\bf 0}$, Eq.  (\ref{Ck}) takes
+%the trivial form ${\bf 0}={\bf 0}\esc \boldsymbol{\Theta}(0,t)\esc{\bf
+%  0}$ and $\boldsymbol{\Theta}(0,t)$ is no longer constrained to decay
+%to  zero anymore  and may  display a  well-defined plateau,  as it  is
+%observed  empirically. However,  for values  of ${\bf  k}\neq 0$,  the
+%resulting (nonlocal) viscosities suffer  necessarily from the plateau
+%problem and  require the  correction presented in  this paper  for its
+%actual  evaluation.   In forthcoming  publications  we  will show  how
+%nonlocal transport  coefficients for discrete hydrodynamics  with and
+%without confining walls can be unambiguously measured by using the new
+%corrected Green-Kubo formula.
+%} %Fin pendiente
+%
 
 \subsection{The Markovian approximation}
-\label{Sec:MarkovianAprox}
-The Markovian approximation assumes that the CG variables evolve in a time scale much larger than the memory time scale. This implies that there exists  a time-independent matrix $M^*$
+\label{Sec:Markov}
+The   Markovian   approximation   assumes    that   there   exists   a
+time-independent \textit{friction matrix} $M^*$  , that
+  contains the transport  coefficients of the CG  level of description
 such that  the linear integro-differential term  in Eq. (\ref{exactC})
 can  be  approximated  by  a  memory-less term,  also  linear  in  the
 correlation matrix
@@ -4365,136 +4749,30 @@ correlation matrix
 \int_0^tdt' \Gamma(t-t')\esc C^{-1}(0)\esc  C(t')&\simeq M^*\esc C^{-1}(0)\esc C(t)
 \label{Markov1}
 \end{align}
-The  Markovian approximation  (\ref{Markov1})  in  the GLE  (\ref{exact})
+% Under  the  Markovian  approximation  Eq.  (\ref{Markap}),  the  exact
+% equation (\ref{exact}) becomes
+% \begin{eqnarray}
+% \frac{d}{dt}{\hat{A} }(t) = -LC^{-1}(0) \hat{A}(t)-M C^{-1}(0)\hat{A}(t) +F^+(t)
+% \label{MSDE}
+% \end{eqnarray}
+% which is,  in principle, an ordinary  differential equation.  However,
+% due to the  rapidly varying correlation of $F^+(t)$  this equation can
+% be interpreted as an stochastic differential equation for times larger
+% than the correlation of $F^+(t)$.
+% In  the  Markovian approximation,  if  we  multiply (\ref{MSDE})  with
+% $\hat{A}(0)$ and average over the equilibrium ensemble we obtain
+
+The  Markov approximation  (\ref{Markov1})  in  the GLE  (\ref{exact})
 implies the following evolution equation for the CG variables
 \begin{align}
   \frac{d}{dt}\hat{A}(t) = -\Lambda^*\esc \hat{A} (t) +F^+(t),
 \label{SDE}
 \end{align}
-where the dynamic matrix $\Lambda^*$ is defined as
+where the \textit{relaxation matrix} $\Lambda^*$ is defined as
 \begin{align}
 \Lambda^*\equiv(L+M^*)\esc C^{-1}(0)  
 \label{Lambda}
 \end{align}
-The evolution of the average of the CG variables (\ref{exactAve}) under the Markovian approximation is
-\begin{align}
-  \frac{d}{dt}a(t) = -\Lambda^*\esc a(t)
-\label{AproxAve}
-\end{align}
-And the evolution equation for the correlations (\ref{exactC}) takes the form  
-\begin{align}
-    \frac{d}{dt}C(t)&=-\Lambda^*\esc  C(t)
-\label{AproxC}
-\end{align}
-This is  the evolution  equation of the  correlation matrix  under the
-Markovian   approximation.    The   form   of   (\ref{AproxAve})   and
-(\ref{AproxC}) illustrate Onsager's  regresion hypothesis, that states
-that  (correlations  of) fluctuations   decay  as  the  averages.  Eqs
-(\ref{AproxAve}), (\ref{AproxC}) show  that the transport coefficients
-that appear in the transport equation for the averages are the same as
-the  transport   coefficients  governing   the  correlations   of  the
-fluctuations in equilibrium.
-
-
-The solution of (\ref{AproxC})  is given by
-the exponential matrix 
-\begin{align}
-  C(t)=\exp\{-\Lambda^* t\}\esc C(0)
-\label{Csol}
-\end{align}
-This is  the main  prediction of  Mori theory that  states that  for a
-linear Markovian theory  the only possibility for a  correlation is to
-decay  in an  exponential  matrix  way. This  does  not  mean that  the
-elements of  the correlation matrix  $C(t)$ decay as  $e^{-\alpha t}$,
-because they are,  in fact, the sum of many  exponential terms that may
-lead even to quasi-algebraic decays of correlations, as in the case of
-hydrodynamics. 
-%Los autovalores de la matriz C(t) decaen de forma exponencial, pero no los elementos de la matriz C(t). Estos, tal y como se observa en las gráficas de correlaciones se ajustan, en escala logarítmica, casi a una recta. Por eso tienen un comportamiento decayendo a cero casi-algebraico.
-
-The Markovian Eq.  (\ref{AproxC})  cannot hold at
-very short times,  because at $t=0$ the  exact equation (\ref{exactC})
-implies
-\begin{align}
-    \frac{d}{dt}C(0)&=-L
-\end{align}
-which is only possible in  (\ref{AproxC}) if $M^*=0$. This paradoxical
-result can  also be obtained  from Eq.  (\ref{Markov1}) because  if we
-set $t=0$  in that  equation we obtain  again $M^*=0$.   Therefore, we
-expect (\ref{AproxC}) to  hold  only after a time
-$t=\tau$  larger than  the  decay of  the memory  kernel.  This is  an
-important idea to keep in mind: correlations will decay in a Markovian
-way only  after the time  beyond which memory  is lost. 
-%The  value of
-%$\tau$  should be  explicitly measured  in the  procedure to
-%validate the Markovian approximation.
-
-\subsection{The usual Green-Kubo formula is problematic}
-In the previous section we have seen that the Markovian approximation assume that the memory kernel $\Gamma(t-t')$ decays in a typical molecular time scale in which $C(t')$ does not change appreciably. Therefore, we may approximate $C(t')\simeq C(t)$ within the memory integral, this is
-\begin{align}
-  \int_0^tdt' \Gamma(t-t')\esc c(t')&\simeq  \int_0^tdt' \Gamma(t-t')\esc  c(t)
-\nonumber\\
-&\equiv
-M^+(t)\esc c(t)
-\end{align}
-where we have introduced the Green-Kubo running integral
-\begin{align}
-M^+(t)&\equiv  \int_0^tdt' \Gamma(t') 
-\label{Mt}
-\end{align}
-and the normalized correlation matrix as
-\begin{align}
-  c(t)=C^{-1}(0)\esc C(t)
-\end{align}
-that at $t=0$ becomes the identity matrix.
-
-
-For the Markovian approximation (\ref{Markov1}) to hold, we would need
-that the matrix  $M^+(t)$ becomes time-independent.   Unfortunately,  the  matrix
-$M^+(t)$ vanishes at $t=0$ and decays to zero at long times. In
-fact,  the projected  force defined  in (\ref{Proj})  is a  total time
-derivative
-\begin{eqnarray}
-  F^+ (t)&=&\frac{d}{dt}\exp\{{\cal Q}i{\cal L}t\} \hat{A}  
-\end{eqnarray}
-and, therefore, the time integral  of a total derivative in (\ref{Mt})
-can be integrated directly leading to
-\begin{eqnarray}
-M^+(t)&=&
-  \llangle\left(\exp\{{\cal Q}i{\cal L}t\}  \hat{A}\right)F^{+T}(0)  \rrangle
-\label{m+}
-\end{eqnarray}
-where we  have used that  $ \langle \hat{A} (0)  F^{+T}(0) \rangle=0$.
-For  $t\to\infty$ we  expect a  decorrelation  in the  form $  \langle
-\exp\{{\cal   Q}i{\cal  L}t\}   \hat{A}F^{+T}(0)  \rangle\to   \langle
-\hat{A}\rangle \langle  F^+\rangle =0$.   Therefore, as a  function of
-$t$, the matrix $M^+(t)$ starts from 0  and decays to 0 at large times
-and, in  general, we do not  expect to find a  time-independent matrix
-$M^*$  out  of  $M^+(t)$.   
-In other words: one cannot extend  the upper limit of
-integration of  the Green-Kubo formulae  to infinity because,  in that
-limit, the transport  coefficients vanish. 
-This problem  was  recognized  already  by
-Kirkwood      as      the      so     called      plateau      problem
-%\cite{Kirkwood1949,Espanol_Zuniga1993}.
-\cite{Kirkwood1949, Espanol1992}.
-
-The usual  way to  accept that  $M^+(t)\simeq M^*$  is to  assume that
-$M^+(t)$ increases  very rapidly, in  a ``molecular'' time  scale, and
-then decays  very slowly, displaying a  plateau, in such a  way that a
-suitable value for $M^*$ is given by
-\begin{align}
-  M^* \simeq \int_0^{\tau} dt'\langle F^+ (t') F^{+T}(0)\rangle 
-\label{GK0}
-\end{align}
-where $\tau$ is an  ``intermediate'' time between  the fast
-increase and slow decrease of $M(t)$.  It is claimed that the value of
-$\tau$ is immaterial, provided that  such a ``clear separation of time
-scales''  (i.e.  fast-up, slow-down  structure  of  the memory  kernel
-$\Gamma(t-t')$) exists.  Eq (\ref{GK0})  is the  celebrated Green-Kubo
-formula for the transport coefficients.
-%Immaterial en inglés, haciendo referencia a tau, quiere decir que no importa demasiado el tiempo tau que escojamos a partir del tiempo t a partir del cual empieza a decaer M(t)  
-
-
 The   approximation
 (\ref{Markov1}) is equivalent to take
 \begin{eqnarray}
@@ -4506,38 +4784,210 @@ $\delta^+(t)$ is normalized as
 \begin{align}
   \int_0^\infty dt \delta^+(t) =1
 \end{align}
-To check it we only have to replace in Eq. (\ref{Mt}) the corresponding expression of $\Gamma(t')$ using Eq. (\ref{Markap})
-
 Under the  Markovian approximation,  Eq.  (\ref{Markap})  implies that
-the  random force  is  delta  correlated in  time,  implying that  the
+the projected  force is delta correlated  in time. As a  consequence, the
 ordinary differential equation (\ref{SDE}) should be interpreted as an
 stochastic  differential  equation (SDE)  for  times  larger than  the
 correlation of $F^+(t)$.
 
+By multiplying (\ref{SDE}) with an initial ensemble $\rho_0(z)$
+satisfying (\ref{F0})
+we obtain the following Markovian equation for the averages
+\begin{align}
+  \frac{d}{dt}a(t) = -\Lambda^*\esc a(t)
+\label{AproxAve}
+\end{align}
+By  multiplying  (\ref{SDE})  with $\hat{A}(0)$  and  averaging  over
+initial conditions sampled from  the equilibrium ensemble, one obtains
+the evolution  equation of the  correlation matrix  under the
+Markovian   approximation
+\begin{align}
+    \frac{d}{dt}C(t)&=-\Lambda^*\esc  C(t)
+\label{AproxC}
+\end{align}
+The form of (\ref{AproxAve})  and (\ref{AproxC}) illustrates Onsager's
+regression hypothesis, that states that (correlations of) fluctuations
+decay  in  the  same  way  as  the  averages.   Eqs  (\ref{AproxAve}),
+(\ref{AproxC}) show that the transport coefficients that appear in the
+transport  equation for  the averages  are the  same as  the transport
+coefficients  governing  the  correlations   of  the  fluctuations  in
+equilibrium.
 
-Unfortunately,  there are  situations  in  which \textit{the  Markovian
-approximation (\ref{Markov1}) is valid but  a plateau in $M^+(t)$ does
-not  exist}.  Therefore,  one  cannot estimate  $M^*$ directly  from
-$M^+(t)$ without  incurring in  large error.   Even in  the case  that a
-well-defined plateau exists, Eq.  (\ref{GK0}) suffers from yet another
-problem.  Note  that the projected current  (\ref{Proj}) evolves under
-the  action of  the  projected dynamics  $\exp\{{\cal Q}i{\cal  L}t\}$
-which  is  uncomputable numerically  in  a  feasible way.   The  usual
-strategy  is to  approximate  the projected  dynamics  with the  usual
-unprojected one $\exp\{{\cal Q}i{\cal L}t\}\simeq \exp\{i{\cal L}t\}$.
-Although this is a rather  uncontrolled approximation, it is the usual
-one  in   order  to  compute   the  transport  coefficients   from  MD
-simulations. In the next section we offer an alternative in which this approximation
-is not used.
 
+ The solution of (\ref{AproxC})  is given by
+the exponential matrix 
+\begin{align}
+  C(t)=\exp\{-\Lambda^* t\}\esc C(0)
+\label{Csol}
+\end{align}
+This is  the main  prediction of  Mori theory that  states that  for a
+linear Markovian theory  the only possibility for a  correlation is to
+decay  in an  exponential  matrix way.  This does  not  mean that  the
+elements of  the correlation matrix  $C(t)$ decay as  $e^{-\alpha t}$,
+because they are, in fact, the  sum of many exponential terms that may
+lead even to quasi-algebraic decays of correlations, as in the case of
+hydrodynamics.
+
+We remark that  the Markovian Eq.  (\ref{AproxC}) cannot  hold at very
+short  times,  because  at  $t=0$ the  exact  equation  (\ref{exactC})
+implies
+\begin{align}
+    \frac{d}{dt}C(0)&=-L
+\end{align}
+which is only possible in  (\ref{AproxC}) if $M^*=0$. This paradoxical
+result can  also be obtained  from Eq.  (\ref{Markov1}) because  if we
+set $t=0$  in that  equation we obtain  again $M^*=0$.   Therefore, we
+expect (\ref{AproxC}) to  hold only after a time  $t=\tau$ larger than
+the decay  of the  memory kernel.   This is a  general feature  of the
+Markovian  approximation showing  that correlations  will decay  in an
+exponential, Markovian  way only  after the  time $\tau$  beyond which
+memory is lost.  The value of  $\tau$ should be explicitly measured in
+any procedure to validate the Markovian approximation.
+
+%\Del{ \section{The standard Green-Kubo formula is problematic}
+%}
+\label{Sec:GKno}
+The  usual  rationale  for   justifying  the  Markovian  approximation
+(\ref{Markov1})  goes  as  follows  \cite{Grabert1982,Kubo1991}.   The
+memory  kernel  $\Gamma(t-t')$ is  given  in  terms of  a  correlation
+function  that it  is assumed  to decay  in a  typical molecular  time
+scale.   On the  other hand,  it  is assumed  that the  time scale  of
+evolution of the CG variables is  much larger than this molecular time
+and, therefore,  within the  memory integral  $C(t')$ does  not change
+appreciably and we may  approximate $C(t')\simeq C(t)$.  Therefore, we
+have
+\begin{align}
+  \int_0^tdt' \Gamma(t-t')\esc c(t')&\simeq  \int_0^tdt' \Gamma(t-t')\esc  c(t)
+\nonumber\\
+&=
+M^+(t)\esc c(t)
+\label{M+c}
+\end{align}
+where we have introduced the \textit{projected} Green-Kubo running integral
+\begin{align}
+M^+(t)&\equiv  \int_0^tdt' \Gamma(t') 
+\nonumber\\
+& =\int_0^tdt' \llangle \left(\exp\{{\cal Q}i{\cal   L}t\}{\cal Q}i{\cal L}\hat{A} \right){\cal Q} i{\cal L}\hat{A}^T\rrangle 
+\label{Mt}
+\end{align}
+and the normalized correlation matrix as
+\begin{align}
+  c(t)=C^{-1}(0)\esc C(t)
+\label{cnorm}
+\end{align}
+that  at $t=0$  becomes  the identity  matrix.   The  Markovian
+  assumption relies  on a  separation of time  scales. For  some model
+  systems  (hydrodynamics of  unconfined  fluids \cite{Selwyn1971}  or
+  Brownian  particles \cite{Mazur1970}),  one  can justify  rigorously
+  such a  separation of  time scales as  some parameter  becomes small
+  (wavelength or  ratio of masses) and  then usually the order  of the
+  limits in the  parameter, time, and system size,  plays an important
+  role.  In the  present paper,  we simply  assume that  the Markovian
+  approximation is a sufficiently good one.
+
+
+We will also consider
+the \textit{unprojected} Green-Kubo running integral
+\begin{align}
+M(t)&\equiv  \int_0^{t} dt' \llangle \left(\exp\{i{\cal   L}t'\}i{\cal L}\hat{A} \right){\cal Q} i{\cal L}\hat{A}^T\rrangle
+\label{Mtau}
+\end{align}
+where we distinguish $M(t)$ from  $M^+(t)$ because the former involves
+the  unprojected  Hamiltonian  dynamics  $\exp\{i{\cal  L}t\}\hat{A}$,
+while the later involves  the projected dynamics $\exp\{{\cal Q}i{\cal
+  L}t\}\hat{A}$.  In  both $M^+(t)$  and $M(t)$  we recognize  a total
+time derivative that allows to perform the time integral explicitly so
+we have the alternative forms
+
+\begin{align}
+M^+(t)&=
+  \llangle\left(\exp\{{\cal Q}i{\cal L}t\}  \hat{A}\right){\cal Q}i{\cal L}\hat{A}^{+T} \rrangle
+\nonumber\\
+M(t)&=
+  \llangle\left(\exp\{i{\cal L}t\}  \hat{A}\right){\cal Q}i{\cal L}\hat{A}^{+T} \rrangle
+\label{m+}
+\end{align}
+%where we  have used that  $ \langle \hat{A} (0)  F^{+T}(0) \rangle=0$.
+
+Because the projected dynamics is in general more difficult to compute
+than  the  unprojected  dynamics,  one  usually  resorts  to  a  large
+separation  of  time scales  in  order  to approximate  the  projected
+dynamics with  the unprojected  one \cite{Zwanzig1961,Selwyn1971,Mazur1970}.
+For the  Markovian approximation  (\ref{Markov1}) to hold,  the matrix
+$M^+(t)$ in  (\ref{M+c}) needs  to become the  time-independent matrix
+$M^*$.  Note that  $M^+(t)$ vanishes at $t=0$ and after  a time $\tau$
+should plateau to a constant value.  If one approximates $M^+(t)\simeq
+M(t)$,  this   would  require  that   $M(t)$  would  have   a  plateau
+itself.  However, this  is not  true because,  for an  ergodic system,
+correlations computed with the unprojected dynamics decay to zero
+\begin{align}
+  \lim_{t\to\infty}M(t)&= \lim_{t\to\infty} \llangle\left(\exp\{i{\cal L}t\}  \hat{A}\right){\cal Q}i{\cal L}\hat{A}^{+T} \rrangle
+\nonumber\\
+&=
+ \llangle  \hat{A}\rrangle\llangle{\cal Q}i{\cal L}\hat{A}^{+T} \rrangle=0
+\end{align}
+This  problem was  recognized already  by  Kirkwood as  the so  called
+plateau problem \cite{Kirkwood1949,Espanol_Zuniga1993}  and limits the
+use of the  unprojected Green-Kubo formula $M(t)$  for the calculation
+of transport coefficients.
+
+While $M(t)$  does not have  a plateau,  $M^+(t)$ may actually  have a
+plateau  depending  essentially  on  the  spectrum  of  the  projected
+evolution     operator    $\exp\{{\cal     Q}i{\cal    L}t\}$.      If
+$|\hat{\psi}_\mu\rangle$  are  the   eigenvectors  of  corresponding
+eigenvalues  $\lambda_\mu$  of  ${\cal   Q}i{\cal  L}$,  the  operator
+$\exp\{{\cal Q}i{\cal L}t\}$ admits the eigendecomposition
+\begin{align}
+  \exp\{{\cal Q}i{\cal L}t\}&=\sum_\mu \exp\{-\lambda_\mu t\}|\hat{\psi}_\mu\rangle\langle\hat{\psi}_\mu|
+\end{align}
+in Dirac ket and bra notation, where the inner product is defined with
+the equilibrium ensemble.  The matrix $M^+(t)$ then has the form
+\begin{align}
+  M^+(t)&=
+\sum_\mu \exp\{-\lambda_\mu t\} \langle \hat{A}|\hat{\psi}_\mu\rangle
+\langle\hat{\psi}_\mu|{\cal Q}i{\cal L}\hat{A}^{+T} \rangle
+\end{align}
+Note  that  the  equilibrium  eigenvector  $|\psi_0\rangle$  has  zero
+eigenvalue.  For  the ergodic  unprojected dynamics  this is  the only
+eigenvector of  null eigenvalue  but for  the projected  dynamics, the
+zero  eigenvalue may  be  degenerate. In  other  words, the  projected
+dynamics  may  have  other  conserved variables  in  addition  to  the
+Hamiltonian that render the evolution  non-ergodic with respect to the
+equilibrium  measure.  Assume,  for  example, that  there  is only  one
+eigenvector  $|\psi_1\rangle$  different   from  the  equilibrium  one
+$|\psi_0\rangle$ of null eigenvalue. Then the infinite time limit is
+\begin{align}
+M^*&=\lim_{t\to\infty}  M^+(t)=\langle \hat{A}|\hat{\psi}_1\rangle
+\langle\hat{\psi}_1|{\cal Q}i{\cal L}\hat{A}^{+T} \rangle
+\end{align}
+This is an expression for the transport coefficients $M^*$ in terms of
+equilibrium averages.  Of  course, the calculation of  the spectrum of
+${\cal Q}i{\cal L}$, or the identification of the additional conserved
+quantities of  the projected dynamics is  not an easy task  in general
+but it has been carried out for  a model system of a Brownian particle
+in a  double well-potential \cite{Wu1989}. Also,  under a perturbation
+scheme, the time integral of the correlation of the projected force of
+a  Brownian particle  has  been carried  out  showing a  non-vanishing
+plateau  \cite{Mazur1970}.    It  is   believed  that   the  projected
+Green-Kubo matrix $M^+(t)$ has a well-defined plateau in general.
+
+
+In  summary,  the projected  Green-Kubo  matrix  $M^+(t)$ may  have  a
+well-defined plateau  but it is difficult  to evaluate it in  order to
+get  transport  coefficients from  direct  MD  simulations, while  the
+unprojected  Green-Kubo  matrix  $M(t)$  is easily  obtained  from  MD
+simulations but  it usually  suffers from  the plateau  problem giving
+ambiguous values for the transport coefficients. 
 
 
 \subsection{A corrected Green-Kubo formula with no plateau problem}
-\label{Sec:CorrectedGK}
-We now  consider a procedure that  allows one to define  the transport
-coefficients from  a modified version  of the Green-Kubo  formula even
-when no  plateau exists, \textit{provided}  the dynamics can  still be
-approximated by a Markovian equation.
+\label{Sec:GKsi}
+We  now consider  a  procedure that  allows one  to  
+  obtain the  friction matrix  $M^*$
+from a modified version of the Green-Kubo formula even when no plateau
+exists, \textit{provided} the dynamics can still be approximated
+  by a  Markovian equation is  Markovian in  such a  way that
+  correlations of CG variables obey (\ref{AproxC}).
 
 The action  of Mori projector  operator on the phase  function $i{\cal
   L}\hat{A}$ is
@@ -4548,40 +4998,62 @@ The action  of Mori projector  operator on the phase  function $i{\cal
 i{\cal L}\hat{A}+L\esc C^{-1}(0)\esc \hat{A}  
 \label{QiLA}
 \end{align}
-Consider then the following time integral
+and therefore, the unprojected Green-Kubo matrix (\ref{Mtau}) becomes
 \begin{align}
-M(\tau)&\equiv  \int_0^{\tau} dt \llangle {\cal Q} i{\cal L}\hat{A} (t)i{\cal L}\hat{A}^T\rrangle
+M(t)&=
+  \int_0^{t} dt' \llangle i{\cal L}\hat{A}(t') i{\cal L}\hat{A}^T\rrangle
 \nonumber\\
-&=
-  \int_0^{\tau} dt \llangle i{\cal L}\hat{A}(t) i{\cal L}\hat{A}^T\rrangle
-%\nonumber\\
-%&
-+L\esc C^{-1}(0)\esc   \int_0^{\tau} dt \llangle \hat{A}(t) i{\cal L}\hat{A}^T\rrangle
+&+
+L\esc C^{-1}(0)\esc   \int_0^{t} dt' \llangle \hat{A}(t') i{\cal L}\hat{A}^T\rrangle
 \end{align}
-where we distinguish $M(t)$ from $M^+(t)$ because the former
-involves  the real dynamics $\exp\{i{\cal  L}t\}\hat{A}$, while
-the later involves the projected dynamics $\exp\{{\cal Q}i{\cal  L}t\}\hat{A}$.
-We have
+By using the identity $\frac{d}{dt}\hat{A}(z_t)=i{\cal L}\hat{A}(z_t)$
+and the  fact that  the Liouville  operator  satisfies  $
+\llangle   \hat{A}(t)   i{\cal  L}\hat{A}^T\rrangle=-\llangle   i{\cal
+  L}\hat{A}(t) \hat{A}^T\rrangle$ we obtain
 \begin{align}
-M(\tau)&=
-  \int_0^{\tau} dt \frac{d}{dt}\llangle \hat{A}(t) i{\cal L}\hat{A}^T\rrangle
-%\nonumber\\
-%&
--L\esc C^{-1}(0)\esc   \int_0^{\tau} dt \frac{d}{dt}\llangle \hat{A}(t) \hat{A}^T\rrangle
+M(t)&=
+  \int_0^{t} dt' \frac{d}{dt'}\llangle \hat{A}(t') i{\cal L}\hat{A}^T\rrangle
 \nonumber\\
-&=\llangle \hat{A}(\tau) i{\cal L}\hat{A}^T\rrangle-\llangle \hat{A}(0) i{\cal L}\hat{A}^T\rrangle
-%\nonumber\\
-%&
--L\esc C^{-1}(0)\esc   \llangle \hat{A}(\tau) \hat{A}^T\rrangle
+&-
+L\esc C^{-1}(0)\esc   \int_0^{t} dt' \frac{d}{dt'}\llangle \hat{A}(t') \hat{A}^T\rrangle
+\end{align}
+We may integrate the time derivatives obtaining
+  \begin{align}
+M(t)&=\llangle \hat{A}(t) i{\cal L}\hat{A}^T\rrangle-\llangle \hat{A}(0) i{\cal L}\hat{A}^T\rrangle
+\nonumber\\
+&
+-L\esc C^{-1}(0)\esc   \llangle \hat{A}(t) \hat{A}^T\rrangle
 +L\esc C^{-1}(0)\esc   \llangle \hat{A}(0) \hat{A}^T\rrangle
-\nonumber\\
-&=-\frac{d}{dt}C(\tau)-L\esc c(\tau)
+\end{align}
+The second and  fourth terms in the right hand  side cancel each other
+and we finally obtain
+\begin{align}
+M(t)&=-\frac{d}{dt}C(t)-L\esc c(t)
 \label{Math1}
 \end{align}
-This is a mathematical identity that  relates the time integral of the
-correlation  function $\llangle  {\cal Q}  i{\cal L}\hat{A}  (t)i{\cal
-  L}\hat{A}^T\rrangle$ with  the correlation  function $C(t)$. 
+where the normalized correlation matrix $c(t)$ is defined in (\ref{cnorm}).
+This is a mathematical identity that  relates 
+  the unprojected Green-Kubo matrix $M(t)$ with the correlation matrix $C(t)$ of the CG variables. It shows
+that $M(t)$ cannot have a plateau for an ergodic system where $\lim_{t\to\infty}C(t)= 0$. 
 
+% {\color{magenta} From the two exact Eqs (\ref{exactC}) and (\ref{Math1}) we then
+% obtain
+% \begin{align}
+% M(t)&=\int_0^tdt' \Gamma(t-t')\esc c(t')
+% \label{exactMC}
+% \end{align}
+% If the Markov approximation (\ref{M+c}) is valid we obtain 
+% \begin{align}
+% M(t)&\simeq M^+(t)\esc c(t)
+% \label{exactMC2}
+% \end{align}
+% and if $M^+(t)\to M^*$ after a time $\tau$, we end up with
+% \begin{align}
+% M(t)&\simeq M^*\esc c(t)
+% \label{exactMC3}
+% \end{align}
+
+% }
 
 If  we now  assume  that  the correlation  function  $C(t)$ obeys  the
 Markovian   dynamics   (\ref{AproxC})    with   (\ref{Lambda}),   then
@@ -4590,38 +5062,49 @@ Eq. (\ref{Math1}) becomes
 M(\tau)&\simeq M^*\esc c(\tau)
 \label{GKCorrected0}
 \end{align}
+This expression shows that the unprojected Green-Kubo matrix decays as the correlation
+of the CG variables.
 Although   the   time   integral   in    the   left   hand   side   of
-(\ref{GKCorrected0}) has  no plateau, as  it is obvious by  looking at
-the decaying correlation in the right  hand side, it is still possible
+(\ref{GKCorrected0}) has  no plateau
+it is still possible
 to infer the friction matrix $M^*$ by multiplying (\ref{GKCorrected0})
 with the inverse of the normalized correlation, leading to
 \begin{align}
 M^*&= \int_0^{\tau} dt \llangle {\cal Q} i{\cal L}\hat{A} (t)i{\cal L}\hat{A}^T\rrangle\esc  c^{-1}(\tau)
 \label{GKCorrected}
 \end{align}
-This  is the new  corrected
-Green-Kubo  formula  to  calculate  the  friction
-matrix $M^*$. Note that (\ref{GKCorrected})  can not  be true at  $\tau=0$ as  this would
-imply $M^*=0$.   However, after a  time in the molecular  time scales,
-the  right  hand  side  of Eq.   (\ref{GKCorrected})  should  be  time
-independent provided that the  Markovian description (\ref{AproxC}) is
-valid.  In the limit of very large separation of time scales, when $M(t)$
- has   a  ``fast-up,  slow-down''
-structure, we  may assume  that the  normalized correlation  matrix is
-very close  to its value at  $t=0$ which is just  the identity matrix,
-this  is  $ c^{-1}(\tau)\simeq  1$.  In  this  case, we  recover  from
-(\ref{GKCorrected}) the usual  Green-Kubo prescription (\ref{GK0}) for
-the transport coefficients.
+This new  corrected Green-Kubo formula (\ref{GKCorrected})  allows one
+to calculate  the friction matrix  $M^*$ from MD simulations  and does
+not  suffer from  the plateau  problem by  construction, provided  the
+dynamic is Markovian.  Eq.  (\ref{GKCorrected})  is the main result of
+the present paper.  Eq.   (\ref{GKCorrected}) is conceptually pleasing
+as it  displays in  very graphical terms  why the  unprojected Green-Kubo
+integral  (\ref{GK0}) has  no plateau  -- in  fact, it  decays as  the
+correlation matrix itself.  It is obvious that (\ref{GKCorrected}) can
+not be true at $\tau=0$ as this would imply $M^*=0$.  However, after a
+time  in  the molecular  time  scales,  the  right  hand side  of  Eq.
+(\ref{GKCorrected})  should  be  time independent  provided  that  the
+Markovian description (\ref{AproxC})  is valid.  In the  limit of very
+large  separation  of  time  scales,  when  $M(t)$  has  a  ``fast-up,
+slow-down'' structure,  we may assume that  the normalized correlation
+matrix is very close to its value  at $t=0$ which is just the identity
+matrix, this  is $  c^{-1}(\tau)\simeq 1$.  In  this case,  we recover
+from   (\ref{GKCorrected})   the  unprojected   Green-Kubo   prescription
+(\ref{GK0}) for the transport coefficients.
 
 
 In summary, Eq. (\ref{GKCorrected}) shows  a way to infer the friction
 matrix  $M^*$  in  the  Markovian equation  (\ref{SDE})  from  a  time
 integral  even when  it is  not  possible to  identify a  well-defined
-plateau.
+plateau in the unprojected Green-Kubo formula (\ref{Mtau}).
 
-Because we have inferred $M^*$  from the fact that the  correlation matrix $C(t)$
-obeys  the Markovian  equation  (\ref{AproxC}), we may obtain the friction matrix $M^*$
-by introducing the time dependent matrix
+The mathematics  behind the  derivation of  (\ref{GKCorrected}) should
+not obscure  the essential  procedure that we  have followed  here. We
+have inferred $M^*$  from the fact that the  correlation matrix $C(t)$
+obeys  the Markovian  equation  (\ref{AproxC}).  In  this respect,  an
+alternative, \textit{entirely equivalent}, and  perhaps simpler way to
+obtain the friction matrix $M^*$  is by introducing the time dependent
+matrix
 \begin{align}
 \Lambda(t)\equiv-    \frac{d}{dt}C(t)\esc C^{-1}(t)
 \label{AproxCtau}
@@ -4638,10 +5121,16 @@ Therefore, from (\ref{Lambda}) we can obtain the friction matrix as
 M^*&=  -L+ \Lambda^*\esc C(0)
 \label{AproxCtau0}
 \end{align}
+In some situations,  however, it is preferable to  obtain the friction
+matrix    $M^*$    from    the   corrected    Green-Kubo    expression
+(\ref{GKCorrected})   than   from   (\ref{AproxCtau0})   because   the
+Green-Kubo expression involves the  time derivative $i{\cal L}\hat{A}$
+that may  induce special structure to  the matrix $M^*$.  This  is the
+case of hydrodynamics near walls that we discuss elsewhere.
 
 The  method to  obtain  the  matrix $\Lambda^*$  from  the plateau  of
 $\Lambda(t)$ in  (\ref{AproxCtau}) needs  high quality  statistics for
-$C(t)$  and  $\frac{dC}{dt}(t)$.   The  same   is  true  for  the  new
+$C(t)$  and  $\frac{d}{dt}C(t)$.   The  same   is  true  for  the  new
 Green-Kubo  formulae (\ref{GKCorrected}).   In  fact,  ${C}(t)$ is  an
 exponentially  decaying matrix,  and $C^{-1}(t)$  is an  exponentially
 growing matrix.   At very large  times, any statistical error  will be
@@ -4650,85 +5139,6 @@ practice, as small as possible in  order to detect a plateau value for
 $\Lambda(t)$,  and for  which  statistical errors  have  not yet  been
 amplified to a  catastrophic level.  
 
-\Pendiente{
-We note  that there are  situations in  which the
-standard  Green-Kubo running  integral indeed  display a  well-defined
-plateau.  This can only happen if  some of the assumptions made in the
-argument based on the theorem (\ref{Math1}) do not hold.
-
-For example, if we take as CG  variable the position ${\bf r}(t)$ of a
-tagged  particle  in a  fluid,  we  have the  well-known  mathematical
-identity
-\begin{align}
-\frac{1}{2}\frac{d}{dt}\llangle({\bf r}(t)-{\bf r}(0))^2\rrangle&=  \int_0^tdt'\llangle {\bf v}(t)\esc {\bf v}\rrangle 
-\end{align}
-where ${\bf  v}(t)$ is  the velocity of  the particle.   This equation
-would correspond to  (\ref{Math1}). It is clear that  because the root
-mean square displacement  is a ``correlation'' that does  not decay to
-zero, the infinite time integral of  the right hand side does not need
-to decay  to zero.  It actually  gives a non-zero  value given  by the
-self-diffusion coefficient.
-
-Another example  can be  found whenever  we consider  a
-conserved  quantity.  Consider,  for  example,  the  momentum  density
-correlation function in an infinite system in Fourier space,
-\begin{align}
-\hat{\bf g}_{\bf k}&=\sum_i^N{\bf p}_i\exp\{i{\bf k}\esc{\bf r}_i\}
-\end{align}
-The correlation matrix function is
-\begin{align}
-  {\bf C}(k,t)&=\llangle \hat{\bf g}_{\bf k}(t)\hat{\bf g}_{-{\bf k}}\rrangle
-\end{align}
-Eq. (\ref{Math1}) now becomes
-\begin{align}
-\partial_t  C(k,t)&=-\int_0^tdt'\llangle i{\cal L} \hat{\bf g}_{\bf k}(t) i{\cal L}\hat{\bf g}_{-{\bf k}}\rrangle
-\end{align}
-The action of the Liouville operator is well-known
-\begin{align}
-  i{\cal L}\hat{\bf g}_{\bf k}=-i{\bf k}\esc\hat{\boldsymbol{\sigma}}_{\bf k}
-\end{align}
-where $\hat{\boldsymbol{\sigma}}_{\bf k}$ is the Fourier transform of the Irwing-Kirkwood
-stress tensor.  Therefore, we have
-\begin{align}
-\partial_t  C(k,t)&={\bf k}\esc\boldsymbol{\Theta}(k,t)\esc {\bf k}
-\label{Ck}
-\end{align}
-where the fourth order viscosity tensor is defined as the time integral of the
-stress correlation function
-\begin{align}
-\boldsymbol{\Theta}(k,t)&=  \int_0^tdt'\llangle \boldsymbol{\sigma}_{\bf k}(t) \boldsymbol{\sigma}_{-{\bf k}}\rrangle
-\label{Theta}
-\end{align}
-Eq  (\ref{Ck})  is  what  corresponds now  to  (\ref{Math1})  and  the
-argument  is  that  because   the  correlation  $C(k,t)$  decays,  the
-viscosity   tensor   $\boldsymbol{\Theta}(k,t)$  \textit{must}   decay
-towards zero.   This is  true in  general, but  fails for  the very special
-value of ${\bf k}={\bf 0}$.  At this  value, we see that the left hand
-side is zero because, for ${\bf k}={\bf 0}$, $\hat{\bf g}_{{\bf k}=\bf 0}$ is
-the total momentum  of the system.  As we assume  that the equilibrium
-average of the CG variables vanish, we are implicitly assuming that we
-are in  the center  of mass  reference frame of  the fluid,  for which
-total momentum vanishes.  Therefore, the right hand  side of (\ref{Ck})
-vanishes at  ${\bf k}=0$.  At the same time, for  ${\bf k}=0$  the Irwing-Kirkwood
-stress tensor becomes the total stress tensor of the fluid
-\begin{align}
-  \hat{\boldsymbol{\sigma}}^{\alpha\beta}_{{\bf k}={\bf 0}}=\sum_i{\bf p}_i{\bf v}_i+\frac{1}{2}\sum_{ij}{\bf r}_{ij}{\bf F}_{ ij}
-\end{align}
-and     the     isotropic     fourth    order     viscosity     tensor
-$\boldsymbol{\Theta}(0,t)$ has  only two independent  components given
-by  the  standard  Green-Kubo  expressions  for  the  shear  and  bulk
-viscosities.  Therefore, for ${\bf  k}={\bf 0}$, Eq.  (\ref{Ck}) takes
-the trivial form ${\bf 0}={\bf 0}\esc \boldsymbol{\Theta}(0,t)\esc{\bf
-  0}$ and $\boldsymbol{\Theta}(0,t)$ is no longer constrained to decay
-to  zero anymore  and may  display a  well-defined plateau,  as it  is
-observed  empirically. However,  for values  of ${\bf  k}\neq 0$,  the
-resulting (nonlocal) viscosities suffer  necessarily from the plateau
-problem and  require the  correction presented in  this paper  for its
-actual  evaluation.   In forthcoming  publications  we  will show  how
-nonlocal transport  coefficients for discrete hydrodynamics  with and
-without confining walls can be unambiguously measured by using the new
-corrected Green-Kubo formula.
-} %Fin pendiente
 
 
 \section{Mori theory for shear hydrodynamics}
@@ -6485,8 +6895,9 @@ length.
 %-----------------------------------------------------------------
 \chapter{The slip boundary condition}
 \label{Chap:Slip}
-\epigraph{\textit{It is remarkable how long men will believe in the bottomlessness of a pond without taking the trouble to sound it}}{Walden \\ HENRY DAVID THOREAU}
+\epigraph{\textit{It is remarkable how long men will believe in the bottomlessness of a pond without taking the trouble to sound it.}}{Walden \\ HENRY DAVID THOREAU}
 \markboth{The slip boundary condition from MD simulations}{}
+
 \section{Introduction}
 A quite remarkable  assumption in macroscopic hydrodynamics  is the no
 slip boundary  condition that  states that the  velocity of  the fluid
@@ -6653,10 +7064,51 @@ formulating  linear,  in  general  non-Markovian,  conections  between
 friction forces and  velocities, where the meaning  of this quantities
 is often understood implicitly.
 
+In this chapter, we compute explicitly the viscosity and friction kernels that apper in the discrete hydrodynamic theory presented in Chapter \ref{Chap:Planar} for shear flows in between confining paralle solid walls.  
+We show  that  the  usual Green-Kubo  formulae  suffer
+dramatically  from the  plateau problem  and  cannot be  used for  the
+unambiguous  determination of  transport coefficients.   This includes
+the solid-fluid friction coefficient which,  as shown in Ref. \cite{2}
+is  equivalent  to   the  expression  given  by   Bocquet  and  Barrat
+\cite{Bocquet1994}.  We  use the corrected Green-Kubo  expressions, as
+formulated in  Chapter {\ref{PBC}} in  order to determine  unambiguosly the
+transport kernels (which are matrices for the non-local viscosity, and
+non-local frictions).  With  these transport matrices, we  are able to
+predict correctly the evolution  of the \textit{correlation} matrix of
+the  discrete  hydrodynamic  variables.  We  also  validate  Onsager's
+hypothesis  by  predicting,  with  the same  transport  matrices,  the
+evolution of the \textit{average} of  the discrete momentum field.  By
+looking at the equations for the averages of hydrodynamic variables we
+may reproduce the pillbox argument of Ref.  \cite{CamargoBC2018} and re-derive the
+Navier slip boundary condition.  This provides an explicit microscopic
+expression for the  slip length that involves  the corrected transport
+kernels.  The  present formulation with corrected  Green-Kubo formulae
+predicts  the  boundary  conditions  that should  be  imposed  on  the
+evolution equations for the average hydrodynamic variables. We observe
+in non-equilibrium  MD simulations  that the  plug flow  considered in
+this paper violates the Navier slip boundary condition at short times,
+while it is very  well  satisfied at  later stages  of  the flow.   This
+violation is due to the unbalance between the solid friction and shear
+force,  which is  at the  base of  the derivation  of the  Navier slip
+boundary  condition (\ref{slipBC}).   Finally, we  also show  that the
+corrected Green-Kubo  transport kernels do describe  intrinsic surface
+properties by  observing that  the slip length  is independent  on the
+channel width.
+
+
 
 \section{The dynamics of the discrete transverse momentum}
 \Note{Falta figura}
 \section{Simulation results}
+\begin{figure}[h!]
+  \centering
+\includegraphics[scale=0.41]{Density-01sigma-2sigma}
+\caption{
+  }
+\caption{The average  density profile  for two resolutions  $\Delta z=
+    0.1\sigma$ (blue)  and  $\Delta  z=2\sigma$ (orange).}
+\label{Fig:DensityResolved}
+\end{figure}
 
 \begin{figure}[h!]
   \centering
