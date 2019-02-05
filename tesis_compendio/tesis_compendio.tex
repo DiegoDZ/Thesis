@@ -539,30 +539,36 @@ This situation is referred to as a {\it non-Markovian} dynamics, to distinguish 
 
 \section{Molecular Dynamics simulations}
 ``We may regard the present state of the universe as the effect of its past and the cause of its future. An intellect which at a certain moment would know all forces that set nature in motion, and all positions of all items of which nature is composed, if this intellect were also vast enough to submit these data to analysis, it would embrace in a single formula the movements of the greatest bodies of the universe and those of the tiniest atom; for such an intellect nothing would be uncertain and the future just like the past would be present before its eyes.''
-This sentence was written at the end of the 18th century by Pierre-Simon Laplace \cite{Laplace} in its famous essay \textit{A Philosophical Essay on Probabilities}. 
+This sentence was written at the end of the 18th century by Pierre-Simon Laplace in its famous essay \textit{A Philosophical Essay on Probabilities} \cite{Laplace}.
 
-The belief in the deterministic behaviour of the nature lasted for the next century until Charles-Eugène Delaunay and Henry Poincaré introduced the first notion of chaos and perturbated systems. Poincaré stated that there is not an equation that governs the motion of three or more bodies. 
+The belief in the deterministic behaviour of the nature lasted for the next century until Charles-Eugène Delaunay and Henry Poincaré introduced the first notion of the effect of the initial conditions in the evolution of a system consisting on three or more bodies. 
 
-Real systems consists of a huge number of particles each one interacting with the other. Because of the number of colisions it is imposible to solve the equations of motion manually. 
-Therefore, the interest in the study of the matter in the microscale put the N-body problem in the center of the focus. The way to deal with the N-body problem is through the numeral solution of that. And is then when the Molecular Dynamics (MD) simulations arrive to help us. 
+Delaunay wrote two large books focused in that problem and reached the first ideas of chaos and studied the three-body problem as a two-body problem perturbated in which the perturbation played the role of the third body. 
+Years later, Poincaré thought about the stability of a three-body system introducing the first notion of chaos. 
+He finally stated that there is not an equation that governs the motion of three or more bodies.
 
-The pioneering work of Adler and Wainwright \cite{Alder1957} in the fifties it was a first step in the development of the Molecular Dynamics simulations. %when they studied the phase transition of a system consisting on hard sphares.
-They play the role of the experiments in real life. They provide us the observation which precedes the comprehension, because without comprehension science would be only documentation \cite{Rapaport}.
+The N-body problem is crucial in real systems consisting on a huge number of particles. In the levels of description in which the particles of a system are interacting with the other, to solve the equations of motion is in the center of the problem. Let us suposse that we have a glass of water. 
+%Párrafo inspirado tesis de Arturo
+The number of water molecules is $N \sim 10^{24}$. Therefore, we need  $6N$ initial conditions and $6N$ equations of motion to be solved ($v_x,v_y,v_z$ and $x,y,x$ for every particle). Is obvious that is imposible to solve analytically this bunch of equations of motion.
 
+Once we assume that we can not solve manually the equations of motion of the molecules of a glass of water, we may use a computer to solve them. 
+The technique to obtain aproximated solutions of the time evolution equations of the molecules is called Molecular Dynamics (MD).
+The idea behind this technique is to discretize the time in intervals called \textit{time steps} and to compute the position and velocity of every particle at every time step. If we estimate the number of colisions per second and calculate the number of evaluations we need to compute for every particle, we conclude that to solve the equations of motion of a real system, such a glass of water, is imposible even computationally \cite{TesisArturo}.
+Therefore, only small or coarse systems (i.e. with a reasonable number of particles) can be addressed using MD simulations. 
 
+The pioneering work of Adler and Wainwright \cite{Alder1957} in the fifties it was a first step in the development of the MD simulations when they studied the phase transition of a system consisting on hard sphares. In the sixties Gibson et al. \cite{Gibson1960} study the radiation damage using MD simulations and  Rahman \cite{Rahman1964} simulated a system consisting on 864 particles interacting with Lennard-Jones potential in order to study correlations in the motion of atoms in liquid argon.  
 
-
+MD simulations play the role of the experiments in the real world. They provide us the observation which precedes the comprehension, because without comprehension science would be only documentation \cite{Rapaport}. Simulations allows, in contrast with the theory, assume less aproximations in exchange for a computational effort. Both simulations and physical theory must be coincide (i.e. the predictions of theory must coincide with the results of the simulations). If they differs is an indication of an error has been commited somewhere. 
 
 This dissertation rests on two pillars. The first one consits on a theoretical derivation of the equations that governs the evolution of the CG variables of a fluid in contact with a solid. 
 Along the derivation we only assume the markovian aproximation that simplify considerably the final equations, in which the transport kernels are included. 
-\Pendiente{The second pillar consists on Molecular Dynamics (MD) simulations that we perform in order to validate the markovian aproximation and to compute the correlations of the transport kernels.}  
-We perform MD simulations with the open source code LAMMPS \cite{Plimpton1995}. The idea behind the MD simulations is to 
+The second pillar consists on Molecular Dynamics (MD) simulations that we perform in order to validate the markovian aproximation and to compute the correlations of the transport kernels.
+We perform MD simulations with the open source code LAMMPS \cite{Plimpton1995}, which are explain in detail in the corresponding chapters.  
 
-The details of the simulations will be shown in the corresponding chapters. 
 
 
 \section{Objetives reached in each publication}
-This dissertation consist on six publications with a logical order. 
+This dissertation consist on six publications with a logical order and is structire as follows. 
 
 
 
