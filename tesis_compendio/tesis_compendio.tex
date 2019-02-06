@@ -14,6 +14,7 @@
 \usepackage{psfrag}
 \usepackage{hyperref}
 \usepackage{pdfpages}
+\usepackage{setspace}
 \usepackage{tikz}
 \captionsetup[figure]{font=footnotesize,labelfont=footnotesize}
 \graphicspath{{../figures/}}
@@ -160,7 +161,7 @@
 \begin{document}
 \maketitle
 \copyrightpage
-
+\spacing{1.5}
 \newpage
 \pagenumbering{Roman} % para comenzar la numeracion de paginas en numeros romanos
 
@@ -235,13 +236,14 @@ The quotes in the beginning of each chapter are taken from books I read over the
 %--------------------
 
 %\setcounter{chapter}{-1}
+\singlespacing
 \chapter{Introduction}\label{Chap:Intro}
 \pagenumbering{arabic}
 \pagestyle{noHeader}  %define page style for the chapters
 \markboth{Introduction}{Introduction}
 \epigraph{\textit{There is no future. There is no past. Do you see? Time is simultaneous, an intricately structured jewel that humans insist on viewing one edge at a time, when the whole design is visible in every facet.}}{Watchmen \\ ALAN MOORE} 
 %No hay futuro. No hay pasado ¿Lo ves? El tiempo es simultáneo, una joya de una estructura demasiado compleja en donde los humanos se empeñan en solo ver un borde, cuando el diseño por completo es visible en todas las facetas.-Alan Moore.
-
+\spacing{1.5}
 It was in the nineteen century when the Statistical Mechanics (SM) was born mainly because of the work of Ludwing Boltzmann and Josiah Willard Gibbs. The goal was to reconcile the Thermodynamics with the microscopic laws. 
 
 Thermodynamics was well-established because it draws its concepts from experiments while the attemps to understand it from the Newton's laws collided with problems such as the imposibility of taking into account the interactions between all the particles of a thermodynamic system, the highly nontrivial of theses interactions, the huge number of degrees of freedom or the Loschmidt's paradox\footnote{The second law of thermodynamics establishes that the entropy of an isolated system increases with time. This can be understood as a time direction imposed by the increasing of the entropy. Furthermore, Newton's laws are reversible. According to Josef Loschmidt this apparently conflict could be the responsible of the imposibility to derive the laws of the thermodynamics from the microscopic laws.}. 
@@ -541,9 +543,9 @@ This situation is referred to as a {\it non-Markovian} dynamics, to distinguish 
 ``We may regard the present state of the universe as the effect of its past and the cause of its future. An intellect which at a certain moment would know all forces that set nature in motion, and all positions of all items of which nature is composed, if this intellect were also vast enough to submit these data to analysis, it would embrace in a single formula the movements of the greatest bodies of the universe and those of the tiniest atom; for such an intellect nothing would be uncertain and the future just like the past would be present before its eyes.''
 This sentence was written at the end of the 18th century by Pierre-Simon Laplace in its famous essay \textit{A Philosophical Essay on Probabilities} \cite{Laplace}.
 
-The belief in the deterministic behaviour of the nature lasted for the next century until Charles-Eugène Delaunay and Henry Poincaré introduced the first notion of the effect of the initial conditions in the evolution of a system consisting on three or more bodies. 
+The belief in the deterministic behaviour of the nature lasted for the next century until Charles-Eugène Delaunay and Henry Poincaré introduced the first notion of the effect of the initial conditions in the evolution of a system consisting on three or more bodies, the well-known three-body problem. 
 
-Delaunay wrote two large books focused in that problem and reached the first ideas of chaos and studied the three-body problem as a two-body problem perturbated in which the perturbation played the role of the third body. 
+Delaunay wrote two large books studied the three-body problem as a perturbated system in which the perturbation played the role of the third body. 
 Years later, Poincaré thought about the stability of a three-body system introducing the first notion of chaos. 
 He finally stated that there is not an equation that governs the motion of three or more bodies.
 
@@ -558,18 +560,34 @@ Therefore, only small or coarse systems (i.e. with a reasonable number of partic
 
 The pioneering work of Adler and Wainwright \cite{Alder1957} in the fifties it was a first step in the development of the MD simulations when they studied the phase transition of a system consisting on hard sphares. In the sixties Gibson et al. \cite{Gibson1960} study the radiation damage using MD simulations and  Rahman \cite{Rahman1964} simulated a system consisting on 864 particles interacting with Lennard-Jones potential in order to study correlations in the motion of atoms in liquid argon.  
 
-MD simulations play the role of the experiments in the real world. They provide us the observation which precedes the comprehension, because without comprehension science would be only documentation \cite{Rapaport}. Simulations allows, in contrast with the theory, assume less aproximations in exchange for a computational effort. Both simulations and physical theory must be coincide (i.e. the predictions of theory must coincide with the results of the simulations). If they differs is an indication of an error has been commited somewhere. 
+MD simulations play the role of the experiments in the real world. They provide us the observation which precedes the comprehension, because without comprehension science would be only documentation \cite{Rapaport}. Simulations allows, in contrast with the theory, assume less aproximations in exchange for a computational effort. Both simulations and physical theory must be coincide (i.e. the predictions of theory must coincide with the results of the simulations). If they differs is an indication of an error has been commited somewhere
 
 This dissertation rests on two pillars. The first one consits on a theoretical derivation of the equations that governs the evolution of the CG variables of a fluid in contact with a solid. 
-Along the derivation we only assume the markovian aproximation that simplify considerably the final equations, in which the transport kernels are included. 
-The second pillar consists on Molecular Dynamics (MD) simulations that we perform in order to validate the markovian aproximation and to compute the correlations of the transport kernels.
-We perform MD simulations with the open source code LAMMPS \cite{Plimpton1995}, which are explain in detail in the corresponding chapters.  
-
+Along the derivation we only assume the markovian aproximation that simplify considerably the final equations, in which the transport coefficients are included through the Green-Kubo formula. 
+The second pillar consists on MD simulations performed to measure the selected variables of the system which we need to validate the markovian aproximation and to compute the correlations included in the Green-Kubo formulae.
+%The MD simulations we present in this dissertation are performed with the open source code LAMMPS \cite{Plimpton1995}, and the details of every simulation is included in the corresponding chapter.  
 
 
 \section{Objetives reached in each publication}
-This dissertation consist on six publications with a logical order and is structire as follows. 
+This dissertation consist on six publications sorted by the chronological order of publications, which is, in fact, the logical order. 
 
+The objetive in the first publication, {\it Nanoscale hydrodynamics near solids}, is to derive the hydrodynamic equations of a fluid in contact with a solid. 
+In order to reach it, we derive Dynamic Density Functional Theory (DDFT) for a simple fluid including the density and the momentum density field.
+We use the Kawasaki-Gunton operator technique to obtain the evolution equation of the average of that fields. The resulting equations contain transport coefficients in which there are transport kernels we must to compute. \Pendiente{Aquí introducir el problema del plateu} 
+
+The second publication, {\it A solution to the plateau problem in the Green-Kubo formula}, adresses the plateau problem in order to obtain, though Mori theory, a corrected expression for the correlations without the plateau problem. The corrected Green-Kubo expression derived in this publication is crucial in this dissertation. All the results are based on the use of this expression without plateau problem. 
+
+The third, fourth, fifth and sixth publications were published as a serial of discrete hydrodynamics.
+The first publication of the serial, {\it Theory for planar flows with confinig walls}, is just the discretization of the resulting equations of the first paper. 
+The objetive of this publication is to obtain the discrete equations in order to use them with MD simulations. 
+\Pendiente{Introducir concepto de bin porque para el 6 lo necesito}
+
+The second publication of the serial, {\it Space and time locality for unconfined fluids} is an important publication because we study the simplest system which is a fluid in periodic boundary conditions. 
+In this paper we realize that in order to validate the markovian aproximation assumed in the derivation of the hydrodynamic equations we need to observe in the reciprocal space (i.e. Fourier spacefor unconfing). With this paper we understand the ``tools'' we need to move to a more complicated system such a confined fluid. 
+
+In the third publication of the serial, {\it Non-Markovian behaviour near solids walls}, we study the non-markovian behaviour of a fluid near solids walls. We analyze the importance of the size of the bin if we want to observe markovian behaviour near the walls. 
+
+Finally, in the last publication of this serial, titled {\it The slip boundary condition}, we 
 
 
 
@@ -577,50 +595,78 @@ This dissertation consist on six publications with a logical order and is struct
 %-----------------------------------------------------------------
 %CHAPTER 2
 %-----------------------------------------------------------------
+\singlespacing
 \chapter{Nanoscale hydrodynamics near solids}\label{Chap:Theory}
 \markboth{Nanoscale hydrodynamics near solids}{}
 \epigraph{\textit{Le temps est une invention du mouvement. Celui qui ne bouge pas ne voit pas le temps passer.}}{Métaphysique des tubes \\ AMÉLIE NOTHOMB}
-
+\spacing{1.5}
 \textsc{Where we use the Kawasaki-Gunton projector operator technique in order to obtain the hydrodynamic equations of a fluid in contact with a solid sphere.}\\
 \vspace{10pt}
 
 This chapter corresponds to the article \textit{Nanoscale hydrodynamics near solids} published Online the 12th of February, $2018$ in \textit{The Journal of Chemical Physics}.
 \includepdf[page=-, openright=true, pagecommand={}]{00-Second-Submission26dic2017.pdf}
 
+%-----------------------------------------------------------------
+%CHAPTER 3
+%-----------------------------------------------------------------
+\singlespacing
 \chapter{A solution to the plateau problem in the Green-Kubo formula}\label{Chap:GKcorrected}
 \markboth{A solution to the plateau problem in the Green-Kubo formula}{}
 \epigraph{\textit{Falta cita.}}{Título \\ AUTOR}
+\spacing{1.5}
 In this chapter
 \includepdf[page=-, openright=true, pagecommand={}]{2nd-sub-GK-corrected.pdf}
 
+%-----------------------------------------------------------------
+%CHAPTER 4
+%-----------------------------------------------------------------
+\singlespacing
 \chapter{Theory for planar flows with confinig walls}\label{Chap:Planar}
 \markboth{Theory for planar flows}{}
 \epigraph{\textit{Nothing got inside the head without becoming pictures.}}{The corrections \\ JONATHAN FRANZEN}
+\spacing{1.5}
 \includepdf[page=-, openright=true, pagecommand={}]{003-Planar-Theory-27dic2018.pdf}
 
+%-----------------------------------------------------------------
+%CHAPTER 5
+%-----------------------------------------------------------------
+\singlespacing
 \chapter{Space and time locality for unconfined fluids}\label{Chap: PBC}
 \markboth{Space and time locality for unconfined fluids}{}
 \epigraph{\textit{Time is longer than any distance.}}{Absalom, Absalom! \\ WILLIAM FAULKNER}
+\spacing{1.5}
 \includepdf[page=-, openright=true, pagecommand={}]{005-Mori-PBC-10oct2018.pdf}
 
+%-----------------------------------------------------------------
+%CHAPTER 6
+%-----------------------------------------------------------------
+\singlespacing
 \chapter{Non-Markovian behaviour near solids walls}\label{Chap:Walls}
 \markboth{Markovian behaviour near solids}{}
 \epigraph{\textit{Descubrir es ver de otro modo lo que nadie ha percibido.}}{Blanco Nocturno \\ RICARDO PLIGIA}
+\spacing{1.5}
 \includepdf[page=-, openright=true, pagecommand={}]{006-Mori-Correlations-Walls.pdf}
 
-
+%-----------------------------------------------------------------
+%CHAPTER 7
+%-----------------------------------------------------------------
+\singlespacing
 \chapter{The slip boundary condition}
 \label{Chap:Slip}
 \markboth{The slip boundary condition from MD simulations}{}
 \epigraph{\textit{It is remarkable how long men will believe in the bottomlessness of a pond without taking the trouble to sound it.}}{Walden \\ HENRY DAVID THOREAU}
+\spacing{1.5}
 \includepdf[page=-, openright=true, pagecommand={}]{007-BC-Simulations.pdf}
 
+\singlespacing
 \chapter{Conclusions}\label{Chap:Conclusions}
 \epigraph{\textit{The runner runs truly to the end.}}{Once a runner \\ JOHN L. PARKER}
+\spacing{1.5}
 
+\singlespacing
 \chapter{Future directions}\label{Chap:Future}
 \epigraph{\textit{Cita}}{Título \\ AUTOR}
-
+\spacing{1.5}
 
 \nocite{*}
 %\bibliographystyle{unsrt}
