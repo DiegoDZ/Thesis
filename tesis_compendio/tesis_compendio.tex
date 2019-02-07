@@ -182,16 +182,16 @@
 \chapter*{Resumen} % si no queremos que añada la palabra "Capitulo"
 %\pagestyle{noHeader}  %define page style for the chapters
 %\markboth{Resumen}{Resumen} % encabezado
-Esta tesis doctoral estudia el comportamiento nanoscópico de un fluido  cuando entra en contacto con un sólido. Derivaremos las ecuaciones de movimiento de un fluido en contacto con una esfera sólida de grandes dimensiones. Emplearemos la técnica de los operadores de proyección de Kawasaki-Gunton y asumiremos un comportamiento markoviano. Abordaremos el problema del plateau presente en la expresiones de Green-Kubo que aparecen en las ecuaciones de la hidrodinámica, ofreciendo una expresión corregida para la expresión de Green-Kubo sin el conocido problema del plateau. 
+Esta tesis doctoral estudia el comportamiento nanoscópico de un fluido  cuando entra en contacto con un sólido. Derivaremos las ecuaciones de movimiento de un fluido en contacto con una esfera sólida de grandes dimensiones. Emplearemos la técnica de los operadores de proyección de Kawasaki-Gunton y asumiremos un comportamiento Markoviano. Abordaremos el problema del plateau presente en la expresiones de Green-Kubo que aparecen en las ecuaciones de la hidrodinámica, ofreciendo una expresión corregida para la expresión de Green-Kubo sin el conocido problema del plateau. 
 
 
 Posteriormente discretizaremos las ecauciones obtenidas para poder hacer mediciones mediante simulaciones de dinámica molecular y abordaremos el caso más sencillo posible, es decir, un fluido en condiciones de contorno periódicas. 
 
 
 Emplearemos la teoría de Mori para obtener una expresión que nos de la evolución temporal de las correlaciones del momento tranversal del fluido. 
-Comportamiento markoviano si esas correlaciones decaen de forma exponencial. 
+Comportamiento Markoviano si esas correlaciones decaen de forma exponencial. 
 
-Estudiaremos el comportamiento markoviano de un fluido confinado. Tamaño de los bines. 
+Estudiaremos el comportamiento Markoviano de un fluido confinado. Tamaño de los bines. 
 
 
 Finalmente obtendremos la condición de contorno del fluido y el sólido. 
@@ -455,7 +455,7 @@ Note that we may express the Lioville equation (\ref{LiouvilleEq}) in the follow
     \frac{d\rho_t(z)}{dt} = 0 
     \label{LiouvilleTh}
 \end{align}
-This is called the {\it Liouville theorem}. It shows that if we take a volume in the phase space bounded by a surface and we follow it during time evolution, we will observe that the surface will move and so do the points (microstates) inside the surface but the volume will remain the same. The reason is that the phase trajectories can not cross because this implies that they started at the same point. In other words: the volume in phase space must be conserved, as we can see in Fig. \ref{fig:LiouvilleTh}.
+This is called the {\it Liouville theorem}. It shows that if we take a volume in the phase space bounded by a surface and we follow it during time evolution, we will observe that the surface will move and so do the points (microstates) inside the surface but the volume will remain the same. The reason is that the phase trajectories can not cross because this implies that they started at the same point. In other words: the volume in phase space must be conserved, as we can see in Figure \ref{fig:LiouvilleTh}.
 
 \begin{figure}
     \centering
@@ -558,39 +558,48 @@ The technique to obtain aproximated solutions of the time evolution equations of
 The idea behind this technique is to discretize the time in intervals called \textit{time steps} and to compute the position and velocity of every particle at every time step. If we estimate the number of colisions per second and calculate the number of evaluations we need to compute for every particle, we conclude that to solve the equations of motion of a real system, such a glass of water, is imposible even computationally \cite{TesisArturo}.
 Therefore, only small or coarse systems (i.e. with a reasonable number of particles) can be addressed using MD simulations. 
 
-The pioneering work of Adler and Wainwright \cite{Alder1957} in the fifties it was a first step in the development of the MD simulations when they studied the phase transition of a system consisting on hard sphares. In the sixties Gibson et al. \cite{Gibson1960} study the radiation damage using MD simulations and  Rahman \cite{Rahman1964} simulated a system consisting on 864 particles interacting with Lennard-Jones potential in order to study correlations in the motion of atoms in liquid argon.  
+The pioneering work of Adler and Wainwright \cite{Alder1957} in the fifties it was a first step in the development of the MD simulations when they studied the phase transition of a system consisting on hard sphares. In the sixties Gibson et al. \cite{Gibson1960} studied the radiation damage using MD simulations and  Rahman \cite{Rahman1964} simulated a system consisting on 864 particles interacting with Lennard-Jones potential in order to study correlations in the motion of atoms in liquid argon.  
 
 MD simulations play the role of the experiments in the real world. They provide us the observation which precedes the comprehension, because without comprehension science would be only documentation \cite{Rapaport}. Simulations allows, in contrast with the theory, assume less aproximations in exchange for a computational effort. Both simulations and physical theory must be coincide (i.e. the predictions of theory must coincide with the results of the simulations). If they differs is an indication of an error has been commited somewhere
 
 This dissertation rests on two pillars. The first one consits on a theoretical derivation of the equations that governs the evolution of the CG variables of a fluid in contact with a solid. 
-Along the derivation we only assume the markovian aproximation that simplify considerably the final equations, in which the transport coefficients are included through the Green-Kubo formula. 
-The second pillar consists on MD simulations performed to measure the selected variables of the system which we need to validate the markovian aproximation and to compute the correlations included in the Green-Kubo formulae.
+Along the derivation we only assume the Markovian aproximation that simplify considerably the final equations, in which the transport coefficients are included through the Green-Kubo formula. 
+The second pillar consists on MD simulations performed to measure the selected variables of the system which we need to validate the Markovian aproximation and to compute the correlations included in the Green-Kubo formulae.
 %The MD simulations we present in this dissertation are performed with the open source code LAMMPS \cite{Plimpton1995}, and the details of every simulation is included in the corresponding chapter.  
 
 
 \section{Objetives reached in each publication}
 This dissertation consist on six publications sorted by the chronological order of publications, which is, in fact, the logical order. 
 
-The objetive in the first publication, {\it Nanoscale hydrodynamics near solids}, is to derive the hydrodynamic equations of a fluid in contact with a solid. 
-In order to reach it, we derive Dynamic Density Functional Theory (DDFT) for a simple fluid including the density and the momentum density field.
-We use the Kawasaki-Gunton operator technique to obtain the evolution equation of the average of that fields. The resulting equations contain transport coefficients in which there are transport kernels we must to compute. \Pendiente{Aquí introducir el problema del plateu} 
+The objetive of the first publication, {\it Nanoscale hydrodynamics near solids}, is to derive the hydrodynamic equations of a fluid in contact with a solid. 
+In order to reach it, we derive Dynamic Density Functional Theory (DDFT) for a simple fluid including the mass and the momentum density field.
+We use the Kawasaki-Gunton operator technique to derive the equations of motion of the time dependent average of these fields assuming the Markovian aproximation. The resulting equations contain transport coefficients given by  Green-Kubo formulae which suffer from the plateau problem. This well-known problem arises because the Green-Kubo running integral appearing in the expressions of the tranport coefficients decays as the correlation of the selected variables.
 
-The second publication, {\it A solution to the plateau problem in the Green-Kubo formula}, adresses the plateau problem in order to obtain, though Mori theory, a corrected expression for the correlations without the plateau problem. The corrected Green-Kubo expression derived in this publication is crucial in this dissertation. All the results are based on the use of this expression without plateau problem. 
+The second publication, {\it A solution to the plateau problem in the Green-Kubo formula}, adresses the plateau problem in order to obtain, within Mori projection operator formulation, an alternative expression for the transport coefficient with a corrected Green-Kubo expression with no plateau problem.
+The corrected Green-Kubo expression derived in this publication is crucial for the dissertation. The results of the chapters \ref{Chap:PBC}, \ref{Chap:Walls} and \ref{Chap:Slip} are based on this new corrected Green-Kubo expresion. 
 
-The third, fourth, fifth and sixth publications were published as a serial of discrete hydrodynamics.
-The first publication of the serial, {\it Theory for planar flows with confinig walls}, is just the discretization of the resulting equations of the first paper. 
-The objetive of this publication is to obtain the discrete equations in order to use them with MD simulations. 
-\Pendiente{Introducir concepto de bin porque para el 6 lo necesito}
+The third, fourth, fifth and sixth publication were published as a series of discrete hydrodynamics.
+The first publication of the series, {\it Discrete Hydrodynamics I: Theory for planar flows with confinig walls}, is just a discretization of the resulting equations of the first paper. 
+We bin the system in slabs as is shown in Figure \ref{fig:WallsBox}. The red lines are called {\it nodes} and they separated the {\it bins} in which the system is binned. We start from a discrete mass and momentum densities fields defined in the nodal planes in order to derive the hydrodynamic equations with the Kawasaki-Gunton projector. Also we validate the final discrete equations  with a discretization of the continumm hydrodynamic equations using the Petrov-Galerkin finite element discretization method.   
+The final objetive of this publication is to obtain the discrete transport coefficients in order to compute them with MD simulations. 
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.3]{system_nodes_walls}
+    \caption[Walls box]{A visual representation of the MD simulation with a sketch of the binning used. In red are depicted the nodal planes used.}
+    \label{fig:WallsBox}
+\end{figure}
 
-The second publication of the serial, {\it Space and time locality for unconfined fluids} is an important publication because we study the simplest system which is a fluid in periodic boundary conditions. 
-In this paper we realize that in order to validate the markovian aproximation assumed in the derivation of the hydrodynamic equations we need to observe in the reciprocal space (i.e. Fourier spacefor unconfing). With this paper we understand the ``tools'' we need to move to a more complicated system such a confined fluid. 
+In the second publication of the series, {\it Discrete hydrodynamics II: Space and time locality for unconfined fluids}, we study through MD simulations the correlation matrix of the discrete transverse momentum density field in order to determine to what extent the Markovian approximation is valid with a non-local space description of hydrodynamics. The objetive of this publication is to understand a simpler case before moving to a system more complicated such as a fluid confined between to solid walls. 
+One important learning about this publication is that we have to move to the reciprocal space (i.e. the Fourier space in the case of unconfined systems) in order to observe the time from the Markovian approximation is valid. 
+The method followed in this publication will be extrapolated to the study of a confining fluids. 
 
-In the third publication of the serial, {\it Non-Markovian behaviour near solids walls}, we study the non-markovian behaviour of a fluid near solids walls. We analyze the importance of the size of the bin if we want to observe markovian behaviour near the walls. 
+In the third publication of the series, {\it Discrete hydrodynamics III: Non-Markovian behaviour near solids walls}, we perform MD simulations in order to compute the correlation matrix of the discrete transverse momentum density field of a fluid between two solid slabs. 
+Because the objetive of this publication is to study the effect of the size of the bin on the Markovian behaviour near the solid walls, we discretize the system using two size of the bins. 
 
-Finally, in the last publication of this serial, titled {\it The slip boundary condition}, we 
-
-
-
+Finally, the objetive of the last publication of this series, {\it Discrete hydrodynamics IV: The slip boundary condition}, is to measure through MD simulations the non-local transport kernels that appear in the discrete theory presented in the first part of the series. 
+We use the corrected Green-Kubo expression in order to avoid the plateu problem. 
+The main result of this publication is the calculation of the slip length and the location of the hydrodynamic position of the atomic wall. We conclude that the slipt lenght does not depend on the size of the channel and, therefore, it is a intrinsic surface property.  
+ 
 
 %-----------------------------------------------------------------
 %CHAPTER 2
@@ -631,7 +640,7 @@ In this chapter
 %CHAPTER 5
 %-----------------------------------------------------------------
 \singlespacing
-\chapter{Space and time locality for unconfined fluids}\label{Chap: PBC}
+\chapter{Space and time locality for unconfined fluids}\label{Chap:PBC}
 \markboth{Space and time locality for unconfined fluids}{}
 \epigraph{\textit{Time is longer than any distance.}}{Absalom, Absalom! \\ WILLIAM FAULKNER}
 \spacing{1.5}
