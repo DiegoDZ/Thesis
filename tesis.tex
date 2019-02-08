@@ -1,5 +1,5 @@
 %\documentclass[a4paper,openright,11pt]{book}
-\documentclass[b5paper,openright,11pt]{book}
+\documentclass[b5paper,openright,12pt]{book}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx,color}
 \usepackage[dvipsnames]{xcolor}
@@ -13,6 +13,7 @@
 \usepackage{caption}
 \usepackage{psfrag}
 \usepackage{hyperref}
+\usepackage{tikz}
 \captionsetup[figure]{font=footnotesize,labelfont=footnotesize}
 \graphicspath{{./figures/}}
 %To use a kind of times new roman font style
@@ -59,152 +60,117 @@
 \newcommand{\GK}[2]{\langle#1 \cc #2\rangle}
 \newcommand{\GKrest}[2]{\langle#1 \cc #2\rangle^0}
 
-%% Some details about the dissertation.
-%\title{Nanoscale hydrodynamics near solids}
-%\author{Diego Duque Zumajo}
-%\advisor{Dr. Pep Español Garrigós}
-%
-%
-%% ... about the degree.
-%\degree{Programa de doctorado en Ciencias}
-%
-%\field{Sciences}
-%\degreeyear{2019}
-%\degreemonth{March}
-%\department{Department of Fundamental Physics\\Faculty of Sciences}
-%
-%% ... about the candidate's previous degrees.
-%\pdOneName{Master Universitario en Combustibles y Energías para el futuro}
-%\pdOneSchool{Universidad Nacional de Educación a Distancia}
-%\pdOneYear{2015}
-%
-%\newcommand{\firstpage}{
-%  \thispagestyle{empty}
-%
-%\begin{flushright}
-%  \includegraphics[height=64pt]{logoED}
-%\end{flushright}
-%\vspace*\{\fill}
-%
-%\vspace{5pt}
-%\begin{center}
-%\Huge \textsc{Tesis Doctoral} \normalsize \\
-%
-%\vspace{20pt}
-%
-%\Huge {\@degreeyear} \normalsize \\
-%\vspace{5pt} 
-%\today
-%\vspace{40pt}
-%
-%\textsc{\Huge \textcolor{midgrey}{\thetitle} \normalsize} \\
-%
-%\vspace{20pt}
-%
-%\textsc{\Large \theauthor \normalsize} \\
-%
-%\vspace{20pt}
-%
-%\textsc{\large \@pdOneName \normalsize} \\
-%
-%\vspace{50pt}
-%
-%\tikz[remember picture,overlay] \node[opacity=0.1,inner sep=0pt] at (current page.center){\includegraphics[width=0.6\paperwidth,height=0.6\paperwidth]{escudoUNED}};
-%
-%\vspace{15pt}
-%
-%\textsc{\Large \textcolor{midgrey}{\@degree} \normalsize} \\
-%\vspace{20pt}
-%\textsc{\large Director: \@advisor\normalsize} \\
-%\end{center}
-%\vspace*{\fill}
-%}
-%\renewcommand{\maketitle}{
-%\firstpage
-%}
-%
-%\newcommand{\copyrightpage}{
-%\newpage
-%\thispagestyle{empty}
-%\begin{flushright}
-%\includegraphics[height=48pt]{logoED}
-%\end\{flushright}
-%\vspace*{\fill}
-%
-%{\scshape \noindent Doctoral dissertation at the Department of
-%Fundamental Physics in the Faculty of Science, UNED.}
-%\vspace{0.5em}
-%
-%\noindent \begin{tabular}{lp{10cm}}
-%\noindent {\bf  Title:}  & Nanoscale hydrodynamics near solids\\
-%\noindent {\bf Author:} & Diego Duque Zumajo
-%, M. Sc. in Energies and Fuels for the future. \\
-%\noindent {\bf Director:} & Dr. Pep Español Garrigós.
-%\\
-%\end{tabular}
-%\vspace*{\fill}
-%
-%{\scshape \noindent Tesis doctoral presentada en el Departamento
-%de Física Fundamental de la Universidad Nacional de Educación a Distancia.}
-%\vspace{0.5em}
-%
-%\noindent \begin{tabular}{lp{10cm}}
-%
-%\noindent {\bf Título:} &  Hidrodinámica cerca de paredes. \\
-%\noindent {\bf Autor:} & Diego Duque Zumajo, Máster Universitario en Energías y Combustibles para el futuro. \\
-%\noindent {\bf Director:} & Dr. Pep Español Garrigós.\\
-%\end{tabular}
-%\vspace*{\fill}
-%\noindent\textcolor{SchoolColor}{\rule{\textwidth}{2pt}}\par
-%% \noindent\rule{\textwidth}{0.1em}
-%\begin{center}
-%\includegraphics{UNED/by-nc-sa.eps} \\
-%
-%\scshape \noindent \small \copyright \ \small \theauthor, 
-%\@degreeyear \\
-%This work is licensed under a Creative Commons
-%Attribution-NonCommercial-ShareAlike 4.0 International \\
-%(CC BY-NC-SA 4.0) License.
-%\end{center}
-%\newpage
-%\rm
-%}
-%
-%\begin{document}
-%%\maketitle
-%%\copyrightpage
+% Second and third pages
 
+\newcommand{\firstpage}{
+  \thispagestyle{empty}
+
+      \begin{flushright}
+        \includegraphics[height=64pt]{logoED}
+      \end{flushright}
+      \vspace*{\fill}
+      
+      \vspace{5pt}
+      \begin{center}
+        \textsc{\Huge{Tesis Doctoral}}\\
+      
+      \vspace{20pt}
+      
+      \textsc{\Huge{2019}} \\
+      \vspace{40pt}
+      
+      
+      %\noindent{\rule{\textwidth}{1pt}}\par
+      \textsc{\Huge{Nanoscale hydrodynamics \\near solids}}
+      \noindent{\rule{\textwidth}{1pt}}\par
+      
+      \vspace{20pt}
+      \textsc{\Large{Diego Duque Zumajo}} \\
+      
+      %\vspace{20pt}
+      %\textsc{\large{Master Universitario en Energías y Combustibles del futuro}} \\
+      
+      \vspace{50pt}
+      %\tikz[remember picture,overlay] \node[opacity=0.1,inner sep=0pt] at (current page.center){\includegraphics[width=0.6\paperwidth,height=0.6\paperwidth]{escudoUNED}};
+      \tikz[remember picture,overlay] \node[opacity=0.1,inner sep=0pt] at (0,3) {\includegraphics[width=0.6\paperwidth,height=0.6\paperwidth]{EscudoUNED}};
+      
+      \vspace{15pt}
+      \textsc{\Large{Programa de doctorado en Ciencias}} \\
+      \vspace{20pt}
+      \textsc{\large{Director: Dr. Pep Español Garrigós}} \\
+      \end{center}
+      
+      
+      \vspace*{\fill}
+      }
+      \renewcommand{\maketitle}{
+      \firstpage
+}
+
+\newcommand{\copyrightpage}{
+        \newpage
+        \thispagestyle{empty}
+        \begin{flushright}
+        \includegraphics[height=48pt]{logoED}
+        \end{flushright}
+        \vspace*{\fill}
+        
+        {\scshape \noindent Doctoral dissertation at the Department of
+        Fundamental Physics in the Faculty of Science, UNED.}
+        \vspace{0.5em}
+        
+        \noindent \begin{tabular}{lp{10cm}}
+        \noindent {\bf  Title:}  & Nanoscale hydrodynamics near solids\\
+        \noindent {\bf Author:} & Diego Duque Zumajo
+        , M. Sc. in Energies and Fuels for the future. \\
+        \noindent {\bf Director:} & Dr. Pep Español Garrigós.
+        \\
+        \end{tabular}
+        \vspace*{\fill}
+        
+        {\scshape \noindent Tesis doctoral presentada en el Departamento
+        de Física Fundamental de la Universidad Nacional de Educación a Distancia.}
+        \vspace{0.5em}
+        
+        \noindent \begin{tabular}{lp{10cm}}
+        
+        \noindent {\bf Título:} &  Hidrodinámica cerca de paredes. \\
+        \noindent {\bf Autor:} & Diego Duque Zumajo, Máster Universitario en Energías y Combustibles para el futuro. \\
+        \noindent {\bf Director:} & Dr. Pep Español Garrigós.\\
+        \end{tabular}
+        \vspace*{\fill}
+        
+        
+        %\noindent\rule{\textwidth}{0.1em}
+        %\begin{center}
+        %  \includegraphics[scale=0.1]{by-nc-sa} \\
+        %\scshape \noindent \small \copyright \ \small Diego Duque Zumajo, 
+        %2019 \\
+        %This work is licensed under a Creative Commons
+        %Attribution-NonCommercial-ShareAlike 4.0 International \\
+        %(CC BY-NC-SA 4.0) License.
+        %\end{center}
+        %\newpage
+        %\rm
+        }
 
 \begin{document}
-\begin{titlepage}
-\begin{center}
-\begin{Huge}
-\textsc{Nanoscale hydrodynamics \\ near solids}
-\end{Huge}
-\end{center}
-\end{titlepage}
+\setlength{\epigraphwidth}{0.5\textwidth}
 
 
-\newpage
-\pagestyle{noHeader}
-Info requerida por la escuela de doctorado
-\thispagestyle{empty} % para que no se numere esta pagina
-
-%%\pagestyle{noHeader}
-%%\chapter*{}
-%%\pagenumbering{Roman} % para comenzar la numeracion de paginas en numeros romanos
-%%\begin{flushright}
-%%blablabla
-%%\end{flushright}
+\maketitle
+\copyrightpage
 \newpage
 \pagenumbering{Roman} % para comenzar la numeracion de paginas en numeros romanos
 
+\chapter*{Acknowledgments} % si no queremos que añada la palabra "Capitulo"
+\pagestyle{noHeader}  %define page style for the chapters
+%\addcontentsline{toc}{chapter}{Agradecimientos} % si queremos que aparezca en el índice
+%\markboth{Acknowledgments}{Acknowledgments} % encabezado 
+
+
 \tableofcontents % indice de contenidos
 
-\chapter*{Acknowledgments} % si no queremos que añada la palabra "Capitulo"
-%\addcontentsline{toc}{chapter}{Agradecimientos} % si queremos que aparezca en el índice
-\markboth{Acknowledgments}{Acknowledgments} % encabezado 
-blablabla
 
 \chapter*{Abstract} % si no queremos que añada la palabra "Capitulo"
 %\addcontentsline{toc}{section}{Abstract} % si queremos que aparezca en el índice
@@ -214,7 +180,20 @@ blablabla
 \chapter*{Resumen} % si no queremos que añada la palabra "Capitulo"
 %\addcontentsline{toc}{section}{Resumen} % si queremos que aparezca en el índice
 \markboth{Resumen}{Resumen} % encabezado
-blablabla
+Esta tesis doctoral estudia el comportamiento nanoscópico de un fluido  cuando entra en contacto con un sólido. Derivaremos las ecuaciones de movimiento de un fluido en contacto con una esfera sólida de grandes dimensiones. Emplearemos la técnica de los operadores de proyección de Kawasaki-Gunton y asumiremos un comportamiento Markoviano. Abordaremos el problema del plateau presente en la expresiones de Green-Kubo que aparecen en las ecuaciones de la hidrodinámica, ofreciendo una expresión corregida para la expresión de Green-Kubo sin el conocido problema del plateau. 
+
+
+Posteriormente discretizaremos las ecauciones obtenidas para poder hacer mediciones mediante simulaciones de dinámica molecular y abordaremos el caso más sencillo posible, es decir, un fluido en condiciones de contorno periódicas. 
+
+
+Emplearemos la teoría de Mori para obtener una expresión que nos de la evolución temporal de las correlaciones del momento tranversal del fluido. 
+Comportamiento Markoviano si esas correlaciones decaen de forma exponencial. 
+
+Estudiaremos el comportamiento Markoviano de un fluido confinado. Tamaño de los bines. 
+
+
+Finalmente obtendremos la condición de contorno del fluido y el sólido. 
+
 
 \chapter*{Notation, conventions and quotes}
 
@@ -235,189 +214,36 @@ The derivative of a composite function is expressed as
 The quotes in the beginning of each chapter are taken from books I read over the time I have spent working in this dissertation, the last four years. I have respected the language in which the writter wrote the book. 
 
 
-%\pagenumbering{arabic}
-%\setcounter{chapter}{-1}
-
-\setcounter{chapter}{-1}
-\chapter{Introduction}\label{Chap:Intro}
-\pagenumbering{arabic}
-%\setcounter{chapter}{-1}
-\pagestyle{chapters}  %define page style for the chapters
-\markboth{Introduction}{Introduction}
-\epigraph{\textit{Falta cita.}}{Título \\ AUTOR}
-
-\Pendiente{\begin{itemize}
-    \item Hay veces en que defino el hamiltoniano como $\hat{H}(z)$ y otras como $\hat{H}_N(z)$ 
-\end{itemize}}
-
-\Note{Viene de la introducción del paper I}
-There  is great  interest  in  the behaviour  of  fluids  in the  nano
-\cite{Bocquet2010} and micro  \cite{Lauga2005,Bocquet2011} scales.  At
-nanoscales  the structure  of the  fluid starts  playing an  important
-role.  The standard  description of structured fluids is  based on the
-(classic) Density Functional Theory \cite{Evans1979}, with the density
-functional   capturing  all   the  relevant   information  about   the
-\textit{equilibrium} state  of the fluid.   In recent years  there has
-been a  great interest in  obtaining \textit{dynamic} versions  of the
-Density Functional Theory  (DDFT) that would allow one  to discuss not
-only equilibrium structured fluids and its correlations but also their
-dynamic  behaviour \cite{Lowen2003,Evans2016}.   Since the  pioneering
-work by Marconi and Tarazona  \cite{Marconi2000}, which was based on a
-Smoluchowski description  for colloidal particles,  several approaches
-have been considered  for the formulation of dynamic  versions of DFT,
-ranging from  kinetic theory  \cite{Guo2006}, to  projection operators
-\cite{Espanol2009d},  and variational  approaches \cite{Schmidt2013}.
-Most    existing    works     deal    with    colloidal    suspensions
-\cite{Goddard2012,Evans2016}. However, there exist  still a gap in the
-treatment  of the dynamics of \textit{simple}  fluids \textit{near  solids} at  scales
-where  the  structure  of  the  fluid  is  relevant.   Note  that  the
-interaction of  the solid with  the fluid  is the responsible  for the
-structuring  of the  density  field near  a wall  (which  is a  purely
-reversible and equilibrium effect) but also for irreversible processes
-that can be understood, at macroscales, as boundary conditions for the
-fluid \cite{Bedeaux1976,Bocquet1994}.
-
-In  Ref.   \cite{Espanol2009d}  we   have  formulated  DDFT  based  on
-projection operator  techniques, where the  density field is  the only
-relevant variable.  This is appropriate for colloidal systems that are
-suspended in  a solvent acting as  a thermal bath.  In  that case, the
-density field should  be rather understood as  the concentration field
-which,  being  conserved, is  expected  to  be  a slow  variable.   By
-selecting  the density  field as  the only  relevant variable,  we are
-implicitly assuming that the density  evolves in time scales which are
-much larger than  the time scales corresponding to  other variables in
-the system.  In contrast to  colloidal systems, simple fluids have the
-momentum density and energy density  as conserved variables, and these
-variables may  evolve in  comparable time scales  as the  density.  We
-have  recently extended  DDFT  to {\em  non-isothermal} situations  by
-including the energy density  field \cite{Anero2013}.  Recent attempts
-in that direction  have also been taken  by Schmidt \cite{Schmidt2011}
-and Wittkowski et al.  \cite{Wittkowski2012}.  The resulting theory is
-valid  for \textit{quiescent}  fluids  or solids  in which  convective
-motion is not present.  In the  present work, we consider the mass and
-momentum density fields of a fluid, allowing to address moving fluids,
-but  we do  not  consider energy  transfer. This  is,  we assume  that
-momentum transfer is  not affected by energy fluxes. This  is the case
-in isothermal  processes or even under  slight temperature differences
-whenever the adiabatic coefficient is  close to one, as corresponds to
-a practically  incompressible liquid  like water at  room temperature.
-The  natural thermodynamic  potential is  the free  energy functional,
-instead   of   an   entropy   functional   as   introduced   in   Ref.
-\cite{Anero2013}.  In future work we will address the energy transport
-at nanoscales.
-\Note{Fin de la introducción del paper I}
-
-
-
-
-
-
-
-In Chapter \ref{Chap:NESM} we introduce the Non-Equilibrium Statistical Mechanics
-
-
-We will see that one important  objective within Non-Equilibrium  Statistical Mechanics
-is the derivation of the governing dynamics of a set of coarse-grained
-(CG) variables that describe the system at a mesoscopic or macroscopic
-level of description  by starting from the microscopic  laws of motion
-of the constituent atoms and  molecules of the system \cite{Kubo1991}.
-In this quest, the projection  operator technique, as described in the
-textbook by Grabert \cite{Grabert1982}, has  proved to be an extremely
-useful  tool.   As  discussed   there,  there  are  essentially  three
-different  types of  projection operator  theories, associated  to the
-names  of   Mori  \cite{Mori1965},  Zwanzig   \cite{Zwanzig1961},  and
-Kawasaki  and Gunton  \cite{Kawasaki1973},  with  increasing order  of
-generality \cite{Grabert1982}. The Kawasaki-Gunton projection operator
-allows one to  obtain non-linear closed equations for  the averages of
-the coarse-grained variables. The Zwanzig  projector is a special case
-of  the Kawasaki-Gunton  projector  when the  selected variables  are,
-instead of  the CG variables themselves,  the \textit{distribution} of
-the  CG variables.  This results  into  a governing  equation for  the
-probability distribution of CG  variables.  Finally, Mori projector is
-obtained    from    Zwanzig     projector    in    near    equilibrium
-situations\cite{Grabert1982,Kauzlaric2011a}.   The  resulting  dynamic
-equations in  Mori theory are  linear and  allow one to  obtain simple
-equations not only for the averages  of the CG variables, but also for
-their correlation functions.
-
-The projection operator technique  provides closed and exact equations
-for the  evolution of the averages or probabilities  of the CG variables  with only one
-assumption about  the initial  distribution of microstates,  which are
-assumed   to  be   distributed   with  a   maximum  entropy   ensemble
-\cite{Grabert1982}. The exact equations of  motion of the CG variables
-contain a reversible  term which is local in time  and an irreversible
-integro-differential term describing memory  about the past history of
-the CG variables.  The memory  kernel is defined in microscopic terms,
-but is completely untractable, as  it involves the so called projected
-dynamics which  is different, in  general, from the  usual Hamiltonian
-dynamics of the system.
-
-When the  selected CG  variables are  such that  they display  a clear
-separation  of time  scales in  its dynamics  then it  is possible  to
-resort  to the  Markovian  approximation in  which  the memory  kernel
-becomes proportional to  a delta function in time.   Such a separation
-of  time scales  happens, in  general, when  the evolution  of the  CG
-variables  is the  result of  many minuscule  and fast  contributions.
-Under  the Markovian  approximation, the  resulting governing  dynamic
-equations    are   non-linear    differential   equations    for   the
-non-equilibrium averages  of the  CG variables in  the Kawasaki-Gunton
-projector or stochastic  differential equations (SDE) in  the Mori and
-Zwanzig projectors.   Within the  Markovian approximation  one obtains
-the  transport coefficients  governing  the irreversible  part of  the
-dynamics in terms of the time  integral of the time derivatives of the
-CG  variables.   These formulae  for  transport  coefficients are  the
-celebrated Green-Kubo formulae \cite{Green1952,Kubo1957}.
-
-
-Chapter \ref{Chap:Theory} corresponds to the published paper \ref{Camargo20018}.\\
-Chapter \ref{Chap:Planar} corresonds to the publised paper \ref{}.\\
-Chapter \ref{Chap:PBC} corresponds to the published paper \ref{} and \ref{}.\\
-Chapter \ref{Chap:Walls} corresponds to the publised paper \ref{} and \ref{}.\\
-Chapter \ref{Chap:Slip} corresponds to the publised paper \ref{}.\\
-
-
 %-----------------------------------------------------------------
 %CHAPTER 1
 %-----------------------------------------------------------------
 \chapter{Non-Equilibrium \\ Statistical Mechanics}
 \label{Chap:NESM}
+\pagenumbering{arabic}
+\pagestyle{chapters}  %define page style for the chapters
 \markboth{Non-Equilibrium Statistical Mechanics}{}
-\epigraph{\textit{Le temps est une invention du mouvement. Celui qui ne bouge pas ne voit pas le temps passer.}}{Métaphysique des tubes \\ AMÉLIE NOTHOMB}
+\epigraph{\textit{There is no future. There is no past. Do you see? Time is simultaneous, an intricately structured jewel that humans insist on viewing one edge at a time, when the whole design is visible in every facet.}}{Watchmen \\ ALAN MOORE} 
+%No hay futuro. No hay pasado ¿Lo ves? El tiempo es simultáneo, una joya de una estructurada demasiado compleja en donde los humanos se empeñan en solo ver un borde, cuando el diseño por completo es visible en todas las facetas.-Alan Moore.
 
 \section{Introduction}
 It was in the nineteen century when the Statistical Mechanics (SM) was born mainly because of the work of Ludwing Boltzmann and Josiah Willard Gibbs. The goal was to reconcile the Thermodynamics with the microscopic laws. 
 
-Thermodynamics was well-established because it draws its concepts from experiments while the attemps to understand it from the Newton's laws collided with problems such as the imposibility of taking into account the interactions between all the particles of a thermodynamic system, the highly nontrivial of theses interactions, the huge number of degrees of freedom or the Loschmidt's paradox\footnote{The second law of thermodynamics estabishes that the entropy of an isolated system increases with time. This can be understood as a time direction imposed by the increasing of the entropy. Furthermore, Newton's laws are reversible. According to Josef Loschmidt this apparently conflict could be the responsible of the imposibility to derive the laws of the thermodynamics from the microscopic laws.}. 
+Thermodynamics was well-established because it draws its concepts from experiments while the attemps to understand it from the Newton's laws collided with problems such as the imposibility of taking into account the interactions between all the particles of a thermodynamic system, the highly nontrivial of theses interactions, the huge number of degrees of freedom or the Loschmidt's paradox\footnote{The second law of thermodynamics establishes that the entropy of an isolated system increases with time. This can be understood as a time direction imposed by the increasing of the entropy. Furthermore, Newton's laws are reversible. According to Josef Loschmidt this apparently conflict could be the responsible of the imposibility to derive the laws of the thermodynamics from the microscopic laws.}. 
 To avoid these problems physicist realized that the macro properties of a thermodynamic system does not strongly depend on the exact dynamics of every particle, but more on the averages that eventually polish the details of the behaviour of the particles. 
 Thus, the link between the microscopic and macroscopic theory of matter can be stated appling statistical techniques to the microscopical mechanics laws. 
 The connection is posible to the notion of \textit{ensemble}, which is a collection of imaginary systems with a set of common macroscopic properties.  
 
 In this way we may define SM as a theoretical framework which allows to study the macro-properties of a many-body system from the dynamics of its microcopic constituents.
-Therefore, we may roughly say that SM acts as a bridge between two levels of description: microscopic level governed by the Newton's laws of motion and the macroscopic level where which is measure with experiments.
+Therefore, we may roughly say that SM acts as a bridge between two levels of description: microscopic level governed by the Newton's laws of motion and the macroscopic level in which the knowledge is adquired from the experiments.
 A beautiful but rough example about how SM works can be found in the latter book of Dean Rickles, {\it Philosophy of Physics} \cite{Rickles2016}.
 He imagines a large musical ensemble playing in concert.
 The ``global'' sound produced by the musicians is analogue to the thermodynamic variables obtained from the colisions between the particles in the system. 
 The music can me analized from two levels: the global level, where the harmony and the musical form take an important role, and the individual level, in which we focus in what the musicians are playing to produce the global sound. ``In this zooming in and out'', in words of Rickles, ``from the whole system to its parts, that characterizes the relationship between statistical mechanics and thermodynamics: you won't see harmonies in a single bassoon; likewise, you won't see pressure or temperature in an individual molecule.''
 
-The equilibrium theory of SM provides an interpretation for the equilibrium thermodynamic systems from a molecular point of view.
-However, most of the phenomena present in the Nature are in non-equilibrium situations. 
+The equilibrium theory of SM provides an interpretation for the equilibrium thermodynamic systems from a molecular point of view. The models that allow us to reproduce real systems are the well-known microcanonical, canonical, and grand canonical ensembles. These ensembles are idealizations. They does not reproduce exactly real experiments, but give us useful information about them. 
+However, most of the phenomena present in the Nature are in non-equilibrium in the time scale of our observation. A non-equilibrium system may be modeled perturbating an equilibrium ensemble that forces the system to not relax to equilibrium.  
 Einstein \cite{Einstein1905}, Onsager \cite{Onsager1931} and Kirkwood \cite{Kirkwood1946} made important contributions to Non-Equilibrium Statistical Mechanics (NESM) years before Green \cite{Green1952, Green1954}, in the fifties, formulated it as we know nowadays. 
 It was in the 60's when Zwanzig \cite{Zwanzig1961} and Mori \cite{Mori1965} reformulated the theory using the technique of the projection operators \cite{Grabert1982}. 
-
-
-In this chapter, we review fundamental concepts of SM such as phase space, phase point and phase trajectory.
-We introduce from Classical Mechanics (CM) the Hamilton's equations to describe the time evolution of a phase point in the phase space. 
-Because of the non-linearity of these equations we write them in the language of the linear operators, where the Liouville operator $i{\rm L}$ plays an important role in the dynamics of the microstates. 
-This techniques allows us to obtain the Hamilton's equations as first order differential equations. 
-With these equations the trajectory of a phase point is deterministic, but we can not avoid the fact that we have no access to the position and momenta of all particles of the system. 
-We introduce the concept of probability density in order to take into account our lack of knowledge of the initial condition. 
-Therefore, the evolution of a phase point in the phase space converts into a stochastic process where the evolution of the probability density  is governed by the Liouville equation.
-We review the Lioville theorem that tell us that the evolution of a bunch of phase point inside a volume must be conserved (i.e. the volumen must be the same but not the shape). 
-
-In this chapter, we review the Theory of Coarse-Graining (ToCG) which allows one to describe the dynamics with variables that capture the essential information of the system and evolve much more slowy than the neglected ones. 
-%These selected coarse variables evolve much more slowy than the neglected variables. 
-
-Finally, we introduce the time-dependent projection operator technique to derive the evolution equation of the selected variables. This technique is an aproximation of the time dependent ensemble, solution of the Liouville equation, with a relevant ensemble plus a correction responsible of the irreversible behaviour. This relevant ensemble is obtained maximizing the entropy functional of Gibbs-Jaynes. 
 
 
 \section{Hamilton's equations and the evolution of the microstates}
@@ -462,7 +288,7 @@ Hamilton's equation (\ref{compactHamiltonEqs}) indicates that the trajectory of 
 
 
 \subsection{Linear Hamilton's equations}
-In the last section we have presented Hamilton's equations as a {\it set of non-linear ordinary differential equations}. However, in the language of linear operators we may obtain linear equations that are amenable of theoretical treatment. 
+We have presented Hamilton's equations as a {\it set of non-linear ordinary differential equations}. However, in the language of linear operators we may obtain linear equations that are amenable of theoretical treatment. 
 
 By analogy with Quantum Mechanics (QM) we consider all functions $\hat{B}(z)$ in phase space as a Hilbert vector space. 
 Each function $\hat{B}(z)$ is a vector in the infinite-dimensional Hilbert space vector. 
@@ -611,7 +437,7 @@ Note that we may express the Lioville equation (\ref{LiouvilleEq}) in the follow
     \frac{d\rho_t(z)}{dt} = 0 
     \label{LiouvilleTh}
 \end{align}
-This is called the {\it Liouville theorem}. It shows that if we take a volume in the phase space bounded by a surface and we follow it during time evolution, we will observe that the surface will move and so do the points (microstates) inside the surface but the volume will remain the same. The reason is that the phase trajectories can not cross because this implies that they started at the same point. In other words: the volume in phase space must be conserved, as we can see in Fig. \ref{fig:LiouvilleTh}.
+This is called the {\it Liouville theorem}. It shows that if we take a volume in the phase space bounded by a surface and we follow it during time evolution, we will observe that the surface will move and so do the points (microstates) inside the surface but the volume will remain the same. The reason is that the phase trajectories can not cross because this implies that they started at the same point. In other words: the volume in phase space must be conserved, as we can see in Figure \ref{fig:LiouvilleTh}.
 
 \begin{figure}
     \centering
@@ -636,7 +462,7 @@ This is called the {\it Liouville theorem}. It shows that if we take a volume in
 %    B(t) = {\rm exp}(i{\cal L})B(0)
 %\end{align}
 \section{The Theory of Coarse-Graining and the CG variables}
-The ToCG consists on eliminate the ``useless'' information about a system in order to have a simplified version described by a set of selected variables with time scales much larger than the typical molecular scales. 
+The Theory of Coarse-Graining (ToCG) consists on eliminate the ``useless'' information about a system in order to have a simplified version described by a set of selected variables with time scales much larger than the typical molecular scales. 
 We may acquire a lot of information about the system during the simplification process because we have to separate the essential details from the irrelevant ones. 
 %Frase copiada del libro de Pep 
 %In the simplication process we may acquire a lot of information about the system by focusing in the essential details and not being distracted by overwhelming number of irrelevant details.
@@ -692,8 +518,36 @@ Therefore, the system is approximately described, in the appropriate time scale,
 
 Quasi-equilibrium is connected with the notion of separation of time scales. 
 As we said, the CG variables evolve slowly compared with the rest of degrees of freedom, which is, in fact, a necessary condition to obtain differential equations for the evolution of the CG variables. 
-If there is not a well-separated time scales we may obtain dynamic equations but not simple at all, with complicated memory terms, as we will see in Sec. \ref{Sec:Grabert}. 
-This situation is referred to as a {\it non-Markovian} dynamics, to distinguish it from {\it Markovian} desciption in which the future state of the system is only determined by the present but not for the past of the system. 
+If there is not a well-separated time scales we may obtain dynamic equations but not simple at all, with complicated memory terms, as we will see in Chapter \ref{Chap:Theory}. 
+This situation is referred to as a {\it non-Markovian} dynamics, to distinguish it from {\it Markovian} description in which the future state of the system is only determined by the present but not for the past of the system. 
+
+\section{Molecular Dynamics simulations}
+``We may regard the present state of the universe as the effect of its past and the cause of its future. An intellect which at a certain moment would know all forces that set nature in motion, and all positions of all items of which nature is composed, if this intellect were also vast enough to submit these data to analysis, it would embrace in a single formula the movements of the greatest bodies of the universe and those of the tiniest atom; for such an intellect nothing would be uncertain and the future just like the past would be present before its eyes.''
+This sentence was written at the end of the 18th century by Pierre-Simon Laplace in its famous essay \textit{A Philosophical Essay on Probabilities} \cite{Laplace}.
+
+The belief in the deterministic behaviour of the nature lasted for the next century until Charles-Eugène Delaunay and Henry Poincaré introduced the first notion of the effect of the initial conditions in the evolution of a system consisting on three or more bodies, the well-known three-body problem. 
+
+Delaunay wrote two large books studied the three-body problem as a perturbated system in which the perturbation played the role of the third body. 
+Years later, Poincaré thought about the stability of a three-body system introducing the first notion of chaos. 
+He finally stated that there is not an equation that governs the motion of three or more bodies.
+
+The N-body problem is crucial in real systems consisting on a huge number of particles. In the levels of description in which the particles of a system are interacting with the other, to solve the equations of motion is in the center of the problem. Let us suposse that we have a glass of water. 
+%Párrafo inspirado tesis de Arturo
+The number of water molecules is $N \sim 10^{24}$. Therefore, we need  $6N$ initial conditions and $6N$ equations of motion to be solved ($v_x,v_y,v_z$ and $x,y,x$ for every particle). Is obvious that is imposible to solve analytically this bunch of equations of motion.
+
+Once we assume that we can not solve manually the equations of motion of the molecules of a glass of water, we may use a computer to solve them. 
+The technique to obtain aproximated solutions of the time evolution equations of the molecules is called Molecular Dynamics (MD).
+The idea behind this technique is to discretize the time in intervals called \textit{time steps} and to compute the position and velocity of every particle at every time step. If we estimate the number of colisions per second and calculate the number of evaluations we need to compute for every particle, we conclude that to solve the equations of motion of a real system, such a glass of water, is imposible even computationally \cite{TesisArturo}.
+Therefore, only small or coarse systems (i.e. with a reasonable number of particles) can be addressed using MD simulations. 
+
+The pioneering work of Adler and Wainwright \cite{Alder1957} in the fifties it was a first step in the development of the MD simulations when they studied the phase transition of a system consisting on hard sphares. In the sixties Gibson et al. \cite{Gibson1960} studied the radiation damage using MD simulations and  Rahman \cite{Rahman1964} simulated a system consisting on 864 particles interacting with Lennard-Jones potential in order to study correlations in the motion of atoms in liquid argon.  
+
+MD simulations play the role of the experiments in the real world. They provide us the observation which precedes the comprehension, because without comprehension science would be only documentation \cite{Rapaport}. Simulations allows, in contrast with the theory, assume less aproximations in exchange for a computational effort. Both simulations and physical theory must be coincide (i.e. the predictions of theory must coincide with the results of the simulations). If they differs is an indication of an error has been commited somewhere
+
+This dissertation rests on two pillars. The first one consits on a theoretical derivation of the equations that governs the evolution of the CG variables of a fluid in contact with a solid. 
+Along the derivation we only assume the Markovian aproximation that simplify considerably the final equations, in which the transport coefficients are included through the Green-Kubo formula. 
+The second pillar consists on MD simulations performed to measure the selected variables of the system which we need to validate the Markovian aproximation and to compute the correlations included in the Green-Kubo formulae.
+%The MD simulations we present in this dissertation are performed with the open source code LAMMPS \cite{Plimpton1995}, and the details of every simulation is included in the corresponding chapter.  
 
 \section{The entropy}\label{Sec:TheEntropy}
 As well as in equilibrium, in non-equilibrium situations entropy plays a fundamental role. 
@@ -966,7 +820,118 @@ with the present  formalism \cite{Grabert1982} but we  do not consider
 them here for simplicity.
 
 
+\section{State of art}
+\Note{Aquí popurrí de fragmentos de introducciones de los papers}
+\Note{Viene de la introducción del paper I}
+There  is great  interest  in  the behaviour  of  fluids  in the  nano
+\cite{Bocquet2010} and micro  \cite{Lauga2005,Bocquet2011} scales.  At
+nanoscales  the structure  of the  fluid starts  playing an  important
+role.  The standard  description of structured fluids is  based on the
+(classic) Density Functional Theory \cite{Evans1979}, with the density
+functional   capturing  all   the  relevant   information  about   the
+\textit{equilibrium} state  of the fluid.   In recent years  there has
+been a  great interest in  obtaining \textit{dynamic} versions  of the
+Density Functional Theory  (DDFT) that would allow one  to discuss not
+only equilibrium structured fluids and its correlations but also their
+dynamic  behaviour \cite{Lowen2003,Evans2016}.   Since the  pioneering
+work by Marconi and Tarazona  \cite{Marconi2000}, which was based on a
+Smoluchowski description  for colloidal particles,  several approaches
+have been considered  for the formulation of dynamic  versions of DFT,
+ranging from  kinetic theory  \cite{Guo2006}, to  projection operators
+\cite{Espanol2009d},  and variational  approaches \cite{Schmidt2013}.
+Most    existing    works     deal    with    colloidal    suspensions
+\cite{Goddard2012,Evans2016}. However, there exist  still a gap in the
+treatment  of the dynamics of \textit{simple}  fluids \textit{near  solids} at  scales
+where  the  structure  of  the  fluid  is  relevant.   Note  that  the
+interaction of  the solid with  the fluid  is the responsible  for the
+structuring  of the  density  field near  a wall  (which  is a  purely
+reversible and equilibrium effect) but also for irreversible processes
+that can be understood, at macroscales, as boundary conditions for the
+fluid \cite{Bedeaux1976,Bocquet1994}.
 
+In  Ref.   \cite{Espanol2009d}  we   have  formulated  DDFT  based  on
+projection operator  techniques, where the  density field is  the only
+relevant variable.  This is appropriate for colloidal systems that are
+suspended in  a solvent acting as  a thermal bath.  In  that case, the
+density field should  be rather understood as  the concentration field
+which,  being  conserved, is  expected  to  be  a slow  variable.   By
+selecting  the density  field as  the only  relevant variable,  we are
+implicitly assuming that the density  evolves in time scales which are
+much larger than  the time scales corresponding to  other variables in
+the system.  In contrast to  colloidal systems, simple fluids have the
+momentum density and energy density  as conserved variables, and these
+variables may  evolve in  comparable time scales  as the  density.  We
+have  recently extended  DDFT  to {\em  non-isothermal} situations  by
+including the energy density  field \cite{Anero2013}.  Recent attempts
+in that direction  have also been taken  by Schmidt \cite{Schmidt2011}
+and Wittkowski et al.  \cite{Wittkowski2012}.  The resulting theory is
+valid  for \textit{quiescent}  fluids  or solids  in which  convective
+motion is not present.  In the  present work, we consider the mass and
+momentum density fields of a fluid, allowing to address moving fluids,
+but  we do  not  consider energy  transfer. This  is,  we assume  that
+momentum transfer is  not affected by energy fluxes. This  is the case
+in isothermal  processes or even under  slight temperature differences
+whenever the adiabatic coefficient is  close to one, as corresponds to
+a practically  incompressible liquid  like water at  room temperature.
+The  natural thermodynamic  potential is  the free  energy functional,
+instead   of   an   entropy   functional   as   introduced   in   Ref.
+\cite{Anero2013}.  In future work we will address the energy transport
+at nanoscales.
+\Note{Fin de la introducción del paper I}
+
+\Note{Viene de la introducción del paper de GK corregido}
+We will see that one important  objective within Non-Equilibrium  Statistical Mechanics
+is the derivation of the governing dynamics of a set of coarse-grained
+(CG) variables that describe the system at a mesoscopic or macroscopic
+level of description  by starting from the microscopic  laws of motion
+of the constituent atoms and  molecules of the system \cite{Kubo1991}.
+In this quest, the projection  operator technique, as described in the
+textbook by Grabert \cite{Grabert1982}, has  proved to be an extremely
+useful  tool.   As  discussed   there,  there  are  essentially  three
+different  types of  projection operator  theories, associated  to the
+names  of   Mori  \cite{Mori1965},  Zwanzig   \cite{Zwanzig1961},  and
+Kawasaki  and Gunton  \cite{Kawasaki1973},  with  increasing order  of
+generality \cite{Grabert1982}. The Kawasaki-Gunton projection operator
+allows one to  obtain non-linear closed equations for  the averages of
+the coarse-grained variables. The Zwanzig  projector is a special case
+of  the Kawasaki-Gunton  projector  when the  selected variables  are,
+instead of  the CG variables themselves,  the \textit{distribution} of
+the  CG variables.  This results  into  a governing  equation for  the
+probability distribution of CG  variables.  Finally, Mori projector is
+obtained    from    Zwanzig     projector    in    near    equilibrium
+situations\cite{Grabert1982,Kauzlaric2011a}.   The  resulting  dynamic
+equations in  Mori theory are  linear and  allow one to  obtain simple
+equations not only for the averages  of the CG variables, but also for
+their correlation functions.
+
+The projection operator technique  provides closed and exact equations
+for the  evolution of the averages or probabilities  of the CG variables  with only one
+assumption about  the initial  distribution of microstates,  which are
+assumed   to  be   distributed   with  a   maximum  entropy   ensemble
+\cite{Grabert1982}. The exact equations of  motion of the CG variables
+contain a reversible  term which is local in time  and an irreversible
+integro-differential term describing memory  about the past history of
+the CG variables.  The memory  kernel is defined in microscopic terms,
+but is completely untractable, as  it involves the so called projected
+dynamics which  is different, in  general, from the  usual Hamiltonian
+dynamics of the system.
+
+When the  selected CG  variables are  such that  they display  a clear
+separation  of time  scales in  its dynamics  then it  is possible  to
+resort  to the  Markovian  approximation in  which  the memory  kernel
+becomes proportional to  a delta function in time.   Such a separation
+of  time scales  happens, in  general, when  the evolution  of the  CG
+variables  is the  result of  many minuscule  and fast  contributions.
+Under  the Markovian  approximation, the  resulting governing  dynamic
+equations    are   non-linear    differential   equations    for   the
+non-equilibrium averages  of the  CG variables in  the Kawasaki-Gunton
+projector or stochastic  differential equations (SDE) in  the Mori and
+Zwanzig projectors.   Within the  Markovian approximation  one obtains
+the  transport coefficients  governing  the irreversible  part of  the
+dynamics in terms of the time  integral of the time derivatives of the
+CG  variables.   These formulae  for  transport  coefficients are  the
+celebrated Green-Kubo formulae \cite{Green1952,Kubo1957}.
+\Note{Fin de la introducción del paper de GK corregido}
 
 
 \section{Summary}
@@ -983,9 +948,8 @@ Under the Markovian aproximation, we obtain the general form of the memory-less 
 %-----------------------------------------------------------------
 \chapter{Coarse hydrodynamics theory for liquids near solids}\label{Chap:Theory}
 \markboth{Coarse hydrodynamics theory for liquids near solids}{}
-\epigraph{\textit{There is no future. There is no past. Do you see? Time is simultaneous, an intricately structured jewel that humans insist on viewing one edge at a time, when the whole design is visible in every facet.}}{Watchmen \\ ALAN MOORE} 
+\epigraph{\textit{Le temps est une invention du mouvement. Celui qui ne bouge pas ne voit pas le temps passer.}}{Métaphysique des tubes \\ AMÉLIE NOTHOMB}
 
-%No hay futuro. No hay pasado ¿Lo ves? El tiempo es simultáneo, una joya de una estructurada demasiado compleja en donde los humanos se empeñan en solo ver un borde, cuando el diseño por completo es visible en todas las facetas.-Alan Moore.
 
 \section{Introduction}
 As it was mentioned in the Introduction, Density Functional Theory (DFT) is a successful and well-established theory for the study of the structure of simple and complex fluids at equilibrium. The theory has been generalized to dynamical situations when the underlying dynamics is diffusive as in, for example, colloidal systems. However, there is no such a clear foundation for Dynamic DFT (DDFT) for the case of \textit{simple} fluids in contact with solid walls. 
@@ -6899,6 +6863,8 @@ length.
 \markboth{The slip boundary condition from MD simulations}{}
 
 \section{Introduction}
+
+
 A quite remarkable  assumption in macroscopic hydrodynamics  is the no
 slip boundary  condition that  states that the  velocity of  the fluid
 vanishes  at the  surface of  fixed solid  walls \cite{Batchelor1967}.
@@ -6960,40 +6926,45 @@ in terms of  the equilibrium autocorrelation function  of the parallel
 component of the microscopic fluctuating force $\hat{F}^x(t)$ that the
 liquid exerts on  a planar wall of area  $S$.  Eq.  (\ref{lambdawall})
 represents  an  important step  in  offering  a statistical  mechanics
-foundation  of  a boundary  condition.  It  has  been used  to  obtain
-explicit analytical  estimates for the  slip length by  expressing the
-force-force  correlation  in  terms of  density-density  correlations,
-which  are then  treated with  the well-known  hydrodynamic theory  of
-fluctuations \cite{Barrat1999,Kobryn2008,Kobryn2011}.
+foundation  of  a boundary  condition,  with  a caveat:  the  friction
+coefficient as a  function of the upper limit of  integration does not
+have a plateau  and it decays to zero for  large $\tau$.  However, the
+formula is still useful when one expresses the force-force correlation
+in terms of density-density correlations,  which are then treated with
+the well-known hydrodynamic theory of fluctuations.  In that case, the
+hydrodynamic  exponential   decay  assumed  for   the  density-density
+correlation makes  the integral  non-vanishing and  allows one  to get
+explicit     analytical    estimates     for    the     slip    length
+\cite{Barrat1999,Bocquet2007a,Kobryn2008,Kobryn2011}.
 
-However, the  validity of  the BB  approach has been  a subject  of an
-ongoing   debate   \cite{Petravic2007,Hansen2011,Huang2014}  that   we
-believe has  not yet  been concluded  (see the  recent account  of the
-situation    of     this    debate    by    Ramos-Alvaro     et    al.
-\cite{Ramos-Alvarado2016}).        Petravic        and       Harrowell
-\cite{Petravic2007} argued that the  Green-Kubo expression given by BB
-is  not  an   intrinsic  property  of  the   surface  of  solid-liquid
-interaction  but  rather  contains  also information  about  the  bulk
-friction between two parallel plates.   It was further argued that the
-BB Green-Kubo formula  gives, in fact, the friction  force between two
-parallel plates  with a liquid  in between and, therefore,  depends on
-the  separation  between  the  plates.  In  this  way,  the  transport
-coefficient (\ref{lambdawall})  would not  be an  interfacial friction
-coefficient  tied  to  interfacial  properties  alone.   Petravic  and
-Harrowell conclude  ``that the Navier friction  coefficient cannot, in
-general, be obtained from the  surface force time correlation function
-alone  since  these fluctuations  are  coupled  to stress  fluctuation
-throughout the entire system''.   While Petravic and Harrowell present
-an  indirect GK  expression  for  the slip  length  (for  the case  of
-identical  parallel walls),  the problem  was reconsidered  by Hansen,
-Todd, Davis \cite{Hansen2011} by looking  at a GLE involving the force
-on a slab  of width $\Delta$ and  relating it with the  center of mass
-velocity of the  slab through a friction coefficient  (a memory kernel
-in  a  non-steady  state  in  general).  The  method  is  extended  to
-cylindrical  geometries   also  \cite{Kannam2012}.    The  correlation
-functions of  these variables allow  one to run  equilibrium molecular
-dynamics (MD) simulations to get the friction coefficient and the slip
-length.  Hansen et al. propose a GLE of the form
+The  validity of  the BB  approach has  been a  subject of  an ongoing
+debate  \cite{Petravic2007,Hansen2011,Huang2014} that  we believe  has
+not yet  been concluded (see  the recent  account of the  situation of
+this  debate  by   Ramos-Alvaro  et  al.   \cite{Ramos-Alvarado2016}).
+Petravic and Harrowell \cite{Petravic2007}  argued that the Green-Kubo
+expression given by BB is not  an intrinsic property of the surface of
+solid-liquid interaction  but rather  contains also  information about
+the bulk friction between two  parallel plates.  It was further argued
+that  the BB  Green-Kubo formula  gives, in  fact, the  friction force
+between two parallel  plates with a liquid in  between and, therefore,
+depends  on the  separation  between  the plates.   In  this way,  the
+transport coefficient  (\ref{lambdawall}) would not be  an interfacial
+friction coefficient  tied to interfacial properties  alone.  Petravic
+and Harrowell conclude ``that  the Navier friction coefficient cannot,
+in  general,  be obtained  from  the  surface force  time  correlation
+function  alone  since  these   fluctuations  are  coupled  to  stress
+fluctuation  throughout  the  entire  system''.   While  Petravic  and
+Harrowell present an  indirect GK expression for the  slip length (for
+the case of identical parallel walls), the problem was reconsidered by
+Hansen, Todd,  Davis \cite{Hansen2011} by  looking at a  GLE involving
+the force on a fluid slab of  width $\Delta$ near the wall nd relating
+it with  the center of  mass velocity of  the slab through  a friction
+coefficient (a memory  kernel in a non-steady state  in general).  The
+method is  extended to cylindrical geometries  also \cite{Kannam2012}.
+By running equilibrium molecular dynamics (MD) simulations one can get
+the friction coefficient and the  slip length throught the correlation
+functions of the  variables involved.  Hansen et al. propose  a GLE of
+the form
 \begin{align}
   F'^x(t)=-\int_0^t \zeta(t-\tau)u_{\rm slab}(\tau)d\tau+F'_r(t)
 \label{Hansen1}\end{align}
@@ -7020,7 +6991,7 @@ the interfacial friction coefficient.
 
 More recently,  Huang and  Szlufraska propose  an \textit{alternative}
 definition of a friction  coefficient\cite{Huang2014}. In this case, a
-GLE  for  a the  velocity  of  a  \textit{single liquid  particle}  is
+GLE  for   the  velocity  of  a  \textit{single liquid  particle}  is
 constructed with the Mori  projection operator.  While comparisons are
 made with the BB expression,  claiming superior performance, the truth
 is that no  connection between the obtained friction  coefficient of a
@@ -7056,13 +7027,13 @@ of the BB Green-Kubo expression dissappears in this limit.
 In summary, there  seems to be three different ways  of looking at the
 derivation  of  the  slip   boundary  condition  from  non-equilibrium
 statistical mechanics.  Through the  measurement of the correlation of
-the  transverse  momentum  and  comparison with  the  predictions  of
+the  transverse  momentum  and  comparison  with  the  predictions  of
 continuum  (local) hydrodynamics  \cite{Bocquet1993,Chen2015}, through
 linear  response theory  relating  the  force on  the  walls with  the
 velocity   of  the   fluid   \cite{Bocquet1993,Petravic2007},  or   by
 formulating  linear,  in  general  non-Markovian,  conections  between
-friction forces and  velocities, where the meaning  of this quantities
-is often understood implicitly.
+friction forces and velocities \cite{Hansen2011}, where the meaning of
+this quantities is often understood implicitly.
 
 In this chapter, we compute explicitly the viscosity and friction kernels that apper in the discrete hydrodynamic theory presented in Chapter \ref{Chap:Planar} for shear flows in between confining paralle solid walls.  
 We show  that  the  usual Green-Kubo  formulae  suffer
@@ -7096,7 +7067,6 @@ properties by  observing that  the slip length  is independent  on the
 channel width.
 
 
-
 \section{The dynamics of the discrete transverse momentum}
 \Note{Falta figura}
 \section{Simulation results}
@@ -7123,51 +7093,6 @@ channel width.
 \end{figure}
 
 \subsection{The transport matrices}
-From  a  typical  equilibrium  trajectory  of  the  microscopic  state
-generated by the MD simulation, we measure the forces on the nodes and
-stress on  the bins defined in  Eq. (\ref{sbin}). We then  compute the
-Green-Kubo running integrals (\ref{GK}).   These matrices are observed
-to have  no plateau in  a way analogous to  what we found  in periodic
-boundary   conditions  in II.
-%  Ref.   \cite{5}.  
-For   example,  in   Fig
-\ref{Fig.noplateau}   we   plot   some  elements   of   the   matrices
-$\eta_{\mu\nu}(t),\gamma_{\mu\nu}(t)$ as  a function of time  and they
-are seen to decay towards zero, in a quasi-algebraic way.
-
-Given that the  Green-Kubo formula for the transport  matrices do not
-have  a   plateau,  we  resort   to  the  methodology   introduced  in
-Ref. \cite{4} and that essentially amount to extract $M^*$ defined in
-(\ref{Mstar}) from $M(t)$ defined in (\ref{MMatrix1}). Once the matrix
-$M(\tau)\esc c^{-1}(\tau)$  is constructed,  it is possible  to obtain
-the  value of  $\tau$  at which  this  matrix do  has  a plateau.  The
-existence  of the  plateau  is  best observed  in  the eigenvalues  of
-$M(\tau)\esc  c^{-1}(\tau)$.   We  have  followed  this  procedure  in
-III
-and  have  shown  that the  matrix  $M^*$  defined  in
-(\ref{Mstar})  reaches a  clear  plateau after  a  time $\tau=0.3$  in
-reduced  units.  This  time is  sufficiently  large for  being at  the
-plateau  and sufficiently  small to  not have  substantial statistical
-errors  due to  the explosive  inverse  of the  correlation matrix  in
-(\ref{Mstar}). The  Green-Kubo running integrals  (\ref{GK}) evaluated
-at  $\tau=0.3$  are  plotted  in Fig.   \ref{Fig-GK}.   The  non-local
-viscosity  is  concentrated along  the  diagonal  for which  the  only
-non-zero terms are $\eta_{\mu\mu}$ and $\eta_{\mu\mu+1}$, this is, the
-stress  is  correlated on  a  length  scale  of $\sim  3\sigma$.   The
-matrices $G,H,\gamma$ are localized near the nodes close to the walls.
-The   matrix  $H$   is  the   transpose  of   the  matrix   $G$,  i.e.
-$H_{\mu\nu}(\tau)=G_{\nu\mu}(\tau)$  as  a   reflection  of  Onsager's
-reciprocity.   In  Fig.   \ref{Fig-GK-zoom}  we plot  a  zoom  of  Fig
-\ref{Fig-GK} were we  observe the structure of  the transport matrices
-near  the   walls.   Observe  that  the   non-local  viscosity  kernel
-$\eta_{\mu\nu}(\tau)$   takes    the   bulk   value   at    the   node
-$\mu=2,\nu=2$. The elements that are different from zero in the matrix
-$G_{\mu\nu}(\tau)$ are those corresponding to $\mu=1,\nu=1,2$ while in
-the  matrix  $\gamma_{\mu\nu}(\tau)$  the non-vanishing  elements  are
-$\mu=1,2, \nu=1,2$.  Therefore, the  irreversible forces that the wall
-exert on the fluid extend over distances of the order of two bins, i.e
-around $4\sigma$.
-
 
 \begin{figure}[!h]
 \includegraphics[width=\linewidth]{Etatau-matrix-17nodes-WALLS}
@@ -7186,12 +7111,6 @@ around $4\sigma$.
 
 
 \subsection{Evolution of the flow in NEMD simulations}
-Once we  have measured the  transport matrix $M^*$  or, alternatively,
-the transport  matrices $\eta^*,G^*,H^*,\gamma^*$  we may  predict the
-evolution   of   a   non-equilibrium   average   where   the   initial
-non-equilibrium  ensemble describes  a  particular  flow profile.   By
-measuring independently  the actual  non-equilibrium evolution  we are
-able to validate the present theory.
 
 \begin{figure}[!h]
 \includegraphics[width=\linewidth]{gxtPredictions-17nodes-WALLS}
@@ -7297,10 +7216,17 @@ Check of Eq. (\ref{FBv}) for $B=2$. Green is the measured force $F_B(t)={\bf F}^
 \section{Summary}
 
 %-----------------------------------------------------------------
-%CHAPTER CONCLUSIONS
+%CONCLUSIONS
 %-----------------------------------------------------------------
 \chapter{Conclusions}\label{Chap:Conclusions}
 \epigraph{\textit{The runner runs truly to the end.}}{Once a runner \\ JOHN L. PARKER}
+%-----------------------------------------------------------------
+%FUTURE
+%-----------------------------------------------------------------
+\chapter{Future directions}\label{Chap:Future}
+\epigraph{\textit{It's the things we forget about that tell us who we are.}}{Zero K \\ DON DELILLO}
+
+Mencionar lo que hice el primer año de tesis. Teoría no isoterma. Interés práctico para estudio de nanopartículas inmersas en salas fundidas. 
 
 
 \bibliographystyle{unsrt}
@@ -7316,17 +7242,24 @@ Check of Eq. (\ref{FBv}) for $B=2$. Green is the measured force $F_B(t)={\bf F}^
 \chapter{Contributions}\label{Ap:Contributions}
 The following published articles and posters are related with this dissertation.
 \begin{enumerate}
-  \item Nanoscale hydrodynamics near solids.
-  \item Discrete hydrodynamics near solids for planar flows.
-  \item Revisiting the plateau problem in the Green-Kubo formula.
-  \item Space and time locality of discrete hydrodynamics.
-  \item Non-Markovian behaviour of discrete hydrodynamics near solids.
-  \item The slip boundary condition from MD simulations revisited.
-  \item Fises Sevilla
-  \item Ucrania
-  \item IWNET
-  \item Fises Madrid
-\end{enumerate}
+  \item \cite{} Nanoscale hydrodynamics near solids.
+  \item \cite{} Discrete hydrodynamics near solids for planar flows.
+  \item \cite{} Revisiting the plateau problem in the Green-Kubo formula.
+  \item \cite{} Space and time locality of discrete hydrodynamics.
+  \item \cite{} Non-Markovian behaviour of discrete hydrodynamics near solids.
+  \item \cite{} The slip boundary condition from MD simulations revisited.
+  \item \cite{FISESMadrid} Nanoscale hydrodynamics in periodic and confined geometries. Poster presented at 22th Workshop on Statistical Physics (FISES18), Madrid (Spain) 2018.
+  \item \cite{IWNET} Nanoscale hydrodynamics in periodic boundary conditions. Poster presented at 8th International Workshop on Nonequilibrium Thermodynamics, Sint-Michielsgestel (The Netherlands) 2018.
+  \item \cite{Ulam} Nanoscale heat transport in fluids near solids. Poster presented at Ulam Computer Simulation Workshop, Lviv (Ukraine) 2017.
+  \item \cite{FISESSevilla} Thermal hydrodynamics transport between fluids and solids. Poster presented at 21th Workshop on Statistical Physics (FISES17), Seville (Spain) 2017.
+  \end{enumerate}
+
+  Furthemore, I presented part of this work in two seminars at the National University of Distance Education. 
+  \begin{enumerate}
+  \item Nanoscale hydrodynamics nears solids. National University of Distance Education, Madrid (Spain) 2017.
+              \item Simulación de procesos térmicos en la dinámica de nanofluidos. National University of Distance Education, Madrid (Spain) 2016.
+  \end{enumerate}
+
 
 \chapter{List of Acronyms}\label{Ap:Acronyms}
 \begin{tabular}{l l}
