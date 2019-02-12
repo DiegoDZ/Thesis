@@ -271,11 +271,11 @@ where  the  structure  of  the  fluid  is  relevant.
 %density field should  be rather understood as  the concentration field
 %which,  being  conserved, is  expected  to  be  a slow  variable.   By
 %selecting  the density  field as  the only  relevant variable,  we are
-%implicitly assuming that the density  evolves in time scales which are
-%much larger than  the time scales corresponding to  other variables in
+%implicitly assuming that the density  evolves in timescales which are
+%much larger than  the timescales corresponding to  other variables in
 %the system.  In contrast to  colloidal systems, simple fluids have the
 %momentum density and energy density  as conserved variables, and these
-%variables may  evolve in  comparable time scales  as the  density.  We
+%variables may  evolve in  comparable timescales  as the  density.  We
 %have  recently extended  DDFT  to {\em  non-isothermal} situations  by
 %including the energy density  field \cite{Anero2013}.  Recent attempts
 %in that direction  have also been taken  by Schmidt \cite{Schmidt2011}
@@ -298,7 +298,7 @@ density  layering  capturing the  excluded  volume  effects of  single
 molecules.   For equilibrium  liquids near  walls, 
 DFT has  been an exceptionally good theoretical  tool for the
 prediction of  these layering effects \cite{Hansen2013}.   Second, the
-observation that the velocity of fluids  may be non-zero near the wall
+observation that the velocity of fluids  may be nonzero near the wall
 surface,  showing  that  the   no-slip  boundary  condition  does  not
 necessarily holds at the nanoscale.  Slip at nanoscales has received a
 large amount of attention from the  simulation point of view since the
@@ -311,14 +311,14 @@ with  an  interesting  debate  that has  not  been
 concluded yet \cite{Ramos-Alvarado2016}.
 
 This dissertation is structured as follows. 
-In the first chapter we review Non-Equilibrium Statistical Mechanichs (NESM) in order to state the foundations in which the following chapters are based. 
-We introduce two projection operator that allows us to obtain hydrodynamic equations: the Kawasaki-Gunton projector \cite{Kawasaki1973} and the Mori projector \cite{Mori1965}.  The first one allows one to obtain  non-linear closed equations
+In the first chapter we review Nonequilibrium Statistical Mechanichs (NESM) in order to state the foundations in which the following chapters are based. 
+We introduce two projection operator that allows us to obtain hydrodynamic equations: the Kawasaki-Gunton projector \cite{Kawasaki1973} and the Mori projector \cite{Mori1965}.  The first one allows one to obtain  nonlinear closed equations
 for  the  averages  of   the  selected  variables of the system, while under the Mori theory one obtains simple equations not only for the averages of the relevant variables, but also for their correlation functions. 
 
 In the second chapter, we derive the hydrodynamic equations of a fluid in contact with a solid. 
 In order to reach it, we derive DDFT for a simple fluid including the mass and the momentum density field.
 We use the Kawasaki-Gunton operator technique to obtain the equations of motion of the time dependent average of these fields assuming the Markovian aproximation. 
-The resulting equations contain transport coefficients given by  Green-Kubo formulae, which suffer from the plateau problem when the separation of time scales is not large.  
+The resulting equations contain transport coefficients given by  Green-Kubo formulas, which suffer from the plateau problem when the separation of timescales is not large.  
 This well-known problem arises because the Green-Kubo running integral appearing in the expressions of the tranport coefficients decays as the correlation of the selected variables when the projected dynamics is approximated by the unprojeted Hamiltons dynamics. 
 
 The third chapter is just a discretization of the resulting equations of the second chapter. 
@@ -353,7 +353,7 @@ The main result of this chapter is the calculation of the slip length and the lo
 %The objetive of the first publication, {\it Nanoscale hydrodynamics near solids}, is to derive the hydrodynamic equations of a fluid in contact with a solid. 
 %In order to reach it, we derive Dynamic Density Functional Theory (DDFT) for a simple fluid including the mass and the momentum density field.
 %We use the Kawasaki-Gunton operator technique to derive the equations of motion of the time dependent average of these fields assuming the Markovian aproximation. 
-%The resulting equations contain transport coefficients given by  Green-Kubo formulae, which suffer from the plateau problem when the separation of time scales is not large.  
+%The resulting equations contain transport coefficients given by  Green-Kubo formulas, which suffer from the plateau problem when the separation of timescales is not large.  
 %This well-known problem arises because the Green-Kubo running integral appearing in the expressions of the tranport coefficients decays as the correlation of the selected variables when the projected dynamics is approximatd by the unprojeted Hamiltons dynamics. 
 %
 %The second publication, {\it Revisiting the plateau problem in the Green-Kubo formula}, adresses the plateau problem in order to obtain, within Mori projection operator formulation, an alternative expression for the transport coefficient with a corrected Green-Kubo expression with no plateau problem. 
@@ -388,10 +388,10 @@ The main result of this chapter is the calculation of the slip length and the lo
 %-----------------------------------------------------------------
 %CHAPTER 1
 %-----------------------------------------------------------------
-\chapter{Non-Equilibrium Statistical Mechanics}
+\chapter{Nonequilibrium Statistical Mechanics}
 \label{Chap:NESM}
 \pagestyle{chapters}  %define page style for the chapters
-\markboth{Non-Equilibrium Statistical Mechanics}{}
+\markboth{Nonequilibrium Statistical Mechanics}{}
 \epigraph{\textit{There is no future. There is no past. Do you see? Time is simultaneous, an intricately structured jewel that humans insist on viewing one edge at a time, when the whole design is visible in every facet.}}{Watchmen \\ ALAN MOORE} 
 %No hay futuro. No hay pasado ¿Lo ves? El tiempo es simultáneo, una joya de una estructurada demasiado compleja en donde los humanos se empeñan en solo ver un borde, cuando el diseño por completo es visible en todas las facetas.-Alan Moore.
 
@@ -411,12 +411,14 @@ The ``global'' sound produced by the musicians is analogue to the thermodynamic 
 The music can me analized from two levels: the global level, where the harmony and the musical form take an important role, and the individual level, in which we focus in what the musicians are playing to produce the global sound. ``In this zooming in and out'', in words of Rickles, ``from the whole system to its parts, that characterizes the relationship between statistical mechanics and thermodynamics: you won't see harmonies in a single bassoon; likewise, you won't see pressure or temperature in an individual molecule.''
 
 The equilibrium theory of SM provides an interpretation for the equilibrium thermodynamic systems from a molecular point of view. The models that allow us to reproduce real systems are the well-known microcanonical, canonical, and grand canonical ensembles. These ensembles are idealizations. They does not reproduce exactly real experiments, but give us useful information about them. 
-However, most of the phenomena present in the Nature are in non-equilibrium in the time scale of our observation. A non-equilibrium system may be modeled perturbating an equilibrium ensemble that forces the system to not relax to equilibrium.  
-Einstein \cite{Einstein1905}, Onsager \cite{Onsager1931} and Kirkwood \cite{Kirkwood1946} made important contributions to Non-Equilibrium Statistical Mechanics (NESM) years before Green \cite{Green1952, Green1954}, in the fifties, formulated it as we know nowadays. 
+However, most of the phenomena present in the Nature are in nonequilibrium in the timescale of our observation. A nonequilibrium system may be modeled perturbating an equilibrium ensemble that forces the system to not relax to equilibrium.  
+Einstein \cite{Einstein1905}, Onsager \cite{Onsager1931} and Kirkwood \cite{Kirkwood1946} made important contributions to Nonequilibrium Statistical Mechanics (NESM) years before Green \cite{Green1952, Green1954}, in the fifties, formulated it as we know nowadays. 
 It was in the 60's when Zwanzig \cite{Zwanzig1961} and Mori \cite{Mori1965} reformulated the theory using the technique of the projection operators \cite{Grabert1982}. 
 
 
 \section{Hamilton's equations and the evolution of the microstates}
+\label{Sec:Hamilton}
+\Note{Revisar los hat}
 Consider a system consisting of $N$ particles of mass $m$ in a volume $V$. 
 In CM the positions of the particles ${\bf q}^N\equiv ({\bf q}_1,\dots,{\bf q}_N)^T$ and their 3N momenta ${\bf p}^N\equiv ({\bf p}_1,\dots,{\bf p}_N)^T$ specify the state of the system at any time. 
 The collection of the positions and momenta of the particles defines the microscopic state of the system, $z=(q,p)^T$, which is a {\it phase point} in the {\it phase space} $\Gamma$ of 6N dimensions. 
@@ -458,7 +460,7 @@ Hamilton's equation (\ref{compactHamiltonEqs}) indicates that the trajectory of 
 
 
 \subsection{Linear Hamilton's equations}
-We have presented Hamilton's equations as a {\it set of non-linear ordinary differential equations}. However, in the language of linear operators we may obtain linear equations that are amenable of theoretical treatment. 
+We have presented Hamilton's equations as a {\it set of nonlinear ordinary differential equations}. However, in the language of linear operators we may obtain linear equations that are amenable of theoretical treatment. 
 
 By analogy with Quantum Mechanics (QM) we consider all functions $\hat{B}(z)$ in phase space as a Hilbert vector space. 
 Each function $\hat{B}(z)$ is a vector in the infinite-dimensional Hilbert space vector. 
@@ -537,7 +539,7 @@ With the Eq. (\ref{iLz}) the Hamilton's equations (\ref{compactHamiltonEqs}) can
   \label{Devzt}
 \end{align}
 
-In order to obtain an expresion for $z_t$ we consider a Taylor expansion of the trajectory $z_t$ around $t=0$, this is
+In order to obtain an expresion for $z_t$ we consider a Taylor expansion of the trajectory $z_t$ around $t=0$, that is,
 \begin{align}
     z_t=z_0+\frac{dz_t}{dt}(0)t+\frac{1}{2!}\frac{d^2z_t}{dt^2}(0)t^2+\cdots
     \label{ztExp}
@@ -632,17 +634,17 @@ This is called the {\it Liouville theorem}. It shows that if we take a volume in
 %    B(t) = {\rm exp}(i{\cal L})B(0)
 %\end{align}
 \section{The Theory of Coarse-Graining and the CG variables}
-The Theory of Coarse-Graining (ToCG) consists on eliminate the ``useless'' information about a system in order to have a simplified version described by a set of selected variables with time scales much larger than the typical molecular scales. 
+The Theory of Coarse-Graining (ToCG) consists on eliminate the ``useless'' information about a system in order to have a simplified version described by a set of selected variables with timescales much larger than the typical molecular scales. 
 We may acquire a lot of information about the system during the simplification process because we have to separate the essential details from the irrelevant ones. 
 %Frase copiada del libro de Pep 
 %In the simplication process we may acquire a lot of information about the system by focusing in the essential details and not being distracted by overwhelming number of irrelevant details.
 
 %Referencia Theory of simple liquids
 One of the advantages of the ToCG is to allow to simulated systems with a computer that otherwise it would not be possible or would be computationally expensive. 
-This is because we only not gain in terms of a reduction of the number of particles, but also on the possibility to explore longer time scales. 
+This is because we only not gain in terms of a reduction of the number of particles, but also on the possibility to explore longer timescales. 
 Think about a system which its constituents have different scales of length and time.
 For example, colloidal suspensions are dispersions of mesoscopic particles suspended in a molecula solvent.
-The dimensions of the particles are of the order of tens or hundreds nanometers and they move in time scales of nanoseconds or microseconds, whereas the dimensions of the molecules of the solvent are a fraction of a nanometer (for example, in the case of a molecule of water typically of the order of $0.21$ nm) and their time scales are of the order of picoseconds. To treat this kind of asymmetric systems from a microscopic point of view is unworkable with methods such as molecular dynamics simulation, but if our interest resides on the mesoscopic behaviour the problem is hightly simplified using coarse-graining techniques.    
+The dimensions of the particles are of the order of tens or hundreds nanometers and they move in timescales of nanoseconds or microseconds, whereas the dimensions of the molecules of the solvent are a fraction of a nanometer (for example, in the case of a molecule of water typically of the order of $0.21$ nm) and their timescales are of the order of picoseconds. To treat this kind of asymmetric systems from a microscopic point of view is unworkable with methods such as molecular dynamics simulation, but if our interest resides on the mesoscopic behaviour the problem is hightly simplified using coarse-graining techniques.    
 
 %Copiado del libro de Pep
 A system may be described at different {\it levels of description} depending on the amount of information which one retains macroscopically. The state of a system at a given level of description is described by a set of {\it coarse grained variables} (CG variables), which are functions of the microscopic state $z$ of the system and, therefore, are phase functions $\hat{A}(z)$. 
@@ -651,17 +653,17 @@ A system may be described at different {\it levels of description} depending on 
 
 The identification of the CG variables is the most important step in the ToCG in order to describe macroscopically a system with many degrees of freedom. There are few guiding principles for the identification of the CG variables such as select the dynamic invariants of the system or observe the features of the system because maybe there is a variable that captures that feature \cite{Karttunen2004}.
 
-Different levels of description gives us different amount of information. Coarser levels have a smaller number of variables (slow variables) and in consecuence captures less information. On the other hand, in fine levels the number of variables is so hight that allow to capture too much information. Therefore, depending on the interests the choose of a level of description will change. A coarse level can describe phenomena that occur at time scales equal or larger than the typical time scale of the level, but it cannot reproduce the behaviour at shorter time scales.
+Different levels of description gives us different amount of information. Coarser levels have a smaller number of variables (slow variables) and in consecuence captures less information. On the other hand, in fine levels the number of variables is so hight that allow to capture too much information. Therefore, depending on the interests the choose of a level of description will change. A coarse level can describe phenomena that occur at timescales equal or larger than the typical timescale of the level, but it cannot reproduce the behaviour at shorter timescales.
 
 There are two levels of description particulary important: {\it the microcopic and macroscopic levels}. 
 The microscopic level has the position and momenta of all particles of the system as the set of variables characterizing the state of the system. 
-The equation that governs the evolution of the CG variables are the Hamilton's equations (\ref{compactHamiltonEqs}) and the time scale is the typical collision or vibration time. 
-The macroscopic level is the level of Thermodynamics. The CG variables at this level are the dynamical invariants of the system. Because these variables are constant in time and the time scale is infinite there is not a dynamic equation for them.  %E, V, M, T
+The equation that governs the evolution of the CG variables are the Hamilton's equations (\ref{compactHamiltonEqs}) and the timescale is the typical collision or vibration time. 
+The macroscopic level is the level of Thermodynamics. The CG variables at this level are the dynamical invariants of the system. Because these variables are constant in time and the timescale is infinite there is not a dynamic equation for them.  %E, V, M, T
 Between these two levels there is the {\it mesoscopic level}, in which the coarse level is included.
 
-The main objetive of the ToCG is to derive the dynamic equations of the CG variables. Two ideas allow us for the derivation of the dynamic equations: quasi-equilibrium and separation of time scales.
+The main objetive of the ToCG is to derive the dynamic equations of the CG variables. Two ideas allow us for the derivation of the dynamic equations: quasi-equilibrium and separation of timescales.
 
-\subsection{Quasi-equilibrium and separation of time scales}
+\subsection{Quasi-equilibrium and separation of timescales}
 %Two ice cubes are melting inside a glass of water while I am writting this notes. 
 Imagine two ice cubes melting inside a glass of water. 
 The process is slow but not enough to let one observe how the ice cubes reduce their size. 
@@ -669,26 +671,26 @@ With a sip of water is possible to appreciate that the temperature of the water 
 After a while the ice cubes ``disappear'' and the glass water reaches an homogeneous mixture in an apparently equilibrium. 
 Nevertheless, if we let the glass on a desk, the water will begin to evaporate slowly because the equilibration of the system is not a real equilibrium state. 
 Moreover, over the years the glass will deteriorate. 
-Further, the process will never reach an equilibrium state, but we may distinguish ``different levels'' of non-equilibrium. 
+Further, the process will never reach an equilibrium state, but we may distinguish ``different levels'' of nonequilibrium. 
 Focusing on the time we figure out that the process during the ice cubes are melting is not the same as the deterioration of the glass over the years.
 The second one is much slower than the first one and allows we may say that it is at {\it quasi-equilibrium}. 
 
-The above example shows that a system can be at a equilibrium state depending on the time scale of the observation. The degradation of the glass over the years is very slow in contrast with the melting of the ice cubes. Therefore, at the time scale of our observations we can found functions that evolve very slow; the may be considered as dynamic invariants that determine the equilibrium properties of the system. 
+The above example shows that a system can be at a equilibrium state depending on the timescale of the observation. The degradation of the glass over the years is very slow in contrast with the melting of the ice cubes. Therefore, at the timescale of our observations we can found functions that evolve very slow; the may be considered as dynamic invariants that determine the equilibrium properties of the system. 
 
-In this dissertation the notion of several ``equilibriums time scales'' is crucial because we take advantage of the partial equilibration of the system in the time scale of evolution of the CG variables. 
+In this dissertation the notion of several ``equilibriums timescales'' is crucial because we take advantage of the partial equilibration of the system in the timescale of evolution of the CG variables. 
 %Frase del libro de Pep
-%The theory of non-equilibrium that we present is based on this notion of
-%having several “equilibrium time scales” and takes advantage of the partial equilibration of
-%the system in the time scale of evolution of the selected CG variables.
-At the typical time scale of a given level of description, we will observe that the system reaches a quasi-equilibrium state in which the CG variables are dynamics invariants. 
+%The theory of nonequilibrium that we present is based on this notion of
+%having several “equilibrium timescales” and takes advantage of the partial equilibration of
+%the system in the timescale of evolution of the selected CG variables.
+At the typical timescale of a given level of description, we will observe that the system reaches a quasi-equilibrium state in which the CG variables are dynamics invariants. 
 The fast degrees of freedom rapidly reach the equilibrium while the CG variables evolve slowly. 
 When quasi-equilibrium is valid, the CG variables which describe our system at this level of description evolve much slowly than the CG of the other more detailed level of description down in the hierarchy of level of descriptions. 
 %Frase del libro de Pep
-Therefore, the system is approximately described, in the appropriate time scale, with a generalized equilibrium ensemble, called the {\it relevant ensemble} or quasi-equilibrium ensemble, that takes into account the CG variables in its definition as if they were dynamical invariants of the system.
+Therefore, the system is approximately described, in the appropriate timescale, with a generalized equilibrium ensemble, called the {\it relevant ensemble} or quasi-equilibrium ensemble, that takes into account the CG variables in its definition as if they were dynamical invariants of the system.
 
-Quasi-equilibrium is connected with the notion of separation of time scales. 
+Quasi-equilibrium is connected with the notion of separation of timescales. 
 As we said, the CG variables evolve slowly compared with the rest of degrees of freedom, which is, in fact, a necessary condition to obtain differential equations for the evolution of the CG variables. 
-If there is not a well-separated time scales we may obtain dynamic equations but not simple at all, with complicated memory terms, as we will see in Chapter \ref{Chap:Theory}. 
+If there is not a well-separated timescales we may obtain dynamic equations but not simple at all, with complicated memory terms, as we will see in Chapter \ref{Chap:Theory}. 
 This situation is referred to as a {\it non-Markovian} dynamics, to distinguish it from {\it Markovian} description in which the future state of the system is only determined by the present but not for the past of the system. 
 
 \section{Molecular Dynamics simulations}
@@ -716,11 +718,11 @@ MD simulations play the role of the experiments in the real world. They provide 
 
 This dissertation rests on two pillars. The first one consits on a theoretical derivation of the equations that governs the evolution of the CG variables of a fluid in contact with a solid. 
 Along the derivation we only assume the Markovian aproximation that simplify considerably the final equations, in which the transport coefficients are included through the Green-Kubo formula. 
-The second pillar consists on MD simulations performed to measure the selected variables of the system which we need to validate the Markovian aproximation and to compute the correlations included in the Green-Kubo formulae.
+The second pillar consists on MD simulations performed to measure the selected variables of the system which we need to validate the Markovian aproximation and to compute the correlations included in the Green-Kubo formulas.
 %The MD simulations we present in this dissertation are performed with the open source code LAMMPS \cite{Plimpton1995}, and the details of every simulation is included in the corresponding chapter.  
 
 \section{The entropy}\label{Sec:TheEntropy}
-As well as in equilibrium, in non-equilibrium situations entropy plays a fundamental role. 
+As well as in equilibrium, in nonequilibrium situations entropy plays a fundamental role. 
 %In this section we present the entropy functional proposed by Jaynes \cite{Jaynes1957}.
 Suppose that we know the averages of the CG variables $\hat{A}(z)$ of a given system 
 \begin{align}
@@ -877,8 +879,8 @@ different  types of  projection operator  theories, associated  to the
 names  of   Mori  \cite{Mori1965},  Zwanzig   \cite{Zwanzig1961},  and
 Kawasaki  and Gunton  \cite{Kawasaki1973},  with  increasing order  of
 generality \cite{Grabert1982}. The Kawasaki-Gunton projection operator
-allows one to  obtain non-linear closed equations for  the averages of
-the coarse-grained variables. The Zwanzig  projector is a special case
+allows one to  obtain nonlinear closed equations for  the averages of
+the CG variables. The Zwanzig  projector is a special case
 of  the Kawasaki-Gunton  projector  when the  selected variables  are,
 instead of  the CG variables themselves,  the \textit{distribution} of
 the  CG variables.  This results  into  a governing  equation for  the
@@ -894,34 +896,35 @@ for the  evolution of the averages or probabilities  of the CG variables  with o
 assumption about  the initial  distribution of microstates,  which are
 assumed   to  be   distributed   with  a   maximum  entropy   ensemble
 \cite{Grabert1982}. The exact equations of  motion of the CG variables
-contain a reversible  term which is local in time  and an irreversible
-integro-differential term describing memory  about the past history of
+contain a \textit{reversible  term} which is local in time  and an \textit{irreversible
+integro-differential term} describing memory  about the past history of
 the CG variables.  The memory  kernel is defined in microscopic terms,
-and  it involves the so called projected
-dynamics which  is different, in  general, from the  usual Hamiltonian
+and  it involves the so called \textit{projected
+dynamics} which  is different, in  general, from the  usual Hamiltonian
 dynamics of the system.
 
 When the  selected CG  variables are  such that  they display  a clear
 separation  of time  scales in  its dynamics  then it  is possible  to
 resort  to the  Markovian  approximation, in  which  the memory  kernel
-becomes proportional to  a Dirac delta function in time.   Such a separation
-of  time scales  happens, in  general, when  the evolution  of the  CG
+becomes proportional to  a Dirac $\delta$ function in time.   Such a separation
+of  timescales  happens, in  general, when  the evolution  of the  CG
 variables  is the  result of  many minuscule  and fast  contributions.
 Under  the Markovian  approximation, the  resulting governing  dynamic
-equations    are   non-linear    differential   equations    for   the
-non-equilibrium averages  of the  CG variables in  the Kawasaki-Gunton
+equations    are   nonlinear    differential   equations    for   the
+nonequilibrium averages  of the  CG variables in  the Kawasaki-Gunton
 projector or stochastic  differential equations (SDE) in  the Mori and
 Zwanzig projectors.   Within the  Markovian approximation  one obtains
 the  transport coefficients  governing  the irreversible  part of  the
 dynamics in terms of the  time integral of correlation functions
-  of the  time derivatives of  the CG variables.  These  formulae for
-transport   coefficients  are   the  celebrated   Green-Kubo  formulae
+  of the  time derivatives of  the CG variables.  These  formulas for
+transport   coefficients  are   the  celebrated   Green-Kubo  formulas
 \cite{Green1952,Kubo1957}.
 
 \subsection{The Kawasaki-Gunton projection operator}
-In general it is possible to derive the evolution equation for a given
-dynamic  variable  by  using  the technique  of  projection  operators
-\cite{Kawasaki1973a,Grabert1982}. The projection operator method can be
+%In general it is possible to derive the evolution equation for a given
+%dynamic  variable  by  using  the technique  of  projection  operators
+%\cite{Kawasaki1973a,Grabert1982}. 
+The projection operator method can be
 understood, at its most fundamental level  as a way to approximate the
 actual time dependent ensemble, which is the solution of the Liouville
 equation, with a relevant  ensemble of the form (\ref{relens1}),
@@ -939,7 +942,7 @@ is
   \label{ave}
 \end{equation}
 where $\rho_t$ is
-the non-equilibrium solution of the Liouville equation. As it is shown
+the nonequilibrium solution of the Liouville equation. As it is shown
 in  \cite{Grabert1982},  for  isolated systems  with a time-independent
 Hamiltonian,  the   averages  (\ref{ave})  evolve  according   to  the
 following closed exact equation
@@ -1011,7 +1014,7 @@ Although Eq.  (\ref{ex})  is a closed
 equation it is an integro-differential  equation which is difficult to
 treat  in   general.   Nevertheless,  the  exact   transport  equation
 (\ref{ex}) can  be approximated by  a memory-less equation  whenever a
-clear separation  of time scales  exists between the evolution  of the
+clear separation  of timescales  exists between the evolution  of the
 averages and  the decay of  the memory kernel. Under  this assumption
 and the  neglect of terms of  order ${\cal O}( iL\hat{A}^3)$,  assumed to be
 small due to  the slowness of the relevant variables,  one obtains the
@@ -1039,38 +1042,50 @@ It is straightforward  to show that the  dynamic equations (\ref{ex2})
 have  as  a  Lyapunov   function  the  entropy  (\ref{entropya})  and,
 therefore,   the   dynamics   complies   with  the   Second   Law   of
 Thermodynamics.  The  equations (\ref{ex2})  predict the decay  of any
-initial value  of the  average of the  relevant variables  towards its
+initial value  of the  average of the  relevant variables  toward its
 unique equilibrium  values. Forced situations may  be treated
 with the present  formalism \cite{Grabert1982} but we  do not consider
 them here for simplicity.
 
 \subsection{Mori's Generalized Langevin Equation}
 \label{Sec:Mori}
-\Note{referencias y no duplicar información de la sección anterior.}
-In this section we present  a summary of Mori's theory \cite{Mori1965}
-in order to set the notation. At a microscopic level of description we
-assume that  the system is  well described by classical  mechanics and
+%In this section we present  a summary of Mori's theory \cite{Mori1965}.
+As we showed in Sec. \ref{Sec:Hamilton}, at a microscopic level of description we
+assume that  the system is  well described by CM and
 that the microscopic state $z=\{{\bf q}_i,{\bf p}_i,i=1,\cdots,N\}$ is
 given by the set of positions and  momenta of all the $N$ atoms in the
-system.  Hamilton's equations can be written in a very compact form as
-$  \dot{z}_t  =i{\cal  L}z_t$  where  $i{\cal  L}$  is  the  Liouville
-operator,  and $z_t$  is the  trajectory in  phase space  with initial
-condition $z_0$.  This  set of first order  differential equations has
-as a formal solution $ z_t = \exp\{i{\cal L}t\}z_0$.
+system. The time evolution equation of the microstate is given by Eq. (\ref{zt}).
+%\begin{align}
+%  z_t = exp\{i{\cal L}t\}z_0
+%\end{align}
+%Hamilton's equations can be written in a very compact form as
+%$  \dot{z}_t  =i{\cal  L}z_t$  where  $i{\cal  L}$  is  the  Liouville
+%operator,  and $z_t$  is the  trajectory in  phase space  with initial
+%condition $z_0$.  This  set of first order  differential equations has
+%as a formal solution $ z_t = \exp\{i{\cal L}t\}z_0$.
 
-At a macroscopic  level, we have  the system
-described with  a set  of $M$ CG variables  that are
-phase  functions  arranged  into  a column  vector  $\hat{A}(z)$  with
-components  $\hat{A}_\mu(z),\mu=1,\cdots,M$.   The  corresponding  row
-vector  is denoted  by $\hat{A}^T$,  where $T$  stands for  transpose.
-Without  loosing  generality,  we  will assume  that  the  equilibrium
-average   of    the   CG    variables   vanish.    By    denoting   by
+Without  losing  generality,  we  will assume  that  the  equilibrium
+average   of    the   CG    variables   vanish.    By    denoting  
 $\hat{A}(t)=\hat{A}(z_t)$, the  evolution of these functions  in phase
 space is given by
 \begin{eqnarray}
 \frac{d}{dt}{\hat{A}}(t)=\exp\{i{\cal L}t\}i{\cal L}\hat{A}(z_0)
 \label{LA}
 \end{eqnarray}
+
+%At a macroscopic  level, we have  the system
+%described with  a set  of $M$ CG variables  that are
+%phase  functions  arranged  into  a column  vector  $\hat{A}(z)$  with
+%components  $\hat{A}_\mu(z),\mu=1,\cdots,M$.   The  corresponding  row
+%vector  is denoted  by $\hat{A}^T$,  where $T$  stands for  transpose.
+%Without  loosing  generality,  we  will assume  that  the  equilibrium
+%average   of    the   CG    variables   vanish.    By    denoting   by
+%$\hat{A}(t)=\hat{A}(z_t)$, the  evolution of these functions  in phase
+%space is given by
+%\begin{eqnarray}
+%\frac{d}{dt}{\hat{A}}(t)=\exp\{i{\cal L}t\}i{\cal L}\hat{A}(z_0)
+%\label{LA}
+%\end{eqnarray}
 
 Mori's  exact  Generalized Langevin  Equation  (GLE)  is an  evolution
 equation for the set of CG variables given by the following theorem\cite{Mori1965,Zwanzig2001,Kubo1991}
@@ -1095,7 +1110,7 @@ denotes an equilibrium average
 \langle\cdots\rangle\equiv \int dz\rho^{\rm eq}(z)\cdots,
 \label{esc}
 \end{equation}
-and  $\rho^{eq}(z)$ is  the  equilibrium  ensemble.
+$\rho^{eq}(z)$ is  the  equilibrium  ensemble, and $\hat{A}^T$ denotes the transpose of the column vector $\hat{A}$.
 The so called projected force is given by
 \begin{align}
 F^+(t)&= \exp\{{\cal Q}i{\cal L}t\} {\cal Q}i{\cal L}\hat{A}  
@@ -1112,7 +1127,7 @@ The  Mori  projector  (\ref{PM})   satisfies  that  ${\cal  P}\hat{A}=
 \hat{A}$ and  transforms an arbitrary  function of phase space  into a
 linear combination  of the  CG variables.   The projected  forces have
 zero  mean  and  are  uncorrelated  from
-previous values of the CG variables, this is 
+previous values of the CG variables, that is, 
 \begin{align}
 \langle  F^+  (t)\rangle&=0  
 \nonumber\\
@@ -1159,10 +1174,10 @@ to the initial ensemble vanishes, i.e.
 one  assumes  that  the  dynamics   is  given  by  a  time-independent
 Hamiltonian  with  a   well-defined  equilibrium  ensemble  $\rho_{\rm
   eq}(z)$.   Therefore,   both  (\ref{exactC})   and  (\ref{exactAve})
-describe  the evolution  of  correlations and  averages towards  their
+describe  the evolution  of  correlations and  averages toward  their
 equilibrium values.
 
-\subsubsection{The Markovian aproximation within Mori Theory}
+\subsubsection{The Markovian aproximation within Mori theory}
 \label{Sec:Markov}
 The   Markovian   approximation   assumes    that   there   exists   a
 time-independent \textit{friction matrix} $M^*$  , that
@@ -1191,7 +1206,7 @@ The   approximation
   \Gamma(t) &\approx& M^*\delta^+(t)
 \label{Markap}
 \end{eqnarray}
-where   the Dirac delta function
+where   the Dirac $\delta$ function
 $\delta^+(t)$ is normalized as
 \begin{align}
   \int_0^\infty dt \delta^+(t) =1
@@ -1260,7 +1275,7 @@ The  usual  rationale  for   justifying  the  Markovian  approximation
 (\ref{Markov1})  goes  as  follows  \cite{Grabert1982,Kubo1991}.   The
 memory  kernel  $\Gamma(t-t')$ is  given  in  terms of  a  correlation
 function  that it  is assumed  to decay  in a  typical molecular  time
-scale.   On the  other hand,  it  is assumed  that the  time scale  of
+scale.   On the  other hand,  it  is assumed  that the  timescale  of
 evolution of the CG variables is  much larger than this molecular time
 and, therefore,  within the  memory integral  $C(t')$ does  not change
 appreciably and we may  approximate $C(t')\simeq C(t)$.  Therefore, we
@@ -1288,7 +1303,7 @@ that  at $t=0$  becomes  the identity  matrix.   The  Markovian
   assumption relies  on a  separation of time  scales. For  some model
   systems  (hydrodynamics of  unconfined  fluids \cite{Selwyn1971}  or
   Brownian  particles \cite{Mazur1970}),  one  can justify  rigorously
-  such a  separation of  time scales as  some parameter  becomes small
+  such a  separation of  timescales as  some parameter  becomes small
   (wavelength or  ratio of masses) and  then usually the order  of the
   limits in the  parameter, time, and system size,  plays an important
   role.  In the  present paper,  we simply  assume that  the Markovian
@@ -1320,7 +1335,7 @@ M(t)&=
 
 Because the projected dynamics is in general more difficult to compute
 than  the  unprojected  dynamics,  one  usually  resorts  to  a  large
-separation  of  time scales  in  order  to approximate  the  projected
+separation  of  timescales  in  order  to approximate  the  projected
 dynamics with  the unprojected  one \cite{Zwanzig1961,Selwyn1971,Mazur1970}.
 For the  Markovian approximation  (\ref{Markov1}) to hold,  the matrix
 $M^+(t)$ in  (\ref{M+c}) needs  to become the  time-independent matrix
@@ -1361,7 +1376,7 @@ eigenvalue.  For  the ergodic  unprojected dynamics  this is  the only
 eigenvector of  null eigenvalue  but for  the projected  dynamics, the
 zero  eigenvalue may  be  degenerate. In  other  words, the  projected
 dynamics  may  have  other  conserved variables  in  addition  to  the
-Hamiltonian that render the evolution  non-ergodic with respect to the
+Hamiltonian that render the evolution  nonergodic with respect to the
 equilibrium  measure.  Assume,  for  example, that  there  is only  one
 eigenvector  $|\psi_1\rangle$  different   from  the  equilibrium  one
 $|\psi_0\rangle$ of null eigenvalue. Then the infinite time limit is
@@ -1380,19 +1395,19 @@ a  Brownian particle  has  been carried  out  showing a  non-vanishing
 plateau  \cite{Mazur1970}.    It  is   believed  that   the  projected
 Green-Kubo matrix $M^+(t)$ has a well-defined plateau in general.
 
-
 In  summary,  the projected  Green-Kubo  matrix  $M^+(t)$ may  have  a
 well-defined plateau  but it is difficult  to evaluate it in  order to
 get  transport  coefficients from  direct  MD  simulations, while  the
 unprojected  Green-Kubo  matrix  $M(t)$  is easily  obtained  from  MD
 simulations but  it usually  suffers from  the plateau  problem giving
-ambiguous values for the transport coefficients.  
+ambiguous values for the transport coefficients.  In Chapter \ref{Chap:PBC} we will address the plateau problem in order to offer an alternative expression of transport coefficients in terms of corrected Green-Kubo formulas with no plateau problem by construction.
 
 \section{Summary}
-\Note{Falta actualizarlo}
-In this chapter we have introduced two important concepts that holds this dissertation. The first one, quasi-equilibrium, states that what we refer to equilibrium of a system depends on the time window we take. If the time of obervation is shorter than the time in which some variables evolve, we may use this variables as CG variables. Because the other variables evolve faster we may assume that are irrelevant for the selected level of description. Therefore, we say that the slow and faster variables evolve in different time scales, which is the second important concept of this chapter. Only when there is a well-separation of time scales we obtain tractable time evolution equation without memory terms. This is known as Markovian descripcion to distinguish from the non-Markovian description in which the present state is determined by the past. 
+In this chapter we have introduced two important concepts that holds this dissertation. The first one, quasi-equilibrium, states that what we refer to equilibrium of a system depends on the time window we take. If the time of obervation is shorter than the time in which some variables evolve, we may use this variables as CG variables. Because the other variables evolve faster we may assume that are irrelevant for the selected level of description. Therefore, we say that the slow and faster variables evolve in different timescales, which is the second important concept of this chapter. Only when there is a well-separation of timescales we obtain tractable time evolution equation without memory terms. This is known as Markovian descripcion to distinguish from the non-Markovian description in which the present state is determined by the past. 
 
-Under the Markovian aproximation, we obtain the general form of the memory-less dynamic equation of the selected variables. In the next chapter we will use this equation to obtain the dynamic equations of the CG variables of a system consisting on a liquid between two solid slabs.  
+Under the Markovian aproximation, we have obtained the general form of the memory-less dynamic equation of the CG variables using the Kawasaki-Gunton projection operator and the time-dependent equation for the correlation of the averages of the CG variables within Mori theory. 
+
+%In the next chapter we will derive the dynamic equations for a set of CG variables of fluid in contact with a solid sphere. We will use the Kawasaki-Gunton formalism as well as in Chapter \ref{Chap:Planar}, where we will derive the discrete version of the hydrodynamic equations. \Note{Mencionar algo de Mori?} 
 
 %We have introduced the relevant ensemble, $\bar{rho}$, based on the idea that the least biased probability distribution function is the one which maximazes the Shannon's entropy functional, which evaluated at its maximum (i.e. the relevant ensemble) is equal to the entropy function $S[a]$ obtained as the legendre transform of the thermodynamic potential $\Phi[\lambda]$.
 
@@ -1420,12 +1435,12 @@ represented with  an {\em  external hard  potential}.  In  the present
 description, a solid  wall is treated with  a coarse-grained procedure
 in which  the atoms of the  wall are eliminated from  the description,
 under the assumption that any elastic (or any other) degree of freedom
-of the  solid is much faster  than the time scales  of the surrounding
+of the  solid is much faster  than the timescales  of the surrounding
 fluid.  The  density functional that  emerges now depends not  only on
 the density  field of the fluid  but also on the  overall CG variables
 that we use to describe the solid.  For simplicity, we focus on a particularly simple particle shape, a solid spherical particle.  By considering the interaction of a  fluid with a solid sphere, we  may address the issue
 of total momentum  conservation that may become rather  obscure if one
-considers ``planar walls with infinite mass''. \Note{No lo veo. ¿Por qué pared de masa infinita? Entiendo los siguientes argumentos acerca de la elección de una esfera, pero no este del momento total.}  Of course, many of the
+considers ``planar walls with infinite mass''. \Note{Duda}  Of course, many of the
 results that we obtain will be  easily transferred to planar walls, as
 limits in which the  mass and the radius of the  solid sphere are both
 very large.   In addition, we  take a spherical particle  because then
@@ -1444,7 +1459,7 @@ important        relevant         variable        at        nanoscales
 \cite{Hansen2009,Hansen2011a}.
 
 The main result of this chapter is a set of dynamic equations that
-govern the non-equilibrium \textit{averages} of hydrodynamic variables
+govern the nonequilibrium \textit{averages} of hydrodynamic variables
 and  the time-dependent  position  and momentum  of  the sphere.   The
 dynamic equations  are of the form  of \textit{non-local} hydrodynamic
 equations  for  the mass  and  momentum  density fields  coupled  with
@@ -1477,7 +1492,7 @@ This   chapter    relies   on   the   pioneering    work   by   Piccirelli
 derived  hydrodynamic   equations  explicitly  from   the  microscopic
 dynamics  of  the fluid  system.   The  resulting   exact  hydrodynamic  equations
 contained  non-local  transport  coefficients   defined  in  terms  of
-Green-Kubo formulae.  In  similar terms, Grossmann \cite{Grossmann1970}
+Green-Kubo formulas.  In  similar terms, Grossmann \cite{Grossmann1970}
 presented a derivation of non-local  hydrodynamics of simple fluids by
 using  essentially  the  same  ideas behind  the  projection  operator
 technique.    While   the    theory   provided   non-local   transport
@@ -1507,12 +1522,11 @@ the extensive field of flow slip at solid surfaces.  However, a debate
 was  initiated  by  Petravic  and  Harrowell  \cite{Petravic2007}  who
 pointed out  that the  Green-Kubo expression  proposed by  Bocquet and
 Barrat provides  not an intrinsic  solid-fluid property but  rather it
-depends on the geometry of the setup.
-\Note{No entiendo: This is due to the fact that the
+depends on the geometry of the setup. 
+This is due to the fact that the
 original expression reflects the total  fluid friction for shear flow,
 including the slip friction at both  interfaces as well as the viscous
-friction  in   the  fluid  \cite{Hansen2011,Kannam2011}. -----Petravic dice que el error proviene de asumir que la perturbación que introducen BB para generar un flujo de Poiseuille corresponde a la velocidad del líquido. Sustituyo esta frase por la siguiente:}. 
-\Pendiente{Petravic and Harrowell states that ``the error arose when the authors assumed that the applied perturbation $\dot{gamma}(z-z_0)$ was the actual liquid velocity''.}
+friction  in   the  fluid  \cite{Hansen2011,Kannam2011}. 
 Hansen  et
 al. \cite{Hansen2011} propose to look at a thin slab of fluid near the
 wall  and propose  a phenomenological  Langevin equation  relating the
@@ -1520,7 +1534,7 @@ velocity of the  center of mass of  the fluid slab and  the force that
 the wall exerts on the slab. The friction coefficient may be computed
 from  equilibrium  MD  simulations  by  comparing  the  velocity-force
 correlation to the velocity-velocity correlations of the slab. Another
-recent approach has considered a Generalized Langevin Equation for the
+recent approach has considered a generalized Langevin equation for the
 velocity of a  single atom of the fluid near  a wall \cite{Huang2014}.
 Recent  work  by   Ramos-Alvarado  et  al.   \cite{Ramos-Alvarado2016}
 compares the above different approaches and concludes that simulations
@@ -1558,7 +1572,7 @@ hard  sphere in  a  sea of  small  hard spheres  and  used both,  Mori
 projection  operator  and  kinetic   theory,  to  derive  hydrodynamic
 equations  coupled to  the motion  of the  Brownian particle  (without
 boundary conditions).   Our method is  more general in  that continuum
-pair-wise   potentials   are   allowed   for,   and   the   non-linear
+pair-wise   potentials   are   allowed   for,   and   the   nonlinear
 Kawasaki-Gunton  projection operator  \cite{Kawasaki1973a} is  used for
 the   coarse-graining   procedure   instead  of   the   simpler   Mori
 projector \cite{Huang2014},   the   latter   being  limited   to   near
@@ -1660,7 +1674,7 @@ center of  mass variables of the  solid as the only  ones necessary to
 describe the  state of the solid  we are implicitly assuming  that the
 remaining  solid  degrees   of  freedom  are  much   faster  than  the
 hydrodynamic  fields.   In  particular,  we assume  that  any  elastic
-behaviour of the solid is  so rapidly decaying towards its equilibrium
+behaviour of the solid is  so rapidly decaying toward its equilibrium
 state  that elastic  variables  do  not need  to  be  included in  the
 description. Should this assumption be violated, the resulting dynamic
 equations (not including  these elastic variables for the solid)
@@ -1726,7 +1740,7 @@ We may write the force that the liquid exerts on the liquid
 \end{align}
 where we  have used that  the indices are  dummy. By using  a standard
 trick \cite{Schofield1982,Grabert1982}, we  may express the difference
-of the Dirac delta functions in terms of a divergence
+of the Dirac $\delta$ functions in terms of a divergence
 \begin{eqnarray}
 \overline\delta({\bf r}-{\bf q}_i)-\overline\delta({\bf r}-{\bf q}_j)
 =&\int_0^1d\epsilon\frac{d}{d\epsilon}
@@ -1740,7 +1754,7 @@ of the Dirac delta functions in terms of a divergence
 
 The liquid  force density  $\hat{\bf F}^{\rm  l\to l}_{\bf  r}(z)$ can
 then be expressed  as the divergence of the  microscopic virial stress
-tensor, this is
+tensor, that is,
 \Note{Si Eq. (\ref{trick}), entonces el $\epsilon$ de Eq. (\ref{micfluxes}) tiene que ser negativo.}
 \begin{align}
 \hat{\bf F}^{\rm l\to l}_{\bf r}(z)&=-\boldsymbol{\nabla}{\cdot} \hat{\boldsymbol{\Pi}}_{\bf r}(z)
@@ -1759,7 +1773,7 @@ The time derivative of the momentum density (\ref{ildens}) becomes
 \end{align}
 where     $\hat{\boldsymbol{\sigma}}_{\bf r}(z)=\hat{{\bf K}}_{\bf
 r}(z)+\hat{\boldsymbol{\Pi}}_{\bf r}(z)$  is the microscopic stress
-tensor of the fluid, this is
+tensor of the fluid, that is,
 \begin{align}
   \hat{\boldsymbol{\sigma}}_{\bf r}=&
 \sum^{N}_i{\bf p}_i{\bf v}_i
@@ -1868,7 +1882,7 @@ $\boldsymbol{\lambda}_R[\rho,{\bf      g},{\bf      R},{\bf      P}]$,
 $\boldsymbol{\lambda}_P[\rho,{\bf g},{\bf  R},{\bf P}]$ exist  and are
 unique.   We  can  therefore   switch  from  the  conjugate  variables
  to  the   relevant   variables  and  construct   the
- corresponding {\em hydrodynamic functional} given   by   the   Legendre    transform   of   the $\lambda$-dependent grand-canonical potential, this is
+ corresponding {\em hydrodynamic functional} given   by   the   Legendre    transform   of   the $\lambda$-dependent grand-canonical potential, that is,
 \begin{align}
 {\cal H}[\rho,{\bf g},{\bf R},{\bf P}] &=
 \Phi [\lambda_\rho,\boldsymbol{\lambda}_g,\boldsymbol{\lambda}_R,\boldsymbol{\lambda}_P]
@@ -1939,12 +1953,12 @@ reaching the following expression
 &\times&\exp\left\{-\beta \left(\boldsymbol{\lambda}_R\cdot\hat{\bf R}-\frac{M'}{2}\boldsymbol{\lambda}_{P}^2\right)\right\},
 \label{xiln2}
 \end{eqnarray}
-where we have introduced the thermal wavelength  \Note{Aunque no hay problemas de confusión, le pongo un subíndice a esta $\Lambda$ para que no coincida con la $\Lambda$ que usamos en las correlaciones?}
+where we have introduced the thermal wavelength  
 \begin{align}
 \Lambda=\left(\frac{h^2\beta}{2\pi m}\right)^{\frac{1}{2}}
 \label{ThermalWave}
 \end{align}
-Together with Eq. (\ref{rgo}) and Eq. (\ref{oh}) \Note{Primera expresión:campo de densidad igual a masa ¿?}
+Together with Eq. (\ref{rgo}) and Eq. (\ref{oh}) \Note{Primera expresión:campo de densidad igual a masa}
 \begin{align}
   \rho({\bf r}) &=\frac{\delta \Phi [\lambda]}{\delta \lambda_\rho({\bf r}) } = \frac{1}{\Xi[\lambda]} \frac{\delta\Xi [\lambda]}{\delta \lambda_{\rho}({\bf r})} = m
   \nonumber\\
@@ -2068,7 +2082,7 @@ with the result
 -\frac{{\bf v}^2({\bf r})}{2}+  \frac{\delta {\cal F}}{\delta\rho({\bf r})}[\rho,{\bf R}]
 \end{align}
 
-The free energy functional is translationally invariant, this is
+The free energy functional is translationally invariant, that is,
 \begin{align}
   {\cal F}[T_{\bf u}\rho,T_{\bf u}{\bf R}]&=  {\cal F}[\rho,{\bf R}]
 \label{fa}
@@ -2117,7 +2131,7 @@ solid and fluid atoms.  Note  that even for the case of
   energy $F[\rho,{\bf R}]$. The potential energy $V({\bf r},{\bf R})$
 becomes infinite (or extremely large)  for the points ${\bf r}$ inside
 the solid  sphere. Therefore, the last  term in (\ref{modelnonlocalF})
-makes impossible the realization of density fields with non-zero value
+makes impossible the realization of density fields with nonzero value
 inside the solid sphere (i.e.  leads to impenetrability of the solid).
 The derivatives of the free energy model (\ref{modelnonlocalF}) are
 \begin{align}
@@ -2163,7 +2177,7 @@ part of the momentum density evolution equation is
 We will compute the terms of Eq. (\ref{grev1}) taking advantage of the Galilean operator. 
 
 
-The Galilean operator changes the velocity arguments from ${\bf v}_i\to {\bf v}_i+{\bf v}({\bf q}_i)$ for each $i$ fluid particle, this is
+The Galilean operator changes the velocity arguments from ${\bf v}_i\to {\bf v}_i+{\bf v}({\bf q}_i)$ for each $i$ fluid particle, that is,
 \begin{align}
 &  {\cal G}\hat{F}({\bf q}_1,\cdots,{\bf q}_N;{\bf p}_1,\cdots,{\bf p}_N)
 \nonumber\\
@@ -2463,7 +2477,7 @@ to the velocities, we obtain the following irreversible dynamics
 \nonumber\\
 \frac{d}{dt}{\bf P}(t)&=-\int d{\bf r}' M^{Pg}_{{\bf r}'}{\bf v}({\bf r}')-M^{PP}{\bf V}
 \label{IrrMark1}\end{align}
-where the matrix elements are  defined in terms of Green-Kubo formulae
+where the matrix elements are  defined in terms of Green-Kubo formulas
 as
 \begin{align}
   M^{gg}_{{\bf r}{\bf r}'}&=\frac{1}{k_BT}\int_0^{\Delta t} dt\langle 
@@ -2540,7 +2554,7 @@ $\boldsymbol{\eta}_{{\bf r}{\bf r}'}$ (fourth  order tensor), the slip
 kernels ${\bf  H}_{{\bf r}{\bf r}'},{\bf G}_{{\bf  r}{\bf r}'}$ (third
 order  tensors), and  the  friction kernel  $\boldsymbol{\gamma}_{{\bf
     r}{\bf  r}'}$ (second  order  tensor).  They  are  defined by  the
-Green-Kubo formulae
+Green-Kubo formulas
 \begin{align}
   \boldsymbol{\eta}_{{\bf  r}{\bf r}'} &\equiv
 \frac{1}{k_BT}\int_0^{\Delta t} dt'\langle 
@@ -2597,7 +2611,7 @@ are the  main results of the present  chapter.  They describe
 the isothermal non-local  hydrodynamics of a  simple fluid coupled with
 the motion of an immersed structureless solid sphere.  These equations
 generalize Equilibrium DFT for a simple fluid to
-non-equilibrium situations in  which the fluid may be  moving around a
+nonequilibrium situations in  which the fluid may be  moving around a
 solid  sphere.  The  only approximation  that  has been  taken in  the
 derivation is the Markovian approximation that neglects memory effects
 in the dissipative part of the dynamics.
@@ -2631,8 +2645,8 @@ becomes fully isotropic and dependent only on the distance between the
 points ${\bf r},{\bf r}'$.}
 
 The  force  density  $\boldsymbol{{\cal S}}({\bf  r})$  involving  the
-non-local transport  kernels ${\bf H}_{{\bf r}{\bf  r}'},{\bf G}_{{\bf
-    r}{\bf r}'}, \boldsymbol{\gamma}_{{\bf  r}{\bf r}'}$ describes the
+non-local transport  kernels ${\bf H}_{{\bf r}{\bf  r}'}$, ${\bf G}_{{\bf r}{\bf r}'}$, 
+$\boldsymbol{\gamma}_{{\bf  r}{\bf r}'}$ describes the
 irreversible interaction between  the solid and the  fluid.  Note that
 these  kernels are  defined  in (\ref{GK})  in  terms of  correlations
 involving the  force density $\hat{\bf  F}^{s\to l}_{\bf r}$  that the
@@ -2660,7 +2674,7 @@ solid boundary.  This  divergence will be reflected  in divergences of
 the  transport kernels  as  ${\bf  r}$ or  ${\bf  r}  '$ approach  the
 boundary  of  the  solid.   In   a  similar  way,  the  stress  tensor
 $\hat{\boldsymbol{\sigma}}_{\bf r}$  that depends  only on  fluid atom
-coordinates will be non-zero only outside the solid sphere because the
+coordinates will be nonzero only outside the solid sphere because the
 interaction with  the solid sphere  refrains to have  liquid molecules
 inside the solid sphere (more  on this later).  Therefore, the surface
 of the solid may be characterized  by the singularity of the transport
@@ -2669,10 +2683,10 @@ coefficients   ${\bf  H}_{{\bf   r}{\bf   r}'},{\bf  G}_{{\bf   r}{\bf
 $\boldsymbol{\eta}_{{\bf r}{\bf r}'}$.
 
 The force density and the stress tensor are assumed to vary in time in
-a time  scale much shorter  than the typical  time scale in  which the
+a time  scale much shorter  than the typical  timescale in  which the
 mass  and  momentum density  of  the  solvent,  and the  position  and
 momentum  of  the solid  sphere  particle  appreciably changes.   This
-separation of time scales is at the  core of the Markovian form of the
+separation of timescales is at the  core of the Markovian form of the
 evolution   of   the   CG   dynamics  in   the   projection   operator
 technique. Whether the selected  relevant variables do actually comply
 with  this separation  of time  scales can  only be  assessed from  the
@@ -2700,7 +2714,7 @@ total  momentum because  the
 momentum lost by the fluid is gained by the solid sphere.
 
 In  addition, the  function ${\cal H}$  evolves in time  in a
-strictly decreasing way, this is
+strictly decreasing way, that is,
 \begin{align}
   \frac{d{\cal H}}{dt}(t)\le 0
 \label{Htheo}\end{align}
@@ -2768,10 +2782,10 @@ functional.
 \subsection{Approximating the relevant ensemble averages and projected
   currents}
 It  should be  remarked that  the theory  presented is  valid, as  the
-H-theorem  clearly testifies,  for the  decaying dynamics  towards the
+H-theorem  clearly testifies,  for the  decaying dynamics  toward the
 equilibrium state in isolated systems. It is, therefore, a theory that
-describes, given initial non-equilibrium values for  the averages of the CG variables,
-the subsequent  average evolution towards equilibrium.   One situation
+describes, given initial nonequilibrium values for  the averages of the CG variables,
+the subsequent  average evolution toward equilibrium.   One situation
 in which  we will  be interested  is when the  solid particle  is very
 large and  massive.  In these situations, we may assume
 that the spherical particle has initial (average) position ${\bf R}_0$
@@ -2900,7 +2914,7 @@ due  entirely to  the eliminated  internal degrees  of freedom  of the
 solid  that are  coarse-grained in  the description,  in terms  of the
 center of mass of the solid sphere. While we have assumed that elastic
 degrees of  freedom for the  solid are  very fast relaxing  degrees of
-freedom  towards equilibrium,  it is  precisely the  unaccounted solid
+freedom  toward equilibrium,  it is  precisely the  unaccounted solid
 degrees  of  freedom  the  responsible  for  the  originators  of  the
 irreversible  surface forces  on the  solvent.  This  point is  subtle
 though.   As we  will  see  in the next chapter, a  slightly
@@ -2938,7 +2952,7 @@ this  may not  be entirely  consistent.  However,  memory kernels  are
 typically uncomputable from MD, as they involve the projected dynamics
 instead of  the real  dynamics. The usual  approximation in  which the
 projected dynamics is substituted with the real, Hamiltonian, dynamics
-is only justified  when, precisely, one has separation  of time scales
+is only justified  when, precisely, one has separation  of timescales
 (i.e.   when the  Markovian dynamics  holds).  We  take the  pragmatic
 point of view  in which we give credit to  the Markovian approximation
 but retain spatially non-local  hydrodynamic equations, by hoping that
@@ -2948,7 +2962,7 @@ approximation  will hold.   This  excludes, perhaps,  shocks or  other
 strongly varying flows.
 
 The theory presented in Sec.  \ref{Sec:Grabert} (and in which the present chapter is based) is valid for \textit{isolated}
-systems that  decay towards the  unique equilibrium state,  abiding to
+systems that  decay toward the  unique equilibrium state,  abiding to
 the  Second Law  of Thermodynamics,  and it  does not  allow to  treat
 forced situations  where there are  external forces applied  either to
 the fluid or to  the solid.  In this respect, no  steady states can be
@@ -2979,7 +2993,7 @@ integro-differential equations.   From a  mathematical point  of view,
 these equations  require the specification of  (mathematical) boundary
 conditions in order  to have a unique solution. What  are the suitable
 boundary conditions to be specified for Eqs.  (\ref{finaleq})?  In the
-present situation,  where only transient dynamics  towards equilibrium
+present situation,  where only transient dynamics  toward equilibrium
 can be  investigated, these boundary  conditions appear as  an initial
 value  problem.  In  addition,  note  that we  have  not included  any
 external confining potential that would model the  confinement of the fluid in a
@@ -3107,7 +3121,7 @@ The  purpose  of  this chapter  is  to  produce  the  discrete
 hydrodynamic  equations involving  a  tractable  amount of  measurable
 information. The  discrete quantities appearing  in the theory  can be
 measured through  equilibrium MD  simulations, and  the theory  may be
-then validated by comparing with non-equilibrium MD simulations.  Such
+then validated by comparing with nonequilibrium MD simulations.  Such
 a comparison  allows us to validate  the only assumption on  which the
 continuum hydrodynamic equations (\ref{finaleq}) are
 based, which  is the  Markovian assumption.   This validation  will be
@@ -3124,7 +3138,7 @@ the numerical  results.
 %size.
 
 In  this chapter  we  derive  with  the technique  of  projection
-operators the  evolution equations for the  non-equilibrium averages of
+operators the  evolution equations for the  nonequilibrium averages of
 the discrete  hydrodynamic variables.   The methodology  follows Refs.
 \cite{Espanol2009i,Espanol2009c,DelaTorre2015,EspanolDonev2015}  where
 a  set of  discrete hydrodynamic  variables are  introduced through  a
@@ -3154,7 +3168,7 @@ and translation invariance along the wall is assumed for the flow.
 %equations involving a tractable amount of measurable information. The
 %discrete quantities  appearing in the  theory can be  measured through
 %equilibrium MD  simulations, and the  theory may be then  validated by
-%comparing  with non-equilibrium  MD  simulations.   Such a  comparison
+%comparing  with nonequilibrium  MD  simulations.   Such a  comparison
 %allows  us to  validate the  only  assumption on  which the  continuum
 %Dynamic Density Functional Theory given in Chapter \ref{Chap:Theory} is
 %based,  which  is  the   Markovian  assumption.   This  validation  conforms the core of the present dissertation  where we  have observed
@@ -3214,13 +3228,13 @@ measure  the non-local  transport kernels.   In the  second step,  the
 discrete  equations  with  the   measured  kernels  should  be  solved
 numerically in order to predict the flow field given a certain initial
 velocity  profile.  In  the  third  step, one  should  run a  separate
-non-equilibrium MD simulation with  the same initial velocity profile.
+nonequilibrium MD simulation with  the same initial velocity profile.
 By   averaging  over   several   initial  microscopic   configurations
 corresponding  to   this  initial   velocity  flow  one   obtains  the
-non-equilibrium  average time  evolution  of the  velocity profile  as
+nonequilibrium  average time  evolution  of the  velocity profile  as
 measured  from MD.   The  comparison of  the predicted  time-dependent
 velocity   profile   with   the    result   obtained   directly   from
-non-equilibrium MD simulations allows one to validate the theory.
+nonequilibrium MD simulations allows one to validate the theory.
 
 \textit{All  these  steps  require  the  discretization  of  space  in
   slabs}. In the  first step, this is necessary in  order to deal with
@@ -3316,7 +3330,7 @@ $\delta_\mu({\bf r})$ is used to  discretize a continuum field $v({\bf
 \end{align}
 On the other hand,  the  basis function  $\psi_\mu({\bf r})$ allows one
 to construct a continuum field out of a discrete set of values through
-interpolation, this is
+interpolation, that is,
 \begin{align}
   \overline{v}({\bf r}) &=v_\mu\psi_\mu({\bf r})
 \label{Cont}
@@ -3390,7 +3404,7 @@ and, by multiplying with the inverse on both sides
 \end{align}
 for all $\nu$.
 
-The discrete  Dirac delta function is  defined in terms of  the finite
+The discrete  Dirac $\delta$ function is  defined in terms of  the finite
 element basis function according to
 \begin{align}
   \delta_\mu({\bf r})\equiv\frac{\Phi_\mu({\bf r})}{{\cal V}_\mu}
@@ -3404,7 +3418,7 @@ the mass matrix of the finite element basis (\ref{Mphi}) through
 M^\psi_{\mu\nu}&={\cal V}_\mu \left[M^{\Phi}\right]^{-1}_{\mu\nu}{\cal V}_\nu
 \label{MdMp}
 \end{align}
-Given the definition (\ref{DelFE}) for the discrete Dirac delta function,  the interpolant basis function given in (\ref{dual}) takes the form
+Given the definition (\ref{DelFE}) for the discrete Dirac $\delta$ function,  the interpolant basis function given in (\ref{dual}) takes the form
 \begin{align}
   \psi_\mu({\bf r})&
   ={\cal V}_\mu \sum_\nu \left[M^{\Phi}\right]^{-1}_{\mu\nu} \Phi_\nu({\bf r})
@@ -3416,7 +3430,7 @@ in terms of the finite element basis function set.
 with the Kawasaki-Gunton projector}
 \label{Sec:derivation}
 In this section, we present a derivation of the governing equations of
-the  dynamics   of  the   non-equilibrium  average  of   the  discrete
+the  dynamics   of  the   nonequilibrium  average  of   the  discrete
 hydrodynamic  variables  from first  principles,  i.e.   based on  the
 projection operator  technique \cite{Grabert1982}, summarized  in Sec.
 \ref{Sec:Grabert} of Chapter \ref{Chap:NESM}.   The CG variables that we
@@ -3584,6 +3598,7 @@ The integral can be easily computed with the result
 &-(z_{j}-z_{\mu+1}) \theta(z_{\mu+1}-z_{j})
 \nonumber\\
 &\left.+(z_i-z_{\mu+1}) \theta (z_{\mu+1}-z_i)\right]
+\label{geoFactor}
 \end{align}
 where  $\theta(a,b)=\theta(a)\theta(b)$  takes  the value  1  if  both
 $a,b>0$, and  zero otherwise.  Note that  $z_\mu(i,j)=z_\mu(j,i)$.  If
@@ -3640,7 +3655,7 @@ pressure following similar lines.
 
 The partitions  of unity (\ref{PartitionUnity}) and  (\ref{zmu1}) ensure
 that the arithmetic average of the stress tensor of the bins gives the
-total stress tensor of the system, this is
+total stress tensor of the system, that is,
 \begin{align}
 \frac{1}{N_{\rm bin}}\sum_{\mu}^{N_{\rm bin}}\hat{\boldsymbol{\sigma}}_{\mu}=\hat{\boldsymbol{\sigma}}
 \end{align}
@@ -3720,10 +3735,10 @@ linear functions as
 \begin{figure}
     \centering
     \includegraphics[scale=0.2]{spiky}
-    \caption[``Spiky'' aproximation]{The microscopic density field $\hat{\rho}_{\bf}(z)$ (black), which is a sum of Dirac delta functions each one located at the position of the particle $i$, is approximated by an interpolation of the discrete microscopic density field $\hat{\rho}(z)_{\mu}$ at the nodes (blue).}
+    \caption[``Spiky'' aproximation]{The microscopic density field $\hat{\rho}_{\bf}(z)$ (black), which is a sum of Dirac $\delta$ functions each one located at the position of the particle $i$, is approximated by an interpolation of the discrete microscopic density field $\hat{\rho}(z)_{\mu}$ at the nodes (blue).}
     \label{fig:spiky}
 \end{figure}
-As illustrated in Fig. (\ref{fig:spiky}), the left  hand side contains  sums of singular Dirac  delta functions,
+As illustrated in Fig. (\ref{fig:spiky}), the left  hand side contains  sums of singular Dirac  $\delta$ functions,
 while the  right hand  side are piece-wise  linear functions  given in
 terms   of   the  discrete   values   $\hat{\rho}_{\sigma} ,\hat{\bf
   g}_\sigma $.   This  approximation  is  expected  to  hold  inside
@@ -3904,7 +3919,7 @@ the equilibrium correlations are computed.
 
 
 %The  transport  kernels  (\ref{MolTransportCoeff}) are  given  through
-%Green-Kubo  formulae.  The  transport  coefficients  are, in  general,
+%Green-Kubo  formulas.  The  transport  coefficients  are, in  general,
 %dependent on the CG state of  the system, through the average with the
 %relevant  ensemble  $\llangle\cdots\rrangle^{\lambda,{\bf v}}$.   This
 %poses a large  complication in its actual evaluation.  We simply assume that  we may approximate the relevant ensemble
@@ -4249,7 +4264,7 @@ need to discretize the  equilibrium density \textit{functional} ${\cal
 $F(\rho)$.    The    way    to   proceed    was    introduced    in
 Ref. \cite{DelaTorre2015}.   We define  the free energy function $F(\rho)$
  as  the result of  evaluating the free energy  functional at
-the interpolated field, this is
+the interpolated field, that is,
 \begin{align}
   F(\rho)&\equiv{\cal F}[\rho_\mu\psi_\mu]
 \label{DefF}
@@ -4275,7 +4290,7 @@ The  function
 \Delta({\bf  r},{\bf  r}')&\equiv\sum_\mu\psi_\mu({\bf  r}')\delta_\mu({\bf r})  
 \label{Delta}
 \end{align}
- is  very similar to a  Dirac delta function
+ is  very similar to a  Dirac $\delta$ function
 (it  has a  width  of the  order  of  the bins  and  is normalized  to
 unity).  When  quantities  change  little  from bin  to  bin,  we  may
 approximate $\Delta({\bf r},{\bf r}')\simeq \delta({\bf r}-{\bf r}')$,
@@ -4478,13 +4493,13 @@ the fluid.
 
 Even for the simplest case of a shear flow (i.e. no compression waves)
 in which  the dynamics is linear  in the velocity field  and that does
-not require a free energy function, one obtains a non-trivial equation
+not require a free energy function, one obtains a nontrivial equation
 (\ref{ShearDisc}). This  equation is not  trivial as it  describes the
 interaction of the fluid with the solid walls not in terms of boundary
 condition but rather in terms of irreversible surface forces.
 
 The discrete hydrodynamic equations obtained  in this chapter are
-the first  step towards the  validation of the  continuum hydrodynamic
+the first  step toward the  validation of the  continuum hydrodynamic
 equations    in   the    presence    of   walls    as   obtained    in Chapter \ref{Chap:Theory}. Only discrete equations  can be dealt with MD
 simulations. 
 %Importantly, we have shown  in the present paper that the
@@ -4502,7 +4517,7 @@ the bins used.  In fact, we  have conducted MD simulations in order to
 evaluate  the kernels  $\eta^{||},G^{||},H^{||},\gamma^{||}$ appearing
 in Eq (\ref{ShearDisc})  describing shear flow. We  have also compared
 the predictions of  the discrete equations with  direct measurement of
-the   flows   starting   from   non-equilibrium   conditions.    These
+the   flows   starting   from   nonequilibrium   conditions.    These
 simulations, that will  be detailed in the following chapters, show that
 for bin sizes $\Delta z$ smaller  than the molecular size the dynamics
 near the walls is non-Markovian. Only for bins larger than a molecular
@@ -4521,15 +4536,10 @@ The resulting  hydrodynamic fields vary on length  scales of supramolecular size
 %-----------------------------------------------------------------
 %CHAPTER 4
 %-----------------------------------------------------------------
-\chapter{Space and time locality of hydrodynamics in periodic boundary conditions}\label{Chap:PBC}
-\markboth{Space and time locality of hydrodynamics in PBC}{}
+\chapter{Space and time locality for unconfined fluids}\label{Chap:PBC}
+\markboth{Space and time locality for unconfined fluids}{}
 \epigraph{\textit{Time is longer than any distance.}}{Absalom, Absalom! \\ WILLIAM FAULKNER}
 \section{Introduction}
-
-%In Chapters \ref{Chap:Theory} and \ref{Chap:Planar} we have derived the dynamic equations of a fluid in contact with a solid sphere and we have discretized the resulting equations using the Kawasaki-Gunton projector operator technique.  
-%In this chapter and the following ones we will study through Mori theory the space and time locality of a simple fluid in periodic boundary conditions and a fluid in between tow solid slab. 
-%
-%In the first part of this chapter -- Sec. \ref{Sec:Mori} -- we offer a simple non-trivial solution to the plateau problem by proposing a new corrected Green-Kubo formulae for the transport coefficientes. This new expression for the transport coefficientes reduces to the standart Green-Kubo formula in the limit of large separation of time scales, but corrects it in those situations where the separation of time scales is not extreme but the Markovian approximation still holds, allowing one to use transport coefficientes instead of memory kernels. 
 
 The well-known Navier-Stokes equations of hydrodynamics govern the behaviour of a fluid at large scales \cite{Bird1987, Clarke1995,Rubbert1968}. These equations are based on the conservation of mass, momentum and energy, and are supplemented with
 boundary conditions  at the  frontier of the  fluid domain. When the
@@ -4539,7 +4549,9 @@ appropriate. Typically,  the atomic structure  of the fluid  starts to
 manifest, and this  leads to a number of interesting  effects, such as
 the layering of the density near  the walls and the appearance of slip
 at the walls.  As a general feature,  the fluid starts to  behave in a
-nonlocal way  in both space and  time.  For unconfined fluids  at the
+nonlocal way  in both space and  time.  
+
+For unconfined fluids  at the
 nanoscale the methods of Generalized Hydrodynamics \cite{Boon1980,Mountain1977,
  Hansen2013,Alley1984}  have been very succesfull  in order
 to  characterize the  dynamics of  fluids  at nanoscales. These scales can  be
@@ -4551,23 +4563,31 @@ Correlation functions of conserved hydrodynamic  and non-hydrodynamic
 variables are defined in Fourier space and measured in MD simulations,
 thus providing a  wealth of information about the  behaviour of fluids
 at small scales \cite{Chung1969,DeSchepper1988,Khayat1989}.
-
 When  the  fluid is  confined,  traslation  invariance is  broken  and
 Fourier  techniques  are   no  longer  as  useful   as  in  unconfined
-fluids. One is therefore, restricted to  work in real space, where the
-hydrodynamic variables should  be defined in a  discrete setting. This
-is  typically  done by  binning  space  and  measuring the  number  of
-particles, average velocity  and energy of the particles  in that bin, as we showed in Chapter \ref{Chap:Planar}.
+fluids. One is, therefore, restricted to  work in real space.
 
-In this chapter we reframe in  real space (as opposed
-to Fourier space) the discussion of  nonlocality in time and space of
-hydrodynamics for unconfined fluids. The  methodology will be  transferrable to
+The aim in the present chapter is to reframe in  real space (as opposed
+to Fourier space) the discussion of  non-locality in time and space of
+hydrodynamics in  a way suitable  for MD simulations. As  discussed in
+Chapter \ref{Chap:Planar},  validation of  a continuum  theory
+through  MD simulations  requires necessarily  the use  of a  discrete
+setting.  This  is typically done  by binning space and  measuring the
+number of particles,  average velocity and energy of  the particles in
+that     bin.      Alternatively,     the     method     of     planes
+\cite{Davis1996,Travis2000}   has  been   used   to  define   discrete
+hydrodynamic     variables.      In      a     number     of     works
+\cite{Espanol2009i,DelaTorre2011,DelaTorre2015,EspanolDonev2015},   Español et al.
+have  discussed  refined strategies  for  the  definition of  discrete
+hydrodynamic variables  in real  space.  The  main objective  of these
+strategies is to match the  bottom up derivation of discrete evolution
+equations with the top down  discretization of continuum equations. \Note{Duda}
+The  methodology will be  transferrable to
 confined fluids allowing  us to discuss wall  effects in Chapters \ref{Chap:Walls} and \ref{Chap:Slip}.  More  specifically, the
 objective  here  is  to  assess  to what  extent  it  makes  sense  to
 approximate  the  dynamics of  discrete  hydrodynamic  variables in  a
 Markovian  way  while,  at  the same  time,  use  nonlocal  transport
 coefficients. 
-
 
 In the study of shear flow of simple fluids at the nanoscale, as those
 occuring  in  nanoscale  pores,  there   seems  to  be  two  different
@@ -4587,7 +4607,7 @@ fluid can be set equal to the corresponding homogeneous transport coefficientes 
 This somewhat  heuristic idea
 was given a rigorous foundation from a kinetic theory for dense fluids
 proposed by Pozhar et al.  \cite{Pozhar1991a}.  From the computational
-side,   Bitsanis  et   al  \cite{Bitsanis1987}   used  Non-Equilibrium
+side,   Bitsanis  et   al  \cite{Bitsanis1987}   used  Nonequilibrium
 Molecular  Dynamics (NEMD)  to produce  Couette-like flows  in several
 external conservative fields and it was shown that the LADM gives good
 results.    More     recent    work    by    Hoang     and    Galliero
@@ -4637,7 +4657,6 @@ diameters.   Todd et  al.   \cite{Todd2008} showed  by using  analytic
 arguments, that (space) nonlocality dominates transport phenomena when
 the variation in the  strain rate is of the order of  the width of the
 viscosity kernel.
-
 It should be  emphasized that all the simulation  work mentioned above
 in which  the nonlocal  viscosity kernel or  the LADM  viscosity have
 been explicitly  computed deal  with \textit{steady  state} situations
@@ -4650,7 +4669,7 @@ The strategy  that we follow in  order to answer
 the question about nonlocality of hydrodynamics is based on the study
 of  \textit{equilibrium time  correlation functions}  of the  discrete
 hydrodynamic variables.  The idea is that a constitutive equation like
-(\ref{GenNewtonian})     should     govern     the     non-equilibrium
+(\ref{GenNewtonian})     should     govern     the     nonequilibrium
 \textit{averages}  of the  momentum  density  field.  Through  Onsager
 regression hypothesis, near equilibrium the correlation functions will
 obey the  same equation as  the one  for the averages  and, therefore,
@@ -4666,745 +4685,34 @@ time  scales is  usually invoked  in such  a way  that an  approximate
 Markovian  differential  equation  is  obtained.   Unfortunately,  the
 resulting Green-Kubo expressions for the transport coefficients suffer
 from   the  well-known   plateau  problem   \cite{Espanol1998},  first
-described in the seminal work by Kirkwood \cite{Kirkwood1949}. In order to avoid the plateau problem, in Sec. \ref{Sec:Mori} we propose an alternative formulation for the transport coefficientes in terms of a  \textit{corrected} Green-Kubo formulae that
+described in the seminal work by Kirkwood \cite{Kirkwood1949}. In order to avoid the plateau problem, in Sec. \ref{Sec:GKsi} we propose an alternative formulation for the transport coefficientes in terms of a  \textit{corrected} Green-Kubo formulas that
 does  not suffer  from the  plateau problem. We will use this expression  in order to evaluate the nonlocal
 transport coefficients.
 
 The distinctive feature of the  Markovian approximation in Mori theory
 is  to  predict  a  (matrix) exponential  decay  of  correlations.  An
-important  point of  the present  paper is  to compute  explicitly the
+important  point of  the present chapter is  to compute  explicitly the
 matrix  exponential  and to  validate  to  what extent  the  predicted
 solution from  the Markovian approximation describes  the actual decay
 of the correlations.
 
-The chapter is structured as follows. In Sec. \ref{Sec:Mori} we summarize
-Mori theory in  order to set the notation and  particularize it to the
-discrete transverse momentum variable, both in real and Fourier space, and we offer the corrected Green-Kubo formula which avoid the plateau problem.
-In Sec. \ref{Sec:SimPBC} we present the simulation results and we conclude
-in Sec. \ref{Sec:SummaryChapPBC}.
+This chapter is structured as follows. 
+In Sec. \ref{Sec:GKsi} we obtain a corrected Green-Kubo formula which avoid the plateau problem. 
+In Sec. \ref{Sec:MoriPBC} we particularize Mori theory to the discrete transverse momentum variable, both in real and Fourier space. 
+In  Sec.  \ref{Sec:Summary-TS}  we  collect  the relevant  theoretical
+results  and  discuss  the  strategy  in  the  simulations.   In  Sec.
+\ref{Sec:SimPBC}  we   present  the  simulation  results. 
 
-
-\section{Mori theory}
-\label{Sec:Mori}
-In this section we present a summary of Mori's theory in order to
-set the notation and present a new Green-Kubo formula which avoid the plateau problem. 
-
-
-At the more microscopic level of description we assume that the system is  well described  by classical  mechanics and  that the  microscopic state $z=\{{\bf q}_i,{\bf p}_i,i=1,\cdots,N\}$  is given by the set of positions  and momenta  of all  the atoms  in the  system.
-At a macroscopic  level, we have  the system described with a  set of CG variables  that are phase functions arranged  into a column vector  $\hat{A}(z)$ with components $\hat{A}_\mu(z),\mu=1,\cdots,M$.   
-The  corresponding  row  vector  is denoted  by  $\hat{A}^T$, where  $T$  stands  for transpose.   
-Without loosing generality, we will assume that the equilibrium average of the CG variables  vanish.  
-By  denoting by  $\hat{A}(t)=\hat{A}(z_t)$, the evolution of these functions in phase space is given by
-\begin{eqnarray}
-\frac{d}{dt}{\hat{A}}(t)=\exp\{i{\cal L}t\}i{\cal L}\hat{A}(z_0)
-\label{LA}
-\end{eqnarray}
-Mori's  exact  Generalized Langevin  Equation  (GLE)  is an  evolution for the set of CG variables given by the following theorem
-\begin{align}
-\frac{d}{dt}\hat{A}(t) &= -L\esc C^{-1}(0)\esc \hat{A} (t)
--\int_0^tdt'\Gamma(t-t')\esc  C^{-1}(0)\esc \hat{A} (t') +F^+(t),
-\label{exact}
-\end{align}
-where the following matrices have been introduced
-\begin{eqnarray}
-L&=&\langle \hat{A}i{\cal L}\hat{A}^T\rangle
-\nonumber\\
-C(0)&=&\langle \hat{A}\hat{A}^T\rangle
-\nonumber\\
-\Gamma(t)&=&\langle F^+(t)F^{+T}(0)\rangle,
-\label{def}
-\end{eqnarray}
-where  $\langle\cdots \rangle$
-denotes an equilibrium average
-\begin{equation}
-\langle\cdots\rangle\equiv \int dz\rho^{\rm eq}(z)\cdots,
-\label{esc}
-\end{equation}
-and  $\rho^{eq}(z)$ is  the  equilibrium  ensemble.
-The so called projected force is given by
-\begin{align}
-F^+(t)&= \exp\{{\cal Q}i{\cal L}t\} {\cal Q}i{\cal L}\hat{A}  
-\label{Proj}
-\end{align}
-The projection operator ${\cal Q}$ is defined as ${\cal Q}=1-{\cal P}$
-where  ${\cal P}$  is Mori's  projector whose  effect on  an arbitrary
-phase function $\hat{F}(z)$ is
-\begin{eqnarray}
-  {\cal P}\hat{F}(z) &=& \langle \hat{F}\rangle+ \langle \hat{F}\hat{A}^T \rangle\esc  C^{-1}(0)\esc  \hat{A}(z)
-\label{PM}
-\end{eqnarray}
-The  Mori  projector  (\ref{PM})   satisfies  that  ${\cal  P}\hat{A}=
-\hat{A}$ and  transforms an arbitrary  function of phase space  into a
-linear combination  of the  CG variables.   The projected  forces have
-zero  mean  and  are  uncorrelated  from
-previous values of the CG variables, this is 
-\begin{align}
-\langle  F^+  (t)\rangle&=0  
-\nonumber\\
-\langle \hat{A} F^+ (t)\rangle&=0 \quad\quad t\ge 0
-\end{align}
-We can introduce the matrix of correlations 
-\begin{align}
-  C(t)&=  \llangle \hat{A}(t)\hat{A}^T\rrangle
-\end{align}
-If we multiply the  exact equation (\ref{exact})  with $\hat{A}^T(z)$
-and  average over  the equilibrium  ensemble, we  obtain a  closed and
-exact equation for the correlation matrix of the CG variables
-\begin{align}
-  \frac{d}{dt}C(t)&=-L\esc C^{-1}(0)\esc C(t)
--\int_0^tdt' \Gamma(t-t')\esc C^{-1}(0)\esc  C(t')
-\label{exactC}
-\end{align}
-Therefore, the GLE (\ref{exact}) allows  one to obtain not only an equation for the correlation of the CG variables, but also an equation for  their averages. 
-If we multiply  (\ref{exact}) with an initial ensemble $\rho_0(z)$ and integrate over the microstates $z$ we obtain
-\begin{align}
-  \frac{d}{dt}a(t) &= -L\esc C^{-1}(0)\esc a(t)
-  -\int_0^tdt' \Gamma(t-t')\esc  C^{-1}(0)\esc a(t')
-\label{exactAve}
-\end{align}
-where the time-dependent average of the CG variables is defined as
-\begin{align}
-  a(t)&=\int dz \rho_0(z) \exp\{i{\cal L}t\}\hat{A}(z)
-\end{align}
-and we have assumed that the average of the projected force with respect
-to the initial ensemble vanishes, i.e.
-\begin{align}
-\int dz\rho_0(z)\exp\{{\cal Q}i{\cal L}t\} {\cal Q}i{\cal L}\hat{A}(z)=0
-\label{F0}
-\end{align}
- Note that in deriving (\ref{exact})
-one  assumes  that  the  dynamics   is  given  by  a  time-independent
-Hamiltonian  with  a   well-defined  equilibrium  ensemble  $\rho_{\rm
-  eq}(z)$.   Therefore,   both  (\ref{exactC})   and  (\ref{exactAve})
-describe  the evolution  of  correlations and  averages towards  their
-equilibrium values.
-
-%\subsection{The Markovian approximation}
-%\label{Sec:MarkovianAprox}
-%The Markovian approximation assumes that the there CG variables evolve in a time scale much larger than the memory time scale. This implies that there exists  a time-independent matrix $M^*$
-%such that  the linear integro-differential term  in Eq. (\ref{exactC})
-%can  be  approximated  by  a  memory-less term,  also  linear  in  the
-%correlation matrix
-%\begin{align}
-%\int_0^tdt' \Gamma(t-t')\esc C^{-1}(0)\esc  C(t')&\simeq M^*\esc C^{-1}(0)\esc C(t)
-%\label{Markov1}
-%\end{align}
-%The  Markovian approximation  (\ref{Markov1})  in  the GLE  (\ref{exact})
-%implies the following evolution equation for the CG variables
-%\begin{align}
-%  \frac{d}{dt}\hat{A}(t) = -\Lambda^*\esc \hat{A} (t) +F^+(t),
-%\label{SDE}
-%\end{align}
-%where the dynamic matrix $\Lambda^*$ is defined as
-%\begin{align}
-%\Lambda^*\equiv(L+M^*)\esc C^{-1}(0)  
-%\label{Lambda}
-%\end{align}
-%The evolution of the average of the CG variables (\ref{exactAve}) under the Markovian approximation is
-%\begin{align}
-%  \frac{d}{dt}a(t) = -\Lambda^*\esc a(t)
-%\label{AproxAve}
-%\end{align}
-%And the evolution equation for the correlations (\ref{exactC}) takes the form  
-%\begin{align}
-%    \frac{d}{dt}C(t)&=-\Lambda^*\esc  C(t)
-%\label{AproxC}
-%\end{align}
-%This is  the evolution  equation of the  correlation matrix  under the
-%Markovian   approximation.    The   form   of   (\ref{AproxAve})   and
-%(\ref{AproxC}) illustrate Onsager's  regresion hypothesis, that states
-%that  (correlations  of) fluctuations   decay  as  the  averages.  Eqs
-%(\ref{AproxAve}), (\ref{AproxC}) show  that the transport coefficients
-%that appear in the transport equation for the averages are the same as
-%the  transport   coefficients  governing   the  correlations   of  the
-%fluctuations in equilibrium.
-%
-%
-%The solution of (\ref{AproxC})  is given by
-%the exponential matrix 
-%\begin{align}
-%  C(t)=\exp\{-\Lambda^* t\}\esc C(0)
-%\label{Csol}
-%\end{align}
-%This is  the main  prediction of  Mori theory that  states that  for a
-%linear Markovian theory  the only possibility for a  correlation is to
-%decay  in an  exponential  matrix  way. This  does  not  mean that  the
-%elements of  the correlation matrix  $C(t)$ decay as  $e^{-\alpha t}$,
-%because they are,  in fact, the sum of many  exponential terms that may
-%lead even to quasi-algebraic decays of correlations, as in the case of
-%hydrodynamics. 
-%%Los autovalores de la matriz C(t) decaen de forma exponencial, pero no los elementos de la matriz C(t). Estos, tal y como se observa en las gráficas de correlaciones se ajustan, en escala logarítmica, casi a una recta. Por eso tienen un comportamiento decayendo a cero casi-algebraico.
-%
-%The Markovian Eq.  (\ref{AproxC})  cannot hold at
-%very short times,  because at $t=0$ the  exact equation (\ref{exactC})
-%implies
-%\begin{align}
-%    \frac{d}{dt}C(0)&=-L
-%\end{align}
-%which is only possible in  (\ref{AproxC}) if $M^*=0$. This paradoxical
-%result can  also be obtained  from Eq.  (\ref{Markov1}) because  if we
-%set $t=0$  in that  equation we obtain  again $M^*=0$.   Therefore, we
-%expect (\ref{AproxC}) to  hold  only after a time
-%$t=\tau$  larger than  the  decay of  the memory  kernel.  This is  an
-%important idea to keep in mind: correlations will decay in a Markovian
-%way only  after the time  beyond which memory  is lost. 
-%%The  value of
-%%$\tau$  should be  explicitly measured  in the  procedure to
-%%validate the Markovian approximation.
-%
-%\subsection{The usual Green-Kubo formula is problematic}
-%In the previous section we have seen that the Markovian approximation assume that the memory kernel $\Gamma(t-t')$ decays in a typical molecular time scale in which $C(t')$ does not change appreciably. Therefore, we may approximate $C(t')\simeq C(t)$ within the memory integral, this is
-%\begin{align}
-%  \int_0^tdt' \Gamma(t-t')\esc c(t')&\simeq  \int_0^tdt' \Gamma(t-t')\esc  c(t)
-%\nonumber\\
-%&\equiv
-%M^+(t)\esc c(t)
-%\end{align}
-%where we have introduced the Green-Kubo running integral
-%\begin{align}
-%M^+(t)&\equiv  \int_0^tdt' \Gamma(t') 
-%\label{Mt}
-%\end{align}
-%and the normalized correlation matrix as
-%\begin{align}
-%  c(t)=C^{-1}(0)\esc C(t)
-%\end{align}
-%that at $t=0$ becomes the identity matrix.
-%
-%
-%For the Markovian approximation (\ref{Markov1}) to hold, we would need
-%that the matrix  $M^+(t)$ becomes time-independent.   Unfortunately,  the  matrix
-%$M^+(t)$ vanishes at $t=0$ and decays to zero at long times. In
-%fact,  the projected  force defined  in (\ref{Proj})  is a  total time
-%derivative
-%\begin{eqnarray}
-%  F^+ (t)&=&\frac{d}{dt}\exp\{{\cal Q}i{\cal L}t\} \hat{A}  
-%\end{eqnarray}
-%and, therefore, the time integral  of a total derivative in (\ref{Mt})
-%can be integrated directly leading to
-%\begin{eqnarray}
-%M^+(t)&=&
-%  \llangle\left(\exp\{{\cal Q}i{\cal L}t\}  \hat{A}\right)F^{+T}(0)  \rrangle
-%\label{m+}
-%\end{eqnarray}
-%where we  have used that  $ \langle \hat{A} (0)  F^{+T}(0) \rangle=0$.
-%For  $t\to\infty$ we  expect a  decorrelation  in the  form $  \langle
-%\exp\{{\cal   Q}i{\cal  L}t\}   \hat{A}F^{+T}(0)  \rangle\to   \langle
-%\hat{A}\rangle \langle  F^+\rangle =0$.   Therefore, as a  function of
-%$t$, the matrix $M^+(t)$ starts from 0  and decays to 0 at large times
-%and, in  general, we do not  expect to find a  time-independent matrix
-%$M^*$  out  of  $M^+(t)$.   
-%In other words: one cannot extend  the upper limit of
-%integration of  the Green-Kubo formulae  to infinity because,  in that
-%limit, the transport  coefficients vanish. 
-%This problem  was  recognized  already  by
-%Kirkwood      as      the      so     called      plateau      problem
-%%\cite{Kirkwood1949,Espanol_Zuniga1993}.
-%\cite{Kirkwood1949, Espanol1992}.
-%
-%The usual  way to  accept that  $M^+(t)\simeq M^*$  is to  assume that
-%$M^+(t)$ increases  very rapidly, in  a ``molecular'' time  scale, and
-%then decays  very slowly, displaying a  plateau, in such a  way that a
-%suitable value for $M^*$ is given by
-%\begin{align}
-%  M^* \simeq \int_0^{\tau} dt'\langle F^+ (t') F^{+T}(0)\rangle 
-%\label{GK0}
-%\end{align}
-%where $\tau$ is an  ``intermediate'' time between  the fast
-%increase and slow decrease of $M(t)$.  It is claimed that the value of
-%$\tau$ is immaterial, provided that  such a ``clear separation of time
-%scales''  (i.e.  fast-up, slow-down  structure  of  the memory  kernel
-%$\Gamma(t-t')$) exists.  Eq (\ref{GK0})  is the  celebrated Green-Kubo
-%formula for the transport coefficients.
-%%Immaterial en inglés, haciendo referencia a tau, quiere decir que no importa demasiado el tiempo tau que escojamos a partir del tiempo t a partir del cual empieza a decaer M(t)  
-%
-%
-%The   approximation
-%(\ref{Markov1}) is equivalent to take
-%\begin{eqnarray}
-%  \Gamma(t) &\approx& M^*\delta^+(t)
-%\label{Markap}
-%\end{eqnarray}
-%where   the Dirac delta function
-%$\delta^+(t)$ is normalized as
-%\begin{align}
-%  \int_0^\infty dt \delta^+(t) =1
-%\end{align}
-%To check it we only have to replace in Eq. (\ref{Mt}) the corresponding expression of $\Gamma(t')$ using Eq. (\ref{Markap})
-%
-%Under the  Markovian approximation,  Eq.  (\ref{Markap})  implies that
-%the  random force  is  delta  correlated in  time,  implying that  the
-%ordinary differential equation (\ref{SDE}) should be interpreted as an
-%stochastic  differential  equation (SDE)  for  times  larger than  the
-%correlation of $F^+(t)$.
-%
-%
-%Unfortunately,  there are  situations  in  which \textit{the  Markovian
-%approximation (\ref{Markov1}) is valid but  a plateau in $M^+(t)$ does
-%not  exist}.  Therefore,  one  cannot estimate  $M^*$ directly  from
-%$M^+(t)$ without  incurring in  large error.   Even in  the case  that a
-%well-defined plateau exists, Eq.  (\ref{GK0}) suffers from yet another
-%problem.  Note  that the projected current  (\ref{Proj}) evolves under
-%the  action of  the  projected dynamics  $\exp\{{\cal Q}i{\cal  L}t\}$
-%which  is  uncomputable numerically  in  a  feasible way.   The  usual
-%strategy  is to  approximate  the projected  dynamics  with the  usual
-%unprojected one $\exp\{{\cal Q}i{\cal L}t\}\simeq \exp\{i{\cal L}t\}$.
-%Although this is a rather  uncontrolled approximation, it is the usual
-%one  in   order  to  compute   the  transport  coefficients   from  MD
-%simulations. In the next section we offer an alternative in which this approximation
-%is not used.
-%
-%
-%
-%\subsection{A corrected Green-Kubo formula with no plateau problem}
-%\label{Sec:CorrectedGK}
-%We now  consider a procedure that  allows one to define  the transport
-%coefficients from  a modified version  of the Green-Kubo  formula even
-%when no  plateau exists, \textit{provided}  the dynamics can  still be
-%approximated by a Markovian equation.
-%
-%The action  of Mori projector  operator on the phase  function $i{\cal
-%  L}\hat{A}$ is
-%\begin{align}
-%{\cal Q} i{\cal L}\hat{A} &= i{\cal L}\hat{A}-\llangle i{\cal L}\hat{A} \hat{A}^T\rrangle\esc \llangle\hat{A}\hat{A}^T\rrangle^{-1}\esc \hat{A}
-%\nonumber\\
-%&=
-%i{\cal L}\hat{A}+L\esc C^{-1}(0)\esc \hat{A}  
-%\label{QiLA}
-%\end{align}
-%Consider then the following time integral
-%\begin{align}
-%M(\tau)&\equiv  \int_0^{\tau} dt \llangle {\cal Q} i{\cal L}\hat{A} (t)i{\cal L}\hat{A}^T\rrangle
-%\nonumber\\
-%&=
-%  \int_0^{\tau} dt \llangle i{\cal L}\hat{A}(t) i{\cal L}\hat{A}^T\rrangle
-%%\nonumber\\
-%%&
-%+L\esc C^{-1}(0)\esc   \int_0^{\tau} dt \llangle \hat{A}(t) i{\cal L}\hat{A}^T\rrangle
-%\end{align}
-%where we distinguish $M(t)$ from $M^+(t)$ because the former
-%involves  the real dynamics $\exp\{i{\cal  L}t\}\hat{A}$, while
-%the later involves the projected dynamics $\exp\{{\cal Q}i{\cal  L}t\}\hat{A}$.
-%We have
-%\begin{align}
-%M(\tau)&=
-%  \int_0^{\tau} dt \frac{d}{dt}\llangle \hat{A}(t) i{\cal L}\hat{A}^T\rrangle
-%%\nonumber\\
-%%&
-%-L\esc C^{-1}(0)\esc   \int_0^{\tau} dt \frac{d}{dt}\llangle \hat{A}(t) \hat{A}^T\rrangle
-%\nonumber\\
-%&=\llangle \hat{A}(\tau) i{\cal L}\hat{A}^T\rrangle-\llangle \hat{A}(0) i{\cal L}\hat{A}^T\rrangle
-%%\nonumber\\
-%%&
-%-L\esc C^{-1}(0)\esc   \llangle \hat{A}(\tau) \hat{A}^T\rrangle
-%+L\esc C^{-1}(0)\esc   \llangle \hat{A}(0) \hat{A}^T\rrangle
-%\nonumber\\
-%&=-\frac{d}{dt}C(\tau)-L\esc c(\tau)
-%\label{Math1}
-%\end{align}
-%This is a mathematical identity that  relates the time integral of the
-%correlation  function $\llangle  {\cal Q}  i{\cal L}\hat{A}  (t)i{\cal
-%  L}\hat{A}^T\rrangle$ with  the correlation  function $C(t)$. 
-%
-%
-%If  we now  assume  that  the correlation  function  $C(t)$ obeys  the
-%Markovian   dynamics   (\ref{AproxC})    with   (\ref{Lambda}),   then
-%Eq. (\ref{Math1}) becomes
-%\begin{align}
-%M(\tau)&\simeq M^*\esc c(\tau)
-%\label{GKCorrected0}
-%\end{align}
-%Although   the   time   integral   in    the   left   hand   side   of
-%(\ref{GKCorrected0}) has  no plateau, as  it is obvious by  looking at
-%the decaying correlation in the right  hand side, it is still possible
-%to infer the friction matrix $M^*$ by multiplying (\ref{GKCorrected0})
-%with the inverse of the normalized correlation, leading to
-%\begin{align}
-%M^*&= \int_0^{\tau} dt \llangle {\cal Q} i{\cal L}\hat{A} (t)i{\cal L}\hat{A}^T\rrangle\esc  c^{-1}(\tau)
-%\label{GKCorrected}
-%\end{align}
-%This  is the new  corrected
-%Green-Kubo  formula  to  calculate  the  friction
-%matrix $M^*$. Note that (\ref{GKCorrected})  can not  be true at  $\tau=0$ as  this would
-%imply $M^*=0$.   However, after a  time in the molecular  time scales,
-%the  right  hand  side  of Eq.   (\ref{GKCorrected})  should  be  time
-%independent provided that the  Markovian description (\ref{AproxC}) is
-%valid.  In the limit of very large separation of time scales, when $M(t)$
-% has   a  ``fast-up,  slow-down''
-%structure, we  may assume  that the  normalized correlation  matrix is
-%very close  to its value at  $t=0$ which is just  the identity matrix,
-%this  is  $ c^{-1}(\tau)\simeq  1$.  In  this  case, we  recover  from
-%(\ref{GKCorrected}) the usual  Green-Kubo prescription (\ref{GK0}) for
-%the transport coefficients.
-%
-%
-%In summary, Eq. (\ref{GKCorrected}) shows  a way to infer the friction
-%matrix  $M^*$  in  the  Markovian equation  (\ref{SDE})  from  a  time
-%integral  even when  it is  not  possible to  identify a  well-defined
-%plateau.
-%
-%Because we have inferred $M^*$  from the fact that the  correlation matrix $C(t)$
-%obeys  the Markovian  equation  (\ref{AproxC}), we may obtain the friction matrix $M^*$
-%by introducing the time dependent matrix
-%\begin{align}
-%\Lambda(t)\equiv-    \frac{d}{dt}C(t)\esc C^{-1}(t)
-%\label{AproxCtau}
-%\end{align}
-%From Eq. (\ref{AproxC}),  if the Markov assumption is  correct, after a
-%molecular  time   $\tau$,  $\Lambda(t)$  should   become  a
-%time-independent matrix  $\Lambda^*$
-%\begin{align}
-%  \lim_{t\to \infty}\Lambda(t)=\Lambda^*
-%\label{toLambda*}
-%\end{align}
-%Therefore, from (\ref{Lambda}) we can obtain the friction matrix as
-%\begin{align}
-%M^*&=  -L+ \Lambda^*\esc C(0)
-%\label{AproxCtau0}
-%\end{align}
-%
-%The  method to  obtain  the  matrix $\Lambda^*$  from  the plateau  of
-%$\Lambda(t)$ in  (\ref{AproxCtau}) needs  high quality  statistics for
-%$C(t)$  and  $\frac{dC}{dt}(t)$.   The  same   is  true  for  the  new
-%Green-Kubo  formulae (\ref{GKCorrected}).   In  fact,  ${C}(t)$ is  an
-%exponentially  decaying matrix,  and $C^{-1}(t)$  is an  exponentially
-%growing matrix.   At very large  times, any statistical error  will be
-%exponentially amplified.  This  means also that $\tau$  should be, in
-%practice, as small as possible in  order to detect a plateau value for
-%$\Lambda(t)$,  and for  which  statistical errors  have  not yet  been
-%amplified to a  catastrophic level.  
-%
-%\Pendiente{
-%We note  that there are  situations in  which the
-%standard  Green-Kubo running  integral indeed  display a  well-defined
-%plateau.  This can only happen if  some of the assumptions made in the
-%argument based on the theorem (\ref{Math1}) do not hold.
-%
-%For example, if we take as CG  variable the position ${\bf r}(t)$ of a
-%tagged  particle  in a  fluid,  we  have the  well-known  mathematical
-%identity
-%\begin{align}
-%\frac{1}{2}\frac{d}{dt}\llangle({\bf r}(t)-{\bf r}(0))^2\rrangle&=  \int_0^tdt'\llangle {\bf v}(t)\esc {\bf v}\rrangle 
-%\end{align}
-%where ${\bf  v}(t)$ is  the velocity of  the particle.   This equation
-%would correspond to  (\ref{Math1}). It is clear that  because the root
-%mean square displacement  is a ``correlation'' that does  not decay to
-%zero, the infinite time integral of  the right hand side does not need
-%to decay  to zero.  It actually  gives a non-zero  value given  by the
-%self-diffusion coefficient.
-%
-%Another example  can be  found whenever  we consider  a
-%conserved  quantity.  Consider,  for  example,  the  momentum  density
-%correlation function in an infinite system in Fourier space,
-%\begin{align}
-%\hat{\bf g}_{\bf k}&=\sum_i^N{\bf p}_i\exp\{i{\bf k}\esc{\bf r}_i\}
-%\end{align}
-%The correlation matrix function is
-%\begin{align}
-%  {\bf C}(k,t)&=\llangle \hat{\bf g}_{\bf k}(t)\hat{\bf g}_{-{\bf k}}\rrangle
-%\end{align}
-%Eq. (\ref{Math1}) now becomes
-%\begin{align}
-%\partial_t  C(k,t)&=-\int_0^tdt'\llangle i{\cal L} \hat{\bf g}_{\bf k}(t) i{\cal L}\hat{\bf g}_{-{\bf k}}\rrangle
-%\end{align}
-%The action of the Liouville operator is well-known
-%\begin{align}
-%  i{\cal L}\hat{\bf g}_{\bf k}=-i{\bf k}\esc\hat{\boldsymbol{\sigma}}_{\bf k}
-%\end{align}
-%where $\hat{\boldsymbol{\sigma}}_{\bf k}$ is the Fourier transform of the Irwing-Kirkwood
-%stress tensor.  Therefore, we have
-%\begin{align}
-%\partial_t  C(k,t)&={\bf k}\esc\boldsymbol{\Theta}(k,t)\esc {\bf k}
-%\label{Ck}
-%\end{align}
-%where the fourth order viscosity tensor is defined as the time integral of the
-%stress correlation function
-%\begin{align}
-%\boldsymbol{\Theta}(k,t)&=  \int_0^tdt'\llangle \boldsymbol{\sigma}_{\bf k}(t) \boldsymbol{\sigma}_{-{\bf k}}\rrangle
-%\label{Theta}
-%\end{align}
-%Eq  (\ref{Ck})  is  what  corresponds now  to  (\ref{Math1})  and  the
-%argument  is  that  because   the  correlation  $C(k,t)$  decays,  the
-%viscosity   tensor   $\boldsymbol{\Theta}(k,t)$  \textit{must}   decay
-%towards zero.   This is  true in  general, but  fails for  the very special
-%value of ${\bf k}={\bf 0}$.  At this  value, we see that the left hand
-%side is zero because, for ${\bf k}={\bf 0}$, $\hat{\bf g}_{{\bf k}=\bf 0}$ is
-%the total momentum  of the system.  As we assume  that the equilibrium
-%average of the CG variables vanish, we are implicitly assuming that we
-%are in  the center  of mass  reference frame of  the fluid,  for which
-%total momentum vanishes.  Therefore, the right hand  side of (\ref{Ck})
-%vanishes at  ${\bf k}=0$.  At the same time, for  ${\bf k}=0$  the Irwing-Kirkwood
-%stress tensor becomes the total stress tensor of the fluid
-%\begin{align}
-%  \hat{\boldsymbol{\sigma}}^{\alpha\beta}_{{\bf k}={\bf 0}}=\sum_i{\bf p}_i{\bf v}_i+\frac{1}{2}\sum_{ij}{\bf r}_{ij}{\bf F}_{ ij}
-%\end{align}
-%and     the     isotropic     fourth    order     viscosity     tensor
-%$\boldsymbol{\Theta}(0,t)$ has  only two independent  components given
-%by  the  standard  Green-Kubo  expressions  for  the  shear  and  bulk
-%viscosities.  Therefore, for ${\bf  k}={\bf 0}$, Eq.  (\ref{Ck}) takes
-%the trivial form ${\bf 0}={\bf 0}\esc \boldsymbol{\Theta}(0,t)\esc{\bf
-%  0}$ and $\boldsymbol{\Theta}(0,t)$ is no longer constrained to decay
-%to  zero anymore  and may  display a  well-defined plateau,  as it  is
-%observed  empirically. However,  for values  of ${\bf  k}\neq 0$,  the
-%resulting (nonlocal) viscosities suffer  necessarily from the plateau
-%problem and  require the  correction presented in  this paper  for its
-%actual  evaluation.   In forthcoming  publications  we  will show  how
-%nonlocal transport  coefficients for discrete hydrodynamics  with and
-%without confining walls can be unambiguously measured by using the new
-%corrected Green-Kubo formula.
-%} %Fin pendiente
-%
-
-\subsection{The Markovian approximation}
-\label{Sec:Markov}
-The   Markovian   approximation   assumes    that   there   exists   a
-time-independent \textit{friction matrix} $M^*$  , that
-  contains the transport  coefficients of the CG  level of description
-such that  the linear integro-differential term  in Eq. (\ref{exactC})
-can  be  approximated  by  a  memory-less term,  also  linear  in  the
-correlation matrix
-\begin{align}
-\int_0^tdt' \Gamma(t-t')\esc C^{-1}(0)\esc  C(t')&\simeq M^*\esc C^{-1}(0)\esc C(t)
-\label{Markov1}
-\end{align}
-% Under  the  Markovian  approximation  Eq.  (\ref{Markap}),  the  exact
-% equation (\ref{exact}) becomes
-% \begin{eqnarray}
-% \frac{d}{dt}{\hat{A} }(t) = -LC^{-1}(0) \hat{A}(t)-M C^{-1}(0)\hat{A}(t) +F^+(t)
-% \label{MSDE}
-% \end{eqnarray}
-% which is,  in principle, an ordinary  differential equation.  However,
-% due to the  rapidly varying correlation of $F^+(t)$  this equation can
-% be interpreted as an stochastic differential equation for times larger
-% than the correlation of $F^+(t)$.
-% In  the  Markovian approximation,  if  we  multiply (\ref{MSDE})  with
-% $\hat{A}(0)$ and average over the equilibrium ensemble we obtain
-
-The  Markov approximation  (\ref{Markov1})  in  the GLE  (\ref{exact})
-implies the following evolution equation for the CG variables
-\begin{align}
-  \frac{d}{dt}\hat{A}(t) = -\Lambda^*\esc \hat{A} (t) +F^+(t),
-\label{SDE}
-\end{align}
-where the \textit{relaxation matrix} $\Lambda^*$ is defined as
-\begin{align}
-\Lambda^*\equiv(L+M^*)\esc C^{-1}(0)  
-\label{Lambda}
-\end{align}
-The   approximation
-(\ref{Markov1}) is equivalent to take
-\begin{eqnarray}
-  \Gamma(t) &\approx& M^*\delta^+(t)
-\label{Markap}
-\end{eqnarray}
-where   the Dirac delta function
-$\delta^+(t)$ is normalized as
-\begin{align}
-  \int_0^\infty dt \delta^+(t) =1
-\end{align}
-Under the  Markovian approximation,  Eq.  (\ref{Markap})  implies that
-the projected  force is delta correlated  in time. As a  consequence, the
-ordinary differential equation (\ref{SDE}) should be interpreted as an
-stochastic  differential  equation (SDE)  for  times  larger than  the
-correlation of $F^+(t)$.
-
-By multiplying (\ref{SDE}) with an initial ensemble $\rho_0(z)$
-satisfying (\ref{F0})
-we obtain the following Markovian equation for the averages
-\begin{align}
-  \frac{d}{dt}a(t) = -\Lambda^*\esc a(t)
-\label{AproxAve}
-\end{align}
-By  multiplying  (\ref{SDE})  with $\hat{A}(0)$  and  averaging  over
-initial conditions sampled from  the equilibrium ensemble, one obtains
-the evolution  equation of the  correlation matrix  under the
-Markovian   approximation
-\begin{align}
-    \frac{d}{dt}C(t)&=-\Lambda^*\esc  C(t)
-\label{AproxC}
-\end{align}
-The form of (\ref{AproxAve})  and (\ref{AproxC}) illustrates Onsager's
-regression hypothesis, that states that (correlations of) fluctuations
-decay  in  the  same  way  as  the  averages.   Eqs  (\ref{AproxAve}),
-(\ref{AproxC}) show that the transport coefficients that appear in the
-transport  equation for  the averages  are the  same as  the transport
-coefficients  governing  the  correlations   of  the  fluctuations  in
-equilibrium.
-
-
- The solution of (\ref{AproxC})  is given by
-the exponential matrix 
-\begin{align}
-  C(t)=\exp\{-\Lambda^* t\}\esc C(0)
-\label{Csol}
-\end{align}
-This is  the main  prediction of  Mori theory that  states that  for a
-linear Markovian theory  the only possibility for a  correlation is to
-decay  in an  exponential  matrix way.  This does  not  mean that  the
-elements of  the correlation matrix  $C(t)$ decay as  $e^{-\alpha t}$,
-because they are, in fact, the  sum of many exponential terms that may
-lead even to quasi-algebraic decays of correlations, as in the case of
-hydrodynamics.
-
-We remark that  the Markovian Eq.  (\ref{AproxC}) cannot  hold at very
-short  times,  because  at  $t=0$ the  exact  equation  (\ref{exactC})
-implies
-\begin{align}
-    \frac{d}{dt}C(0)&=-L
-\end{align}
-which is only possible in  (\ref{AproxC}) if $M^*=0$. This paradoxical
-result can  also be obtained  from Eq.  (\ref{Markov1}) because  if we
-set $t=0$  in that  equation we obtain  again $M^*=0$.   Therefore, we
-expect (\ref{AproxC}) to  hold only after a time  $t=\tau$ larger than
-the decay  of the  memory kernel.   This is a  general feature  of the
-Markovian  approximation showing  that correlations  will decay  in an
-exponential, Markovian  way only  after the  time $\tau$  beyond which
-memory is lost.  The value of  $\tau$ should be explicitly measured in
-any procedure to validate the Markovian approximation.
-
-%\Del{ \section{The standard Green-Kubo formula is problematic}
-%}
-\label{Sec:GKno}
-The  usual  rationale  for   justifying  the  Markovian  approximation
-(\ref{Markov1})  goes  as  follows  \cite{Grabert1982,Kubo1991}.   The
-memory  kernel  $\Gamma(t-t')$ is  given  in  terms of  a  correlation
-function  that it  is assumed  to decay  in a  typical molecular  time
-scale.   On the  other hand,  it  is assumed  that the  time scale  of
-evolution of the CG variables is  much larger than this molecular time
-and, therefore,  within the  memory integral  $C(t')$ does  not change
-appreciably and we may  approximate $C(t')\simeq C(t)$.  Therefore, we
-have
-\begin{align}
-  \int_0^tdt' \Gamma(t-t')\esc c(t')&\simeq  \int_0^tdt' \Gamma(t-t')\esc  c(t)
-\nonumber\\
-&=
-M^+(t)\esc c(t)
-\label{M+c}
-\end{align}
-where we have introduced the \textit{projected} Green-Kubo running integral
-\begin{align}
-M^+(t)&\equiv  \int_0^tdt' \Gamma(t') 
-\nonumber\\
-& =\int_0^tdt' \llangle \left(\exp\{{\cal Q}i{\cal   L}t\}{\cal Q}i{\cal L}\hat{A} \right){\cal Q} i{\cal L}\hat{A}^T\rrangle 
-\label{Mt}
-\end{align}
-and the normalized correlation matrix as
-\begin{align}
-  c(t)=C^{-1}(0)\esc C(t)
-\label{cnorm}
-\end{align}
-that  at $t=0$  becomes  the identity  matrix.   The  Markovian
-  assumption relies  on a  separation of time  scales. For  some model
-  systems  (hydrodynamics of  unconfined  fluids \cite{Selwyn1971}  or
-  Brownian  particles \cite{Mazur1970}),  one  can justify  rigorously
-  such a  separation of  time scales as  some parameter  becomes small
-  (wavelength or  ratio of masses) and  then usually the order  of the
-  limits in the  parameter, time, and system size,  plays an important
-  role.  In the  present paper,  we simply  assume that  the Markovian
-  approximation is a sufficiently good one.
-
-
-We will also consider
-the \textit{unprojected} Green-Kubo running integral
-\begin{align}
-M(t)&\equiv  \int_0^{t} dt' \llangle \left(\exp\{i{\cal   L}t'\}i{\cal L}\hat{A} \right){\cal Q} i{\cal L}\hat{A}^T\rrangle
-\label{Mtau}
-\end{align}
-where we distinguish $M(t)$ from  $M^+(t)$ because the former involves
-the  unprojected  Hamiltonian  dynamics  $\exp\{i{\cal  L}t\}\hat{A}$,
-while the later involves  the projected dynamics $\exp\{{\cal Q}i{\cal
-  L}t\}\hat{A}$.  In  both $M^+(t)$  and $M(t)$  we recognize  a total
-time derivative that allows to perform the time integral explicitly so
-we have the alternative forms
-
-\begin{align}
-M^+(t)&=
-  \llangle\left(\exp\{{\cal Q}i{\cal L}t\}  \hat{A}\right){\cal Q}i{\cal L}\hat{A}^{+T} \rrangle
-\nonumber\\
-M(t)&=
-  \llangle\left(\exp\{i{\cal L}t\}  \hat{A}\right){\cal Q}i{\cal L}\hat{A}^{+T} \rrangle
-\label{m+}
-\end{align}
-%where we  have used that  $ \langle \hat{A} (0)  F^{+T}(0) \rangle=0$.
-
-Because the projected dynamics is in general more difficult to compute
-than  the  unprojected  dynamics,  one  usually  resorts  to  a  large
-separation  of  time scales  in  order  to approximate  the  projected
-dynamics with  the unprojected  one \cite{Zwanzig1961,Selwyn1971,Mazur1970}.
-For the  Markovian approximation  (\ref{Markov1}) to hold,  the matrix
-$M^+(t)$ in  (\ref{M+c}) needs  to become the  time-independent matrix
-$M^*$.  Note that  $M^+(t)$ vanishes at $t=0$ and after  a time $\tau$
-should plateau to a constant value.  If one approximates $M^+(t)\simeq
-M(t)$,  this   would  require  that   $M(t)$  would  have   a  plateau
-itself.  However, this  is not  true because,  for an  ergodic system,
-correlations computed with the unprojected dynamics decay to zero
-\begin{align}
-  \lim_{t\to\infty}M(t)&= \lim_{t\to\infty} \llangle\left(\exp\{i{\cal L}t\}  \hat{A}\right){\cal Q}i{\cal L}\hat{A}^{+T} \rrangle
-\nonumber\\
-&=
- \llangle  \hat{A}\rrangle\llangle{\cal Q}i{\cal L}\hat{A}^{+T} \rrangle=0
-\end{align}
-This  problem was  recognized already  by  Kirkwood as  the so  called
-plateau problem \cite{Kirkwood1949,Espanol_Zuniga1993}  and limits the
-use of the  unprojected Green-Kubo formula $M(t)$  for the calculation
-of transport coefficients.
-
-While $M(t)$  does not have  a plateau,  $M^+(t)$ may actually  have a
-plateau  depending  essentially  on  the  spectrum  of  the  projected
-evolution     operator    $\exp\{{\cal     Q}i{\cal    L}t\}$.      If
-$|\hat{\psi}_\mu\rangle$  are  the   eigenvectors  of  corresponding
-eigenvalues  $\lambda_\mu$  of  ${\cal   Q}i{\cal  L}$,  the  operator
-$\exp\{{\cal Q}i{\cal L}t\}$ admits the eigendecomposition
-\begin{align}
-  \exp\{{\cal Q}i{\cal L}t\}&=\sum_\mu \exp\{-\lambda_\mu t\}|\hat{\psi}_\mu\rangle\langle\hat{\psi}_\mu|
-\end{align}
-in Dirac ket and bra notation, where the inner product is defined with
-the equilibrium ensemble.  The matrix $M^+(t)$ then has the form
-\begin{align}
-  M^+(t)&=
-\sum_\mu \exp\{-\lambda_\mu t\} \langle \hat{A}|\hat{\psi}_\mu\rangle
-\langle\hat{\psi}_\mu|{\cal Q}i{\cal L}\hat{A}^{+T} \rangle
-\end{align}
-Note  that  the  equilibrium  eigenvector  $|\psi_0\rangle$  has  zero
-eigenvalue.  For  the ergodic  unprojected dynamics  this is  the only
-eigenvector of  null eigenvalue  but for  the projected  dynamics, the
-zero  eigenvalue may  be  degenerate. In  other  words, the  projected
-dynamics  may  have  other  conserved variables  in  addition  to  the
-Hamiltonian that render the evolution  non-ergodic with respect to the
-equilibrium  measure.  Assume,  for  example, that  there  is only  one
-eigenvector  $|\psi_1\rangle$  different   from  the  equilibrium  one
-$|\psi_0\rangle$ of null eigenvalue. Then the infinite time limit is
-\begin{align}
-M^*&=\lim_{t\to\infty}  M^+(t)=\langle \hat{A}|\hat{\psi}_1\rangle
-\langle\hat{\psi}_1|{\cal Q}i{\cal L}\hat{A}^{+T} \rangle
-\end{align}
-This is an expression for the transport coefficients $M^*$ in terms of
-equilibrium averages.  Of  course, the calculation of  the spectrum of
-${\cal Q}i{\cal L}$, or the identification of the additional conserved
-quantities of  the projected dynamics is  not an easy task  in general
-but it has been carried out for  a model system of a Brownian particle
-in a  double well-potential \cite{Wu1989}. Also,  under a perturbation
-scheme, the time integral of the correlation of the projected force of
-a  Brownian particle  has  been carried  out  showing a  non-vanishing
-plateau  \cite{Mazur1970}.    It  is   believed  that   the  projected
-Green-Kubo matrix $M^+(t)$ has a well-defined plateau in general.
-
-
-In  summary,  the projected  Green-Kubo  matrix  $M^+(t)$ may  have  a
-well-defined plateau  but it is difficult  to evaluate it in  order to
-get  transport  coefficients from  direct  MD  simulations, while  the
-unprojected  Green-Kubo  matrix  $M(t)$  is easily  obtained  from  MD
-simulations but  it usually  suffers from  the plateau  problem giving
-ambiguous values for the transport coefficients. 
-
-
-\subsection{A corrected Green-Kubo formula with no plateau problem}
+\section{A corrected Green-Kubo formula with no plateau problem}
 \label{Sec:GKsi}
+
+In this section we address the plateau problem that appears in the expression of transport coefficient in terms of the unprojected Green-Kubo runningintegrals. When the dynamic of the CG variables is Markovian, but with not an extreme separation of tiem scales, the decay of the unprojected Green-Kubo running integral does not allow to determine unambiguously the value of the transport coefficientes. 
+
 We  now consider  a  procedure that  allows one  to  
-  obtain the  friction matrix  $M^*$
+obtain the  friction matrix  $M^*$
 from a modified version of the Green-Kubo formula even when no plateau
-exists, \textit{provided} the dynamics can still be approximated
-  by a  Markovian equation is  Markovian in  such a  way that
+exists, \textit{provided} the dynamics 
+is  Markovian in  such a  way that
   correlations of CG variables obey (\ref{AproxC}).
 
 The action  of Mori projector  operator on the phase  function $i{\cal
@@ -5425,7 +4733,7 @@ M(t)&=
 L\esc C^{-1}(0)\esc   \int_0^{t} dt' \llangle \hat{A}(t') i{\cal L}\hat{A}^T\rrangle
 \end{align}
 By using the identity $\frac{d}{dt}\hat{A}(z_t)=i{\cal L}\hat{A}(z_t)$
-and the  fact that  the Liouville  operator  satisfies  $
+and the  fact that  the Liouville  operator satisfies  $
 \llangle   \hat{A}(t)   i{\cal  L}\hat{A}^T\rrangle=-\llangle   i{\cal
   L}\hat{A}(t) \hat{A}^T\rrangle$ we obtain
 \begin{align}
@@ -5454,25 +4762,6 @@ This is a mathematical identity that  relates
   the unprojected Green-Kubo matrix $M(t)$ with the correlation matrix $C(t)$ of the CG variables. It shows
 that $M(t)$ cannot have a plateau for an ergodic system where $\lim_{t\to\infty}C(t)= 0$. 
 
-% {\color{magenta} From the two exact Eqs (\ref{exactC}) and (\ref{Math1}) we then
-% obtain
-% \begin{align}
-% M(t)&=\int_0^tdt' \Gamma(t-t')\esc c(t')
-% \label{exactMC}
-% \end{align}
-% If the Markov approximation (\ref{M+c}) is valid we obtain 
-% \begin{align}
-% M(t)&\simeq M^+(t)\esc c(t)
-% \label{exactMC2}
-% \end{align}
-% and if $M^+(t)\to M^*$ after a time $\tau$, we end up with
-% \begin{align}
-% M(t)&\simeq M^*\esc c(t)
-% \label{exactMC3}
-% \end{align}
-
-% }
-
 If  we now  assume  that  the correlation  function  $C(t)$ obeys  the
 Markovian   dynamics   (\ref{AproxC})    with   (\ref{Lambda}),   then
 Eq. (\ref{Math1}) becomes
@@ -5483,8 +4772,8 @@ M(\tau)&\simeq M^*\esc c(\tau)
 This expression shows that the unprojected Green-Kubo matrix decays as the correlation
 of the CG variables.
 Although   the   time   integral   in    the   left   hand   side   of
-(\ref{GKCorrected0}) has  no plateau
-it is still possible
+(\ref{GKCorrected0}) has  no plateau as  it is obvious by  looking at
+the decaying correlation in the right  hand side, it is still possible
 to infer the friction matrix $M^*$ by multiplying (\ref{GKCorrected0})
 with the inverse of the normalized correlation, leading to
 \begin{align}
@@ -5496,8 +4785,8 @@ to calculate  the friction matrix  $M^*$ from MD simulations  and does
 not  suffer from  the plateau  problem by  construction, provided  the
 dynamic is Markovian.  Eq.  (\ref{GKCorrected})  is the main result of
 the present paper.  Eq.   (\ref{GKCorrected}) is conceptually pleasing
-as it  displays in  very graphical terms  why the  unprojected Green-Kubo
-integral  (\ref{GK0}) has  no plateau  -- in  fact, it  decays as  the
+as it  displays in  very graphical terms  why the unprojected Green-Kubo
+integral  (\ref{Mtau}) has  no plateau  -- in  fact, it  decays as  the
 correlation matrix itself.  It is obvious that (\ref{GKCorrected}) can
 not be true at $\tau=0$ as this would imply $M^*=0$.  However, after a
 time  in  the molecular  time  scales,  the  right  hand side  of  Eq.
@@ -5507,8 +4796,8 @@ large  separation  of  time  scales,  when  $M(t)$  has  a  ``fast-up,
 slow-down'' structure,  we may assume that  the normalized correlation
 matrix is very close to its value  at $t=0$ which is just the identity
 matrix, this  is $  c^{-1}(\tau)\simeq 1$.  In  this case,  we recover
-from   (\ref{GKCorrected})   the  unprojected   Green-Kubo   prescription
-(\ref{GK0}) for the transport coefficients.
+from   (\ref{GKCorrected})   the unprojected   Green-Kubo   prescription
+(\ref{Mtau}) for the transport coefficients.
 
 
 In summary, Eq. (\ref{GKCorrected}) shows  a way to infer the friction
@@ -5549,7 +4838,7 @@ case of hydrodynamics near walls that we discuss elsewhere.
 The  method to  obtain  the  matrix $\Lambda^*$  from  the plateau  of
 $\Lambda(t)$ in  (\ref{AproxCtau}) needs  high quality  statistics for
 $C(t)$  and  $\frac{d}{dt}C(t)$.   The  same   is  true  for  the  new
-Green-Kubo  formulae (\ref{GKCorrected}).   In  fact,  ${C}(t)$ is  an
+Green-Kubo  formulas (\ref{GKCorrected}).   In  fact,  ${C}(t)$ is  an
 exponentially  decaying matrix,  and $C^{-1}(t)$  is an  exponentially
 growing matrix.   At very large  times, any statistical error  will be
 exponentially amplified.  This  means also that $\tau$  should be, in
@@ -5558,10 +4847,9 @@ $\Lambda(t)$,  and for  which  statistical errors  have  not yet  been
 amplified to a  catastrophic level.  
 
 
-
 \section{Mori theory for shear hydrodynamics}
 \label{Sec:MoriPBC}
-In this section, we use Mori theory in the notation presented in Sec. \ref{Sec:Mori} for predicting the dynamics of equilibrium correlations of transverse momentum density in a periodic box in the time domain. 
+In this section, we use Mori theory in the notation presented in Sec. \ref{Sec:Mori} for predicting the dynamics of equilibrium time correlations of the discrete transverse momentum density in a periodic box. 
 \subsection{The CG variables}
 \label{Sec:CGVariablesPBC}
 In Chapter \ref{Chap:Planar} we gave a detailed description of the definitions of the geometry and the definition of the CG variables. In this section we have a system like the showed in Fig. \ref{fig:PBCBox}
@@ -5601,7 +4889,7 @@ $\mu$   \Note{Realmente la única variable relevante es el momento.}
 %\label{rhogmumic}
 \end{align}
 where ${\bf r}_i,{\bf p}_i$ are the position and momentum of particle $i$, 
- the discrete Dirac delta function as 
+ the discrete Dirac $\delta$ function as 
 \begin{align}
 \delta_\mu({\bf r})&=  \frac{1}{{\cal V}_\mu}\Phi_\mu({\bf r})
 \label{delta}
@@ -5617,7 +4905,7 @@ information about the  mass of fluid molecule $i$ that  depends on the
 distance of this molecule to the  nodal plane $\mu$, and similarly for
 the  momentum.   The  microscopic  variables  (\ref{rhogmumic})  give,
 essentially, the number  of particles and momentum per  unit volume of
-the particles that happen to be ``around'' the nodal plane $\mu$.  The rationale for using this definition has been discussed in Chapter (\ref{Chap:Planar})
+the particles that happen to be ``around'' the nodal plane $\mu$.  The rationale for using this definition has been discussed in Chapter \ref{Chap:Planar}.
 
 
 Note that the finite  element basis  functions $\Phi_\mu({\bf  r})$  form a
@@ -5640,13 +4928,11 @@ $\hat{\bf  P}_T(z)$ of  the  system.  These  are  quantities that  are
 conserved under  the Hamiltonian  evolution of the  microscopic state.
 
 
-In this work we  will only  consider the correlations  of the
-component  $\hat{g}^1_\mu$ of  the  momentum density  parallel to  the
+We  will only  consider the correlations  of the
+component  $\hat{g}^x_\mu$ of  the  momentum density  parallel to  the
 bins. These variables are collected into the $N_{\rm bin}$-dimensional
-vector           $\hat{g}(z)=\{\hat{g}^1_1(z),\cdots,\hat{g}^1_{N_{\rm
-    bin}}(z)\}$ of the $x$ component  of the discrete momentum density
-of each of the ${N_{\rm bin}}$ bins in which the periodic box has been
-divided.  We  have checked  through MD  simulations that  the coupling
+vector           $\hat{g}(z)=\{\hat{{\bf g}}^x_1(z),\cdots,\hat{{\bf g}}^x_{N_{\rm
+    bin}}(z)\}$.  We  have checked  through MD  simulations that  the coupling
 between  this  component  and   the  rest  of  hydrodynamic  variables
 (density,  other momentum  components) is  negligible.  Therefore,  we
 expect  that a  theory  of  just the  transverse  momentum  is a  good
@@ -5655,25 +4941,48 @@ candidate for  a Markovian theory.
 %requires both the mass density  and the perpendicular component of the
 %discrete momentum will be considered elsewhere.
 
-\subsection{The dynamics}
-\label{Sec:Trans}
-The correlation matrix of the  CG variables $\hat{A}$, assumed to have zero
-equilibrium average, is 
-\begin{align}
-  C(t)&=\llangle \hat{A}(t)\hat{A}^T\rrangle
-\end{align}
-where the $\llangle\cdots\rrangle$ denotes the equilibrium average and
-$T$ is for transpose. 
+%\subsection{The dynamics}
+%\label{Sec:Trans}
+%The correlation matrix of the  CG variables $\hat{A}$, assumed to have zero
+%equilibrium average, is 
+%\begin{align}
+%  C(t)&=\llangle \hat{A}(t)\hat{A}^T\rrangle
+%\end{align}
+%where the $\llangle\cdots\rrangle$ denotes the equilibrium average and
+%$T$ is for transpose. 
+%
+%Mori theory for correlations presented in Sec. (\ref{Sec:Mori}) allows us to obtain the evolution of the matrix of correlations $C(t)$ as
+%\begin{align}
+%    \frac{d}{dt}C(t) = -(L+M^*)\cdot C^{-1}(0)\cdot C(t),
+%\end{align}
+%where we have use the equations (\ref{AproxC}), (\ref{Lambda}) and the normalized correlation matrix defined as
+%\begin{align}
+%  c(t)=C^{-1}(0)\esc C(t)
+%\end{align}
+%Note that the reversible matrix $L$ vanishes because it involves an equilibrium average of a function that is even in the momentum variables. Therefore
+%\begin{align}
+%    \frac{d}{dt}C(t) = -k_BTM^*\cdot c(t)
+%    \label{AproxCg}
+%\end{align}
+%where, in order to make contact  with known results, we have redefined
+%the transport  matrix $M^*$  by introducing  a prefactor  $k_BT$ where
+%$k_B$ is Boltzman's constant and $T$ the equilibrium temperature. 
+%%As a final
+%%remark, note that the Markovian equation (\ref{AproxCg}) cannot hold at
+%%$t=0$, because in that case we get $0=-k_BTM^*$, which is non-sense. Clearly,
+%%such a Markovian equation can only hold beyond certain time $\tau$, related
+%%to the neglected memory.
 
-Mori theory for correlations presented in Sec. (\ref{Sec:Mori}) allows us to obtain the evolution of the matrix of correlations $C(t)$ as
+\subsection{The Green-Kubo running integral $M(t)$}
+Mori theory for correlations presented in Sec. \ref{Sec:Mori} allows one to obtain the evolution of the matrix of correlations $C(t)$ as
 \begin{align}
     \frac{d}{dt}C(t) = -(L+M^*)\cdot C^{-1}(0)\cdot C(t),
 \end{align}
-where we have use the equations (\ref{AproxC}), (\ref{Lambda}) and the normalized correlation matrix defined as
+where we have use Eqs. (\ref{AproxC}),  (\ref{Lambda}) and the normalized correlation matrix defined as
 \begin{align}
   c(t)=C^{-1}(0)\esc C(t)
 \end{align}
-Note that the reversible matrix $L$ vanishes because it involves an equilibrium average of a function that is even in the momentum variables \Note{Comprobarlo}. Therefore
+Note that the reversible matrix $L$ vanishes because it involves an equilibrium average of a function that is even in the momentum variables. Therefore
 \begin{align}
     \frac{d}{dt}C(t) = -k_BTM^*\cdot c(t)
     \label{AproxCg}
@@ -5681,13 +4990,7 @@ Note that the reversible matrix $L$ vanishes because it involves an equilibrium 
 where, in order to make contact  with known results, we have redefined
 the transport  matrix $M^*$  by introducing  a prefactor  $k_BT$ where
 $k_B$ is Boltzman's constant and $T$ the equilibrium temperature. 
-%As a final
-%remark, note that the Markovian equation (\ref{AproxCg}) cannot hold at
-%$t=0$, because in that case we get $0=-k_BTM^*$, which is non-sense. Clearly,
-%such a Markovian equation can only hold beyond certain time $\tau$, related
-%to the neglected memory.
 
-\subsection{The Green-Kubo running integral $M(t)$}
 The friction matrix $M^*$ in (\ref{GKCorrected}) is
 related to the standard Green-Kubo running integral
 \begin{align}
@@ -5695,16 +4998,16 @@ M(t)&=\frac{1}{k_BT}\int_0^{t}dt' \llangle i{\cal L}\hat{g}(t')i{\cal L}\hat{g}^
 \label{Mmunu}
 \end{align}
 that  involves the  time
-derivative of the  momentum density which, as shown  in Eq. \Pendiente{(\ref{} Versión disceta)}, is
+derivative of the  momentum density which, as shown  in Eq. (\ref{Equivalence}), is
 given by
 \begin{align}
-  i{\cal L}  \hat{g}_{\mu}(z)&=-\frac{\hat{\sigma}^{13}_{\mu}-\hat{\sigma}^{13}_{\mu-1}}{\Delta z}
+  i{\cal L}  \hat{g}_{\mu}(z)&=-\frac{\hat{\sigma}^{xz}_{\mu}-\hat{\sigma}^{xz}_{\mu-1}}{\Delta z}
 \label{iLAcurrentx}
 \end{align}
 This  is a  discrete expression  of the  momentum balance  equation in
 which the time rate of change of the momentum of the node $\mu$ is due
 to   the   finite   difference   gradient   of   the   stress   tensor
-$\hat{\sigma}^{13}_{\mu}$  of  the  neighbour bins.   The 
+$\hat{\sigma}^{xz}_{\mu}$  of  the  neighbour bins.   The 
 microscopic   stress   tensor   of  bin $\mu$ is 
 
 \begin{align}
@@ -5717,8 +5020,8 @@ microscopic   stress   tensor   of  bin $\mu$ is
 \label{sbin}
 \end{align}
 where $\chi_\mu({\bf r})$ is the  characteristic function of bin $\mu$
-and $z_{\mu}(i,j)$ is the fraction of the distance between atoms $i,j$
-that happens to be within bin $\mu$ (\Pendiente{\ref{} Ref.Versión discreta}).
+and $z_{\mu}(i,j)$, introduced in Eq. (\ref{geoFactor}) is the fraction of the distance between atoms $i,j$
+that happens to be within bin $\mu$.
 
 We may write Eq. (\ref{iLAcurrentx}) in matrix form as
 \begin{align}
@@ -5784,6 +5087,8 @@ where we have introduced  the discrete Laplacian matrix (for PBC) as
 \right)
 \end{align}
 
+\subsection{The  friction   matrix  $M^*$  and  the   nonlocal  shear viscosity matrix}
+
 Note that the Green-Kubo integral (\ref{Mmunu}) can also be written
 in the form
 \begin{align}
@@ -5793,7 +5098,7 @@ in the form
 =  -\frac{1}{k_BT}\frac{d}{dt}\llangle \hat{g}(t) \hat{g}^T\rrangle=-\frac{1}{k_BT}\frac{d}{dt}C(t)
 \label{E1}
 \end{align}
-Therefore,  Eqs  (\ref{MmunuMat}),(\ref{E1})  lead  to  the  following
+Therefore,  Eqs.  (\ref{MmunuMat}), (\ref{E1})  lead  to  the  following
 \textit{rigorous and exact} result
 \begin{align}
 \frac{d}{dt}C(t)&= k_BT \Delta\esc \eta(t)
@@ -5806,8 +5111,6 @@ plateau, as it should decay according to the time derivative of $C(t)$
 and,  hence, from  (\ref{AproxC})  as the  correlation matrix  $C(t)$
 itself.
 
-\subsection{The  friction   matrix  $M^*$  and  the   nonlocal  shear
-  viscosity matrix}
 By analogy with  (\ref{MmunuMat}), we assume that the  friction matrix $M^*$ in
 (\ref{AproxCg}) has the structure
 \begin{align}
@@ -5848,6 +5151,7 @@ $C(t)\esc v=0$  due to total momentum  conservation in PBC.
 In the next section we take advantage of the periodicity and the translational invariance of the system in order to deal with that issue in Fourier space. 
 
 \subsection{Fourier space}
+\label{Sec:Fourier}
 Consider the unitary matrix with elements
 \begin{align}
 E_{\mu\nu}=\frac{1}{\sqrt{N_{\rm bin}}}\exp\left\{i\frac{2\pi}{N_{\rm bin}}\mu\nu\right\}
@@ -5867,7 +5171,7 @@ with the inverse relation
      A&=E\esc  \tilde{A}\esc{E}^{-1}
 \label{FT}
 \end{align}
-The discrete Laplace operator diagonalizes in Fourier space, this is
+The discrete Laplace operator diagonalizes in Fourier space, that is,
 \begin{align}
   E^{-1}  \esc {\Delta} \esc E= \tilde{\Delta}
 \label{EDE}
@@ -5970,12 +5274,9 @@ we finally reach
 Therefore, the eigenvalue $\tilde{\eta}_{00}(t)$ can be computed independently from
 the local shear viscosity.
 
-\subsection{The nonlocal kinematic viscosity matrix}
-It is convenient to introduce the nonlocal kinematic viscosity matrix
-$\nu^*$ as  the nonlocal shear  viscosity matrix $\eta^*$  divided by
-some ``mass density''. As we will see, the notion of locality in space
-is best addressed with the kinematic  viscosity and that is the reason
-of introducing it here. In  a discrete setting, the connection between
+\subsection{The nonlocal kinematic viscosity matrix $\nu^*$}
+As we will see, the notion of locality in space
+is best addressed with the kinematic  viscosity, which is the nonlocal shear visocisity matrix $\eta^*$ divided by some ``mass density''. In  a discrete setting, the connection between
 the  discrete momentum  and  the discrete  velocity  is slightly  more
 involved than  in the continuum  for which  one has the  simple result
 ${\bf g}({\bf  r})=\rho({\bf r}){\bf  v}({\bf r})$.  In  the discrete,
@@ -6016,7 +5317,7 @@ The last  term in (\ref{MassMat}) scales  as the inverse of  the total
 number  $N$ of  particles and  it is  negligible in  the thermodynamic
 limit.  However, we  should keep it as it  has observable consequences
 in  our simulations.   In fact,  this  term is  responsible for  total
-momentum conservation (\ref{DiscCons}), this is
+momentum conservation (\ref{DiscCons}), that is,
 \begin{align}
   \sum_\mu{\cal V}_\mu\llangle \hat{g}_\mu\hat{g}_\nu\rrangle &=0
 \end{align}
@@ -6044,6 +5345,9 @@ takes the diagonal form
 \begin{align}
   \tilde{\nu}_\mu^*&=  \frac{{\cal V}_\mu \tilde{\eta}_\mu^*}{\tilde{\rho}_\mu}
 \end{align}
+
+\subsection{The equations for the average}
+
 We now show why we refer to the matrix $\eta^*$ as the nonlocal shear
 viscosity  and  to  the  matrix $\nu^*$  as  the  nonlocal  kinematic
 viscosity.   According   to  Mori  theory,  which   encompass  Onsager
@@ -6056,51 +5360,100 @@ discrete momentum should evolve according to a vector equation analogous to
 % \eta^*\esc k_BTC^{-1}(0)\esc g(t)
 \label{dgDnug}
 \end{align}
-where we have defined the discrete velocity field $v$ according to
+where we have defined the discrete velocity field $v=({\bf v}_1^{x},\cdots,{\bf v}^{x}_{N_{bin}})$ according to
 
 \begin{align}
-  v_\mu&\equiv\sum_\nu \rho_{\mu\nu}^{-1}g_\nu
+  v^{x}_\mu&\equiv\sum_\nu \rho_{\mu\nu}^{-1}{\bf g}^{x}_\nu
 \label{vel}
 \end{align}
+
 The matrix  $\rho_{\mu\nu}$ defined in (\ref{MassMat})  has dimensions
 of a mass density and it  is fairly diagonal.  Its inverse $\rho^{-1}$
 is concentrated on the diagonal (in fact, it decays exponentially fast
-as we move out from the diagonal).  Because of this, we may interprete
+as we move out from the diagonal).  Because of this, we may interpret
 $v_\mu$ defined in (\ref{vel}) as a velocity that contains information
 about   the   discretization   method   used.    The components of
 Eq. (\ref{dgDnug}) are
 \begin{align}
-  \frac{d}{dt}{g}_\mu(t)&=
+  \frac{d}{dt}{\bf g}^x_\mu(t)&=
 -\sum_\nu{\cal V}_\nu 
 \frac{\left[
-\eta^*_{\mu+1\nu}-2\eta^*_{\mu\nu}+\eta^*_{\mu-1\nu}\right]}{\Delta z^2}{v}_\nu^1(t)
+\eta^*_{\mu\nu}-\eta^*_{\mu-1\nu}-\eta^*_{\mu\nu-1}+\eta^*_{\mu-1\nu-1}\right]}{\Delta z^2}{\bf v}_\nu^{x}(t)
+% \nonumber\\
+% &+\hat{F}^+_\mu(t)
 \end{align}
-where we have used the translation invariance of the viscosity matrix.
-By a suitably rellabeling  of indices we have
+This equation for the non-equilibrium  average is identical to the one
+obtained in Chapter \ref{Chap:Planar} with the Kawasaki-Gunton projector.
+
+By a suitably relabeling  of indices and 
+by using the translation invariance of the viscosity matrix we have
 \begin{align}
-  \frac{d}{dt}{g}_\mu(t)&=\sum_\nu{\cal V}_\nu \eta^*_{\mu\nu}
-\frac{\left[{v}_{\nu+1}^1-2{v}_{\nu}^1+{v}_{\nu-1}^1\right]}{\Delta z^2}
+  \frac{d}{dt}{\bf g}^x_\mu(t)&=\sum_\nu{\cal V}_\nu \eta^*_{\mu\nu}
+\frac{\left[{\bf v}_{\nu+1}^{x}-2{\bf v}_{\nu}^{x}+{\bf v}_{\nu-1}^{x}\right]}{\Delta z^2}
+% +\hat{F}^+_\mu(t)
+% &=
+% -\sum_\nu{\cal V}_\nu 
+% \frac{\left[
+% \eta_{\mu\nu}-\eta_{\mu-1\nu}\right]}{\Delta z}\frac{\left[\hat{v}_{\nu+1}^{x}-\hat{v}_{\nu}^{x}\right]}{\Delta z}+\hat{F}^+_\mu
 \label{SDELap0} 
 \end{align}
 
+% where we have used a relabeling of indices in the sums. 
+% This equation looks like a discretization of the continuum equation
+% \begin{align}
+%   \frac{d}{dt} g^{x}(z)&=-\partial_{z}\int dz'{\eta}(z-z')\partial_{z'} {\bf v}^{x}(z')+F_z^+
+% \end{align}
+% and this justifies  using the name non-local viscosity  for the matrix
+% (\ref{non-loc})   and   the  definition   of   the   velocity  as   in
+% (\ref{velocity}).
+% An alternative form with further relabeling of indices is given by
+% \begin{align}
+%   \frac{d}{dt}\hat{g}_\mu&=
+% \end{align}
 Eq. (\ref{SDELap0}) looks    like    a   discretization    of    the    following
 integro-differential  equation
 \begin{align}
-  \frac{d}{dt} g^1(z)&=\int dz'{\eta}^*(z-z')\partial^2_{z'} v^1(z')
+  \frac{d}{dt} {\bf g}^{x}(z)&=\int dz'{\eta}^*(z-z')\partial^2_{z'} {\bf v}^{x}(z')
 \label{congx}
 \end{align}
-This is  a nonlocal generalization  of the diffusion equation  of the
+This is  a non-local generalization  of the diffusion equation  of the
 continuum transverse  momentum,
 \begin{align}
-  \partial_t g^1(z)&=\nu^*_0\partial^2_{z}g^1(z')
+  \partial_t {\bf g}^{x}(z)&=\nu^*_0\partial^2_{z}{\bf g}^{x}(z')
 \label{congx3}
 \end{align}
 Eq.   (\ref{congx3})   is  obtained  from  (\ref{congx})   by  setting
 $\eta^*(z-z')=\eta^*_0\delta(z-z')$,   where   the   local   kinematic
 viscosity is  $\nu^*_0=\eta^*_0/\rho$.  Therefore, it is  justified to
 refer to the matrix $\eta^*_{\mu\nu}$ introduced in (\ref{non-loc}) as
-the  nonlocal shear  viscosity matrix  and to  $v_\mu$ introduced  in
+the  non-local shear  viscosity matrix  and to  ${\bf v}_\mu$ introduced  in
 (\ref{vel}) as the velocity.
+
+% Note  that by  a  simple  relabelling of  indices  we  may also  write
+% (\ref{SDELap0}) in the form
+% \begin{align}
+%   \frac{d}{dt}\hat{g}_\mu(t)&=
+% \sum_\nu{\cal V}_\nu \frac{\left[\eta_{\mu+1\nu}-2\eta_{\mu\nu}+\eta_{\mu-1\nu}\right]}{\Delta z^2}
+% \hat{v}_{\nu}^{x}+\hat{F}^+_\mu(t)
+% \label{SDELap}
+% \end{align}
+% which corresponds to a continuum equation of the form
+% \begin{align}
+%   \frac{d}{dt} g^{x}(z)&=\partial^2_{z}\int dz'{\eta}(z-z') {\bf v}^{x}(z')+F_z^+
+% \label{congx2}
+% \end{align}
+% This is  Eq. (\ref{congx}) after  two integrations by parts  and using
+% the translation invariance of the shear viscosity matrix.
+
+% Now that  we have identified, through  the velocity of the  bins, that
+% the  matrix $\eta_{\mu\nu}$  is a  non-local shear  viscosity, we  can
+% return back to momentum variables.   Eq. (\ref{SDELap}) can be written
+% as
+% \begin{align}
+%   \frac{d}{dt}\hat{g}_\mu(t)&=
+% \sum_{\mu'\nu'}\Delta_{\mu\mu'}{\cal V}_{\mu'} \eta_{\mu'\nu'} \rho^{-1}_{\nu'\nu}\hat{g}_{\nu}(t)+F_z^+(t)
+% \label{SDELap2}
+% \end{align}
 
 
 \subsection{The local in time prediction}
@@ -6110,7 +5463,7 @@ equation of motion (\ref{SDECpi}) is then
   \frac{d\tilde{C}_\mu}{dt}(t)&=-\frac{1}{\tau_\mu}\tilde{C}_\mu(t)  
 \label{SDECpiDiag}
 \end{align}
-where the correlation time is given by 
+where the relaxation time $\tau_\mu$ of mode $\mu$ satisfies
 \begin{align}
  \frac{1}{\tau_\mu}&\equiv \frac{2}{\Delta z^2}
 \left(1-\cos\left( \frac{2\pi \mu}{N_{\rm bin}}\right)\right)
@@ -6123,13 +5476,12 @@ $\tilde{C}_\mu(\tau)$ at time $\tau$ is the exponential function
   \tilde{C}_\mu(t)&=\exp\left\{-\frac{t-\tau}{\tau_\mu}\right\}  \tilde{C}_\mu(\tau)
 \label{solexp}
 \end{align}
-The eigenvalues must be decay in an exponential way if the Markovian aproximation is correct. 
 The displacement of the initial condition to the time $\tau$ is due to
 the fact that  we know that the exponential behaviour  cannot start at
 $t=0$  where   the  Markovian  equation  (\ref{AproxC})   and,  hence
-(\ref{SDECpiDiag}), cannot hold strictly.
+(\ref{SDECpiDiag}), cannot strictly hold.
 
-In real space, the correlation matrix is given by Eq. (\ref{SDECpi})
+The correlation matrix $C(t)$ in real space is obtained from the correlation in Fourier space in (\ref{solexp}) by Eq. (\ref{FT}), and leads to the result
 \begin{align}
   C(t)&=\exp\left\{\Delta\esc \nu^* (t-\tau) \right\}C(\tau)
 \label{Cmunut}
@@ -6141,29 +5493,32 @@ where the exponential matrix takes the form
 \nonumber\\
 &\times
 \exp\left\{-\frac{t}{\tau_{\mu'}}\right\}
+\label{ExpMat}
 \end{align}
-In summary, the prediction of the correlation matrix in Fourier space
-is given  by single exponentials, while  in real space is  given by a
+In summary, the prediction of  the correlation matrix in Fourier space
+is given  by single exponentials,  while in real  space is given  by a
 linear combination of  single exponentials. As we will  see, the later
-will give rise to quasi-algebraic decay of correlations.
+will give rise to quasi-algebraic decay of correlations in real space.
+
+
 
 \subsection{The local in space prediction}
 The   discrete   version   of  the   local   continuum   hydrodynamics
 Eq. (\ref{congx3}) is simply
 \begin{align}
-  \frac{d}{dt}{g}_\mu(t)=&\nu_0\Delta_{\mu\nu}{g}_\nu(t)
+  \frac{d}{dt}{\bf g}^{x}_\mu(t)=&\nu_0\Delta_{\mu\nu}{\bf g}^{x}_\nu(t)
 \label{gloc}
 \end{align}
 By comparing  this discrete equation  in the local  approximation with
-the nonlocal  discrete equation  (\ref{dgDnug}) we conclude  that the
-local approximation of the nonlocal viscosity matrix $\nu^*$ becomes a
+the non-local  discrete equation  (\ref{dgDnug}) we conclude  that the
+local approximation of the non-local viscosity matrix $\nu$ becomes a
 diagonal matrix of the form
 \begin{align}
-\nu_{\mu\mu'}^*&\simeq \nu_0 \delta_{\mu\mu'}
+\nu_{\mu\mu'}&\simeq \nu_0 \delta_{\mu\mu'}
 \end{align}
 where the local kinematic viscosity is given by
 \begin{align}
-\nu_0&\equiv \sum_{\mu'}\nu_{\mu\mu'}^* \quad \quad \quad\forall \mu
+\nu_0&\equiv \sum_{\mu'}\nu_{\mu\mu'} \quad \quad \quad\forall \mu
 \label{nu0}
 \end{align}
 In the  local approximation, the differential  equation (\ref{SDECpi})
@@ -6190,24 +5545,104 @@ In the local approximation, the relaxation time (\ref{taumu}) is given by
 \label{taumuloc}
 \end{align}
 
-%\subsection{Summary of the theory}
-%The  two main  quantities of  concern  are the  correlation matrix  of
-%discrete momentum  $C(t)$ and the  correlation matrix of  the discrete
-%stress  that appears  in  the Green-Kubo  running integral  $\eta(t)$.
-%These two  matrices can be measured  from MD simulations. In  order to
-%test the locality in time, we use the simple prediction (\ref{solexp})
-%for the  eigenvalues of the correlation  matrix. In order to  test the
-%nonlocality  in space,  from Eq.   (\ref{FouFin}) we  will infer  the
-%nonlocal shear viscosity matrix  $\tilde{\eta}^*$ and from the Fourier
-%transform   of  (\ref{nustar})   the  nonlocal   kinematic  viscosity
-%$\tilde{\nu}^*$. The local  approximation in space will be  good if we
-%can approximate  $\tilde{\nu}^*$ as in (\ref{numunu0}).   Once we have
-%measured  $\Lambda^*$  or  equivalently  $\eta^*$ or  $\nu^*$  we  can
-%compare  the  prediction  (\ref{Cmunut})  from Mori  theory  with  the
-%correlation matrix measured in the simulation.
 
 
-\section{MD simulations}
+% {\blue In terms of
+% the Fourier  transform $\tilde{\Lambda}$ of the  matrix $\Lambda$, the
+% local prediction is given by a diagonal matrix that has as elements
+% \begin{align}
+%   \tilde{\Lambda}_{\mu\mu}=\nu_0 \frac{2}{\Delta z^2}\left(1-\cos\left( \frac{2\pi \mu}{N_{\rm bin}}\right)\right)
+% \label{Lambdalocal}
+% \end{align}
+% }
+\section{Summary of the theory and strategy in the simulations}
+\label{Sec:Summary-TS}
+In the  previous section  we have  considered the  theoretical results
+predicted from Mori's theory for  the correlation matrix $C(t)$ of the
+transverse momentum.  The correlation matrix obeys the linear equation
+(\ref{AproxCg}) where the corrected Green-Kubo matrix $M^*$ is related
+to the plateau problematic  Green-Kubo running integral $M(t)$ through
+(\ref{GKCorrected}).  By  extracting the space derivatives  from $M^*$
+and  $M(t)$  we  relate  these matrices  to  the  corrected  non-local
+viscosity  matrix  $\eta^*$ in  (\ref{M*eta*})  and  to the  non-local
+viscosity  matrix $\eta(t)$  in  (\ref{MmunuMat}), respectively.   The
+latter has the  Green-Kubo expression (\ref{non-loc}) in  terms of the
+correlation of the  stress tensor. The corrected  $\eta^*$ is obtained
+from $\eta(t)$ through the equations (\ref{FouFin}) in Fourier space.
+
+In order to  discuss the local approximation in space  in the equation
+for the average of the  momentum field (\ref{dgDnug}) it is convenient
+to introduce the kinematic viscosity matrix (\ref{nustar}) because the
+local approximation  is very simple in  Fourier space in terms  of the
+kinematic viscosity matrix. The local approximation amounts to set all
+the  eigenvalues of  the kinematic  matrix identical  to the  standard
+kinematic viscosity of the fluid, as in (\ref{numunu0}).
+
+In the  next section we  measure through  MD simulations the  two main
+quantities of concern  in this paper which are  the correlation matrix
+of discrete momentum $C(t)$ and the correlation matrix of the discrete
+stress that appears in the Green-Kubo running integral $\eta(t)$. From
+these  primary   quantities,  we   obtain  their   Fourier  transforms
+$\tilde{C}(t),\tilde{\eta}(t)$  which  are  diagonal matrices  due  to
+translation invariance.
+
+In  order to  test  the locality  in  time, we  check  for the  simple
+exponential decay prediction (\ref{solexp}) for the eigenvalues of the
+correlation matrix.  In order to  test the non-locality in space, from
+Eq.  (\ref{FouFin}) we will infer the non-local shear viscosity matrix
+$\tilde{\eta}^*$ and, from the  Fourier transform of (\ref{nustar}), the
+non-local    kinematic   viscosity    $\tilde{\nu}^*$.    The    local
+approximation  in   space  will   be  good   if  we   can  approximate
+$\tilde{\nu}^*$  as   in  (\ref{numunu0}).   Once  we   have  measured
+$\Lambda^*$ or  equivalently $\eta^*$  or $\nu^*$  we can  compare the
+prediction (\ref{Cmunut}) from Mori theory with the correlation matrix
+measured in the simulation.
+
+\section{Summary of the theory and strategy in the simulations}
+\label{Sec:Summary-TS}
+In the  previous section  we have  considered the  theoretical results
+predicted from Mori's theory for  the correlation matrix $C(t)$ of the
+transverse momentum.  The correlation matrix obeys the linear equation
+(\ref{AproxCg}) where the corrected Green-Kubo matrix $M^*$ is related
+to the plateau problematic  Green-Kubo running integral $M(t)$ through
+(\ref{GKCorrected}).  By  extracting the space derivatives  from $M^*$
+and  $M(t)$  we  relate  these matrices  to  the  corrected  non-local
+viscosity  matrix  $\eta^*$ in  (\ref{M*eta*})  and  to the  non-local
+viscosity  matrix $\eta(t)$  in  (\ref{MmunuMat}), respectively.   The
+latter has the  Green-Kubo expression (\ref{non-loc}) in  terms of the
+correlation of the  stress tensor. The corrected  $\eta^*$ is obtained
+from $\eta(t)$ through the equations (\ref{FouFin}) in Fourier space.
+
+In order to  discuss the local approximation in space  in the equation
+for the average of the  momentum field (\ref{dgDnug}) it is convenient
+to introduce the kinematic viscosity matrix (\ref{nustar}) because the
+local approximation  is very simple in  Fourier space in terms  of the
+kinematic viscosity matrix. The local approximation amounts to set all
+the  eigenvalues of  the kinematic  matrix identical  to the  standard
+kinematic viscosity of the fluid, as in (\ref{numunu0}).
+
+In the  next section we  measure through  MD simulations the  two main
+quantities of concern  in this paper which are  the correlation matrix
+of discrete momentum $C(t)$ and the correlation matrix of the discrete
+stress that appears in the Green-Kubo running integral $\eta(t)$. From
+these  primary   quantities,  we   obtain  their   Fourier  transforms
+$\tilde{C}(t),\tilde{\eta}(t)$  which  are  diagonal matrices  due  to
+translation invariance.
+
+In  order to  test  the locality  in  time, we  check  for the  simple
+exponential decay prediction (\ref{solexp}) for the eigenvalues of the
+correlation matrix.  In order to  test the non-locality in space, from
+Eq.  (\ref{FouFin}) we will infer the non-local shear viscosity matrix
+$\tilde{\eta}^*$ and, from the  Fourier transform of (\ref{nustar}), the
+non-local    kinematic   viscosity    $\tilde{\nu}^*$.    The    local
+approximation  in   space  will   be  good   if  we   can  approximate
+$\tilde{\nu}^*$  as   in  (\ref{numunu0}).   Once  we   have  measured
+$\Lambda^*$ or  equivalently $\eta^*$  or $\nu^*$  we can  compare the
+prediction (\ref{Cmunut}) from Mori theory with the correlation matrix
+measured in the simulation.
+
+
+\section{Simulations}
 \label{Sec:SimPBC}
 In Sec. (\ref{Sec:MoriPBC}) we saw that the  two main  quantities of  concern  are the  correlation matrix  of
 discrete momentum  $C(t)$ and the  correlation matrix of  the discrete
@@ -6232,39 +5667,59 @@ matrices  due to  traslation invariance.
 
 \subsection{Simulation set up}
 \label{Sec:SimSetUpPBC}
-Interactions between equal particles has been simulated in PBC with the open source code LAMMPS \cite{Plimpton1995}. The interaction between particles is describeb by a truncated Lennard-Jones (LJ) potential,
-\begin{align}
-  V_{ij}(r_{ij}) = \left\lbrace
-  \begin{array}{ll}
-    4\epsilon_{ij}\left[\left(\frac{\sigma_{ij}}{r_{ij}}\right)^{12}-\left(\frac{\sigma_{ij}}{r_{ij}}\right)^6\right] & \textup{if } r_{ij}\leq r_c \\
-    0 & \textup{if } r_{ij}>r_c
-  \end{array}
-  \right.
-  \label{LJ}
-\end{align}
-where $r_{ij}$ is the distance between particles $i$ and $j$, $\epsilon_{ij}$ is the depth of the potential well, $\sigma_{ij}$ is the distance at which $V_{ij}$ is zero, and $r_c$ is the cutoff radius (taken equal to $2.5\sigma_{ij}$). The parameters $\epsilon_{ij}$ and $\sigma_{ij}$ take the value 1. 
-
-In Fig. \ref{fig:system_nodes_periodic} a snapshot of the simulation is showed.
-The box  size is $40\times40\times30$, the  number of particles with mass $m=1$
+A  system  of particles  interacting  with  a Lennard-Jones  potential
+truncated at  $\sigma=2.5$ has been  simulated in PBC with  the LAMMPS code \cite{Plimpton1995}.
+In Fig. \ref{fig:PBCBox} a snapshot of the simulation is showed.
+The box  size is $40\times40\times30$, the  number of particles
 is $N=28749$, and the time step is $0.002$ in reduced units.  After an
 equilibration  of  $10^5$ timesteps  with  a  Langevin thermostate  to
 produce a microstate typical  from a thermodynamic point corresponding
-to $T=2,\rho=0.6$ in  reduced units, the system is  evolved under NVE
+to $T=2,\rho=0.6$  in reduced units,  the system is evolved  under NVE
 microcanonical conditions for a  further $10^5$ timesteps.  After this
-equilibration  phase,  production  runs   of  $15\cdot 10^5$  time  steps  are
-launched.   The $z$  axis is  binned  in $60$  bins on  which the  $x$
-component of the momentum density is recorded.  The
-width of the  bin is $\Delta z=0.5\sigma$ which is  subatomic.  In the
-presence of walls,  such a bin allows to resolve  the density layering.  A total of $60\times  60$ correlations corresponding to the
+equilibration phase,  production runs  of $1.5\times 10^6$  time steps
+are launched.  The  $z$ axis is binned  in $60$ bins on  which the $x$
+component of the momentum density is recorded every 10 timesteps.  The
+width of the  bin is $\Delta z=0.5\sigma$ which is  subatomic.  We will see in the next chapter that in the
+presence of walls,  such a bin allows to capture some of the density layering.  A total of $60\times  60$ correlations corresponding to the
 elements of  the correlation matrix  are computed in  each simulation.
-The correlations are computed with the LAMMPS command {\it fix ave/correlate}. During $7.5\cdot 10^5$ time steps the $x$ component of the momentum density is recorded every $2$ time steps. These values are used to obtain the correlations with a support of $15\cdot10^4$ time steps. %LAMMPS 7500 puntos curva de correlación separados por 2*dt-> soporte de 15000 (i.e. t=30)
-After $7.5\cdot 10^5$ steps the correlations are averaged with the previous one. 
-In  order to  increase  statistics,  we 
-exploit   the   traslation   invariance   of   the
-system.  Although computing  all the  correlation matrix  elements may
-seem  unnecessary,  we will  use  the  same methodology  for  confined
-fluids. In  this later  case, traslation invariance  is broken  and we
-need to consider the full correlation matrix.
+In  order  to increase  statistics,  we  average  the result  of  $30$
+simulations and  exploit the  translation invariance  of the  system by
+further  averaging correlations  between  nodes at  a given  distance.
+Although  computing  all  the  correlation matrix  elements  may  seem
+unnecessary, we will  use the same methodology for  confined fluids in
+the next chapter. In this later case, translation invariance is
+broken and we need to consider the full correlation matrix.
+%\begin{align}
+%  V_{ij}(r_{ij}) = \left\lbrace
+%  \begin{array}{ll}
+%    4\epsilon_{ij}\left[\left(\frac{\sigma_{ij}}{r_{ij}}\right)^{12}-\left(\frac{\sigma_{ij}}{r_{ij}}\right)^6\right] & \textup{if } r_{ij}\leq r_c \\
+%    0 & \textup{if } r_{ij}>r_c
+%  \end{array}
+%  \right.
+%  \label{LJ}
+%\end{align}
+%where $r_{ij}$ is the distance between particles $i$ and $j$, $\epsilon_{ij}$ is the depth of the potential well, $\sigma_{ij}$ is the distance at which $V_{ij}$ is zero, and $r_c$ is the cutoff radius (taken equal to $2.5\sigma_{ij}$). The parameters $\epsilon_{ij}$ and $\sigma_{ij}$ take the value 1. 
+
+%The box  size is $40\times40\times30$, the  number of particles with mass $m=1$
+%is $N=28749$, and the time step is $0.002$ in reduced units.  After an
+%equilibration  of  $10^5$ timesteps  with  a  Langevin thermostate  to
+%produce a microstate typical  from a thermodynamic point corresponding
+%to $T=2,\rho=0.6$ in  reduced units, the system is  evolved under NVE
+%microcanonical conditions for a  further $10^5$ timesteps.  After this
+%equilibration  phase,  production  runs   of  $15\cdot 10^5$  time  steps  are
+%launched.   The $z$  axis is  binned  in $60$  bins on  which the  $x$
+%component of the momentum density is recorded.  The
+%width of the  bin is $\Delta z=0.5\sigma$ which is  subatomic.  In the
+%presence of walls,  such a bin allows to resolve  the density layering.  A total of $60\times  60$ correlations corresponding to the
+%elements of  the correlation matrix  are computed in  each simulation.
+%The correlations are computed with the LAMMPS command {\it fix ave/correlate}. During $7.5\cdot 10^5$ time steps the $x$ component of the momentum density is recorded every $2$ time steps. These values are used to obtain the correlations with a support of $15\cdot10^4$ time steps. %LAMMPS 7500 puntos curva de correlación separados por 2*dt-> soporte de 15000 (i.e. t=30)
+%After $7.5\cdot 10^5$ steps the correlations are averaged with the previous one. 
+%In  order to  increase  statistics,  we 
+%exploit   the   traslation   invariance   of   the
+%system.  Although computing  all the  correlation matrix  elements may
+%seem  unnecessary,  we will  use  the  same methodology  for  confined
+%fluids. In  this later  case, traslation invariance  is broken  and we
+%need to consider the full correlation matrix.
 
 \subsection{The correlation matrix $C(t)$}
 
@@ -6379,7 +5834,7 @@ the exponential behaviour we introduce the time-dependent matrix
 \label{AproxCtau}
 \end{align}
 that according  to the Markov equation  (\ref{AproxC}), should evolve
-towards a constant time  independent matrix $ \Lambda(t)\to \Lambda^*$
+toward a constant time  independent matrix $ \Lambda(t)\to \Lambda^*$
 after   certain  time.   In  Fourier   space  all   matrices  in   Eq.
 (\ref{AproxCtau}) are diagonal and, therefore
 \begin{align}
@@ -6413,7 +5868,7 @@ observed  in the  central region  is spureous  and due  to statistical
 errors.   These   errors  increase  with   time.   We  also   plot  in
 Fig. \ref{fig:LambdatFourier-PBC}  the theoretical prediction  of this
 matrix in the local approximation  given in Eq. (\ref{taumuloc}) for a
-fitted value  of the  local kinematic  viscosity of  $\nu_0=1.48$. \Pendiente{This value corresponds to the kinematic viscosity of a fluid with density $\rho=0.6$ and temperature $T=2.0$ \cite{Woodcock2006}}.  We
+fitted value  of the  local kinematic  viscosity of  $\nu_0=1.48$. We
 observe that  the local approximation (\ref{taumuloc})  gives a fairly
 reasonable approximation  for the converged  value $\tilde{\Lambda}^*$
 of the  relaxation matrix in Fourier  space.  In the right  panel, we
@@ -6505,9 +5960,6 @@ time $\tau$.   We have also  observed that, \textit{beyond}  this time
 $\tau$,  a  local  in  space  approximation  gives  equally  excellent
 predictions.
 
-
-
-
 \subsection{The Green-Kubo nonlocal viscosity matrix}
 In   this  section,   we  discuss   the  nonlocal   viscosity  matrix
 $\eta_{\mu\nu}(\tau)$  defined   Eq.   (\ref{non-loc}).    To  compute
@@ -6558,7 +6010,7 @@ $\nu_0(t)$ will start to decrease due to finite size effects.}
 \begin{figure}[h!]
   \centering
 \includegraphics[scale=0.41]{KinVisc0t-PBC}
-\caption[The local kinematic viscosity for PBC system]{The local kinematic viscosity $\nu_0(t)=\eta_0(t)/\rho^{\rm eq}$ as a function of time where the shear viscosity is computed with the data from Fig. \ref{fig:Etat-PBC}. A horizontal orange line at $\nu_0=1.48$ is also plotted in order to guide the eye in the plateau region.}
+\caption[The local kinematic viscosity for PBC system]{The local kinematic viscosity $\nu_0(t)=\eta_0(t)/\rho^{\rm eq}$ as a function of time where the shear viscosity is computed with the data from Fig. \ref{fig:Etat-PBC}. A horizontal orange line at $\nu_0=1.48$ from the literature \cite{Woodcock2006} is also plotted in order to guide the eye in the plateau region.}
 \label{fig:KinVisc0t-PBC}
 \end{figure}
 
@@ -6645,7 +6097,7 @@ periodic boundary conditions is fairly local, and can be described with
 \newpage
 \section{Summary}
 \label{Sec:SummaryChapPBC}
-In the first part of this chapter -- Sec. \ref{Sec:Mori} -- we have addressed  the plateau problem that  appears in
+In this chapter we have addressed the plateau problem that appears in
 the  expression of  transport  coefficient in  terms  of the  standard
 Green-Kubo running integrals.  In the  case of Markovian dynamics with
 not an extreme separation of time  scales, the decay of the Green-Kubo
@@ -6655,82 +6107,71 @@ that  the  Green-Kubo  running  integral necessarily  decays  to  zero
 because it  is given in terms  of the correlation of  the CG variables
 and its  time derivative.  With  this observation, we have  proposed a
 correction  to  the  standard  Green-Kubo  expression  that  does  has  a
-well-defined infinite time limit. We have seen also that it is crucial
-to  distinguish between  the  three  different ``friction  matrices'':
-$M(t)$ involving the real dynamics (that  goes to zero as time goes to
-infinity), $M^+(t)$  involving the projected dynamics  (that also goes
-to zero  with time  going to  infinity, in  spite of  claims otherwise
-\cite{Kubo1991,Espanol1993}),  and $M^*$,  a putative  constant
-matrix   given    by   the    non-zero   infinite   time    limit   in
-Eq. (\ref{GKCorrected}).
+well-defined infinite time limit. 
 
-
-In the second part of this chapter -- Sec. \ref{Sec:MoriPBC} and Sec. \ref{Sec:SimPBC} --  we  have computed from  MD simulations  the equilibrium
+After that we have introduced the Mori theory for discrete hydrodynamics and we  have computed from  MD simulations  the equilibrium
 time-dependent correlation matrix of  the discrete transverse momentum
 density.   Under  the Markovian  approximation,  Mori  theory gives  a
 definite prediction for the correlation  matrix in terms of a decaying
-matrix exponential.   As we  have discussed in Sec. \ref{Sec:MarkovianAprox}, the  Markovian prediction
-\textit{cannot}  hold for  very small  times. Only after a time $\tau$ in which the memory
-has fade out one can expect a Markovian approximation to hold. We validated it though MD simulations in Sec. \ref{Sec:ValidateMarkovPBC}.
+matrix exponential.   As we  have discussed, the  Markovian prediction
+\textit{cannot}  hold for  very small  times, essentially  because the
+exponential matrix decay predicts a  non-zero value of the derivatives
+of the correlation at  $t=0$, while microscopic reversibility enforces
+a  vanishing value  of the  derivative of  the correlations  at $t=0$.
+Therefore,  the initial  decay of  the  correlation cannot  be of  the
+exponential matrix form.  Only after a time $\tau$ in which the memory
+has fade out one can expect  a Markovian, local in time, approximation
+to hold.   We have  observed that  the relaxation  matrix $\Lambda(t)$
+does indeed plateau  to a constant value  $\Lambda^*$, indicating that
+after  the  time  $\tau$  the  decay  of  the  correlation  matrix  is
+exponential  and hence  Markovian.   At the  plateau  time $\tau$  the
+correlation matrix has decayed already to 50\% of its initial value.
 
-
-A number of conclusions can be drawn from the simulation results:
-\begin{enumerate}
-\item We  have observed that  the relaxation matrix  $\Lambda(t)$ does
-  indeed  plateau to  a  constant value  $\Lambda^*$, indicating  that
-  after  the  time $\tau$  the  decay  of  the correlation  matrix  is
-  exponential  and  hence Markovian. This  time  is not  excessively
-    large, capturing about  80\% of the total decay  of the correlation.
-  The  Markovian approximation  predicts a  quasi-algebraic long  time
-  tail  that gives  excellent agreement  with the  simulation results.
-  Trully algebraic  decay is  obtained only  in the  thermodynamic and
-  continuum limits, as described  in Appendix \ref{Ap:Cont}. Note that
-  the width  of the bins  that we use in  the present work  is $\Delta
-  z=0.5\sigma$.  Such bin  size allows,  in the  presence of  walls to
-  resolve the density layering near the wall.
-\item  We observe  that  for  the times  beyond  $\tau$  in which  the
-  Markovian (local in time) approximation is valid, the local in space
-  approximation of the kinematic  shear viscosity matrix gives already
-  very accurate results.
-\item The \textit{nonlocal}  shear viscosity defined in  terms of the
-  Green-Kubo  formula  as  the  time  integral  of  the  stress-stress
-  correlation does  not show a  plateau. Quite remarkably, the  sum of
-  the  (non-plateau) nonlocal  shear viscosity  matrix elements  does
-  indeed   have  a   plateau.    This  plateau   corresponds  to   the
-  \textit{local}  viscosity  computed  in   the  usual  way  from  its
-  Green-Kubo  formula. The  existence  of this  plateau  in the  local
-  viscosity is due to global momentum conservation.
-\end{enumerate}
-These facts suggest that the usefulness of a nonlocal shear viscosity
-in a  Markovian description  of correlation functions  of hydrodynamic
-variables is small.  On one hand, its Green-Kubo expression is useless
-as it does not have a plateau and, on the other, a local approximation
-with well-defined plateau already provides excellent results.
-
-Steady states situations in which the Markovian approximation is valid
-automatically may  still require the  use of nonlocal in  space shear
-viscosities for its correct description \cite{.}.
-
-In  this chapter  we  have  limited  ourselves to  the  discrete
-transverse  momentum   variable.   With  the  same   methodology,  the
-extension  to   the  rest  of  conserved   hydrodynamic  variables  is
-straitghforward and will be presented elsewhere. 
+The  \textit{non-local}  shear  viscosity  defined  in  terms  of  the
+Green-Kubo  formula   as  the  time  integral   of  the  stress-stress
+correlation does not show a plateau.  Quite remarkably, the sum of the
+(non-plateau) non-local  shear viscosity  matrix elements  does indeed
+have  a  plateau.   This  plateau corresponds  to  the  \textit{local}
+viscosity computed in  the usual way from its  Green-Kubo formula. The
+existence of  this plateau  in the  local viscosity  is due  to global
+momentum  conservation.  By  using the  non-local viscosity 
+once corrected  according to the  method in Sec. \ref{Sec:GKsi}, we  observe that
+the predictions for  the correlation matrix $C(t)$  are quite accurate
+even for times smaller than the  plateau time $\tau$. In this way, the
+non-local model describes  the behaviour of the  correlation matrix in
+real space for  very small times, during the decay  of the correlation
+from 80\% its  initial value on. We observe that  for the times beyond
+$\tau$ in which the Markovian  (local in time) approximation is valid,
+the  local in  space approximation  of the  kinematic shear  viscosity
+matrix gives already very accurate results.
+In  summary, the  eigenvalues of  the  correlation matrix  decay in  a
+strict exponential  way, signaling  Markovian behaviour, after  a time
+$\tau=0.2$. In real  space, the Markovian  approximation with
+the non-local  viscosity $\eta^*$ gives already  very good predictions
+for much shorter times of the order $t=0.07$.
 
 One strategy to increase the validity of a purely Markovian theory for
 times   smaller  than   $\tau$   consists   on  including   additional
 non-conserved variables in the list  of CG variables.  For example, by
 including the stress tensor and heat flux as additional variables, one
 expects  to  capture the  viscoelastic  and  memory effects  that  are
-required to describe the dynamics  of the conserved variables at small
-time scales \cite{Khayat1989,mryglod1995,Bryk2010}.
+required to describe the dynamics  of the conserved variables at smaller
+time scales \cite{Khayat1989,Mryglod1995,Bryk2010}.
 
-Despite of considering the simplest case such as  simple fluid  in periodic  boundary conditions, the  same methodology used here  will be  used in the following chapters for  the case  of fluids
-confined in between parallel solid walls.  The computational burden in
-that case is much larger  because traslation invariance cannot be used
-in order to increase statistics.
-In  addition   to  the   nonlocal  shear  viscosity,   new  transport
-coefficients related to slip at the wall appear in confined fluids, as
-Camargo et al. presented in \cite{CamargoBC2018}.
+In  the  present chapter  we  have  limited  ourselves to  the  discrete
+transverse  momentum   variable.   With  the  same   methodology,  the
+extension  to   the  rest  of  conserved   hydrodynamic  variables  is
+straightforward and will be presented elsewhere. We have considered an
+unconfined simple fluid  in periodic boundary conditions.  In the next
+chapters, the same methodology used here will be used for
+the  case of  fluids confined  in between  parallel solid  walls.  The
+computational burden in  that case is much  larger because translation
+invariance cannot be used in order  to increase statistics, as we have
+done  in  the present  chapter.   In  addition  to the  non-local  shear
+viscosity, new transport coefficients related  to friction and slip at
+the wall appear in confined fluids,  as has been recently described in
+Ref. \cite{Camargo2018} and in Chapter \ref{Chap:Planar}.
+
 
 
 %-----------------------------------------------------------------
@@ -6749,15 +6190,16 @@ beyond  this   time,  hydrodynamics  is  essentially   local  in  time
 In this chapter we follow the same strategy as for unconfined fluids in order to study the Markovian behaviour of a fluid in between two solid slabs. 
 
 
-As we mentioned in the introduction to Chapter \ref{Chap:PBC}, at nanoscopic scales,  a fluid
+As we mentioned in the Introduction, at nanoscopic scales,  a fluid
 starts displaying its  molecular structure in phenomena  like the wall
 ordering.   In  addition, slip  of  the  fluid  at the  walls  becomes
 noticeable.   The  usual  local hydrodynamic  description  with  local
 transport coefficients  and no  slip boundary  conditions needs  to be
 adequately modified in  order to address the  peculiar fluid behaviour
-at  nanoscales. Slip  at nanoscales  has  received a  large amount  of
-attention from the simulation point  of view since the pioneering work
-of Thomson and Robins \cite{Thompson1990,Koplik1995,Troian1997}.
+at  nanoscales. 
+%Slip  at nanoscales  has  received a  large amount  of
+%attention from the simulation point  of view since the pioneering work
+%of Thomson and Robins \cite{Thompson1990,Koplik1995,Troian1997}.
 
 We  have presented  in  Chapter \ref{Chap:Theory}  a  derivation of  the
 equations of hydrodynamics in the  presence of solid walls that govern
@@ -6785,21 +6227,20 @@ stress tensor and non-local surface forces due to the walls.
 
 In the  theory presented in Chapter \ref{Chap:Theory}, based  on the
 projection  operator technique,  the Markovian  approximation produces
-formal expressions in  terms of Green-Kubo formulae  for the transport
+formal expressions in  terms of Green-Kubo formulas  for the transport
 coefficients.    However  these   expressions  are   formal  for   two
 reasons. First they involve the  so called projected dynamics which is
 uncomputable from MD  simulations. The usual step  of substituting the
 projected dynamics  by the real  Hamiltonian dynamics is  not entirely
-justified. The second  problem is that the  Green-Kubo formulae suffer
+justified. The second  problem is that the  Green-Kubo formulas suffer
 from the plateau problem \cite{Kirkwood1949,Espanol1992}.  
-In Sec. \ref{Sec:CorrectedGK} we have  presented a   new  corrected   Green-Kubo  expression   for  transport
+In Sec. \ref{Sec:GKsi} we have  presented a   new  corrected   Green-Kubo  expression   for  transport
 coefficients that does not suffer from the plateau problem.
 
 The  theory presented  in Chapter \ref{Chap:Theory} describes  the
-evolution of non-equilibrium ensemble averages  and it is based on the
-Kawasaki-Gunton  projector \cite{Grabert1982}.   It is  non-linear and
-involves the  free energy functional familiar  from Density Functional
-Theory.  For the case of  the transverse momentum, the Kawasaki-Gunton
+evolution of nonequilibrium ensemble averages  and it is based on the
+Kawasaki-Gunton  projector \cite{Grabert1982}.   It is  nonlinear and
+involves the  free energy functional familiar  from DFT.  For the case of  the transverse momentum, the Kawasaki-Gunton
 projector gives  a very simple  linear equation that does  not involve
 the free  energy functional.   A very similar  linear equation  can be
 obtained  in an  alternative way  from the  simpler Mori  theory, that
@@ -6810,39 +6251,72 @@ in Mori theory.
 
 
 \section{The CG variables and its dynamics}
-We  consider a  LJ  fluid system  confined  in between  two
-parallel solid walls made of LJ particles fixed in a simple
-cubic lattice as is represented in Fig. \ref{fig:WallsBox}. The walls are  along the directions $x^1,x^2$.  Because
-of  traslational  invariance along  the  walls,  we bin  the  vertical
-direction $x^3$ in layers paralel to  the planar walls. In the same way as was exposed in Sec. \ref{Sec:CGVariablesPBC} the box length
-$L_z$ is divided  in $N_{\rm bin}$ bins labelled with  an index $\mu$.
-The bins are separated by $N_{\rm bin}$ nodes (actually, nodal planes)
-located  at $z_\mu=\mu  \Delta z$,  $\mu=0,\cdots,N_{\rm bin}-1$  with
-$\Delta z=L_z/N_{\rm bin}$.  We assume  that we have periodic boundary
-conditions in the  $z$ direction, albeit due to the  walls the fluid
-will never  cross the periodic boundary.   The node $\mu=0$ is equal to the node
-$N_{\rm bin}$.   
+
+\label{Sec:CGWALLS}
+We  consider a  Lennard-Jones  fluid system  confined  in between  two
+parallel solid walls made of Lennard-Jones particles fixed in a simple
+cubic lattice. The  walls are along the directions  $x,y$.  Because of
+traslational invariance along the walls, we bin the vertical direction
+$z$ in  layers paralel to the  planar walls.  The box  length $L_z$ is
+divided in $N_{\rm bin}$ bins labelled  with an index $\mu$.  The bins
+are separated by $N_{\rm bin}$  nodes (actually, nodal planes) located
+at  $z_\mu=\mu \Delta  z$, $\mu=0,\cdots,N_{\rm  bin}-1$ with  $\Delta
+z=L_z/N_{\rm  bin}$.   We  assume   that  we  have  periodic  boundary
+conditions in  the $z$ direction,  albeit due  to the solid  walls the
+fluid will never cross the  periodic boundary nor interact with itself
+through the  boundary conditions as the  width of the walls  is larger
+than the  cutoff of  the interaction potential.   The node  $\mu=0$ is
+equal to  the node  $N_{\rm bin}$.   We carefully  distinguish between
+\textit{nodes} and  \textit{bins}: nodes are  points in the  $z$ axis,
+while bins are segments in this  axis.  In 3D, nodes are planes, while
+bins are slabs.  As it will  become apparent, from a microscopic point
+of view, mass, momentum, and force densities are defined at the nodes,
+while  stress  is  defined at  the  bins.   Each  bin  is a  layer  of
+dimensions  $L_x,L_y,\Delta  z$.    We  introduce  the  characteristic
+function of  the bin  $\chi_\mu({\bf r})$  that takes  the value  1 if
+${\bf r}$  is in the bin  and zero otherwise.  The  volume integral of
+the   characteristic  function   gives  the   volume  ${\cal   V}_\mu=
+L_xL_y\Delta  z$  of the  bin.   As  discussed  in Chapter   \ref{Chap:Planar}  we
+introduce the  finite element  basis function $\Phi_\mu({\bf  r})$ and
+the discrete Dirac $\delta$ function
+\begin{align}
+\delta_\mu({\bf r})&=\frac{\Phi_\mu({\bf r})  }{{\cal V}_\mu}
+\end{align}
+
+In the present chapter,  we use as the only CG  variable relevant to the
+problem  the parallel  component  $\hat{g}_\mu={\bf  g}_\mu^x$ of  the
+momentum density field defined microscopically as
+\begin{align}
+\hat{\bf g}_\mu&=\sum_i{\bf p}_i\delta_\mu({\bf q}_i)
+\end{align}
+We   have   checked   that   the   correlations   $\llangle   \hat{\bf
+  g}^x_\mu(t)\hat{\bf     g}^z_\nu\rrangle$,    $\llangle     \hat{\bf
+  g}^x_\mu(t)\hat{\rho}_\nu\rrangle$     are    vanishingly     small,
+corroborating  the predictions  of the  theory. Therefore,  as far  as
+shear motion of  the fluid is concerned, a level  of description given
+by the  parallel component  $\hat{\bf g}^z _\mu$ should  be sufficient.
+We will consider elsewhere the  more general situation that allows one
+to  study compression  of the  fluid in  the direction  normal to  the
+walls.
+
 \begin{figure}
     \centering
     \includegraphics[scale=0.3]{system_nodes_walls}
     \caption[Walls box]{A visual representation of the MD simulation with a sketch of the binning used. In red are depicted the nodal planes used.}
     \label{fig:WallsBox}
 \end{figure}
-As in unconfined fluid simulations, we have checked that the correlations   $\llangle   \hat{\bf
-  g}^1_\mu(t)\hat{\bf     g}^3_\nu\rrangle$,    $\llangle     \hat{\bf
-  g}^1_\mu(t)\hat{\rho}_\nu\rrangle$     are    vanishingly     small,
-corroborating  the predictions  of the  theory. Therefore,  as far  as
-shear motion of  the fluid is concerned, a level  of description given
-by the  parallel component  $\hat{\bf g}^1_\mu$ should  be sufficient.
-We will consider elsewhere the  more general situation that allows one
-to  study compression  of the  fluid in  the direction  normal to  the
-walls.
 
-The central quantity in this chapter, as well as in Chapter \ref{Chap:PBC}, is the equilibrium correlation matrix $C(t)$ of the CG variables given by
+We will  collect the  CG variables  into an  $N_{\rm bin}$-dimensional
+column  vector  $\hat{g}$ that  contains  as  components the  parallel
+component   of  the   momentum   density  of   bin   $\mu$,  this   is
+$\hat{g}^T=(\hat{\bf   g}^x_1,\cdots,\hat{\bf  g}^x_{N_{\rm   bin}})$,
+where the superscript $T$ denotes the transpose.  The central quantity
+in this chapter is the equilibrium time correlation matrix $C(t)$ of the
+CG variables given by
 \begin{align}
   C(t)=\llangle \hat{g}(t) \hat{g}^T\rrangle
 \end{align}
-where  $T$  stands  for  transpose.   According  to  Mori  theory  the
+According  to  Mori  theory  the
 correlation matrix decays in a linear way,
 \begin{align}
  \frac{d}{dt}C(t)&= -\Lambda^*\esc C(t)
@@ -6850,13 +6324,16 @@ correlation matrix decays in a linear way,
 \end{align}
 where  the  relaxation  matrix   $\Lambda^*$  is  a  constant  $N_{\rm
   bin}\times N_{\rm  bin}$ matrix. The relaxation  matrix subsumes all
-  the transport coefficients  of the system. As shown  in Sec. \ref{Sec:MoriPBC},
+  the transport coefficients  of the system. As shown  in Chapter \ref{Chap:PBC},
 the relaxation  matrix can  be decomposed  into a  non-local viscosity
 contribution and non-local friction contributions, all defined through
 Green-Kubo expressions,  suitably corrected  with the method  given in
-Sec. \ref{Sec:CorrectedGK}.  As discussed in  Sec.  \ref{Sec:MarkovianAprox} a  Markovian equation
+Sec. \ref{Sec:GKsi}.  As discussed in  Chapter \ref{Chap:PBC} a  Markovian equation
 like (\ref{InFull-C}) is expected to hold only after a time $\tau$ has
-elapsed. 
+elapsed.  The reason is that from  the time reversal properties of the
+CG  variables we  know that  the  time derivative  of the  correlation
+matrix at  $t=0$ vanishes,  but Eq.   (\ref{InFull-C}) would  imply at
+$t=0$ the absurd result $0=-\Lambda^*\esc C(0)$.
 
 The Markovian relaxation equation (\ref{InFull-C}) predicts the following
 evolution equation for correlation matrix
@@ -6874,7 +6351,7 @@ In order to have an easier  identification of whether the evolution of
 the  matrix  exponential  is   described  by  the  Markovian  equation
 (\ref{InFull-C}) it  proves convenient to diagonalize  the correlation
 matrix.   We introduce  eigenvalues  $\tilde{C}_\mu$ and  eigenvectors
-$u_\mu$ in such a way that the  the correlation matrix is given by the
+$u_\mu$ in such a way that  the correlation matrix is given by the
 spectral decomposition
 \begin{align}
   C(t)&=\sum_\mu^{N_{\rm bin}}\tilde{C}_\mu(t) u_\mu(t) \otimes u_\mu^T(t)
@@ -6888,9 +6365,9 @@ to diagonalize the correlation matrix, this is
 \end{align}
 where $\tilde{C}(t)={\rm Diag}[\tilde{C}_1(t),\cdots,\tilde{C}_{N_{\rm
     bin}}(t)]$ is a diagonal matrix  containing the eigenvalues in the
-diagonal.   If  the  system  was traslation  invariant  in  the  $x^3$
+diagonal.   If  the  system  was traslation  invariant  in  the  $z$
 dimension, the  matrix $E(t)$ would  be given by  the time-independent
-discrete Fourier  transform, as discussed  in Chapter  \ref{Chap:PBC}.   In the
+discrete Fourier  transform, as discussed  in Sec. \ref{Sec:Fourier}.   In the
 present problem where the solid walls break traslation invariance, the
 unitary  matrix  $E(t)$ is  time  dependent.   As a  consequence,  the
 diagonal matrix $\tilde{C}(t)$ evolves according to
@@ -6900,14 +6377,8 @@ diagonal matrix $\tilde{C}(t)$ evolves according to
   &+E(t)\esc C(t)\esc \frac{d }{dt}E(t)  
 \label{dc}
 \end{align}
-%\begin{align}
-%\frac{d}{dt}  \tilde{C}(t)&=-\tilde{\Lambda}^*\esc \tilde{C}(t)
-%+\frac{d }{dt}E(t) \esc E^{-1}(t) \esc \tilde{C}(t)\nonumber\\
-%&+\tilde{C}(t)\esc \frac{d }{dt}E(t) \esc E^{-1}(t)  
-%\label{dc}
-%\end{align}
-In Sec. \ref{Sec:ThinBins} we will show that the time dependence of the unitary  matrix is
-very weak, $\dot{E}\simeq 0$, and allows one to approximate Eq. (\ref{dc}) as
+We have  observed that the  time dependence  of the unitary  matrix is
+very weak, $\dot{E}\simeq 0$ and allows one to approximate Eq. (\ref{dc}) as
 \begin{align}
 \frac{d}{dt}  \tilde{C}(t)&\simeq-\tilde{\Lambda}^*\esc \tilde{C}(t)
 \label{Ctilde}
@@ -6920,9 +6391,10 @@ according to a single exponential
   \tilde{C}_\mu(t)&=\exp\{-\tilde{\Lambda}_{\mu\mu} (t-\tau)\}  \tilde{C}_\mu(\tau)
 \end{align}
 where we have  taken into account that the  Markovian approximation is
-valid only after the time $\tau$. This is one signature of the validity of the
-Markovian equation (\ref{InFull-C}). Another signature of the validity is obtained from
-each component of (\ref{Ctilde}) that shows that the function defined
+valid  only  after the  time  $\tau$.  The  exponential decay  is  one
+signature    of   the    validity    of    the   Markovian    equation
+(\ref{InFull-C}). Another  signature of the validity  is obtained from
+each component of (\ref{Ctilde}) that  shows that the function defined
 as
 \begin{align}
   \tilde{\Lambda}_{\mu}(t)&\equiv -\frac{1}{{\tilde{C}}_{\mu}(t)}\frac{d{\tilde{C}}_{\mu}}{dt}(t)
@@ -6930,7 +6402,7 @@ as
 \end{align}
 should,  after  a time  $\tau$  reach  the  constant plateau  value  $
 \tilde{\Lambda}_{\mu\mu}^*$.  Note  that the eigenvalues  should decay
-exponentially  and,  therefore,  $  \tilde{\Lambda}_{\mu}(t)$  is  the
+exponentially  and,  therefore,  $  \tilde{\Lambda}_{\mu}(t)$ in (\ref{LambdatRec}) is  the
 product  of an  exponentially decaying  function and  an exponentially
 exploding function. This means that we need high quality statistics in
 order  to have  sensible values  for $  \tilde{\Lambda}_{\mu}(t)$.  We
@@ -6939,16 +6411,16 @@ encounter sufficiently large times where the exponential amplification
 of statistical errors render  the function $ \tilde{\Lambda}_{\mu}(t)$
 meaningless.
 
-\section{MD simulations}
+
+\section{Simulations}
 \label{Sec:SimWALLS}
 The objetive of this section is to present the simulations we made to measure the matrix of correlations $C(t)$ in order to validate the Markoviam aproximation of a confined fluid. 
 We follow the strategy presented in Chapter \ref{Sec:SimPBC}. Because the translational invariance is broken for confined fluids, it used, instead of the Fourier basis, the eigenvector basis of $C(t)$. 
-In the first part of this section we deal with a sWe will deal with bines of diferent size, $\Delta z$.  
-We deal with a system in which the space occupied by the fluid is exactly the same as in the case of an unconfined fluid. In the first part of this section the fluid region is divided in bins in which $Delta z$ is the same as the used in Chapter \ref{Chap:PBC}. In the second part, the size of the bins is doubled. 
+We deal with a system in which the space occupied by the fluid is exactly the same as in the case of an unconfined fluid. In the first part of this section the fluid region is divided in bins in which $\Delta z$ is the same as the used in Chapter \ref{Chap:PBC}. In the second part, the size of the bins is doubled. 
 
 \subsection{Simulation set up}
-A system of particles interacting  with a LJ potential \ref{LJ}
-truncated at $\sigma=2.5$ has been simulated with the open source code LAMMPS \cite{Plimpton1995}. The
+A system of particles interacting  with a LJ potential 
+truncated at $\sigma=2.5$ has been simulated with the open source code LAMMPS code \cite{Plimpton1995}. The
 box size  is $40\times40\times33$,  the number  of fluid  particles is
 $N=28.175$ and  the time step  is $0.002$ in reduced  units.  Periodic
 boundary conditions  (PBC) are assumed  in all directions.   Two solid
@@ -6967,8 +6439,11 @@ After an equilibration of $10^5$ timesteps with a Langevin thermostate
 to   produce  a   microstate  typical   from  a   thermodynamic  point
 corresponding  to  $T=2,\rho=0.6$ in  reduced  units,  the system  is
 evolved  under  NVE microcanonical  conditions  for  a further  $10^5$
-timesteps.  After this equilibration  phase, production runs of $12\times 10^6$
-time steps are launched and the transverse correlations are computed with the LAMMPS command \textit{ave/correlate} as it was explained in Sec. \ref{Sec:SimSetUpPBC}. 
+timesteps.   After  this  equilibration   phase,  production  runs  of
+$12\times 10^6$ time  steps are launched and the $x$  component of the
+discrete momentum density is recorded  every 2 timesteps.  In order to
+increase statistics, we average the result of $18$ simulations.
+
 
 \subsection{Thin bins with $\Delta z = 0.5\sigma$}
 \label{Sec:ThinBins}
@@ -6990,7 +6465,7 @@ diagonal of  the correlation  widens and  decreases in  height.  Nodes
 $\mu=0,1,64,65$ contain  no fluid, while  node $\mu=2,62$ have  a very
 small  contribution  from  the  fluid but not negligible.  This means  that  out  of  the
 $66\times66$ correlation matrix, we strip off a band of zeros, leaving
-a matrix of $61\times61$ non-zero elements.
+a matrix of $61\times61$ nonzero elements.
 
 \begin{figure}[h!]
 \centering
@@ -7021,7 +6496,7 @@ $E(0.15)$ (dashed blue lines), $E(0.30)$ (dashed green lines) and $E(t)$ (solid 
 \end{figure}
 
 
-We plot in Fig.  \ref{fig:CtRec-WALLS-66nodes-exp}  all the 61 non-zero eigenvalues, in
+We plot in Fig.  \ref{fig:CtRec-WALLS-66nodes-exp}  all the 61 nonzero eigenvalues, in
 descending  order,  as a  function  of  time. Statistical  errors  are
 manifest in  the log-lin  plot, in spite  of the  overall high-quality
 statistics. Also  clear from the log-lin  plot is the linear  decay of
@@ -7060,7 +6535,7 @@ middle panel.
   \centering
 \includegraphics[scale=0.41]{LambdatRec-WALLS-66nodes}
 \caption[Diagonal elements  $\tilde{\Lambda}_{\mu\mu}(t)$ of $\Lambda(t)$ in the reciprocal space - 66nodes.]{The  diagonal elements  $\tilde{\Lambda}_{\mu\mu}(t)$ of  the
-  $\Lambda(t)$ in the reciprocal space defined in (\ref{}), as a
+  $\Lambda(t)$ in the reciprocal space defined in (\ref{LambdatRec}), as a
   function of $t$.}
 \label{fig:LambdatRec-WALLS-66nodes}
 \end{figure}
@@ -7161,10 +6636,10 @@ $\mu=1$  the  first   bin  with  fluid  (bin  $\mu=0$   has  no  fluid
 contribution).   We   observe  an  excellent  agreement   between  the
 predicted and measured correlations.  This agreement is also very good
 for the  cross-correlations, as shown in  Fig. \ref{fig:PredictionsCross-WALLS-17nodes}. Note
-that the  cross-correlation $C_{8,7}(t)$ is non-zero  at $t=0$ because
+that the  cross-correlation $C_{8,7}(t)$ is nonzero  at $t=0$ because
 the momentum at a  given node is defined in terms  of a finite element
 basis  function.  For neighbouring  nodes,  the  finite element  basis
-overlap  and this  gives  rise  to the  non-zero  value  of the  cross
+overlap  and this  gives  rise  to the  nonzero  value  of the  cross
 correlation.  On  the other  hand, for nodes  separated by  two units,
 where the finite elements no  longer overlap, the cross correlation at
 $t=0$ vanishes, as it is clear for $C_{3,5}(t)$.
@@ -7190,7 +6665,7 @@ $t=0$ vanishes, as it is clear for $C_{3,5}(t)$.
   \centering
 \includegraphics[scale=0.41]{LambdatRec-WALLS-17nodes}
 \caption[Diagonal elements  $\tilde{\Lambda}_{\mu\mu}(t)$ of $\Lambda(t)$ in the reciprocal space - 17nodes.]{The  diagonal elements  $\tilde{\Lambda}_{\mu\mu}(t)$ of  the
-  $\Lambda(t)$ in the reciprocal space defined in (\ref{}), as a
+  $\Lambda(t)$ in the reciprocal space defined in (\ref{LambdatRec}), as a
   function of $t$.}
 \label{fig:LambdatRec-WALLS-17nodes}
 \end{figure}
@@ -7259,7 +6734,7 @@ of the  bin close  to the lattice  shown in the  bottom panel  of Fig.
 due to the lattice. Such a caging would be undetectable for much wider
 bins, as it appears to be the case.
 
-In  the  present  paper,  we  have  only  discussed  the  dynamics  of
+In  the  present  chapter,  we  have  only  discussed  the  dynamics  of
 transverse momentum.   With the same  methodology, we can  discuss the
 coupled  dynamics of  the  density  and the  normal  component of  the
 momentum.   It is  not yet  clear to  us whether  the highly  resolved
@@ -7276,10 +6751,10 @@ parallel walls deserves further study.
 \end{figure}
 
 The  fact that  hydrodynamics near  walls is  non-Markovian at  highly
-resolved  scales  has a  number  of  implications. For example, in Chapter \ref{Chap:Theory} the coarse delta function introduced in the hydrodynamic fields can not be a Dirac delta functions as we presented in \cite{Camargo2018}. 
+resolved  scales  has a  number  of  implications. For example, in Chapter \ref{Chap:Theory} the coarse delta function introduced in the hydrodynamic fields can not be a Dirac $\delta$ functions as we presented in \cite{Camargo2018}. 
 \Note{Esto no hará falta añadirlo porque voy a cambiar el capítulo 2. For  example,  the
 continuum theory  described in Chapter \ref{Chap:Theory} can  only make
-sense if the hydrodynamic fields are  defined not with the Dirac delta
+sense if the hydrodynamic fields are  defined not with the Dirac $\delta$
 function, but  rather with  coarse delta  functions with  an intrinsic
 length  scale  larger than  molecular  dimensions  as, for  example  a
 normalized Gaussian  of width  $\sigma$.  As  a consequence,  the free
@@ -7324,7 +6799,7 @@ slip boundary  condition that  states that the  velocity of  the fluid
 vanishes  at the  surface of  fixed solid  walls \cite{Batchelor1967}.
 This assumption gives the correct predictions for macroscopic flows of
 Newtonian  fluids.  However,  as the  length scale  of observation  is
-reduced  towards   the  micro  and   nanoscale,  a  large   number  of
+reduced  toward   the  micro  and   nanoscale,  a  large   number  of
 experimental   \cite{Lauga2005}   and  computer   simulation   studies
 \cite{Koplik1995} has shown that the fluid may actually slip along the
 container walls  \cite{KarniadakisBook2005}.  The  first consideration
@@ -7479,7 +6954,7 @@ of the BB Green-Kubo expression dissappears in this limit.
 % particle becomes of  molecular size. 
 
 In summary, there  seems to be three different ways  of looking at the
-derivation  of  the  slip   boundary  condition  from  non-equilibrium
+derivation  of  the  slip   boundary  condition  from  nonequilibrium
 statistical mechanics.  Through the  measurement of the correlation of
 the  transverse  momentum  and  comparison  with  the  predictions  of
 continuum  (local) hydrodynamics  \cite{Bocquet1993,Chen2015}, through
@@ -7490,7 +6965,7 @@ friction forces and velocities \cite{Hansen2011}, where the meaning of
 this quantities is often understood implicitly.
 
 In this chapter, we compute explicitly the viscosity and friction kernels that apper in the discrete hydrodynamic theory presented in Chapter \ref{Chap:Planar} for shear flows in between confining paralle solid walls.  
-We show  that  the  usual Green-Kubo  formulae  suffer
+We show  that  the  usual Green-Kubo  formulas  suffer
 dramatically  from the  plateau problem  and  cannot be  used for  the
 unambiguous  determination of  transport coefficients.   This includes
 the solid-fluid friction coefficient which,  as shown in Ref. \cite{2}
@@ -7507,10 +6982,10 @@ looking at the equations for the averages of hydrodynamic variables we
 may reproduce the pillbox argument of Ref.  \cite{CamargoBC2018} and re-derive the
 Navier slip boundary condition.  This provides an explicit microscopic
 expression for the  slip length that involves  the corrected transport
-kernels.  The  present formulation with corrected  Green-Kubo formulae
+kernels.  The  present formulation with corrected  Green-Kubo formulas
 predicts  the  boundary  conditions  that should  be  imposed  on  the
 evolution equations for the average hydrodynamic variables. We observe
-in non-equilibrium  MD simulations  that the  plug flow  considered in
+in nonequilibrium  MD simulations  that the  plug flow  considered in
 this paper violates the Navier slip boundary condition at short times,
 while it is very  well  satisfied at  later stages  of  the flow.   This
 violation is due to the unbalance between the solid friction and shear
@@ -7649,7 +7124,7 @@ Check of Eq. (\ref{FBv}) for $B=2$. Green is the measured force $F_B(t)={\bf F}^
   channel widths considered.  Note that only  after a time $\sim 2$ in
   reduced  units,   the  total   force  $F_B(t)\simeq  0$   (see  Fig.
   \ref{Fig.FBcheck}) and  we have a  real balance between  viscous and
-  friction  forces, leading  to  a constant  non-zero  slip length  of
+  friction  forces, leading  to  a constant  nonzero  slip length  of
   ${\eta'}/{\gamma'}= 0.29$  in reduced units (horizontal  line).}
 \label{Fig:delta}
 \end{figure}
@@ -7699,7 +7174,7 @@ The following published articles and posters are related with this dissertation.
 \begin{enumerate}
   \item \cite{} Nanoscale hydrodynamics near solids.
   \item \cite{} Discrete hydrodynamics near solids for planar flows.
-  \item \cite{} Revisiting the plateau problem in the Green-Kubo formula.
+  \item \cite{} Solution to the plateau problem in the Green-Kubo formula.
   \item \cite{} Space and time locality of discrete hydrodynamics.
   \item \cite{} Non-Markovian behaviour of discrete hydrodynamics near solids.
   \item \cite{} The slip boundary condition from MD simulations revisited.
@@ -7722,13 +7197,13 @@ The following published articles and posters are related with this dissertation.
     CM   & Classical Mechanics \\
     DFT  & Density Functional Theory \\
     DDFT & Dynamic Density Functional Theory \\
-    GLE  & Generalized Langevin Equation \\
+    GLE  & Generalized Langevin equation \\
     LADM & Local Average Density Model \\
     LJ   & Lennard-Jones \\
     LFSA & Linear For Spiky Approximation \\
     MD   & Molecular Dynamics \\
-    NEMD & Non-Equilibrium Molecular Dynamics\\
-    NESM & Non-Eauilibrium Statistical Mechanics \\
+    NEMD & Nonequilibrium Molecular Dynamics\\
+    NESM & Nonequilibrium Statistical Mechanics \\
     QM   & Quantum Mechanics \\
     SM   & Statistical Mechanics \\
     ToCG & Theory of Coarse-Graining \\
@@ -7816,7 +7291,7 @@ Now, let us consider the average of the total force density on the liquid, Eq. (
 where we have  used the definition of the average  with respect to the
 relevant ensemble,  after performing the momentum  integrals. Next, we
 realize that the  derivative of the Boltzmann factor  is the potential
-times the Boltzmann factor itself, this is
+times the Boltzmann factor itself, that is,
 %Hacer la derivada con respecto a q del factor de Boltzmann:
 %\frac{\delta e^{-\beta U}}{\delta q} = \frac{\delta e^{-\beta U}}{\delta q}\frac{\delta U}{\delta q}. Vemos que podemos meter esa derivada en vez de el factor de boltzman y U por separado. 
 \begin{align}
@@ -8035,7 +7510,7 @@ which both imply
 \label{chi2}
 \end{align}
 The functional derivative appearing in (\ref{funcder}) is, therefore, the inverse of the
-density correlation matrix, this is
+density correlation matrix, that is,
 \begin{align}
   \frac{\delta \mu({\bf r})}{\delta \rho({\bf r}')  }&=\beta^{-1}
 \llangle \delta\hat{\rho}_{{\bf r}}\delta\hat{\rho}_{{\bf r}'}\rrangle^{-1}
@@ -8438,7 +7913,7 @@ average of  the time derivatives
 %We consider now the  reversible part
 %for the momentum equation.  It  involves the relevant ensemble average
 %of    the   time    derivative   of    the   momentum    variable   in
-(\ref{iLMicrhogmu}), this is
+(\ref{iLMicrhogmu}), that is,
 \begin{align}
   \llangle i{\cal L}\hat{\rho}_\mu\rrangle^{\lambda{\bf v}} &=\llangle \sum_{i=1}^N{\bf p}_i\esc\boldsymbol{\nabla}\delta_\mu({\bf q}_i)\rrangle^{\lambda{\bf v}}
 \nonumber\\
@@ -8736,7 +8211,7 @@ are left with
 =\llg\overline{\rho}\delta_{\mu}\boldsymbol{\nabla}\delta_{\nu}{\llg\psi_\nu\overline{\bf v}^2\rlg}\rlg
 \label{leftwith}
 \end{align}
-But this is approximatelly true provided that the velocity field is sufficiently smooth
+But, this is approximatelly true provided that the velocity field is sufficiently smooth
 in the length scale of the cell. Indeed, we have that 
 \begin{align}
 \delta_{\nu}({\bf r})\llg\psi_\nu\overline{\bf v}^2\rlg=
@@ -8745,7 +8220,7 @@ in the length scale of the cell. Indeed, we have that
 \int d{\bf r}'
 \Delta({\bf r},{\bf r}')\overline{\bf v}^2({\bf r}')
 \end{align}
-where we have introduced the fat Dirac delta function (\ref{Delta}). When the
+where we have introduced the fat Dirac $\delta$ function (\ref{Delta}). When the
 velocity field is sufficiently smooth on the lattice scale, we may approximate
 \begin{align}
   \int d{\bf r}'
@@ -8817,7 +8292,7 @@ defined as
   \overline{\lambda}_{\bf r}\equiv\lambda_\mu\psi_\mu({\bf r})
 \end{align}
 Because the thermodynamic potential is convex, there is a one to one connection between
-the conjugate variables and the averages of the CG variables, this is
+the conjugate variables and the averages of the CG variables, that is,
 \begin{align}
   \lambda_\mu &\leftrightarrow a_\mu(\lambda)
 \nonumber\\
@@ -9086,8 +8561,8 @@ to compute the following canonical average
 \sum_{ij}^N{\bf p}_i^1{\bf p}_j^1\delta_{\mu}({\bf r}_i) 
 \delta_{\nu}({\bf r}_j) 
 \end{align}
-where the Dirac delta function on  the Hamiltonian is substituted by a
-Gibbs factor. We  keep, however the momentum  conservation Dirac delta
+where the Dirac $\delta$ function on  the Hamiltonian is substituted by a
+Gibbs factor. We  keep, however the momentum  conservation Dirac $\delta$
 function as this has observable consequences.  The two covariances are
 related by
 \begin{align}
@@ -9105,8 +8580,8 @@ ensemble average with the canonical average
   C^{\beta}_{\mu\nu}&=  C^{E^*}_{\mu\nu}
 \end{align}
 The momentum integral of the canonical average involves a Gaussian and the
-Dirac delta function on total momentum. This integral may be computed by
-using the Fourier representation of the Dirac delta function. The result
+Dirac $\delta$ function on total momentum. This integral may be computed by
+using the Fourier representation of the Dirac $\delta$ function. The result
 is
 \begin{align}
   \frac{\int dp {\bf p}_i{\bf p}_je^{-\beta\sum_ip_i^2/2m_i}
@@ -9289,9 +8764,9 @@ where the Fourier representation of the matrix exponential is given by
 \times&\exp\left\{-\tilde{\nu}_{\mu'}\frac{2}{\Delta z^2}\left(1-\cos\frac{2\pi}{{N_{\rm bin}}}\mu'\right)t\right\}
 \end{align}
 The matrix  exponential may be  understood as the Green's  function of
-the problem.  We choose as initial  profile a Dirac delta like function at
+the problem.  We choose as initial  profile a Dirac $\delta$ like function at
 the origin, suitably displaced to have a zero value of total momentum,
-this is
+that is,
 \begin{align}
   g_\mu(0)=\frac{\delta_{\mu 0}}{\Delta z}g_0-\frac{1}{{N_{\rm bin}}\Delta z}g_0
 \label{Inig}
@@ -9314,23 +8789,23 @@ exponential through  the evolution of  an initial profile of  the form
 \begin{figure}
 %  \includegraphics[scale=.6]{GreenFunction2.eps}
 %  \includegraphics[scale=.6]{Green01.eps}
-\caption{Green's function (\ref{gmut}) that gives the average $g_\mu(t)$ for an initial Dirac delta like initial profile (\ref{Inig}). The length of the box is $L_z=24$, and the number of nodes is ${N_{\rm bin}}=112$}
+\caption{Green's function (\ref{gmut}) that gives the average $g_\mu(t)$ for an initial Dirac $\delta$ like initial profile (\ref{Inig}). The length of the box is $L_z=24$, and the number of nodes is ${N_{\rm bin}}=112$}
 \label{GreenFunction2}
 \end{figure}
 \begin{figure}
 %  \includegraphics[scale=.6]{GreenFunction3.eps}
 %  \includegraphics[scale=.6]{Green02.eps}
-\caption{Value of $g_{\mu=0}(t)$ for an initial Dirac delta like initial profile (\ref{Inig}). The length of the box is $L_z=24,48,96 $, and the number of nodes is ${N_{\rm bin}}=112,224,448$ for increasing curves (leading to the thermodynamic limit). This shows that the shoulder is due to the size of the box. As we approach the thermodynamic limit, the decay seems to approach $t^{-1/2}$, as plotted.}
+\caption{Value of $g_{\mu=0}(t)$ for an initial Dirac $\delta$ like initial profile (\ref{Inig}). The length of the box is $L_z=24,48,96 $, and the number of nodes is ${N_{\rm bin}}=112,224,448$ for increasing curves (leading to the thermodynamic limit). This shows that the shoulder is due to the size of the box. As we approach the thermodynamic limit, the decay seems to approach $t^{-1/2}$, as plotted.}
 \label{GreenFunction3}
 \end{figure}
 \begin{figure}
 %  \includegraphics[scale=.6]{Green04.eps}
 %  \includegraphics[scale=.6]{Green03.eps}
-  \caption{Value  of $g_{\mu=0}(t)$  for an  initial Dirac  delta like
+  \caption{Value  of $g_{\mu=0}(t)$  for an  initial Dirac  $\delta$ like
     initial profile (\ref{Inig}).  The length  of the box is $L_z=24$,
     and the number  of nodes is ${N_{\rm bin}}=112,224,448$  for increasing curves
     (leading to the  continuum limit). This shows that  as we increase
-    the resolution, we converge towards  a singular function at $t=0$,
+    the resolution, we converge toward  a singular function at $t=0$,
     related to  the divergence with  $\Delta z^{-1}$. At  large times,
     all  curves  behave in  the  same  way.  The line  corresponds  to
     $\propto  t^{-1/2}$.  Only  in   both  limits  (thermodynamic  and
