@@ -477,7 +477,8 @@ We bin the system in slabs as is shown in Figure \ref{fig:WallsBox}. The red lin
 The main objetive of this chapter is to obtain the discrete transport coefficients in order to compute them with MD simulations. 
 \begin{figure}
     \centering
-    \includegraphics[scale=0.3]{system_nodes_walls}
+    %\includegraphics[scale=0.3]{system_nodes_walls}
+    \includegraphics[scale=0.1]{bins}
     \caption[Walls box]{A visual representation of the MD simulation with a sketch of the binning used. In red are depicted the nodal planes used.}
     \label{fig:WallsBox}
 \end{figure}
@@ -6452,7 +6453,8 @@ walls.
 
 \begin{figure}
     \centering
-    \includegraphics[scale=0.3]{system_nodes_walls}
+    %\includegraphics[scale=0.3]{system_nodes_walls}
+    \includegraphics[scale=0.1]{bins}
     \caption[Walls box]{A visual representation of the MD simulation with a sketch of the binning used. In red are depicted the nodal planes used.}
     \label{fig:WallsBox}
 \end{figure}
@@ -6951,7 +6953,7 @@ unambiguous  determination of  transport coefficients.   This includes
 the solid-fluid friction coefficient which,  as shown in Ref. \cite{CamargoBC2018}
 is  equivalent  to   the  expression  given  by   Bocquet  and  Barrat
 \cite{Bocquet1994}.  We  use the corrected Green-Kubo  expressions, as
-formulated in  Chapter {\ref{PBC}} in  order to determine  unambiguosly the
+formulated in  Chapter \ref{Chap:PBC} in  order to determine  unambiguosly the
 transport kernels (which are matrices for the non-local viscosity, and
 non-local frictions).  With  these transport matrices, we  are able to
 predict correctly the evolution  of the \textit{correlation} matrix of
@@ -7445,7 +7447,7 @@ buried  inside the  bin.
 \begin{figure}
   \centering
 \includegraphics[scale=0.41]{Density-01sigma-2sigma}
-\caption{The average  density profile  for two resolutions  $\Delta z=
+\caption[The average density profile for two resolutions]{The average  density profile  for two resolutions  $\Delta z=
   0.1\sigma$ (blue) and  $\Delta  z=2\sigma$ (orange).}
 \label{Fig:DensityResolved}
 \end{figure}
@@ -7478,7 +7480,7 @@ are seen to decay towards zero, in a quasi-algebraic way.
   \centering
 \includegraphics[width=\linewidth]{NoPlateau-WALLS-17nodes}
 %\includegraphics[scale=0.41]{NoPlateau-WALLS-17nodes}
-\caption{Top: Time evolution of  the matrix element $\eta_{\mu\nu}(t)$
+\caption[Time evolution of the matrix element $\eta_{\mu\nu}$]{Top: Time evolution of  the matrix element $\eta_{\mu\nu}(t)$
   for $\mu=10,\nu=10$ that corresponds to a  node in the center of the
     channel. Bottom:  $\gamma_{\mu\nu}(t)$ for $\mu=1,\nu=1$  (blue) and
   $\mu=2,\nu=2$ (green).  The right panel in both top and bottom is in log-log scale and shows that
@@ -7528,7 +7530,7 @@ in molecular terms.
 
 \begin{figure}[]
 \includegraphics[width=\linewidth]{Etatau-matrix-17nodes-WALLS}
-\caption{Left column: The                     transport                    matrices
+\caption[The transport matrices evaluated from the Green-Kubo running integrals at the plateau value time]{Left column: The                     transport                    matrices
   $\eta_{\mu\nu}(\tau)$,$G_{\mu\nu}(\tau)$,$\gamma_{\mu\nu}(\tau)$
   evaluated from the Green-Kubo running integrals at the plateau value
   time $\tau$. Right column: Zoom  of  the corresponding left plots.  Results  for  two channels  with
@@ -7580,7 +7582,7 @@ necessary to describe the dynamics of the system.
 
 \begin{figure}[!h]
 \includegraphics[width=\linewidth]{gxtPredictions_and_vtCorrected-17nodes-WALLS}
-\caption{Left panel: the  momentum $g(t)$  profile at  different times
+\caption[The momentum profile at different times and the velocity profile obtained from the momentum]{Left panel: the  momentum $g(t)$  profile at  different times
   ($t=1,3,\cdots,21$), in  descending order.   The two  vertical lines
   denotes  the  position  of  the   wall  $z_{\rm  wall}$  as  defined
   microscopically from the friction  matrix in Eq.  (\ref{zwallDisc}).
@@ -7611,7 +7613,7 @@ unconfined fluid.
 \begin{figure}[!h]
     \centering
 \includegraphics[scale=0.41]{gxtPredictions-17nodes-WALLS}
-\caption{Left  panel: the  momentum $g(t)$  profile for modes $\mu=1,2,4$ (in ascending order) as a function of time (blue), and the predictions given by (\ref{gsol})(orange). Right panel: zoom of the left panel at short times.}
+\caption[The momentum profile as a function of time]{Left  panel: the  momentum $g(t)$  profile for modes $\mu=1,2,4$ (in ascending order) as a function of time (blue), and the predictions given by (\ref{gsol})(orange). Right panel: zoom of the left panel at short times.}
 \label{Fig-gxtPredictions}
 \end{figure}
 
@@ -7683,6 +7685,14 @@ by (\ref{evolg2}).
 
 \subsection{Mechanical balance on a slab near wall}
 \label{Sub:Mech}
+
+\begin{figure}[]
+  \centering
+\includegraphics[scale=0.2]{SchemeBSlab-3}
+\caption[Scheme of the definition of the boundary slab of fluid]{Scheme of the definition of the boundary slab of fluid. The red line defines the function $U_{B}(z)$, for $B=1$ (left), $B=2$ (middle), and $B=3$ (right).}
+\label{Fig.Slab}
+\end{figure}
+
 We introduce the  concept of \textit{boundary slab} of  fluid which is
 made of $B$ bins near one of the walls. Hansen et al \cite{Hansen2011}
 have used  also a  boundary slab to  formulate a  generalized Langevin
@@ -7731,7 +7741,7 @@ G_\nu&\equiv \frac{1}{S} \sum^{B}_{\mu=1}{\cal V}_\mu G_{\mu\nu}
 % where we have introduced the constant vector ${\bf c}=({\cal V}_1,\cdots,{\cal V}_B,0,\cdots,0)$.
 \begin{figure}[]
 \includegraphics[width=\linewidth]{transportMatrices-17nodes-WALLS}
-\caption{Top: The viscosity matrix  $\eta_{B\nu}$ for different values
+\caption[The viscosity matrix for different values of $\nu$, for three values of $B$]{Top: The viscosity matrix  $\eta_{B\nu}$ for different values
   of  $\nu$, for  three values  of $B=1$  (blue), $B=2$  (orange), $B=3$
   (green). Observe  that the last  two quantities are  identical except
   that are  simply translated one  node. Middle and bottom:  The local
@@ -7780,7 +7790,7 @@ zero.
 \begin{figure}[]
   \centering
 \includegraphics[scale=0.41]{checkMecBalance-17nodes-WALLS}
-\caption{
+\caption[Check mechanical balance]{
   Check  of Eq.  (\ref{FBv}) for  $B=2$. Green  is the  measured force
   $F_B(t)={\bf F}^x_B(t)$, blue is the right hand side of (\ref{FBv}),
   and red is the difference  between both quantities, and a reflection
@@ -8062,9 +8072,9 @@ obtained in Ref.  \cite{CamargoBC2018} by Camargo et al., and it coincides , aft
 %coincides, after  a suitable redefinition  of the wall  position, with
 the one provided by Bocquet and Barrat \cite{Bocquet1994}.
 
-\begin{figure}[!h]
+\begin{figure}[]
 \includegraphics[width=\linewidth]{etaTotal-17nodes-WALLS}
-\caption{The total friction $\gamma(\tau)$ as  a function of the upper
+\caption[The total friction as a funtion of the upper limit of integration of the running Green-Kubo integral]{The total friction $\gamma(\tau)$ as  a function of the upper
   limit   of   integration   of  the   running   Green-Kubo   integral
   (\ref{FinMic}).  Inset  is in  logscale.  The  vertical line  is  at
   $\tau=0.3$ which is  the time at which the corrected
@@ -8124,12 +8134,12 @@ insensitive to the actual value of  $\tau$. Note that, even though the
 range  of $\tau$  considered is  small  and limited  by the  explosive
 amplification of  statistical errors  involved in  the inverse  of the
 correlation matrix, it  is sufficiently large to  appreciate the decay
-of $\eta',\gamma'$ due to the plateau problem, as shown in Fig. \ref{Fig:veltau}. \Note{¿Seguro que es esa figura?}
+of $\eta',\gamma'$ due to the plateau problem, as shown in the right panel of Fig. \ref{Fig:delta}. \Note{¿Seguro que es esa figura?}
 
 \begin{figure}[!h]
 \centering
 \includegraphics[scale=0.41]{tauDependenceSlip-17nodes-WALLS}
-\caption{Dependence  on  the time  $\tau$  in  the plateau  region  of
+\caption[Dependence on time $\tau$ in the plateau region]{Dependence  on  the time  $\tau$  in  the plateau  region  of
   $\eta'$  (blue),  $\gamma'$  (orange),  and the  slip  lenght  $\delta$
   (green). Note  that while $\eta',\gamma'$  decay with $\tau$  due to
   the plateau  problem, its ratio  given by the predicted  slip length
@@ -8138,41 +8148,613 @@ of $\eta',\gamma'$ due to the plateau problem, as shown in Fig. \ref{Fig:veltau}
 \end{figure}
 
 
-VOY POR AQUI
 \subsection{Validation of the slip boundary condition}
 \label{Sub:Val}
 
-\begin{figure}[!h]
+\begin{figure}[]
 \includegraphics[width=\linewidth]{Slipt-17nodes-WALLS}
-\caption{The slip length $\delta(t)$ as a function of time for the two
+\caption[The slip length for two channel with different width]{Left panel: The slip length $\delta(t)$ as a function of time for the two
   channel widths considered.  Note that only  after a time $\sim 2$ in
   reduced  units,   the  total   force  $F_B(t)\simeq  0$   (see  Fig.
   \ref{Fig.FBcheck}) and  we have a  real balance between  viscous and
   friction  forces, leading  to  a constant  nonzero  slip length  of
-  ${\eta'}/{\gamma'}= 0.29$  in reduced units (horizontal  line).}
-\label{Fig:delta}
-\end{figure}
-
-\begin{figure}[!h]
-\centering
-\includegraphics[scale=0.41]{Slipt-tau-17nodes-WALLS}
-\caption{The  measured  slip  length  (\ref{deltat})  is  obtained  by
+  ${\eta'}/{\gamma'}= 0.29$  in reduced units (horizontal  line). Rigth panel: The  measured  slip  length  (\ref{deltat})  is  obtained  by
   adjusting       $\overline{\bf        v}_{\rm       wall}$       and
   $\dot{\overline{\gamma}}_{\rm  wall}$ to  the scaled  velocity profile
   $\overline{\bf  v}_\mu$ in  the boundary  slab. For  this reason  it
   depends on the value of  $\tau$. There are four curves superimposed,
-  corresponding  to  $\tau=0.3,0.4,0.5$.  Clearly, the  measured  slip
+  corresponding  to  $\tau=0.3,0.4,0.5,0.6$.  Clearly, the  measured  slip
   length is roughly independent of the actual value of $\tau$.}
-\label{Fig:veltau}
+\label{Fig:delta}
+\end{figure}
+We  have  obtained the  slip  boundary  condition with  a  microscopic
+expression for the slip length but we  have to see whether it is really
+satisfied in actual  simulations.  In order to see if  the Navier slip
+boundary condition is satisfied by the non-equilibrium average initial
+plug  flow  considered   in  this  paper,  we   define  the  following
+time-dependent slip length
+\begin{align}
+  \delta(t)=\frac{\overline{\bf v}^x_{\rm wall}(t)}{\dot{\overline{\gamma}}_{\rm wall}(t)}
+\label{deltat}
+\end{align}
+where        $\overline{\bf       v}^x_{\rm        wall}(t)$       and
+$\dot{\overline{\gamma}}_{\rm wall}(t)$  are measured from  the actual
+velocity profiles. The way we have measured this flow parameters is as
+follows. First, note  from Fig. \ref{Fig-gxt-vt} that the velocity field at
+short  times is  clearly not  linear  within the  boundary slab.   The
+discontinuous  plug  flow takes  a  while  until an  almost  parabolic
+decaying profile  is achieved.  For  this reason,  we aim at  using the
+smallest possible  size $B$ for  the boundary slab that  minimizes the
+non-linearity of  the velocity within  the boundary slab.   The optimal
+choice is $B=2$.  Next, note from Fig.  \ref{Fig.Bdependence} that the
+non-local viscosity  kernel $\eta_{B\nu}$  is not  zero for  $B=2$ and
+$\nu=1,2,3$.   This  implies  that   the  force  ${\bf  F}^x_B(t)$  in
+(\ref{FBv}) depends on  the values of the velocity  ${\bf v}^x_\mu$ at
+the nodes  $\mu=1,2,3,4$.  For this reason,  we measure $\overline{\bf
+  v}^x_{\rm wall}(t)$  and $\dot{\overline{\gamma}}_{\rm  wall}(t)$ by
+adjusting a linear profile to the  velocity at the four nodes near the
+wall.  Note  that the region where  the velocity of the  fluid affects
+the force on the boundary slab  is rather large, around one quarter of
+the channel width!   Note that only at very long  times, we expect the
+profile to be approximately linear within the boundary slab.
+
+%\begin{figure}[!h]
+%\centering
+%\includegraphics[scale=0.41]{Slipt-tau-17nodes-WALLS}
+%\caption{The  measured  slip  length  (\ref{deltat})  is  obtained  by
+%  adjusting       $\overline{\bf        v}_{\rm       wall}$       and
+%  $\dot{\overline{\gamma}}_{\rm  wall}$ to  the scaled  velocity profile
+%  $\overline{\bf  v}_\mu$ in  the boundary  slab. For  this reason  it
+%  depends on the value of  $\tau$. There are four curves superimposed,
+%  corresponding  to  $\tau=0.3,0.4,0.5$.  Clearly, the  measured  slip
+%  length is roughly independent of the actual value of $\tau$.}
+%\label{Fig:veltau}
+%\end{figure}
+
+According  to  the  slip  boundary  condition  (\ref{SlipLength})  the
+function $\delta(t)$ should be  given by the constant $\eta'/\gamma'$.
+We plot in  Fig.  \ref{Fig:delta} the measured $\delta(t)$  as well as
+the constant value  $\eta'/\gamma'$.  We observe that  the slip length
+decays  towards $\eta'/\gamma'$  after a  time $\simeq  5$ in  reduced
+units.   This   implies  that  the  Navier   slip  boundary  condition
+\textit{is not} satisfied for the plug flow in the very initial stages
+of  the flow  field. This  indicates  that some  of three  assumptions
+i)-iii) used to derive the slip  boundary conditions fail.  As we know
+that i)  is satisfied after a  very short time around  $\tau=0.3$ (see
+Fig.  \ref{Fig-gxtPredictions}), the failure can only be attributed to ii) or
+iii).  By  observing Fig.  \ref{Fig.FBcheck}  it is apparent  that the
+force $F_B(t)$ on the slab is non-zero at the early times $0.3<t<2$ of
+the decay of the plug flow and  this explains in part the violation of
+the  slip boundary  condition.   However, even  though  the force  has
+decayed to zero beyond $t=2$ the slip length $\delta(t)$ still has not
+decayed to its predicted value.  Therefore, we attribute the violation
+of the  slip boundary condition  for $t<5$ to the  non-linear velocity
+profile within the boundary slab.
+
+We have shown  in Fig. \ref{Fig:tau} how the predicted  slip length is
+insensitive to the value of  $\tau$. In the right panel of Fig.  \ref{Fig:delta} we show
+that the  measured slip  length is  also insensitive  to the  value of
+$\tau$,  even though   the  two  parameters   $\overline{\bf  v}^x_{\rm
+  wall}(t)$ and  $\dot{\overline{\gamma}}_{\rm wall}(t)$  are obtained
+by a linear  fitting of the scaled velocity  $\overline{\bf v}^x$ that
+depends on $\tau$ as shown in its definition (\ref{ov}). Together with
+the result that the predicted  slip length given in (\ref{SlipLength})
+is independent on  $\tau$ this gives confidence on  the correctness of
+the approach that we have taken.
+
+Finally,  Petravic and  Harrowell\cite{Petravic2007}  have raised  the
+concern  about the  possible  dependence of  the friction  coefficient
+$\gamma$  defined in  (\ref{FinMic})  on the  channel  width.  If  the
+solid-fluid  friction coefficient  would depend  on the  width of  the
+channel,  it  could   not  be  attributed  to   an  intrinsic  surface
+property. In  order to answer  to this  question we have  repeated the
+simulations for a channel with twice the width and twice the number of
+bins,  in  such  a  way  that  the bin  width  is  the  same  in  both
+simulations.   As  shown  in Figs.   \ref{Fig-GK-zoom}  the  transport
+matrices
+$\eta_{\mu\nu}(\tau),G_{\mu\nu}(\tau),H_{\mu\nu}(\tau),\gamma_{\mu\nu}(\tau)$
+take exactly the  same values for the  bins near to the  walls in both
+channels.   In Fig.   \ref{Fig:delta} the  time-dependent slip  length
+(\ref{deltat}) for  the two channel  widths is plotted.   Clearly, the
+slip  length that  we  obtain  is independent  on  the channel  width.
+
+\section{The local hydrodynamic model with boundary conditions}
+\label{Sec:FinalCheck}
+In  Sec. \ref{Sec:BC},  we have  predicted  that the  velocity and  the
+velocity gradient at the wall position $z_{\rm wall}$ are proportional
+to each other, with the constant  of proportionality given by the slip
+length $\delta$.   Both $\delta$  and $z_{\rm wall}$  have microscopic
+expressions.  We have observed that  this prediction is very good once
+the velocity field is well approximated by a linear profile inside the
+boundary  layer  and  the  total   force  on  the  boundary  layer  is
+vanishingly small.   The fulfillment of  this flow property is  a nice
+phenomenological observation,  and the  theoretical prediction  of the
+resulting slip  length is  an achievement,  but the  real interest
+lies  in  the  possibility  of formulating  a  boundary  condition.  A
+boundary condition  is useful if  one wants to solve  the hydrodynamic
+equations  \textit{without  having  to   take  into  account  all  the
+  interactions of the fluid with the solid}.
+
+In  this  section,  we  assess  the  prediction  given  by  the  local
+hydrodynamic  equation described  by the  tangential component  of the
+Navier-Stokes equation
+\begin{align}
+  \partial_t g(z,t)&=\nu\frac{\partial^2}{\partial z^2} g(z,t)
+\label{NS}
+\end{align}
+with  the  slip  boundary  condition  (\ref{NavierDisc2})  applied  at
+$z_{\rm    wall}$.    The    kinematic   viscosity    is   given    by
+$\nu=\eta/\rho$. As  shown in Chapter \ref{Chap:PBC} \Note{Seguro? o es el capítulo de discretización?}, a  Petrov-Galerkin discretization of
+the partial differential equation (\ref{NS}) takes the form
+\begin{align}
+  \frac{d}{dt}g_\mu(t)&=\nu \frac{1}{\Delta z^2}(g_{\mu-1}(t)+g_{\mu+1}(t)-2g_{\mu}(t))
+\label{NSDisc}
+\end{align}
+This  equation  is to  be  compared  with the  non-local  hydrodynamic
+equation (\ref{TheoryDiscFin}) that we know, from the results obtained
+so   far,   that   describes   very   well   the   dynamics   of   the
+system.  Therefore, a  natural  question  is how  one  can obtain  the
+discrete local hydrodynamic equation (\ref{NSDisc}) from the non-local
+equation (\ref{TheoryDiscFin}).
+
+As we take the point of view that all the effects of the walls will be taken
+into account through the boundary  condition, we neglect in
+(\ref{TheoryDiscFin})          the           terms          containing
+$G_{\mu\nu},H_{\mu\nu},\gamma_{\mu\nu}$ that represent the interaction
+of the  fluid with  the wall. In addition, we will assume that
+ the  nodes
+$\mu=2,\cdots,15$   are   fluid   nodes for which the fluid properties are those
+of the bulk fluid.
+We observed in Chapter \ref{Chap:PBC}
+that the hydrodynamics  of an unconfined fluid is  reasonable local at
+long times, which  amounts to approximate the viscosity  matrix with a
+diagonal matrix of the form
+\begin{align}
+  \eta_{\mu\nu}(\tau)&\simeq\frac{\delta_{\mu\nu}}{{\cal V}_\mu}\eta_\mu(\tau)
+\label{etadiag}
+\end{align}
+where the local viscosity is defined in a consistent way as
+\begin{align}
+\eta_\mu(\tau)\equiv\sum_\sigma{\cal V}_\sigma \eta_{\mu\sigma}(\tau)
+\label{LocVisc}
+\end{align}
+With this definition, if we sum both sides of (\ref{etadiag}) we get the same result.
+We further assume that $\eta_\mu(\tau)$ is the same for all $\mu$ in the fluid region,
+say equal to $\eta_{8}(\tau)$ in the middle of the channel.
+
+The momentum and the velocity  are related through the matrix equation
+(\ref{ov}). In a local approximation, we assume
+that
+\begin{align}
+  g_\mu\simeq\rho_\mu{v}_\mu
+\label{grhov}
+\end{align}
+We  then  insert  in (\ref{TheoryDiscFin})  the  local  approximations
+(\ref{etadiag}), (\ref{grhov}) to  obtain the equations (\ref{NSDisc})
+for the fluid nodes $\mu=2,\cdots,15$
+\begin{align}
+  \frac{d g_2}{dt}&= \nu\frac{g_3+g_1-2g_2}{\Delta z^2}
+\nonumber\\
+  \frac{d g_3}{dt}&=\nu\frac{g_4+g_2-2g_3}{\Delta z^2}
+\nonumber\\
+\vdots\;\;&=\quad\quad\quad\quad\vdots
+\nonumber\\
+  \frac{d g_{14}}{dt}&=\nu\frac{ g_{15}+ g_{13}-2g_{14}}{\Delta z^2}
+\nonumber\\
+  \frac{d g_{15}}{dt}&=
+\nu\frac{g_{14}+g_{16}-2g_{15}}{\Delta z^2}
+\label{ODE}
+\end{align}
+The kinematic viscosity is given by $\nu=\eta_\mu(\tau)/\rho^{\rm eq}$.
+The evaluation of (\ref{LocVisc}) gives $\nu=1.41$.
+We see that 
+(\ref{ODE}) is a set of ODE for the variables $g_\mu$ for
+$\mu=2,\cdots,15$ but it includes in the first and last equations the
+values $g_1,g_{16}$ that are undetermined. They
+should be fixed, of course, through the boundary condition, as follows.
+
+If  we define  $h$ as  the distance  between node  1, where  the outer
+crystalline plane  lies, and the  position $z_{\rm wall}$ of  the wall,
+the velocity at the wall is given by the linear interpolation
+\begin{align}
+{v}_{\rm wall}&= v_1+\dot{{\gamma}}_{\rm wall} h
+\nonumber\\
+\dot{{\gamma}}_{\rm wall}&=\frac{v_2-v_1}{\Delta z}
+\end{align}
+Therefore, the  slip boundary condition (\ref{NavierDisc2})  takes the
+form, for the lower wall
+\begin{align}
+  v_1+\frac{v_2-v_1}{\Delta z} h&=\delta \frac{v_2-v_1}{\Delta z}
+\end{align}
+This allows to infer the value of $v_1$ as a function of $v_2$ 
+\begin{align}
+  v_1&=\frac{\epsilon}{\epsilon-1}v_2
+\end{align}
+where $\epsilon=(h-\delta)/\Delta z$ is a dimensionless number.
+A similar expression is obtained for the upper wall
+\begin{align}
+  v_{16}&=\frac{\epsilon}{\epsilon-1}v_{15}
+\end{align}
+In terms of the momentum we have
+\begin{align}
+  g_1&=\frac{\epsilon}{\epsilon-1}g_2
+\nonumber\\
+  g_{16}&=\frac{\epsilon}{\epsilon-1}g_{15}
+\end{align}
+
+By inserting these expressions in (\ref{ODE}) one obtains a closed
+ODE for the set of values ${g}_\mu,\mu=2,\cdots,15$. This
+ODE can be expressed in matrix form as
+\begin{align}
+  \frac{d}{dt}{g}&=\nu \Delta' {g}
+\label{closedODE}
+\end{align}
+where the discrete Laplacian operator  for slip boundary conditions is
+given by
+\begin{align}
+\Delta^\prime&
+=\frac{1}{\Delta z^2}\left(
+    \begin{array}{crrrc}
+-\beta &1&0&\cdots&0\\
+1&-2&1&\cdots&0\\
+\vdots      &&\ddots&&\vdots\\
+\\
+0&\cdots&0&1&-\beta \end{array}
+\right)
+\end{align}
+where we have introduced the parameter
+\begin{align}
+\beta&=  \frac{2+\epsilon}{1+\epsilon}
+%1+\frac{\eta_1}{\eta_0}\frac{1}{1+\epsilon}
+\end{align}
+that contains  the information about  the slip boundary  condition.
+
+\begin{figure}[]
+\includegraphics[width=\linewidth]{gxtLocalPrediction-17nodes-WALLS}
+\caption[Local prediction from local viscosity and slip boundary condition]{Left: Local  prediction (\ref{LocPred}) with  $\nu=1.41$ fixed
+  from  (\ref{LocVisc})  and  the  slip boundary  condition  given  in
+  (\ref{SlipLength}) (orange) compared with the measured momentum density
+  profile  (blue).   There  are   no  adjustable  parameters  in  this
+  comparison. Times  are $t=5,3,\cdots,29$  in descending  order.  The
+  initial   condition  is   the  measured   moment  profile   at  time
+  $t=5$.  Right: The  same but  with the  initial condition  given at
+  $t=0.3$ and times $t=0.3,0.6,\cdots2.1$.}
+\label{Fig:LocalPrediction}
 \end{figure}
 
+The solution of the linear equation (\ref{closedODE}) is given by the matrix exponential
+\begin{align}
+ g(t)&=\exp\{\nu \Delta' t\}g(0)
+\end{align}
+As we know that a Markovian description cannot hold at very short times,
+we will compare the MD results with the solution with initial condition
+at time $\tau$, this is
+\begin{align}
+ g(t)&=\exp\{\nu \Delta' (t-\tau)\}g(\tau)
+\label{LocPred}
+\end{align}
+We  then   compare  this   prediction  of  local   hydrodynamics  plus
+microscopically derived  slip boundary condition with  the measurement
+of  the   discrete  momentum.   The   comparison  is  given   in  Fig.
+\ref{Fig:LocalPrediction}  where we  observe  an excellent  agreement.
+Note that there are no  adjustable parameters in this prediction. Both
+the kinematic viscosity and the slip  length which enter the local hydrodynamic equations are
+measured through well-defined Green-Kubo  expressions.  Note also that
+at shorter times  $t=0.3,0.6,\cdots,2.1$ shown in the  bottom panel of
+Fig.  \ref{Fig:LocalPrediction} the agreement is not as good. This is,
+of course,  attributed to the  fact that  at these shorter  times, the
+slip boundary  condition is not  satisfied at all because  neither the
+total force  on the  boundary slab is  equilibrated, nor  the velocity
+profile  is  linear  inside  the  boundary  slab.   For  these  highly
+discontinuous profiles, the concept of a slip boundary condition is not
+applicable.   In these cases,  it is necessary to  consider the
+explicit  interaction between  the  solid and  the  fluid through  the
+surface   irreversible  forces   containing   the  transport   kernels
+$G_{\mu\nu},H_{\mu\nu},\gamma_{\mu\nu}$.    As   we   have   seen   in
+Fig. \ref{Fig-gxtPredictions} and Fig. \ref{Fig-gxt-vt}  the agreement  with the  non-local hydrodynamic
+theory plus surface forces is excellent.
+
+
 \section{Summary}
+
+In this chapter,  we have  considered the  discrete hydrodynamic
+equations of  Chapter \ref{Chap:Planar} for  the case of  flows along the  parallel walls
+confining the fluid. The resulting  discrete equations correspond to a
+Petrov-Galerkin finite element discretization  of the continuum theory
+presented in Chapter \ref{Chap:Theory} for  parallel flows.  We have computed
+from equilibrium  MD simulations  the transport matrices  entering the
+discrete  hydrodynamic equations.   Their  continuum counterparts  are
+non-local viscosity  and non-local frictions.  The  friction forces in
+the hydrodynamic  equations capture explicitly the  interaction of the
+fluid with the solid.  The transport  matrices are defined in terms of
+Green-Kubo formulas that suffer dramatically from the plateau problem.
+Therefore, we have used the methodology presented in Chapter \ref{Chap:PBC} in
+order  to  re-define the  transport  matrices  in terms  of  corrected
+Green-Kubo  formulas  that  exhibit   a  well-defined  plateau.   This
+amounts to using  the plateau problematic transport  matrices with an
+upper  limit  of integration  $\tau$  in  the  plateau region  of  the
+corrected Green-Kubo  expressions, and  using a scaled  velocity field
+that compensates for the decaying  transport matrices.  With the input
+of the  measured transport matrices  in the hydrodynamic  equations we
+are able to predict  the decay of an initial plug  flow.  This flow is
+particularly challenging as  it is unsteady and discontinuous near the  wall at the
+initial time.   By comparing with  measurements of the average  of the
+decay of the plug flow in MD simulations we observe that the non-local
+equations predict the evolution of this flow with great accuracy. Only
+at very short  times (of molecular size) the  prediction is inaccurate
+due the failure of the Markovian approximation at those short times.
+
+We next  consider the  derivation of the  slip boundary  condition. We
+adapt  the  pillbox  argument  presented by Camargo et al. in  Ref.   \cite{CamargoBC2018}  for  the
+derivation  of   the  slip  boundary  condition   from  the  continuum
+hydrodynamic theory of Chapter \ref{Chap:Theory} to the case  of the present
+planar geometry and  discrete hydrodynamics. The notion  of pillbox is
+played in the present chapter by  the concept of boundary slab, a portion
+of fluid  near the  wall on  which a  mechanical balance  is satisfied
+provided  that   the  discrete  momentum  field   obeys  the  discrete
+hydrodynamic equations. Hansen et  al. \cite{Hansen2011} used also the
+idea  of a  boundary slab,  and they  proposed a  generalized Langevin
+equation  for  the  motion  of  the   slab  in  order  to  identify  a
+friction. The derivation  in the present paper, which is  based on the
+hydrodynamics  in  the  full  channel, gives  not  only  the  friction
+coefficient, but also the position of the wall in microscopic terms.
+
+
+In addition to  the validity of the  Markovian discrete hydrodynamics,
+two  assumptions are  required in  order to  obtain the  slip boundary
+condition from  the mechanical  balance. The  first is  the assumption
+that the  total force on the  slab vanishes.  This is  not always true
+and, in  particular, we observe that  for the decay of  the plug flow,
+the initial stages  of evolution of the flow give  a non-zero force on
+the slab. The second assumption required  for the validity of the slip
+boundary condition is  that the velocity profile is  linear within the
+boundary  layer.   In  this  way,  the  mechanical  balance  imposes  a
+restriction between  the two parameters  of the velocity  field, which
+are  the  velocity  at  the  wall  and the  shear  rate  at  the  wall
+position. The wall position is,  in turn, defined microscopically from
+the  friction matrix,  giving an  unambiguous definition  of the  wall
+position for a  collection of points in a lattice  that are centers of
+singular forces. The velocity profile is expected to be approximately
+linear if  the boundary slab  is not too  large.  There is  an optimal
+width of  the boundary  slab, around  $4\sigma$, that  is sufficiently
+large  for   capturing  all  the   interactions  with  the   wall  but
+sufficiently  small  for a  linear  flow  approximation to  be  valid.
+Nevertheless, we also observe that for the initial stages of the decay
+of  the plug  flow, the  velocity field  within the  boundary slab  is
+clearly non-linear. Therefore, at the initial stages the slip boundary
+condition is not satisfied by the plug flow because both, the force on
+the  boundary slab  does  not vanish  and the  velocity  field is  not
+linear.
+
+At later stages,  we observe that the slip boundary  condition is well
+satisfied for  the decay of  the plug flow and  that the value  of the
+slip length is very well predicted by our theory. The slip length that
+emerges  from the  mechanical balance  argument is  given in  terms of
+microscopic  expressions  that  involve Green-Kubo  formulas  for  the
+viscosity and friction coefficients. The  slip length predicted by the
+discrete hydrodynamic theory coincides  with the slip length predicted
+from the  continuum hydrodynamic theory obtained in the work of Camargo et al. \cite{CamargoBC2018}.
+As it was mentioned in the introduction to this chapter, the microcopic expressions for the slip
+%We  discussed in
+%\cite{2}  that, in  turn,  the microscopic  expressions  for the  slip
+boundary  condition coincide  with the  ones proposed  in the  seminal
+paper  by Bocquet  and Barrat  \cite{Bocquet1994,Bocquet2013} under  a
+suitable redefinition of the wall position. Despite this nice match of
+theoretical results, we emphasize that the present derivation resolves
+the  issue  of  the  plateau  problem that  was  overlooked  in  Refs.
+\cite{Bocquet1994,Bocquet2013} and also by Camargo et al. in \cite{CamargoBC2018}. In fact, we
+have shown that  the Green-Kubo expressions for  the viscosity $\eta$,
+the  friction coefficient  $G$ and  the friction  coefficient $\gamma$
+entering the slip  length all decay towards zero in  an algebraic way,
+and one  needs to correct  these Green-Kubo integrals with  the method
+presented in Chapter \ref{Chap:PBC}.  Quite coincidentally,  as the slip length is a
+ratio of two decaying transport  coefficients, it is quite insensitive
+to  the value  of the  upper limit  of integration  of the  Green-Kubo
+running  integrals.  The  same  is  true for  the  definition  of  the
+hydrodynamic position of the wall,  where the boundary condition is to
+be applied.  This is quite  fortunate because it allows,  in practical
+situation,  to  measure  the  slip  length  from  plateau  problematic
+Green-Kubo expressions.
+
+The methodology  that we have  presented in  order to derive  the slip
+boundary  condition  is very  different  from  either linear  response
+theory  \cite{Bocquet1994,Petravic2007},   the  generalized  Langevin
+equation \cite{Hansen2011}, or the  comparison of measured correlation
+functions with local  predictions \cite{Bocquet1993,Chen2015}.  As far
+as the controversy raised by Petravic and Harrowell about the validity
+of  the friction  coefficient obtained  by Bocquet  and Barrat  we are
+still quite  puzzled. The  results of Petravic  and Harrowell  for the
+friction  coefficient display  a well  defined plateau.   This is  very
+strange, as we  know that such a  friction coefficient \textit{should}
+decay to zero at long times.  We  have not been able to track down the
+origin of this  problem but a possible explanation lies  in the use by
+Petravic and Harrowell of a thermostate applied to all fluid particles
+in  the  simulations,  as  this  has been  shown  to  have  an  effect
+\cite{AlizadehPahlavan2011}
+
+The phenomenological observation of the  validity of the slip boundary
+condition at the late stages of  the plug flow, and the agreement with
+the theoretical prediction are  nice interesting results. However, the
+usefulness of a  boundary condition emerges from the fact  that it can
+be used  as a way to  completely bypass the interactions  of the fluid
+with the solid wall when solving the partial differential equations of
+a  fluid  contained   by  walls.   For  this  reason,   we  solve  the
+Navier-Stokes  equations for  these particular  flow problem  with the
+input of  the microscopically derived  slip boundary condition.   As a
+first step,  we derive  the Navier-Stokes  equation for  parallel flow
+from  the  non-local  equations.   This  is done  by  taking  a  local
+approximation  for  the viscosity  kernel  in  the non-local  discrete
+hydrodynamic  equations.  We  also  neglect the  friction forces  that
+appear in the discrete equations. The resulting discrete equations can
+be understood as a finite  element discretization of the Navier-Stokes
+equations for a parallel flow. Of course, the equations are not closed
+for the  set of velocities  in the fluid  region.  The closure  of the
+equations comes precisely from the boundary condition. We observe that
+the solution  of the local  Navier-Stokes equation with  slip boundary
+condition gives  accurate predictions  for the  decaying plug  flow at
+late  stages of  the  flow,  precisely for  those  in  which the  slip
+boundary condition is  valid. This implies that for  this late stages,
+the hydrodynamics  is local, an  observation that  is akin to  what we
+observed for unconfined fluids in Chapter \ref{Chap:PBC}. However, at short times of
+the   highly  discontinuous   plug   flow  the   predictions  of   the
+Navier-Stokes equations are wrong. One has to recourse in that case to
+the non-local  theory with explicit  account of the  extended friction
+forces that the solid  exerts on the fluid. Such a  theory, as we have
+seen, gives  excellent results even for  the very early stages  of the
+plug flow.
+
+The size $2\sigma$ of  the bins that are used in  the present work are
+pretty large in  molecular terms.  In particular,  it blurs completely
+the density layering near the walls as it showed in Fig. \ref{fig:DensityProfile-WALLS}.  The reason for using these large
+bins is the observation made in Chapter \ref{Chap:Walls} that the dynamics for smaller
+bins is non-Markovian  near the walls. As we  are interested precisely
+in the derivation  of boundary conditions near walls  with a Markovian
+theory, we  are forced to  use large  bins. However, even  these large
+bins  still display  non-local  effects.  For  example, the  non-local
+viscosity transport  matrix has a  support of  three bins or  a length
+scale of $6\sigma$ and the  friction extend over two bins ($4\sigma$).
+As  mentioned above,  such non-local  effects are  needed in  order to
+describe the initial stage of a  discontinuous plug flow.  It is quite
+remarkable that the  friction force on the optimal  boundary slab that
+we have considered,  and that has a size of  $4\sigma$, depends on the
+velocity   field  at   rather  large   distances  of   the  order   of
+$8\sigma$. This is  due to the wide range of  the viscosity kernel. 
+The support of this viscosity  kernel is determined by the length
+at which  the stress tensor  is correlated. As the  microscopic stress
+tensor is defined in terms of pairs of particles, and the range of the
+interactions  is   determined  by   the  cutoff  $2.5\sigma$   of  the
+Lennard-Jones potential,  correlations are expected at  a length scale
+of  $5\sigma$ for  those  pairs  that have  a  common particle.   This
+explains  the  relatively large  range  of  the viscosity  kernel.  Of
+course,  for very  smooth  velocity fields,  the  non-locality of  the
+viscosity kernel may be approximated with a local viscosity.
+
+
+
+
 
 %-----------------------------------------------------------------
 %CONCLUSIONS
 %-----------------------------------------------------------------
 \chapter{Conclusions}\label{Chap:Conclusions}
 %\epigraph{\textit{The runner runs truly to the end.}}{Once a runner \\ JOHN L. PARKER}
+This dissertation has three milestones:
+\begin{enumerate}
+  \item The derivation of the hydrodynamic equations (and its discretization) of a fluid in contact with a solid with the assumtion of the Markovian approximation. 
+  \item The study of the Markovian behaviour for unconfined fluids as well as fluid between two solids slabs. 
+  \item The measure of the slip lenght. \Note{Falta esto}
+\end{enumerate}
+In order to adress them we have
+Chapter \ref{Chap:Theory}
+%In order  to better  understand the problem of slip,  we have
+proposed in  Chapter \ref{Chap:Theory} a continuum  hydrodynamic theory
+derived  with  the  projection  operator  method  that  considers  the
+interaction  of a  fluid with  a solid  object.  The  rationale is  to
+construct a \textit{field theory} where the interaction with the solid
+object  is  explicit in  such  a  way that  it  is  possible to  infer
+\textit{a posteriori} the corresponding  boundary conditions.  This is
+an entirely  new approach  to the  formulation of  boundary conditions
+from  microscopic  principles  which differs  from  previous  attempts
+discussed  above.  
+%In  a series  of publications  \cite{2,3,4,5,6}, we
+%have explored  different aspects  of the theory  and we  summarize our
+%findings in what follows.
+
+In   the    continuum   hydrodynamic   theory   presented    in   Chapter \ref{Chap:Theory}
+%Ref. \cite{Camargo2018}  
+the  solid  exerts both,  reversible  forces  that
+forbid the penetration of the fluid inside the solid, and irreversible
+forces concentrated  in the  vicinity of the  solid that  describe the
+friction between the  wall and the fluid. In  principle, the equations
+are non-local in space and would  describe the layering of the density
+field near the walls, thus  generalizing Density Functional Theory for
+simple  fluids  to  non-equilibrium   situations.   However,  we  have
+observed in Chapter \ref{Chap:Walls} that in the  strict continuum  limit, the
+Markov  assumption  implicit in  the  derivation  of the  hydrodynamic
+equations breaks down  near the  walls.
+Because of that we 
+Only if one defines the hydrodynamic variables with an implicit length
+scale    by   using,    for    example,    coarse   delta    functions
+\cite{Weinhart2012} instead  of Dirac delta functions,  one may expect
+the Markov assumption  in the theory of Ref.  \cite{Camargo2018} to be
+valid.   One  can  reproduce  step  by  step  the  procedure  in  Ref.
+\cite{Camargo2018}  in order  to  obtain the  hydrodynamic theory  for
+these  coarse  hydrodynamic  variables.   The  resulting  hydrodynamic
+equations  are  formally  identical   to  the  hydrodynamic  equations
+obtained in  Ref.  \cite{Camargo2018}, but with  a coarse-grained free
+energy functional which is different from the usual density functional
+of DFT.  In particular, due to  the coarser definition of the density,
+it does not allow one to describe the density layering near a wall.
+
+%In a  subsequent publication  \cite{2} we have  shown that  the Navier
+%slip boundary  condition follows  from the  continuum theory  given in
+%Ref. \cite{Camargo2018}  in the limit  of macroscopic flows.   We have
+%also demonstrated  that the Bocquet and  Barrat microscopic formulation
+%of the slip length is obtained  in this theory.  Note that the pillbox
+%argument derivation in Ref. \cite{2} of the slip boundary condition is
+%not compromised by  the fact that, in the strict  continuum limit, the
+%hydrodynamic theory  proposed in Ref. \cite{Camargo2018}  is not valid
+%due  to non-Markovian  effects.  For  pillbox larger  than the  length
+%scale of  the coarse delta  functions, the argument in  Ref.  \cite{2}
+%holds point by  point and one obtains the  same microscopic expression
+%for the slip length of the  Navier boundary condition as in the theory
+%with Dirac delta functions.
+
+In Chapter \ref{Chap:Planar}, we
+have  formulated  a  discrete  hydrodynamic theory  for  planar  flows
+between  planar walls.   This theory  can  be understood  as a  finite
+element discretization  of the  continuum hydrodynamic theory  in Chapter \ref{Chap:Theory} 
+when restricted  to  planar  flows.  The  discrete
+hydrodynamic theory introduces an intrinsic  length scale given by the
+size of the bins in which space is discretized.  In counterdistinction
+to  the continuum  theory  presented in Chapter \ref{Chap:Theory},  the
+discrete theory of Chapter \ref{Chap:Planar}
+allows for its validation through MD simulations.
+
+In  Chapter \ref{Chap:PBC},  we   have  considered  the
+correlations  of  the discrete  momentum  of  an unconfined  fluid  in
+periodic boundary conditions with no solid walls.  This has allowed us
+to discuss the  locality of hydrodynamics in time  (i.e. the Markovian
+assumption)  and  how it  is  related  to  locality in  space.   Quite
+remarkably  we  show there  that  the  Green-Kubo expression  for  the
+non-local  viscosity  kernel  suffers dramatically  from  the  plateau
+problem.  In Sec. of Chapter \ref{GKsi}, we have  shown that the plateau problem is
+due to  the fact that the  Green-Kubo formula defined in  terms of the
+unprojected dynamics  decays as the  correlation of the  CG variables.
+We  have  also  suggested a  way  to  correct  the
+Green-Kubo formula.  The  new corrected Green-Kubo formula  has a well
+defined plateau that  allows one to obtain  unambiguously the transport
+coefficients.  By using the corrected Green-Kubo expressions we obtain
+in Chapter \ref{Chap:PBC}
+the explicit  forms of  the non-local  viscosity.  With  this measured
+viscosity  kernel,   we  predict   correctly  the  evolution   of  the
+correlation matrix of the transverse momentum.
+
+In Chapter \ref{Chap:Walls}, we  have shown that the
+shear flow  dynamics in  fluids confined between  planar walls  is not
+Markovian if  the bins  in which  the fluid is  divided are  too thin.
+Non-Markovian effects  are detected from the  non-exponential decay of
+the eigenvalues of the  correlation matrix.  The non-Markovian effects
+are clearly identified as originating  near the walls. For bins larger
+than the molecular size, the dynamics becomes fully Markovian.
+
+Finally, in Chapter \ref{Chap:Slip}, we have measured, through equilibrium MD simulations,
+the non-local
+transport  kernels that appear in the discrete hydrodynamic equations derived in Chapter \ref{Chap:Planar}.
+After observe that thet suffer from the plateau problem, we have used the method presented in Chapter \ref{Chap:PBC}
+for realiably extracting the transport kernels out of the plateau-problematic Green-Kubo formula. 
+We have obtained excellent predictions with these kernels of the decaying of the average of the transverse momentum in a channel configuration when the initial velocity profile is a plug flow. 
+We  have  infered the  slip  boundary
+condition with  a well-defined  microscopic definition for  the slip
+length and the  location of the hydrodynamic position  of the atomic
+wall.   The  microscopic expression  for  the  slip length  obtained
+coincides  with the  one originally  proposed by  Bocquet and  Barrat \cite{Bocquet1994}
+.  We also  have shown that the slip
+length does not depend on  the channel width, thus demonstrating that
+the friction coefficient is an intrinsic surface property, in contrast with the results obtained by Petravic and Harrowell \cite{Petravic2007}.
+
+\Note{Quizá lo que me he dejado en las conclusiones del paper IV puede ir aquí.}
+
 %-----------------------------------------------------------------
 %FUTURE
 %-----------------------------------------------------------------
@@ -8180,6 +8762,8 @@ VOY POR AQUI
 %\epigraph{\textit{It's the things we forget about that tell us who we are.}}{Zero K \\ DON DELILLO}
 
 Mencionar lo que hice el primer año de tesis. Teoría no isoterma. Interés práctico para estudio de nanopartículas inmersas en salas fundidas. 
+
+Hacer paredes más realistas. Explorar tamaños de bin. ¿Podemos capturar algo de layering?
 
 
 \bibliographystyle{unsrt}
@@ -9647,150 +10231,23 @@ comply  with  a  zero  total momentum,  resulting  into  the  negative
 covariance (\ref{Cneg}).
 
 
-\chapter{The continuum limit}
+\chapter{The continuum and thermodynamic limits}
 \label{Ap:Cont}
-\markboth{The continumm limit}{}
-\Note{Think meaning of this. Supplementary material?}
-\Note{Pendiente rehacer todo este apéndice}
-In this appendix we discuss the continuum limit of the discrete theory
-and compute analytically the  Green function.  This calculations allow
-one to understand  why the discrete theory does  not reproduce exactly
-the usual hydrodynamic  algebraic tails in the  correlations.  Only in
-both,  the  continuum  and   thermodynamic  limits  one  recovers  the
-algebraic tails.
-
-Consider the  explicit analytical  solution of the  correlation matrix
-$C(t)$  given  in  Eq. (\ref{Cmunut}).   By  introducing  $L_z={N_{\rm
-    bin}}\Delta z$ one may write
-\begin{align}
-  C_{\mu\nu}(t)=\sum_{\nu'}\Delta z \frac{1}{L_z}\sum_{n}\exp\left\{i\frac{2\pi}{L_z}\Delta z (\mu-\nu')n\right\}
-\exp\left\{-\tilde{\nu}_n\frac{2}{\Delta z^2}\left(1-\cos\frac{\Delta z 2\pi}{L_z}n\right)t\right\}C_{\nu'\nu}(0)
-\end{align}
-
-Note that we may take the continuum limit ${N_{\rm bin}}\to\infty$ with ${N_{\rm bin}}\Delta z=L_z$ constant, and $\mu\Delta z=z$, $\nu \Delta z =z'$, $ \nu' \Delta z =z''$. In this way
-the above discrete equation becomes the continuum
-\begin{align}
-  C_{zz'}(t)=\frac{1}{L_z}\int dz''\sum_{n}\exp\left\{i\frac{2\pi}{L_z}(z-z'')n\right\}
-\exp\left\{-\tilde{\nu}_n\left(\frac{2\pi}{L_z}n\right)^2t\right\}C_{z''z}(0)
-\end{align}
-
-We now  show that this continuum  limit of the discrete  result is, in
-fact, identical to the  solution of the continuum integro-differential
-equation  (\ref{congx}).   If we  assume  that  the density  field  is
-constant  and that  the velocity  is given  by $v^1=g^1/\rho_0$  where
-$\rho_0$ is the average constant density
-\begin{align}
-  \frac{d}{dt} g^1(z)&=\int dz'{\nu}(z-z')\partial^2_{z'} g^1(z')
-\label{pgz}
-\end{align}
-where the kinematic viscosity  kernel is $\nu(z)=\eta(z)/\rho_0$.  The
-field $g(z,t)$  is defined  in the domain  $z\in[0,L_z]$ with  PBC. By
-using the Fourier series decomposition
-\begin{align}
-  g(z,t)&=\sum_{n=-\infty}^{\infty} \tilde{g}_n(t) \exp\left\{i\frac{2\pi}{L_z}nz\right\}
-\nonumber\\
-\tilde{g}_n(t)&=\frac{1}{L_z}\int_0^{L_z}dzg(z,t)  \exp\left\{-i\frac{2\pi}{L_z}nz\right\}
-\end{align}
- we arrive at
-\begin{align}
-&  \sum_{n=-\infty}^{+\infty}\dot{g}_n(t)\exp\left\{i\frac{2\pi}{L_z}nz\right\}
-\nonumber\\=&-  \sum_{n=-\infty}^{+\infty}{g}_n(t)\left(\frac{2\pi}{L_z}n\right)^2
-\int_0^{L_z}dz'\nu(z-z')\exp\left\{i\frac{2\pi}{L_z}nz'\right\}
-\label{Fou1}
-\end{align}
-Note that
-\begin{align}
-&  \int_0^{L_z}dz'\nu(z-z')\exp\left\{i\frac{2\pi}{L_z}nz'\right\}
-\nonumber\\
-=&
--\int_{z-L_z}^z dz''\nu(z'')\exp\left\{-i\frac{2\pi}{L_z}nz''\right\} \exp\left\{i\frac{2\pi}{L_z}z\right\}
-\nonumber\\
-=&\tilde{\nu}_n\exp\left\{i\frac{2\pi}{L_z}z\right\}
-\label{nutilde}
-\end{align}
-where the Fourier transform of the kinematic viscosity kernel is
-\begin{align}
-  \tilde{\nu}_n&=\int_{0}^{L_z} dz'\nu(z')\exp\left\{-i\frac{2\pi}{L_z}nz'\right\} 
-\end{align}
-This kernel is   independent   of  $z$,   despite   the   integration  limits   in
-(\ref{nutilde}), because  the kinematic viscosity kernel  is symmetric
-$\nu(z)=\nu(-z)$, and periodic $\nu(z)=\nu(L_z-z)$.
-
-Eq. (\ref{Fou1}) becomes
-\begin{align}
-\dot{g}_n(t)
-&=-  {g}_n(t)\left(\frac{2\pi}{L_z}n\right)^2\tilde{\nu}_n
-\label{Fou2}
-\end{align}
-whose solution is an exponential. Therefore, we may write the solution
-of (\ref{pgz}) in the form 
-\begin{align}
-  g(z,t)&=\int_0^{L_z} dz G(z-z',t)g(z',0)  
-\end{align}
-where the Green's function is 
-\begin{align}
-  G(z,t)&=\frac{1}{L_z}\sum_{n=-\infty}^\infty \exp\left\{-\tilde{\nu}_n\left(\frac{2\pi}{L_z}n\right)^2t+
-i\frac{2\pi}{L_z}nz\right\}
-\label{Green1}
-\end{align}
-Note  that total  momentum is  conserved and  that we  may choose  the
-reference system in such a way that total momentum is zero. This ammounts to
-set the Fourier coefficient
-\begin{align}
-  g_0(t)=\frac{1}{L_z}\int_0^{L_z}dz g(z,t)
-\end{align}
-which  is  the total  momentum  divided  by  the  box size,  and  that
-satisfies   $\dot{g}_0(t)=0$,   to   be   exactly   zero,   this   is,
-$g_0(t)=0$. Then, we delete from the Green's function the term
-$n=0$ or, equivalently, use the following ``rest'' Green's function
-\begin{align}
-  G(z,t)&=\frac{1}{L_z}\left[\sum_{n=-\infty}^\infty \exp\left\{-\tilde{\nu}_n\left(\frac{2\pi}{L_z}n\right)^2t+
-i\frac{2\pi}{L_z}nz\right\}-1\right]
-\end{align}
-The meaning of the Green's function is that it gives the response to a Dirac delta-like initial
-perturbation. In the case that total momentum is zero, the initial singular perturbation is of the form
-\begin{align}
-  g(z,0)=mv_0 \delta(z-L_z/2)-mv_0/L_z
-\end{align}
-This is, initially all the fluid is moving backwards, while a portion of fluid at $z=L_z/2$ is moving
-forward.
-
-Finally, consider the continuum local hydrodynamic prediction that starts from the hydrodynamic equation
-\begin{align}
-  \frac{d}{dt} g(z,t) &= \nu_0 \partial_z^2 g(z,t)
-\label{Diff1}
-\end{align}
-for a field $g(z,t)$ in the domain $z\in[0,L_z]$ with PBC.
-One easily finds that the Fourier coefficients obey
-\begin{align}
-  \frac{d}{dt}\tilde{g}_n(t)=-\nu_0\left(\frac{2\pi}{L_z}n\right)^2 g_n(t)
-\label{Fou0}
-\end{align}
-to be compared with (\ref{Fou2}). This shows that the continuum  local prediction is again
-given by (\ref{numunu0}).
-
-\section{The Green's function}
-One of the values of the  Fourier expression of the exponential matrix
-(\ref{Cmunut}) is  that we may get  a feeling of the  behaviour of the
-continuum limit and the thermodynamic  limit. 
-
-Note that, according to Onsager's regreesion hypothesis, the evolution
-of the average profile is given by 
+\markboth{The continumm limit and thermodynamic limits}{}
+\Note{Pendiente gráficas}
+In this appendix we consider the continuum and thermodynamic limits of
+the  exponential  matrix (\ref{ExpMat})  governing  the  decay of  the
+correlation   (\ref{Cmunut}).  Note   that,  according   to  Onsager's
+regression hypothesis, the  evolution of the average  profile is given
+by
 \begin{align}
   g_\mu(t)&=\exp\{\Delta\esc\nu t\}_{\mu\nu}  g_\nu(0)
 \label{gevol}
 \end{align}
-where the Fourier representation of the matrix exponential is given by
-\begin{align}
-  \exp\{\Delta\esc\nu t\}_{\mu\nu} &=
-\frac{1}{{N_{\rm bin}}}\sum_{\mu'=0}^{{N_{\rm bin}}-1}\exp\left\{i\frac{2\pi}{{N_{\rm bin}}}(\mu-\nu)\mu'\right\}
-\nonumber\\
-\times&\exp\left\{-\tilde{\nu}_{\mu'}\frac{2}{\Delta z^2}\left(1-\cos\frac{2\pi}{{N_{\rm bin}}}\mu'\right)t\right\}
-\end{align}
 The matrix  exponential may be  understood as the Green's  function of
-the problem.  We choose as initial  profile a Dirac $\delta$ like function at
+the problem.  We choose as initial  profile a Dirac delta like function at
 the origin, suitably displaced to have a zero value of total momentum,
-that is,
+this is
 \begin{align}
   g_\mu(0)=\frac{\delta_{\mu 0}}{\Delta z}g_0-\frac{1}{{N_{\rm bin}}\Delta z}g_0
 \label{Inig}
@@ -9804,32 +10261,40 @@ g_0\frac{1}{{N_{\rm bin}}\Delta z}\sum_{\mu'=1}^{{N_{\rm bin}}-1}\exp\left\{i\fr
 \times&\exp\left\{-\tilde{\nu}_{\mu'}\frac{2}{\Delta z^2}\left(1-\cos\frac{2\pi}{{N_{\rm bin}}}\mu'\right)t\right\}
 \label{gmut}
 \end{align}
-where note  that the  term $\mu'=0$  is now  absent.  Note  that total
-momentum   is   conserved    at   all   times   $\sum_{\mu=0}^{{N_{\rm
-      bin}}-1}g_\mu(t)=0$.   Therefore, we  may  visualize the  matrix
-exponential through  the evolution of  an initial profile of  the form
-(\ref{Inig}).
 
-\begin{figure}
-%  \includegraphics[scale=.6]{GreenFunction2.eps}
-%  \includegraphics[scale=.6]{Green01.eps}
-\caption{Green's function (\ref{gmut}) that gives the average $g_\mu(t)$ for an initial Dirac $\delta$ like initial profile (\ref{Inig}). The length of the box is $L_z=24$, and the number of nodes is ${N_{\rm bin}}=112$}
-\label{GreenFunction2}
-\end{figure}
-\begin{figure}
+\begin{figure}[]
 %  \includegraphics[scale=.6]{GreenFunction3.eps}
-%  \includegraphics[scale=.6]{Green02.eps}
-\caption{Value of $g_{\mu=0}(t)$ for an initial Dirac $\delta$ like initial profile (\ref{Inig}). The length of the box is $L_z=24,48,96 $, and the number of nodes is ${N_{\rm bin}}=112,224,448$ for increasing curves (leading to the thermodynamic limit). This shows that the shoulder is due to the size of the box. As we approach the thermodynamic limit, the decay seems to approach $t^{-1/2}$, as plotted.}
+\begin{psfrags} 
+\psfrag{mu}{$\mu$} 
+\psfrag{gmu0t}{$g_{\mu=0}(t)$} 
+\psfrag{t}{$t$} 
+  \includegraphics[scale=.6]{Green02.eps}
+\end{psfrags}
+\caption{Value  of  $g_{\mu=0}(t)$ for  an  initial  Dirac delta  like
+  initial profile (\ref{Inig}). The length of the box is $L_z=24,48,96
+  $,  and the  number  of nodes  is  ${N_{\rm bin}}=112,224,448$  thus
+  keeping  the size  of the  bins fixed,  for increasing  curves. This
+  leads to  the thermodynamic limit.  This shows that the  shoulder is
+  due to the size of the  box. As we approach the thermodynamic limit,
+  the decay seems to approach $t^{-1/2}$, as plotted.}
 \label{GreenFunction3}
 \end{figure}
-\begin{figure}
+
+
+\begin{figure}[]
+\begin{psfrags} 
+\psfrag{mu}{$\mu$} 
+\psfrag{gmu0t}{$g_{\mu=0}(t)$} 
+\psfrag{t}{$t$} 
+%  \includegraphics[scale=.6]{GreenFunction4.eps}
 %  \includegraphics[scale=.6]{Green04.eps}
-%  \includegraphics[scale=.6]{Green03.eps}
-  \caption{Value  of $g_{\mu=0}(t)$  for an  initial Dirac  $\delta$ like
+  \includegraphics[scale=.6]{Green03.eps}
+\end{psfrags}
+  \caption{Value  of $g_{\mu=0}(t)$  for an  initial Dirac  delta like
     initial profile (\ref{Inig}).  The length  of the box is $L_z=24$,
     and the number  of nodes is ${N_{\rm bin}}=112,224,448$  for increasing curves
     (leading to the  continuum limit). This shows that  as we increase
-    the resolution, we converge toward  a singular function at $t=0$,
+    the resolution, we converge towards  a singular function at $t=0$,
     related to  the divergence with  $\Delta z^{-1}$. At  large times,
     all  curves  behave in  the  same  way.  The line  corresponds  to
     $\propto  t^{-1/2}$.  Only  in   both  limits  (thermodynamic  and
@@ -9837,11 +10302,92 @@ exponential through  the evolution of  an initial profile of  the form
     $t^{-1/2}$. }
 \label{GreenFunction4}
 \end{figure}
-\begin{figure}
-%  \includegraphics[scale=.6]{GreenFunction5.eps}
-\caption{Same as in Fig. \ref{GreenFunction4} in a linear plot.}
-\label{GreenFunction5}
-\end{figure}
+where note  that the  term $\mu'=0$  is now  absent.  Note  that total
+momentum   is   conserved    at   all   times   $\sum_{\mu=0}^{{N_{\rm
+      bin}}-1}g_\mu(t)=0$.   Therefore, we  may  visualize the  matrix
+exponential through  the evolution of  an initial profile of  the form
+(\ref{Inig}).   For simplicity,  we consider  the local  approximation
+$\tilde{\nu}_\mu=\nu_0$.   We  plot   in  Figs.   \ref{GreenFunction3}
+and \ref{GreenFunction4} this  evolution by suitably changing  the size
+of the box or  the size of the bins.  We  recognize that the algebraic
+prediction  $t^{-1/2}$  is  only  attained in  the  thermodynamic  and
+continuum limit.
+
+
+
+
+
+
+\chapter{Force on the boundary slab}
+\markboth{The continumm limit}{}
+\label{App:1}
+In this appendix we derive the expression (\ref{FBv}) for the force on the boundary slab made
+of $B$ bins. 
+
+By  multiplying  (\ref{TheoryDiscFin})  with  the  bin  volume  ${\cal
+  V}_\mu$, and summing over the B layers of the slab we have
+\begin{align}
+{\bf F}^x_B
+&=-\sum^{B}_{\mu=1}{\cal V}_\mu \sum_{\nu=1}^{N_{\rm bin}} {\cal V}_\nu \frac{\left[\eta_{\mu\nu}-\eta_{\mu-1\nu}-\eta_{\mu\nu-1}+\eta_{\mu-1\nu-1}\right]}{\Delta z^2}\overline{\bf v}^x_\nu
++\sum^{B}_{\mu=1}{\cal V}_\mu \sum_{\nu=1}^{N_{\rm bin}} {\cal V}_\nu\frac{\left[G_{\mu\nu}-G_{\mu\nu-1}\right]}{\Delta z}\overline{\bf v}^x_\nu
+\nonumber\\
+&+\sum^{B}_{\mu=1}{\cal V}_\mu \sum_{\nu=1}^{N_{\rm bin}} {\cal V}_\nu\frac{\left[H_{\mu\nu}-H_{\mu-1\nu}\right]}{\Delta z}\overline{\bf v}^x_\nu
+-\sum^{B}_{\mu=1}{\cal V}_\mu \sum_{\nu=1}^{N_{\rm bin}} {\cal V}_\nu\gamma_{\mu\nu}\overline{\bf v}^x_\nu
+\label{Layer}
+\end{align}
+Consider the term
+\begin{align}
+  \sum^{B}_{\mu=1}{\cal V}_\mu \sum_{\nu=1}^{N_{\rm bin}} {\cal V}_\nu\frac{\left[H_{\mu\nu}-H_{\mu-1\nu}\right]}{\Delta z}\overline{\bf v}^x_\nu 
+&= \sum_{\nu=1}^{N_{\rm bin}} {\cal V}_\nu \overline{\bf v}^x_\nu 
+\sum^{B}_{\mu=1}{\cal V}_\mu \frac{\left[H_{\mu\nu}-H_{\mu-1\nu}\right]}{\Delta z}
+ =\sum_{\nu=1}^{N_{\rm bin}} {\cal V}_\nu {\cal V}_\mu \overline{\bf v}^x_\nu \frac{\left[H_{B\nu}-H_{0\nu}\right]}{\Delta z}
+\nonumber\\
+& =S\sum_{\nu=1}^{N_{\rm bin}} {\cal V}_\nu H_{B\nu}\overline{\bf v}^x_\nu 
+\end{align}
+where $S={\cal  V}_\mu/\Delta z$ coincides  with the area of  the wall
+and we have  used the fact that $H_{0\nu}=0$ because  the node $\mu=0$
+is inside the solid and the  fluid stress tensor vanishes there.  In a
+similar way, the viscosity term becomes
+\begin{align}
+&  -\sum^{B}_{\mu=1}{\cal V}_\mu \sum_{\nu=1}^{N_{\rm bin}} {\cal V}_\nu \frac{\left[\eta_{\mu\nu}-\eta_{\mu-1\nu}-\eta_{\mu\nu-1}+\eta_{\mu-1\nu-1}\right]}{\Delta z^2}\overline{\bf v}^x_\nu
+  \nonumber \\
+  &= -\sum_{\nu=1}^{N_{\rm bin}} {\cal V}_\nu \overline{\bf v}^x_\nu
+\sum^{B}_{\mu=1}{\cal V}_\mu 
+\frac{\left[\eta_{\mu\nu}-\eta_{\mu-1\nu}-\eta_{\mu\nu-1}+\eta_{\mu-1\nu-1}\right]}{\Delta z^2}
+\nonumber\\
+& = -\sum_{\nu=1}^{N_{\rm bin}} {\cal V}_\nu \overline{\bf v}^x_\nu
+{\cal V}_\mu 
+\frac{\left[\eta_{B\nu}-\eta_{0\nu}-\eta_{B\nu-1}+\eta_{0\nu-1}\right]}{\Delta z^2}
+=   -{\cal V}_{B}\sum_{\nu=1}^{N_{\rm bin}} {\cal V}_\nu \overline{\bf v}^x_\nu
+\frac{\left[\eta_{B\nu}-\eta_{B\nu-1}\right]}{\Delta z^2}
+\nonumber\\
+&=   -S\sum_{\nu=1}^{N_{\rm bin}} {\cal V}_\nu 
+\eta_{B\nu}\frac{\overline{\bf v}^x_\nu-\overline{\bf v}^x_{\nu+1}}{\Delta z}
+\end{align}
+Note  that $\eta_{0\nu}=0$  because  inside the  solid the  stress
+tensor vanish.
+
+By using these results, Eq. (\ref{Layer}) becomes
+\begin{align}
+{\bf F}^x_B=
+& S\sum_{\nu=1}^{N_{\rm bin}} {\cal V}_\nu 
+\eta_{B\nu}\frac{\overline{\bf v}^x_{\nu+1}-\overline{\bf v}^x_{\nu}}{\Delta z}
+-\sum^{B}_{\mu=1}{\cal V}_\mu \sum_{\nu=1}^{N_{\rm bin}} {\cal V}_\nu G_{\mu\nu}
+\frac{\overline{\bf v}^x_{\nu+1}-\overline{\bf v}^x_{\nu}}{\Delta z}
++S\sum_{\nu=1}^{N_{\rm bin}} {\cal V}_\nu H_{B\nu}\overline{\bf v}^x_\nu 
+-\sum^{B}_{\mu=1}{\cal V}_\mu \sum_{\nu=1}^{N_{\rm bin}} {\cal V}_\nu\gamma_{\mu\nu}\overline{\bf v}^x_\nu
+\end{align}
+The final expression for the force (per  unit area) on the slab due to
+the combined action  of the fluid outside the slab  and the solid wall
+is given by
+\begin{align}
+\frac{1}{S}{\bf F}^x_B=&  \sum_{\nu=1}^{N_{\rm bin}} {\cal V}_\nu 
+\left[\eta_{B\nu}-G_\nu \right]\frac{\overline{\bf v}^x_{\nu+1}-\overline{\bf v}^x_{\nu}}{\Delta z}
+-\sum_{\nu=1}^{N_{\rm bin}} {\cal V}_\nu(\gamma_{\nu}-H_{B\nu})\overline{\bf v}^x_\nu
+\label{Layer2}
+\end{align}
+
+
 
 \end{appendices}
 
