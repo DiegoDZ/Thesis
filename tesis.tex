@@ -3460,7 +3460,7 @@ node  $\mu$ and  the  characteristic function  $\chi_\mu(z)$ of  bin
 $\mu$.
 \begin{figure}[h]
   \centering
-\includegraphics[scale=0.25]{psichi}
+  \includegraphics[scale=0.25]{psichi}
 \caption{The basis function $\Phi_\mu(z)$ of node $\mu$ (blue) and the characteristic function $\chi_\mu(z)$ of bin $\mu$ (orange).}
 \label{psichi}
 \end{figure}
@@ -7401,7 +7401,8 @@ $k_BT=2.0 $ in reduced Lennard-Jones  units.
 %statistics, we average the result of $18$ simulations.
 \begin{figure}[]
   \centering
-  \includegraphics[scale=0.17]{SchemeNodes-3}
+  %\frame{\includegraphics[width=\linewidth]{SchemeNodes-4}}
+  \includegraphics[scale=0.2]{SchemeNodes-4}
   \caption[Scheme of the location of the nodal planes in the system]{Scheme of the location of the nodal planes in the system, labeled
   with $\mu=0,1,\cdots,16$, and the corresponding finite element basis
   functions  (linear  tent  functions).    Orange  circles  indicate  the
@@ -7689,8 +7690,10 @@ by (\ref{evolg2}).
 
 \begin{figure}[]
   \centering
-\includegraphics[scale=0.2]{SchemeBSlab-3}
-\caption[Scheme of the definition of the boundary slab of fluid]{Scheme of the definition of the boundary slab of fluid. The red line defines the function $U_{B}(z)$, for $B=1$ (left), $B=2$ (middle), and $B=3$ (right).}
+  %\includegraphics[scale=0.2]{SchemeBSlab-3}\vspace{-5mm}
+  %\vspace{-5mm}
+  \includegraphics[width=\linewidth]{SchemeBSlab-3}\vspace{-5mm}
+  \caption[Scheme of the definition of the boundary slab of fluid]{Scheme of the definition of the boundary slab of fluid. The red line defines the function $U_{B}(z)$, for $B=1$ (left), $B=2$ (middle), and $B=3$ (right).\Note{Rehacerla. Mucho margen por arriba.}}
 \label{Fig.Slab}
 \end{figure}
 
@@ -8639,53 +8642,33 @@ viscosity kernel may be approximated with a local viscosity.
 %-----------------------------------------------------------------
 \chapter{Conclusions}\label{Chap:Conclusions}
 %\epigraph{\textit{The runner runs truly to the end.}}{Once a runner \\ JOHN L. PARKER}
-This dissertation has three milestones:
-\begin{enumerate}
-  \item The derivation of the hydrodynamic equations (and its discretization) of a fluid in contact with a solid with the assumtion of the Markovian approximation. 
-  \item The study of the Markovian behaviour for unconfined fluids as well as fluid between two solids slabs. 
-  \item The measure of the slip lenght. \Note{Falta esto}
-\end{enumerate}
-In order to adress them we have
-Chapter \ref{Chap:Theory}
-%In order  to better  understand the problem of slip,  we have
-proposed in  Chapter \ref{Chap:Theory} a continuum  hydrodynamic theory
-derived  with  the  projection  operator  method  that  considers  the
-interaction  of a  fluid with  a solid  object.  The  rationale is  to
-construct a \textit{field theory} where the interaction with the solid
-object  is  explicit in  such  a  way that  it  is  possible to  infer
-\textit{a posteriori} the corresponding  boundary conditions.  This is
-an entirely  new approach  to the  formulation of  boundary conditions
-from  microscopic  principles  which differs  from  previous  attempts
-discussed  above.  
-%In  a series  of publications  \cite{2,3,4,5,6}, we
-%have explored  different aspects  of the theory  and we  summarize our
-%findings in what follows.
-
-In   the    continuum   hydrodynamic   theory   presented    in   Chapter \ref{Chap:Theory}
-%Ref. \cite{Camargo2018}  
-the  solid  exerts both,  reversible  forces  that
-forbid the penetration of the fluid inside the solid, and irreversible
-forces concentrated  in the  vicinity of the  solid that  describe the
-friction between the  wall and the fluid. In  principle, the equations
-are non-local in space and would  describe the layering of the density
-field near the walls, thus  generalizing Density Functional Theory for
-simple  fluids  to  non-equilibrium   situations.   However,  we  have
+The main achievement of this dissertation is to validate the slip boundary condition from nonequilibrium MD simulations of a decaying plug flow with the Navier slip boundary condition derived from the formulation of a mechanical balance on a boundary fluid slab near a solid wall.  
+In order to address it, we have proposed in Chapter \ref{Chap:Theory} a continuum hydrodynamic theory derived with the Kawasaki-Gunton operator method that considers the interaction of a fluid with a solid object. The theory presented defines the hydrodynamic variables with coarse $\delta$ functions  instead  of Dirac $\delta$ functions as we published in Ref. \cite{Camargo2018}. 
+The reason why we have changed from Dirac $\delta$ functions to coarse $\delta$ functions is that we have
+%In   the    continuum   hydrodynamic   theory   presented    in   Chapte %Ref. \cite{Camargo2018}  
+%the  solid  exerts both,  reversible  forces  that
+%forbid the penetration of the fluid inside the solid, and irreversible
+%forces concentrated  in the  vicinity of the  solid that  describe the
+%friction between the  wall and the fluid. In  principle, the equations
+%are non-local in space and would  describe the layering of the density
+%field near the walls, thus  generalizing Density Functional Theory for
+%simple  fluids  to  non-equilibrium   situations.   However,  we  have
 observed in Chapter \ref{Chap:Walls} that in the  strict continuum  limit, the
 Markov  assumption  implicit in  the  derivation  of the  hydrodynamic
 equations breaks down  near the  walls.
-Because of that we 
 Only if one defines the hydrodynamic variables with an implicit length
-scale    by   using,    for    example,    coarse   delta    functions
-\cite{Weinhart2012} instead  of Dirac delta functions,  one may expect
+scale    by   using,    for    example,    coarse   $\delta$    functions
+\cite{Weinhart2012} instead  of Dirac $\delta$ functions,  one may expect
 the Markov assumption  in the theory of Ref.  \cite{Camargo2018} to be
-valid.   One  can  reproduce  step  by  step  the  procedure  in  Ref.
-\cite{Camargo2018}  in order  to  obtain the  hydrodynamic theory  for
-these  coarse  hydrodynamic  variables.   The  resulting  hydrodynamic
-equations  are  formally  identical   to  the  hydrodynamic  equations
-obtained in  Ref.  \cite{Camargo2018}, but with  a coarse-grained free
-energy functional which is different from the usual density functional
-of DFT.  In particular, due to  the coarser definition of the density,
-it does not allow one to describe the density layering near a wall.
+valid, which is exactly we did in Chapter \ref{Chap:Theory}.
+%One  can  reproduce  step  by  step  the  procedure  in  Ref.
+%\cite{Camargo2018}  in order  to  obtain the  hydrodynamic theory  for
+%these  coarse  hydrodynamic  variables.   The  resulting  hydrodynamic
+%equations  are  formally  identical   to  the  hydrodynamic  equations
+%obtained in  Ref.  \cite{Camargo2018}, but with  a coarse-grained free
+%energy functional which is different from the usual density functional
+%of DFT.  In particular, due to  the coarser definition of the density,
+%it does not allow one to describe the density layering near a wall.
 
 %In a  subsequent publication  \cite{2} we have  shown that  the Navier
 %slip boundary  condition follows  from the  continuum theory  given in
@@ -8734,7 +8717,7 @@ correlation matrix of the transverse momentum.
 In Chapter \ref{Chap:Walls}, we  have shown that the
 shear flow  dynamics in  fluids confined between  planar walls  is not
 Markovian if  the bins  in which  the fluid is  divided are  too thin.
-Non-Markovian effects  are detected from the  non-exponential decay of
+An important conclussion of this chapter is that non-Markovian effects  are detected from the  non-exponential decay of
 the eigenvalues of the  correlation matrix.  The non-Markovian effects
 are clearly identified as originating  near the walls. For bins larger
 than the molecular size, the dynamics becomes fully Markovian.
@@ -8742,10 +8725,10 @@ than the molecular size, the dynamics becomes fully Markovian.
 Finally, in Chapter \ref{Chap:Slip}, we have measured, through equilibrium MD simulations,
 the non-local
 transport  kernels that appear in the discrete hydrodynamic equations derived in Chapter \ref{Chap:Planar}.
-After observe that thet suffer from the plateau problem, we have used the method presented in Chapter \ref{Chap:PBC}
+After observe that they suffer from the plateau problem, we have used the method presented in Chapter \ref{Chap:PBC}
 for realiably extracting the transport kernels out of the plateau-problematic Green-Kubo formula. 
-We have obtained excellent predictions with these kernels of the decaying of the average of the transverse momentum in a channel configuration when the initial velocity profile is a plug flow. 
-We  have  infered the  slip  boundary
+We obtained excellent predictions with these kernels of the decaying of the average of the transverse momentum in a channel configuration when the initial velocity profile is a plug flow. 
+We infered the  slip  boundary
 condition with  a well-defined  microscopic definition for  the slip
 length and the  location of the hydrodynamic position  of the atomic
 wall.   The  microscopic expression  for  the  slip length  obtained
@@ -8754,17 +8737,22 @@ coincides  with the  one originally  proposed by  Bocquet and  Barrat \cite{Bocq
 length does not depend on  the channel width, thus demonstrating that
 the friction coefficient is an intrinsic surface property, in contrast with the results obtained by Petravic and Harrowell \cite{Petravic2007}.
 
-\Note{Quizá lo que me he dejado en las conclusiones del paper IV puede ir aquí.}
-
 %-----------------------------------------------------------------
 %FUTURE
 %-----------------------------------------------------------------
 \chapter{Future Directions}\label{Chap:Future}
 %\epigraph{\textit{It's the things we forget about that tell us who we are.}}{Zero K \\ DON DELILLO}
+In this dissertation we have presented an isothemal theory for a fluid in contact with a solid.
+The atoms of the solid are frozen in a way that there is no interaction between them. 
+This solid is, in fact, totally unrealistic but for the purpose of this dissertation should be valid. 
+We have offered a methodology to study the markovianity of the fluid, which consists on observing the decay of the modes of the matrix of correlations in the reciprocal space. 
+We observed that for a bin size of a molecular lenght, the Markovian approximation assumed in the derivation of the hydrodynamic equations of the fluid is not appropiated and, therefore, we have to choose biggers bins. 
+Once the theory is validated though MD simulations, we compute the transport kernels. Then, we validate the theory predicting the decay of the vlocity of a fluid with a plug flow initial state. We observe that the slip length is independent of the channel size, which is a result that concuerda with the results of Bocquet and Barrat \cite{Bocquet1994}, but not with the Petravic and Harrowell \cite{Petravic2004}. 
 
-Mencionar lo que hice el primer año de tesis. Teoría no isoterma. Interés práctico para estudio de nanopartículas inmersas en salas fundidas. 
+One interesting way to explore is the markovianity for a wide bin size. Because of the high computational cost of these simulations we could not addressed it in this dissertation, but it would be convenient to see if we can obtain Markovian behaviour near the solid while we capture the layering. 
+Also, it would be convenient to answer if our results are a partocular case produces by the fluid interaction with an unrealistic frozen solid wall.For example, simulations with a solid walls with particules interacting with a LJ potentials. 
 
-Hacer paredes más realistas. Explorar tamaños de bin. ¿Podemos capturar algo de layering?
+In this way, and it was something in which we worked the first year of my doctoral thesis, is to derive a non-isothermal theory for a fluid incontact with a solid. The theory is similar to the proposed in Chapter \ref{Chap:Theory} but with more relevant variables that capture both the energy of the fluid and the energy of the solid. The interest behind this, and the motivation, is to understand what happens in a nanoparticle.  
 
 
 \bibliographystyle{unsrt}
