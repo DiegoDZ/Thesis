@@ -473,14 +473,14 @@ The resulting equations contain transport coefficients given by  Green-Kubo form
 This well-known problem arises because the Green-Kubo running integral appearing in the expressions of the tranport coefficients decays as the correlation of the selected variables when the projected dynamics is approximated by the unprojeted Hamiltons dynamics. 
 
 The third chapter is just a discretization of the resulting equations of the second chapter. 
-We bin the system in slabs as is shown in Figure \ref{fig:WallsBox}. The red lines are called {\it nodes} and they separated the {\it bins} in which the system is binned. We start from a discrete mass and momentum densities fields defined in the nodal planes in order to derive the hydrodynamic equations with the Kawasaki-Gunton projector. Also we validate the final discrete equations  with a discretization of the continumm hydrodynamic equations using the Petrov-Galerkin finite element discretization method.   
+We bin the system in slabs as is shown in Figure \ref{fig:WallsBox1}. The red lines are called {\it nodes} and they separated the {\it bins} in which the system is binned. We start from a discrete mass and momentum densities fields defined in the nodal planes in order to derive the hydrodynamic equations with the Kawasaki-Gunton projector. Also we validate the final discrete equations  with a discretization of the continumm hydrodynamic equations using the Petrov-Galerkin finite element discretization method.   
 The main objetive of this chapter is to obtain the discrete transport coefficients in order to compute them with MD simulations. 
 \begin{figure}
     \centering
     %\includegraphics[scale=0.3]{system_nodes_walls}
-    \includegraphics[scale=0.1]{bins}
-    \caption[Walls box]{A visual representation of the MD simulation with a sketch of the binning used. In red are depicted the nodal planes used.}
-    \label{fig:WallsBox}
+    \frame{\includegraphics[width=.5\linewidth]{PRL3_gold2_wo_diffuse}}
+    \caption[Sketch of the binning used]{A visual representation of a MD simulation with a sketch of the binning used. In yellow are depicted the nodal planes used.}
+    \label{fig:WallsBox1}
 \end{figure}
 
 In the first part of the fourth chapter is adressesed the plateau problem in order to obtain, within Mori projection operator formulation, an alternative expression for the transport coefficients with a corrected Green-Kubo expression with no plateau problem. 
@@ -6454,7 +6454,8 @@ walls.
 \begin{figure}
     \centering
     %\includegraphics[scale=0.3]{system_nodes_walls}
-    \includegraphics[scale=0.1]{bins}
+    \frame{\includegraphics[width=0.45\linewidth]{PRL3_gold2_wo_layers_wo_diffuse}}
+    \frame{\includegraphics[width=0.45\linewidth]{PRL3_gold2_wo_diffuse}}
     \caption[Walls box]{A visual representation of the MD simulation with a sketch of the binning used. In red are depicted the nodal planes used.}
     \label{fig:WallsBox}
 \end{figure}
