@@ -45,6 +45,16 @@
 \renewcommand{\headrulewidth}{0.5pt}
 }
 
+\fancypagestyle{Contents}{%
+\fancyhead{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[RE]{\leftmark}
+\fancyhead[LO]{\leftmark }
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0.5pt}
+}
+
 %New commands
 \renewcommand{\thefootnote}{\roman{footnote}}
 \newcommand{\esc}{\!\cdot\!}
@@ -171,12 +181,12 @@
 %\addcontentsline{toc}{chapter}{Agradecimientos} % si queremos que aparezca en el índice
 %\markboth{Acknowledgments}{Acknowledgments} % encabezado 
 
-
+\pagestyle{Contents}  %define page style for the index
 \tableofcontents % indice de contenidos
-
 
 \chapter*{Abstract} % si no queremos que añada la palabra "Capitulo"
 %\addcontentsline{toc}{section}{Abstract} % si queremos que aparezca en el índice
+\pagestyle{noHeader}  %define page style for the chapters
 \markboth{Abstract}{Abstract} % encabezado
 blablabla
 
@@ -8702,7 +8712,7 @@ to discuss the  locality of hydrodynamics in time  (i.e. the Markovian
 assumption)  and  how it  is  related  to  locality in  space.   Quite
 remarkably  we  show there  that  the  Green-Kubo expression  for  the
 non-local  viscosity  kernel  suffers dramatically  from  the  plateau
-problem.  In Sec. of Chapter \ref{GKsi}, we have  shown that the plateau problem is
+problem.  In Sec. \ref{Sec:GKsi} of Chapter \ref{Chap:PBC}, we have  shown that the plateau problem is
 due to  the fact that the  Green-Kubo formula defined in  terms of the
 unprojected dynamics  decays as the  correlation of the  CG variables.
 We  have  also  suggested a  way  to  correct  the
@@ -8742,17 +8752,38 @@ the friction coefficient is an intrinsic surface property, in contrast with the 
 %-----------------------------------------------------------------
 \chapter{Future Directions}\label{Chap:Future}
 %\epigraph{\textit{It's the things we forget about that tell us who we are.}}{Zero K \\ DON DELILLO}
-In this dissertation we have presented an isothemal theory for a fluid in contact with a solid.
-The atoms of the solid are frozen in a way that there is no interaction between them. 
-This solid is, in fact, totally unrealistic but for the purpose of this dissertation should be valid. 
-We have offered a methodology to study the markovianity of the fluid, which consists on observing the decay of the modes of the matrix of correlations in the reciprocal space. 
+In this dissertation we have presented an isothemal theory for a fluid in contact with a solid. In the theory the atoms of the solid are moving and vibrating. Nevertheless, in the MD simulations presented to validate the theory, the solid is considered as a frozen crystal with no interaction between its particles.
+
+An interesting issue easy to adress consists of following the methodology that we have presented but simulating, instead of a frozen solid, a more realistic solid. Although our results are robust, it would be convenient tocontrast them with the ones given by realistic interaction fluid-solid. In particular, check the Markovian behaviour near the walls when the solid is simulated in different levels of reality. 
+
+Another issue that is necessary to consider is the study of the efect of the bin size in the Markovian behaviour of the fluid near the solid 
 We observed that for a bin size of a molecular lenght, the Markovian approximation assumed in the derivation of the hydrodynamic equations of the fluid is not appropiated and, therefore, we have to choose biggers bins. 
-Once the theory is validated though MD simulations, we compute the transport kernels. Then, we validate the theory predicting the decay of the vlocity of a fluid with a plug flow initial state. We observe that the slip length is independent of the channel size, which is a result that concuerda with the results of Bocquet and Barrat \cite{Bocquet1994}, but not with the Petravic and Harrowell \cite{Petravic2004}. 
+Because of the high computational cost of these simulations we could not address it in this dissertation, but it would be convenient to see if it is possible to obtain Markovian behaviour near the solid for a bin size that captures the layering. 
 
-One interesting way to explore is the markovianity for a wide bin size. Because of the high computational cost of these simulations we could not addressed it in this dissertation, but it would be convenient to see if we can obtain Markovian behaviour near the solid while we capture the layering. 
-Also, it would be convenient to answer if our results are a partocular case produces by the fluid interaction with an unrealistic frozen solid wall.For example, simulations with a solid walls with particules interacting with a LJ potentials. 
 
-In this way, and it was something in which we worked the first year of my doctoral thesis, is to derive a non-isothermal theory for a fluid incontact with a solid. The theory is similar to the proposed in Chapter \ref{Chap:Theory} but with more relevant variables that capture both the energy of the fluid and the energy of the solid. The interest behind this, and the motivation, is to understand what happens in a nanoparticle.  
+%This solid is, in fact, totally unrealistic but for the purpose of this dissertation should be valid. 
+%We have offered a methodology to study the markovianity of the fluid, which consists on observing the decay of the modes of the matrix of correlations in the reciprocal space. 
+%We observed that for a bin size of a molecular lenght, the Markovian approximation assumed in the derivation of the hydrodynamic equations of the fluid is not appropiated and, therefore, we have to choose biggers bins. 
+%Once the theory is validated though MD simulations, we compute the transport kernels. Then, we validate the theory predicting the decay of the vlocity of a fluid with a plug flow initial state. We observe that the slip length is independent of the channel size, which is a result that concuerda with the results of Bocquet and Barrat \cite{Bocquet1994}, but not with the Petravic and Harrowell \cite{Petravic2007}. 
+
+%One interesting way to explore is the markovianity for a wide bin size. Because of the high computational cost of these simulations we could not addressed it in this dissertation, but it would be convenient to see if we can obtain Markovian behaviour near the solid while we capture the layering. 
+%Also, it would be convenient to answer if our results are a partocular case produces by the fluid interaction with an unrealistic frozen solid wall.For example, simulations with a solid walls with particules interacting with a LJ potentials. 
+
+Finally, another problem which arises from this dissertation is to derive a non-isothermal theory in which the relevant variables are the presented in Chapter \ref{Chap:Theory} and the ones that take into account the energy of the fluid and the solid, that is
+\begin{align}
+  \hat{e}_{\bf r}(z) = \sum_i^N e_i\bar{\delta}({\bf r}-{\bf q}_i) &&  \hat{E}(z)=\sum_{i'}^{N'}e_{i'}
+\end{align}
+where $e_i$ and $e_i'$ are the total energy of the fluid particle $i$ and the total energy of the solid particle $i'$, respectively. 
+
+The interest behind this, and the first motivation of the present dissertation, is to understand the heat transfer between solid and fluids, specifically between nanoparticles and molten salts. 
+The industry has a high interest in the study of mixtures of molten salts with nanoparticles in order to use them as a storage thermal fluid in solar plants \cite{Mahian2013,Schuller2015b, Shahrul2014a,Goharshadi2013a,Serrano-Lopez2013}. 
+They have a low toxicity and melting point, and a high specific heat capacity. 
+It has been observed an enhancement of $20\%$  in the specific heat capacity of a solar
+salt \footnote{Molten salts consisting of 60-wt.$\%$ NaN0$_3$ and 40-wt.\% KNO$_3$. } due to the introduction of silica and alumina nanoparticles.  It has been observed that the presence of nanoparticles in a molten salt increase the heat capacity of the molten salt \cite{Chieruzzi2013a}.
+  
+There are a lot of experimental publications in which is observed an increse in the specific heat of a molten salt due to the introduction of nanoparticles \cite{Schuller2015b, Chieruzzi2013a,Khanafer2015a}, but there is not a physical explanation for that effect. 
+An early attemp to explain that can be found in Ref. \cite{Shin2014}, where it is proposed and expression for the specific heat of the mixture which take into account the mass and the specific heat of the nanoparticles, as well as the mass and the specific heat of the nanofluid. They attributed the enhancement to the surface area of nanoparticles.
+
 
 
 \bibliographystyle{unsrt}
