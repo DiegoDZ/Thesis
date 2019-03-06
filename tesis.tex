@@ -1605,8 +1605,8 @@ Under the Markovian aproximation, we have obtained the general form of the memor
 %-----------------------------------------------------------------
 %CHAPTER 2
 %-----------------------------------------------------------------
-\chapter{Coarse hydrodynamics theory for liquids near solids}\label{Chap:Theory}
-\markboth{Coarse hydrodynamics theory for liquids near solids}{}
+\chapter{Nanoscale hydrodynamics theory for liquids near solids}\label{Chap:Theory}
+\markboth{Nanoescale hydrodynamics theory for liquids near solids}{}
 \epigraph{\textit{Le temps est une invention du mouvement. Celui qui ne bouge pas ne voit pas le temps passer.}}{Métaphysique des tubes \\ AMÉLIE NOTHOMB}
 
 
@@ -1630,7 +1630,7 @@ fluid.  The  density functional that  emerges now depends not  only on
 the density  field of the fluid  but also on the  overall CG variables
 that we use to describe the solid.  For simplicity, we focus on a particularly simple particle shape, a solid spherical particle.  By considering the interaction of a  fluid with a solid sphere, we  may address the issue
 of total momentum  conservation that may become rather  obscure if one
-considers ``planar walls with infinite mass''. \Note{Duda sobre esfera vs. pared}  Of course, many of the
+considers ``planar walls with infinite mass''. Of course, many of the
 results that we obtain will be  easily transferred to planar walls, as
 limits in which the  mass and the radius of the  solid sphere are both
 very large.   In addition, we  take a spherical particle  because then
@@ -1642,7 +1642,7 @@ as this is expected to play an important role in the dynamics.  Still,
 even in the spherical particle case,  it may be important to introduce
 angular velocity in order to  have accurate results.  However, for the
 sake of simplicity and presentation  of the basic results, we restrict
-ourselves in this paper to the simplest case without angular variables
+ourselves in this chapter to the simplest case without angular variables
 for the  solid particle. Also, and  for the sake of  simplicity, we do
 not  consider the  intrinsic spin  of the  fluid, that  may become  an
 important        relevant         variable        at        nanoscales
@@ -1686,8 +1686,7 @@ Green-Kubo formulas.  In  similar terms, Grossmann \cite{Grossmann1970}
 presented a derivation of non-local  hydrodynamics of simple fluids by
 using  essentially  the  same  ideas behind  the  projection  operator
 technique.    While   the    theory   provided   non-local   transport
-coefficients, no connection was made in these early works with Density
-Functional Theory,  which was not  yet developed in those  days.  Such
+coefficients, no connection was made in these early works with DFT,  which was not  yet developed in those  days.  Such
 non-local  versions  for hydrodynamics  are  necessary  when the  flow
 fields vary rapidly in space,  in the range of molecular correlations.
 The  probing of  nanoscales in  MD simulations  has demonstrated  this
@@ -1713,13 +1712,13 @@ was  initiated  by  Petravic  and  Harrowell  \cite{Petravic2007}  who
 pointed out  that the  Green-Kubo expression  proposed by  Bocquet and
 Barrat provides  not an intrinsic  solid-fluid property but  rather it
 depends on the geometry of the setup. 
-This is due to the fact that the
+This is due, as it was mentioned in the Introduction to the fact that the
 original expression reflects the total  fluid friction for shear flow,
 including the slip friction at both  interfaces as well as the viscous
 friction  in   the  fluid  \cite{Hansen2011,Kannam2011}. 
 Hansen  et
-al. \cite{Hansen2011} propose to look at a thin slab of fluid near the
-wall  and propose  a phenomenological  Langevin equation  relating the
+al. \cite{Hansen2011} proposed to look at a thin slab of fluid near the
+wall  and proposed  a phenomenological  Langevin equation  relating the
 velocity of the  center of mass of  the fluid slab and  the force that
 the wall exerts on the slab. The friction coefficient may be computed
 from  equilibrium  MD  simulations  by  comparing  the  velocity-force
@@ -1783,7 +1782,7 @@ boundary conditions.'' The present work addresses this challenge.
 
 
 \section{The system and the relevant variables}
-In this section we use the ToCG described in the previous chapter for describing hydrodynamically a liquid near a solid. 
+In this section we use the ToCG for describing hydrodynamically a liquid near a solid. 
 Consider a liquid system of $N$ monoatomic molecules described
 with the position and momenta of  their center of mass.  The molecules
 are allowed to move through  space unrestrictedly. To avoid the issues
@@ -1803,7 +1802,7 @@ sphere from the  unprimed labels of the liquid  atoms.  The microstate
 of  the  system  evolves  according to  Hamilton's  equations  with  a
 Hamiltonian given by
 \begin{eqnarray}
-H(z) &=& \sum^N_i \frac{p_i^2}{2m_i} + \sum^{N'}_{i'} \frac{p_{i'}^2}{2m_{i'}}
+H(z) = \sum^N_i \frac{p_i^2}{2m_i} + \sum^{N'}_{i'} \frac{p_{i'}^2}{2m_{i'}}
 + U(z)
 \label{H}
 \end{eqnarray}
@@ -1844,10 +1843,10 @@ relevant variables the mass and momentum density fields  of the liquid
 and  the   center  of  mass   position  and  momentum  of   the  solid
 sphere. These are given by the following set of phase functions 
 \begin{align}
-  \hat{\rho}_{\bf r}(z) &=\sum^{N}_im\overline{\delta}({\bf r}-{\bf q}_i)
+  \hat{\rho}_{\bf r}(z) &=\sum^{N}_im\delta({\bf r}-{\bf q}_i)
 &&\hat{\bf R}(z)=\frac{1}{N'}\sum_{i'}^{N'}{\bf q}_{i'}
 \nonumber\\
-  \hat{\bf g}_{\bf r}(z) &=\sum^{N}_i{\bf p}_i\overline{\delta}({\bf r}-{\bf q}_i)
+  \hat{\bf g}_{\bf r}(z) &=\sum^{N}_i{\bf p}_i\delta({\bf r}-{\bf q}_i)
 &&\hat{\bf P}(z)=\sum_{i'}^{N'}{\bf p}_{i'}
 \label{CGvar}
 \end{align}
@@ -1884,23 +1883,23 @@ derivative $  iL\hat{A}$ is  the result of  applying the  Liouville operator
 (\ref{iL}) to the relevant variables.  In this section, we discuss the
 particular  form of  $  iL\hat{A}$ for  the case  of  selected CG  variables
 (\ref{CGvar}). The action of the Liouville operator on the CG variables gives \cite{Espanol2015a}
-\begin{eqnarray}
-  iL \hat{\rho}_{\bf r}(z) &=& -\boldsymbol{\nabla}\esc\hat{\bf g}_{\bf r}(z)
+\begin{align}
+    iL \hat{\rho}_{\bf r}(z) &= -\boldsymbol{\nabla}\esc\hat{\bf g}_{\bf r}(z)
 \nonumber\\
-iL  \hat{\bf g}_{\bf r}(z) &=& -\boldsymbol{\nabla}{\cdot} \hat{{\bf K}}_{\bf r}(z)+
+iL  \hat{\bf g}_{\bf r}(z) &= -\boldsymbol{\nabla}{\cdot} \hat{{\bf K}}_{\bf r}(z)+
 \hat{\bf F}^l_{\bf r}(z)
 \label{ildens}
-\end{eqnarray}
+\end{align}
 Here, the kinetic stress tensor is 
 \begin{align}
   \hat{{\bf K}}_{\bf r}(z) &=\sum^{N}_i{\bf p}_i{\bf v}_i
-\overline{\delta}({\bf r}-{\bf q}_i)
+\delta({\bf r}-{\bf q}_i)
 \end{align}
 and the total  force density $\hat{\bf F}^l_{\bf r}(z)$  on the liquid
 is defined as
 \begin{align}
   \hat{\bf F}^l_{\bf r}(z) &
-=\sum_i^N-\frac{\partial U}{\partial {\bf q}_i}\overline{\delta}({\bf r}-{\bf q}_i)
+=\sum_i^N-\frac{\partial U}{\partial {\bf q}_i}\delta({\bf r}-{\bf q}_i)
 \label{Frtot}
 \end{align}
 We may decompose  this force density into the
@@ -1911,9 +1910,9 @@ solid   exerts  on  the   liquid,  this   is,
   r}(z)&=\hat{\bf  F}^{\rm l\to  l}_{\bf r}(z)  +\hat{\bf  F}^{\rm s\to
   l}_{\bf r}(z) 
 \nonumber\\
-\hat{\bf F}^{\rm l\to l}_{\bf r}(z) &= \sum^{NN}_{ij}\hat{\bf F}_{ij}\overline{\delta}({\bf r}-{\bf q}_i)
+\hat{\bf F}^{\rm l\to l}_{\bf r}(z) &= \sum^{NN}_{ij}\hat{\bf F}_{ij}\delta({\bf r}-{\bf q}_i)
 \nonumber\\
-\hat{\bf F}^{\rm s\to l}_{\bf r}(z) &= \sum^{NN'}_{ij'}\hat{\bf F}_{ij'}\overline{\delta}({\bf r}-{\bf q}_i)
+\hat{\bf F}^{\rm s\to l}_{\bf r}(z) &= \sum^{NN'}_{ij'}\hat{\bf F}_{ij'}\delta({\bf r}-{\bf q}_i)
 \label{Fr}
 \end{align}
 where $\hat{\bf F}_{ij'}$ is the force  that atom $j'$ of the solid
@@ -1926,21 +1925,21 @@ that the solid object exerts on the liquid at the point ${\bf r}$.
 We may write the force that the liquid exerts on the liquid 
 \begin{align}
   \hat{\bf F}^{\rm l\to l}_{\bf r}(z) &= \frac{1}{2}\sum^{NN}_{ij}\hat{\bf F}_{ij}
-(\overline\delta({\bf r}-{\bf q}_i)-\overline\delta({\bf r}-{\bf q}_j))
+(\delta({\bf r}-{\bf q}_i)-\delta({\bf r}-{\bf q}_j))
 \end{align}
 where we  have used that  the indices are  dummy. By using  a standard
 trick \cite{Schofield1982,Grabert1982}, we  may express the difference
 of the Dirac $\delta$ functions in terms of a divergence
-\begin{eqnarray}
-\overline\delta({\bf r}-{\bf q}_i)-\overline\delta({\bf r}-{\bf q}_j)
-=&\int_0^1d\epsilon\frac{d}{d\epsilon}
-\overline\delta({\bf r}-{\bf q}_j-\epsilon{\bf q}_{ij})
+\begin{align}
+\delta({\bf r}-{\bf q}_i)-\delta({\bf r}-{\bf q}_j)
+    &=\int_0^1d\epsilon\frac{d}{d\epsilon}
+\delta({\bf r}-{\bf q}_j-\epsilon{\bf q}_{ij})
 \nonumber\\
-=&-\nabla\int_0^1d\epsilon{\bf q}_{ij}
-\overline\delta({\bf r}-{\bf q}_j-\epsilon{\bf q}_{ij})
+    &=-\nabla\int_0^1d\epsilon{\bf q}_{ij}
+\delta({\bf r}-{\bf q}_j-\epsilon{\bf q}_{ij})
 \nonumber\\
 \label{trick}
-\end{eqnarray}
+\end{align}
 
 The liquid  force density  $\hat{\bf F}^{\rm  l\to l}_{\bf  r}(z)$ can
 then be expressed  as the divergence of the  microscopic virial stress
@@ -1950,27 +1949,28 @@ tensor, that is,
 \hat{\bf F}^{\rm l\to l}_{\bf r}(z)&=-\boldsymbol{\nabla}{\cdot} \hat{\boldsymbol{\Pi}}_{\bf r}(z)
 \nonumber\\
 \hat{\boldsymbol{\Pi}}_{\bf r}(z)&\equiv \frac{1}{2}\sum^{N}_{ij}{\bf q}_{ij}\hat{\bf F}_{ij}
-\int_0^{1}d\epsilon \overline\delta({\bf r}-{\bf q}_i+\epsilon{\bf q}_{ij})
+\int_0^{1}d\epsilon \delta({\bf r}-{\bf q}_i+\epsilon{\bf q}_{ij})
 \label{micfluxes}
 \end{align}
 The time derivative of the momentum density (\ref{ildens}) becomes
 \begin{align}
     iL\hat{\bf g}_{\bf r}(z)
-    &=-\boldsymbol{\nabla}\cdot \hat{{\bf K}}_{\bf r}(z) - \boldsymbol{\nabla}\cdot \hat{{\bf     \Pi}}_{\bf r}(z) +  {\bf F}^{\rm s\to l}_{\bf r}(z) \nonumber \\
-    &= -\boldsymbol{\nabla}\cdot\left(\hat{{\bf K}}_{\bf r}(z)+\hat{{\bf \Pi}}_{\bf r}(z)\right) +{\bf F}^{\rm s\to l}_{\bf r} \nonumber \\
-    &=-\boldsymbol{\nabla}\cdot \hat{\boldsymbol{\sigma}}_{\bf r}+{\bf F}^{\rm s\to l}_{\bf r},
+    &=-\boldsymbol{\nabla}\cdot \hat{{\bf K}}_{\bf r}(z) - \boldsymbol{\nabla}\cdot \hat{{\bf     \Pi}}_{\bf r}(z) +  \hat{{\bf F}}^{\rm s\to l}_{\bf r}(z) \nonumber \\
+    &= -\boldsymbol{\nabla}\cdot\left(\hat{{\bf K}}_{\bf r}(z)+\hat{{\bf \Pi}}_{\bf r}(z)\right) +\hat{{\bf F}}^{\rm s\to l}_{\bf r} \nonumber \\
+    &=-\boldsymbol{\nabla}\cdot \hat{\boldsymbol{\sigma}}_{\bf r}+\hat{{\bf F}}^{\rm s\to l}_{\bf r},
 \label{gls}
 \end{align}
 where     $\hat{\boldsymbol{\sigma}}_{\bf r}(z)=\hat{{\bf K}}_{\bf
 r}(z)+\hat{\boldsymbol{\Pi}}_{\bf r}(z)$  is the microscopic stress
 tensor of the fluid, that is,
 \begin{align}
-  \hat{\boldsymbol{\sigma}}_{\bf r}=&
+  \hat{\boldsymbol{\sigma}}_{\bf r}=
 \sum^{N}_i{\bf p}_i{\bf v}_i
-\overline\delta({\bf r}-{\bf q}_i)\nonumber\\
-&+
+\delta({\bf r}-{\bf q}_i)
+%\nonumber\\
++
 \frac{1}{2}\sum^{N}_{ij}{\bf q}_{ij}\hat{\bf F}_{ij}
-\int_0^{1}d\epsilon \overline\delta({\bf r}-{\bf q}_i+\epsilon{\bf q}_{ij})
+\int_0^{1}d\epsilon \delta({\bf r}-{\bf q}_i+\epsilon{\bf q}_{ij})
 \label{sigma}
 \end{align}
 For the solid object we have that the action of the Liouville operator gives
@@ -1984,7 +1984,7 @@ For the solid object we have that the action of the Liouville operator gives
 Note  that the  total  momentum,  which is  defined  in  terms of  the
 CG variables as
 \begin{align}
-  \hat{\bf P}_T&=\int d{\bf r} \hat{\bf g}_{\bf r}(z)+\hat{\bf P}(z)
+  \hat{\bf P}_T&=\int d{\bf r} \hat{\bf g}_{\bf r}(z)+\hat{\bf P}(z),
 \end{align}
 satisfies $ iL\hat{\bf P}_T=0$ and is, therefore, a conserved quantity
 of  the  microscopic   dynamics.   We  have  used   that  $\int  d{\bf
@@ -1994,12 +1994,11 @@ argument holds when the domain of integration is periodic.
 
 
 Summarizing, the time derivatives of the relevant variables of the system are
-\Note{Recordar: gradiente/divergencia}
 \begin{align}
     iL \hat{\rho}_{\bf r}(z) &= -\boldsymbol{\nabla}\esc\hat{\bf g}_{\bf r}(z)
 \nonumber\\
 iL\hat{\bf g}_{\bf r}(z)
-&=-\boldsymbol{\nabla}\cdot \hat{\boldsymbol{\sigma}}_{\bf r}(z)+{\bf F}^{\rm s\to l}_{\bf r}(z) \nonumber \\
+    &=-\boldsymbol{\nabla}\cdot \hat{\boldsymbol{\sigma}}_{\bf r}(z)+\hat{{\bf F}}^{\rm s\to l}_{\bf r}(z) \nonumber \\
     iL\hat{\bf R}(z) &=\frac{\hat{\bf P}(z)}{M}
   \nonumber\\
     iL\hat{\bf P}(z) &=-\int  d{\bf r} \hat{\bf F}^{\rm s\to l}_{\bf r}(z)
@@ -2044,10 +2043,10 @@ grand-canonical partition function defined as
 where we have introduced the coarse conjugate variables as
   \begin{align}
 \lambda_\rho({\bf q}_i)&=
-\int d{\bf r}\lambda_{\rho}({\bf r})\overline{\delta}({\bf r}-{\bf q}_i)
+\int d{\bf r}\lambda_{\rho}({\bf r})\delta({\bf r}-{\bf q}_i)
 \nonumber\\
 \boldsymbol{\lambda_g}({\bf q}_i)&=
-\int d{\bf r}\boldsymbol{\lambda}_g({\bf r})\overline{\delta}({\bf r}-{\bf q}_i)
+\int d{\bf r}\boldsymbol{\lambda}_g({\bf r})\delta({\bf r}-{\bf q}_i)
   \end{align}
 The conjugate fields $\lambda$ of the CG variables (\ref{CGvar}) are fixed by the condition that the averages of the CG variables with the relevant ensemble coincide with the averages $\rho({\bf  r}),{\bf  g}({\bf
   r}),{\bf  R},{\bf  P}$  computed  with  the 
@@ -2065,7 +2064,7 @@ where the $\lambda$-dependent {\em grand-canonical potential} is given, as in eq
   \Phi [\lambda]\equiv-k_BT \ln\Xi [\lambda]
 \label{oh}
 \end{eqnarray}
-As we saw in Sec. (\ref{Sec:TheEntropy}), there is a one to one connection between the CG variables and the conjugate ones becasuse the functional $\Phi[\lambda]$ is convex.  
+As shown in Sec. \ref{Sec:TheEntropy}, there is a one to one connection between the CG variables and the conjugate ones becasuse the functional $\Phi[\lambda]$ is convex.  
 Therefore, the  functionals $\lambda_{\rho}[\rho,{\bf  g},{\bf R},{\bf
   P}]$,   $\boldsymbol{\lambda}_g[\rho,{\bf   g},{\bf  R},{\bf   P}]$,
 $\boldsymbol{\lambda}_R[\rho,{\bf      g},{\bf      R},{\bf      P}]$,
@@ -2074,16 +2073,15 @@ unique.   We  can  therefore   switch  from  the  conjugate  variables
  to  the   relevant   variables  and  construct   the
  corresponding {\em hydrodynamic functional} given   by   the   Legendre    transform   of   the $\lambda$-dependent grand-canonical potential, that is,
 \begin{align}
-{\cal H}[\rho,{\bf g},{\bf R},{\bf P}] &=
+    {\cal H}[\rho,{\bf g},{\bf R},{\bf P}] =&
 \Phi [\lambda_\rho,\boldsymbol{\lambda}_g,\boldsymbol{\lambda}_R,\boldsymbol{\lambda}_P]
 \nonumber\\
-& -
+    & -
 \int d{\bf r}\rho({\bf r})\lambda_\rho({\bf r})
 -
 \int d{\bf r}{\bf g}({\bf r})\cdot\boldsymbol{\lambda}_g({\bf r})
 \nonumber\\
-&
--\boldsymbol{\lambda}_R\cdot{\bf R}-\boldsymbol{\lambda}_P\cdot{\bf P}
+    &    -\boldsymbol{\lambda}_R\cdot{\bf R}-\boldsymbol{\lambda}_P\cdot{\bf P}
 \label{oleg}
 \end{align}
 
@@ -2105,8 +2103,8 @@ It is possible to find the explicit expression of $\lambda_{g}({\bf r})$ and $\b
 \sum_{N=0}^\infty \frac{1}{N!h^{3N}}
 \int dqdpdq'dp'
 \nonumber \\
-&\times\exp\left\{-\beta U(z)-\beta \sum_{i=1}^Nm\bar{\lambda}_\rho({\bf
-    r}_i) -\beta \boldsymbol{\lambda}_{R}\esc\hat{\bf R}(z) \right\}
+&\times\exp\left\{-\beta U(z)-\beta \sum_{i=1}^Nm\lambda_\rho({\bf
+    q}_i) -\beta \boldsymbol{\lambda}_{R}\esc\hat{\bf R}(z) \right\}
 \nonumber \\
 &\times
 \exp\left\{-\beta \left(\sum_{i=1}^N\frac{{\bf p}_i^2}{2m_i} + \sum_{i=1}^{N'}\frac{{\bf p}_{i'}^2}{2m_{i'}} \right) - \beta \sum_{i=1}^N{\bf p}_i\esc\boldsymbol{\lambda}_g({\bf q}_i) 
@@ -2120,7 +2118,7 @@ We may group the terms in this way
 \int dqdpdq'dp'
 \nonumber \\
 &\times\exp\left\{-\beta U(z)-\beta \sum_{i=1}^Nm\lambda_\rho({\bf
-    r}_i) -\beta \boldsymbol{\lambda}_{R}\esc\hat{\bf R}(z) \right\}
+    q}_i) -\beta \boldsymbol{\lambda}_{R}\esc\hat{\bf R}(z) \right\}
 \nonumber \\
 &\times
 \exp\left\{-\beta \sum_{i=1}^N\left(\frac{{\bf p}_i^2}{2m_i} + {\bf p}_i\esc\boldsymbol{\lambda}_g({\bf q}_i)\right)\right\}
@@ -2131,24 +2129,23 @@ We perform the Gaussian integrals over momenta by using
 \int_{-\infty}^{\infty} dx e^{-ax^2+bx}=\sqrt{\frac{\pi}{a}}e^{b^2/4a} 
 \end{align}
 reaching the following expression 
-\begin{eqnarray}
+\begin{align}
 \Xi [\lambda]
-&\equiv&
+    \equiv&
  \sum_{N=0}^\infty \frac{1}{N!}
 \int \frac{dq}{\Lambda^{3N}}\frac{dq'}{\Lambda^{3N'}}e^{-\beta U}
 \nonumber\\
-&\times&\exp\left\{-\beta \sum_{i=1}^N\left(m\lambda_\rho({\bf
+\times&\exp\left\{-\beta \sum_{i=1}^N\left(m\lambda_\rho({\bf
     r}_i)-\frac{m}{2}\boldsymbol{\lambda}_{g}^2({\bf q}_i)\right)\right\}
-\nonumber\\
-&\times&\exp\left\{-\beta \left(\boldsymbol{\lambda}_R\cdot\hat{\bf R}-\frac{M'}{2}\boldsymbol{\lambda}_{P}^2\right)\right\},
+    \times\exp\left\{-\beta \left(\boldsymbol{\lambda}_R\cdot\hat{\bf R}-\frac{M'}{2}\boldsymbol{\lambda}_{P}^2\right)\right\},
 \label{xiln2}
-\end{eqnarray}
+\end{align}
 where we have introduced the thermal wavelength  
 \begin{align}
 \Lambda=\left(\frac{h^2\beta}{2\pi m}\right)^{\frac{1}{2}}
 \label{ThermalWave}
 \end{align}
-Together with equation (\ref{rgo}) and equation (\ref{oh}) \Note{Primera expresión:campo de densidad igual a masa}
+Together with equation (\ref{rgo}) and equation (\ref{oh})
 \begin{align}
   \rho({\bf r}) &=\frac{\delta \Phi [\lambda]}{\delta \lambda_\rho({\bf r}) } = \frac{1}{\Xi[\lambda]} \frac{\delta\Xi [\lambda]}{\delta \lambda_{\rho}({\bf r})} = m
   \nonumber\\
@@ -2171,6 +2168,7 @@ We may express the gran potential (\ref{oh}) as a sum of two contributions
 \begin{align}
 \Phi [\lambda]&=  \Phi^{\rm pos}[\mu,\boldsymbol{\lambda}_R]
 -\frac{M'}{2} {\boldsymbol{\lambda}_P}^2
+\label{xpos1}
 \end{align}
 where we have defined the following grand potential
 \begin{align}
@@ -2183,7 +2181,6 @@ where we have defined the following grand potential
     q}_i)+ \boldsymbol{\lambda}_R\cdot\hat{\bf R}\right)\right\}
 \label{xpos}
 \end{align}
-\Note{Superíndice pos se refiere a positions?}
 and the chemical potential per unit mass has been introduced as
 \begin{align}
   \mu({\bf r})&\equiv\frac{1}{2}\lambda_g^2({\bf r})-\lambda_\rho({\bf r})
@@ -2211,7 +2208,7 @@ The derivatives we need of the functional (\ref{xpos}) are
 where               the                averages               $\langle
 \cdots\rangle^{\mu,\boldsymbol{\lambda}_R}$   are  defined   in  these
 equations.  The second  derivatives of $ \Phi^{\rm pos}$  are given by
-covariances  (see   equation.  (\ref{cg1})-(\ref{covariances}))   and  this
+covariances  (see   equations  (\ref{cg1})-(\ref{covariances}))   and  this
 implies that $\Phi^{\rm  pos}[\mu,\boldsymbol{\lambda}_R]$ is a convex
 function.  Therefore, the  connection between $\langle \hat{\rho}_{\bf
   r}\rangle^{\mu,\boldsymbol{\lambda}_R},       \langle       \hat{\bf
@@ -2226,7 +2223,7 @@ on particle's momenta, we have that the averages are given by
 \end{align}
 Therefore,  we have  a one  to  one connection  between the  conjugate
 variables  $\mu({\bf  r}),\boldsymbol{\lambda}_R$   and  the  averages
-$\rho({\bf  r}),{\bf  R}$  of  the  CG  variables.
+$\rho({\bf  r}),{\bf  R}$  of  the  CG  variables computed with the solution of the Liouville equation. 
 
 
 Finally, we have the free energy functional ${\cal  F}[\rho,{\bf R}]$ of a structured fluid in the presence of a solid sphere as the following Legendre transform
@@ -2243,7 +2240,8 @@ whose derivatives are given by
    \frac{\partial {\cal F}}{\partial{\bf R}}[\rho,{\bf R}] &=-\boldsymbol{\lambda}_R
 \label{Fd2}
 \end{align}
-We can obtain an expression for the  hydrodynamic functional (\ref{oleg}) replacing the terms $\Phi[\lambda]$, $\boldsymbol{\lambda}_g({\bf r})$, $\boldsymbol{\lambda}_P$, and $\lambda_R\cdot{\bf R}$ by the equation. (\ref{xpos}), $(\ref{nu})$, and $(\ref{leg})$, respectively. 
+We can obtain an expression for the  hydrodynamic functional (\ref{oleg}) replacing the terms $\Phi[\lambda]$, $\boldsymbol{\lambda}_g({\bf r})$, $\boldsymbol{\lambda}_P$, and $\lambda_R\cdot{\bf R}$ by the equations (\ref{nu}), (\ref{xpos1}), and using (\ref{leg}), respectively.
+\Note{signo positivo antes del funcional de energía  libre}
 \begin{align}
   {\cal H}[\rho,{\bf g},{\bf R},{\bf P}] =& 
   -\int d{\bf r} \rho({\bf r})\lambda_{\rho}({\bf r}) 
@@ -2266,7 +2264,7 @@ negative gradient  gives the actual  force on the sphere.   For future
 reference,  we  may also  compute  the  functional derivative  of  the
 hydrodynamic functional ${\cal  H}$ with respect to  the density field
 with the result
-\Note{¿No tendría que ser sin el signo menos la siguiente ecuación?}
+\Note{Creo que hay mal un signo $+\frac{v^2}{2}$}
 \begin{align}
   \frac{\delta {\cal H}}{\delta\rho({\bf r})}[\rho,{\bf g},{\bf R},{\bf P}] &=    
 -\frac{{\bf v}^2({\bf r})}{2}+  \frac{\delta {\cal F}}{\delta\rho({\bf r})}[\rho,{\bf R}]
@@ -2325,11 +2323,12 @@ makes impossible the realization of density fields with nonzero value
 inside the solid sphere (i.e.  leads to impenetrability of the solid).
 The derivatives of the free energy model (\ref{modelnonlocalF}) are
 \begin{align}
-  \frac{\delta{\cal F}}{\delta\rho({\bf r})}&=\mu_0({\bf r})+V({\bf r},{\bf R})
-\nonumber\\
-\frac{\partial{\cal F}}{\partial{\bf R}}&=-\int d{\bf r}\rho({\bf r}){\bf F}({\bf r},{\bf R})
+    \frac{\delta{\cal F}}{\delta\rho({\bf r})}=\mu_0({\bf r})+V({\bf r},{\bf R}),&&
+%\nonumber\\
+    \frac{\partial{\cal F}}{\partial{\bf R}}=-\int d{\bf r}\rho({\bf r}){\bf F}({\bf r},{\bf R})
 \end{align}
-\Note{¿No falta la m?}
+
+\Note{¿No falta una m en el segundo término de la primera ecuación?}
 
 where $\mu_0({\bf r})$ is the  usual chemical potential of the solvent
 in the  absence of any  solid, and ${\bf  F}({\bf r},{\bf R})$  is the
@@ -2341,9 +2340,10 @@ atom at ${\bf r}$.
 
 \section{The transport equations}
 \label{Sec:Transequation}
-In this section we will obtain the transport equation for a fluid in contact with a solid sphere. In Sec. \ref{Sec:Grabert} we obtained an expression for the evolution of the selected variables using the technique of projection operators. This expression consists on two terms: the reversible part and the irreversible part. 
+In this section we obtain the transport equation for a fluid in contact with a solid sphere. In Sec. \ref{Sec:Grabert} we obtained an expression for the evolution of the selected variables using the technique of projection operators. This expression consists on two terms: the reversible part and the irreversible part. 
+
 \subsection{Exact reversible dynamics}\label{Sec:ExactCont}
-In this subsection we consider the reversible part for the case that the CG variables are those in equation. (\ref{CGvar}).
+In this subsection we consider the reversible part for the case that the CG variables are those in equations (\ref{CGvar}).
 For the mass density we have
 \begin{align}
 \left.\partial_t \rho({\bf r},t)\right|_{\rm rev}
@@ -2373,7 +2373,7 @@ The Galilean operator changes the velocity arguments from ${\bf v}_i\to {\bf v}_
 %\nonumber\\
 =\hat{F}({\bf q}_1,\cdots,{\bf q}_N;{\bf p}_1+m_1{\bf v}({\bf q}_1),\cdots,{\bf p}_N+m_N{\bf v}({\bf q}_N))
 \end{align}
-The intuitive meaning of the Galilean operator is that when applied to a phase function gives how it is seen in a reference frame that moves with the flow field. \Note{Entiendo qué es lo que hace el operador Galileano pero no veo la diferencia entre $v_i$ (velocidad de la partícula i) y $v(q_i)$ (velocidad del fluido en la posición en la que se encuentra la partícula i)}. Within any trace this is just a change of variables. Therefore, we have the property
+The intuitive meaning of the Galilean operator is that when applied to a phase function gives how it is seen in a reference frame that moves with the flow field. Within any trace this is just a change of variables. Therefore, we have the property
 \begin{align}
   {\rm Tr}[\bar{\rho}_t\hat{F}] &= {\rm Tr}[({\cal G}\bar{\rho}_t)({\cal G}\hat{F})] \nonumber \\
   \label{Gprop}
@@ -2387,17 +2387,16 @@ The action of the Galilean operator on the relevant variables is
 \end{align}
 Therefore, the action of ${\cal G}$ on the relevant ensemble is \Note{(En el paper aparece $\rho^{eq}$¿?)}
 \begin{align}
-  {\cal G}\overline{\rho}_t &=
+  {\cal G}\overline{\rho}_t =
 \frac{1}{\Xi[\lambda(t)]}\rho_0
 \exp\left\{\beta\int d{\bf r}\mu({\bf r})\hat{\rho}_{\bf r}(z)\right\}
-\nonumber\\
-&\times
+%\nonumber\\
 \exp\left\{-\beta \boldsymbol{\lambda}_{R}(t)\esc\hat{\bf R}(z)
 -\beta \boldsymbol{\lambda}_{P}(t)\esc\hat{\bf P}(z)\right\}
 \label{resrelens}
 \end{align}
 where  the chemical  potential per  unit mass  has been  introduced in
-equation  (\ref{chempot}). \Pendiente{Under the action of the Galilean operator, the relevant ensemble is Gaussian in momentum and zero centered.}  
+equation  (\ref{chempot}). 
 The  action  of the  Galilean  operator on  the
 microscopic kinetic stress tensor is
 \begin{align}
@@ -2412,7 +2411,7 @@ Using (\ref{Gprop}) we have
   {\rm Tr}[\bar{\rho}_t\hat{{\bf K}}_{\bf r}]={\rm Tr}[({\cal G}\bar{\rho}_t)({\cal G}\hat{{\bf K}}_{\bf r})]
 \end{align}
 
-By noting that the ensemble (\ref{resrelens}) is Gaussian in momenta, we have finally \Note{¿De dónde sale el segundo término de la siguiente expresión? Además, según 2.29, $\rho({\bf r})=m$}
+By noting that the ensemble (\ref{resrelens}) is Gaussian in momenta, we have finally 
 \begin{align}
   {\rm Tr}[\overline{\rho}_t \hat{{\bf K}}_{\bf r}] &=
 {\bf v}({\bf r}){\bf v}({\bf r}){\rho}({\bf r})+\frac{k_BT}{m}\rho({\bf r})\boldsymbol{\delta}
@@ -2420,7 +2419,7 @@ By noting that the ensemble (\ref{resrelens}) is Gaussian in momenta, we have fi
 \end{align}
 where $\boldsymbol{\delta}$ is the unit  tensor.  The last term $ {\rm
   Tr}[\overline{\rho}_t \hat{\bf F}_{\bf r}]$  in equation (\ref{grev1}) is
-computed  in   equation  (\ref{fllr})  of  the   appendix.   By  collecting
+computed  in   equation  (\ref{fllr})  of  the   Appendix \ref{Ap:Forces}.   By  collecting
 (\ref{api})  and  (\ref{fllr})  into  the  momentum  density  equation
 (\ref{grev1}) we obtain
 \begin{align}
@@ -2439,7 +2438,7 @@ Finally, the averages with the relevant ensemble of the solid object variables a
 {\rm Tr}[\overline{\rho}_t  iL\hat{\bf P}] 
 &=-\frac{\partial {\cal F}}{\partial {\bf R}}[\rho,{\bf R}]
 \end{align}
-where we have used equation (\ref{Fls}) in the Appendix.
+where we have used equation (\ref{Fls}) in the Appendix \ref{Ap:Forces}.
 
 By collecting the  above results, the reversible part  of the dynamics
 has the form
@@ -2610,15 +2609,15 @@ be  explicitly  shown,  they   conserve  the  hydrodynamic  functional
 \subsection{Markovian irreversible dynamics}
 While the  reversible part of  the dynamics (\ref{rev}) is  exact, the
 irreversible  part  that we  consider  is  approximate
-because  we will  assume a  Markovian dynamics.   Under the  Markovian
+because  we assume a  Markovian dynamics.   Under the  Markovian
 approximation in which the memory kernel is assumed to decay in a time
 scale  short  as compared  to  the  time  scales of  the  hydrodynamic
 variables,   the  irreversible   dynamics   is  given   by  the   term
 $\sum_jD_{ij}\lambda_j$   in  equation   (\ref{ex2}).   Because   the  time
-derivatives of  $\rho({\bf r})$ and  ${\bf R}$  are given in  terms of
+derivatives of  $\hat{\rho}({\bf r})$ and  $\hat{{\bf R}}$  are given in  terms of
 momenta, which  are relevant variables  themselves, the effect  of the
-projection operator in (\ref{Q}) is simply ${\cal Q} iL\rho_{\bf r}=0$
-and ${\cal Q}  iL{\bf R}_{\mu}=0$ resulting in  a large simplification
+projection operator in (\ref{Q}) is simply ${\cal Q} iL\hat{\rho}_{\bf r}=0$
+and ${\cal Q}  iL\hat{{\bf R}}_{\mu}=0$ resulting in  a large simplification
 of  the  friction  matrix.   The irreversible  part  of  the  dynamics
 $\sum_jD_{ij}\lambda_j$ in equation (\ref{ex2}) now takes the form
 \begin{align}
@@ -2693,9 +2692,8 @@ of the fluid is equal to the loss rate of momentum of the particle
 The conservation of momenta then implies the following relationships between
 elements of the dissipative matrix
 \begin{align}
-M^{gP}_{{\bf r}}&=-\int d{\bf r}'M^{gg}_{{\bf r}{\bf r}'}
-\nonumber\\
-M^{PP}&= - \int d{\bf r}M^{Pg}_{{\bf r}}
+    M^{gP}_{{\bf r}}&=-\int d{\bf r}'M^{gg}_{{\bf r}{\bf r}'},&&
+M^{PP}= - \int d{\bf r}M^{Pg}_{{\bf r}}
 \end{align}
 and this leads in equation (\ref{IrrMark1}) to 
 \begin{align}
@@ -2705,7 +2703,7 @@ and this leads in equation (\ref{IrrMark1}) to
 %Esta última expresión se puede dejar en función de M^{Pg} y ver claramente que la derivada de P(t) será "igual" a la fuerza superficial {\cal S}
 \label{IrrMark2}\end{align}
 which contain only  the matrix element $M^{gg}_{{\bf  r}{\bf r}'}$ and are
-manifestly  Galilean   invariant.   By  using  equation.   (\ref{gls})  and
+manifestly  Galilean   invariant.   By  using  equations   (\ref{gls}),
 (\ref{Pfsl}) {in} the  definition  of $M^{gg}_{{\bf  r}{\bf r}'}$  in
 equation (\ref{Ms}),  and inserting  the result in  the equation  of motion
 (\ref{IrrMark1}) one obtains
@@ -2763,7 +2761,7 @@ Green-Kubo formulas
 \langle 
 {\cal Q}_t\hat{\bf F}^{\rm s\to l}_{{\bf r}}(t')
 {\cal Q}_t\hat{\bf F}^{\rm s\to l}_{{\bf r}'}\rangle^{\lambda(t)}
-\label{GK}
+\label{GK1}
 \end{align}
 These transport  kernels are state  dependent, i.e.  functions  of the
 time  dependent  averages  of  the  relevant  variables,  through  the
@@ -2771,7 +2769,7 @@ dependence of  the relevant ensemble  on these averages.  The explicit
 form of the projected currents appearing in these expressions is given
 in the Appendix \ref{Ap:Projected}.
 
-\section{The final equations of nano-hydrodynamics} 
+\section{The final equations of nanohydrodynamics} 
 By collecting the reversible part  of the dynamics (\ref{rev}) and the
 irreversible part  (\ref{Irr}) we  obtain the final  dynamic equations
 for the relevant variables
@@ -2795,7 +2793,7 @@ $\boldsymbol{\Sigma}({\bf  r})$ is  given in  (\ref{FluidStress}), and
 the irreversible  force $\boldsymbol{{\cal  S}}({\bf r})$ is  given in
 equation (\ref{Irreversibleforces}).
 
-equation.   (\ref{finaleq}), (\ref{GK}),   (\ref{Irreversibleforces}), 
+Equations   (\ref{finaleq}), (\ref{GK1}),   (\ref{Irreversibleforces}) 
 are the  main results of the present  chapter.  They describe
 the isothermal non-local  hydrodynamics of a  simple fluid coupled with
 the motion of an immersed structureless solid sphere.  These equations
@@ -2806,7 +2804,7 @@ derivation is the Markovian approximation that neglects memory effects
 in the dissipative part of the dynamics.
 
 Let  us  discuss  the  physical  meaning of  the  different  terms  in
-equation.  (\ref{finaleq}).  The  equation for  the evolution  of the  mass
+equations  (\ref{finaleq}).  The  equation for  the evolution  of the  mass
 density field is  just the continuity equation.  The  equation for the
 momentum density field involves the  usual convective term plus a term
 involving  the  gradient of  the  functional  derivative of  the  free
@@ -2815,9 +2813,9 @@ the reversible coupling between the  fluid and solid sphere. The usual
 pressure gradient term of the Navier-Stokes equations is obtained when
 one  uses   a  local   free  energy  functional   as  will   be  shown
 elsewhere.               The                viscous               term
-$\boldsymbol{\nabla}\esc\boldsymbol{\Sigma}$  in equation.  (\ref{finaleq})
+$\boldsymbol{\nabla}\esc\boldsymbol{\Sigma}$  
 describes   the  internal   friction   of  the   fluid   due  to   its
-self-interaction.  \Pendiente{This  viscous term involving second  derivatives is
+self-interaction.  This  viscous term involving second  derivatives is
 the usual viscosity term of the Navier-Stokes equations, which is here
 expressed in a  non-local form.  The use of  non-local viscosities has
 been   advocated  recently   in   the   field  of   nano-hydrodynamics
@@ -2831,17 +2829,17 @@ to have a firmer basis. The  fourth order viscosity tensor is given in
 terms  of the  correlation of  the  fluctuations of  the fluid  stress
 tensor.  Away from the walls, it is expected that the viscosity tensor
 becomes fully isotropic and dependent only on the distance between the
-points ${\bf r},{\bf r}'$.}
+points ${\bf r},{\bf r}'$.
 
 The  force  density  $\boldsymbol{{\cal S}}({\bf  r})$  involving  the
 non-local transport  kernels ${\bf H}_{{\bf r}{\bf  r}'}$, ${\bf G}_{{\bf r}{\bf r}'}$, 
 $\boldsymbol{\gamma}_{{\bf  r}{\bf r}'}$ describes the
 irreversible interaction between  the solid and the  fluid.  Note that
-these  kernels are  defined  in (\ref{GK})  in  terms of  correlations
+these  kernels are  defined  in (\ref{GK1})  in  terms of  correlations
 involving the  force density $\hat{\bf  F}^{s\to l}_{\bf r}$  that the
 solid sphere  exerts on the  liquid molecules.  These terms  should be
 understood,  therefore,  as  the   responsible  for  transmitting  the
-irreversible  forces that  the solid  sphere exert  on the  fluid. The
+irreversible  forces that  the solid  sphere exerts  on the  fluid. The
 force density $\hat{\bf F}^{\rm s\to  l}_{\bf r}(z)$ will be different
 from zero only for  those points ${\bf r}$ that are  near of the solid
 sphere.  This means  that the transport kernels  ${\bf G}_{{\bf r}{\bf
@@ -2905,7 +2903,7 @@ momentum lost by the fluid is gained by the solid sphere.
 In  addition, the  function ${\cal H}$  evolves in time  in a
 strictly decreasing way, that is,
 \begin{align}
-  \frac{d{\cal H}}{dt}(t)\le 0
+  \frac{d{\cal H}}{dt}(t)\le 0,
 \label{Htheo}\end{align}
 where  the  equality sign  occurs  when  the  system has  reached  its
 equilibrium state.  This  is because, while the reversible  part of the
@@ -2913,7 +2911,7 @@ dynamics conserves  ${\cal H}$,  the irreversible part  of the
 dynamics  fulfills  (\ref{Htheo}), due  to  the positive  semidefinite
 character of  the friction matrix.  
 
-As a consequence, the equilibrium state of equation. (\ref{finaleq}) is the
+As a consequence, the equilibrium state of equations (\ref{finaleq}) is the
 one that minimizes ${\cal H}$ subject to the constraints of giving the
 actual values of the total mass  and momentum.  In order to obtain the
 equilibrium values of  the relevant variables, one  should minimize the
@@ -2944,7 +2942,7 @@ field and the position of the sphere
 \frac{\partial {\cal F}}{\partial {\bf R}}[\rho,{\bf R}]=0
 \label{eq1}
 \end{align}
-From equation.   (\ref{Fd2}), the first equation  (\ref{eq1}) simply states
+From equations   (\ref{Fd2}), the first equation  (\ref{eq1}) simply states
 that  the equilibrium  state  has  a constant  value  of the  chemical
 potential $\mu({\bf  r})=\mu_0$ while the second  equation states that
 the total force on the solid  sphere vanishes at equilibrium. This set
@@ -3020,7 +3018,6 @@ the solid  object is fixed  in space.  These equilibrium  averages can
 be,  therefore,  sampled  through  the  ergodic  hypothesis,  as  time
 averages over long MD simulations in which the solid remains fixed.
 
-\Tirar{The form of the projected currents is computed explicitly in the Appendix \ref{Ap:Projected}.}
 
 When we approximate the relevant ensemble with an equilibrium ensemble
 in   the  Green-Kubo   transport  coefficients,   they  become   state
@@ -3051,78 +3048,78 @@ for the transport kernels
 \label{GKsymmetries}
 \end{align}
 
-\subsection{The solid made of frozen atoms}
-In many  simulation works,  solids in contact  with fluid  systems are
-modeled as made of atoms that are  fixed in space.  In this case, the
-atoms of the solid do not evolve according to Hamilton's equations and
-the theory presented  does not apply. In fact, the  atoms of the solid
-need to  be understood  as simple  centers of  force that  generate an
-external field to be imposed on  the fluid. The theory that emerges in
-this case  is very different  from the one  that we have  presented so
-far.  A sketch  of the derivation of the theory  for fixed solid atoms
-is presented in  what follows.  The microstate of the  system is given
-by the coordinates  and positions of the fluid  atoms. The coordinates
-$q'$ of the solid atoms are no longer part of the microscopic state of
-the system but  rather parameters in the Hamiltonian.   Instead of the
-Hamiltonian (\ref{H}) we have now
-\begin{eqnarray}
-H(z) = \sum^N_i \frac{p_i^2}{2m_i} + V^{l}(q)+ V^{ls}(q,q')
-\label{Hfrozen}
-\end{eqnarray}
-where the coordinates of the solid  atoms $q'$ are fixed parameters of
-the  Hamiltonian.  The  relevant variables  are only  the hydrodynamic
-variables of  the solvent. We  may follow all  the steps that  we have
-taken  in Sec.  \ref{Sec:Transequation}  for the  present  case.  The  most
-important  observation is  that the  microscopic force  that the  solid
-exerts on the fluid depends on the microscopic state $z$ of the system
-through the solvent density, \textit{which is a relevant variable}. Indeed,
-\begin{align}
-  \hat{\bf F}^{\rm s\to l}_{\bf r}&=\sum^{NN'}_{ij'}\hat{\bf F}_{ij'}\delta({\bf r}-{\bf q}_i)
-=\sum^{NN'}_{ij'}{\bf F}({\bf r}-{\bf q}_{j'})\delta({\bf r}-{\bf q}_i)
-\nonumber\\
-&=\hat{\bf F}({\bf r})\hat{\rho}_{\bf r}(z)
-\end{align}
-\Note{No lo veo}
-
-
-where here  $\hat{\bf F}({\bf r})$  is the  force that all  the frozen
-solid atoms  exert on a fluid  atom located at ${\bf  r}$.  This force
-does not evolve  in time and is not  a dynamic object at all,  it is a
-given  vector  function  that  depends parametrically  on  the  frozen
-positions  of the  solid  atom.   Because this  force  depends on  the
-microscopic  state through  the  density field,  which  is a  relevant
-variable, the projected force ${\cal Q}\hat{\bf F}_{{\bf r}}^{\rm s\to
-  l}=0$ vanishes exactly.  As a  consequence, \textit{for this type of
-  walls  made   of  frozen  atoms,  the   irreversible  surface  force
-  $\boldsymbol{{\cal S}}({\bf r})$  vanishes identically}, because all
-  the  transport kernels  involving  the projected  force vanish.  \Note{Repesar el siguiente argumento} This
-gives  a   strong  indication  about   the  physical  origin   of  the
-irreversible surface force in the  present level of description. It is
-due  entirely to  the eliminated  internal degrees  of freedom  of the
-solid  that are  coarse-grained in  the description,  in terms  of the
-center of mass of the solid sphere. While we have assumed that elastic
-degrees of  freedom for the  solid are  very fast relaxing  degrees of
-freedom  toward equilibrium,  it is  precisely the  unaccounted solid
-degrees  of  freedom  the  responsible  for  the  originators  of  the
-irreversible  surface forces  on the  solvent.  This  point is  subtle
-though.   As we  will  see  in the next chapter, a  slightly
-different  level   of  description,   one  in   which  the   fluid  is
-coarse-grained  not  with  the  local mass  $\hat{\rho}_{\bf  r}$  and
-momentum $\hat{\bf  g}_{\bf r}$ densities  at a given point  of space,
-but rather as the mass $\hat{\rho}_\mu$ and momentum $\hat{\bf g}_\mu$
-densities of  \textit{fluid slabs} labeled with  index $\mu$ (suitable
-for planar geometries), produces irreversible  forces even in the case
-that the solid degrees of freedom are  frozen. This is due to the fact
-that in  the later  level of  description, which  is coarser  than the
-former,  the loss  of information  due to  the use  of fluid  slabs is
-sufficient for the  appearance of the irreversible forces.   This is a
-nice example that  illustrates a very general  concept: Dissipation is
-not an intrinsic  property of the system, but rather  it is a function
-of the level of description used.
+%\subsection{The solid made of frozen atoms}
+%In many  simulation works,  solids in contact  with fluid  systems are
+%modeled as made of atoms that are  fixed in space.  In this case, the
+%atoms of the solid do not evolve according to Hamilton's equations and
+%the theory presented  does not apply. In fact, the  atoms of the solid
+%need to  be understood  as simple  centers of  force that  generate an
+%external field to be imposed on  the fluid. The theory that emerges in
+%this case  is very different  from the one  that we have  presented so
+%far.  A sketch  of the derivation of the theory  for fixed solid atoms
+%is presented in  what follows.  The microstate of the  system is given
+%by the coordinates  and positions of the fluid  atoms. The coordinates
+%$q'$ of the solid atoms are no longer part of the microscopic state of
+%the system but  rather parameters in the Hamiltonian.   Instead of the
+%Hamiltonian (\ref{H}) we have now
+%\begin{eqnarray}
+%H(z) = \sum^N_i \frac{p_i^2}{2m_i} + V^{l}(q)+ V^{ls}(q,q')
+%\label{Hfrozen}
+%\end{eqnarray}
+%where the coordinates of the solid  atoms $q'$ are fixed parameters of
+%the  Hamiltonian.  The  relevant variables  are only  the hydrodynamic
+%variables of  the solvent. We  may follow all  the steps that  we have
+%taken  in Sec.  \ref{Sec:Transequation}  for the  present  case.  The  most
+%important  observation is  that the  microscopic force  that the  solid
+%exerts on the fluid depends on the microscopic state $z$ of the system
+%through the solvent density, \textit{which is a relevant variable}. Indeed,
+%\begin{align}
+%  \hat{\bf F}^{\rm s\to l}_{\bf r}&=\sum^{NN'}_{ij'}\hat{\bf F}_{ij'}\delta({\bf r}-{\bf q}_i)
+%=\sum^{NN'}_{ij'}{\bf F}({\bf r}-{\bf q}_{j'})\delta({\bf r}-{\bf q}_i)
+%\nonumber\\
+%&=\hat{\bf F}({\bf r})\hat{\rho}_{\bf r}(z)
+%\end{align}
+%\Note{No lo veo}
+%
+%
+%where here  $\hat{\bf F}({\bf r})$  is the  force that all  the frozen
+%solid atoms  exert on a fluid  atom located at ${\bf  r}$.  This force
+%does not evolve  in time and is not  a dynamic object at all,  it is a
+%given  vector  function  that  depends parametrically  on  the  frozen
+%positions  of the  solid  atom.   Because this  force  depends on  the
+%microscopic  state through  the  density field,  which  is a  relevant
+%variable, the projected force ${\cal Q}\hat{\bf F}_{{\bf r}}^{\rm s\to
+%  l}=0$ vanishes exactly.  As a  consequence, \textit{for this type of
+%  walls  made   of  frozen  atoms,  the   irreversible  surface  force
+%  $\boldsymbol{{\cal S}}({\bf r})$  vanishes identically}, because all
+%  the  transport kernels  involving  the projected  force vanish.  \Note{Repesar el siguiente argumento} This
+%gives  a   strong  indication  about   the  physical  origin   of  the
+%irreversible surface force in the  present level of description. It is
+%due  entirely to  the eliminated  internal degrees  of freedom  of the
+%solid  that are  coarse-grained in  the description,  in terms  of the
+%center of mass of the solid sphere. While we have assumed that elastic
+%degrees of  freedom for the  solid are  very fast relaxing  degrees of
+%freedom  toward equilibrium,  it is  precisely the  unaccounted solid
+%degrees  of  freedom  the  responsible  for  the  originators  of  the
+%irreversible  surface forces  on the  solvent.  This  point is  subtle
+%though.   As we  will  see  in the next chapter, a  slightly
+%different  level   of  description,   one  in   which  the   fluid  is
+%coarse-grained  not  with  the  local mass  $\hat{\rho}_{\bf  r}$  and
+%momentum $\hat{\bf  g}_{\bf r}$ densities  at a given point  of space,
+%but rather as the mass $\hat{\rho}_\mu$ and momentum $\hat{\bf g}_\mu$
+%densities of  \textit{fluid slabs} labeled with  index $\mu$ (suitable
+%for planar geometries), produces irreversible  forces even in the case
+%that the solid degrees of freedom are  frozen. This is due to the fact
+%that in  the later  level of  description, which  is coarser  than the
+%former,  the loss  of information  due to  the use  of fluid  slabs is
+%sufficient for the  appearance of the irreversible forces.   This is a
+%nice example that  illustrates a very general  concept: Dissipation is
+%not an intrinsic  property of the system, but rather  it is a function
+%of the level of description used.
 
 
 \section{Summary}
-In this chapter we have derived DDFT for simple fluid in contact with a solid sphere. We have taken as relevant variables the mass and momentum density fields of the fluid and the center of mass position and momentum of the solid sphere. We have use the Kawasaki-Gunton operator in order to obtain the evolution equations for the average value of these fiels.  
+In this chapter we have derived DDFT for simple fluid in contact with a solid sphere. We have taken as relevant variables the mass and momentum density fields of the fluid and the center of mass position and momentum of the solid sphere. We have use the Kawasaki-Gunton operator in order to obtain the evolution equations for the average value of these fields.  
 A crucial assumption in the method of projection operators is that the
 relevant variables should be {\em slow}  in order to have a Markovian,
 memoryless  equation.   equationations with  memory  are  indeed much  more
@@ -3180,7 +3177,7 @@ A   word  is   in  order   about  the   mathematical  nature   of  the
 integro-differential equations.   From a  mathematical point  of view,
 these equations  require the specification of  (mathematical) boundary
 conditions in order  to have a unique solution. What  are the suitable
-boundary conditions to be specified for equation.  (\ref{finaleq})?  In the
+boundary conditions to be specified for equations  (\ref{finaleq})?  In the
 present situation,  where only transient dynamics  toward equilibrium
 can be  investigated, these boundary  conditions appear as  an initial
 value  problem.  In  addition,  note  that we  have  not included  any
@@ -3208,7 +3205,7 @@ boundary  conditions   as  emerging   from  ``physics''   rather  than
 \cite{Bedeaux1976,Qian2008,Ottinger2008,Sagis2011}.    In    a   fully
 macroscopic phenomenological  theory, the  effect of  the irreversible
 surface  force  is  taken  into account  through  boundary  conditions
-applied  to  the fluid  equations.  Camargo et al. discuss in \cite{CamargoBC2018} 
+applied  to  the fluid  equations.  Camargo et al. discuss in Ref. \cite{CamargoBC2018} 
 the emergence  of  boundary conditions  in a  macroscopic
 theory.  They  consider the  conditions  under  which  the
 localized   irreversible  surface   forces  produce   actual  boundary
@@ -3374,7 +3371,7 @@ an extremely  large amount of  information in order to  be predictive,
 which  is almost  a  contradiction. In particular,
 we  need to  know the  transport  coefficients which  are, in  general
 non-local,  but  most  dramatically,   tensorial  in  character.   The
-Green-Kubo expressions  (\ref{GK}) correlate the  different components
+Green-Kubo expressions  (\ref{GK1}) correlate the  different components
 of the  microscopic force vector that  the solid exerts on  the fluid,
 and the microscopic stress tensor, defined both in (\ref{sigma}).  The
 number  of components  of the  tensorial kernels  is very  large.  The
@@ -3429,7 +3426,7 @@ nonequilibrium MD simulations allows one to validate the theory.
 the coarse delta functions that appear  in the force density and stress
   tensor (\ref{sigma}), whose correlations give  rise to the kernels. The
 second step  requires a discretization  in order to  solve numerically
-equation.  (\ref{finaleq}).  Finally, in  the third step the discretization
+equations  (\ref{finaleq}).  Finally, in  the third step the discretization
 is required in  order to measure the density and  velocity fields.  It
 is  important that  the discretization  in these  three steps  is done
 consistently. In Refs. \cite{DelaTorre2015,EspanolDonev2015} s discussed how  a method based
@@ -3448,7 +3445,7 @@ length $L_z$ is  divided in $N_{\rm bin}$ bins labeled  with an index
 $\mu$.  Each bin  is a layer or slab of  dimensions $L_x,L_y,\Delta z$
 with $\Delta  z=L_z/N_{\rm bin}$.  The  bins are separated  by $N_{\rm
   bin}$ nodes  (actually, nodal  planes) located at  $z_\mu=\mu \Delta
-z$,  $\mu=0,\cdots,N_{\rm bin}-1$.   We assume  that we  have periodic
+z$  with $\mu=0,\cdots,N_{\rm bin}-1$.   We assume  that we  have periodic
 boundary  conditions  in  the  $z$ direction  and,  therefore,  node
 $\mu=0$ is equal to the  node $N_{\rm bin}$.  We carefully distinguish
 between \textit{nodes} and \textit{bins}: nodes  are points in the $z$
@@ -3461,7 +3458,7 @@ We  introduce the  characteristic function  of the  bin $\chi_\mu({\bf
   r})$ that  takes the value  1 if  ${\bf r}$ is  in the bin  and zero
 otherwise.  Its explicit form is given by the unit function
 \begin{align}
-\chi_\mu({\bf r})&=\theta(z_{\mu+ 1}-z)\theta(z-z_\mu)=\chi_\mu(z)
+\chi_\mu({\bf r})&=\theta(z_{\mu+ 1}-z)\theta(z-z_\mu)=\chi_\mu(z),
 \label{chi}
 \end{align}
 where $\theta(x)$ is  the Heaviside step function,  $z_{\mu+1}$ is the
@@ -3482,7 +3479,7 @@ ${\cal V}_\mu$ of the bin
 For each node, we  introduce  a finite element linear  basis  function
 $\Phi_\mu({\bf r})$
 \begin{align}
-  \Phi_\mu({\bf r})=\chi_\mu(z)\frac{z_{\mu+1}-z}{\Delta z}+\chi_{\mu-1}(z)\frac{z-z_{\mu-1}}{\Delta z}
+  \Phi_\mu({\bf r})=\chi_\mu(z)\frac{z_{\mu+1}-z}{\Delta z}+\chi_{\mu-1}(z)\frac{z-z_{\mu-1}}{\Delta z},
 \end{align}
 that depends only on the $z$ component of ${\bf r}$. 
 The finite element basis functions $\Phi_\mu({\bf r})$ also form a partition of unity, i.e.
@@ -3503,7 +3500,7 @@ $\mu$.
 
 The gradient of the basis function is
 \begin{align}
-\boldsymbol{\nabla}\Phi_\mu({\bf r})&=-\frac{\chi_\mu({\bf r})-\chi_{\mu-1}({\bf r})}{\Delta z}{\bf n}
+\boldsymbol{\nabla}\Phi_\mu({\bf r})&=-\frac{\chi_\mu({\bf r})-\chi_{\mu-1}({\bf r})}{\Delta z}{\bf n},
 \label{partialpsi}
 \end{align}
 where ${\bf n}$ is the unit vector in the normal direction.
@@ -3520,7 +3517,7 @@ On the other hand,  the  basis function  $\psi_\mu({\bf r})$ allows one
 to construct a continuum field out of a discrete set of values through
 interpolation, that is,
 \begin{align}
-  \overline{v}({\bf r}) &=v_\mu\psi_\mu({\bf r})
+    \overline{v}({\bf r}) &=\sum_{\mu}v_\mu\psi_\mu({\bf r})
 \label{Cont}
 \end{align}
 In this chapter, overlined fields indicate  fields interpolated from
@@ -3545,17 +3542,15 @@ and the biorthonormality condition (\ref{biortho}) becomes
 \end{align}
 We stipulate that the relation between both basis function is linear
 \begin{align}
-  \delta_\mu({\bf r})&=\sum_\nu M^\delta_{\mu\nu}\psi_\nu({\bf r})
-\nonumber\\
-  \psi_\mu({\bf r})&=\sum_\nu M^\psi_{\mu\nu}\delta_\nu({\bf r})
+    \delta_\mu({\bf r})=\sum_\nu M^\delta_{\mu\nu}\psi_\nu({\bf r}),&&
+  \psi_\mu({\bf r})=\sum_\nu M^\psi_{\mu\nu}\delta_\nu({\bf r})
 \label{dual}
 \end{align}
 and, then, the biorthonormality condition (\ref{biortho}) implies that 
 the matrices are given by
 \begin{align}
-  M^\delta_{\mu\nu}&= \llg\delta_\mu\delta_\nu\rlg
-\nonumber\\
-  M^\psi_{\mu\nu}&= \llg\psi_\mu\psi_\nu\rlg
+    M^\delta_{\mu\nu}= \llg\delta_\mu\delta_\nu\rlg, &&
+  M^\psi_{\mu\nu}= \llg\psi_\mu\psi_\nu\rlg
 \label{MM}
 \end{align}
 and these two matrices are inverse of each other.
@@ -3576,7 +3571,7 @@ ${\cal V}_\mu$ defined as
 \begin{align}
   {\cal V}_{\mu}&=\int d{\bf r}\Phi_\mu({\bf r})
 \end{align}
-and the usual mass matrix of the finite element method is \Note{Entender de forma intuitiva la matriz de masa}
+and the usual mass matrix of the finite element method is 
 \begin{align}
 M^\Phi_{\mu\nu}&=\llg\Phi_\mu\Phi_\nu\rlg  
 \label{Mphi}
@@ -3601,9 +3596,8 @@ element basis function according to
 The matrices $M^\delta_{\mu\nu}, M^\psi_{\mu\nu}$ defined in (\ref{MM}) are related to
 the mass matrix of the finite element basis (\ref{Mphi}) through
 \begin{align}
-  M^\delta_{\mu\nu}&=\frac{  M^\Phi_{\mu\nu}}{{\cal V}_\mu{\cal V}_\nu}
-\nonumber\\
-M^\psi_{\mu\nu}&={\cal V}_\mu \left[M^{\Phi}\right]^{-1}_{\mu\nu}{\cal V}_\nu
+    M^\delta_{\mu\nu}=\frac{  M^\Phi_{\mu\nu}}{{\cal V}_\mu{\cal V}_\nu}, &&
+M^\psi_{\mu\nu}={\cal V}_\mu \left[M^{\Phi}\right]^{-1}_{\mu\nu}{\cal V}_\nu
 \label{MdMp}
 \end{align}
 Given the definition (\ref{DelFE}) for the discrete Dirac $\delta$ function,  the interpolant basis function given in (\ref{dual}) takes the form
@@ -3717,9 +3711,8 @@ fluid  at node  $\mu$ due  to the  solid and  $ \hat{\bf  F}^{\rm l\to
   l}_\mu$ is the force  density on the fluid at node  $\mu$ due to the
 fluid. These forces are defined as
 \begin{align}
- \hat{\bf F}^{\rm s\to l}_\mu &\equiv\sum_{ij'}\hat{\bf F}_{ij'}\delta_\mu({\bf q}_i)
- \nonumber\\
- \hat{\bf F}^{\rm l\to l}_\mu &\equiv\sum_{ij}\hat{\bf F}_{ij}\delta_\mu({\bf q}_i)
+    \hat{\bf F}^{\rm s\to l}_\mu \equiv\sum_{ij'}\hat{\bf F}_{ij'}\delta_\mu({\bf q}_i), &&
+ \hat{\bf F}^{\rm l\to l}_\mu \equiv\sum_{ij}\hat{\bf F}_{ij}\delta_\mu({\bf q}_i)
 \label{Fbin}
 \end{align}
 Recall that solid atoms have  primed indices and fluid atoms have unprimed indices.
@@ -3741,11 +3734,9 @@ This means that the convective part can be expressed in the form
 For the force due to the fluid we may use the trick
 \begin{align}
   \hat{{\bf F}}_\mu^{\rm l\to l}&=  \sum_{ij}^N\hat{\bf F}_{ij}\delta_\mu({\bf q}_i)
-\nonumber\\
-&=\frac{1}{2}\sum_{ij}^N\hat{\bf F}_{ij}
+=\frac{1}{2}\sum_{ij}^N\hat{\bf F}_{ij}
 (\delta_\mu({\bf q}_i)-\delta_\mu({\bf q}_j))
-\nonumber\\
-&=\frac{1}{2}\sum_{ij}^N\hat{\bf F}_{ij}\int_0^1d\epsilon \frac{d}{d\epsilon}
+=\frac{1}{2}\sum_{ij}^N\hat{\bf F}_{ij}\int_0^1d\epsilon \frac{d}{d\epsilon}
 \delta_\mu({\bf q}_j+\epsilon{\bf q}_{ij})
 \nonumber\\
 &=\frac{1}{2}\sum_{ij}^N\hat{\bf F}_{ij}{\bf q}_{ij}\esc\int_0^1d\epsilon 
@@ -3784,7 +3775,7 @@ The integral can be easily computed with the result
 \nonumber\\
 &-(z_{j}-z_{\mu+1}) \theta(z_{\mu+1}-z_{j})
 %\nonumber\\
-\left.+(z_i-z_{\mu+1}) \theta (z_{\mu+1}-z_i)\right]
+\left.+(z_i-z_{\mu+1}) \theta (z_{\mu+1}-z_i)\right],
 \label{geoFactor}
 \end{align}
 where  $\theta(a,b)=\theta(a)\theta(b)$  takes  the value  1  if  both
@@ -3804,7 +3795,7 @@ between particles $i,j$ that happens to  be within the bin $\mu$.
 The  partition  of unity  (\ref{PartitionUnity})
 implies also that
 \begin{align}
-  \sum_\mu z_{\mu}(i,j) =1
+  \sum_\mu z_{\mu}(i,j) =1,
 \label{zmu1}
 \end{align}
 as can be seen easily from the definition (\ref{int}).
@@ -3813,7 +3804,7 @@ By                collecting                the                results
 (\ref{iLMicrhogmu}),(\ref{Fbin}),(\ref{Fvir}) we end  up
 with the final form of the time derivative of the discrete momentum variable
 \begin{align}
-  i{\cal L}\hat{\bf g}_\mu &=\hat{\bf F}_\mu^{\rm s\to l}-\frac{\hat{\boldsymbol{\sigma}}_\mu-\hat{\boldsymbol{\sigma}}_{\mu-1}}{\Delta z}\esc{\bf n}
+  i{\cal L}\hat{\bf g}_\mu &=\hat{\bf F}_\mu^{\rm s\to l}-\frac{\hat{\boldsymbol{\sigma}}_\mu-\hat{\boldsymbol{\sigma}}_{\mu-1}}{\Delta z}\esc{\bf n},
 \label{equationivalence}
 \end{align}
 where we have introduced the discrete stress tensor of bin $\mu$ through
@@ -3835,16 +3826,17 @@ the basis of the final structure of the hydrodynamic equations.
 Note  that, while  the force  is discretized  with the  basis function
 $\Phi_\mu({\bf r})$, the stress is discretized with the characteristic
 function $\chi_\mu({\bf  r})$. Therefore, forces are  defined on nodal
-planes    while    stresses    are    defined    on    bins.     Refs.
-\cite{Schindler2010,Lion2012} have  considered the definition  of local
-pressure following similar lines.
+planes    while    stresses    are    defined    on    bins.     
+%Refs.
+%\cite{Schindler2010,Lion2012} have  considered the definition  of local
+%pressure following similar lines.
 
 
 The partitions  of unity (\ref{PartitionUnity}) and  (\ref{zmu1}) ensure
 that the arithmetic average of the stress tensor of the bins gives the
 total stress tensor of the system, that is,
 \begin{align}
-\frac{1}{N_{\rm bin}}\sum_{\mu}^{N_{\rm bin}}\hat{\boldsymbol{\sigma}}_{\mu}=\hat{\boldsymbol{\sigma}}
+\frac{1}{N_{\rm bin}}\sum_{\mu}^{N_{\rm bin}}\hat{\boldsymbol{\sigma}}_{\mu}=\hat{\boldsymbol{\sigma}},
 \end{align}
 where the total fluid stress tensor of the system is defined in the usual way as
 \begin{align}
@@ -3869,7 +3861,7 @@ dynamics is given by the \textit{exact} equations
   \llangle i{\cal L}\hat{\bf g}_\mu\rrangle^{\lambda{\bf v}} &=
 \llg\llangle \hat{\rho}_{\bf r}\rrangle^{\lambda{\bf v}}
 \overline{\bf v}\overline{\bf v}\esc\boldsymbol{\nabla}\delta_{\mu}\rlg
-+\llg\delta_\mu\llangle\hat{\rho}_{\bf r}\rrangle^{\lambda{\bf v}}\boldsymbol{\nabla}\overline{\mu}\rlg
++\llg\delta_\mu\llangle\hat{\rho}_{\bf r}\rrangle^{\lambda{\bf v}}\boldsymbol{\nabla}\overline{\mu}\rlg,
 \label{ExactRev}
 \end{align}
 where we have used the  notation (\ref{notation}) for space integrals,
@@ -3883,9 +3875,8 @@ defined by
 \end{align}
 where the interpolated conjugate variables are defined as 
 \begin{align}
-  \overline{\lambda}({\bf r})&=\sum_{\mu}{\lambda}_{\mu}\psi_\mu({\bf r})
-\nonumber\\
-\overline{\bf v}({\bf r})&=\sum_{\mu}{\bf v}_{\mu}\psi_\mu({\bf r})
+    \overline{\lambda}({\bf r})=\sum_{\mu}{\lambda}_{\mu}\psi_\mu({\bf r}), &&
+\overline{\bf v}({\bf r})=\sum_{\mu}{\bf v}_{\mu}\psi_\mu({\bf r})
 \end{align}
 The conjugate variables $\lambda_\mu,{\bf v}_\mu$ are functions of the
 CG variables averages $\rho_\mu,{\bf g}_\mu$, computed with the real ensemble (i.e. the solution of the Liouville equation). In particular, the velocity ${\bf
@@ -3900,7 +3891,6 @@ where  the mass density matrix is defined by
 \delta_\mu({\bf r})\psi_\nu({\bf r})\llangle\hat{\rho}_{\bf r}\rrangle^{\lambda{\bf v}}
 \label{rhomunu}
 \end{align}
-\Note{Cómo se entiende de forma intuitiva una matriz de masa? Por ejemplo, el elemento 1-6}
 
 \subsection{Approximate reversible dynamics}
 The reversible part  of the dynamics (\ref{ExactRev}) is  not given in
@@ -3922,7 +3912,7 @@ linear functions as
 \begin{figure}
     \centering
     \includegraphics[scale=0.2]{spiky}
-    \caption[``Spiky'' aproximation]{The microscopic density field $\hat{\rho}_{\bf}(z)$ (black), which is a sum of Dirac $\delta$ functions each one located at the position of the particle $i$, is approximated by an interpolation of the discrete microscopic density field $\hat{\rho}(z)_{\mu}$ at the nodes (blue).}
+    \caption[``Spiky'' aproximation]{The microscopic density field $\hat{\rho}_{\bf r}{\bf}(z)$ (black), which is a sum of Dirac $\delta$ functions each one located at the position of the particle $i$, is approximated by an interpolation of the discrete microscopic density field $\hat{\rho}_{\mu}(z)$ at the nodes (blue).}
     \label{fig:spiky}
 \end{figure}
 As illustrated in Fig. (\ref{fig:spiky}), the left  hand side contains  sums of singular Dirac  $\delta$ functions,
@@ -3944,7 +3934,7 @@ and the density matrix (\ref{rhomunu}) becomes explicit in the discrete density
 =\llg\delta_\mu\psi_\nu\overline{\rho}\rlg
 \label{calR1}
 \end{align}
-Therefore, the discrete velocity  field (\ref{nu}) is given explicitly
+Therefore, the discrete velocity  field (\ref{vnu}) is given explicitly
 in terms of the discrete mass and momentum densities by
 \begin{align}
 {\bf v}_\mu&=\sum_\nu\rho^{-1}_{\mu\nu}{\bf g}_\nu
@@ -3960,7 +3950,7 @@ the \textit{explicit} form
 \llangle i{\cal L}  \hat{\bf g}_{\mu}\rrangle^{\lambda{\bf v}} &=
 \llg\overline{\rho}\;\overline{\bf v}\;\overline{\bf v}\esc\boldsymbol{\nabla}\delta_{\mu}\rlg
 +\llg\delta_\mu\overline{\rho}\boldsymbol{\nabla}\overline{\mu}\rlg
-\label{RevDis}
+\label{RevDis0}
 \end{align}
 These equations  are explicit in  the CG variables because  the fields
 $\overline{\rho}({\bf  r}),\overline{\bf  v}({\bf  r})$  are  explicit
@@ -3970,9 +3960,21 @@ chemical potential admits the following form
 \begin{align}
   \llg\delta_\mu\overline{\rho}\boldsymbol{\nabla}\overline{\mu}\rlg&=
 -\sum_\nu\llg\overline{\rho}\delta_{\mu}\boldsymbol{\nabla}\delta_{\nu}\rlg
-\frac{\partial  F}{\partial \rho_{\nu}}(\rho)
+\frac{\partial  F}{\partial \rho_{\nu}}(\rho),
 \end{align}
 where the free energy function depends only on the discrete density field.
+
+Therefore, the final reversible part of the dynamics takes the form 
+\begin{align}
+  \llangle i{\cal L}  \hat{\rho}_{\mu}\rrangle^{\lambda{\bf v}}&= 
+\llg \overline{\rho}\;\overline{\bf v}\esc\boldsymbol{\nabla}\delta_\mu\rlg
+\nonumber\\
+\llangle i{\cal L}  \hat{\bf g}_{\mu}\rrangle^{\lambda{\bf v}} &=
+\llg\overline{\rho}\;\overline{\bf v}\;\overline{\bf v}\esc\boldsymbol{\nabla}\delta_{\mu}\rlg
+-\sum_\nu\llg\overline{\rho}\delta_{\mu}\boldsymbol{\nabla}\delta_{\nu}\rlg
+\frac{\partial  F}{\partial \rho_{\nu}}(\rho)
+\label{RevDis}
+\end{align}
 
 \subsection{Irreversible part of the dynamics}
 As shown in  Sec. \ref{Sec:Grabert} of Chapter  \ref{Chap:NESM}, the  irreversible part of the
@@ -4001,7 +4003,7 @@ projected  current vanishes,  ${\cal Q}i{\cal  L}\hat{\rho}_\mu =0$.
 This leads to a much simpler dissipative matrix.
 % \footnote{In  this  approximation  we are  assuming  that  the
 %   Brenner diffusion coefficients are  negligibly small}. 
-The derivatives of the entropy are  given in equation.  (\ref{derS}) in the
+The derivatives of the entropy are  given in equations  (\ref{derS}) in the
 Appendix \ref{Ap:KG}, and we  may write the irreversible  terms (\ref{IrrDis0}) in
 the form
 \begin{align}
@@ -4016,7 +4018,7 @@ the form
 \begin{array}{c}
 {\cal V}_\nu \tilde{\lambda}_\nu\\
 -{\cal V}_\nu \tilde{\bf v}_\nu
-\end{array}\right)
+\end{array}\right), 
 \label{IrrDis}
 \end{align}
 where the dissipative matrix is given by
@@ -4027,9 +4029,8 @@ where the dissipative matrix is given by
 \end{align}
 and we have introduced the discrete fields
 \begin{align}
-\tilde{\lambda}_\mu&=\sum_\nu{\cal V}_{\nu}\left[M^\Phi\right]^{-1}_{\mu\nu}\lambda_{\nu}
-\nonumber\\
-\tilde{\bf v}_\mu&=\sum_\nu{\cal V}_{\nu}\left[M^\Phi\right]^{-1}_{\mu\nu}{\bf v}_{\nu}
+    \tilde{\lambda}_\mu=\sum_\nu{\cal V}_{\nu}\left[M^\Phi\right]^{-1}_{\mu\nu}\lambda_{\nu}, &&
+\tilde{\bf v}_\mu=\sum_\nu{\cal V}_{\nu}\left[M^\Phi\right]^{-1}_{\mu\nu}{\bf v}_{\nu}
 \label{overlined}
 \end{align}
 % These quantities $ \tilde{\rho}_\mu, \tilde{\bf v}_\mu$
@@ -4049,9 +4050,9 @@ dynamics
 \nonumber\\
 &+\sum_{\nu}{\cal V}_\nu\frac{\left[{\bf G}_{\mu\nu}-{\bf G}_{\mu\nu-1}\right]}{\Delta z}\esc{\bf n}\tilde{\bf v}_\nu
 \nonumber\\
-&+\sum_{\nu}{\cal V}_\nu\frac{{\bf n}\esc\left[{\bf H}_{\mu\nu}-{\bf H}_{\mu-1\nu}\right]}{\Delta z}\esc(\tilde{\bf v}_\nu-{\bf V})
+&+\sum_{\nu}{\cal V}_\nu\frac{{\bf n}\esc\left[{\bf H}_{\mu\nu}-{\bf H}_{\mu-1\nu}\right]}{\Delta z}\esc\tilde{\bf v}_\nu
 \nonumber\\
-&-\sum_{\nu}{\cal V}_\nu\boldsymbol{\gamma}_{\mu\nu}\esc(\tilde{\bf v}_\nu-{\bf V})
+&-\sum_{\nu}{\cal V}_\nu\boldsymbol{\gamma}_{\mu\nu}\esc\tilde{\bf v}_\nu
 \label{Irr-Fin}
 \end{align}
 where we have introduced the following tensorial transport matrices
@@ -4132,9 +4133,9 @@ discrete equations
 \nonumber\\
 +&\sum_{\nu}{\cal V}_\nu\frac{\left[{\bf G}_{\mu\nu}-{\bf G}_{\mu\nu-1}\right]}{\Delta z}\esc{\bf n}\tilde{\bf v}_\nu
 \nonumber\\
-+&\sum_{\nu}{\cal V}_\nu\frac{{\bf n}\esc\left[{\bf H}_{\mu\nu}-{\bf H}_{\mu-1\nu}\right]}{\Delta z}\esc(\tilde{\bf v}_\nu-{\bf V})
++&\sum_{\nu}{\cal V}_\nu\frac{{\bf n}\esc\left[{\bf H}_{\mu\nu}-{\bf H}_{\mu-1\nu}\right]}{\Delta z}\esc\tilde{\bf v}_\nu
 \nonumber\\
--&\sum_{\nu}{\cal V}_\nu\boldsymbol{\gamma}_{\mu\nu}\esc(\tilde{\bf v}_\nu-{\bf V})
+-&\sum_{\nu}{\cal V}_\nu\boldsymbol{\gamma}_{\mu\nu}\esc\tilde{\bf v}_\nu
 \label{TheoryDiscFin}
 \end{align}
 % Note  that equation   (\ref{TheoryDiscFin})  contains  information about  a
@@ -4203,7 +4204,7 @@ Appendix \ref{Ap:Iso}, by
 \label{etasimple}
 \end{align}
 The  required components  of the  third order
-tensors are, from  equation. \Pendiente{(104) and (105)} of Ref. \cite{CamargoBC2018}
+tensors are, from  equations (104) and (105) of Ref. \cite{CamargoBC2018}
 \begin{align}
 {\bf G}^{\alpha\beta z}
 &=G^{||}{\bf T}^{\alpha\beta}+
@@ -4266,23 +4267,23 @@ H^\bot_{\mu\nu}&=\frac{1}{k_BT}
 \label{summary_munu}
 \end{align}
 These expressions have  been obtained by suitable  contractions of the
-tensors  in equation  (\ref{etasimple})-(\ref{gg1})  with ${\bf  n}$ or  the
+tensors  in equations  (\ref{etasimple})-(\ref{gg1})  with ${\bf  n}$ or  the
 tracing them out, and then  using the microscopic expressions given in
 (\ref{MolTransportCoeff}).
 
 \subsection{Normal and tangent evolution}
 When we assume the above symmetries, it makes sense to look separately to the 
 the different components of the dynamic equation (\ref{TheoryDiscFin}).
-The density $\rho_\mu$ and normal  component of the momentum $g^{z}_\mu$
+The density $\rho_\mu$ and normal  component of the momentum ${\bf g}^{z}_\mu$
 evolve according to
 \begin{align}
 \frac{d}{dt}\rho_\mu=&  \llg\overline{\rho} \; \overline{v}^{z}{\nabla}^{z}\delta_\mu \rlg
 \nonumber\\
-\frac{d}{dt}{g}^{z}_\mu=&
+    \frac{d}{dt}{{\bf g}}^{z}_\mu=&
 \llg\overline{\rho}\; \overline{v}^{z}\;\overline{v}^{z}{\nabla}^{z}\delta_{\mu}\rlg
 -\llg\overline{\rho}\delta_{\mu}{\nabla}^{z}\delta_{\nu}\rlg
 \frac{\partial  F}{\partial \rho_{\nu}}(\rho)
-+M_{\mu\nu}^{\bot}{\cal V}_\nu(\tilde{v}^{z}_\nu-V^{z})
++M_{\mu\nu}^{\bot}{\cal V}_\nu\tilde{v}^{z}_\nu
 \label{SoundDisc}
 \end{align}
 where the dissipative matrix is defined as
@@ -4296,11 +4297,11 @@ M^{\bot}_{\mu\nu}
 \label{Mbot}
 \end{align}
 
-On the other  hand, the parallel component  $g^\alpha_\mu$ for $\alpha
+On the other  hand, the parallel component  ${\bf g}^\alpha_\mu$ for $\alpha
 =x,y$  of  the  discrete  momentum density  evolves  independently  of
-$\rho_\mu,g^{z}_\mu$, and according to
+$\rho_\mu,{\bf g}^{z}_\mu$, and according to
 \begin{align}
-  \frac{d}{dt}{g}^\alpha_\mu=&-M_{\mu\nu}^{||}{\cal V}_\nu(\tilde{v}^\alpha_\nu-V^\alpha)
+    \frac{d}{dt}{{\bf g}}^\alpha_\mu=&-M_{\mu\nu}^{||}{\cal V}_\nu\tilde{v}^\alpha_\nu
 \label{ShearDisc}
 \end{align}
 where the dissipative matrix in this equation is
@@ -4333,7 +4334,7 @@ from the projection operator technique.
 
 The  first  step  of  the Petrov-Galerkin  method  to  discretize  the
 continuum  equations  (\ref{finaleq}),  (\ref{FluidStress}) and (\ref{Irreversibleforces})  proceeds  by
-inserting the equation. (\ref{FluidStress}) and (\ref{Irreversibleforces}) into (\ref{finaleq}) and then multiply with
+inserting the equations (\ref{FluidStress}) and (\ref{Irreversibleforces}) into (\ref{finaleq}) and then multiply with
 $\delta_\mu({\bf  r})$  and  integrate  over ${\bf  r}$.   After  some
 integration by parts one gets
 \begin{align}
@@ -4364,17 +4365,15 @@ construct  continuum  fields  $\overline{\rho}({\bf  r}),\overline{\bf
   v}({\bf  r})$ through  the  interpolation with  the basis  functions
 $\psi_\mu({\bf r})$
 \begin{align}
-\overline{\rho}({\bf r})&=\sum_\mu{\rho}_\mu\psi_\mu({\bf r})
-\nonumber\\
-\overline{\bf  v}({\bf r})&=\sum_\mu{\bf v}_\mu \psi_\mu({\bf r})
+    \overline{\rho}({\bf r})=\sum_\mu{\rho}_\mu\psi_\mu({\bf r}), &&
+\overline{\bf  v}({\bf r})=\sum_\mu{\bf v}_\mu \psi_\mu({\bf r})
 \label{interpolated}
 \end{align}
 In terms of  the finite element basis functions $\Phi_\mu({\bf r})$ we may write
 (\ref{interpolated})  in the form 
 \begin{align}
-\overline{\rho}({\bf r})&=\sum_\mu\tilde{\rho}_\mu\Phi_\mu({\bf r})
-\nonumber\\
-\overline{\bf  v}({\bf r})&= \sum_\mu\tilde{\bf v}_\mu\Phi_\mu({\bf r})
+    \overline{\rho}({\bf r})=\sum_\mu\tilde{\rho}_\mu\Phi_\mu({\bf r}), &&
+\overline{\bf  v}({\bf r})= \sum_\mu\tilde{\bf v}_\mu\Phi_\mu({\bf r})
 \label{interpolated2}
 \end{align}
 where  we  have  used  (\ref{PsiFE})   and  the   discrete  field
@@ -4386,9 +4385,8 @@ the actual fields $\rho({\bf r}), {\bf  v}({\bf r})$ in the right hand
 side    of   (\ref{fulldelta})    with    the   interpolated    fields
 (\ref{interpolated})
 \begin{align}
- {\rho}({\bf r})&\simeq \overline{\rho}({\bf r})
-\nonumber\\
- {\bf v}({\bf r})&\simeq \overline{\bf v}({\bf r})
+    {\rho}({\bf r})\simeq \overline{\rho}({\bf r}), &&
+ {\bf v}({\bf r})\simeq \overline{\bf v}({\bf r})
 \label{vapprox}
 \end{align}
 In general, we  expect that the approximation  (\ref{vapprox}) will be
@@ -4432,14 +4430,16 @@ Note that the terms
   \llg \overline{\rho} \; \overline{\bf v}\boldsymbol{\nabla}\delta_\mu\rlg
 &= \sum_{\nu\nu'}\overline{\rho}_{\nu}\overline{\bf v}_{\nu'} \cdot\llg\Phi_{\nu}\Phi_{\nu'}\boldsymbol{\nabla}\delta_{\mu}\rlg
 \end{align}
-etc, \Note{¿Y este etc? Mirar paper} are  explicit  functions of  the discrete  variables, where  the term
+etc, are  explicit  functions of  the discrete  variables, where  the term
 within  parenthesis in  the  right  hand side  is  a purely  geometric
 quantity.
+
+Note that the equations (\ref{fulldeltapsi}) are obtained from the continuum equations presented in Chapter \ref{Chap:Theory}. In the continuum theory we had a solid sphere with an average velocity ${\bf V}$. In the present case (i.e. fixed walls) this velocity must be equal to zero.  
 
 
 \subsection{The free energy}
 The  only  term  that  is  not  explicit  in  the  discrete  variables
-$\rho_\mu,{\bf v}_\mu$ in equation. (\ref{fulldeltapsi}) is the term
+$\rho_\mu,{\bf v}_\mu$ in equations (\ref{fulldeltapsi}) is the term
 in the  momentum equation involving  the functional derivative  of the
 free energy  functional. In order  to have an explicit  expression, we
 need to discretize the  equilibrium density \textit{functional} ${\cal
@@ -4452,6 +4452,7 @@ the interpolated field, that is,
   F(\rho)&\equiv{\cal F}[\rho_\mu\psi_\mu]
 \label{DefF}
 \end{align}
+Note that we use the Einstein summation convention. 
 In the  Appendix \ref{Ap:KG} we  demonstrate that the free  energy function
 $F(\rho)$ defined  ``numerically''in this  way is, under  a reasonable
 approximation,  the free  energy function  that is  obtained from  the
@@ -4619,7 +4620,7 @@ The last square bracket in (\ref{fulldeltapsi}) is
 \Phi_\mu({\bf r})\boldsymbol{\gamma}_{{\bf r}{\bf r}'}\Phi_\nu({\bf r}')
 \label{apgammmunu}
 \end{align}
-Once  we use  the  microscopic expressions  given  in (\ref{GK})  with
+Once  we use  the  microscopic expressions  given  in (\ref{GK1})  with
 (\ref{sigma}), the discrete  kernels $\boldsymbol{\eta}_{\mu\nu}, {\bf
   G}_{\mu\nu},      {\bf     H}_{\mu\nu},\boldsymbol{\gamma}_{\mu\nu}$
 introduced    in    (\ref{TC1})-(\ref{TC4})    turn    out    to    be
@@ -4964,7 +4965,7 @@ This new  corrected Green-Kubo formula (\ref{GKCorrected})  allows one
 to calculate  the friction matrix  $M^*$ from MD simulations  and does
 not  suffer from  the plateau  problem by  construction, provided  the
 dynamic is Markovian.  equation  (\ref{GKCorrected})  is the main result of
-the present paper.  equation   (\ref{GKCorrected}) is conceptually pleasing
+the present chapter.  equation   (\ref{GKCorrected}) is conceptually pleasing
 as it  displays in  very graphical terms  why the unprojected Green-Kubo
 integral  (\ref{Mtau}) has  no plateau  -- in  fact, it  decays as  the
 correlation matrix itself.  It is obvious that (\ref{GKCorrected}) can
@@ -5757,7 +5758,7 @@ the  eigenvalues of  the kinematic  matrix identical  to the  standard
 kinematic viscosity of the fluid, as in (\ref{numunu0}).
 
 In the  next section we  measure through  MD simulations the  two main
-quantities of concern  in this paper which are  the correlation matrix
+quantities of concern  in this chapter which are  the correlation matrix
 of discrete momentum $C(t)$ and the correlation matrix of the discrete
 stress that appears in the Green-Kubo running integral $\eta(t)$. From
 these  primary   quantities,  we   obtain  their   Fourier  transforms
@@ -5800,7 +5801,7 @@ the  eigenvalues of  the kinematic  matrix identical  to the  standard
 kinematic viscosity of the fluid, as in (\ref{numunu0}).
 
 In the  next section we  measure through  MD simulations the  two main
-quantities of concern  in this paper which are  the correlation matrix
+quantities of concern  in this chapter which are  the correlation matrix
 of discrete momentum $C(t)$ and the correlation matrix of the discrete
 stress that appears in the Green-Kubo running integral $\eta(t)$. From
 these  primary   quantities,  we   obtain  their   Fourier  transforms
@@ -6995,7 +6996,7 @@ kernels.  The  present formulation with corrected  Green-Kubo formulas
 predicts  the  boundary  conditions  that should  be  imposed  on  the
 evolution equations for the average hydrodynamic variables. We observe
 in nonequilibrium  MD simulations  that the  plug flow  considered in
-this paper violates the Navier slip boundary condition at short times,
+this chapter violates the Navier slip boundary condition at short times,
 while it is very  well  satisfied at  later stages  of  the flow.   This
 violation is due to the unbalance between the solid friction and shear
 force,  which is  at the  base of  the derivation  of the  Navier slip
@@ -7298,7 +7299,7 @@ velocity field according to
 where sum over repeated indices is implied and the mass density  matrix is defined as
 \begin{align}
 \rho_{\mu\nu}=\frac{C_{\mu\nu}(0)}{k_BT}  {\cal V}_\nu
-\label{rhomunu}
+\label{rhomunuAp}
 \end{align}
 where  $C_{\mu\nu}(0)$  is the  covariance  of  the discrete  momentum
 density.   Therefore,  we  may  introduce  the  vector  of  velocities
@@ -7345,7 +7346,7 @@ where the rescaled mass density is
 \begin{align}
   \overline{\rho}_{\mu\nu}&=\frac{C_{\mu\nu}(\tau)}{k_BT}  {\cal V}_\mu
 \end{align}
-to   be   compared   with    (\ref{rhomunu}).   Because   in   general
+to   be   compared   with    (\ref{rhomunuAp}).   Because   in   general
 $C_{\mu\nu}(\tau)<C_{\mu\nu}(0)$  we expect  that the  scaled velocity
 field  $\overline{\bf v}_\mu(t)$  is  larger that  the velocity  field
 ${\bf v}_\mu(t)$. 
@@ -7582,7 +7583,7 @@ measuring independently  the actual  non-equilibrium evolution  we are
 able to validate the present theory.
 
 We run microcanonical MD simulations in which the initial state is not
-an equilibrium state. In this paper,  we focus on an initial plug flow
+an equilibrium state. In this chapter,  we focus on an initial plug flow
 which  is  prepared  as  follows.  From  an  equilibrated  microscopic
 configuration, we add  to the thermal velocity of each  fluid atom the
 same velocity  ${\bf V}=(v_0,0,0)$.   This has two  consequences.  The
@@ -8198,7 +8199,7 @@ We  have  obtained the  slip  boundary  condition with  a  microscopic
 expression for the slip length but we  have to see whether it is really
 satisfied in actual  simulations.  In order to see if  the Navier slip
 boundary condition is satisfied by the non-equilibrium average initial
-plug  flow  considered   in  this  paper,  we   define  the  following
+plug  flow  considered   in  this  chapter,  we   define  the  following
 time-dependent slip length
 \begin{align}
   \delta(t)=\frac{\overline{\bf v}^x_{\rm wall}(t)}{\dot{\overline{\gamma}}_{\rm wall}(t)}
@@ -8522,7 +8523,7 @@ provided  that   the  discrete  momentum  field   obeys  the  discrete
 hydrodynamic equations. Hansen et  al. \cite{Hansen2011} used also the
 idea  of a  boundary slab,  and they  proposed a  generalized Langevin
 equation  for  the  motion  of  the   slab  in  order  to  identify  a
-friction. The derivation  in the present paper, which is  based on the
+friction. The derivation  in the present chapter, which is  based on the
 hydrodynamics  in  the  full  channel, gives  not  only  the  friction
 coefficient, but also the position of the wall in microscopic terms.
 
@@ -9367,14 +9368,14 @@ grand-canonical partition function defined as
 From the partition function one defines the generalized thermodynamic potential
 \begin{eqnarray}
   \Phi (\lambda,{\bf v})&\equiv&-k_BT \ln\Xi (\lambda,{\bf v})
-\label{oh}
+\label{ohAp}
 \end{eqnarray}
 The  conjugate  fields  $\lambda_\nu,{\bf  v}_\nu$ are  fixed  by  the
 condition that the averages of the CG variables (\ref{rhogmumic}) with
 the  relevant ensemble  (\ref{relenslnAp})  coincide  with the  averages
 $\rho_\mu,{\bf g}_\mu$ computed with the  real ensemble (i.e. the
 solution of the Liouville equation). This condition can be expressed in terms of
-the generalized grand-canonical potential (\ref{oh})
+the generalized grand-canonical potential (\ref{ohAp})
 in the form
 \begin{align}
   \rho_\mu &=M^\delta_{\mu\nu}\frac{\partial \Phi(\lambda,{\bf v})}{\partial \lambda_\nu }
@@ -9535,7 +9536,7 @@ where the thermal wavelength $\Lambda$ is  defined in (\ref{ThermalWave}).
 It is possible to find the  explicit expression for the velocity ${\bf
   v}_\mu$ as  a function of  the CG variables  $\rho_\mu,{\bf g}_\mu$.
 The  velocity   and  momentum   density  field  are   related  through
-(\ref{rgoApp}).   By  using  (\ref{oh})  and (\ref{xiln2})  one  is  lead
+(\ref{rgoApp}).   By  using  (\ref{ohAp})  and (\ref{xiln2})  one  is  lead
 directly to the explicit form of the conjugate variables
 \begin{align}
 {\bf g}_\mu&=M^\delta_{\mu\mu'}\llangle \hat{\cal M}_{\mu'\nu}\rrangle^{\lambda {\bf v}} {\bf v}_\nu =\rho_{\mu\nu}{\bf v}_\nu
@@ -9776,7 +9777,7 @@ We introduce the free  energy function $F(\rho)$ as the Legendre
 transform
 \begin{align}
   F(\rho)&\equiv  \Phi^{\rm pos}(\mu)+ \mu_\sigma \rho_\sigma
-\label{leg}
+\label{legAp}
 \end{align}
 This is the  free energy of a level of  description that considers the
 discrete  mass density  $\rho_\mu$  as  the only  CG  variable in  the
@@ -9787,7 +9788,7 @@ the effects of the solid walls.
 The derivatives of the free energy $F(\rho)$  are given by 
 \begin{align}
    \frac{\partial F}{\partial\rho_\sigma}(\rho) &=\mu_\sigma
-\label{Fd2}
+\label{Fd2Ap}
 \end{align}
 We may now express the CG Hamiltonian (\ref{olegApp}) as
 \begin{align}
