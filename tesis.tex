@@ -1535,7 +1535,7 @@ correlations computed with the unprojected dynamics decay to zero
  \llangle  \hat{A}\rrangle\llangle{\cal Q}i{\cal L}\hat{A}^{+T} \rrangle=0
 \end{align}
 This  problem was  recognized already  by  Kirkwood as  the so  called
-plateau problem \cite{Kirkwood1949,Espanol_Zuniga1993}  and limits the
+plateau problem \cite{Kirkwood1949,Espanol1993}  and limits the
 use of the  unprojected Green-Kubo formula $M(t)$  for the calculation
 of transport coefficients.
 
@@ -2993,13 +2993,10 @@ equilibrium  values  of  the  average  relevant  variables  have  been
 obtained in  equation. (\ref{eq01}),  (\ref{eq1}) and are  characterized by
 the following conjugate variables (see equation (\ref{nu}) and (\ref{Fd2}))
 \begin{align}
-\mu({\bf r},{\bf R})&=\mu_0
-\nonumber\\
-\boldsymbol{\lambda}_g({\bf r})&=0
-\nonumber\\
-\boldsymbol{\lambda}_P&=0
-\nonumber\\
-\boldsymbol{\lambda}_R&=0
+  \mu({\bf r},{\bf R})=\mu_0, &&
+  \boldsymbol{\lambda}_g({\bf r})=0,&&
+  \boldsymbol{\lambda}_P=0,&&
+  \boldsymbol{\lambda}_R=0,&&
 \end{align}
 Substitution of  these conjugate variables into  the relevant ensemble
 (\ref{relensln})  shows that  the relevant  ensemble becomes  just the
@@ -3039,12 +3036,10 @@ property reflects into the following  property of correlations
 This results in the  following symmetry properties (Onsager relations)
 for the transport kernels
 \begin{align}
-  \boldsymbol{\eta}^{\alpha\beta\alpha'\beta'}_{{\bf  r}{\bf r}'} &=
-  \boldsymbol{\eta}^{\alpha'\beta'\alpha\beta}_{{\bf r}'{\bf  r}}
-\nonumber\\
-{\bf H}^{\alpha\beta\alpha'}_{{\bf r}{\bf r}'}&={\bf G}^{\alpha'\alpha\beta}_{{\bf r}'{\bf  r}}
-\nonumber\\
-\boldsymbol{\gamma}^{\alpha\alpha'}_{{\bf  r}{\bf r}'}&=\boldsymbol{\gamma}^{\alpha'\alpha}_{{\bf r}'{\bf  r}}
+  \boldsymbol{\eta}^{\alpha\beta\alpha'\beta'}_{{\bf  r}{\bf r}'} =
+  \boldsymbol{\eta}^{\alpha'\beta'\alpha\beta}_{{\bf r}'{\bf  r}},&&
+{\bf H}^{\alpha\beta\alpha'}_{{\bf r}{\bf r}'}={\bf G}^{\alpha'\alpha\beta}_{{\bf r}'{\bf  r}},&&
+\boldsymbol{\gamma}^{\alpha\alpha'}_{{\bf  r}{\bf r}'}=\boldsymbol{\gamma}^{\alpha'\alpha}_{{\bf r}'{\bf  r}}
 \label{GKsymmetries}
 \end{align}
 
@@ -3981,7 +3976,7 @@ As shown in  Sec. \ref{Sec:Grabert} of Chapter  \ref{Chap:NESM}, the  irreversib
 dynamics in  the projection operator  method is given by  the standard
 form
 \begin{align}
-  \sum_jD_{ij}\frac{\partial S}{\partial a_j}
+  \sum_jD_{ij}\frac{\partial S}{\partial a_j},
 \label{IrrDis0}
 \end{align}
 where $S$ is the entropy and the dissipative matrix is given by
@@ -4052,7 +4047,7 @@ dynamics
 \nonumber\\
 &+\sum_{\nu}{\cal V}_\nu\frac{{\bf n}\esc\left[{\bf H}_{\mu\nu}-{\bf H}_{\mu-1\nu}\right]}{\Delta z}\esc\tilde{\bf v}_\nu
 \nonumber\\
-&-\sum_{\nu}{\cal V}_\nu\boldsymbol{\gamma}_{\mu\nu}\esc\tilde{\bf v}_\nu
+&-\sum_{\nu}{\cal V}_\nu\boldsymbol{\gamma}_{\mu\nu}\esc\tilde{\bf v}_\nu,
 \label{Irr-Fin}
 \end{align}
 where we have introduced the following tensorial transport matrices
@@ -4228,9 +4223,9 @@ In these expressions the transport kernels are
 \eta^{||}_{\mu\nu}&
 =\frac{1}{k_BT}\int_0^\tau  dt\left\langle 
 {\cal Q}\hat{\boldsymbol{\sigma}}^{xz}_\mu(t){\cal Q}\hat{\boldsymbol{\sigma}}^{xz}_\nu
-\right\rangle
-\nonumber\\
-\eta^{\bot}_{\mu\nu}&
+\right\rangle,&&
+%\nonumber\\
+\eta^{\bot}_{\mu\nu}
 = \frac{1}{k_BT}\int_0^\tau  dt\langle 
 {\cal Q}\hat{\boldsymbol{\sigma}}^{zz}_\mu(t)
 {\cal Q}\hat{\boldsymbol{\sigma}}^{zz}_\nu\rangle
@@ -4239,9 +4234,9 @@ G^{||}_{\mu\nu}&
 =\frac{1}{k_BT} \int_0^\tau  dt
 \left\langle{\cal Q}\hat{\bf F}^{x}_\mu(t)
 {\cal Q}\hat{\boldsymbol{\sigma}}^{xz}_\nu
-\right\rangle
-\nonumber\\
-G^{\bot}_{\mu\nu}&=\frac{1}{k_BT} \int_0^\tau  dt
+\right\rangle,&&
+%\nonumber\\
+G^{\bot}_{\mu\nu}=\frac{1}{k_BT} \int_0^\tau  dt
 \left\langle {\cal Q}\hat{\bf F}^{z}_\mu(t)
 {\cal Q}\hat{\boldsymbol{\sigma}}^{zz}_\nu
 \right\rangle
@@ -4249,18 +4244,18 @@ G^{\bot}_{\mu\nu}&=\frac{1}{k_BT} \int_0^\tau  dt
 H^{||}_{\mu\nu}&
 =\frac{1}{k_BT} 
 \int_0^\tau  dt
-\left\langle{\cal Q}\hat{\boldsymbol{\sigma}}^{xz}_\mu(t){\cal Q}\hat{\bf F}^{x}_\nu\right\rangle
-\nonumber\\
-H^\bot_{\mu\nu}&=\frac{1}{k_BT} 
+\left\langle{\cal Q}\hat{\boldsymbol{\sigma}}^{xz}_\mu(t){\cal Q}\hat{\bf F}^{x}_\nu\right\rangle, &&
+%\nonumber\\
+H^\bot_{\mu\nu}=\frac{1}{k_BT} 
 \int_0^\tau  dt\left\langle {\cal Q}\hat{\boldsymbol{\sigma}}^{zz}_\mu(t){\cal Q}\hat{\bf F}^{z}_\nu\right\rangle
 \nonumber\\
 \gamma^{||}_{\mu\nu}&=
 \frac{1}{k_BT} \int_0^\tau  dt
 \left\langle 
 {\cal Q}\hat{\bf F}^{x}_\mu(t)
-{\cal Q}\hat{\bf F}^{x}_\nu\right\rangle
-\nonumber\\
-\gamma^{\bot}_{\mu\nu}&=
+{\cal Q}\hat{\bf F}^{x}_\nu\right\rangle,&&
+%\nonumber\\
+\gamma^{\bot}_{\mu\nu}=
 \frac{1}{k_BT} \int_0^\tau  dt\left\langle 
 {\cal Q}\hat{\bf F}^{z}_\mu(t){\cal Q}\hat{\bf F}^{z}_\nu
 \right\rangle
@@ -4434,7 +4429,7 @@ etc, are  explicit  functions of  the discrete  variables, where  the term
 within  parenthesis in  the  right  hand side  is  a purely  geometric
 quantity.
 
-Note that the equations (\ref{fulldeltapsi}) are obtained from the continuum equations presented in Chapter \ref{Chap:Theory}. In the continuum theory we had a solid sphere with an average velocity ${\bf V}$. In the present case (i.e. fixed walls) this velocity must be equal to zero.  
+Note that the equations (\ref{fulldeltapsi}) are obtained from the continuum equations presented in Chapter \ref{Chap:Theory}. In the continuum theory a solid sphere is moving with an average velocity ${\bf V}$. In the present case (i.e. fixed walls) this velocity must be equal to zero.  
 
 
 \subsection{The free energy}
@@ -4590,7 +4585,7 @@ The second square bracket in (\ref{fulldeltapsi}) is
 \Phi_\mu({\bf r})G^{||}_{{\bf r}{\bf r}'}
 (\chi_\nu({\bf r}')-\chi_{\nu-1}({\bf r}'))
 \nonumber\\
-&=-\frac{1}{\Delta z}\left[{\bf G}_{\mu\nu}-{\bf G}_{\mu\nu-1}\right]\esc{\bf n}
+&=-\frac{1}{\Delta z}\left[{\bf G}_{\mu\nu}-{\bf G}_{\mu\nu-1}\right]\esc{\bf n},
 \label{TC4b}
 \end{align}
 where we have introduced
@@ -4601,11 +4596,10 @@ where we have introduced
 \end{align}
 The third square bracket is 
 \begin{align}
-&-\frac{1}{\Delta z}\int \frac{d{\bf r}}{{\cal V}_\mu}\int \frac{d{\bf r}'}{{\cal V}_\nu}
+-\frac{1}{\Delta z}\int \frac{d{\bf r}}{{\cal V}_\mu}\int \frac{d{\bf r}'}{{\cal V}_\nu}
 (\chi_\mu({\bf r})-\chi_{\mu-1}({\bf r})){\bf n}\esc
 {\bf H}_{{\bf r}{\bf r}'}\Phi_\nu({\bf r}')
-\nonumber\\
-&=-\frac{1}{\Delta z}{\bf n}\esc\left[{\bf H}_{\mu\nu}-{\bf H}_{\mu-1\nu}\right]
+=-\frac{1}{\Delta z}{\bf n}\esc\left[{\bf H}_{\mu\nu}-{\bf H}_{\mu-1\nu}\right],
 \end{align}
 where
 \begin{align}
@@ -4765,7 +4759,7 @@ hydrodynamic     variables.      In      a     number     of     works
 have  discussed  refined strategies  for  the  definition of  discrete
 hydrodynamic variables  in real  space.  The  main objective  of these
 strategies is to match the  bottom up derivation of discrete evolution
-equations with the top down  discretization of continuum equations. \Note{Duda}
+equations with the top down  discretization of continuum equations. \Note{Duda top down and bottom up}
 The  methodology will be  transferrable to
 confined fluids allowing  us to discuss wall  effects in chapters \ref{Chap:Walls} and \ref{Chap:Slip}.  More  specifically, the
 objective  here  is  to  assess  to what  extent  it  makes  sense  to
@@ -4776,18 +4770,13 @@ coefficients.
 In the study of shear flow of simple fluids at the nanoscale, as those
 occuring  in  nanoscale  pores,  there   seems  to  be  two  different
 approaches in the literature.  The first approach is the Local Average
-Density Model  (LADM) introduced by Bitsanis  et al.  \cite{Bitsanis1987}
+Density Model  (LADM) introduced by Bitsanis  et al.  \cite{Bitsanis1987},
 while the second  approach is the nonlocal viscosity  model. 
 The LADM assumes that the local transport coefficients of an inhomogeneous
-fluid can be set equal to the corresponding homogeneous transport coefficientes calculated at a locally averaged density in a way similar to what  is done in equationilibrium Density  Functional Theory for the formulation of Weighted Density  Approximation models for the free energy functional \cite{Tarazona2008}.  %equation7.27
+fluid can be set equal to the corresponding homogeneous transport coefficientes calculated at a locally averaged density. 
+\Note{No sé si lo entiendo. Coeficientes de transporte de fluidos inhomogeneos iguales a los coeficientes de transporte de fluidos homogeneos calculados en los puntos correspondientes al promedio local de la densidad. Pensar en el gráfico viscosidad local vs. densidad local, y en otro con el perfil de densidad inhomogéneo. Seleccionamos una densidad en la gráfica del perfil inhomogéneo y vemos en el gráfico viscosidad local vs. densidad local qué valor de la viscosidad local se obtiene cuando tenemos esa densidad dada.}
+%in a way similar to what  is done in equationilibrium Density  Functional Theory for the formulation of Weighted Density  Approximation models for the free energy functional \cite{Tarazona2008}.  %equation7.27
 
-%The LADM
-%assumes that  local transport coefficients of  inhomogeneous fluids in
-%narrow capillary pores can be  set equal to the transport coefficients
-%of homogeneous  fluids at  the ``smoothed'' local  densities in  a way
-%similar to what  is done in equationilibrium Density  Functional Theory for
-%the formulation of Weighted Density  Approximation models for the free
-%energy functional  \cite{Tarazona2008}.  
 This somewhat  heuristic idea
 was given a rigorous foundation from a kinetic theory for dense fluids
 proposed by Pozhar et al.  \cite{Pozhar1991a}.  From the computational
@@ -4815,7 +4804,7 @@ Hydrodynamics, that is
 \begin{align}
   P^{yx}(k,t) = -\int_0^t ds\eta(k,t-s)\dot{\gamma}(k,s)
 \end{align}
-\Note{Entender también de forma intuitiva la viscosidad no local. Es decir, la dependencia $\eta(r,r')$. ¿Donde se está midiendo la viscosidad, en r o r'?}
+\Note{Entender de forma intuitiva la viscosidad no local.}
 %Ecuación 4.47 de Evans y Morriss.
 For  steady  state flows,  the  constitutive  equation
 becomes
@@ -6933,23 +6922,22 @@ parallel walls deserves further study.
 
 The  fact that  hydrodynamics near  walls is  non-Markovian at  highly
 resolved  scales  has a  number  of  implications. For example, in Chapter \ref{Chap:Theory} the coarse delta function introduced in the hydrodynamic fields can not be a Dirac $\delta$ functions as we presented in \cite{Camargo2018}. 
-%\Note{Esto no hará falta añadirlo porque voy a cambiar el capítulo 2. For  example,  the
-%continuum theory  described in Chapter \ref{Chap:Theory} can  only make
-%sense if the hydrodynamic fields are  defined not with the Dirac $\delta$
-%function, but  rather with  coarse delta  functions with  an intrinsic
-%length  scale  larger than  molecular  dimensions  as, for  example  a
-%normalized Gaussian  of width  $\sigma$.  As  a consequence,  the free
-%energy functional  that emerges from  such a coarsely  defined density
-%field  is not  directly  given by  the usual  free  energy density  in
-%equationilibrium  Density Functional  Theory, which  is, in  fact, the  one
-%particle distribution function.  In fact,  a local model for the free energy 
-%is expected for  the former. The resulting free  energy functional for
-%coarsely  defined density  cannot  resolve the  density layering  near
-%walls.   It is  obvious now  that in  order to  describe the  resolved
-%dynamics of the density layering  near a wall requires a non-Markovian
-%theory  or,   alternatively,  a   Markovian  theory   with  additional
-%non-hydrodynamic variables.  Perhaps the  stress tensor is a candidate
-%to capture the apparent viscoelasticity of the density layering.}
+The continuum theory  described in Chapter \ref{Chap:Theory} can  only make
+sense if the hydrodynamic fields are  defined not with the Dirac $\delta$
+function, but  rather with  coarse delta  functions with  an intrinsic
+length  scale  larger than  molecular  dimensions  as, for  example  a
+normalized Gaussian  of width  $\sigma$.  As  a consequence,  the free
+energy functional  that emerges from  such a coarsely  defined density
+field  is not  directly  given by  the usual  free  energy density  in
+equationilibrium  Density Functional  Theory, which  is, in  fact, the  one
+particle distribution function.  In fact,  a local model for the free energy 
+is expected for  the former. The resulting free  energy functional for
+coarsely  defined density  cannot  resolve the  density layering  near
+walls.   It is  obvious now  that in  order to  describe the  resolved
+dynamics of the density layering  near a wall requires a non-Markovian
+theory  or,   alternatively,  a   Markovian  theory   with  additional
+non-hydrodynamic variables.  Perhaps the  stress tensor is a candidate
+to capture the apparent viscoelasticity of the density layering.
 
 Note   that   it    only   make   sense   to    speak   of   transport
 \textit{coefficients} (or matrices of) in theories that are Markovian,
