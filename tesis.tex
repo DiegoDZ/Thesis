@@ -3475,6 +3475,7 @@ For each node, we  introduce  a finite element linear  basis  function
 $\Phi_\mu({\bf r})$
 \begin{align}
   \Phi_\mu({\bf r})=\chi_\mu(z)\frac{z_{\mu+1}-z}{\Delta z}+\chi_{\mu-1}(z)\frac{z-z_{\mu-1}}{\Delta z},
+  \label{basisFunction}
 \end{align}
 that depends only on the $z$ component of ${\bf r}$. 
 The finite element basis functions $\Phi_\mu({\bf r})$ also form a partition of unity, i.e.
@@ -4879,7 +4880,7 @@ results  and  discuss  the  strategy  in  the  simulations.   In  Sec.
 \section{A corrected Green-Kubo formula with no plateau problem}
 \label{Sec:GKsi}
 
-In this section we address the plateau problem that appears in the expression of transport coefficient in terms of the unprojected Green-Kubo runningintegrals. When the dynamic of the CG variables is Markovian, but with not an extreme separation of tiem scales, the decay of the unprojected Green-Kubo running integral does not allow to determine unambiguously the value of the transport coefficientes. 
+In this section we address the plateau problem that appears in the expression of transport coefficient in terms of the unprojected Green-Kubo running integrals. When the dynamic of the CG variables is Markovian, but with not an extreme separation of time scales, the decay of the unprojected Green-Kubo running integral does not allow to determine unambiguously the value of the transport coefficientes. 
 
 We  now consider  a  procedure that  allows one  to  
 obtain the  friction matrix  $M^*$
@@ -4953,12 +4954,11 @@ M^*&= \int_0^{\tau} dt \llangle {\cal Q} i{\cal L}\hat{A} (t)i{\cal L}\hat{A}^T\
 This new  corrected Green-Kubo formula (\ref{GKCorrected})  allows one
 to calculate  the friction matrix  $M^*$ from MD simulations  and does
 not  suffer from  the plateau  problem by  construction, provided  the
-dynamic is Markovian.  equation  (\ref{GKCorrected})  is the main result of
-the present chapter.  equation   (\ref{GKCorrected}) is conceptually pleasing
+dynamic is Markovian. The equation   (\ref{GKCorrected}) is conceptually pleasing
 as it  displays in  very graphical terms  why the unprojected Green-Kubo
 integral  (\ref{Mtau}) has  no plateau  -- in  fact, it  decays as  the
 correlation matrix itself.  It is obvious that (\ref{GKCorrected}) can
-not be true at $\tau=0$ as this would imply $M^*=0$.  However, after a
+not be true at $\tau=0$ as this would imply $M^*=0$.  \Note{Duda ->}However, after a
 time  in  the molecular  time  scales,  the  right  hand side  of  equation
 (\ref{GKCorrected})  should  be  time independent  provided  that  the
 Markovian description (\ref{AproxC})  is valid.  In the  limit of very
@@ -5008,7 +5008,7 @@ case of hydrodynamics near walls that we discuss elsewhere.
 The  method to  obtain  the  matrix $\Lambda^*$  from  the plateau  of
 $\Lambda(t)$ in  (\ref{AproxCtau}) needs  high quality  statistics for
 $C(t)$  and  $\frac{d}{dt}C(t)$.   The  same   is  true  for  the  new
-Green-Kubo  formulas (\ref{GKCorrected}).   In  fact,  ${C}(t)$ is  an
+Green-Kubo  formula (\ref{GKCorrected}).   In  fact,  ${C}(t)$ is  an
 exponentially  decaying matrix,  and $C^{-1}(t)$  is an  exponentially
 growing matrix.   At very large  times, any statistical error  will be
 exponentially amplified.  This  means also that $\tau$  should be, in
@@ -5022,25 +5022,24 @@ amplified to a  catastrophic level.
 In this section, we use Mori theory in the notation presented in Sec. \ref{Sec:Mori} for predicting the dynamics of equilibrium time correlations of the discrete transverse momentum density in a periodic box. 
 \subsection{The CG variables}
 \label{Sec:CGVariablesPBC}
-In Chapter \ref{Chap:Planar} we gave a detailed description of the definitions of the geometry and the definition of the CG variables. In this section we have a system like the showed in Fig. \ref{fig:PBCBox}
+In Chapter \ref{Chap:Planar} we gave a detailed description of the definitions of the geometry and the definition of the CG variables.
 The simulation periodic box of  dimensions $L_x,L_y,L_z$ is divided in
-its $L_z$  direction in  $N_{\rm bin}$ \textit{nodal  planes} labelled
+its $L_z$  direction in  $N_{\rm bin}$ nodal  planes, as it shown in Fig. \ref{Fig:PBCBox}, labelled
 with   an    index   $\mu$   located   at    $z_\mu=\mu   \Delta   z$,
 $\mu=0,\cdots,N_{\rm bin}-1$ with $\Delta  z=L_z/N_{\rm bin}$.  Due to
 periodic  boundary conditions  (PBC)  in the  $z$  direction the  node
-$\mu=1$ is equal to node  $\mu=N_{\rm bin}+1$ whereas the node $\mu=0$
+$\mu=1$ is equal to the node  $\mu=N_{\rm bin}+1$, whereas the node $\mu=0$
 is equal to the node  $N_{\rm bin}$.  
 
 \begin{figure}
     \centering
     \includegraphics[scale=0.3]{system_nodes_periodic}
-    \caption[Periodic box]{\Note{Pedir a Arturo esta figura}A visual representation of the MD simulation with a sketch of the binning used. In red are depicted the nodal planes used.}
+    \caption[Periodic box]{\Note{Pedir a Arturo esta figura}A visual representation of the MD simulation with a sketch of the binning used. In yellow are depicted the nodal planes used.}
     \label{fig:PBCBox}
 \end{figure}
-We carefully  distinguish between  \textit{nodes} and
-\textit{bins}:  nodes are  points  in  the $z$  axis,  while bins  are
+As we explained in Sec. \ref{Sec:DiscreteBasis}, nodes are  points  in  the $z$  axis,  while bins  are
 segments in this axis.  In 3D, nodes are planes, while bins are slabs.
-As it  will become apparent, from  a microscopic point of  view, mass,
+From  a microscopic point of  view, mass,
 momentum, and force  densities are defined at the  nodes, while stress
 is  defined  at  the  bins.   Each   bin  is  a  layer  of  dimensions
 $L_x,L_y,\Delta z$. 
@@ -5055,34 +5054,34 @@ $\mu$   \Note{Realmente la única variable relevante es el momento.}
 % \nonumber\\
 % \hat{e}_\mu(z)&= \sum_i^Ne_i\delta_\mu({\bf r}_i)
 \hat{\bf g}_\mu(z)&= \sum_i^N{\bf p}_i\delta_\mu({\bf r}_i)
-%\label{rhogmumic}
+\label{rhogmumicPBC}
 \end{align}
-where ${\bf r}_i,{\bf p}_i$ are the position and momentum of particle $i$, 
- the discrete Dirac $\delta$ function as 
-\begin{align}
-\delta_\mu({\bf r})&=  \frac{1}{{\cal V}_\mu}\Phi_\mu({\bf r})
-\label{delta}
-\end{align}
-with the volume defined as
-\begin{align}
-  {\cal V}_\mu&=\int d{\bf r}\Phi_\mu({\bf r}),
-\end{align}
-and $\Phi_\mu({\bf r})$  is the finite element basis  function, a tent
-function centered  at the nodal plane  $\mu$ and that depends  only on
-the $z$ component  of ${\bf r}$.  The mass density  at a node receives
-information about the  mass of fluid molecule $i$ that  depends on the
-distance of this molecule to the  nodal plane $\mu$, and similarly for
-the  momentum.   The  microscopic  variables  (\ref{rhogmumic})  give,
+where ${\bf r}_i,{\bf p}_i$ are the position and momentum of particle $i$, and the discrete Dirac $\delta$ was introduced in (\ref{delta})
+%\begin{align}
+%\delta_\mu({\bf r})&=  \frac{1}{{\cal V}_\mu}\Phi_\mu({\bf r})
+%\label{delta}
+%\end{align}
+%with the volume defined as
+%\begin{align}
+%  {\cal V}_\mu&=\int d{\bf r}\Phi_\mu({\bf r}),
+%\end{align}
+%and $\Phi_\mu({\bf r})$  is the finite element basis  function, a tent
+%function centered  at the nodal plane  $\mu$ and that depends  only on
+%the $z$ component  of ${\bf r}$.  The mass density  at a node receives
+%information about the  mass of fluid molecule $i$ that  depends on the
+%distance of this molecule to the  nodal plane $\mu$, and similarly for
+%the  momentum.   
+The  microscopic  variables  (\ref{rhogmumicPBC})  give,
 essentially, the number  of particles and momentum per  unit volume of
 the particles that happen to be ``around'' the nodal plane $\mu$.  The rationale for using this definition has been discussed in Chapter \ref{Chap:Planar}.
 
 
-Note that the finite  element basis  functions $\Phi_\mu({\bf  r})$  form a
-partition of unity, i.e.
-\begin{align}
-  \sum_\mu\Phi_{\mu=1}^{N_{\rm bin}}({\bf r})=1
-\label{PartUnit}
-\end{align}
+Note that the discrete Dirac $\delta$ function depends on the finite  element basis  function $\Phi_\mu({\bf  r})$, introduced in equation (\ref{basisFunction}), which form a
+partition of unity (\ref{partition})
+%\begin{align}
+%  \sum_\mu\Phi_{\mu=1}^{N_{\rm bin}}({\bf r})=1
+%\label{PartUnit}
+%\end{align}
 The  partition  of unity  implies  that  if  we compute  the  discrete
 integral  (i.e. sum  over bins  times the  volume of  the bin)  of the
 discrete hydrodynamic variables we obtain
@@ -5098,9 +5097,9 @@ conserved under  the Hamiltonian  evolution of the  microscopic state.
 
 
 We  will only  consider the correlations  of the
-component  $\hat{g}^x_\mu$ of  the  momentum density  parallel to  the
+component  $\hat{{\bf g}}^x_\mu$ of  the  momentum density  parallel to  the
 bins. These variables are collected into the $N_{\rm bin}$-dimensional
-vector           $\hat{g}(z)=\{\hat{{\bf g}}^x_1(z),\cdots,\hat{{\bf g}}^x_{N_{\rm
+vector           $\hat{{\bf g}}(z)=\{\hat{{\bf g}}^x_1(z),\cdots,\hat{{\bf g}}^x_{N_{\rm
     bin}}(z)\}$.  We  have checked  through MD  simulations that  the coupling
 between  this  component  and   the  rest  of  hydrodynamic  variables
 (density,  other momentum  components) is  negligible.  Therefore,  we
@@ -6449,6 +6448,7 @@ introduce the  finite element  basis function $\Phi_\mu({\bf  r})$ and
 the discrete Dirac $\delta$ function
 \begin{align}
 \delta_\mu({\bf r})&=\frac{\Phi_\mu({\bf r})  }{{\cal V}_\mu}
+  \label{delta}
 \end{align}
 
 In the present chapter,  we use as the only CG  variable relevant to the
