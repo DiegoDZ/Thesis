@@ -6945,15 +6945,15 @@ length.
 
 \section{Introduction}
 
-In this chapter, we compute explicitly the viscosity and friction kernels that apper in the discrete hydrodynamic theory presented in Chapter \ref{Chap:Planar} for shear flows in between confining paralle solid walls.  
+In this chapter, we compute explicitly the viscosity and friction kernels that appear in the discrete hydrodynamic theory presented in Chapter \ref{Chap:Planar} for shear flows in between confining paralle solid walls.  
 We show  that  the  usual Green-Kubo  formulas  suffer
 dramatically  from the  plateau problem  and  cannot be  used for  the
 unambiguous  determination of  transport coefficients.   This includes
-the solid-fluid friction coefficient which,  as shown in Ref. \cite{CamargoBC2018}
+the solid-fluid friction coefficient which,  as shown in Ref. \cite{CamargoBC2018},
 is  equivalent  to   the  expression  given  by   Bocquet  and  Barrat
 \cite{Bocquet1994}.  We  use the corrected Green-Kubo  expressions, as
-formulated in  Chapter \ref{Chap:PBC} in  order to determine  unambiguosly the
-transport kernels (which are matrices for the nonlocal viscosity, and
+formulated in  Chapter \ref{Chap:PBC}, in  order to determine  unambiguosly the
+transport kernels (which are matrices for the nonlocal viscosity and
 nonlocal frictions).  With  these transport matrices, we  are able to
 predict correctly the evolution  of the \textit{correlation} matrix of
 the  discrete  hydrodynamic  variables.  We  also  validate  Onsager's
@@ -6971,7 +6971,7 @@ this chapter violates the Navier slip boundary condition at short times,
 while it is very  well  satisfied at  later stages  of  the flow.   This
 violation is due to the unbalance between the solid friction and shear
 force,  which is  at the  base of  the derivation  of the  Navier slip
-boundary  condition (\ref{slipBC}).   Finally, we  also show  that the
+boundary  condition $\delta\frac{\partial v}{\delta z}=v_{{\rm slip}}$ derived in the Introduction.   Finally, we  also show  that the
 corrected Green-Kubo  transport kernels do describe  intrinsic surface
 properties by  observing that  the slip length  is independent  on the
 channel width.
@@ -6989,21 +6989,21 @@ parallel  walls and  under  the  assumption that  the  flow is  itself
 traslationally invariant  along the  directions parallel to  the solid
 walls.  When  the flow field  is parallel to  the walls like  in shear
 flows (excluding the case of sound  waves normal to the walls), the CG
-variables are the  parallel component ${\bf g}^x_\mu$  of the discrete
-momentum field defined on each nodal plane $\mu=1,\cdots,N_{\rm bin}$.
+variable is the  parallel component ${\bf g}^x_\mu$  of the discrete
+momentum field defined on each nodal plane $\mu=0,\cdots,N_{\rm bin-1}$.
 The microscopic definition of the discrete momentum is
 \begin{align}
-  \hat{\bf g}_\mu=\sum_i^N{\bf p}_i\delta_\mu({\bf r}_i)
+  \hat{\bf g}_\mu=\sum_i^N{\bf p}_i\delta_\mu({\bf r}_i),
 \label{hatg}
 \end{align}
 where ${\bf r}_i,{\bf p}_i$ are the  position and momentum of the i-th
 atom and  $\delta_\mu({\bf r})$  is proportional  to a  finite element
 basis  function, as  described in  detail in  Chapter \ref{Chap:Planar}.
 We will
-collect   the    CG   variables    (\ref{hatg})   into    an   $N_{\rm
+collect   the    CG   variable    (\ref{hatg})   into    an   $N_{\rm
   bin}$-dimensional   column  vector   $\hat{g}$   that  contains   as
 components  the parallel  component  of the  momentum  density of  bin
-$\mu$,  this  is $\hat{g}^T=(\hat{\bf g}^x_1,\cdots,\hat{\bf g}^x_M)$,  where  the
+$\mu$,  this  is $\hat{g}^T=(\hat{\bf g}^x_1,\cdots,\hat{\bf g}^x_{\rm bin})$,  where  the
 superscript $T$ denotes the transpose.
 
 
@@ -7015,7 +7015,7 @@ discrete force density $ \hat{\bf F}_\mu$ that the solid exerts on the
 fluid at node $\mu$ and to  the discrete gradient of the stress tensor
 $\hat{ \boldsymbol{\sigma}}_{\mu}$ of bin $\mu$, this is
 \begin{align}
-  i{\cal L}\hat{\bf g}_\mu(z) &=\hat{\bf F}_\mu(z)-\frac{\hat{\boldsymbol{\sigma}}_\mu(z)-\hat{\boldsymbol{\sigma}}_{\mu-1}(z)}{\Delta z}\esc{\bf e}_z
+  i{\cal L}\hat{\bf g}_\mu(z) &=\hat{\bf F}_\mu(z)-\frac{\hat{\boldsymbol{\sigma}}_\mu(z)-\hat{\boldsymbol{\sigma}}_{\mu-1}(z)}{\Delta z}\esc{\bf e}_z,
 \label{equationivalenceSlipCH}
 \end{align}
 where the force density and the stress tensor are given, respectively, by the equations \ref{Fbin} and \ref{sbin}.
@@ -7035,12 +7035,14 @@ The  stress   tensor  $\hat{\boldsymbol{\sigma}}_\mu$  of   bin  $\mu$
 contains  only   coordinates  and   velocities  of   fluid  particles
 $i=1,\cdots,N$,  while the  force  density $\hat{\bf  F}_\mu$ of  node
 $\mu$ contains  the force  $\hat{\bf F}_{ij'}$  that a  wall particle
-$j'=1,\cdots, N'$  exerts on a  liquid particle $i$.  Recall that the geometrical factor $z_\mu(i,j)$ is
-the fraction of the length of the segment joining particles $i,j$ that
-happens  to be  inside the  bin.  For  the parallel  component of  the
+$j'=1,\cdots, N'$  exerts on a  liquid particle $i$.  
+%Recall that the geometrical factor $z_\mu(i,j)$ is
+%the fraction of the length of the segment joining particles $i,j$ that
+%happens  to be  inside the  bin.  
+For  the parallel  component of  the
 momentum, equation (\ref{equationivalenceSlipCH}) becomes
 \begin{align}
-  i{\cal L}\hat{g}_\mu(z) &=\hat{F}_\mu(z)-\frac{\hat{\sigma}_\mu(z)-\hat{\sigma}_{\mu-1}(z)}{\Delta z}
+  i{\cal L}\hat{g}_\mu(z) &=\hat{F}_\mu(z)-\frac{\hat{\sigma}_\mu(z)-\hat{\sigma}_{\mu-1}(z)}{\Delta z},
 \label{equationivalence2}
 \end{align}
 where  we  have  collected  into  vectors  the  forces  and  stresses,
@@ -7048,12 +7050,12 @@ $\hat{F}_\mu=\hat{\bf                   F}_\mu^x$                  and
 $\hat{\sigma}_\mu=\hat{\boldsymbol{\sigma}}^{xz}_\mu$.   We may  write
 equation (\ref{equationivalence2}) in matrix form as
 \begin{align}
-  i{\cal L}\hat{g}&= \hat{F}+ F^T\esc\hat{\sigma}
+  i{\cal L}\hat{g}&= \hat{F}+ F^T\esc\hat{\sigma},
 \label{iLgMat2}
 \end{align}
 where $\hat{F}$ and $\hat{\sigma}$ are $N_{\rm bin}$-dimensional column vectors and 
 the matrix $ F$  is the bi-diagonal forward finite difference
-operator introduced in equation \ref{Dforward}
+operator introduced in equation \ref{Dforward}.
 %\begin{align}
 % {F}=\frac{1}{\Delta z}\left(
 %    \begin{array}{rrrrr}
@@ -7086,10 +7088,10 @@ following form
 \dot{C}(t)&=  -\int_0^t dt' \frac{d}{dt'}\llangle \hat{g}(t') i{\cal L}\hat{g}^T\rrangle
 =-  \int_0^t dt' \llangle i{\cal L}\hat{g}(t') i{\cal L}\hat{g}^T\rrangle
 \nonumber\\
-&=-  k_BT M(t)
+&=-  k_BT M(t),
 \label{dCMt}
 \end{align}
-where we define the following Green-Kubo running integral
+where we have used Green-Kubo running integral (\ref{Mmunu}), i.e.
 \begin{align}
 M(t)&= \frac{1}{k_BT}\int_0^t dt'\langle i{\cal L}\hat{g}(t')i{\cal L} \hat{g}^T\rangle
 \label{Mmunut}
@@ -7099,10 +7101,10 @@ M(t)&= \frac{1}{k_BT}\int_0^t dt'\langle i{\cal L}\hat{g}(t')i{\cal L} \hat{g}^T
 %  C^{-1}(0)&= k_BT C^{-1}(0)= M^\psi\esc\rho^{-1}
 % \end{align}
 
- By   substituting
+By   substituting
 (\ref{iLgMat2}) in the Green-Kubo integral (\ref{Mmunut}) we have
 \begin{align}
-{M}(t)&=F^T\esc{\eta}(t)\esc F+{G}(t)\esc F+F^T\esc{H}(t)+{\gamma}(t)
+{M}(t)&=F^T\esc{\eta}(t)\esc F+{G}(t)\esc F+F^T\esc{H}(t)+{\gamma}(t),
 \label{MMatrix1}
 \end{align}
 where the  $N_{\rm bin}\times N_{\rm bin}$  matrices ${\eta}(t),{G}(t),{H}(t),{\gamma}(t)$
@@ -7163,7 +7165,7 @@ fluid with the walls.
 % \Gamma(t)&={G}(t)\esc F+F^T\esc{H}(t)+{\gamma}(t)  
 % \end{align}
 % }
-equation.  (\ref{dCMt}) and (\ref{MMatrix1}) lead to the following mathematical identity
+Equations  (\ref{dCMt}) and (\ref{MMatrix1}) lead to the following mathematical identity
 \begin{align}
 \dot{C}(t)&=-k_BT\left[{F}^T\esc{\eta}(t)\esc{F}+{G}(t)\esc{F}+{F}^T\esc{H}(t)+{\gamma}(t)\right]
 \label{CIdent}
@@ -7180,19 +7182,19 @@ coefficients.
 
 \section{The dynamics of the discrete transverse momentum}
 \label{Sec:dyn}
-Mori theory \cite{Mori1965,Kubo1991,Zwanzig2001}  allows one to obtain
+Mori theory, as it was introduced in Chapter \ref{Chap:NESM}, allows one to obtain
 exact closed equations for both, the  averages of the CG variables and
 their  correlations.  The  exact  equations give  the  value of  these
 quantities  in  terms  of  their  past history.   If  there  exists  a
 separation of time  scales, the Markovian approximation  allows one to
 approximate  the  exact  integro-differential  equations  with  simple
-ordinary differential equations with no  memory.  When we apply Mori's
+ordinary differential equations with no  memory (see equation (\ref{AproxCg})).  When we apply Mori's
 theory with the Markovian approximation  to the particular CG variable
 given by the transverse discrete  momentum $\hat{g}(z)$, we obtain the
-dynamic  equation for  the  evolution of  its non-equilibrium  average
+dynamic  equation for  the  evolution of  its nonequilibrium  average
 $g(t)$
 \begin{align}
- \frac{d}{dt}g(t)&= -k_BT M^*\esc C^{-1}(0) \esc g(t) 
+ \frac{d}{dt}g(t)&= -k_BT M^*\esc C^{-1}(0) \esc g(t), 
 \label{InFull}
 \end{align}
 and the evolution equation for the equilibrium time correlation matrix
@@ -7200,12 +7202,13 @@ and the evolution equation for the equilibrium time correlation matrix
  \frac{d}{dt}C(t)&= -k_BT M^*\esc C^{-1}(0)C(t)
 \label{InFull-C-2}
 \end{align}
-where we have  redefined the matrix
-$M^*$ with a temperature prefactor $1/(k_BT)$ in order to make contact
-with usual  definitions later  on. Note  that the  transverse momentum
+%where we have  redefined the matrix
+%$M^*$ with a temperature prefactor $1/(k_BT)$ in order to make contact
+%with usual  definitions later  on. 
+Note  that the  transverse momentum
 does not  have any reversible  contribution.  This is,  the reversible
-matrix (introduced in Chapters \ref{Chap:PBC}, \ref{Chap:Walls})  
-vanishes,  $L=\llangle \hat{g}  i{\cal  L}\hat{g}\rrangle=0$, and  the
+matrix  
+vanishes ($L=\llangle \hat{g}  i{\cal  L}\hat{g}\rrangle=0$) and  the
 evolution of the transverse momentum is purely dissipative.
 
 As  discussed  in Chapter \ref{Chap:PBC},
@@ -7216,12 +7219,13 @@ through the \textit{corrected} Green-Kubo formula
   M^*=M(\tau)\esc c^{-1}(\tau)
 \label{Mstar}
 \end{align}
-where the normalized correlation matrix is given by 
+%where the normalized correlation matrix is given by 
 %(\ref{cnorm})
-\begin{align}
-  c(t)=C^{-1}(0)\esc C(t) 
-\end{align}
-which equals  the identity  matrix at  $t=0$.  In  equation  (\ref{Mstar}),
+%\begin{align}
+%  c(t)=C^{-1}(0)\esc C(t) 
+%\end{align}
+%which equals  the identity  matrix at  $t=0$.  
+In  equation  (\ref{Mstar}),
 $\tau$ is  a time where  the right hand  side reaches a  plateau. Note
 that  the Green-Kubo  matrix $M(t)$  does  not display  a plateau  and
 decays,  precisely, as  the  correlations themselves,  as observed  in
@@ -7240,7 +7244,7 @@ By   using    (\ref{Mstar}) and (\ref{MMatrix1})   in   the   dynamics    of   c
 \esc C^{-1}(\tau) \esc C(t)
 \label{CMarkov2}
 \end{align}
-Observe that the  use the corrected starred  Green-Kubo expressions in
+Observe that the  use of the corrected starred  Green-Kubo expressions in
 (\ref{InFull-C-2}) is  entirely equivalent  to use the  usual Green-Kubo
 formula $M(\tau)$ but with a redefinition of the normalization of the
 correlation,    from    $C^{-1}(0)$    to   $C^{-1}(\tau)$    as    in
@@ -7262,22 +7266,21 @@ field
 \label{evolg}
 \end{align}
 This matrix equation is best described in terms of the velocity field.
-By following  the discussion  in chapters \ref{Chap:Planar} and \ref{Chap:PBC}, we  define the  discrete
+By following  the discussion  in Chapters \ref{Chap:Planar} and \ref{Chap:PBC}, we  define the  discrete
 velocity field according to
 \begin{align}
-{\bf v}_\nu&=\rho_{\mu\nu}^{-1}{\bf g}_\nu
+  {\bf v}_\mu&=\sum_{\nu}\rho_{\mu\nu}^{-1}{\bf g}_\nu,
 \label{Vel}
 \end{align}
-where sum over repeated indices is implied and the mass density  matrix is defined as
+where the mass density  matrix is defined as
 \begin{align}
 \rho_{\mu\nu}=\frac{C_{\mu\nu}(0)}{k_BT}  {\cal V}_\nu
 \label{rhomunuAp}
 \end{align}
-where  $C_{\mu\nu}(0)$  is the  covariance  of  the discrete  momentum
-density.   Therefore,  we  may  introduce  the  vector  of  velocities
-$v^T=(v_1,\cdots,v_{N_{\rm bin}})$ as
+Therefore,  we  may  introduce  the  vector  of  velocities
+$v^T=(v_0,\cdots,v_{N_{\rm bin -1}})$ as
 \begin{align}
-v(t)&\equiv  k_BT{\cal V}^{-1}C^{-1}(0) \esc g(t) 
+v(t)&\equiv  k_BT{\cal V}^{-1}C^{-1}(0) \esc g(t) ,
 \label{Vel2}
 \end{align}
 where the diagonal  matrix ${\cal V}$ contains the  volume elements of
@@ -7290,7 +7293,7 @@ velocity  gives a  result that  is very  similar to  ${\bf v}_\mu={\bf
 
 In terms of the velocity (\ref{Vel2}) the evolution equation (\ref{evolg}) is
 \begin{align}
-   \frac{d}{dt}g(t)= -k_BT \left[{F}^T{\eta}(\tau)\esc{F}
+   \frac{d}{dt}g(t)= -\left[{F}^T{\eta}(\tau)\esc{F}
 +{G}(\tau)\esc{F}
 +F^T\esc{H}(\tau)+{\gamma}(\tau)\right]
 \esc c^{-1}(\tau)\esc v(t)
@@ -7304,14 +7307,14 @@ In this way, the transport equation (\ref{InFull}) becomes
 \end{align}
 that can be  expressed in the equivalent form
 \begin{align}
-   \frac{d}{dt}g(t)&=  - {\cal V}\esc M(\tau)\esc \overline{v}(t)
+   \frac{d}{dt}g(t)&=  - {\cal V}\esc M(\tau)\esc \overline{v}(t),
 \label{InFullVel2}
 \end{align}
 where  we  have introduced  the  scaled  velocity field  $\overline{v}
 =c^{-1}(\tau)\esc  v$.   The  components $\overline{\bf  v}^x_\mu$  of
 $\overline{v}$ are
 \begin{align}
-  \overline{\bf v}^x_\mu&=\overline{\rho}_{\mu\nu}^{-1}{\bf g}^x_\nu
+  \overline{\bf v}^x_\mu&=\sum_{\nu}\overline{\rho}_{\mu\nu}^{-1}{\bf g}^x_\nu,
 \label{ov}
 \end{align}
 where the rescaled mass density is 
@@ -7328,13 +7331,12 @@ ${\bf v}_\mu(t)$.
 In explicit component form,  equation (\ref{evolg2}) takes the form
 \begin{align}
   \frac{d}{dt}{\bf g}^x_\mu(t)=&
--\sum_{\nu=1}^{N_{\rm bin}} {\cal V}_\nu \frac{\left[\eta_{\mu\nu}-\eta_{\mu-1\nu}-\eta_{\mu\nu-1}+\eta_{\mu-1\nu-1}\right]}{\Delta z^2}\overline{\bf v}^x_\nu
+-\sum_{\nu} {\cal V}_\nu \frac{\left[\eta_{\mu\nu}-\eta_{\mu-1\nu}-\eta_{\mu\nu-1}+\eta_{\mu-1\nu-1}\right]}{\Delta z^2}\overline{\bf v}^x_\nu
++\sum_{\nu} {\cal V}_\nu\frac{\left[G_{\mu\nu}-G_{\mu\nu-1}\right]}{\Delta z}\overline{\bf v}^x_\nu
 \nonumber\\
-&+\sum_{\nu=1}^{N_{\rm bin}} {\cal V}_\nu\frac{\left[G_{\mu\nu}-G_{\mu\nu-1}\right]}{\Delta z}\overline{\bf v}^x_\nu
-\nonumber\\
-&+\sum_{\nu=1}^{N_{\rm bin}} {\cal V}_\nu\frac{\left[H_{\mu\nu}-H_{\mu-1\nu}\right]}{\Delta z}
+&+\sum_{\nu} {\cal V}_\nu\frac{\left[H_{\mu\nu}-H_{\mu-1\nu}\right]}{\Delta z}
 \overline{\bf v}^x_\nu
--\sum_{\nu=1}^{N_{\rm bin}} {\cal V}_\nu\gamma_{\mu\nu}\overline{\bf v}^x_\nu
+-\sum_{\nu} {\cal V}_\nu\gamma_{\mu\nu}\overline{\bf v}^x_\nu,
 \label{TheoryDiscFinSlipCH}
 \end{align}
 where here,  in order to  ease the notation,  we have not  plotted the
@@ -7349,28 +7351,28 @@ evaluated at  equilibrium, one obtains (\ref{TheoryDiscFinSlipCH})  from the
 equations in Chapter \ref{Chap:Planar}.
 %Ref. \cite{3}.
 
-As  discussed  in Chapter \ref{Chap:Planar}
-the discrete equation (\ref{TheoryDiscFinSlipCH})  can be also obtained from
-a finite element discretization of a continuum equation of the form
-\begin{align}
-  \partial_t{\bf g}({\bf r},t)&=\boldsymbol{\nabla}\int d{\bf r}'
-\eta_{{\bf r}{\bf r}'}\boldsymbol{\nabla}'{\bf v}({\bf r}')
--\boldsymbol{\nabla}\int d{\bf r}'
-G_{{\bf r}{\bf r}'}{\bf v}({\bf r}')
-\nonumber\\
-&-\int d{\bf r}'H_{{\bf r}{\bf r}'}\boldsymbol{\nabla}'{\bf v}({\bf r}')
--\int d{\bf r}'
-\gamma_{{\bf r}{\bf r}'}{\bf v}({\bf r}')
-\label{integro-diff}
-\end{align}
-The first term in the right  hand side involving second derivatives is
-a nonlocal  viscosity term, while  the other three terms  reflect the
-irreversible   force    that   the   solid   wall    exerts   on   the
-fluid.  equation  (\ref{integro-diff})  can  also  be  obtained  under  the
-assumption  of  planar  flow  in  planar  geometries  of  the  general
-continuum hydrodynamic equations presented in Ref. \cite{CamargoBC2018}.
+%As  discussed  in Chapter \ref{Chap:Planar}
+%the discrete equation (\ref{TheoryDiscFinSlipCH})  can be also obtained from
+%a finite element discretization of a continuum equation of the form
+%\begin{align}
+%  \partial_t{\bf g}({\bf r},t)&=\boldsymbol{\nabla}\int d{\bf r}'
+%\eta_{{\bf r}{\bf r}'}\boldsymbol{\nabla}'{\bf v}({\bf r}')
+%-\boldsymbol{\nabla}\int d{\bf r}'
+%G_{{\bf r}{\bf r}'}{\bf v}({\bf r}')
+%\nonumber\\
+%&-\int d{\bf r}'H_{{\bf r}{\bf r}'}\boldsymbol{\nabla}'{\bf v}({\bf r}')
+%-\int d{\bf r}'
+%\gamma_{{\bf r}{\bf r}'}{\bf v}({\bf r}')
+%\label{integro-diff}
+%\end{align}
+%The first term in the right  hand side involving second derivatives is
+%a nonlocal  viscosity term, while  the other three terms  reflect the
+%irreversible   force    that   the   solid   wall    exerts   on   the
+%fluid.  equation  (\ref{integro-diff})  can  also  be  obtained  under  the
+%assumption  of  planar  flow  in  planar  geometries  of  the  general
+%continuum hydrodynamic equations presented in Ref. \cite{CamargoBC2018}.
 
-Note,  however,   that  the   present  derivation  of   the  equations
+The   present  derivation  of   the  equations
 (\ref{TheoryDiscFinSlipCH}) for the discrete hydrodynamics take into account
 the solution  given in Chapter \ref{Chap:PBC} of the plateau problem  which is
 inherent to  the Green-Kubo  expressions in  general.  In  that sense,
@@ -7385,7 +7387,7 @@ with  parametres $\sigma,\epsilon$  in between  two crystalline  walls
 made  of fixed  identical Lennard-Jones  particles.  The  geometry,
 thermodynamic point, and simulation are  exactly the same as that studied in Chapter \ref{Chap:Walls} ,
 giving  a  density in  the  bulk  of  $\rho=0.6  $ and  a  temperature
-$k_BT=2.0 $ in reduced Lennard-Jones  units.  
+$T=2$ in reduced Lennard-Jones  units.  
 %After an equilibration of
 %$10^5$ timesteps with  a Langevin thermostate to  produce a microstate
 %typical from a thermodynamic  point corresponding to $T=2,\rho=0.6$ in
@@ -7427,11 +7429,11 @@ rather  large distance  $\Delta z=2\sigma$  between nodal  planes. The
 reason for choosing this large bin size is that, as shown in Chapter \ref{Chap:Walls},
 for  smaller bin  sizes with  $\Delta  z =0.5\sigma$  the dynamics  is
 clearly non-Markovian near the walls, and the theory predictions break
-down near the  walls. A bin size of $\Delta  z=1$ still displays signs
+down near the  walls. A bin size of $\Delta  z=1\sigma$ still displays signs
 of non-Markovianicity. 
 
 Also  shown in  Fig.   \ref{Fig.Nodes} are  the  finite element  basis
-functions  centered  at the  nodal  planes  that define  the  discrete
+functions (blue lines) centered  at the  nodal  planes  that define  the  discrete
 momentum.   Note
 that  due to  the presence  of the  solid lattice  there are  no fluid
 particles contributing  to the  nodal plane $\mu=0$  and its  mass and
@@ -7459,15 +7461,15 @@ apply.
 In order to see if the results are sensitive to
 the channel  width, we have  considered two cases, where  the distance
 between the crystalline planes facing the  fluid of the top and bottom
-walls are at a distance of $30\sigma$ and $60\sigma$, respectively.
+walls are at a distance of $30\sigma$ and $60\sigma$.
 
-\subsection{The transport matrices}
+\section{The transport matrices}
 From  a  typical  equilibrium  trajectory  of  the  microscopic  state
 generated by the MD simulation, we measure the forces on the nodes and
 stress on  the bins defined in  equation (\ref{sbin}). We then  compute the
 Green-Kubo running integrals (\ref{GK}).   These matrices are observed
 to have  no plateau in  a way analogous to  what we found  in periodic
-boundary   conditions  in Part II.
+boundary   conditions  in Chapter \ref{Chap:PBC}.
 %  Ref.   \cite{5}.  
 For   example,  in   Fig
 \ref{Fig.noplateau}   we   plot   some  elements   of   the   matrices
@@ -7488,7 +7490,7 @@ are seen to decay towards zero, in a quasi-algebraic way.
 
 Given that the  Green-Kubo formula for the transport  matrices do not
 have  a   plateau,  we  resort   to  the  methodology   introduced  in
-Ref. \cite{4} and that essentially amount to extract $M^*$ defined in
+Chapter \ref{Chap:PBC} and that essentially amount to extract $M^*$ defined in
 (\ref{Mstar}) from $M(t)$ defined in (\ref{MMatrix1}). Once the matrix
 $M(\tau)\esc c^{-1}(\tau)$  is constructed,  it is possible  to obtain
 the  value of  $\tau$  at which  this  matrix do  has  a plateau.  The
