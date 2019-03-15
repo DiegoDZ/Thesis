@@ -7579,29 +7579,17 @@ these effects are small when we use  a small initial value of the plug
 flow  velocity and  we assume  that  only the  transverse momentum  is
 necessary to describe the dynamics of the system.
 
-
-\begin{figure}[!h]
-\includegraphics[width=\linewidth]{gxtPredictions_and_vtCorrected-17nodes-WALLS}
-\caption[The momentum profile at different times and the velocity profile obtained from the momentum]{Left panel: the  momentum $g(t)$  profile at  different times
-  ($t=1,3,\cdots,21$), in  descending order.   The two  vertical lines
-  denotes  the  position  of  the   wall  $z_{\rm  wall}$  as  defined
-  microscopically from the friction  matrix in equation  (\ref{zwallDisc}).
-  Also  plot  (orange points) is  the  prediction  given  by  (\ref{gsol}),  which  is
-  undistinguishable  from the  measured  profile.   Right panel panel: the velocity profile obtained from the momentum through (\ref{}). The green vertical lines delimit the region of the fluid that takes part in the boundary slab with $B=2$ used to define the mechanical balance.}
-\label{Fig-gxt-vt}
-\end{figure}
-
 The prediction within  Mori theory of the evolution of  the average of
 the momentum  field is given  in (\ref{InFull})  that we write  in a
 compact form as
 \begin{align}
- \frac{d}{dt}g(t)&= -\Lambda^* \esc g(t) 
+ \frac{d}{dt}g(t)&= -\Lambda^* \esc g(t) ,
 \label{InFullLambda}
 \end{align}
 where  the relaxation  matrix is $\Lambda^*=k_BT M^*\esc  C^{-1}(0)$.
 This equation has the following matrix exponential solution
 \begin{align}
-  g(t)=\exp\{-\Lambda^* (t-\tau)\}\esc g(\tau)
+  g(t)=\exp\{-\Lambda^* (t-\tau)\}\esc g(\tau),
 \label{gsol}
 \end{align}
 where  we  choose  as  initial  condition  the  profile  at  the  time
@@ -7610,12 +7598,6 @@ equation (\ref{InFullLambda}) gives wrong predictions.  We have made a
 similar  observation  in Chapter \ref{Chap:PBC}  when  we  discussed  the dynamics  of  an
 unconfined fluid.
 
-\begin{figure}[!h]
-    \centering
-\includegraphics[scale=0.41]{gxtPredictions-17nodes-WALLS}
-\caption[The momentum profile as a function of time]{Left  panel: the  momentum $g(t)$  profile for modes $\mu=1,2,4$ (in ascending order) as a function of time (blue), and the predictions given by (\ref{gsol})(orange). Right panel: zoom of the left panel at short times.}
-\label{Fig-gxtPredictions}
-\end{figure}
 
 The  solution  (\ref{gsol})  represents  a  discrete  version  of  the
 numerical    solution    of    the    integro-differential    equation
@@ -7628,17 +7610,28 @@ order to solve  hydrodynamics, because the interaction  with the solid
 is  taken  explicitly  into  account through  the  transport  matrices
 $G(\tau),H(\tau),\gamma(\tau)$ as shown in (\ref{evolg}).
 
+\begin{figure}[!h]
+\includegraphics[width=\linewidth]{gxtPredictions_and_vtCorrected-17nodes-WALLS}
+\caption[The momentum profile at different times and the velocity profile obtained from the momentum]{Left panel: the measured average  momentum profile $g(t)$ at  different times
+  ($t=1,3,\cdots,21$), in  descending order.   The two  vertical lines
+  denotes  the  position  of  the   wall  $z_{\rm  wall}$  as  defined
+  microscopically from the friction  matrix in equation  (\ref{zwallDisc}).
+  Also  plot  (orange points) is  the  prediction  given  by  (\ref{gsol}),  which  is
+  undistinguishable  from the  measured  profile.   Right panel panel: the velocity profile obtained from the momentum through (\ref{ov}). The green vertical lines delimit the region of the fluid that takes part in the boundary slab with $B=2$ used to define the mechanical balance.}
+\label{Fig-gxt-vt}
+\end{figure}
+
 In  the left  panel  of  Fig.  \ref{Fig-gxt-vt}  we  show the  measured
 discrete momentum density profile at  different times of the evolution
 for an initial plug flow. The times are $t=1,3,\cdots 21$.  Also shown
 in that figure is the prediction given by equation  (\ref{gsol}). Excellent
 agreement   is  observed,   implying  that   the  proposed   equations
-(\ref{evolg}) and (\ref{TheoryDiscFin})  describe adequately the flow.
+(\ref{evolg}) and (\ref{TheoryDiscFinSlipCH})  describe adequately the flow.
 The agreement between predicted and  measured profiles at longer times
 is   appreciated   in  the Fig.
 \ref{Fig-gxtPredictions}   were  the   momentum   at   nodes  $\mu=1,2,4$  as a function of time is
 shown. Observe the  very fast decay of the momentum  near the wall due
-to the friction due to the wall. In the bottom panel we plot a zoom at
+to the friction due to the wall. In the right panel we plot a zoom at
 short times of the evolution of  the momentum.  It is quite noticeable
 that the predictions of the Markovian  theory are not correct at times
 smaller that $t<\tau\simeq 0.2$.  This  is another signal that at very
@@ -7650,6 +7643,13 @@ predictions, as observed.  The comparison (not shown) of the Markovian
 prediction (\ref{CMarkov2}) of the  correlation matrix $C(t)$ with the
 actual measured correlation matrix also shows perfect agreement beyond
 $t\simeq 0.2$ but incorrect results at shorter times.
+
+\begin{figure}[!h]
+    \centering
+\includegraphics[scale=0.41]{gxtPredictions-17nodes-WALLS}
+\caption[The momentum profile as a function of time]{Left  panel: the  momentum $g(t)$  profile for modes $\mu=1,2,4$ (in ascending order) as a function of time (blue), and the predictions given by (\ref{gsol})(orange). Right panel: zoom of the left panel at short times.}
+\label{Fig-gxtPredictions}
+\end{figure}
 
 In  the left panel of Fig.   \ref{Fig-gxt-vt}  we  show  the  velocity  profile,  defined
 according  to   (\ref{ov}).   Note   that  the  velocity   shows  some
@@ -7664,7 +7664,7 @@ smooth velocity fields.
 \section{The slip boundary condition}
 \label{Sec:BC}
 In  the  previous  section,  we   have  solved  the  discrete  version
-(\ref{TheoryDiscFin})   of   the  nonlocal   hydrodynamic   equations
+(\ref{TheoryDiscFinSlipCH})   of   the  nonlocal   hydrodynamic   equations
 (\ref{integro-diff}) without any reference to boundary conditions.  As
 it is manifest in equation   (\ref{integro-diff}), the interaction with the
 walls is not described with boundary conditions but rather in terms of
@@ -7701,11 +7701,11 @@ have used  also a  boundary slab to  formulate a  generalized Langevin
 equation on which  to base a formulation of  boundary conditions.  The
 total momentum ${\bf P}_B^x$ of this slab is defined as
 \begin{align}
-{\bf P}_B^x&\equiv  \sum^{B}_{\mu=1}{\cal    V}_\mu    \hat{\bf    g}^x_\mu=\sum_i^N{\bf    p}_iU_B(z_i)
+{\bf P}_B^x&\equiv  \sum^{B}_{\mu=0}{\cal    V}_\mu    \hat{\bf    g}^x_\mu=\sum_i^N{\bf    p}_iU_B(z_i),
 \end{align}
 where we have introduced the function
 \begin{align}
-U_B(z)=\sum_\mu^{B}{\cal    V}_\mu\delta_\mu(z)  
+  U_B(z)=\sum_\mu^{B}{\cal    V}_{\mu=0}\delta_\mu(z)  
 \end{align}
 This function is plotted  in Fig. \ref{Fig.Slab} for different values of $B$ and
 basically counts the particles that are near the wall.
@@ -7714,25 +7714,23 @@ basically counts the particles that are near the wall.
 We consider the rate of change of the momentum of this boundary slab.
  The total force on the slab is given by
 \begin{align}
-{\bf F}^x_B(t)&=\frac{d}{dt} \sum^{B}_{\mu=1}{\cal V}_\mu  {\bf g}^x_\mu(t)
+{\bf F}^x_B(t)&=\frac{d}{dt} \sum^{B}_{\mu=0}{\cal V}_\mu  {\bf g}^x_\mu(t)
 \label{ForceB}
 \end{align}
 We show in  the Appendix \ref{App:1} that once we  use the equation of
-motion (\ref{TheoryDiscFin}) in this expression we may write the force
+motion (\ref{TheoryDiscFinSlipCH}) in this expression we may write the force
 (per unit area)  on the slab due  to the combined action  of the fluid
 outside the slab and the solid wall as
 \begin{align}
-\frac{1}{S}{\bf F}^x_B=&  \sum_{\nu=1}^{N_{\rm bin}} {\cal V}_\nu 
+\frac{1}{S}{\bf F}^x_B=  \sum_{\nu} {\cal V}_\nu 
 \left[\eta_{B\nu}-G_\nu \right]\frac{\overline{\bf v}^x_{\nu+1}-\overline{\bf v}^x_{\nu}}{\Delta z}
-\nonumber\\
-&-\sum_{\nu=1}^{N_{\rm bin}} {\cal V}_\nu\left[\gamma_{\nu}-H_{B\nu}\right]\overline{\bf v}^x_\nu
+-\sum_{\nu=0} {\cal V}_\nu\left[\gamma_{\nu}-H_{B\nu}\right]\overline{\bf v}^x_\nu,
 \label{FBv}
 \end{align}
 where the following local transport coefficients have been defined
 \begin{align}
-G_\nu&\equiv \frac{1}{S} \sum^{B}_{\mu=1}{\cal V}_\mu G_{\mu\nu}
-\nonumber\\
-\gamma_{\nu}&\equiv  \frac{1}{S}\sum^{B}_{\mu=1}{\cal V}_\mu \gamma_{\mu\nu}
+  G_\nu\equiv \frac{1}{S} \sum^{B}_{\mu=1}{\cal V}_\mu G_{\mu\nu}, &&
+\gamma_{\nu}\equiv  \frac{1}{S}\sum^{B}_{\mu=1}{\cal V}_\mu \gamma_{\mu\nu}
 \label{Layer3}
 \end{align}
 % This force may be written in compact form as
@@ -7743,13 +7741,13 @@ G_\nu&\equiv \frac{1}{S} \sum^{B}_{\mu=1}{\cal V}_\mu G_{\mu\nu}
 % where we have introduced the constant vector ${\bf c}=({\cal V}_1,\cdots,{\cal V}_B,0,\cdots,0)$.
 \begin{figure}[]
 \includegraphics[width=\linewidth]{transportMatrices-17nodes-WALLS}
-\caption[The viscosity matrix for different values of $\nu$, for three values of $B$]{Top: The viscosity matrix  $\eta_{B\nu}$ for different values
+\caption[The viscosity matrix for different values of $\nu$, for three values of $B$]{Top-left: The viscosity matrix  $\eta_{B\nu}$ for different values
   of  $\nu$, for  three values  of $B=1$  (blue), $B=2$  (orange), $B=3$
   (green). Observe  that the last  two quantities are  identical except
-  that are  simply translated one  node. Middle and bottom:  The local
+  that are  simply translated one  node. Top-right and bottom-right:  The local
   transport coefficients  defined in  (\ref{Layer3}). Three  values of
   $B=1$ (blue), $B=2$  (orange), $B=3$ (green) are plotted,  but the last
-  two lay on top of each other.}
+two lay on top of each other. Also is plotted in bottom-left $H_{B\nu}$ which has small value for $B=1$ and negligible values for $B=2$ and $B=3$. }
 \label{Fig.Bdependence}
 \end{figure}
 
@@ -7757,15 +7755,15 @@ The different quantities appearing  on the mechanical balance equation
 (\ref{FBv}) on the boundary slab  depend, obviously, on the number $B$
 of   boundary  bins   that   make   the  slab.    We   plot  in   Fig.
 \ref{Fig.Bdependence}  the  quantities  $\eta_{B\nu},G_\nu,\gamma_\nu$
-for   different  values   of   $B=1,2,3$.   In   the   top  panel   of
+for   different  values   of   $B=1,2,3$.   In   the   top-left  panel   of
 Fig. \ref{Fig.Bdependence} we plot $\eta_{B\nu}$ where we see that the
 shape of $\eta_{2\nu}$ and $\eta_{3\nu}$ is the same but displaced one
-node    from    each    other.      In    the    middle    panel    of
+node    from    each    other.      In    the    top-right    panel    of
 Fig. \ref{Fig.Bdependence}  we plot $G_\nu$ defined  in (\ref{Layer3})
 for the different values of $B$.  We observe that the values for $B=2$
 and $B=3$ coincide. This is a  signature that beyond three bins, there
 are  no  further  contributions  to the  local  transport  coefficient
-$G_\nu$. A similar behaviour is observed  in the bottom panel where we
+$G_\nu$. A similar behaviour is observed  in the bottom-right panel where we
 plot the local  coefficient $\gamma_\mu$. For reasons  the will become
 clear later,  we want to have  the smaller possible slab  that already
 does not change  results. For this reason we choose  $B=2$ from now on
@@ -7774,8 +7772,8 @@ boundary slab contains  fluid particles that are within  a distance of
 $4\sigma$ from the wall, which is a large distance in molecular terms.
 
 The  mechanical balance  equation (\ref{FBv})  is a  direct
-consequence of  the equation of motion  (\ref{TheoryDiscFin}) given by
-Mori  theory.   To  the  extent  that  (\ref{TheoryDiscFin})  predicts
+consequence of  the equation of motion  (\ref{TheoryDiscFinSlipCH}) given by
+Mori  theory.   To  the  extent  that  (\ref{TheoryDiscFinSlipCH})  predicts
 correctly the average behaviour of  the discrete momentum density, equation
 (\ref{FBv})  should predict  correctly the  force on  the fluid  slab.
 However, as  we have  already noticed  when comparing  the predictions
@@ -7784,8 +7782,8 @@ Fig. \ref{Fig-gxtPredictions}, at very short  times the Markovian assumption bre
 down.  In Fig. \ref{Fig.FBcheck} we plot both sides of (\ref{FBv}) and
 show that only  after a time larger than $\tau\simeq  0.3$ a very good
 agreement is found.  After this  time, the momentum profile obeys very
-well  the  proposed  dynamic equation  (\ref{TheoryDiscFin})  and  the
-difference (red curve in  Fig. \ref{Fig.FBcheck}) between the measured
+well  the  proposed  dynamic equation  (\ref{TheoryDiscFinSlipCH})  and  the
+difference (orange curve in  Fig. \ref{Fig.FBcheck}) between the measured
 force  on the  boundary slab  and the  prediction (\ref{FBv})  goes to
 zero.
 
@@ -7901,7 +7899,7 @@ with the slip length given by
 In summary,  we have derived  the Navier slip boundary  condition from
 the  assumptions  that 
 \begin{enumerate}
-\item[i)]   the  discrete  momentum obeys  the  dynamics (\ref{TheoryDiscFin}).
+\item[i)]   the  discrete  momentum obeys  the  dynamics (\ref{TheoryDiscFinSlipCH}).
 \item[ii)] the velocity  field inside the boundary slab made of $B$ bins  is linear as in (\ref{vlin}).
 \item[iii)] the force on the boundary slab is vanishingly small.
 
@@ -8293,15 +8291,15 @@ the partial differential equation (\ref{NS}) takes the form
 \label{NSDisc}
 \end{align}
 This  equation  is to  be  compared  with the  nonlocal  hydrodynamic
-equation (\ref{TheoryDiscFin}) that we know, from the results obtained
+equation (\ref{TheoryDiscFinSlipCH}) that we know, from the results obtained
 so   far,   that   describes   very   well   the   dynamics   of   the
 system.  Therefore, a  natural  question  is how  one  can obtain  the
 discrete local hydrodynamic equation (\ref{NSDisc}) from the nonlocal
-equation (\ref{TheoryDiscFin}).
+equation (\ref{TheoryDiscFinSlipCH}).
 
 As we take the point of view that all the effects of the walls will be taken
 into account through the boundary  condition, we neglect in
-(\ref{TheoryDiscFin})          the           terms          containing
+(\ref{TheoryDiscFinSlipCH})          the           terms          containing
 $G_{\mu\nu},H_{\mu\nu},\gamma_{\mu\nu}$ that represent the interaction
 of the  fluid with  the wall. In addition, we will assume that
  the  nodes
@@ -8331,7 +8329,7 @@ that
   g_\mu\simeq\rho_\mu{v}_\mu
 \label{grhov}
 \end{align}
-We  then  insert  in (\ref{TheoryDiscFin})  the  local  approximations
+We  then  insert  in (\ref{TheoryDiscFinSlipCH})  the  local  approximations
 (\ref{etadiag}), (\ref{grhov}) to  obtain the equations (\ref{NSDisc})
 for the fluid nodes $\mu=2,\cdots,15$
 \begin{align}
@@ -10313,7 +10311,7 @@ continuum limit.
 In this appendix we derive the expression (\ref{FBv}) for the force on the boundary slab made
 of $B$ bins. 
 
-By  multiplying  (\ref{TheoryDiscFin})  with  the  bin  volume  ${\cal
+By  multiplying  (\ref{TheoryDiscFinSlipCH})  with  the  bin  volume  ${\cal
   V}_\mu$, and summing over the B layers of the slab we have
 \begin{align}
 {\bf F}^x_B
