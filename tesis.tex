@@ -7351,28 +7351,28 @@ evaluated at  equilibrium, one obtains (\ref{TheoryDiscFinSlipCH})  from the
 equations in Chapter \ref{Chap:Planar}.
 %Ref. \cite{3}.
 
-%As  discussed  in Chapter \ref{Chap:Planar}
-%the discrete equation (\ref{TheoryDiscFinSlipCH})  can be also obtained from
-%a finite element discretization of a continuum equation of the form
-%\begin{align}
-%  \partial_t{\bf g}({\bf r},t)&=\boldsymbol{\nabla}\int d{\bf r}'
-%\eta_{{\bf r}{\bf r}'}\boldsymbol{\nabla}'{\bf v}({\bf r}')
-%-\boldsymbol{\nabla}\int d{\bf r}'
-%G_{{\bf r}{\bf r}'}{\bf v}({\bf r}')
-%\nonumber\\
-%&-\int d{\bf r}'H_{{\bf r}{\bf r}'}\boldsymbol{\nabla}'{\bf v}({\bf r}')
-%-\int d{\bf r}'
-%\gamma_{{\bf r}{\bf r}'}{\bf v}({\bf r}')
-%\label{integro-diff}
-%\end{align}
-%The first term in the right  hand side involving second derivatives is
-%a nonlocal  viscosity term, while  the other three terms  reflect the
-%irreversible   force    that   the   solid   wall    exerts   on   the
-%fluid.  equation  (\ref{integro-diff})  can  also  be  obtained  under  the
-%assumption  of  planar  flow  in  planar  geometries  of  the  general
-%continuum hydrodynamic equations presented in Ref. \cite{CamargoBC2018}.
+As  discussed  in Chapter \ref{Chap:Planar}
+the discrete equation (\ref{TheoryDiscFinSlipCH})  can be also obtained from
+a finite element discretization of a continuum equation of the form
+\begin{align}
+  \partial_t{\bf g}({\bf r},t)&=\boldsymbol{\nabla}\int d{\bf r}'
+\eta_{{\bf r}{\bf r}'}\boldsymbol{\nabla}'{\bf v}({\bf r}')
+-\boldsymbol{\nabla}\int d{\bf r}'
+G_{{\bf r}{\bf r}'}{\bf v}({\bf r}')
+\nonumber\\
+&-\int d{\bf r}'H_{{\bf r}{\bf r}'}\boldsymbol{\nabla}'{\bf v}({\bf r}')
+-\int d{\bf r}'
+\gamma_{{\bf r}{\bf r}'}{\bf v}({\bf r}')
+\label{integro-diff}
+\end{align}
+The first term in the right  hand side involving second derivatives is
+a nonlocal  viscosity term, while  the other three terms  reflect the
+irreversible   force    that   the   solid   wall    exerts   on   the
+fluid.  equation  (\ref{integro-diff})  can  also  be  obtained  under  the
+assumption  of  planar  flow  in  planar  geometries  of  the  general
+continuum hydrodynamic equations presented in Ref. \cite{CamargoBC2018}.
 
-The   present  derivation  of   the  equations
+Note, however, that the   present  derivation  of   the  equations
 (\ref{TheoryDiscFinSlipCH}) for the discrete hydrodynamics take into account
 the solution  given in Chapter \ref{Chap:PBC} of the plateau problem  which is
 inherent to  the Green-Kubo  expressions in  general.  In  that sense,
@@ -7551,17 +7551,17 @@ walls is unaffected by the size of the channel.
 \section{Evolution of the flow in NEMD simulations}
 Once we  have measured the  transport matrix $M^*$  or, alternatively,
 the transport  matrices $\eta^*,G^*,H^*,\gamma^*$  we may  predict the
-evolution   of   a   non-equilibrium   average   where   the   initial
-non-equilibrium  ensemble describes  a  particular  flow profile.   By
-measuring independently  the actual  non-equilibrium evolution  we are
+evolution   of   a   nonequilibrium   average   where   the   initial
+nonequilibrium  ensemble describes  a  particular  flow profile.   By
+measuring independently  the actual  nonequilibrium evolution  we are
 able to validate the present theory.
 
 We run microcanonical MD simulations in which the initial state is not
-an equilibrium state. In this chapter,  we focus on an initial plug flow
+an equilibrium state. In this chapter, we focus on an initial plug flow
 which  is  prepared  as  follows.  From  an  equilibrated  microscopic
 configuration, we add  to the thermal velocity of each  fluid atom the
 same velocity  ${\bf V}=(v_0,0,0)$.   This has two  consequences.  The
-first  is to  generate  a  non-equilibrium plug  flow  in a  direction
+first  is to  generate  a  nonequilibrium plug  flow  in a  direction
 parallel to  the wall.  The second  is to increase the  kinetic energy
 and hence  the temperature of  the system. In  order to remain  at the
 same thermodynamic point, we rescale the resulting velocities in order
@@ -7574,7 +7574,7 @@ stages of this plug flow, the density field becomes time-dependent. In
 fact, we  observe that  after the  initial kick  the fluid  develops a
 component of the velocity normal to the walls. This is associated to a
 excitation of a sound wave which  would need to be described, strictly
-speaking, with the full set of  equations detailed in Part I. However,
+speaking, with the full set of  equations detailed in Chapter \ref{Chap:Planar}. However,
 these effects are small when we use  a small initial value of the plug
 flow  velocity and  we assume  that  only the  transverse momentum  is
 necessary to describe the dynamics of the system.
@@ -7607,7 +7607,7 @@ This equation has the following matrix exponential solution
 where  we  choose  as  initial  condition  the  profile  at  the  time
 $\tau$. As we  will see, for times shorter than  $\tau$, the Markovian
 equation (\ref{InFullLambda}) gives wrong predictions.  We have made a
-similar  observation  in Part II  when  we  discussed  the dynamics  of  an
+similar  observation  in Chapter \ref{Chap:PBC}  when  we  discussed  the dynamics  of  an
 unconfined fluid.
 
 \begin{figure}[!h]
