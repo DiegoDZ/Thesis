@@ -12,6 +12,7 @@
 \usepackage{epigraph}
 \usepackage{caption}
 \usepackage{psfrag}
+\usepackage{afterpage}
 \usepackage{hyperref}
 \usepackage{tikz}
 \captionsetup[figure]{font=footnotesize,labelfont=footnotesize,labelfont=bf}
@@ -20,6 +21,14 @@
 \usepackage{mathptmx}
 \usepackage{newtxtext,newtxmath}
 \usepackage[titletoc]{appendix}
+\newcommand\blankpage{% comando pagina vuota
+\clearpage
+\null
+\thispagestyle{empty}%
+\clearpage
+}
+
+
 %To modify the space before title of each chapter
 %\usepackage{titlesec}
 %\titleformat{\chapter}[display]   
@@ -53,6 +62,16 @@
 \fancyhead[LO]{\leftmark }
 \fancyfoot{}
 \renewcommand{\headrulewidth}{0.5pt}
+}
+
+\fancypagestyle{Dedicatoria}{%
+\fancyhead{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyhead[LE,RO]{}
+\fancyhead[RE]{\leftmark}
+\fancyhead[LO]{\leftmark }
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0}
 }
 
 %New commands
@@ -169,18 +188,25 @@
         }
 
 \begin{document}
+\pagenumbering{Roman} % para comenzar la numeracion de paginas en numeros romanos
 \setlength{\epigraphwidth}{0.5\textwidth}
 
 
 \maketitle
+\blankpage
 \copyrightpage
-\newpage
-\pagenumbering{Roman} % para comenzar la numeracion de paginas en numeros romanos
+\blankpage
+
+%\pagestyle{Dedicatoria}
+%\begin{flushright}
+%\textit{A los que en los últimos meses han percibido mi soledad como ausencia\\y mi ensimismamiento por mi presencia.}
+%\end{flushright}
 
 \chapter*{Acknowledgments} % si no queremos que añada la palabra "Capitulo"
 \pagestyle{noHeader}  %define page style for the chapters
 %\addcontentsline{toc}{chapter}{Agradecimientos} % si queremos que aparezca en el índice
 %\markboth{Acknowledgments}{Acknowledgments} % encabezado 
+blablalbla
 
 \pagestyle{Contents}  %define page style for the index
 \tableofcontents % indice de contenidos
@@ -342,7 +368,7 @@ the fluid  $F^x=-\eta \frac{\partial  v}{\partial z}$, where  $\eta$ is
 the shear  viscosity of the fluid.  From the combination of  these two
 equations we obtain the Navier slip boundary condition
 \begin{align}
-  \delta  \frac{\partial v}{\partial z}=v_{\rm slip}
+  \delta  \frac{\partial v}{\partial z}=v_{\rm slip},
 \label{slipBC}
 \end{align}
 where the slip length  is defined as
@@ -7342,7 +7368,7 @@ In explicit component form,  equation (\ref{evolg2}) takes the form
 where here,  in order to  ease the notation,  we have not  plotted the
 dependence                of               the                matrices
 $\eta_{\mu\nu},G_{\mu\nu},H_{\mu\nu},\gamma_{\mu\nu}$  on   the  upper
-limit  of integration  $\tau$.  Similar  discrete equations  have been
+limit  of integration  $\tau$. \Note{From now, we denote as $\eta$, $G$, $H$ and $\gamma$ the transport kernels evaluated at $t=\tau$}.  Similar  discrete equations  have been
 obtained in Chapter \ref{Chap:Planar}
 by  using the Kawasaki-Gunton projector that
 gives state  dependent transport coefficients in  general.  Under the
@@ -7647,7 +7673,7 @@ $t\simeq 0.2$ but incorrect results at shorter times.
 \begin{figure}[!h]
     \centering
 \includegraphics[scale=0.41]{gxtPredictions-17nodes-WALLS}
-\caption[The momentum profile as a function of time]{Left  panel: the  momentum $g(t)$  profile for modes $\mu=1,2,4$ (in ascending order) as a function of time (blue), and the predictions given by (\ref{gsol})(orange). Right panel: zoom of the left panel at short times.}
+\caption[The momentum profile as a function of time]{Left  panel: the  momentum $g(t)$  profile for modes $\mu=1,2,4$ (in ascending order) as a function of time (blue), and the predictions given by (\ref{gsol})(orange). Right panel: zoom of the left panel at short times. The red line is plotted at $t=0.2$.}
 \label{Fig-gxtPredictions}
 \end{figure}
 
@@ -7780,7 +7806,7 @@ However, as  we have  already noticed  when comparing  the predictions
 with   the  measurements   of  the   discrete  momentum   profiles  in
 Fig. \ref{Fig-gxtPredictions}, at very short  times the Markovian assumption breaks
 down.  In Fig. \ref{Fig.FBcheck} we plot both sides of (\ref{FBv}) and
-show that only  after a time larger than $\tau\simeq  0.3$ a very good
+show that only  after a time larger than $t\simeq  0.3$ a very good
 agreement is found.  After this  time, the momentum profile obeys very
 well  the  proposed  dynamic equation  (\ref{TheoryDiscFinSlipCH})  and  the
 difference (orange curve in  Fig. \ref{Fig.FBcheck}) between the measured
@@ -7821,7 +7847,7 @@ position,  leading to  the slip  boundary condition.
 Assume that  the velocity field  in nodes $\mu=1,\cdots,B$  inside the
 boundary slab is strictly linear
 \begin{align}
-\overline{\bf v}^x_{\mu}&=  \overline{\bf v}^x_{\rm wall}+\dot{\overline{\gamma}}_{\rm wall}(\mu\Delta z-z_{\rm wall})
+\overline{\bf v}^x_{\mu}&=  \overline{\bf v}^x_{\rm wall}+\dot{\overline{\gamma}}_{\rm wall}(\mu\Delta z-z_{\rm wall}),
 \label{vlin}
 \end{align}
 where  $\overline{\bf v}^x_{\rm  wall}$ is  the velocity  at the  wall
@@ -7829,15 +7855,14 @@ position    $z_{\rm    wall}$,    to    be    defined    below,    and
 $\dot{\overline{\gamma}}_{\rm wall}$ is the  shear rate.  
 
 When we  choose $B=2$ as the  width of the boundary  slab, and observe
-the  range   of  the  values  for   $\eta_{B\mu},G_\mu,\gamma_\mu$  in
+the  range   of  the  values  for   $\eta_{B\nu}, H_{B\nu},G_\nu,\gamma_\nu$  in
 Fig. \ref{Fig.Bdependence} we realize that the values of the velocity
 that actually contribute to the boundary force are those of nodes $\mu=1,2,3,4$.
 Therefore, the force on the boundary is actually given  by
 \begin{align}
-\frac{1}{S}{\bf F}^x_B=&  \sum_{\nu=1}^{B+1} {\cal V}_\nu 
+\frac{1}{S}{\bf F}^x_B=  \sum_{\nu=1}^{B+1} {\cal V}_\nu 
 \left[\eta_{B\nu}-G_\nu \right]\frac{\overline{\bf v}^x_{\nu+1}-\overline{\bf v}^x_{\nu}}{\Delta z}
-\nonumber\\
-&-\sum_{\nu=1}^{B} {\cal V}_\nu\left[\gamma_{\nu}-H_{B\nu}\right]\overline{\bf v}^x_\nu
+-\sum_{\nu=1}^{B} {\cal V}_\nu\left[\gamma_{\nu}-H_{B\nu}\right]\overline{\bf v}^x_\nu
 \label{F4v}
 \end{align}
 If we insert
@@ -7864,18 +7889,17 @@ at the fixed atoms positions.
 
 In equation (\ref{NavierDisc}) we have introduced the following transport coefficients
 \begin{align}
-\eta'&=   \eta - G
-\nonumber\\
-\gamma'&=  \gamma-H
+  \eta'=   \eta - G, &&
+\gamma'=  \gamma-H
 \end{align}
 with the following definitions \begin{align}
-\eta&= \sum_{\nu=1}^{N_{\rm bin}} {\cal V}_\nu \eta_{B\nu}
+\eta&= \sum_{\nu=1} {\cal V}_\nu \eta_{B\nu}
 \nonumber\\
-G &=  \frac{1}{S} \sum_{\nu=1}^{N_{\rm bin}} {\cal V}_\nu \sum^{B}_{\mu=1}{\cal V}_\mu G_{\mu\nu}
+G &=  \frac{1}{S} \sum_{\nu} {\cal V}_\nu \sum^{B}_{\mu=1}{\cal V}_\mu G_{\mu\nu}
 \nonumber\\
-\gamma&=  \frac{1}{S}\sum_{\nu=1}^{N_{\rm bin}}{\cal V}_\nu\sum^{B}_{\mu=1}{\cal V}_\mu \gamma_{\mu\nu}
+\gamma&=  \frac{1}{S}\sum_{\nu}{\cal V}_\nu\sum^{B}_{\mu=1}{\cal V}_\mu \gamma_{\mu\nu}
 \nonumber\\
-H&= \sum_{\nu=1}^{N_{\rm bin}} {\cal V}_\nu H_{B\nu}
+H&= \sum_{\nu} {\cal V}_\nu H_{B\nu}
 \label{etagamma2}
 \end{align}
 
@@ -7885,7 +7909,7 @@ We have observed in Fig.  \ref{Fig.FBcheck} that after a time $t\simeq
 boundary slab is  vanishingly small.  In other flow  situations like a
 steady state  flow, the force,  being a  time derivative, that  of the
 momentum, is also zero.  When the force on the boundary slab vanishes,
-$ {\bf F}^x_B(t)\simeq 0$ we obtain from (\ref{NavierDisc}) the Navier
+$ {\bf F}^x_B(t)\simeq 0$, we obtain from (\ref{NavierDisc}) the Navier
 slip boundary condition \cite{Navier1827},
 \begin{align}
 \overline{\bf v}^x_{\rm wall}&=\delta\dot{\overline{\gamma}}_{\rm wall}
@@ -7937,7 +7961,7 @@ One  of the  values  of  the present  derivation  of  the Navier  slip
 boundary condition  is that  the slip length  is given  in microscopic
 terms, through the transport  coefficients (\ref{etagamma2}).  We next
 show that the microscopic expression for the slip length coincide with
-the one presented by Camargo et al. in  Ref.  \cite{CamargoBC2018} where they derived the Navier
+the one presented by Camargo et al. in  Ref.  \cite{CamargoBC2018}, where they derived the Navier
 slip  boundary  condition  from  the  continuum  theory  presented  in
 Chapter \ref{Chap:Theory}.   We  also   showed  that   our  microscopic
 expression  for the  slip length  coincides with  Bocquet and Barrat under  a suitable
@@ -7947,44 +7971,42 @@ redefinition of the hydrodynamic wall position.
 \subsection{The microscopic expression for the slip length}
 The  strategy  that  has lead  to  (\ref{NavierDisc})  now
 provides  the proper  microscopic  expressions for  the two  transport
-coefficients   $\eta',\gamma$.     By   using   (\ref{etagamma2}),
+coefficients   $\eta',\gamma'$.     By   using   (\ref{etagamma2}),
 and the explicit Green-Kubo forms (\ref{GK}), we have
 \begin{align}
 \eta&= 
 \frac{1}{k_BT}\int_0^{\tau} dt
-\left\langle  \hat{\boldsymbol{\sigma}}^{xz}_{B}(t) \sum_{\nu=1}^{N_{\rm bin}} {\cal V}_\nu \hat{\boldsymbol{\sigma}}^{xz}_{\nu}\right\rangle^{\rm eq}
+\left\langle  \hat{\boldsymbol{\sigma}}^{xz}_{B}(t) \sum_{\nu} {\cal V}_\nu \hat{\boldsymbol{\sigma}}^{xz}_{\nu}\right\rangle^{\rm eq}
 \nonumber\\
 G &=   \frac{1}{Sk_BT}\int_0^{\tau} dt
-\left\langle  \sum^{B}_{\mu=1}{\cal V}_\mu\hat{\bf F}^{x}_\mu(t) \sum_{\nu=1}^{N_{\rm bin}} {\cal V}_\nu\hat{\boldsymbol{\sigma}}^{xz}_\nu\right\rangle^{\rm eq}
+\left\langle  \sum^{B}_{\mu=1}{\cal V}_\mu\hat{\bf F}^{x}_\mu(t) \sum_{\nu} {\cal V}_\nu\hat{\boldsymbol{\sigma}}^{xz}_\nu\right\rangle^{\rm eq}
 \nonumber\\
 H &=   \frac{1}{Sk_BT}\int_0^{\tau} dt
-\left\langle  \hat{\boldsymbol{\sigma}}^{xz}_{B}(t) \sum_{\nu=1}^{N_{\rm bin}} {\cal V}_\nu 
+\left\langle  \hat{\boldsymbol{\sigma}}^{xz}_{B}(t) \sum_{\nu} {\cal V}_\nu 
 \hat{\bf F}^{x}_\nu(t)\right\rangle^{\rm eq}
 \nonumber\\
 \gamma&= 
 \frac{1}{Sk_BT}\int_0^{\tau} dt
-\left\langle  \sum^{B}_{\mu=1}{\cal V}_\mu\hat{\bf F}^{x}_\mu(t)\sum_{\nu=1}^{N_{\rm bin}} {\cal V}_\nu \hat{\bf F}^{x}_\nu\right\rangle^{\rm eq}
+\left\langle  \sum^{B}_{\mu=1}{\cal V}_\mu\hat{\bf F}^{x}_\mu(t)\sum_{\nu}{\cal V}_\nu \hat{\bf F}^{x}_\nu\right\rangle^{\rm eq}
 \label{etagamma3}
 \end{align}
 Note that we have a partition of unity property that implies that
 \begin{align}
-  \sum_\mu^{N_{\rm bin}}\psi_\mu({\bf r})&=1
-\nonumber\\
-  \sum_\mu^{N_{\rm bin}}\chi_\mu({\bf r})&=1
-\nonumber\\
-  \sum_\mu^{N_{\rm bin}}z_\mu(i,j)&=1
+  \sum_\mu^{N_{\rm bin}}\psi_\mu({\bf r})=1, &&
+  \sum_\mu^{N_{\rm bin}}\chi_\mu({\bf r})=1, &&
+  \sum_\mu^{N_{\rm bin}}z_\mu(i,j)=1
 \end{align}
 Therefore, from (\ref{Fbin}) and  (\ref{sbin}) we have the microscopic
 forms of the total force and total stress tensor
 \begin{align}
-\hat{\bf F}&\equiv \sum_\mu^{N_{\rm bin}}{\cal V}_\mu\hat{\bf F}_\mu=\sum^{NN'}_{ij'}\hat{\bf F}_{ij'}  
+\hat{\bf F}&\equiv \sum_\mu{\cal V}_\mu\hat{\bf F}_\mu=\sum^{NN'}_{ij'}\hat{\bf F}_{ij'}  
 \nonumber\\
-\hat{\boldsymbol{\sigma}}&\equiv \sum_\mu^{N_{\rm bin}}{\cal V}_\mu \hat{\boldsymbol{\sigma}}_\mu=\sum^N_i{\bf p}_i{\bf v}_i
-+\frac{1}{2}\sum^{N}_{ij}{\bf r}_{ij}\hat{\bf F}_{ij}
+\hat{\boldsymbol{\sigma}}&\equiv \sum_\mu{\cal V}_\mu \hat{\boldsymbol{\sigma}}_\mu=\sum^N_i{\bf p}_i{\bf v}_i
++\frac{1}{2}\sum^{N}_{ij}{\bf r}_{ij}\hat{\bf F}_{ij}, 
 \label{TotalFsigma}
 \end{align}
 where $\hat{\bf  F}$ is the total  force that the solid  exerts on the
-fluid  and $\boldsymbol{\sigma}$  is the  total stress  tensor of  the
+fluid  and $\hat{\boldsymbol{\sigma}}$  is the  total stress  tensor of  the
 fluid.   For $B\ge  2$ the  nodal  plane at $B$ is  beyond the  range of  the
 solid-liquid interactions, and we have  that summing the force density
 of node $\mu$ over the bins up  to $\mu=B$ also gives the total force,
@@ -7994,16 +8016,16 @@ this is
 \end{align}
 Therefore, the transport coefficients (\ref{etagamma3}) are given by
 \begin{align}
-\eta(\tau)&= \frac{1}{k_BT}\int_0^{\tau} dt
+\eta&= \frac{1}{k_BT}\int_0^{\tau} dt
 \left\langle  \hat{\boldsymbol{\sigma}}^{xz}_{B}(t) \hat{\boldsymbol{\sigma}}^{xz}\right\rangle^{\rm eq}
 \nonumber\\
-G(\tau) &=   \frac{1}{Sk_BT}\int_0^{\tau} dt
+G &=   \frac{1}{Sk_BT}\int_0^{\tau} dt
 \left\langle  \hat{\bf F}^{x}(t) \hat{\boldsymbol{\sigma}}^{xz}\right\rangle^{\rm eq}
 \nonumber\\
-H(\tau) &=   \frac{1}{Sk_BT}\int_0^{\tau} dt
+H &=   \frac{1}{Sk_BT}\int_0^{\tau} dt
 \left\langle  \hat{\boldsymbol{\sigma}}^{xz}_{B}(t) \hat{\bf F}^{x}\right\rangle^{\rm eq}
 \nonumber\\
-\gamma(\tau)&= 
+\gamma&= 
 \frac{1}{Sk_BT}\int_0^{\tau} dt
 \left\langle  \hat{\bf F}^{x}(t)\hat{\bf F}^{x}\right\rangle^{\rm eq}
 \label{FinMic}
@@ -8082,11 +8104,11 @@ the one provided by Bocquet and Barrat \cite{Bocquet1994}.
 \label{Fig.gammat}
 \end{figure}
 
-Even though we  recover the results that we already  obtained from the
+Even though we  recover the results obtained from the
 continuum  theory,  the  derivation  of the  slip
 length in  terms of Green-Kubo  expressions that we have  derived here
 from the  discrete hydrodynamics gives an  additional information that
-it  was not  evident in  the  continuum derivation  presented by Camargo et al. in  Ref.
+it  was not  evident in  the  continuum derivation  presented by Camargo et al. in
 \cite{CamargoBC2018}    or   even    in    Bocquet    and   Barrat's    derivation
 \cite{Bocquet1994}.  As  it becomes apparent from  the discussion, the
 transport coefficients  $G,H,\gamma$ defined in  (\ref{FinMic}) depend
@@ -8134,7 +8156,7 @@ insensitive to the actual value of  $\tau$. Note that, even though the
 range  of $\tau$  considered is  small  and limited  by the  explosive
 amplification of  statistical errors  involved in  the inverse  of the
 correlation matrix, it  is sufficiently large to  appreciate the decay
-of $\eta',\gamma'$ due to the plateau problem, as shown in the right panel of Fig. \ref{Fig:delta}. \Note{¿Seguro que es esa figura?}
+of $\eta',\gamma'$ due to the plateau problem, as shown in the right panel of Fig. \ref{Fig:tau}.
 
 \begin{figure}[!h]
 \centering
@@ -8170,11 +8192,11 @@ of $\eta',\gamma'$ due to the plateau problem, as shown in the right panel of Fi
 We  have  obtained the  slip  boundary  condition with  a  microscopic
 expression for the slip length but we  have to see whether it is really
 satisfied in actual  simulations.  In order to see if  the Navier slip
-boundary condition is satisfied by the non-equilibrium average initial
+boundary condition is satisfied by the nonequilibrium average initial
 plug  flow  considered   in  this  chapter,  we   define  the  following
 time-dependent slip length
 \begin{align}
-  \delta(t)=\frac{\overline{\bf v}^x_{\rm wall}(t)}{\dot{\overline{\gamma}}_{\rm wall}(t)}
+  \delta(t)=\frac{\overline{\bf v}^x_{\rm wall}(t)}{\dot{\overline{\gamma}}_{\rm wall}(t)},
 \label{deltat}
 \end{align}
 where        $\overline{\bf       v}^x_{\rm        wall}(t)$       and
@@ -8229,7 +8251,7 @@ the  slip boundary  condition.   However, even  though  the force  has
 decayed to zero beyond $t=2$ the slip length $\delta(t)$ still has not
 decayed to its predicted value.  Therefore, we attribute the violation
 of the  slip boundary condition  for $t<5$ to the  non-linear velocity
-profile within the boundary slab.
+profile within the boundary slab, as can be seen in the right panel of Fig. \ref{Fig-gxt-vt}.
 
 We have shown  in Fig. \ref{Fig:tau} how the predicted  slip length is
 insensitive to the value of  $\tau$. In the right panel of Fig.  \ref{Fig:delta} we show
@@ -8284,7 +8306,7 @@ Navier-Stokes equation
 \end{align}
 with  the  slip  boundary  condition  (\ref{NavierDisc2})  applied  at
 $z_{\rm    wall}$.    The    kinematic   viscosity    is   given    by
-$\nu=\eta/\rho$. As  shown in Chapter \ref{Chap:PBC} \Note{Seguro? o es el capítulo de discretización?}, a  Petrov-Galerkin discretization of
+$\nu=\eta/\rho$. As  shown in Chapter \ref{Chap:Planar}, a  Petrov-Galerkin discretization of
 the partial differential equation (\ref{NS}) takes the form
 \begin{align}
   \frac{d}{dt}g_\mu(t)&=\nu \frac{1}{\Delta z^2}(g_{\mu-1}(t)+g_{\mu+1}(t)-2g_{\mu}(t))
@@ -8310,7 +8332,7 @@ that the hydrodynamics  of an unconfined fluid is  reasonable local at
 long times, which  amounts to approximate the viscosity  matrix with a
 diagonal matrix of the form
 \begin{align}
-  \eta_{\mu\nu}(\tau)&\simeq\frac{\delta_{\mu\nu}}{{\cal V}_\mu}\eta_\mu(\tau)
+  \eta_{\mu\nu}(\tau)&\simeq\frac{\delta_{\mu\nu}}{{\cal V}_\mu}\eta_\mu(\tau),
 \label{etadiag}
 \end{align}
 where the local viscosity is defined in a consistent way as
@@ -8368,7 +8390,7 @@ form, for the lower wall
 \end{align}
 This allows to infer the value of $v_1$ as a function of $v_2$ 
 \begin{align}
-  v_1&=\frac{\epsilon}{\epsilon-1}v_2
+  v_1&=\frac{\epsilon}{\epsilon-1}v_2,
 \end{align}
 where $\epsilon=(h-\delta)/\Delta z$ is a dimensionless number.
 A similar expression is obtained for the upper wall
@@ -8377,16 +8399,15 @@ A similar expression is obtained for the upper wall
 \end{align}
 In terms of the momentum we have
 \begin{align}
-  g_1&=\frac{\epsilon}{\epsilon-1}g_2
-\nonumber\\
-  g_{16}&=\frac{\epsilon}{\epsilon-1}g_{15}
+  g_1=\frac{\epsilon}{\epsilon-1}g_2, &&
+  g_{16}=\frac{\epsilon}{\epsilon-1}g_{15}
 \end{align}
 
 By inserting these expressions in (\ref{ODE}) one obtains a closed
 ODE for the set of values ${g}_\mu,\mu=2,\cdots,15$. This
 ODE can be expressed in matrix form as
 \begin{align}
-  \frac{d}{dt}{g}&=\nu \Delta' {g}
+  \frac{d}{dt}{g}&=\nu \Delta' {g},
 \label{closedODE}
 \end{align}
 where the discrete Laplacian operator  for slip boundary conditions is
@@ -8404,7 +8425,7 @@ given by
 \end{align}
 where we have introduced the parameter
 \begin{align}
-\beta&=  \frac{2+\epsilon}{1+\epsilon}
+\beta&=  \frac{\epsilon-2}{\epsilon-1}
 %1+\frac{\eta_1}{\eta_0}\frac{1}{1+\epsilon}
 \end{align}
 that contains  the information about  the slip boundary  condition.
@@ -8436,11 +8457,11 @@ at time $\tau$, this is
 We  then   compare  this   prediction  of  local   hydrodynamics  plus
 microscopically derived  slip boundary condition with  the measurement
 of  the   discrete  momentum.   The   comparison  is  given   in  Fig.
-\ref{Fig:LocalPrediction}  where we  observe  an excellent  agreement.
+\ref{Fig:LocalPrediction},  where we  observe  an excellent  agreement.
 Note that there are no  adjustable parameters in this prediction. Both
 the kinematic viscosity and the slip  length which enter the local hydrodynamic equations are
 measured through well-defined Green-Kubo  expressions.  Note also that
-at shorter times  $t=0.3,0.6,\cdots,2.1$ shown in the  bottom panel of
+at shorter times  $t=0.3,0.6,\cdots,2.1$ shown in the  right panel of
 Fig.  \ref{Fig:LocalPrediction} the agreement is not as good. This is,
 of course,  attributed to the  fact that  at these shorter  times, the
 slip boundary  condition is not  satisfied at all because  neither the
@@ -8457,7 +8478,7 @@ theory plus surface forces is excellent.
 
 \section{Summary}
 
-In this chapter,  we have  considered the  discrete hydrodynamic
+In this chapter  we have  considered the  discrete hydrodynamic
 equations of  Chapter \ref{Chap:Planar} for  the case of  flows along the  parallel walls
 confining the fluid. The resulting  discrete equations correspond to a
 Petrov-Galerkin finite element discretization  of the continuum theory
@@ -8485,7 +8506,7 @@ at very short  times (of molecular size) the  prediction is inaccurate
 due the failure of the Markovian approximation at those short times.
 
 We next  consider the  derivation of the  slip boundary  condition. We
-adapt  the  pillbox  argument  presented by Camargo et al. in  Ref.   \cite{CamargoBC2018}  for  the
+adapt  the  pillbox  argument  presented in  Ref.   \cite{CamargoBC2018}  for  the
 derivation  of   the  slip  boundary  condition   from  the  continuum
 hydrodynamic theory of Chapter \ref{Chap:Theory} to the case  of the present
 planar geometry and  discrete hydrodynamics. The notion  of pillbox is
@@ -8533,7 +8554,7 @@ emerges  from the  mechanical balance  argument is  given in  terms of
 microscopic  expressions  that  involve Green-Kubo  formulas  for  the
 viscosity and friction coefficients. The  slip length predicted by the
 discrete hydrodynamic theory coincides  with the slip length predicted
-from the  continuum hydrodynamic theory obtained in the work of Camargo et al. \cite{CamargoBC2018}.
+from the  continuum hydrodynamic theory obtained in \cite{CamargoBC2018}.
 As it was mentioned in the introduction to this chapter, the microcopic expressions for the slip
 %We  discussed in
 %\cite{2}  that, in  turn,  the microscopic  expressions  for the  slip
@@ -8570,7 +8591,7 @@ decay to zero at long times.  We  have not been able to track down the
 origin of this  problem but a possible explanation lies  in the use by
 Petravic and Harrowell of a thermostate applied to all fluid particles
 in  the  simulations,  as  this  has been  shown  to  have  an  effect
-\cite{AlizadehPahlavan2011}
+\cite{AlizadehPahlavan2011}.
 
 The phenomenological observation of the  validity of the slip boundary
 condition at the late stages of  the plug flow, and the agreement with
@@ -8773,7 +8794,7 @@ salt \footnote{Molten salts consisting of 60-wt.$\%$ NaN0$_3$ and 40-wt.\% KNO$_
 There are a lot of experimental publications in which is observed an enhancement in the specific heat of a molten salt due to the introduction of nanoparticles \cite{Schuller2015b, Chieruzzi20xza,Khanafer2015a}, but there is not a clear physical explanation for such effect. 
 An early attempt to explain it can be found in Ref. \cite{Shin2014}, where it is proposed and expression for the specific heat of the mixture which take into account the mass and the specific heat of the nanoparticles, as well as the mass and the specific heat of the nanofluid. They attributed the enhancement to the surface area of nanoparticles.
 
-
+\pagestyle{Contents}
 \bibliographystyle{unsrt}
 \bibliography{bibTex/thesis-library}
 
@@ -10379,6 +10400,7 @@ is given by
 \end{appendices}
 
 \cleardoublepage
+\pagestyle{Contents}
 \addcontentsline{toc}{chapter}{List of figures} % para que aparezca en el indice de contenidos
 \listoffigures % indice de figuras
 
