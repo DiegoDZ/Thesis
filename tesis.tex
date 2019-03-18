@@ -200,6 +200,7 @@
 %\pagestyle{Dedicatoria}
 %\begin{flushright}
 %\textit{A los que en los últimos meses han percibido mi soledad como ausencia\\y mi ensimismamiento por mi presencia.}
+%\textit{To those who in the last months perceived my loneliness because of my absence, \\ and my self-absortion due to my presence.}
 %\end{flushright}
 
 \chapter*{Acknowledgments} % si no queremos que añada la palabra "Capitulo"
@@ -297,7 +298,7 @@ dynamic  behaviour \cite{Lowen2003,Evans2016}.   Since the  pioneering
 work by Marconi and Tarazona  \cite{Marconi2000} for Brownian dynamics, several approaches
 have been considered  for the formulation of DDFT,
 ranging from  kinetic theory  \cite{Guo2006}, to  projection operators
-\cite{Espanol2009a},  and variational  approaches \cite{Schmidt20xz}.
+\cite{Espanol2009a},  and variational  approaches \cite{Schmidt2013}.
 Most    existing    works     deal    with    colloidal    suspensions
 \cite{Goddard2012,Evans2016}. However, there exist  still a gap in the
 treatment  of the dynamics of \textit{simple}  fluids \textit{near  solids} at  scales
@@ -315,7 +316,7 @@ where  the  structure  of  the  fluid  is  relevant.
 %momentum density and energy density  as conserved variables, and these
 %variables may  evolve in  comparable timescales  as the  density.  We
 %have  recently extended  DDFT  to {\em  non-isothermal} situations  by
-%including the energy density  field \cite{Anero20xz}.  Recent attempts
+%including the energy density  field \cite{Anero2013}.  Recent attempts
 %in that direction  have also been taken  by Schmidt \cite{Schmidt2011}
 %and Wittkowski et al.  \cite{Wittkowski2012}.  The resulting theory is
 %valid  for \textit{quiescent}  fluids  or solids  in which  convective
@@ -328,14 +329,14 @@ where  the  structure  of  the  fluid  is  relevant.
 %a practically  incompressible liquid  like water at  room temperature.
 %The  natural thermodynamic  potential is  the free  energy functional,
 %instead   of   an   entropy   functional   as   introduced   in   Ref.
-%\cite{Anero20xz}. 
+%\cite{Anero2013}. 
 %\\\Note{Fin paper theory}
 In  particular,  two phenomena  are
 observed near  walls at the  nanoscale.  First, the appearance  of the
 density  layering  capturing the  excluded  volume  effects of  single
 molecules.   For equilibrium  liquids near  walls, 
 DFT has  been an exceptionally good theoretical  tool for the
-prediction of  these layering effects \cite{Hansen20xz}.   Second, the
+prediction of  these layering effects \cite{Hansen2013}.   Second, the
 observation that the velocity of fluids  may be nonzero near the wall
 surface.
 %showing  that  the   no-slip  boundary  condition  does  not
@@ -391,7 +392,7 @@ linear  response  theory   in   order  to  derive  a  Green-Kubo
 expression  for the  slip length.   Later  on, the  same authors  
 revisited the problem and offered an argument based on the generalized
 Langevin  equation  (GLE), leading  to  the  same expression  obtained
-earlier\cite{Bocquet20xz}.  Bocquet and Barrat proposed the following  expression for
+earlier\cite{Bocquet2013}.  Bocquet and Barrat proposed the following  expression for
 the friction coefficient
 \begin{align}
   \gamma=\frac{1}{Sk_BT}\int_0^{\tau} dt \llangle \hat{F}^x(t)\hat{F}^x\rrangle
@@ -4758,7 +4759,7 @@ nonlocal way  in both space and  time.
 
 For unconfined fluids  at the
 nanoscale the methods of Generalized Hydrodynamics \cite{Boon1980,Mountain1977,
- Hansen20xz,Alley1984}  have been very succesfull  in order
+ Hansen2013,Alley1984}  have been very succesfull  in order
 to  characterize the  dynamics of  fluids  at nanoscales. These scales can  be
 probed with neutron scattering techniques.  Generalized hydrodynamics
 considers wavenumber  and frequency dependent  transport coefficients,
@@ -8118,7 +8119,7 @@ friction  coefficient $\gamma(\tau)$  defined in  (\ref{FinMic}) as  a
 function of  the upper limit of  integration $\tau$. The absence  of a
 plateau is obvious  and concomitant to the absence of  a plateau for
 the     transport     matrix      $\gamma_{\mu\nu}(t)$     in     Fig.
-\ref{Fig.noplateau}.   Bocquet and  Barrat \cite{Bocquet20xz}  assumed
+\ref{Fig.noplateau}.   Bocquet and  Barrat \cite{Bocquet2013}  assumed
 that  the thermodynamic  limit would  provide a  cure for  the plateau
 problem in  the friction  coefficient, but this  is not  correct.  The
 solid-liquid friction  coefficient $\gamma(\tau)$ decays and  does not
@@ -8559,11 +8560,11 @@ As it was mentioned in the introduction to this chapter, the microcopic expressi
 %We  discussed in
 %\cite{2}  that, in  turn,  the microscopic  expressions  for the  slip
 boundary  condition coincide  with the  ones proposed  in the  seminal
-paper  by Bocquet  and Barrat  \cite{Bocquet1994,Bocquet20xz} under  a
+paper  by Bocquet  and Barrat  \cite{Bocquet1994,Bocquet2013} under  a
 suitable redefinition of the wall position. Despite this nice match of
 theoretical results, we emphasize that the present derivation resolves
 the  issue  of  the  plateau  problem that  was  overlooked  in  Refs.
-\cite{Bocquet1994,Bocquet20xz} and also by Camargo et al. in \cite{CamargoBC2018}. In fact, we
+\cite{Bocquet1994,Bocquet2013} and also by Camargo et al. in \cite{CamargoBC2018}. In fact, we
 have shown that  the Green-Kubo expressions for  the viscosity $\eta$,
 the  friction coefficient  $G$ and  the friction  coefficient $\gamma$
 entering the slip  length all decay towards zero in  an algebraic way,
@@ -8658,26 +8659,29 @@ viscosity kernel may be approximated with a local viscosity.
 %CONCLUSIONS
 %-----------------------------------------------------------------
 \chapter{Conclusions}\label{Chap:Conclusions}
-%\epigraph{\textit{The runner runs truly to the end.}}{Once a runner \\ JOHN L. PARKER}
-The main achievement of this dissertation is to validate the slip boundary condition from nonequilibrium MD simulations of a decaying plug flow with the Navier slip boundary condition derived from the formulation of a mechanical balance on a boundary fluid slab near a solid wall.  
-In order to address it, we have proposed in Chapter \ref{Chap:Theory} a continuum hydrodynamic theory derived with the Kawasaki-Gunton operator method that considers the interaction of a fluid with a solid object. The theory presented defines the hydrodynamic variables with coarse $\delta$ functions  instead  of Dirac $\delta$ functions as we published in Ref. \cite{Camargo2018}. 
-The reason why we have changed from Dirac $\delta$ functions to coarse $\delta$ functions is that we have
-%In   the    continuum   hydrodynamic   theory   presented    in   Chapte %Ref. \cite{Camargo2018}  
-%the  solid  exerts both,  reversible  forces  that
-%forbid the penetration of the fluid inside the solid, and irreversible
-%forces concentrated  in the  vicinity of the  solid that  describe the
-%friction between the  wall and the fluid. In  principle, the equations
-%are nonlocal in space and would  describe the layering of the density
-%field near the walls, thus  generalizing Density Functional Theory for
-%simple  fluids  to  non-equilibrium   situations.   However,  we  have
+The main achievement of the present dissertation is to validate the slip boundary condition 
+from nonequilibrium MD simulations of a decaying plug flow with the Navier slip boundary condition 
+derived from the formulation of a mechanical balance on a fluid slab near a solid wall.  
+In order to address it, we proposed in Chapter \ref{Chap:Theory} a continuum hydrodynamic theory 
+derived with the Kawasaki-Gunton operator method that considers the interaction of a fluid with a solid sphere. 
+%The theory presented defines the hydrodynamic variables with Dirac $\delta$ functions. Nevertheless, 
+%in Chapter \ref{Chap:Walls} we observed that in the stric continumm limit, the Markov 
+%assumption implicit in th ederivation of the hydrodynamic equations breaks down near the walls. 
+In   the    continuum   hydrodynamic   theory   presented    in   Chapter \ref{Chap:Theory},
+the  solid  exerts both,  reversible  forces  that
+forbid the penetration of the fluid inside the solid, and irreversible
+forces concentrated  in the  vicinity of the  solid that  describe the
+friction between the  wall and the fluid. In  principle, the equations
+are nonlocal in space and would  describe the layering of the density
+field near the walls, thus  generalizing Density Functional Theory for
+simple  fluids  to  nonequilibrium   situations.   However,  we  have
 observed in Chapter \ref{Chap:Walls} that in the  strict continuum  limit, the
 Markov  assumption  implicit in  the  derivation  of the  hydrodynamic
 equations breaks down  near the  walls.
 Only if one defines the hydrodynamic variables with an implicit length
 scale    by   using,    for    example,    coarse   $\delta$    functions
-\cite{Weinhart2012} instead  of Dirac $\delta$ functions,  one may expect
-the Markov assumption  in the theory of Ref.  \cite{Camargo2018} to be
-valid, which is exactly we did in Chapter \ref{Chap:Theory}.
+instead  of Dirac $\delta$ functions,  one may expect
+the Markov assumption.
 %One  can  reproduce  step  by  step  the  procedure  in  Ref.
 %\cite{Camargo2018}  in order  to  obtain the  hydrodynamic theory  for
 %these  coarse  hydrodynamic  variables.   The  resulting  hydrodynamic
@@ -8701,23 +8705,24 @@ valid, which is exactly we did in Chapter \ref{Chap:Theory}.
 %for the slip length of the  Navier boundary condition as in the theory
 %with Dirac delta functions.
 
-In Chapter \ref{Chap:Planar}, we
-have  formulated  a  discrete  hydrodynamic theory  for  planar  flows
-between  planar walls.   This theory  can  be understood  as a  finite
-element discretization  of the  continuum hydrodynamic theory  in Chapter \ref{Chap:Theory} 
+In order to validate through MD simulations the hydrodynamic theory presented in Chapter \ref{Chap:Theory}, 
+we formulated a discrete hydrodynamic theory for planar flows between two solid walls. 
+This theory  can  be understood  as a  finite
+element discretization  of the  continuum hydrodynamic theory  
 when restricted  to  planar  flows.  The  discrete
 hydrodynamic theory introduces an intrinsic  length scale given by the
-size of the bins in which space is discretized.  In counterdistinction
-to  the continuum  theory  presented in Chapter \ref{Chap:Theory},  the
-discrete theory of Chapter \ref{Chap:Planar}
-allows for its validation through MD simulations.
+size of the bins in which space is discretized.  
+%In counterdistinction
+%to  the continuum  theory  presented in Chapter \ref{Chap:Theory},  the
+%discrete theory of Chapter \ref{Chap:Planar}
+%allows for its validation through MD simulations.
 
 In  Chapter \ref{Chap:PBC},  we   have  considered  the
 correlations  of  the discrete  momentum  of  an unconfined  fluid  in
-periodic boundary conditions with no solid walls.  This has allowed us
+periodic boundary conditions with no solid walls.  This allowed us
 to discuss the  locality of hydrodynamics in time  (i.e. the Markovian
 assumption)  and  how it  is  related  to  locality in  space.   Quite
-remarkably  we  show there  that  the  Green-Kubo expression  for  the
+remarkably  we  show there  that  the  Green-Kubo formula  for  the
 nonlocal  viscosity  kernel  suffers dramatically  from  the  plateau
 problem.  In Sec. \ref{Sec:GKsi} of Chapter \ref{Chap:PBC}, we have  shown that the plateau problem is
 due to  the fact that the  Green-Kubo formula defined in  terms of the
@@ -8733,11 +8738,11 @@ correlation matrix of the transverse momentum.
 
 In Chapter \ref{Chap:Walls}, we  have shown that the
 shear flow  dynamics in  fluids confined between  planar walls  is not
-Markovian if  the bins  in which  the fluid is  divided are  too thin.
+Markovian if  the bins  in which  the fluid is  divided are  too thin. 
 An important conclussion of this chapter is that non-Markovian effects  are detected from the  non-exponential decay of
 the eigenvalues of the  correlation matrix.  The non-Markovian effects
 are clearly identified as originating  near the walls. For bins larger
-than the molecular size, the dynamics becomes fully Markovian.
+than the molecular size, the dynamics becomes fully Markovian but nonlocal effects, such the layering near the walls, are lost. 
 
 Finally, in Chapter \ref{Chap:Slip}, we have measured, through equilibrium MD simulations,
 the nonlocal
@@ -8759,16 +8764,15 @@ the friction coefficient is an intrinsic surface property, in contrast with the 
 %-----------------------------------------------------------------
 \chapter{Future Directions}\label{Chap:Future}
 %\epigraph{\textit{Descubrir es ver de otro modo lo que nadie ha percibido.}}{Blanco Nocturno \\ RICARDO PLIGIA}
-\Note{Están las ideas expuestas pero falta escribirlo mejor}\\
-In this dissertation we have presented an isothemal theory for a fluid in contact with a solid where the atoms of the solid are moving and vibrating. Nevertheless, in the MD simulations presented to validate the theory, the solid is treated as a frozen crystal with no interaction between its particles.
+In this dissertation we have presented an isothemal theory for a fluid in contact with a solid where the atoms of the solid are moving and vibrating. 
+Nevertheless, in the MD simulations presented to validate the theory, the solid is treated as a frozen crystal with no interaction between its particles.
+One issue easy to address consists of following the methodology that we have presented but simulating, instead of a frozen solid, a more realistic one with some degrees of freedom. 
+Although our results are robust, it would be convenient to validate them with the ones given by the interaction between the fluid with a ``real'' solid. 
+In particular, check if the slip lenght depends on the ``degree of reality'' of the solid. We obtained a slip lenght which does not depend on the geometry of the system. This result agrees with the one obtained by Bocquet and Barrat \cite{Bocquet1994} but it is opposed to the Petravic and Harrowell \cite{Petravic2007}). Therefore, it would be interesting to study if such size channel independence is due to a particular interaction between the fluid and the solid. 
 
-An interesting issue easy to address consists of following the methodology that we have presented but simulating, instead of a frozen solid, a more realistic solid. 
-Although our results are robust, it would be convenient to contrast them with the ones given by the interaction between the fluid with a ``real'' solid. 
-In particular, check if the slip lenght depends on the type of solid. We saw that the slip lenght, according to Bocquet and Barrat \cite{Bocquet1994} but opposed to Petravic and Harrowell \cite{Petravic2007}, does not depend of the geometry of the system, but maybe this independence is due to a particular interaction between the fluid and the solid. 
-
-Another issue that is necessary to consider is the study of the effect of the bin size in the Markovian behaviour of the fluid near the solid 
-We observed that for a bin size of a molecular lenght, the Markovian approximation assumed in the derivation of the hydrodynamic equations of the fluid is not appropiated and, therefore, we have to choose biggers bins. 
-Because of the high computational cost of these simulations we could not address it in this dissertation, but it would be convenient to see if it is possible to obtain Markovian behaviour near the solid for a bin size that captures the layering. 
+Another important open problem is about analyze the effect of the bin size in the Markovian behaviour of the fluid near the solid. 
+We observed that for a bin size of a molecular lenght, the Markovian approximation assumed in the derivation of the hydrodynamic equations of the fluid is not appropiated and, therefore, we have to discretize the system in bigger bins. The problem that arises when we use thick bins is that the layering near the walls is lost. 
+Because of the high computational cost of these simulations we could not address it in this dissertation, but it would be convenient to check if it is possible to obtain Markovian behaviour near the solid for a bin size that captures the layering. 
 
 
 %This solid is, in fact, totally unrealistic but for the purpose of this dissertation should be valid. 
@@ -8779,20 +8783,20 @@ Because of the high computational cost of these simulations we could not address
 %One interesting way to explore is the markovianity for a wide bin size. Because of the high computational cost of these simulations we could not addressed it in this dissertation, but it would be convenient to see if we can obtain Markovian behaviour near the solid while we capture the layering. 
 %Also, it would be convenient to answer if our results are a partocular case produces by the fluid interaction with an unrealistic frozen solid wall.For example, simulations with a solid walls with particules interacting with a LJ potentials. 
 
-Finally, another problem which arises from this dissertation is to derive a non-isothermal theory in which the relevant variables are the presented in Chapter \ref{Chap:Theory} and the ones that take into account the energy of the fluid and the solid, that is
+Finally, a natural extension of this work is to derive a non-isothermal theory in which the CG relevant variables are the presented in Chapter \ref{Chap:Theory} and the ones that take into account the energy of the fluid and the solid, that is
 \begin{align}
-  \hat{e}_{\bf r}(z) = \sum_i^N e_i\bar{\delta}({\bf r}-{\bf q}_i) &&  \hat{E}(z)=\sum_{i'}^{N'}e_{i'}
+  \hat{e}_{\bf r}(z) = \sum_i^N e_i\bar{\delta}({\bf r}-{\bf q}_i) &&  \hat{E}(z)=\sum_{i'}^{N'}e_{i'},
 \end{align}
 where $e_i$ and $e_i'$ are the total energy of the fluid particle $i$ and the total energy of the solid particle $i'$, respectively. 
 
-The interest behind this, and the original motivation of the present dissertation, is to understand the heat transfer between solid and fluids, specifically between nanoparticles and molten salts. 
-The industry has a high interest in the study of mixtures of molten salts with nanoparticles in order to use them as a storage thermal fluid in solar plants \cite{Mahian20xz,Schuller2015b, Shahrul2014a,Goharshadi20xza,Serrano-Lopez20xz}. 
-They have low toxicity and melting point, and high specific heat capacity. 
+The interest behind this (and the original motivation of this dissertation) is to understand the heat transfer between solids and fluids, specifically between nanoparticles and molten salts. 
+The industry has a high interest in the study of mixtures of molten salts with nanoparticles in order to use them as a storage thermal fluid in solar plants \cite{Mahian2013,Schuller2015b, Shahrul2014a,Goharshadi2013a,Serrano-Lopez2013}. 
+They have low toxicity and melting point, and high specific heat capacity which can be increased depending on the type and percentage by weight of the nanoparticles added. 
 It has been observed an enhancement of $20\%$  in the specific heat capacity of a solar
-salt \footnote{Molten salts consisting of 60-wt.$\%$ NaN0$_3$ and 40-wt.\% KNO$_3$. } due to the introduction of silica and alumina nanoparticles \cite{Chieruzzi20xza}.
+salt \footnote{Molten salts consisting of 60-wt.$\%$ NaN0$_3$ and 40-wt.\% KNO$_3$. } due to the introduction of silica and alumina nanoparticles \cite{Chieruzzi2013a}.
   
-There are a lot of experimental publications in which is observed an enhancement in the specific heat of a molten salt due to the introduction of nanoparticles \cite{Schuller2015b, Chieruzzi20xza,Khanafer2015a}, but there is not a clear physical explanation for such effect. 
-An early attempt to explain it can be found in Ref. \cite{Shin2014}, where it is proposed and expression for the specific heat of the mixture which take into account the mass and the specific heat of the nanoparticles, as well as the mass and the specific heat of the nanofluid. They attributed the enhancement to the surface area of nanoparticles.
+There are a lot of experimental publications in which is observed an enhancement in the specific heat of a molten salt due to the introduction of nanoparticles \cite{Schuller2015b, Chieruzzi2013a,Khanafer2015a}, but there is not a clear physical explanation for such effect.
+An early attempt to explain it can be found in Ref. \cite{Shin2014}, where Shin et al. propose an expression for the specific heat of the mixture which take into account the mass and the specific heat of the nanoparticles, as well as the mass and the specific heat of the nanofluid. They attributed the enhancement measured in the experiemtns to the surface area of nanoparticles. Nevertheless, the debate about the physical origin of the specific heat enhancement due to nanoparticles is not conclude. This dissertation establishes not only the theoretical framework to address this problem but also the right methodology.
 
 \pagestyle{Contents}
 \bibliographystyle{unsrt}
@@ -8802,26 +8806,27 @@ An early attempt to explain it can be found in Ref. \cite{Shin2014}, where it is
 %---------
 % APPENDIX
 %---------
-\pagestyle{noHeader}
 \begin{appendices}
 %\appendix
 \chapter{Contributions}\label{Ap:Contributions}
+\pagestyle{noHeader}
 \markboth{Contributions}{}
 The following published articles and posters are related with this dissertation.
 \begin{enumerate}
-  \item \cite{} Nanoscale hydrodynamics near solids.
-  \item \cite{} Discrete hydrodynamics near solids for planar flows.
-  \item \cite{} Solution to the plateau problem in the Green-Kubo formula.
-  \item \cite{} Space and time locality of discrete hydrodynamics.
-  \item \cite{} Non-Markovian behaviour of discrete hydrodynamics near solids.
-  \item \cite{} The slip boundary condition from MD simulations revisited.
+  \item \cite{Camargo2018} Nanoscale hydrodynamics near solids.
+  \item \cite{Espanol2019e} Solution to the plateau problem in the Green-Kubo formula.
+  \item \cite{} Slip and non-Markovian effects in nanohydrodynamics. \Note{Falta referencia}
+  \item \cite{Discrete1} Discrete hydrodynamics I: Theory for planar flows with confining walls. To be submitted.
+  \item \cite{Discrete2} Discrete hydrodynamics II: Space and time locality for unconfined flows. To be submitted. 
+  \item \cite{Discrete3} Discrete hydrodynamics III: Non-Markovian behaviour near solids walls. To be submitted. 
+  \item \cite{Discrete4} Discrete hydrodynamics IV: The slip boundary condition. To be submitted. 
   \item \cite{FISESMadrid} Nanoscale hydrodynamics in periodic and confined geometries. Poster presented at 22th Workshop on Statistical Physics (FISES18), Madrid (Spain) 2018.
   \item \cite{IWNET} Nanoscale hydrodynamics in periodic boundary conditions. Poster presented at 8th International Workshop on Nonequilibrium Thermodynamics, Sint-Michielsgestel (The Netherlands) 2018.
   \item \cite{Ulam} Nanoscale heat transport in fluids near solids. Poster presented at Ulam Computer Simulation Workshop, Lviv (Ukraine) 2017.
   \item \cite{FISESSevilla} Thermal hydrodynamics transport between fluids and solids. Poster presented at 21th Workshop on Statistical Physics (FISES17), Seville (Spain) 2017.
   \end{enumerate}
 
-  Furthemore, I presented part of this work in two seminars at the Universidad Nacional de Educación a Distancia. 
+  Furthemore, I presented part of this work in two seminars at Universidad Nacional de Educación a Distancia. 
   \begin{enumerate}
   \item Nanoscale hydrodynamics nears solids. Universidad Nacional de Educación a Distancia, Madrid (Spain) 2017.
               \item Simulación de procesos térmicos en la dinámica de nanofluidos. Universidad Nacional de Educación a Distancia, Madrid (Spain) 2016.
@@ -8831,7 +8836,6 @@ The following published articles and posters are related with this dissertation.
 \chapter{List of Acronyms}\label{Ap:Acronyms}
 \markboth{List of Acronyms}{}
 \begin{tabular}{l l}
-    CM   & Classical Mechanics \\
     DFT  & Density Functional Theory \\
     DDFT & Dynamic Density Functional Theory \\
     GLE  & Generalized Langevin equation \\
@@ -8841,30 +8845,52 @@ The following published articles and posters are related with this dissertation.
     MD   & Molecular Dynamics \\
     NEMD & Nonequilibrium Molecular Dynamics\\
     NESM & Nonequilibrium Statistical Mechanics \\
-    QM   & Quantum Mechanics \\
-    SM   & Statistical Mechanics \\
+    PBC  & Periodic Boundary Conditions \\
+    SDE  & Stochastic Differential Equation \\
     ToCG & Theory of Coarse-Graining \\
 \end{tabular}
 
 
-\chapter{Physical parameters and variables}
-\markboth{Physical parameters and variables}{}
+\chapter{List of symbols}
+\markboth{List of symbols}{}
+
 \begin{tabular}{l l}
-    $m$ & mass particles \\
-    $L_x, L_y, L_Z$ & dimensions of the simulations box \\
-    $M'$ & mass solid sphere \\
-    $M$ & mass solid walls \\
-    $N$ & Number of liquid particles \\
+  $i{\cal L}$ & Liouville operator \\ 
+    $L_x, L_y, L_Z$ & Dimensions of the simulation box \\
+    $\Lambda$ & Relaxation matrix\\
+    $m$ & Mass of the particles \\
+    $M'$ & Mass solid sphere \\
+    $M$ & Mass solid walls \\
+    $M^{\Phi}$ & Mass matrix \\
+    $M^*$ & Friction matrix \\
+    $N$ & Number of fluid particles \\
     $N'$ & Number of solid particles \\
     $N_{\rm bins}$ & Number of bins \\
     $k_B$ & Boltzmann's constant \\
     $T$ & Temperature \\
     $\beta$ & $(k_BT)^{-1}$ \\
-    $\Delta z$ & distance between two nodal planes \\
+    $\Delta z$ & Distance between two nodal planes \\
     $\delta_{\mu\nu}$ & Kronecker delta \\
     ${\cal F}[]$ & Free energy functional \\
     $F()$ & Free energy function \\
+    $h$ & Planck's constant \\
+    $\rho_{\mu\nu}$ & Mass density matrix \\
+    $\rho({\bf z})$ & Microscopic probability density \\
+    $\bar{\rho}({\bf z}, t)$ & Microscopic relevant ensemble \\
+    $\rho^{\rm eq}{{\bf z}}$ & Equilibrium stationary microcopic probability density\\
+    $\lambda({\bf z}), \mu$ & Lagrange multipliers \\
+    ${\cal P}, {\cal Q}$ & Projection operators \\
+    $\Phi_{\mu}({\bf r})$ & Finite element basis functions \\
+    ${\cal S}[\rho]$ & Gibbs-Jaynes functional \\
+    $V_T$ & Volume of the simulation box \\
+    $V_{\mu}$ & Volume of the bin $\mu$ \\
+    $\chi_{\mu}(z)$ & Characteristic function of bin $\mu$ \\
+    $\hat{{\bf z}}$  & Microscopic state \\
+    $\hat{{\bf z}}_0$  & Initial microscopic state \\
+    $\left<\dots\right>^{\bf c}$ & Conditional expectation \\
+
 \end{tabular}
+
 
 \chapter{Forces}  
 \label{Ap:Forces}
@@ -8947,6 +8973,8 @@ Integrate by parts to obtain
 \frac{1}{\Xi[\mu,\boldsymbol{\lambda}_R]}
  \sum_{N=0}^\infty \frac{1}{N!}
 \int \frac{dq}{\Lambda^{3N}}\frac{dq'}{\Lambda^{3N'}}
+\nonumber \\
+&\times
 e^{-\beta U}
 k_BT\sum^{N}_{j}-\frac{\partial }{\partial {\bf q}_{j}}\left[\bar{\delta}({\bf r}-{\bf q}_j)
 \exp\left\{-\beta  \left( \boldsymbol{\lambda}_R{\cdot}\hat{\bf R}
@@ -9182,7 +9210,6 @@ Let us now move to the projected current ${\cal Q}_t\hat{\boldsymbol{\sigma}}_{\
 \frac{\delta}{\delta {\bf g}({\bf r}',t)}
 \left[{\rm Tr}\left[\overline{\rho}_{t} \hat{\bf K}_{{\bf r}}\right]+{\rm Tr}\left[\overline{\rho}_{t} \hat{\boldsymbol{\Pi}}_{{\bf r}}\right]\right]
 \nonumber\\
-\nonumber\\
 &=\hat{\boldsymbol{\sigma}}_{{\bf r}}- {\rm Tr}\left[\overline{\rho}_{t} \hat{\boldsymbol{\sigma}}_{{\bf r}}\right]
 \nonumber\\
 &-\int d{\bf r}'(\hat{\rho}_{{\bf r}'}-\rho({\bf r}',t))
@@ -9197,7 +9224,7 @@ Let us now move to the projected current ${\cal Q}_t\hat{\boldsymbol{\sigma}}_{\
 \left[
  \frac{k_BT}{m}\rho({\bf r})\boldsymbol{\delta}
 +\frac{{\bf g}({\bf r}){\bf g}({\bf r})}{\rho({\bf r})}
-+{\rm Tr}\left[\overline{\rho}_{t} \hat{\boldsymbol{\Pi}}_{{\bf r}}\right]\right]
++{\rm Tr}\left[\overline{\rho}_{t} \hat{\boldsymbol{\Pi}}_{{\bf r}}\right]\right],
 \label{QS}
 \end{align}
 where we  have decomposed the kinetic  and virial parts of  the stress
@@ -9280,16 +9307,16 @@ may  take  ${\bf v}({\bf  r},t)\simeq  0$  and $\rho({\bf  r},t)\simeq
 currents
 \begin{align}
     {\cal Q}_t\hat{\bf F}^{\rm s\to l}_{{\bf r}}&=
-\hat{\bf F}^{\rm s\to l}_{{\bf r}}- {\rm Tr}\left[\rho_{\rm eq}\hat{\bf F}^{\rm s\to l}_{{\bf r}}\right]
--\int d{\bf r}'\int d{\bf r}''(\hat{\rho}_{{\bf r}'}-{\rho}_{\rm eq}({\bf r}'))
+\hat{\bf F}^{\rm s\to l}_{{\bf r}}- {\rm Tr}\left[\rho^{\rm eq}\hat{\bf F}^{\rm s\to l}_{{\bf r}}\right]
+-\int d{\bf r}'\int d{\bf r}''(\hat{\rho}_{{\bf r}'}-{\rho}^{\rm eq}({\bf r}'))
 \llangle \delta\hat{\rho}_{{\bf r}'}\delta\hat{\rho}_{{\bf r}''}\rrangle_{\rm eq}^{-1}
-\llangle \delta \hat{\rho}_{{\bf r}''}\hat{\bf F}^{\rm s\to l}_{{\bf r}}\rrangle_{\rm eq}
+\llangle \delta \hat{\rho}_{{\bf r}''}\hat{\bf F}^{\rm s\to l}_{{\bf r}}\rrangle^{\rm eq}
 \nonumber\\
   {\cal Q}_t\hat{\boldsymbol{\sigma}}^{\alpha\beta}_{{\bf r}}&=
 \hat{\boldsymbol{\sigma}}^{\alpha\beta}_{{\bf r}}-{\rm Tr}\left[\overline{\rho}_t\hat{\boldsymbol{\sigma}}^{\alpha\beta}_{{\bf r}}\right]
--\int d{\bf r}'\int d{\bf r}''(\hat{\rho}_{{\bf r}'}-{\rho}_{\rm eq}({\bf r}'))
+-\int d{\bf r}'\int d{\bf r}''(\hat{\rho}_{{\bf r}'}-{\rho}^{\rm eq}({\bf r}'))
 \llangle \delta\hat{\rho}_{{\bf r}'}\delta\hat{\rho}_{{\bf r}''}\rrangle^{-1}
-\llangle \delta \hat{\rho}_{{\bf r}''}\hat{\boldsymbol{\sigma}}^{\alpha\beta}_{{\bf r}}\rrangle_{\rm eq}
+\llangle \delta \hat{\rho}_{{\bf r}''}\hat{\boldsymbol{\sigma}}^{\alpha\beta}_{{\bf r}}\rrangle^{\rm eq}
 \label{QFSeq}
 \end{align}
 Physically,  the  last integral terms    are  the  responsible  to
@@ -9336,7 +9363,7 @@ subject  to  provide   the  correct  averages  of   the  CG  variables
 (\ref{rhogmumic})  (plus   the  total   energy).  This  result   in  a
 generalized canonical ensemble of the form
 \begin{eqnarray}
-  \overline{\rho}&=&\frac{1}{\Xi(\lambda,{\bf v})}\exp\left\{-\beta \hat{H}
+  \overline{\rho}=\frac{1}{\Xi(\lambda,{\bf v})}\exp\left\{-\beta \hat{H}
 -\beta\left(M^\psi_{\mu\nu}\lambda_\nu \hat{\rho}_{\mu}
 -M^\psi_{\mu\nu}{\bf v}_\nu\esc\hat{\bf g}_{\mu}\right)\right\}
 \label{relenslnAp}
@@ -9360,7 +9387,7 @@ grand-canonical partition function defined as
 \end{align}
 From the partition function one defines the generalized thermodynamic potential
 \begin{eqnarray}
-  \Phi (\lambda,{\bf v})&\equiv&-k_BT \ln\Xi (\lambda,{\bf v})
+  \Phi (\lambda,{\bf v})\equiv-k_BT \ln\Xi (\lambda,{\bf v})
 \label{ohAp}
 \end{eqnarray}
 The  conjugate  fields  $\lambda_\nu,{\bf  v}_\nu$ are  fixed  by  the
@@ -9390,13 +9417,11 @@ Kawasaki-Gunton method, one  defines the entropy of  the present level
 of description  as the result  of evaluating the  Gibbs-Jaynes entropy
 at  the maximum, which  is given by  the relevant
 ensemble (\ref{relenslnAp}).  The result is
-\Pendiente{
 \begin{align}
-  S(\rho,{\bf g}) &=k_B\beta\left[E-\Phi(\lambda,{\bf v})
-+\rho_\mu M^\psi_{\mu\nu}\lambda_\nu-{\bf g}_\mu\esc M^\psi_{\mu\nu}{\bf v}_\nu\right]
+  S(\rho,{\bf g}) =k_B\beta\left[E-\Phi(\lambda,{\bf v})
++\rho_\mu M^\psi_{\mu\nu}\lambda_\nu-{\bf g}_\mu\esc M^\psi_{\mu\nu}{\bf v}_\nu\right],
 \label{entropy2}
 \end{align}
-}
 where  here  the  conjugate  variables $\lambda,{\bf  v}$  are  to  be
 understood as functions  of the averages $\rho,{\bf  g}$.  This allows one
 to define  the following coarse-grained Hamiltonian
@@ -9425,7 +9450,7 @@ solid degrees of freedom $\hat{z}'$, with the result
 \int d\hat{z}
 \exp\left\{-\beta (\hat{H}^l +\hat{V}^{\rm sl} )-\beta
 \left(M^\psi_{\mu\nu}\lambda_\nu\hat{\rho}_{\mu} 
--M^\psi_{\mu\nu}{\bf v}_\nu\esc\hat{\bf g}_{\mu} \right)\right\}
+-M^\psi_{\mu\nu}{\bf v}_\nu\esc\hat{\bf g}_{\mu} \right)\right\},
 \label{xilnApp}
 \end{align}
 where the CG effective potential $\hat{V}^{\rm sl}(z)$ captures, in a CG way, the interaction
@@ -9445,7 +9470,7 @@ function  (\ref{xilnApp})
 M^\psi_{\mu\nu}\lambda_\nu\hat{\rho}_{\mu}(\hat{z})\right\}
 \times \nonumber \\
 &\int d\hat{p}
-\exp\left\{-\beta\sum_i\frac{{\bf p}_i^2}{2m_i}+\beta M^\psi_{\mu\nu}{\bf v}_\nu\esc\sum_i{\bf p}_i\delta_\mu({\bf q}_i)\right\}
+\exp\left\{-\beta\sum_i\frac{{\bf p}_i^2}{2m_i}+\beta M^\psi_{\mu\nu}{\bf v}_\nu\esc\sum_i{\bf p}_i\delta_\mu({\bf q}_i)\right\},
 \label{xilnApp2}
 \end{align}
 where $\hat{V}(\hat{z})=\hat{V}^{ll}(\hat{z})+\hat{V}^{sl}(\hat{z})$ is the potential energy of the fluid. 
@@ -9499,7 +9524,7 @@ leading to the following results
 \nonumber\\
   \Omega_1 &=\Omega_0  {\bf v}_\mu\psi_\mu({\bf r}_i)m_i
 \nonumber\\
-  \Omega_2 &=\Omega_0\left[k_BTm_i\delta_{ij}{\bf 1}+m_i^2{\bf v}_\mu\psi_\mu({\bf r}_i) {\bf v}_\nu\psi_\nu({\bf r}_i)\right]
+  \Omega_2 &=\Omega_0\left[k_BTm_i\delta_{ij}{\bf 1}+m_i^2{\bf v}_\mu\psi_\mu({\bf r}_i) {\bf v}_\nu\psi_\nu({\bf r}_i)\right],
 \label{Omegas}
 \end{align}
 where we have introduced the following matrix with dimensions of mass
@@ -9532,7 +9557,7 @@ The  velocity   and  momentum   density  field  are   related  through
 (\ref{rgoApp}).   By  using  (\ref{ohAp})  and (\ref{xiln2})  one  is  lead
 directly to the explicit form of the conjugate variables
 \begin{align}
-{\bf g}_\mu&=M^\delta_{\mu\mu'}\llangle \hat{\cal M}_{\mu'\nu}\rrangle^{\lambda {\bf v}} {\bf v}_\nu =\rho_{\mu\nu}{\bf v}_\nu
+{\bf g}_\mu&=M^\delta_{\mu\mu'}\llangle \hat{\cal M}_{\mu'\nu}\rrangle^{\lambda {\bf v}} {\bf v}_\nu =\rho_{\mu\nu}{\bf v}_\nu,
 \label{nu2}
 \end{align}
 where the  matrix $\hat{\cal M}_{\mu'\nu}$ is  defined in (\ref{calM})
@@ -9614,7 +9639,7 @@ the reversible part of the dynamics
   \llangle i{\cal L}\hat{\bf g}_\mu\rrangle^{\lambda{\bf v}} &={\bf F}_\mu(\rho,{\bf g})
 + \frac{k_BT}{m} \llg \llangle\hat{\rho}\rrangle^{\lambda{\bf v}}\boldsymbol{\nabla}\delta_\mu\rlg
 +\llg\llangle \hat{\rho}\rrangle^{\lambda{\bf v}}\overline{\bf v}\overline{\bf v}\esc
-\boldsymbol{\nabla}\delta_{\mu}\rlg 
+\boldsymbol{\nabla}\delta_{\mu}\rlg,
 \end{align}
 where we have used the notation (\ref{notation}) and introduced the discrete force density 
 \begin{align}
@@ -9689,7 +9714,8 @@ M^\psi_{\mu'\nu'}(\lambda_{\nu'}m_i\boldsymbol{\nabla}\delta_{\mu'}({\bf r}_i)-{
 \nonumber\\
 &=\llg\delta_\mu\llangle \hat{\rho}_{\bf r}\rrangle^{\lambda{\bf v}}\boldsymbol{\nabla}\overline{\lambda}\rlg
 - \llg\delta_\mu\llangle\hat{\rho}_{\bf r}\rrangle^{\lambda{\bf v}}
-\boldsymbol{\nabla}\frac{\overline{\bf v}^2}{2}  \rlg \label{f1}
+\boldsymbol{\nabla}\frac{\overline{\bf v}^2}{2}  \rlg ,
+\label{f1}
 \end{align}
 where  we  have  used  that  the  relevant  ensemble  average  of  the
 microscopic momentum  density $\hat{\bf  g}_{\bf r}$ is  obtained from
@@ -9703,7 +9729,7 @@ The final form of the force density is
   {\bf F}_\mu(\rho,{\bf g})
   &=-\frac{k_BT}{m}\llg\llangle\hat{\rho}_{\bf r}\rrangle^{\lambda{\bf v}}
 \boldsymbol{\nabla}\delta_\mu\rlg
--\llg\delta_\mu\llangle\hat{\rho}_{\bf r}\rrangle^{\lambda{\bf v}}\boldsymbol{\nabla}\overline{\mu}\rlg
+-\llg\delta_\mu\llangle\hat{\rho}_{\bf r}\rrangle^{\lambda{\bf v}}\boldsymbol{\nabla}\overline{\mu}\rlg,
 \end{align} 
 where we have introduced the interpolated chemical potential  per unit mass field
 \begin{align}
@@ -9730,7 +9756,6 @@ momentum evolution is given by
 
 \section{The approximate form of the reversible part of the dynamics}
 \label{Ap:aproxRevDyn}
-\Note{Darle una vuelta más a este apéndice}
 We consider now  several approximations that allow one  to obtain more
 explicit expressions  for the reversible  dynamics. We start  with the
 partition function (\ref{xiln2b}), that contains in its definition the
@@ -9931,9 +9956,8 @@ defined as
 Because the thermodynamic potential is convex, there is a one to one connection between
 the conjugate variables and the averages of the CG variables, that is,
 \begin{align}
-  \lambda_\mu &\leftrightarrow a_\mu(\lambda)
-\nonumber\\
-  \lambda_{\bf r} &\leftrightarrow a_{\bf r}[\lambda]
+  \lambda_\mu \leftrightarrow a_\mu(\lambda), &&
+  \lambda_{\bf r} \leftrightarrow a_{\bf r}[\lambda]
 \end{align}
 In particular, we denote by $a_{\bf r}[\overline{\lambda}]  $ the field which is
 conjugate to the interpolated $\overline{\lambda}_{\bf r}$.
@@ -9944,8 +9968,7 @@ This field is, in general, different from the interpolated field
 The interpolated field can be understood as a smoothing operation because
 \begin{align}
   \overline{a}_{\bf r}&=a_\mu\psi_\mu({\bf r})
-\nonumber\\
-&=\int d{\bf r}'a_{\bf r}\delta_\mu({\bf r}')\psi_\mu({\bf r})
+=\int d{\bf r}'a_{\bf r}\delta_\mu({\bf r}')\psi_\mu({\bf r})
 \nonumber\\
 &=\int d{\bf r}'a_{\bf r}\Delta({\bf r}',{\bf r})
 \end{align}
@@ -10017,9 +10040,8 @@ We introduce the following two
 symmetric second  order tensors,  that we  call tangential  and normal
 projectors, respectively
 \begin{align}
-  {\bf T}^{\alpha\beta}&\equiv\boldsymbol{\delta}^{\alpha\beta}-{\bf n}^\alpha{\bf n}^\beta
-\nonumber\\
-{\bf  N}^{\alpha\beta}&\equiv{\bf n}^\alpha{\bf n}^\beta
+  {\bf T}^{\alpha\beta}\equiv\boldsymbol{\delta}^{\alpha\beta}-{\bf n}^\alpha{\bf n}^\beta, &&
+{\bf  N}^{\alpha\beta}\equiv{\bf n}^\alpha{\bf n}^\beta
 \end{align}
 The unit tensor may be 
 written as
@@ -10173,7 +10195,6 @@ indices and symmetric with respect to its last two indices is given by
 \chapter{The covariance}
 \label{Ap:Cov}
 \markboth{The covariance}{}
-\Note{Pendiente repasar este apéndice.}
 In  this  appendix,  we  compute   explicitly  the  covariance  of  the
 transverse momentum density  which is given by  the molecular ensemble
 average
@@ -10263,8 +10284,7 @@ covariance (\ref{Cneg}).
 \chapter{The continuum and thermodynamic limits}
 \label{Ap:Cont}
 \markboth{The continumm limit and thermodynamic limits}{}
-\Note{Pendiente gráficas}
-In this appendix we consider the continuum and thermodynamic limits of
+In this appendix, we consider the continuum and thermodynamic limits of
 the  exponential  matrix (\ref{ExpMat})  governing  the  decay of  the
 correlation   (\ref{Cmunut}).  Note   that,  according   to  Onsager's
 regression hypothesis, the  evolution of the average  profile is given
@@ -10274,7 +10294,7 @@ by
 \label{gevol}
 \end{align}
 The matrix  exponential may be  understood as the Green's  function of
-the problem.  We choose as initial  profile a Dirac delta like function at
+the problem.  We choose as initial  profile a Dirac $\delta$ like function at
 the origin, suitably displaced to have a zero value of total momentum,
 this is
 \begin{align}
@@ -10286,8 +10306,7 @@ initial profile into (\ref{gevol}), we have
 \begin{align}
   g_\mu(t)&=
 g_0\frac{1}{{N_{\rm bin}}\Delta z}\sum_{\mu'=1}^{{N_{\rm bin}}-1}\exp\left\{i\frac{2\pi}{{N_{\rm bin}}}(\mu-\nu)\mu'\right\}
-\nonumber\\
-\times&\exp\left\{-\tilde{\nu}_{\mu'}\frac{2}{\Delta z^2}\left(1-\cos\frac{2\pi}{{N_{\rm bin}}}\mu'\right)t\right\}
+\exp\left\{-\tilde{\nu}_{\mu'}\frac{2}{\Delta z^2}\left(1-\cos\frac{2\pi}{{N_{\rm bin}}}\mu'\right)t\right\},
 \label{gmut}
 \end{align}
 where note  that the  term $\mu'=0$  is now  absent.  Note  that total
@@ -10303,7 +10322,7 @@ continuum limit.
 
 \begin{figure}[]
   \includegraphics[width=\linewidth]{Green}
-\caption{Left panel: Value  of  $g_{\mu=0}(t)$ for  an  initial  Dirac delta  like
+  \caption[Visualization of the algebraic prediction of $g_{\mu}(t)$ in the thermodynamic and continuum limit]{Left panel: Value  of  $g_{\mu=0}(t)$ for  an  initial  Dirac delta  like
   initial profile (\ref{Inig}). The length of the box is $L_z=24,48,96
   $,  and the  number  of nodes  is  ${N_{\rm bin}}=112,224,448$  thus
   keeping  the size  of the  bins fixed,  for increasing  curves. This
@@ -10382,7 +10401,8 @@ By using these results, equation (\ref{Layer}) becomes
 \eta_{B\nu}\frac{\overline{\bf v}^x_{\nu+1}-\overline{\bf v}^x_{\nu}}{\Delta z}
 -\sum^{B}_{\mu=1}{\cal V}_\mu \sum_{\nu=1}^{N_{\rm bin}} {\cal V}_\nu G_{\mu\nu}
 \frac{\overline{\bf v}^x_{\nu+1}-\overline{\bf v}^x_{\nu}}{\Delta z}
-+S\sum_{\nu=1}^{N_{\rm bin}} {\cal V}_\nu H_{B\nu}\overline{\bf v}^x_\nu 
+\nonumber \\
+&+S\sum_{\nu=1}^{N_{\rm bin}} {\cal V}_\nu H_{B\nu}\overline{\bf v}^x_\nu 
 -\sum^{B}_{\mu=1}{\cal V}_\mu \sum_{\nu=1}^{N_{\rm bin}} {\cal V}_\nu\gamma_{\mu\nu}\overline{\bf v}^x_\nu
 \end{align}
 The final expression for the force (per  unit area) on the slab due to
