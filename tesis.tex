@@ -71,7 +71,7 @@
 \fancyhead[RE]{\leftmark}
 \fancyhead[LO]{\leftmark }
 \fancyfoot{}
-\renewcommand{\headrulewidth}{0}
+\renewcommand{\headrulewidth}{0pt}
 }
 
 %New commands
@@ -197,17 +197,36 @@
 \copyrightpage
 \blankpage
 
-%\pagestyle{Dedicatoria}
-%\begin{flushright}
+\pagestyle{Dedicatoria}
+\begin{flushright}
 %\textit{A los que en los últimos meses han percibido mi soledad como ausencia\\y mi ensimismamiento por mi presencia.}
 %\textit{To those who in the last months perceived my loneliness because of my absence, \\ and my self-absortion due to my presence.}
-%\end{flushright}
+  \textit{Dedicatoria}
+\end{flushright}
 
 \chapter*{Acknowledgments} % si no queremos que añada la palabra "Capitulo"
 \pagestyle{noHeader}  %define page style for the chapters
 %\addcontentsline{toc}{chapter}{Agradecimientos} % si queremos que aparezca en el índice
 %\markboth{Acknowledgments}{Acknowledgments} % encabezado 
-blablalbla
+Just only when you finish the work in which you have spent the last four years is the moment to look behind you and remember why you are in front of a laptop writting this lines. In the following lines I would like to show my gratitude to the people who not only have supported me but also who have inspired me.   
+
+To my parents and my sister for respect my independence and encourage me when I needed to change the direction of my life. Thank you for giving me that little book of Astronomy which sparked the curiosity about the space and, years later, the love for physics. Thanks to my father for taking my messy ideas and put them in the cover of this dissertation. To my family for being an example of humility and critical thinking. 
+
+I would like to express my particular thanks to my thesis supervisor, Pep Español, for giving me the opportunity to live not only a period of increidble learning but also one of the most exiting of my life. Without your work, pacience and persistency this dissertation would never have been finished. Thank you for transmitting your ideas about how the science must be done and for pushing until the end even though the results seemmed to turned against us.  
+
+My appreciation to Arturo for keeping the door of his office always open to my concerns and technical problems. Thank you for understanding my priorities as they would be yours. Without your ``sons'', Bruno and Grodd, I would be still waiting to the end of the simulations. 
+
+To Manu because he called me when he saw the FPI grant in the elevator of the faculty. Thank you very much for transmitting me your love for Python and for our conversations about books, politics, films and series that dressing the lunch time in the cantine along the first three years. 
+
+I would like to show my gratitude to my collegues of the Fundamental Physics department, specially to those who covered me the last Febrary when I was totally absorbed in this disseration. To the heterogeneous group of the cantine. The discussions about any topic helped me to forget the troubles that awaited me in the office. 
+
+To my friends. They have always stayed tuned to my thesis despite the distance that the modern life imposes. It have been said that the real friends are made before the thirties \cite{Llaneras2018}. I am very glad to have met you before. 
+
+To the people who have enjoyed the mountains with me. To those who were before and the ones who are now. To La Pedriza, my playground at weekends; to your slab walls and your approaches between rock roses and psychedelic granite stones; to the intricade paths which have been witnesses of innumerable races, running days and some falls. To the music bands that have made more mild {\it the loneliness of the long distance runner}.  
+
+To my cats, Yuri and Igor, whose unconditional love and mischiefs made me happier in the sleepless nights and the crazy days.  
+
+Finally, to Claudia. Thanks not only for being by my side in the good moments but also for encouraging me in the bad ones. Thank you very much for being my partner in the most biggest mountain we have ever climbed. Now is time for another adventure I hope that makes us have such a good time and learning so much as all those we have lived toguether.  
 
 \pagestyle{Contents}  %define page style for the index
 \tableofcontents % indice de contenidos
@@ -216,19 +235,35 @@ blablalbla
 %\addcontentsline{toc}{section}{Abstract} % si queremos que aparezca en el índice
 \pagestyle{noHeader}  %define page style for the chapters
 \markboth{Abstract}{Abstract} % encabezado
-blablabla
+This dissertation studies the behaviour of a fluid in contact with a solid in the nanoscale. We will derive the equations of motion of a fluid in contact with a huge solid sphere (in such a way that the surface of the sphere can be approximate as a wall) using the Theory of Coarse Graining (ToCG).
+We will use the Kawasaki-Gunton projection operator technique which let us to obtain a set of nonlinear equations for the relevant variables of the syste. We will suppose a Markovian behaviour in order to obtain a set of memoryless equations.
+We will address the well known plateau problem  that appears in the expressions of the transport coefficients present in the equations of motion of the fluid in contact with a solid. To avoid it we will obtain an alternative expression for the transport coefficients without the plateau problem. 
+
+In order to validate the theory and measure the transport coefficients with Molecular Dynamics (MD) simulations, we will derive the discrete equations of motion from a set of discrete hydrodynamic variables. To address it we will divide the system along the perpendicular axis of the surface of the solid walls in bins of a certain width separated by nodal planes. The discrete variables will be define in that bins or nodes in a way that will be explain elsewhere.
+We will show that these discrete equations may be interpreted as a discretization of the continuum equations using the Petrov-Galerkin finite element method.  
+
+The only assumption to derive the equations of motion of the fluid is the hypothesis of markovianity. In order to validate it, we will use the Mori theory which let us to obtain the time evolution of the correlation of the relevant variales of the system. 
+We will see that only for an exponential decay of the correlations the hypothesis is valid. 
+%This only occurs when the size of the bins is sufficiently large but not for thin bins of the order of the molecular lenght.  
+
+We will address the issue of the markovianity analyzing a simpler case such as an unconfined fluid. We will perform MD simulations of a fluid in periodic boundary conditions (PBC) for monitoring the relevant variales of the system and to compute their correlations. 
+We will observe that we need to move to the reciprocal space (i.e. the Fourier space for unconfined fluids) in order to validate the Markovian hypothesis. Only for an exponentil decay of the modes of the matrix of correlations decay we can expect the Markovian hypothesis to be valid. 
+
+Once the methodology is well established in order to address a more complicated system, we will perform MD simulations of a confined fluid between two solid slabs. We will show that if the size of the bin is of the order of the molecular lenght the Markovian hypothesis is not true for modes near the walls. Nevertheless, for large bins the hypothesis is accomplished but the nonlocal effect of layering is lost. 
+
+Finally, we will measure the slip boundary condition from a microscopic definition of the slip lenght and the hydrodynamic position of the atomic wall. We will show that the expression we obtain is the one given by Bocquet and Barrat \cite{Bocquet1994}. We will demonstrate that the friction coefficient is a an intrinsic property of the surface of the solid because it does not depend on the size of the channel. 
 
 \chapter*{Resumen} % si no queremos que añada la palabra "Capitulo"
 %\addcontentsline{toc}{section}{Resumen} % si queremos que aparezca en el índice
 \markboth{Resumen}{Resumen} % encabezado
-Esta tesis doctoral estudia el comportamiento de un fluido en contacto con un sólido a nivel nanoscópico. Derivaremos las ecuaciones de movimiento de un fluido que se encuentra en contacto con una esfera sólida de grandes dimensiones (de tal manera que la superficie de la esfera pueda ser aproximada a una pared) empleando la Teoría del \textit{Coarse-Graining} (ToCG). Para ello emplearemos la técnica de los operadores de proyección de Kawasaki-Gunton y supondremos un comportamiento Markoviano para obtener un conjunto de ecuaciones sin términos de memoria. 
-Abordaremos el problema del \textit{plateau} que sufren las formulas de Green-Kubo presentes en los coeficientes de transporte de las ecuaciones de movimiento del fluido, ofrenciendo una expresión alternativa sin el problema del \textit{plateau}.  
+Esta tesis doctoral estudia el comportamiento de un fluido en contacto con un sólido a nivel nanoscópico. Derivaremos las ecuaciones de movimiento de un fluido que se encuentra en contacto con una esfera sólida de grandes dimensiones (de tal manera que la superficie de la esfera pueda ser aproximada a una pared) empleando la Teoría del \textit{Coarse-Graining} (ToCG). Para ello emplearemos la técnica de los operadores de proyección de Kawasaki-Gunton y supondremos un comportamiento Markoviano para obtener un conjunto de ecuaciones de las variables relevantes del sitema sin términos de memoria. 
+Abordaremos el problema del \textit{plateau} que sufren las formulas de Green-Kubo presentes en los coeficientes de transporte de las ecuaciones de movimiento del fluido ofrenciendo una expresión alternativa sin el problema del \textit{plateau}.  
 
 Para validar la teoría y poder medir los coeficientes de transporte mediante simulaciones de dinámica molecular, derivaremos de nuevo las ecuaciones de la nanohidrodinámica a partir de unas variables hidrodinámicas discretas. 
 Para ello dividiremos el sistema a lo largo del eje perpendicular a la superficie de la paredes en una serie de láminas o celdas rectangulares de un grosor determinado separadas por planos nodales, de tal manera que las variables puedan ser definidas en dichas celdas o planos nodales.  
 Con el fin de verificar que la derivación es correcta, mostraremos que la ecuaciones obtenidas pueden ser interpretadas como una discretización de las ecuaciones continuas mediante el método de Petrov-Galerkin de elementos finitos.  
 
-La hipótesis de markovianidad es la única aproximación realizada para derivar las ecuaciones de la hidrodinámica. Para validarla emplearemos la teoría de Mori que nos da una expresión de la evolución temporal de las correleaciones de las variables relevantes del sistema. La hipótesis Markoviana es válida siempre y cuando las correlaciones decaigan de forma exponencial. Esto ocurre para celdas suficientemente anchas pero no para celdas estrechas. 
+La hipótesis de markovianidad es la única aproximación realizada para derivar las ecuaciones de la hidrodinámica. Para validarla emplearemos la teoría de Mori que nos da una expresión de la evolución temporal de las correleaciones de las variables relevantes del sistema. La hipótesis Markoviana es válida siempre y cuando las correlaciones decaigan de forma exponencial.
 
 Abordaremos el problema de la markovianidad estudiando el caso más sencillo posible, que es un fluido en condiciones de contorno periódicas. Realizaremos simulaciones de dinámica molecular de un fluido no confinado en las cuales iremos monitorizando las variables relevantes del sistema con el fin de calcular sus correlaciones temporales. 
 Observaremos que para el estudio de la markovianidad será conveniente trasladarse al espacio recíproco (en el caso de un fluido en condiciones de contorno periódicas se trata del espacio de Fourier) y comprobar si los modos de la matriz de correlaciones decaen o no de forma exponencial. 
@@ -530,7 +565,7 @@ The main objetive of this chapter is to obtain the discrete transport coefficien
     \centering
     %\includegraphics[scale=0.3]{system_nodes_walls}
     \frame{\includegraphics[width=.5\linewidth]{PRL3_gold2_wo_diffuse}}
-    \caption[Sketch of the binning used]{A visual representation of a MD simulation with a sketch of the binning used. In yellow are depicted the nodal planes used.}
+    \caption[Visual representation of a MD simulation with a sketch of the binning used]{A visual representation of a MD simulation with a sketch of the binning used. In yellow are depicted the nodal planes used.}
     \label{fig:WallsBox1}
 \end{figure}
 
@@ -822,7 +857,7 @@ This is called the {\it Liouville theorem}. It shows that if we take a volume in
     \centering
     \includegraphics[scale=0.9]{Liouville}
     %\includegraphics[width=\linewidth]{Liouville}
-    \caption[The Liouville theorem]{Conservation of the volume in the phase space along time. We show two different shapes but with equal volume. The Liouville theorem establishes that the volume will be the same.}
+    \caption[Representation of the Liouville theorem]{Conservation of the volume in the phase space along time. We show two different shapes but with equal volume. The Liouville theorem establishes that the volume will be the same.}
     \label{fig:LiouvilleTh}
 \end{figure}
 
@@ -3517,7 +3552,7 @@ $\mu$.
 \begin{figure}[h]
   \centering
   \includegraphics[scale=0.25]{psichi}
-\caption{The basis function $\Phi_\mu(z)$ of node $\mu$ (blue) and the characteristic function $\chi_\mu(z)$ of bin $\mu$ (orange).}
+  \caption[Basis function $\Phi_\mu(z)$ and the characteristic function $\chi_\mu(z)$]{The basis function $\Phi_\mu(z)$ of node $\mu$ (blue) and the characteristic function $\chi_\mu(z)$ of bin $\mu$ (orange).}
 \label{psichi}
 \end{figure}
 
@@ -3935,7 +3970,7 @@ linear functions as
 \begin{figure}
     \centering
     \includegraphics[scale=0.2]{spiky}
-    \caption[``Spiky'' aproximation]{The microscopic density field $\hat{\rho}_{\bf r}{\bf}(z)$ (black), which is a sum of Dirac $\delta$ functions each one located at the position of the particle $i$, is approximated by an interpolation of the discrete microscopic density field $\hat{\rho}_{\mu}(z)$ at the nodes (blue).}
+    \caption[Visual representation of the ``spiky'' aproximation]{The microscopic density field $\hat{\rho}_{\bf r}{\bf}(z)$ (black), which is a sum of Dirac $\delta$ functions each one located at the position of the particle $i$, is approximated by an interpolation of the discrete microscopic density field $\hat{\rho}_{\mu}(z)$ at the nodes (blue).}
     \label{fig:spiky}
 \end{figure}
 As illustrated in Fig. (\ref{fig:spiky}), the left  hand side contains  sums of singular Dirac  $\delta$ functions,
@@ -5068,7 +5103,7 @@ is equal to the node  $N_{\rm bin}$.
 \begin{figure}
     \centering
     \includegraphics[scale=0.3]{system_nodes_periodic}
-    \caption[Periodic box]{\Note{Pedir a Arturo esta figura}A visual representation of the MD simulation with a sketch of the binning used. In yellow are depicted the nodal planes used.}
+    \caption[Visual representation of an unconfined fluid simulation and the binning used]{\Note{Pedir a Arturo esta figura}A visual representation of the MD simulation with a sketch of the binning used. In yellow are depicted the nodal planes used.}
     \label{fig:PBCBox}
 \end{figure}
 As we explained in Sec. \ref{Sec:DiscreteBasis}, nodes are  points  in  the $z$  axis,  while bins  are
@@ -5896,7 +5931,7 @@ manner that we describe below.
 \centering
 %\includegraphics[scale=0.4]{Ct-matrix-PBC}
 \includegraphics[width=\linewidth]{Ct-matrix-PBC}
-\caption[Correlation matrix $C(t)$ at $t=0$ and $t=0.6$ for PBC system.]{The   correlation    matrix   $C_{\mu\nu}(t)=\llangle
+\caption[Correlation matrix $C(t)$ at $t=0$ and $t=0.6$ for an unconfined fluid]{The   correlation    matrix   $C_{\mu\nu}(t)=\llangle
 g_{\mu}(t)  g_\nu\rrangle$ for  $t=0$ (left) and $t=0.6$ (right).}
 \label{fig:Ct-matrix-PBC}
 \end{figure}
@@ -5917,7 +5952,7 @@ covariance in the Appendix \ref{Ap:Cov}.\Note{¿Cómo hicimo esto?:/}
 \begin{figure}[h!]
 \centering
 \includegraphics[scale=0.41]{Ct-mu30nu-PBC}
-\caption[$C_{30\nu}(t)$ for PBC system.]{$C_{\mu\nu}(t)=\llangle  g_{\mu}(t) g_\nu\rrangle$  for $\nu=30$
+\caption[$C_{30\nu}(t)$ for an uncofined fluid]{$C_{\mu\nu}(t)=\llangle  g_{\mu}(t) g_\nu\rrangle$  for $\nu=30$
  as a  function of node index  $\nu$ and for times $t=0, 0.2, 0.4, 0.6$ in descending order.}
  \label{fig:Ct-mu30nu-PBC} 
 \end{figure}
@@ -5934,7 +5969,7 @@ hydrodynamics.
 \begin{figure}[h!]
 \centering
 \includegraphics[scale=0.41]{Ct-mu30nu30-PBC}
-\caption[Autocorrelation for PBC system.]{The autocorrelation
+\caption[Autocorrelation for an unconfined fluid]{The autocorrelation
   $\llangle g_{\mu}(t) g_\mu\rrangle$ (for  any $\mu$)
   . The correlation  decays very
 slowly, in an  apparent algebraic way as can be  seen in logscale in the inset.}
@@ -5946,7 +5981,7 @@ slowly, in an  apparent algebraic way as can be  seen in logscale in the inset.}
   \centering
   %\includegraphics[scale=0.41]{CtFourier-PBC}
   \includegraphics[scale=0.41]{CtFourier-PBC}
-  \caption[Diagonal $\tilde{C}_{\mu\nu}(t)$ for PBC]{The diagonal $\tilde{C}_{\mu\mu}(t)$ of the Fourier transform
+  \caption[Diagonal $\tilde{C}_{\mu\nu}(t)$ for an unconfined fluid]{The diagonal $\tilde{C}_{\mu\mu}(t)$ of the Fourier transform
   of the correlation  matrix $C(t)$ for different values  of the time.
 In      descending     order      the     plotted      times go from $t=0.10$ to $t=0.20$ in intervals of $0.02$. }
 \label{fig:CtFourier-PBC}
@@ -5956,7 +5991,7 @@ In      descending     order      the     plotted      times go from $t=0.10$ to
   \centering
   %\includegraphics[scale=0.41]{CtFourier-PBC-exp}
   \includegraphics[width=\linewidth]{CtFourier-PBC-exp}
-  \caption[Evolution of different eigenvalues $\tilde{C}_{\mu\nu}(t)$ for PBC]{
+  \caption[Evolution of different eigenvalues $\tilde{C}_{\mu\nu}(t)$ for an unconfined fluid]{
   The  evolution of  the different
   eigenvalues  $\tilde{C}_{\mu\mu}(t)$ of  the  correlation matrix  of
   momentum  as  a  function  of   time  in  a  lin-lin  plot  (left)
@@ -6007,7 +6042,7 @@ where the relaxation time is given in equation (\ref{taumu}).
   \centering
 %\includegraphics[scale=0.41]{LambdatFourier-PBC}
 \includegraphics[width=\linewidth]{LambdatFourier-PBC}
-\caption[Diagonal elements  $\tilde{\Lambda}_{\mu\mu}(t)$ of  the Fourier transform of $\Lambda(t)$]{The  diagonal elements  $\tilde{\Lambda}_{\mu\mu}(t)$ of  the
+\caption[Diagonal elements  $\tilde{\Lambda}_{\mu\mu}(t)$ of  the Fourier transform of $\Lambda(t)$ for an unconfined fluid]{The  diagonal elements  $\tilde{\Lambda}_{\mu\mu}(t)$ of  the
   Fourier transform of $\Lambda(t)$ defined in (\ref{AproxCtau}), as a
   function of  $\mu$ (left)  and $t$  (right).  In  the left  panel, in
   ascending  order the  plotted times  go  from $t=0$  to $t=0.20$  in
@@ -6065,7 +6100,7 @@ is given by
 \begin{figure}[h!]
   \centering
 \includegraphics[scale=0.41]{CompareLambdas-PBC}
-\caption[Comparison $\tilde{\Lambda}^*_{\mu\mu}$ and $\tilde{\Lambda}_{\mu\mu}(\tau)$]{Comparison $\tilde{\Lambda}^*_{\mu\mu}=\tilde{\Lambda}_{\mu\mu}(\tau)$ for $\tau=0.2$ with $\tilde{\Lambda}^{\rm loc}_{\mu\mu}$ in equation (\ref{Lambdaloc}) with $\nu_0=1.48$. The red line has slope $1$ and it is for guide the eye.}
+\caption[Comparison $\tilde{\Lambda}^*_{\mu\mu}$ and $\tilde{\Lambda}_{\mu\mu}(\tau)$ for an unconfined fluid]{Comparison $\tilde{\Lambda}^*_{\mu\mu}=\tilde{\Lambda}_{\mu\mu}(\tau)$ for $\tau=0.2$ with $\tilde{\Lambda}^{\rm loc}_{\mu\mu}$ in equation (\ref{Lambdaloc}) with $\nu_0=1.48$. The red line has slope $1$ and it is for guide the eye.}
 \label{fig:CompareLambdas-PBC}
 \end{figure}
 In         Fig.           \ref{fig:CompareLambdas-PBC}         we         plot
@@ -6098,7 +6133,7 @@ correlation.
   \centering
 %\includegraphics[scale=0.41]{Predictionsmumu-PBC}
 \includegraphics[width=\linewidth]{Predictionsmumu-PBC}
-\caption[Comparison of autocorrelation $C_{\mu\mu}$ with the predicions for PBC system]{Comparison of autocorrelation $C_{\mu\mu}(t)$ with the predictions of the nonlocal (orange) and local (green) theries. The left panel is in linscale and the right panel in logscale. The red line is at $t=\tau$ where the three curves coincide by construction. The inset shows a zoom at short times.}
+\caption[Comparison of autocorrelation $C_{\mu\mu}$ with the predicions for an unconfined fluid]{Comparison of autocorrelation $C_{\mu\mu}(t)$ with the predictions of the nonlocal (orange) and local (green) theries. The left panel is in linscale and the right panel in logscale. The red line is at $t=\tau$ where the three curves coincide by construction. The inset shows a zoom at short times.}
 \label{fig:Predictionsmumu-PBC}
 \end{figure}
 
@@ -6108,7 +6143,7 @@ In Fig. \ref{fig:Predictionsmumu+1-PBC} we compare the cross correlation $C_{\mu
   \centering
 %\includegraphics[scale=0.41]{Predictionsmumu+1-PBC}
 \includegraphics[width=\linewidth]{Predictionsmumu+1-PBC}
-\caption[Comparison of cross correlation $C_{\mu\mu+1}$ with the predicions for PBC system]{Comparison of autocorrelation $C_{\mu\mu+1}(t)$ with the predictions of the nonlocal (orange) and local (green) theries. The left panel is in linscale and the right panel in logscale. The red line is at $t=\tau$ where the three curves coincide by construction. The inset shows a zoom at short times.}
+\caption[Comparison of cross correlation $C_{\mu\mu+1}$ with the predicions for an unconfined fluid]{Comparison of autocorrelation $C_{\mu\mu+1}(t)$ with the predictions of the nonlocal (orange) and local (green) theries. The left panel is in linscale and the right panel in logscale. The red line is at $t=\tau$ where the three curves coincide by construction. The inset shows a zoom at short times.}
 \label{fig:Predictionsmumu+1-PBC}
 \end{figure}
 
@@ -6151,7 +6186,7 @@ decay  in a  quasi  algebraic  manner.
   \centering
 %\includegraphics[scale=0.41]{Etat-PBC}
 \includegraphics[width=\linewidth]{Etat-PBC}
-\caption[The nonlocal viscosity as a function of time for PBC system]{The nonlocal viscosity $\eta_{\mu\nu}(t)$ as a function of time, for $\mu=30$ and, in descending order, $\nu=30-40$. The left panel is in linscale, while the right panel in logscale. The inset is a zoom and the red line is at $t=\tau$.}
+\caption[The nonlocal viscosity as a function of time for an unconfined fluid]{The nonlocal viscosity $\eta_{\mu\nu}(t)$ as a function of time, for $\mu=30$ and, in descending order, $\nu=30-40$. The left panel is in linscale, while the right panel in logscale. The inset is a zoom and the red line is at $t=\tau$.}
 \label{fig:Etat-PBC}
 \end{figure}
 
@@ -6169,7 +6204,7 @@ $\nu_0(t)$ will start to decrease due to finite size effects.}
 \begin{figure}[h!]
   \centering
 \includegraphics[scale=0.41]{KinVisc0t-PBC}
-\caption[The local kinematic viscosity for PBC system]{The local kinematic viscosity $\nu_0(t)=\eta_0(t)/\rho^{\rm eq}$ as a function of time where the shear viscosity is computed with the data from Fig. \ref{fig:Etat-PBC}. A horizontal orange line at $\nu_0=1.48$ from the literature \cite{Woodcock2006} is also plotted in order to guide the eye in the plateau region.}
+\caption[The local kinematic viscosity for an unconfined fluid]{The local kinematic viscosity $\nu_0(t)=\eta_0(t)/\rho^{\rm eq}$ as a function of time where the shear viscosity is computed with the data from Fig. \ref{fig:Etat-PBC}. A horizontal orange line at $\nu_0=1.48$ from the literature \cite{Woodcock2006} is also plotted in order to guide the eye in the plateau region.}
 \label{fig:KinVisc0t-PBC}
 \end{figure}
 
@@ -6211,7 +6246,7 @@ in both bins.
 \begin{figure}[h!]
   \centering
 \includegraphics[scale=0.41]{EtaStartFourier-PBC}
-\caption[The nonlocal shear viscosity kernel for PBC system]{The nonlocal shear viscosity kernel from corrected Green-Kubo formula $\tilde{\eta}^*_{\mu\mu}=\frac{\tilde{\eta}_{\mu\mu}(t)}{\tilde{c}_{\mu\mu}(t)}$}
+\caption[The nonlocal shear viscosity kernel for an unconfined fluid]{The nonlocal shear viscosity kernel from corrected Green-Kubo formula $\tilde{\eta}^*_{\mu\mu}=\frac{\tilde{\eta}_{\mu\mu}(t)}{\tilde{c}_{\mu\mu}(t)}$}
 \label{fig:EtaStartFourier-PBC}
 \end{figure}
 
@@ -6219,7 +6254,7 @@ in both bins.
 \begin{figure}[h!]
   \centering
 \includegraphics[scale=0.41]{CompareEtas-PBC}
-\caption[Comparison $\eta^*_{30,\nu}$ and $eta_{30,\nu}$]{The row $\mu=30$ of the nonlocal shear viscosity matrix $\mu^{*}_{\mu\nu}$ in real space obtained from the corrected Green-Kubo formula (orange) . Also plot is the nonlocal shear viscosity $\eta_{\mu\nu}$ for the Green-Kubo running integral (blue).}
+\caption[Comparison $\eta^*_{30,\nu}$ and $eta_{30,\nu}$ for an unconfined fluid]{The row $\mu=30$ of the nonlocal shear viscosity matrix $\mu^{*}_{\mu\nu}$ in real space obtained from the corrected Green-Kubo formula (orange) . Also plot is the nonlocal shear viscosity $\eta_{\mu\nu}$ for the Green-Kubo running integral (blue).}
 \label{fig:CompareEtas-PBC}
 \end{figure}
 
@@ -6252,7 +6287,7 @@ periodic boundary conditions is fairly local, and can be described with
   \centering
 %\includegraphics[scale=0.41]{KinVisctFourier-PBC}
 \includegraphics[width=\linewidth]{KinVisctFourier-PBC}
-\caption[The eigenvalues of the nonlocal kinematic viscosity matrix for PBC system]{The eigenvalues of the nonlocal kinematic viscosity matrix defined in equation (\ref{kinViscFourier}) as a function of time (right panel), and as a function of the mode index por times from t=0 to t=0.2 in ascending order in intervals of $0.01$. The orange line at $\nu_0=1.48$ is plotted in order to guide the eye in the plateau region.}
+\caption[The eigenvalues of the nonlocal kinematic viscosity matrix for an unconfined fluid]{The eigenvalues of the nonlocal kinematic viscosity matrix defined in equation (\ref{kinViscFourier}) as a function of time (right panel), and as a function of the mode index por times from t=0 to t=0.2 in ascending order in intervals of $0.01$. The orange line at $\nu_0=1.48$ is plotted in order to guide the eye in the plateau region.}
 \label{fig:KinVisctFourier-PBC}
 \end{figure}
 
@@ -6599,7 +6634,7 @@ direction. Note that the space occupied by the fluid is equal to the case expose
     %\includegraphics[scale=0.3]{system_nodes_walls}
     \frame{\includegraphics[width=0.45\linewidth]{PRL3_gold2_wo_layers_wo_diffuse}}
     \frame{\includegraphics[width=0.45\linewidth]{PRL3_gold2_wo_diffuse}}
-    \caption[Walls box]{A visual representation of the MD simulation with a sketch of the binning used. In red are depicted the nodal planes used.}
+    \caption[Visual representation of the MD simulation of a confined fluid between two solid slabs]{A visual representation of the MD simulation (left) and the same with a sketch of the binning used in yellow (right).}
     \label{fig:WallsBox}
 \end{figure}
 
@@ -6639,7 +6674,7 @@ a matrix of $61\times61$ nonzero elements.
 \centering
 %\includegraphics[scale=0.4]{Ct-matrix-WALLS-66nodes}
 \includegraphics[width=\linewidth]{Ct-matrix-WALLS-66nodes}
-\caption[Correlation matrix $C(t)$ at $t=0$ and $t=0.6$ for confined fluid - 66 nodes.]{The   correlation    matrix   $C_{\mu\nu}(t)=\llangle
+\caption[Correlation matrix $C(t)$ at $t=0$ and $t=0.6$ for a confined fluid - Thin bins]{The   correlation    matrix   $C_{\mu\nu}(t)=\llangle
 g_{\mu}(t)  g_\nu\rrangle$ for  $t=0$ (left) and $t=0.6$ (right).}
 \label{fig:Ct-matrix-WALLS-66nodes}
 \end{figure}
@@ -6658,7 +6693,7 @@ $E(0.15)$, $E(0.30)$ and $E(t)$.
 \begin{figure}[h!]
   \centering
 \includegraphics[scale=0.41]{LambdatBasis-WALLS-66nodes}
-\caption[Diagonal elements  $\tilde{\Lambda}_{\mu\mu}(t)$ of $\Lambda(t)$ in three different basis - 66nodes.]{The  diagonal elements  $\tilde{\Lambda}_{\mu\mu}(t)$ of  the
+\caption[Diagonal elements  $\tilde{\Lambda}_{\mu\mu}(t)$ of $\Lambda(t)$ in three different basis for a confined fluid - Thin bins]{The  diagonal elements  $\tilde{\Lambda}_{\mu\mu}(t)$ of  the
   $\Lambda(t)$ in three basis:
 $E(0.15)$ (dashed blue lines), $E(0.30)$ (dashed green lines) and $E(t)$ (solid orange lines). }
 \label{fig:LambdatBasis-WALLS-66nodes}
@@ -6688,7 +6723,7 @@ reflecting the  exponential decay of  the eigenvalues as shown  in Fig. (\ref{fi
   \centering
   %\includegraphics[scale=0.41]{CtRec-WALLS-66nodes-exp}
   \includegraphics[width=\linewidth]{CtRec-WALLS-66nodes-exp}
-  \caption[Evolution of different eigenvalues $\tilde{C}_{\mu\nu}(t)$ for confined fluid - 66 nodes.]{
+  \caption[Evolution of different eigenvalues $\tilde{C}_{\mu\nu}(t)$ for a confined fluid - Thin bins]{
   The  evolution of  the different
   eigenvalues  $\tilde{C}_{\mu\mu}(t)$ of  the  correlation matrix  of
   momentum  as  a  function  of   time  in  a  lin-lin  plot  (left)
@@ -6702,7 +6737,7 @@ reflecting the  exponential decay of  the eigenvalues as shown  in Fig. (\ref{fi
 \begin{figure}[h!]
   \centering
 \includegraphics[scale=0.41]{LambdatRec-WALLS-66nodes}
-\caption[Diagonal elements  $\tilde{\Lambda}_{\mu\mu}(t)$ of $\Lambda(t)$ in the reciprocal space - 66nodes.]{The  diagonal elements  $\tilde{\Lambda}_{\mu\mu}(t)$ of  the
+\caption[Diagonal elements  $\tilde{\Lambda}_{\mu\mu}(t)$ of $\Lambda(t)$ in the reciprocal space for a confined fluid - Thin bins]{The  diagonal elements  $\tilde{\Lambda}_{\mu\mu}(t)$ of  the
   $\Lambda(t)$ in the reciprocal space defined in (\ref{LambdatRec}), as a
   function of $t$.}
 \label{fig:LambdatRec-WALLS-66nodes}
@@ -6725,7 +6760,7 @@ fluid in the direction parallel to the walls.
   \centering
 %\includegraphics[scale=0.41]{EigenvaluesVectors-WALLS-66nodes}
 \includegraphics[width=\linewidth]{EigenvaluesVectors-WALLS-66nodes}
-\caption[Eigenvalues and eigenvectors near the walls for 66 nodes.]{The eigenvalues $\tilde{C}_{\mu}(t)$ of the correlation matrix $C(t)$ for $\mu=59,60$ which are identical and superimpose (left) and the corresponding eigenvectors $u_{\mu}$ in blue and orange, respectively (right).}
+\caption[Eigenvalues and eigenvectors near the walls for a confined fluid - Thin bins]{The eigenvalues $\tilde{C}_{\mu}(t)$ of the correlation matrix $C(t)$ for $\mu=59,60$ which are identical and superimpose (left) and the corresponding eigenvectors $u_{\mu}$ in blue and orange, respectively (right).}
 \label{fig:EigenvaluesVectors-WALLS-66nodes}
 \end{figure}
 
@@ -6747,7 +6782,7 @@ obtain the prediction $C^{\rm  predict}(t)$ of the correlation matrix.
   \centering
 %\includegraphics[scale=0.41]{Predictions-WALLS-66nodes}
 \includegraphics[width=\linewidth]{Predictions-WALLS-66nodes}
-\caption[Predicted autocorrelations of $C(t)$ for 66 nodes.]{The predicted (orange) and the measured (blue) values of the autocorrelation $C_{\mu\mu}(t)$ at different values of $\mu$ (top $\mu=33$, middle $\mu=3$ and bottom $\mu=2$). The predicted and measured correlations coincide by construction at $t=\tau=0.2$, where the vertical red line is. The inset shows a zoom at short times. The right panel is the same in logscale, where the correlations extends up to time $t=30$.}
+\caption[Predicted autocorrelations of $C(t)$ for a confined fluid - Thin bins]{The predicted (orange) and the measured (blue) values of the autocorrelation $C_{\mu\mu}(t)$ at different values of $\mu$ (top $\mu=33$, middle $\mu=3$ and bottom $\mu=2$). The predicted and measured correlations coincide by construction at $t=\tau=0.2$, where the vertical red line is. The inset shows a zoom at short times. The right panel is the same in logscale, where the correlations extends up to time $t=30$.}
 \label{fig:Predictions-WALLS-66nodes}
 \end{figure}
 We plot in Fig. \ref{fig:Predictions-WALLS-66nodes} the  comparison of the measured and the
@@ -6786,7 +6821,7 @@ We still observe negative eigenvalues and non-Markovian behaviour, although the 
   \centering
   %\includegraphics[scale=0.41]{CtRec-WALLS-17nodes-exp}
   \includegraphics[width=\linewidth]{CtRec-WALLS-17nodes-exp}
-  \caption[Evolution of different eigenvalues $\tilde{C}_{\mu\nu}(t)$ for confined fluid - 17 nodes.]{
+  \caption[Evolution of different eigenvalues $\tilde{C}_{\mu\nu}(t)$ for a confined fluid - Thick bins]{
   The  evolution of  the different
   eigenvalues  $\tilde{C}_{\mu\mu}(t)$ of  the  correlation matrix  of
   momentum  as  a  function  of   time  in  a  lin-lin  plot  (left)
@@ -6801,7 +6836,7 @@ We still observe negative eigenvalues and non-Markovian behaviour, although the 
 \begin{figure}[h!]
   \centering
 \includegraphics[scale=0.41]{LambdatRec-WALLS-17nodes}
-\caption[Diagonal elements  $\tilde{\Lambda}_{\mu\mu}(t)$ of $\Lambda(t)$ in the reciprocal space - 17nodes.]{The  diagonal elements  $\tilde{\Lambda}_{\mu\mu}(t)$ of  the
+\caption[Diagonal elements  $\tilde{\Lambda}_{\mu\mu}(t)$ of $\Lambda(t)$ in the reciprocal space for a confined fluid - Thick bins]{The  diagonal elements  $\tilde{\Lambda}_{\mu\mu}(t)$ of  the
   $\Lambda(t)$ in the reciprocal space defined in (\ref{LambdatRec}), as a
   function of $t$.}
 \label{fig:LambdatRec-WALLS-17nodes}
@@ -6818,7 +6853,7 @@ plateau.
 \begin{figure}[h!]
   \centering
   \includegraphics[scale=0.41]{Eigenvectors-WALLS-17nodes}
-    \caption[The igenvectors correspondings to the two largest eigenvalues of $\Lambda(t)$ for bins with $\Delta z=2\sigma$]{
+    \caption[The igenvectors correspondings to the two largest eigenvalues of $\Lambda(t)$ for a confioned fluid - Thick bins]{
         The eigenvectors correspondings to the two largest eigenvalues of $\Lambda(t)$}
 \label{Fig.WallEigenvectors2}
 \end{figure}
@@ -6854,7 +6889,7 @@ $t=0$ vanishes, as it is clear for $C_{3,5}(t)$.
   \centering
 %\includegraphics[scale=0.41]{Predictions-WALLS-17nodes}
 \includegraphics[width=\linewidth]{Predictions-WALLS-17nodes}
-\caption[Predicted autocorrelations of $C(t)$ for 17 nodes.] {Autocorrelations $C_{\mu\mu}(t)$  for different  bins $\mu=1$
+\caption[Predicted autocorrelations of $C(t)$ for a confined fluid - Thick bins] {Autocorrelations $C_{\mu\mu}(t)$  for different  bins $\mu=1$
   (bottom),  $\mu=4$  (middle),  and  $\mu=7$ (top).  The  right panel  is  in 
   logscale with a support up to $t=30$. The red line is plot at $t=0.3$}
 \label{fig:Predictions-WALLS-17nodes}
@@ -6865,7 +6900,7 @@ $t=0$ vanishes, as it is clear for $C_{3,5}(t)$.
   \centering
 %\includegraphics[scale=0.41]{PredictionsCross-WALLS-17nodes}
 \includegraphics[width=\linewidth]{PredictionsCross-WALLS-17nodes}
-\caption[Predicted crosscorrelations of $C(t)$ for 17 nodes.]{The crosscorrelations between nodes $\mu=3,\nu=5$ (bottom) and  $\mu=8,\nu=7$ (top). The right panel is in logscale, and the red line is plot at $t=0.3$.}
+\caption[Predicted crosscorrelations of $C(t)$ for a confined fluid - Thick bins]{The crosscorrelations between nodes $\mu=3,\nu=5$ (bottom) and  $\mu=8,\nu=7$ (top). The right panel is in logscale, and the red line is plot at $t=0.3$.}
 \label{fig:PredictionsCross-WALLS-17nodes}
 \end{figure}
 
@@ -6926,7 +6961,7 @@ parallel walls deserves further study.
 \begin{figure}[h!]
   \centering
 \includegraphics[scale=0.41]{DensityProfile-WALLS}
-\caption[Fluid density profile for 66 and 17 nodes.]{The equilibrium average discrete density for thin bins (blue) and thick bins (orange). The thick bins do not capture the layering of the density field.}
+\caption[Comparison between the fluid density profile for thin and thick bins]{The equilibrium average discrete density for thin bins (blue) and thick bins (orange). The thick bins do not capture the layering of the density field.}
 \label{fig:DensityProfile-WALLS}
 \end{figure}
 
@@ -7507,7 +7542,7 @@ are seen to decay towards zero, in a quasi-algebraic way.
   \centering
 \includegraphics[width=\linewidth]{NoPlateau-WALLS-17nodes}
 %\includegraphics[scale=0.41]{NoPlateau-WALLS-17nodes}
-\caption[Time evolution of the matrix element $\eta_{\mu\nu}$]{Top: Time evolution of  the matrix element $\eta_{\mu\nu}(t)$
+\caption[Time evolution of the matrix element $\eta_{\mu\nu}$ for a confined fluid - Thick bins]{Top: Time evolution of  the matrix element $\eta_{\mu\nu}(t)$
   for $\mu=10,\nu=10$ that corresponds to a  node in the center of the
     channel. Bottom:  $\gamma_{\mu\nu}(t)$ for $\mu=1,\nu=1$  (blue) and
   $\mu=2,\nu=2$ (orange).  The right panel in both top and bottom is in log-log scale and shows that
@@ -7557,7 +7592,7 @@ in molecular terms.
 
 \begin{figure}[]
 \includegraphics[width=\linewidth]{Etatau-matrix-17nodes-WALLS}
-\caption[The transport matrices evaluated from the Green-Kubo running integrals at the plateau value time]{Left column: The                     transport                    matrices
+\caption[The transport matrices evaluated from the Green-Kubo running integrals at the plateau value time for a confined fluid - Thick bins]{Left column: The                     transport                    matrices
   $\eta_{\mu\nu}(\tau)$,$G_{\mu\nu}(\tau)$,$\gamma_{\mu\nu}(\tau)$
   evaluated from the Green-Kubo running integrals at the plateau value
   time $\tau$. Right column: Zoom  of  the corresponding left plots.  Results  for  two channels  with
@@ -7639,7 +7674,7 @@ $G(\tau),H(\tau),\gamma(\tau)$ as shown in (\ref{evolg}).
 
 \begin{figure}[!h]
 \includegraphics[width=\linewidth]{gxtPredictions_and_vtCorrected-17nodes-WALLS}
-\caption[The momentum profile at different times and the velocity profile obtained from the momentum]{Left panel: the measured average  momentum profile $g(t)$ at  different times
+\caption[The momentum profile at different times and the velocity profile obtained from the momentum for a confined fluid - Thick bins]{Left panel: the measured average  momentum profile $g(t)$ at  different times
   ($t=1,3,\cdots,21$), in  descending order.   The two  vertical lines
   denotes  the  position  of  the   wall  $z_{\rm  wall}$  as  defined
   microscopically from the friction  matrix in equation  (\ref{zwallDisc}).
@@ -7674,7 +7709,7 @@ $t\simeq 0.2$ but incorrect results at shorter times.
 \begin{figure}[!h]
     \centering
 \includegraphics[scale=0.41]{gxtPredictions-17nodes-WALLS}
-\caption[The momentum profile as a function of time]{Left  panel: the  momentum $g(t)$  profile for modes $\mu=1,2,4$ (in ascending order) as a function of time (blue), and the predictions given by (\ref{gsol})(orange). Right panel: zoom of the left panel at short times. The red line is plotted at $t=0.2$.}
+\caption[The momentum profile as a function of time for a confined fluid - Thick bins]{Left  panel: the  momentum $g(t)$  profile for modes $\mu=1,2,4$ (in ascending order) as a function of time (blue), and the predictions given by (\ref{gsol})(orange). Right panel: zoom of the left panel at short times. The red line is plotted at $t=0.2$.}
 \label{Fig-gxtPredictions}
 \end{figure}
 
@@ -8071,7 +8106,7 @@ $\gamma$  &  $0.669$   & $0.996$ & $0.996$\\
 $z_{\rm wall}$  &  2.662   & 2.655 & 2.655\\
 \hline
 \end{tabular}
-\caption{Values of the transport coefficients (\ref{FinMic}) for $\tau=0.3$ and
+\caption[Transport coefficients for different widths of the boundary slab]{Values of the transport coefficients (\ref{FinMic}) for $\tau=0.3$ and
   for  different  widths  $B$  of  the boundary  slab.   Note  that  the
   coefficient $H_B$ is very small as  it contains the correlation of the
   local stress tensor at the position $\mu=B$ with the force. }
@@ -8097,7 +8132,7 @@ the one provided by Bocquet and Barrat \cite{Bocquet1994}.
 
 \begin{figure}[]
 \includegraphics[width=\linewidth]{etaTotal-17nodes-WALLS}
-\caption[The total friction as a funtion of the upper limit of integration of the running Green-Kubo integral]{The total friction $\gamma(\tau)$ as  a function of the upper
+\caption[The total friction as a funtion of the upper limit of integration of the running Green-Kubo integral for a confined fluid - Thick bins]{The total friction $\gamma(\tau)$ as  a function of the upper
   limit   of   integration   of  the   running   Green-Kubo   integral
   (\ref{FinMic}).  Inset  is in  logscale.  The  vertical line  is  at
   $\tau=0.3$ which is  the time at which the corrected
@@ -8162,7 +8197,7 @@ of $\eta',\gamma'$ due to the plateau problem, as shown in the right panel of Fi
 \begin{figure}[!h]
 \centering
 \includegraphics[scale=0.41]{tauDependenceSlip-17nodes-WALLS}
-\caption[Dependence on time $\tau$ in the plateau region]{Dependence  on  the time  $\tau$  in  the plateau  region  of
+\caption[Dependence on time $\tau$ in the plateau region of $\eta'$,$\gamma'$ and the slip lenght $\delta$]{Dependence  on  the time  $\tau$  in  the plateau  region  of
   $\eta'$  (green),  $\gamma'$  (orange),  and the  slip  lenght  $\delta$
   (blue). Note  that while $\eta',\gamma'$  decay with $\tau$  due to
   the plateau  problem, its ratio  given by the predicted  slip length
@@ -8811,7 +8846,7 @@ An early attempt to explain it can be found in Ref. \cite{Shin2014}, where Shin 
 \chapter{Contributions}\label{Ap:Contributions}
 \pagestyle{noHeader}
 \markboth{Contributions}{}
-The following published articles and posters are related with this dissertation.
+The following articles and posters are related with this dissertation.
 \begin{enumerate}
   \item \cite{Camargo2018} Nanoscale hydrodynamics near solids.
   \item \cite{Espanol2019e} Solution to the plateau problem in the Green-Kubo formula.
@@ -8833,63 +8868,6 @@ The following published articles and posters are related with this dissertation.
   \end{enumerate}
 
 
-\chapter{List of Acronyms}\label{Ap:Acronyms}
-\markboth{List of Acronyms}{}
-\begin{tabular}{l l}
-    DFT  & Density Functional Theory \\
-    DDFT & Dynamic Density Functional Theory \\
-    GLE  & Generalized Langevin equation \\
-    LADM & Local Average Density Model \\
-    LJ   & Lennard-Jones \\
-    LFSA & Linear For Spiky Approximation \\
-    MD   & Molecular Dynamics \\
-    NEMD & Nonequilibrium Molecular Dynamics\\
-    NESM & Nonequilibrium Statistical Mechanics \\
-    PBC  & Periodic Boundary Conditions \\
-    SDE  & Stochastic Differential Equation \\
-    ToCG & Theory of Coarse-Graining \\
-\end{tabular}
-
-
-\chapter{List of symbols}
-\markboth{List of symbols}{}
-
-\begin{tabular}{l l}
-  $i{\cal L}$ & Liouville operator \\ 
-    $L_x, L_y, L_Z$ & Dimensions of the simulation box \\
-    $\Lambda$ & Relaxation matrix\\
-    $m$ & Mass of the particles \\
-    $M'$ & Mass solid sphere \\
-    $M$ & Mass solid walls \\
-    $M^{\Phi}$ & Mass matrix \\
-    $M^*$ & Friction matrix \\
-    $N$ & Number of fluid particles \\
-    $N'$ & Number of solid particles \\
-    $N_{\rm bins}$ & Number of bins \\
-    $k_B$ & Boltzmann's constant \\
-    $T$ & Temperature \\
-    $\beta$ & $(k_BT)^{-1}$ \\
-    $\Delta z$ & Distance between two nodal planes \\
-    $\delta_{\mu\nu}$ & Kronecker delta \\
-    ${\cal F}[]$ & Free energy functional \\
-    $F()$ & Free energy function \\
-    $h$ & Planck's constant \\
-    $\rho_{\mu\nu}$ & Mass density matrix \\
-    $\rho({\bf z})$ & Microscopic probability density \\
-    $\bar{\rho}({\bf z}, t)$ & Microscopic relevant ensemble \\
-    $\rho^{\rm eq}{{\bf z}}$ & Equilibrium stationary microcopic probability density\\
-    $\lambda({\bf z}), \mu$ & Lagrange multipliers \\
-    ${\cal P}, {\cal Q}$ & Projection operators \\
-    $\Phi_{\mu}({\bf r})$ & Finite element basis functions \\
-    ${\cal S}[\rho]$ & Gibbs-Jaynes functional \\
-    $V_T$ & Volume of the simulation box \\
-    $V_{\mu}$ & Volume of the bin $\mu$ \\
-    $\chi_{\mu}(z)$ & Characteristic function of bin $\mu$ \\
-    $\hat{{\bf z}}$  & Microscopic state \\
-    $\hat{{\bf z}}_0$  & Initial microscopic state \\
-    $\left<\dots\right>^{\bf c}$ & Conditional expectation \\
-
-\end{tabular}
 
 
 \chapter{Forces}  
@@ -8901,9 +8879,9 @@ averages  with the relevant  ensemble.  The  force densities  that the
 fluid or the solid exert on a fluid molecule located at the point ${\bf
   r}$ are introduced in (\ref{Fr}),
 \begin{eqnarray}
-  \hat{\bf F}^{\rm l\to l}_{\bf r}(z) &\equiv& \sum^{NN}_{ij}\hat{\bf F}_{ij}\bar{\delta}({\bf r}-{\bf q}_i)
+  \hat{\bf F}^{\rm l\to l}_{\bf r}(z) \equiv \sum^{NN}_{ij}\hat{\bf F}_{ij}\bar{\delta}({\bf r}-{\bf q}_i)
 \nonumber\\
-\hat{\bf F}^{\rm s\to l}_{\bf r}(z) &\equiv& \sum^{NN'}_{ij'}\hat{\bf F}_{ij'}\bar{\delta}({\bf r}-{\bf q}_i),
+\hat{\bf F}^{\rm s\to l}_{\bf r}(z) \equiv \sum^{NN'}_{ij'}\hat{\bf F}_{ij'}\bar{\delta}({\bf r}-{\bf q}_i),
 \label{Fr_ap}
 \end{eqnarray}
 where $\hat{\bf  F}_{ij'}$ is the  force that  atom $j'$ of  the solid
@@ -8919,9 +8897,8 @@ The total force density on the fluid is
 \end{align}
 The total force on the fluid and on the solid are
 \begin{align}
-  \hat{\bf F}^l&=\int d{\bf r}\hat{\bf F}^l_{\bf r}
-\nonumber\\
-  \hat{\bf F}^s&= -\hat{\bf F}^l
+  \hat{\bf F}^l=\int d{\bf r}\hat{\bf F}^l_{\bf r}, &&
+  \hat{\bf F}^s= -\hat{\bf F}^l,
 \end{align}
 where we have used that the total force
 \begin{align}
@@ -8949,7 +8926,7 @@ Now, let us consider the average of the total force density on the liquid, equat
 \nonumber\\
 &\times e^{-\beta U}
 \exp\left\{-\beta  \left( \boldsymbol{\lambda}_R{\cdot}\hat{\bf R}
--\sum_{i=1}^N m\mu({\bf q}_i)\right)\right\}
+-\sum_{i=1}^N m\mu({\bf q}_i)\right)\right\},
 \end{align}
 where we have  used the definition of the average  with respect to the
 relevant ensemble,  after performing the momentum  integrals. Next, we
@@ -9910,7 +9887,6 @@ for sufficiently smooth fields as
   free energy function}
 \label{Ap:free}
 
-\Note{Darle una vuelta más a este apéndice}
 First we  address the connection between  the thermodynamic potentials
 of the two  levels of description given by the  continuum CG variables
 $\hat{A}_{\bf  r}=\hat{\rho}_{\bf  r},\hat{\bf  g}_{\bf  r}$  and  the
@@ -10199,11 +10175,11 @@ In  this  appendix,  we  compute   explicitly  the  covariance  of  the
 transverse momentum density  which is given by  the molecular ensemble
 average
 \begin{align}
-  C_{\mu\nu}^E&=\llangle \hat{g}_\mu^1\hat{g}_\nu^1\rrangle
+  C_{\mu\nu}^E&=\llangle \hat{g}_\mu^x\hat{g}_\nu^x\rrangle
 =\frac{1}{\Omega\left(E\right)}
 \int dr dp \delta\left(\hat{H}(z)-E\right)
 \delta\left(\sum_i^N{\bf p}_i\right) 
-\sum_{ij}^N{\bf p}_i^1{\bf p}_j^1\delta_{\mu}({\bf r}_i) 
+\sum_{ij}^N{\bf p}_i^x{\bf p}_j^x\delta_{\mu}({\bf r}_i) 
 \delta_{\nu}({\bf r}_j) 
 \end{align}
 The molecular ensemble is microcanonical in the total energy and total
@@ -10216,7 +10192,7 @@ to compute the following canonical average
 =\frac{1}{Z(\beta)}
 \int dr dp \exp\{-\beta\hat{H}(z)\}
 \delta\left(\sum_i^N{\bf p}_i\right) 
-\sum_{ij}^N{\bf p}_i^1{\bf p}_j^1\delta_{\mu}({\bf r}_i) 
+\sum_{ij}^N{\bf p}_i^x{\bf p}_j^x\delta_{\mu}({\bf r}_i) 
 \delta_{\nu}({\bf r}_j) 
 \end{align}
 where the Dirac $\delta$ function on  the Hamiltonian is substituted by a
@@ -10369,7 +10345,7 @@ Consider the term
 \sum^{B}_{\mu=1}{\cal V}_\mu \frac{\left[H_{\mu\nu}-H_{\mu-1\nu}\right]}{\Delta z}
  =\sum_{\nu=1}^{N_{\rm bin}} {\cal V}_\nu {\cal V}_\mu \overline{\bf v}^x_\nu \frac{\left[H_{B\nu}-H_{0\nu}\right]}{\Delta z}
 \nonumber\\
-& =S\sum_{\nu=1}^{N_{\rm bin}} {\cal V}_\nu H_{B\nu}\overline{\bf v}^x_\nu 
+& =S\sum_{\nu=1}^{N_{\rm bin}} {\cal V}_\nu H_{B\nu}\overline{\bf v}^x_\nu ,
 \end{align}
 where $S={\cal  V}_\mu/\Delta z$ coincides  with the area of  the wall
 and we have  used the fact that $H_{0\nu}=0$ because  the node $\mu=0$
@@ -10415,6 +10391,73 @@ is given by
 \label{Layer2}
 \end{align}
 
+\chapter{List of Acronyms}\label{Ap:Acronyms}
+\markboth{List of Acronyms}{}
+\begin{tabular}{l l}
+    DFT  & Density Functional Theory \\
+    DDFT & Dynamic Density Functional Theory \\
+    GLE  & Generalized Langevin equation \\
+    LADM & Local Average Density Model \\
+    LFSA & Linear For Spiky Approximation \\
+    LJ   & Lennard-Jones \\
+    MD   & Molecular Dynamics \\
+    NEMD & Nonequilibrium Molecular Dynamics\\
+    NESM & Nonequilibrium Statistical Mechanics \\
+    PBC  & Periodic Boundary Conditions \\
+    SDE  & Stochastic Differential Equation \\
+    ToCG & Theory of Coarse-Graining \\
+\end{tabular}
+
+
+\chapter{List of symbols and variables}
+\markboth{List of symbols and variables}{}
+
+\begin{tabular}{l l}
+    $B$ & Backward difference operator \\
+    $\beta$ & $(k_BT)^{-1}$ \\
+    $\delta_{\mu\nu}$ & Kronecker delta \\
+    $\Delta z$ & Distance between two nodal planes \\
+    $\Delta$ & Laplacian matrix \\
+    ${\cal F}[]$ & Free energy functional \\
+    $F()$ & Free energy function \\
+    $F$ & Fordward difference operator \\
+    ${\cal G}$ & Galilean operator \\
+    $G_{tt'}$ & Time ordered projected propagator \\
+    $\Gamma(t-t')$ & Memory kernel \\
+    $h$ & Planck's constant \\
+    ${\cal H}[]$ & Hydrodynamic functional \\
+    $i{\cal L}$ & Liouville operator \\ 
+    $k_B$ & Boltzmann's constant \\
+    $L_x, L_y, L_Z$ & Dimensions of the simulation box \\
+    $\lambda({\bf z}), \mu$ & Lagrange multipliers \\
+    $\Lambda$ & Relaxation matrix\\
+    $m$ & Mass of the particles \\
+    $M'$ & Mass solid sphere \\
+\end{tabular}
+  \newpage
+  \begin{tabular}{l l}
+    $M$ & Mass solid walls \\
+    $M^{\Phi}$ & Mass matrix \\
+    $M^*$ & Friction matrix \\
+    $N$ & Number of fluid particles \\
+    $N'$ & Number of solid particles \\
+    $N_{\rm bins}$ & Number of bins \\
+    ${\cal P}, {\cal Q}$ & Projection operators \\
+    $\Phi_{\mu}({\bf r})$ & Finite element basis functions \\
+    $\Phi[\lambda]$ & Grand-canonical potential \\
+    $\rho_{\mu\nu}$ & Mass density matrix \\
+    $\rho({\bf z})$ & Microscopic probability density \\
+    $\bar{\rho}({\bf z}, t)$ & Microscopic relevant ensemble \\
+    $\rho^{\rm eq}{{\bf z}}$ & Equilibrium stationary microcopic probability density\\
+    ${\cal S}[\rho]$ & Gibbs-Jaynes functional \\
+    $T$ & Temperature \\
+    $V_T$ & Volume of the simulation box \\
+    $V_{\mu}$ & Volume of the bin $\mu$ \\
+    $\chi_{\mu}(z)$ & Characteristic function of bin $\mu$ \\
+    $\hat{{\bf z}}$  & Microscopic state \\
+    $\hat{{\bf z}}_0$  & Initial microscopic state \\
+    $\left<\dots\right>^{\bf c}$ & Conditional expectation \\
+  \end{tabular}
 
 
 \end{appendices}
@@ -10425,8 +10468,8 @@ is given by
 \listoffigures % indice de figuras
 
 \cleardoublepage
-%\addcontentsline{toc}{chapter}{List of tables} % para que aparezca en el indice de contenidos
-%\listoftables % indice de tablas
+\addcontentsline{toc}{chapter}{List of tables} % para que aparezca en el indice de contenidos
+\listoftables % indice de tablas
 
 %\bibliographystyle{unsrt}
 %\bibliography{bibTex/thesis-library}
@@ -10440,7 +10483,7 @@ is given by
 \end{center}
 \vspace{80pt}
 \begin{center}
-This dissertation was finished in March 2019. 
+This dissertation was finished in April 2019. 
 \end{center}
 
 \end{document}
