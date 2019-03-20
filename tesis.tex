@@ -234,19 +234,19 @@
 %\addcontentsline{toc}{section}{Abstract} % si queremos que aparezca en el índice
 \pagestyle{noHeader}  %define page style for the chapters
 \markboth{Abstract}{Abstract} % encabezado
-This dissertation studies the behaviour of a fluid in contact with a solid in the nanoscale. We will derive the equations of motion of a fluid in contact with a huge solid sphere (in such a way that the surface of the sphere can be approximate as a wall) using the Theory of Coarse Graining (ToCG).
-We will use the Kawasaki-Gunton projection operator technique which let us to obtain a set of nonlinear equations for the relevant variables of the syste. We will suppose a Markovian behaviour in order to obtain a set of memoryless equations.
+This dissertation studies the behaviour of a fluid in contact with a solid in the nanoscale. We will derive the equations of motion of a fluid in contact with a huge solid sphere (in such a way that the surface of the sphere can be approximate as a wall) using the Theory of Coarse-Graining (ToCG).
+We will use the Kawasaki-Gunton projection operator technique which let us to obtain a set of nonlinear equations for the relevant variables of the system. We will imposse a the Markovian aproximation in order to obtain a set of memoryless equations.
 We will address the well known plateau problem  that appears in the expressions of the transport coefficients present in the equations of motion of the fluid in contact with a solid. To avoid it we will obtain an alternative expression for the transport coefficients without the plateau problem. 
 
-In order to validate the theory and measure the transport coefficients with Molecular Dynamics (MD) simulations, we will derive the discrete equations of motion from a set of discrete hydrodynamic variables. To address it we will divide the system along the perpendicular axis of the surface of the solid walls in bins of a certain width separated by nodal planes. The discrete variables will be define in that bins or nodes in a way that will be explain elsewhere.
+In order to validate the theory and measure the transport coefficients with Molecular Dynamics (MD) simulations, we will derive the discrete equations of motion from a set of discrete hydrodynamic variables. To address it we will divide the system along the perpendicular axis of the surface of the solid walls in bins of a certain width separated by nodal planes. The discrete variables will be defined in that bins or nodes in a way that will be explain elsewhere.
 We will show that these discrete equations may be interpreted as a discretization of the continuum equations using the Petrov-Galerkin finite element method.  
 
-The only assumption to derive the equations of motion of the fluid is the hypothesis of markovianity. In order to validate it, we will use the Mori theory which let us to obtain the time evolution of the correlation of the relevant variales of the system. 
+The only assumption to derive the equations of motion of the fluid is the Markovian hypothesis. In order to validate it, we will use the Mori theory which let us to obtain the time evolution of the correlation of the relevant variales of the system. 
 We will see that only for an exponential decay of the correlations the hypothesis is valid. 
 %This only occurs when the size of the bins is sufficiently large but not for thin bins of the order of the molecular lenght.  
 
-We will address the issue of the markovianity analyzing a simpler case such as an unconfined fluid. We will perform MD simulations of a fluid in periodic boundary conditions (PBC) for monitoring the relevant variales of the system and to compute their correlations. 
-We will observe that we need to move to the reciprocal space (i.e. the Fourier space for unconfined fluids) in order to validate the Markovian hypothesis. Only for an exponentil decay of the modes of the matrix of correlations decay we can expect the Markovian hypothesis to be valid. 
+The issue of the markovianity will be addressed analyzing a simpler case such as an unconfined fluid. We will perform MD simulations of a fluid in periodic boundary conditions (PBC) for monitoring the relevant variales of the system and to compute their correlations. 
+We will realize that is necessary to move to the reciprocal space (i.e. the Fourier space for unconfined fluids) in order to validate the Markovian hypothesis. Only for an exponential decay of the modes of the matrix of correlations we can expect the hypothesis to be valid. 
 
 Once the methodology is well established in order to address a more complicated system, we will perform MD simulations of a confined fluid between two solid slabs. We will show that if the size of the bin is of the order of the molecular lenght the Markovian hypothesis is not true for modes near the walls. Nevertheless, for large bins the hypothesis is accomplished but the nonlocal effect of layering is lost. 
 
