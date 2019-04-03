@@ -8404,17 +8404,41 @@ where the local viscosity is defined in a consistent way as
 \eta_\mu(\tau)\equiv\sum_\sigma{\cal V}_\sigma \eta_{\mu\sigma}(\tau)
 \label{LocVisc}
 \end{align}
-With this definition, if we sum both sides of (\ref{etadiag}) we get the same result.
-We further assume that $\eta_\mu(\tau)$ is the same for all $\mu$ in the fluid region,
-say equal to $\eta_{8}(\tau)$ in the middle of the channel.
+%With this definition, if we sum both sides of (\ref{etadiag}) we get the same result.
+%We further assume that $\eta_\mu(\tau)$ is the same for all $\mu$ in the fluid region,
+%say equal to $\eta_{8}(\tau)$ in the middle of the channel.
+%
+%The momentum and the velocity  are related through the matrix equation
+%(\ref{ov}). In a local approximation, we assume
+%that
+%\begin{align}
+%  g_\mu\simeq\rho_\mu{v}_\mu
+%\label{grhov}
+%\end{align}
 
-The momentum and the velocity  are related through the matrix equation
-(\ref{ov}). In a local approximation, we assume
-that
+With   this  particular   definition,  if   we  sum   both  sides   of
+(\ref{etadiag})  we  get the  same  result.   We further  assume  that
+$\eta_\mu(\tau)$ is  the same for all  $\mu$ in the fluid  region, say
+equal to $\eta_{8}(\tau)$ in the middle of the channel.
+We also assume a local approximation for the correlation matrix
 \begin{align}
-  g_\mu\simeq\rho_\mu{v}_\mu
+C_{\mu\nu}(\tau)\simeq\frac{\delta_{\mu\nu}}{{\cal    V}}k_BT   \rho_\mu(\tau)
+\label{Clocal}
+\end{align}
+ where we introduce the local scaled density as
+\begin{align}
+\rho_\mu(\tau)=\sum_\sigma  \frac{{\cal  V}  C_{\mu\sigma}(\tau)}{k_BT  }
+\end{align}
+The momentum and the velocity  are related through the matrix equation
+(\ref{ov}). In the  local approximation (\ref{Clocal}) we have
+\begin{align}
+  g_\mu\simeq\rho_\mu(\tau)\overline{v}_\mu
 \label{grhov}
 \end{align}
+
+
+
+
 We  then  insert  in (\ref{TheoryDiscFinSlipCH})  the  local  approximations
 (\ref{etadiag}), (\ref{grhov}) to  obtain the equations (\ref{NSDisc})
 for the fluid nodes $\mu=2,\cdots,15$
@@ -8431,8 +8455,8 @@ for the fluid nodes $\mu=2,\cdots,15$
 \nu\frac{g_{14}+g_{16}-2g_{15}}{\Delta z^2}
 \label{ODE}
 \end{align}
-The kinematic viscosity is given by $\nu=\eta_\mu(\tau)/\rho^{\rm eq}$.
-The evaluation of (\ref{LocVisc}) gives $\nu=1.41$.
+
+We have introduce the kinematic viscosity as give by $\nu=\eta_{\mu}(\tau)/\rho_{\mu}(\tau)$ that takes the value $\nu=1.41$. Even though $\eta_{\mu}(\tau)$ and $\rho_{\mu}(\tau)$ depend on $\tau$,$\mu$, the kinematic visocisty is constant and does not depend on $\tau$ and $\mu$. \Note{No sé si poner la gráfica. Es muy fea.}
 We see that 
 (\ref{ODE}) is a set of ODE for the variables $g_\mu$ for
 $\mu=2,\cdots,15$ but it includes in the first and last equations the
@@ -8443,23 +8467,23 @@ If  we define  $h$ as  the distance  between node  1, where  the outer
 crystalline plane  lies, and the  position $z_{\rm wall}$ of  the wall,
 the velocity at the wall is given by the linear interpolation
 \begin{align}
-{v}_{\rm wall}&= v_1+\dot{{\gamma}}_{\rm wall} h
+  {\overline{v}}_{\rm wall}&= \overline{v}_1+\dot{{\overline{\gamma}}}_{\rm wall} h
 \nonumber\\
-\dot{{\gamma}}_{\rm wall}&=\frac{v_2-v_1}{\Delta z}
+\dot{{\overline{\gamma}}}_{\rm wall}&=\frac{\overline{v}_2-\overline{v}_1}{\Delta z}
 \end{align}
 Therefore, the  slip boundary condition (\ref{NavierDisc2})  takes the
 form, for the lower wall
 \begin{align}
-  v_1+\frac{v_2-v_1}{\Delta z} h&=\delta \frac{v_2-v_1}{\Delta z}
+  \overline{v}_1+\frac{\overline{v}_2-\overline{v}_1}{\Delta z} h&=\delta \frac{\overline{v}_2-\overline{v}_1}{\Delta z}
 \end{align}
-This allows to infer the value of $v_1$ as a function of $v_2$ 
+This allows to infer the value of $\overline{v}_1$ as a function of $\overline{v}_2$ 
 \begin{align}
-  v_1&=\frac{\epsilon}{\epsilon-1}v_2,
+  \overline{v}_1&=\frac{\epsilon}{\epsilon-1}\overline{v}_2,
 \end{align}
 where $\epsilon=(h-\delta)/\Delta z$ is a dimensionless number.
 A similar expression is obtained for the upper wall
 \begin{align}
-  v_{16}&=\frac{\epsilon}{\epsilon-1}v_{15}
+  \overline{v}_{16}&=\frac{\epsilon}{\epsilon-1}\overline{v}_{15}
 \end{align}
 In terms of the momentum we have
 \begin{align}
@@ -8518,26 +8542,6 @@ at time $\tau$, this is
  g(t)&=\exp\{\nu \Delta' (t-\tau)\}g(\tau)
 \label{LocPred}
 \end{align}
-We  then   compare  this   prediction  of  local   hydrodynamics  plus
-microscopically derived  slip boundary condition with  the measurement
-of  the   discrete  momentum.   The   comparison  is  given   in  Fig.
-\ref{Fig:LocalPrediction},  where we  observe  an excellent  agreement.
-Note that there are no  adjustable parameters in this prediction. Both
-the kinematic viscosity and the slip  length which enter the local hydrodynamic equations are
-measured through well-defined Green-Kubo  expressions.  Note also that
-at shorter times  $t=0.3,0.6,\cdots,2.1$ shown in the  right panel of
-Fig.  \ref{Fig:LocalPrediction} the agreement is not as good. This is,
-of course,  attributed to the  fact that  at these shorter  times, the
-slip boundary  condition is not  satisfied at all because  neither the
-total force  on the  boundary slab is  equilibrated, nor  the velocity
-profile  is  linear  inside  the  boundary  slab.   For  these  highly
-discontinuous profiles, the concept of a slip boundary condition is not
-applicable.   In these cases,  it is necessary to  consider the
-explicit  interaction between  the  solid and  the  fluid through  the
-surface   irreversible  forces   containing   the  transport   kernels
-$G_{\mu\nu},H_{\mu\nu},\gamma_{\mu\nu}$.    As   we   have   seen   in
-Fig. \ref{Fig-gxtPredictions} and Fig. \ref{Fig-gxt-vt}  the agreement  with the  nonlocal hydrodynamic
-theory plus surface forces is excellent.
 
 \begin{figure}[]
 \includegraphics[width=\linewidth]{gxtLocalPredictionNodes-17nodes-WALLS}
@@ -8550,19 +8554,50 @@ theory plus surface forces is excellent.
 \label{Fig:LocalPrediction2}
 \end{figure}
 
+We  then   compare  this   prediction  of  local   hydrodynamics  plus
+microscopically derived  slip boundary condition with  the measurement
+of  the   discrete  momentum.   The   comparison  is  given   in  Fig.
+\ref{Fig:LocalPrediction},  where we  observe  an excellent  agreement.
+Note that there are no  adjustable parameters in this prediction. Both
+the kinematic viscosity and the slip  length which enter the local hydrodynamic equations are
+measured through well-defined Green-Kubo  expressions. 
+
 \begin{figure}[]
 \includegraphics[width=\linewidth]{errors-17nodes-WALLS}
 \caption{Comparison  of   the  error   between  local   and  non-local
   theories.  The error  $err_\mu(t)= g_\mu(t)-g^{\rm  predict}_\mu(t)$
   between the real and predicted profiles as a function of time. Every
-  curve corresponds to  a different node $\mu$.  The top  panel is for
-  the   error    with   the   local   prediction    corresponding   to
-  Fig. \ref{Fig:LocalPrediction}.  Bottom panel  is for the error with
+  curve corresponds to  a different node $\mu$.  
+  Left panel  is for the error with
   the     non-local      prediction     corresponding      to     Fig.
-  \ref{Fig.gxevol}. Vertical red  line is at $t=\tau$  where the error
+  \ref{Fig-gxtPredictions}.
+  The right  panel is for
+  the   error    with   the   local   prediction    corresponding   to
+  Fig. \ref{Fig:LocalPrediction} and Fig. \ref{Fig:LocalPrediction2}.  
+  Vertical red  line is at $t=\tau$  where the error
   is zero by construction.}
 \label{Fig:err}
 \end{figure}
+
+A  close  inspection,  however,  reveals  an  appreciable
+discrepancy between measured  and predicted values for  the nodes near
+the wall and for times $t<5$. In Fig. \ref{Fig:err} in the right panel
+we plot the discrepancy $err_\mu(t)=  g_\mu(t)-g^{\rm predict}_\mu(t)$ between the
+measured profile and the local prediction. A systematic error for the nodes
+close to the walls is clearly seen.  This  is attributed to the fact that at
+early times, neither the  total force  on the boundary  slab is
+equilibrated, nor the  velocity profile is linear  inside the boundary
+slab.  Therefore, the slip boundary condition used to predict the flow
+does not hold.  This gives unaccurate predictions for the local theory
+for a highly discontinuous profile like  the plug flow.  To get better
+prediction  it  is  necessary  to consider  the  explicit  interaction
+between  the solid  and  the fluid  through  the surface  irreversible
+forces         containing         the        transport         kernels
+$G_{\mu\nu},H_{\mu\nu},\gamma_{\mu\nu}$.  The errors in using the non-local prediction 
+are shown in the left panel of Fig \ref{Fig:err}. The conclusion is that while the local prediction
+with a slip boundary condition is acceptable, non-local effects are appreciable.
+
+
 
 \section{Summary}
 
