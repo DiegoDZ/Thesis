@@ -7737,7 +7737,7 @@ $t\simeq 0.2$ but incorrect results at shorter times.
 \begin{figure}[!h]
     \centering
 \includegraphics[scale=0.41]{gxtPredictions-17nodes-WALLS}
-\caption[The momentum profile as a function of time for a confined fluid - Thick bins]{Left  panel: the  momentum $g(t)$  profile for modes $\mu=1,2,4$ (in ascending order) as a function of time (blue), and the predictions given by (\ref{gsol})(orange). Right panel: zoom of the left panel at short times. The red line is plotted at $t=0.2$.}
+\caption[The momentum profile as a function of time for a confined fluid - Thick bins]{Left  panel: the  momentum $g(t)$  profile for modes $\mu=1,2...8$ (in ascending order) as a function of time (blue), and the predictions given by (\ref{gsol})(orange). Right panel: zoom of the left panel at short times. The red line is plotted at $t=0.2$.}
 \label{Fig-gxtPredictions}
 \end{figure}
 
@@ -8344,7 +8344,7 @@ channels.   In Fig.   \ref{Fig:delta} the  time-dependent slip  length
 (\ref{deltat}) for  the two channel  widths is plotted.   Clearly, the
 slip  length that  we  obtain  is independent  on  the channel  width.
 
-\section{The local hydrodynamic model with boundary conditions}
+\section{A local hydrodynamic model with boundary conditions}
 \label{Sec:FinalCheck}
 In  Sec. \ref{Sec:BC},  we have  predicted  that the  velocity and  the
 velocity gradient at the wall position $z_{\rm wall}$ are proportional
@@ -8539,6 +8539,30 @@ $G_{\mu\nu},H_{\mu\nu},\gamma_{\mu\nu}$.    As   we   have   seen   in
 Fig. \ref{Fig-gxtPredictions} and Fig. \ref{Fig-gxt-vt}  the agreement  with the  nonlocal hydrodynamic
 theory plus surface forces is excellent.
 
+\begin{figure}[]
+\includegraphics[width=\linewidth]{gxtLocalPredictionNodes-17nodes-WALLS}
+    \caption[Measured momentum and local prediction]{The momentum $g_\mu(t)$ for
+  the nodes $\mu=2,3,4,5,6,7,8$ (in ascending order) as a function of time
+    (blue) compared with the local prediction (\ref{LocPred}) (orange). Note that
+  there is no prediction for the node $\mu=1$ because the value of the
+  momentum in this node is  determined by the slip boundary condition. In the right panel is plotted a zoom of the left panel at short times. 
+}
+\label{Fig:LocalPrediction2}
+\end{figure}
+
+\begin{figure}[]
+\includegraphics[width=\linewidth]{errors-17nodes-WALLS}
+\caption{Comparison  of   the  error   between  local   and  non-local
+  theories.  The error  $err_\mu(t)= g_\mu(t)-g^{\rm  predict}_\mu(t)$
+  between the real and predicted profiles as a function of time. Every
+  curve corresponds to  a different node $\mu$.  The top  panel is for
+  the   error    with   the   local   prediction    corresponding   to
+  Fig. \ref{Fig:LocalPrediction}.  Bottom panel  is for the error with
+  the     non-local      prediction     corresponding      to     Fig.
+  \ref{Fig.gxevol}. Vertical red  line is at $t=\tau$  where the error
+  is zero by construction.}
+\label{Fig:err}
+\end{figure}
 
 \section{Summary}
 
