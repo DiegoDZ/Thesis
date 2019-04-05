@@ -1,11 +1,21 @@
 \documentclass{beamer}
-\usetheme{metropolis}           
+\usetheme[subsectionpage=progressbar, background=white]{metropolis}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx,color}
-\usepackage[dvipsnames]{xcolor}
-\usepackage{cite} 
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{verbatim}
+\usepackage{fancyhdr}
+\usepackage{epigraph}
+\usepackage{caption}
+\usepackage{psfrag}
+\usepackage{afterpage}
+\usepackage[backend=biber, style=nature]{biblatex}
+\addbibresource{../bibTex/thesis-library.bib}
 \useinnertheme{circles}
 \graphicspath{{../figures/}}
+
 
 
 \title{Nanoscale hydrodynamics near solids}
@@ -18,34 +28,54 @@
 \begin{picture}(0,0)
 \put(308,-119){\makebox(0,0)[rt]{\includegraphics[width=1.5cm]{logo}}}
 \end{picture}}
-%\AtBeginSection[]{
-%\begin{frame}{Agenda}
-%\tableofcontents[currentsection]
-%\end{frame}
-%\frame{\sectionpage}
-%}
 
 \begin{document}
 \maketitle
 
-%\begin{frame}
-%\frametitle{Agenda}
-%\tableofcontents
-%\end{frame}
+\begin{frame}
+\frametitle{Agenda}
+\tableofcontents
+\end{frame}
 
 
 \section{Introduction}
+\begin{frame}{Derivation of the slip boundary condition from NESM}
+\begin{enumerate}
+\item Through the  measurement of the correlation of
+the  transverse  momentum  and  comparison  with  the  predictions  of
+continuum  (local) hydrodynamics  \cite{Bocquet1993,Chen2015}.
+\item Through
+linear  response theory  relating  the  force on  the  walls with  the
+velocity   of  the   fluid   \cite{Bocquet1993,Petravic2007}.
+\item By formulating  linear,  in  general  non-Markovian,  conections  between
+friction forces and velocities \cite{Hansen2011}, where the meaning of
+this quantities is often understood implicitly.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{The Theory of Coarse-Graining}
+\end{frame}
+
+\begin{frame}{CG variables}
+\end{frame}
+
+\begin{frame}{The entropy}
+\end{frame}
+
+\begin{frame}{The dynamics}
+\end{frame}
+
+\begin{frame}{The Kawasaki-Gunton projection operator}
+\end{frame}
+
+\begin{frame}{Mori's Generalized Langevin equation}
+\end{frame}
+
+\section{Nanoscalehydrodynamics theory for liquids near solids}
 \begin{frame}{Overview}
-  State of art
 \end{frame}
 
-\begin{frame}{Nonequilibrium Statistichal Mechanics}
-  Nonequilibrium Statistichal Mechanics
-\end{frame}
-
-\section{Theory}
-\begin{frame}{Theory}
-Chapter 3
+\begin{frame}{The system and the CG variables}
 \end{frame}
 
 \section{Nanoscale hydrodynamics for planar geometries}
@@ -55,10 +85,10 @@ Chapter 3
 
 \section{Nanoscale hydrodynamics for unconfined fluids}
 \begin{frame}{The system}
-  \frame{\includegraphics[width=.5\linewidth]{temp_wo_walls}}
+  \includegraphics[width=.5\linewidth]{temp_wo_walls}
 \end{frame}
 \begin{frame}{The system}
-  \frame{\includegraphics[width=.5\linewidth]{temp_wo_walls_w_layers2}}
+  \includegraphics[width=.5\linewidth]{temp_wo_walls_w_layers2}
 \end{frame}
 
 \section{NonMarkovian behaviour}
@@ -66,35 +96,18 @@ Chapter 3
 Texto
 \end{frame}
 \begin{frame}{The system}
-  \frame{\includegraphics[width=.5\linewidth]{PRL3_gold2_wo_diffuse}}
+  \includegraphics[width=.5\linewidth]{PRL3_gold2_wo_diffuse}
 \end{frame}
 
 \section{Conclusions and future directions}
 \begin{frame}{Conclusions}
-  \begin{itemize}
-    \item
-    \item
-  \end{itemize}
 \end{frame}
 \begin{frame}{Future directions}
-  \begin{itemize}
-    \item
-    \item
-  \end{itemize}
 \end{frame}
 
-\section{References and publications}
+\section{Relevant references}
 \begin{frame}{References}
-\bibliographystyle{unsrt}
-\bibliography{bibTex/thesis-library}
 \end{frame}
-\begin{frame}{Publications}
-  \begin{itemize}
-    \item
-    \item
-    \end{itemize}
-\end{frame}
-
 \begin{frame}{}
   \centering
   Muchas gracias

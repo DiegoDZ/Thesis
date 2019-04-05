@@ -30,6 +30,7 @@
     .is choice,
     dark/.code=\metropolis@colors@dark,
     light/.code=\metropolis@colors@light,
+    white/.code=\metropolis@colors@white,
 }
 \newcommand{\metropolis@color@setdefaults}{
   \pgfkeys{/metropolis/color/.cd,
@@ -52,6 +53,13 @@
   \setbeamercolor{normal text}{%
     fg=mDarkTeal,
     bg=black!2
+  }
+}
+%Define white background color
+\newcommand{\metropolis@colors@white}{
+  \setbeamercolor{normal text}{%
+    fg=mDarkTeal,
+    bg=white
   }
 }
 \setbeamercolor{alerted text}{%
