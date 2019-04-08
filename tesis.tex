@@ -16,6 +16,7 @@
 \usepackage{hyperref}
 \usepackage{tikz}
 \captionsetup[figure]{font=footnotesize,labelfont=footnotesize,labelfont=bf}
+\captionsetup[table]{font=footnotesize,labelfont=footnotesize,labelfont=bf}
 \graphicspath{{./figures/}}
 %To use a kind of times new roman font style
 \usepackage{mathptmx}
@@ -257,7 +258,7 @@ Finally, to Claudia. Thanks not only for being by my side in the good moments bu
 \markboth{Abstract}{Abstract} % encabezado
 This dissertation studies the behaviour of a fluid in contact with a solid in the nanoscale. We will derive the equations of motion of a fluid in contact with a huge solid sphere (in such a way that the surface of the sphere can be approximate as a wall) using the Theory of Coarse-Graining (ToCG).
 We will use the Kawasaki-Gunton projection operator technique which let us to obtain a set of nonlinear equations for the relevant variables of the system. We will imposse a the Markovian aproximation in order to obtain a set of memoryless equations.
-We will address the well known plateau problem  that appears in the expressions of the transport coefficients present in the equations of motion of the fluid in contact with a solid. To avoid it we will obtain an alternative expression for the transport coefficients without the plateau problem. 
+We will address the well-known plateau problem  that appears in the expressions of the transport coefficients present in the equations of motion of the fluid in contact with a solid. To avoid it we will obtain an alternative expression for the transport coefficients without the plateau problem. 
 
 In order to validate the theory and measure the transport coefficients with Molecular Dynamics (MD) simulations, we will derive the discrete equations of motion from a set of discrete hydrodynamic variables. To address it we will divide the system along the perpendicular axis of the surface of the solid walls in bins of a certain width separated by nodal planes. The discrete variables will be defined in that bins or nodes in a way that will be explain elsewhere.
 We will show that these discrete equations may be interpreted as a discretization of the continuum equations using the Petrov-Galerkin finite element method.  
@@ -545,7 +546,7 @@ very wide channels coincides with  Bocquet and Barrat expression.  The size depe
 of the Bocquet and Barrat Green-Kubo expression dissappears in this limit.
 
 In summary, there  seems to be three different ways  of looking at the
-derivation  of  the  slip   boundary  condition  from  Non equationilibrium
+derivation  of  the  slip   boundary  condition  from  Non Equilibrium
 Statistical Mechanics (NESM): 
 \begin{enumerate}
   \item Through the  measurement of the correlation of
@@ -935,8 +936,8 @@ After a while the ice cubes ``disappear'' and the glass of water reaches an homo
 Nevertheless, if we let the glass on a desk, the water will begin to evaporate slowly because the equilibration of the system is not a real equilibrium state. 
 Moreover, over many years the glass itself will probably deteriorate. 
 Further, the process will never reach an equilibrium state, but we may distinguish ``different levels'' of tendency towards equilibrium.  
-\Pendiente{Focusing on the time we figure out that the process during the ice cubes are melting is not the same as the deterioration of the glass over the years.
-The second one is much slower than the first one and allows we may say that it is at {\it quasi-equilibrium}.}
+Focusing on the time we figure out that the process during the ice cubes are melting is not the same as the deterioration of the glass over the years.
+The second one is much slower than the first one and allows we may say that it is at {\it quasi-equilibrium}.
 
 The above example shows that a system can be at a equilibrium state depending on the timescale of the observation. The degradation of the glass over the years is very slow in contrast with the melting of the ice cubes. Therefore, at the timescale of our observations we can find functions that evolve very slow; they may be considered as dynamic invariants that determine the equilibrium properties of the system. 
 
@@ -971,11 +972,11 @@ The N-body problem is crucial in real systems consisting on a huge number of par
 The number of water molecules is $N \sim 10^{24}$. Therefore, we need  $6N$ initial conditions and $6N$ equations of motion to be solved ($v_x,v_y,v_z$ and $x,y,x$ for every particle). Is obvious that is imposible to solve analytically this bunch of equations of motion.
 
 Once we assume that we can not solve manually the equations of motion of the molecules of a glass of water, we may use a computer to solve them. 
-The technique to obtain aproximated solutions of the time evolution equations of the molecules is called molecular dynamics.
+The technique to obtain aproximated solutions of the time evolution equations of the molecules is called Molecular Dynamics.
 The idea behind this technique is to discretize the time in intervals called \textit{time steps} and to compute the position and velocity of every particle at every time step. If we estimate the number of colisions per second and calculate the number of evaluations we need to compute for every particle, we conclude that to solve the equations of motion of a real system, such a glass of water, is imposible even computationally \cite{TesisArturo}.
 Therefore, only small or coarse systems (i.e. with a reasonable number of particles) can be addressed using MD simulations. 
 
-The pioneering work of Adler and Wainwright \cite{Alder1957} in the fifties was a first step in the development of the MD simulations when they studied the phase transition of a system consisting on hard sphares. In the sixties Gibson et al. \cite{Gibson1960} studied the radiation damage using MD simulations and  Rahman \cite{Rahman1964} simulated a system consisting on 864 particles interacting with Lennard-Jones potential in order to study correlations in the motion of atoms in liquid argon.  
+The pioneering work of Adler and Wainwright \cite{Alder1957} in the fifties was a first step in the development of the MD simulations when they studied the phase transition of a system consisting on hard sphares. In the sixties Gibson et al. \cite{Gibson1960} studied the radiation damage using MD simulations and  Rahman \cite{Rahman1964} simulated a system consisting on 864 particles interacting with Lennard-Jones (LJ) potential in order to study correlations in the motion of atoms in liquid argon.  
 
 MD simulations play the role of the experiments in the real world. They provide us the observation which precedes the comprehension, because without comprehension science would be only documentation \cite{Rapaport}. Simulations allows us, in contrast with the theory, to assume less aproximations in exchange for a computational effort. Both simulations and physical theory must coincide (i.e. the predictions of theory must coincide with the results of the simulations). If they differ is an indication that an error has been commited somewhere.
 
@@ -1219,10 +1220,10 @@ following closed exact equation
 \end{equation}
 The reversible term is given by
 \begin{equation}
-v_i(t) = {\rm Tr}[\overline{\rho}_t  iL \hat{A}_i]
+  v_i(t) = {\rm Tr}[\overline{\rho}_t  i{\cal L} \hat{A}_i]
 \label{vit}
 \end{equation}
-where $iL$ is the Liouville operator (\ref{iL}).
+where $i{\cal L}$ is the Liouville operator (\ref{iL}).
 
 The  relevant
 ensemble $\overline{\rho}_t$  is of  the form (\ref{relens1}),  with a
@@ -1239,8 +1240,8 @@ term in equation (\ref{ex}) involves the memory kernel
 \begin{equation}
 K_{ij}(t,t') =
 {\rm Tr}\left[\overline{\rho}_{t'} 
-\left({\cal Q}_{t'} iL\hat{A}_j\right) G_{t't}
-\left({\cal Q}_{t } iL\hat{A}_i\right)\right],
+  \left({\cal Q}_{t'} i{\cal L}\hat{A}_j\right) G_{t't}
+\left({\cal Q}_{t } i{\cal L}\hat{A}_i\right)\right],
 \label{ker}
 \end{equation}
 where   the  Kawasaki-Gunton   projection  operator   ${\cal  Q}_{t'}$
@@ -1257,9 +1258,9 @@ Finally, the time ordered projected propagator $G_{t't}$ is given by formal seri
 \begin{align}
   G_{t't}&=1
 +\sum_{n=1}^\infty \int_{t'}^tdt_1\cdots\int_{t'}^{t_{n-1}}dt_n
- iL{\cal Q}_{t_n}\cdots  iL{\cal Q}_{t_1}
+i{\cal L}{\cal Q}_{t_n}\cdots  i{\cal L}{\cal Q}_{t_1}
 \nonumber\\
-&\equiv T_+\exp\left\{\int_{t'}^t dt''  iL{\cal Q}_{t''}\right\},
+&\equiv T_+\exp\left\{\int_{t'}^t dt''  i{\cal L}{\cal Q}_{t''}\right\},
 \end{align}
 where $T_+$ ensures that the operators are ordered from left to right as time increases.
 equation   (\ref{ex}) is  a closed  exact equation  for the  time dependent
@@ -1281,7 +1282,7 @@ treat  in   general.   Nevertheless,  the  exact   transport  equation
 (\ref{ex}) can  be approximated by  a memory-less equation  whenever a
 clear separation  of timescales  exists between the evolution  of the
 averages and  the decay of  the memory kernel. Under  this assumption
-and the  neglect of terms of  order ${\cal O}( iL\hat{A}^3)$,  assumed to be
+and the  neglect of terms of  order ${\cal O}( i{\cal L}\hat{A}^3)$,  assumed to be
 small due to  the slowness of the relevant variables,  one obtains the
 Markovian equation \cite{Grabert1982}
 \begin{equation}
@@ -1291,7 +1292,7 @@ Markovian equation \cite{Grabert1982}
 where  the  dissipative matrix  is  given  by  the Green-Kubo  formula
 \begin{equation}
 D_{ij}(t)=\int_0^{\Delta t} dt'\left\langle 
-{\cal Q}_t iL\hat{A}_j\exp\{iLt'\}{\cal Q}_t iL\hat{A}_i
+{\cal Q}_t i{\cal L}\hat{A}_j\exp\{i{\cal L}t'\}{\cal Q}_t i{\cal L}\hat{A}_i
 \right\rangle^{\lambda(t)}
 \label{dij}
 \end{equation}
@@ -1312,7 +1313,7 @@ unique equilibrium  values. Forced situations may  be treated
 with the present  formalism \cite{Grabert1982} but we  do not consider
 them here for simplicity.
 
-\subsection{Mori's Generalized Langevin equationation}
+\subsection{Mori's Generalized Langevin equation}
 \label{Sec:Mori}
 In the last section we introduced the Kawasaki-Gunton projection operator that allows one to obtain nonlinear closed equations of motion for the averages of a set of relevant variables. It is shown that the equations consist of two terms, a reversible term and irreversible one which contains the memory kernel. 
 In this section we present a summary of Mori's theory \cite{Mori1965} which allows one to obtain not only linear dynamic equations for the averages of the relevant variables but also for their correlations. The Markovian approximation will be suppose as in the case of the nonlinear equations obtained with the Kawasaki-Gunton projection operator. 
@@ -1353,7 +1354,7 @@ space is given by
 %\label{LA}
 %\end{eqnarray}
 
-Mori's  exact  Generalized Langevin  equationation  (GLE)  is an  evolution
+Mori's  exact  Generalized Langevin  equation  (GLE)  is an  evolution
 equation for the set of CG variables given by the following theorem\cite{Mori1965,Zwanzig2001,Kubo1991}
 \begin{align}
 \frac{d}{dt}\hat{A}(t) &= -L\esc C^{-1}(0)\esc \hat{A} (t)
@@ -1423,7 +1424,7 @@ obtain
 \begin{align}
   \frac{d}{dt}a(t) &= -L\esc C^{-1}(0)\esc a(t)
 %\nonumber\\
--\int_0^tdt' \Gamma(t-t')\esc  C^{-1}(0)\esc a(t')
+-\int_0^tdt' \Gamma(t-t')\esc  C^{-1}(0)\esc a(t'),
 \label{exactAve}
 \end{align}
 where the time-dependent average of the CG variables is defined as
@@ -1478,7 +1479,7 @@ $\delta^+(t)$ is normalized as
   \int_0^\infty dt \delta^+(t) =1
 \end{align}
 Under the  Markovian approximation,  equation  (\ref{Markap})  implies that
-the projected  force is delta correlated  in time. As a  consequence, the
+the projected  force is $\delta$ correlated  in time. As a  consequence, the
 ordinary differential equation (\ref{SDE}) should be interpreted as a
 stochastic  differential  equation (SDE)  for  times  larger than  the
 correlation of $F^+(t)$.
@@ -1550,7 +1551,7 @@ have
   \int_0^tdt' \Gamma(t-t')\esc c(t')&\simeq  \int_0^tdt' \Gamma(t-t')\esc  c(t)
 \nonumber\\
 &\equiv
-M^+(t)\esc c(t)
+M^+(t)\esc c(t),
 \label{M+c}
 \end{align}
 where we have introduced the \textit{projected} Green-Kubo running integral
@@ -1579,7 +1580,7 @@ that  at $t=0$  becomes  the identity  matrix.   The  Markovian
 We will also consider
 the \textit{unprojected} Green-Kubo running integral
 \begin{align}
-M(t)&\equiv  \int_0^{t} dt' \llangle \left(\exp\{i{\cal   L}t'\}i{\cal L}\hat{A} \right){\cal Q} i{\cal L}\hat{A}^T\rrangle
+M(t)&\equiv  \int_0^{t} dt' \llangle \left(\exp\{i{\cal   L}t'\}i{\cal L}\hat{A} \right){\cal Q} i{\cal L}\hat{A}^T\rrangle,
 \label{Mtau}
 \end{align}
 where we distinguish $M(t)$ from  $M^+(t)$ because the former involves
@@ -1885,7 +1886,7 @@ of  the  system  evolves  according to  Hamilton's  equations  with  a
 Hamiltonian given by
 \begin{eqnarray}
 H(z) = \sum^N_i \frac{p_i^2}{2m_i} + \sum^{N'}_{i'} \frac{p_{i'}^2}{2m_{i'}}
-+ U(z)
++ U(z),
 \label{H}
 \end{eqnarray}
 where the potential energy $U(z)$ is given by
@@ -1929,7 +1930,7 @@ sphere. These are given by the following set of phase functions
 &&\hat{\bf R}(z)=\frac{1}{N'}\sum_{i'}^{N'}{\bf q}_{i'}
 \nonumber\\
   \hat{\bf g}_{\bf r}(z) &=\sum^{N}_i{\bf p}_i\delta({\bf r}-{\bf q}_i)
-&&\hat{\bf P}(z)=\sum_{i'}^{N'}{\bf p}_{i'}
+&&\hat{\bf P}(z)=\sum_{i'}^{N'}{\bf p}_{i'},
 \label{CGvar}
 \end{align}
 where $\overline{\delta}({\bf r}-{\bf q}_i)$ is a coarse delta function as, for example, a normalized Gaussian.
@@ -1994,7 +1995,7 @@ solid   exerts  on  the   liquid,  this   is,
 \nonumber\\
 \hat{\bf F}^{\rm l\to l}_{\bf r}(z) &= \sum^{NN}_{ij}\hat{\bf F}_{ij}\delta({\bf r}-{\bf q}_i)
 \nonumber\\
-\hat{\bf F}^{\rm s\to l}_{\bf r}(z) &= \sum^{NN'}_{ij'}\hat{\bf F}_{ij'}\delta({\bf r}-{\bf q}_i)
+\hat{\bf F}^{\rm s\to l}_{\bf r}(z) &= \sum^{NN'}_{ij'}\hat{\bf F}_{ij'}\delta({\bf r}-{\bf q}_i),
 \label{Fr}
 \end{align}
 where $\hat{\bf F}_{ij'}$ is the force  that atom $j'$ of the solid
@@ -2119,7 +2120,7 @@ grand-canonical partition function defined as
     q}_i)-\beta \sum_{i=1}^N{\bf p}_i\esc\boldsymbol{\lambda}_g({\bf q}_i)\right\}
 \nonumber\\
 &\times\exp\left\{-\beta \boldsymbol{\lambda}_{R}\esc\hat{\bf R}(z)
--\beta \boldsymbol{\lambda}_{P}\esc\hat{\bf P}(z)\right\}
+-\beta \boldsymbol{\lambda}_{P}\esc\hat{\bf P}(z)\right\},
 \label{xiln}
 \end{align}
 where we have introduced the coarse conjugate variables as
@@ -2138,7 +2139,7 @@ The conjugate fields $\lambda$ of the CG variables (\ref{CGvar}) are fixed by th
 &&{\bf R} =\frac{\partial \Phi [\lambda]}{\partial \boldsymbol{\lambda}_R }
 \nonumber\\
   {\bf g}({\bf r}) &=\frac{\delta \Phi [\lambda]}{\delta \boldsymbol{\lambda}_g({\bf r}) }
-&&{\bf P} =\frac{\partial \Phi [\lambda]}{\partial \boldsymbol{\lambda}_P }
+&&{\bf P} =\frac{\partial \Phi [\lambda]}{\partial \boldsymbol{\lambda}_P },
 \label{rgo}
 \end{align}
 where the $\lambda$-dependent {\em grand-canonical potential} is given, as in equation (\ref{PhiLambda}) by
@@ -2249,7 +2250,7 @@ velocities.
 We may express the gran potential (\ref{oh}) as a sum of two contributions
 \begin{align}
 \Phi [\lambda]&=  \Phi^{\rm pos}[\mu,\boldsymbol{\lambda}_R]
--\frac{M'}{2} {\boldsymbol{\lambda}_P}^2
+-\frac{M'}{2} {\boldsymbol{\lambda}_P}^2,
 \label{xpos1}
 \end{align}
 where we have defined the following grand potential
@@ -2285,7 +2286,7 @@ The derivatives we need of the functional (\ref{xpos}) are
 \langle \hat{\rho}_{\bf r}\rangle^{\mu,\boldsymbol{\lambda}_R}
 \nonumber\\
   \frac{\partial \Phi^{\rm pos}}{\partial \boldsymbol{\lambda}_R}[\mu,\boldsymbol{\lambda}_R]&=
-\langle \hat{\bf R}\rangle^{\mu,\boldsymbol{\lambda}_R}
+\langle \hat{\bf R}\rangle^{\mu,\boldsymbol{\lambda}_R},
 \end{align}
 where               the                averages               $\langle
 \cdots\rangle^{\mu,\boldsymbol{\lambda}_R}$   are  defined   in  these
@@ -2354,7 +2355,7 @@ with the result
 
 The free energy functional is translationally invariant, that is,
 \begin{align}
-  {\cal F}[T_{\bf u}\rho,T_{\bf u}{\bf R}]&=  {\cal F}[\rho,{\bf R}]
+  {\cal F}[T_{\bf u}\rho,T_{\bf u}{\bf R}]&=  {\cal F}[\rho,{\bf R}],
 \label{fa}
 \end{align}
 where the translation operator applied to any function is defined as
@@ -2383,7 +2384,7 @@ fluid-solid interaction is given by
 \begin{align}
   {\cal F}[\rho,{\bf R}]&={\cal F}_0[\rho]
 +\int d{\bf r}\frac{1}{m}
-\rho({\bf r})V({\bf r},{\bf R})
+\rho({\bf r})V({\bf r},{\bf R}),
 \label{modelnonlocalF}
 \end{align}
 where ${\cal F}_0[\rho]$ is the  free energy density functional of the
@@ -2407,7 +2408,7 @@ The derivatives of the free energy model (\ref{modelnonlocalF}) are
 \begin{align}
     \frac{\delta{\cal F}}{\delta\rho({\bf r})}=\mu_0({\bf r})+V({\bf r},{\bf R}),&&
 %\nonumber\\
-    \frac{\partial{\cal F}}{\partial{\bf R}}=-\int d{\bf r}\rho({\bf r}){\bf F}({\bf r},{\bf R})
+    \frac{\partial{\cal F}}{\partial{\bf R}}=-\int d{\bf r}\rho({\bf r}){\bf F}({\bf r},{\bf R}),
 \end{align}
 
 \Note{¿No falta una m en el segundo término de la primera ecuación?}
@@ -2430,7 +2431,7 @@ For the mass density we have
 \begin{align}
 \left.\partial_t \rho({\bf r},t)\right|_{\rm rev}
 &=  {\rm Tr}[\overline{\rho}_t  iL\hat{\rho}_{\bf r}] 
-=-\boldsymbol{\nabla}\cdot {\bf  g}({\bf r},t)
+=-\boldsymbol{\nabla}\cdot {\bf  g}({\bf r},t),
 \label{conrho}
 \end{align}
 where we have used equation (\ref{ildens}) and the fact that the relevant
@@ -2474,7 +2475,7 @@ Therefore, the action of ${\cal G}$ on the relevant ensemble is \Note{(En el pap
 \exp\left\{\beta\int d{\bf r}\mu({\bf r})\hat{\rho}_{\bf r}(z)\right\}
 %\nonumber\\
 \exp\left\{-\beta \boldsymbol{\lambda}_{R}(t)\esc\hat{\bf R}(z)
--\beta \boldsymbol{\lambda}_{P}(t)\esc\hat{\bf P}(z)\right\}
+-\beta \boldsymbol{\lambda}_{P}(t)\esc\hat{\bf P}(z)\right\},
 \label{resrelens}
 \end{align}
 where  the chemical  potential per  unit mass  has been  introduced in
@@ -2496,7 +2497,7 @@ Using (\ref{Gprop}) we have
 By noting that the ensemble (\ref{resrelens}) is Gaussian in momenta, we have finally 
 \begin{align}
   {\rm Tr}[\overline{\rho}_t \hat{{\bf K}}_{\bf r}] &=
-{\bf v}({\bf r}){\bf v}({\bf r}){\rho}({\bf r})+\frac{k_BT}{m}\rho({\bf r})\boldsymbol{\delta}
+{\bf v}({\bf r}){\bf v}({\bf r}){\rho}({\bf r})+\frac{k_BT}{m}\rho({\bf r})\boldsymbol{\delta},
 \label{api}
 \end{align}
 where $\boldsymbol{\delta}$ is the unit  tensor.  The last term $ {\rm
@@ -2518,7 +2519,7 @@ Finally, the averages with the relevant ensemble of the solid object variables a
 &=\frac{\bf P}{M}
 \nonumber\\
 {\rm Tr}[\overline{\rho}_t  iL\hat{\bf P}] 
-&=-\frac{\partial {\cal F}}{\partial {\bf R}}[\rho,{\bf R}]
+&=-\frac{\partial {\cal F}}{\partial {\bf R}}[\rho,{\bf R}],
 \end{align}
 where we have used equation (\ref{Fls}) in the Appendix \ref{Ap:Forces}.
 
@@ -2733,7 +2734,7 @@ $\sum_jD_{ij}\lambda_j$ in equation (\ref{ex2}) now takes the form
 \\
 \frac{\partial {\cal H}}{\delta {\bf P}}
     \end{array}
-\right)
+\right),
 \label{irr1}
 \end{align}
 where we have  used (\ref{lno}). The sum over  the continuum ``index''
@@ -2746,7 +2747,7 @@ to the velocities, we obtain the following irreversible dynamics
   \partial_t{\bf g}({\bf r})&=-\int d{\bf r}'M^{gg}_{{\bf r}{\bf r}'}
 {\bf v}({\bf r}')-M^{gP}_{\bf r}{\bf V}
 \nonumber\\
-\frac{d}{dt}{\bf P}(t)&=-\int d{\bf r}' M^{Pg}_{{\bf r}'}{\bf v}({\bf r}')-M^{PP}{\bf V}
+\frac{d}{dt}{\bf P}(t)&=-\int d{\bf r}' M^{Pg}_{{\bf r}'}{\bf v}({\bf r}')-M^{PP}{\bf V},
 \label{IrrMark1}\end{align}
 where the matrix elements are  defined in terms of Green-Kubo formulas
 as
@@ -2792,7 +2793,7 @@ equation (\ref{Ms}),  and inserting  the result in  the equation  of motion
 \begin{align}
 \left.  \partial_t{\bf g}^\alpha({\bf r})\right|_{\rm irr}&= \boldsymbol{\nabla}_{\bf r}^{\beta}\boldsymbol{\Sigma}^{\alpha\beta}({\bf r}) +\boldsymbol{{\cal S}}^\alpha({\bf r}) 
 \nonumber\\
-\left.\frac{d}{dt}{\bf P}^\alpha(t)\right|_{\rm irr}&=-\int d{\bf r}'   \boldsymbol{{\cal S}}^\alpha({\bf r}')
+\left.\frac{d}{dt}{\bf P}^\alpha(t)\right|_{\rm irr}&=-\int d{\bf r}'   \boldsymbol{{\cal S}}^\alpha({\bf r}'),
 \label{Irr}
 \end{align}
 where the fluid stress tensor is
@@ -2865,7 +2866,7 @@ for the relevant variables
 \dot{\bf R}=&\frac{\bf P}{M}
 \nonumber\\
 \dot{\bf P}=&-\frac{\partial {\cal F}}{\partial {\bf R}}
--\int d {{\bf r}}\boldsymbol{{\cal S}}({\bf r})
+-\int d {{\bf r}}\boldsymbol{{\cal S}}({\bf r}),
 \label{finaleq}
 \end{align}
 where  the   free  energy  functional  ${\cal   F}[\rho,{\bf  R}]$  is
@@ -2879,7 +2880,7 @@ Equations   (\ref{finaleq}), (\ref{GK1}),   (\ref{Irreversibleforces})
 are the  main results of the present  chapter.  They describe
 the isothermal nonlocal  hydrodynamics of a  simple fluid coupled with
 the motion of an immersed structureless solid sphere.  These equations
-generalize equationilibrium DFT for a simple fluid to
+generalize equilibrium DFT for a simple fluid to
 nonequilibrium situations in  which the fluid may be  moving around a
 solid  sphere.  The  only approximation  that  has been  taken in  the
 derivation is the Markovian approximation that neglects memory effects
@@ -2999,7 +3000,7 @@ actual values of the total mass  and momentum.  In order to obtain the
 equilibrium values of  the relevant variables, one  should minimize the
 following functional without constraints
 \begin{align}
-  {\cal H}-\mu_0\int d{\bf r} \rho({\bf r})-{\bf V}_0\cdot\left[\int d{\bf r}{\bf g}({\bf r})+{\bf P}\right]
+  {\cal H}-\mu_0\int d{\bf r} \rho({\bf r})-{\bf V}_0\cdot\left[\int d{\bf r}{\bf g}({\bf r})+{\bf P}\right],
 \end{align}
 where    $\mu_0,{\bf   V}_0$    are    the   corresponding    Lagrange
 multipliers. Setting  to zero the derivatives of  the above functional
@@ -3199,7 +3200,7 @@ for the transport kernels
 In this chapter we have derived DDFT for simple fluid in contact with a solid sphere. We have taken as relevant variables the mass and momentum density fields of the fluid and the center of mass position and momentum of the solid sphere. We have use the Kawasaki-Gunton operator in order to obtain the evolution equations for the average value of these fields.  
 A crucial assumption in the method of projection operators is that the
 relevant variables should be {\em slow}  in order to have a Markovian,
-memoryless  equation.   equationations with  memory  are  indeed much  more
+memoryless  equation.   equations with  memory  are  indeed much  more
 difficult to deal with than  memoryless equations.  In the former case
 one  needs  to know  the  specific  form  of  the memory  kernel  {\em
   function}  instead of  just one  single number,  the transport  {\em
@@ -3289,7 +3290,7 @@ localized   irreversible  surface   forces  produce   actual  boundary
 conditions for the hydrodynamic equations.
 
 A  general comment  on the  status of the  present theory  is in
-order.   This  theory is  the  natural  generalization of  equationilibrium
+order.   This  theory is  the  natural  generalization of  equilibrium
 DFT for simple  fluids, when these fluids are in
 motion and, therefore, out of equilibrium. It allows, in principle, to
 study effects  like how the  structuring of the  fluid near a  wall is
@@ -3782,7 +3783,7 @@ changes through two different mechanism,  the convective motion of the
 particles and  the forces on  the particles.  The total  force density
 $\hat{\bf F}_\mu$ felt by the fluid particles at node $\mu$ is
 \begin{align}
-\hat{\bf F}_\mu&=    \hat{\bf F}^{\rm s\to l}_\mu+  \hat{\bf F}^{\rm l\to l}_\mu
+\hat{\bf F}_\mu&=    \hat{\bf F}^{\rm s\to l}_\mu+  \hat{\bf F}^{\rm l\to l}_\mu,
 \end{align}
 where $  \hat{\bf F}^{\rm  s\to l}_\mu$  is the  force density  on the
 fluid  at node  $\mu$ due  to the  solid and  $ \hat{\bf  F}^{\rm l\to
@@ -3831,7 +3832,7 @@ Therefore we have
 \nonumber\\
 & 
 =\frac{1}{{\cal V}_\mu}\frac{1}{2}\sum_{ij}^N\hat{\bf F}_{ij}{\bf q}_{ij}\esc{\bf n}
-\frac{z_\mu(i,j)-z_{\mu-1}(i,j)}{\Delta z} 
+\frac{z_\mu(i,j)-z_{\mu-1}(i,j)}{\Delta z},
 \label{Fvir}
 \end{align}
 where we have introduced the geometric factor 
@@ -3949,7 +3950,7 @@ microscopic  density field  (\ref{CGvar})  with  respect to  the
 relevant  ensemble.  The  chemical potential  field per  unit mass  is
 defined by
 \begin{align}
-  \overline{\mu}({\bf r})&=\overline{\lambda}({\bf r})-\frac{\overline{\bf v}^2({\bf r})}{2}
+  \overline{\mu}({\bf r})&=\overline{\lambda}({\bf r})-\frac{\overline{\bf v}^2({\bf r})}{2},
 \end{align}
 where the interpolated conjugate variables are defined as 
 \begin{align}
@@ -3960,7 +3961,7 @@ The conjugate variables $\lambda_\mu,{\bf v}_\mu$ are functions of the
 CG variables averages $\rho_\mu,{\bf g}_\mu$, computed with the real ensemble (i.e. the solution of the Liouville equation). In particular, the velocity ${\bf
 v}_\mu$ is related to the momentum density through
 \begin{align}
-  {\bf g}_\mu&=\sum_{\nu}\rho_{\mu\nu}{\bf v}_\nu
+  {\bf g}_\mu&=\sum_{\nu}\rho_{\mu\nu}{\bf v}_\nu,
 \label{vnu}
 \end{align}
 where  the mass density matrix is defined by
@@ -4361,7 +4362,7 @@ evolve according to
 \llg\overline{\rho}\; \overline{v}^{z}\;\overline{v}^{z}{\nabla}^{z}\delta_{\mu}\rlg
 -\llg\overline{\rho}\delta_{\mu}{\nabla}^{z}\delta_{\nu}\rlg
 \frac{\partial  F}{\partial \rho_{\nu}}(\rho)
-+M_{\mu\nu}^{\bot}{\cal V}_\nu\tilde{v}^{z}_\nu
++M_{\mu\nu}^{\bot}{\cal V}_\nu\tilde{v}^{z}_\nu,
 \label{SoundDisc}
 \end{align}
 where the dissipative matrix is defined as
@@ -4379,7 +4380,7 @@ On the other  hand, the parallel component  ${\bf g}^\alpha_\mu$ for $\alpha
 =x,y$  of  the  discrete  momentum density  evolves  independently  of
 $\rho_\mu,{\bf g}^{z}_\mu$, and according to
 \begin{align}
-    \frac{d}{dt}{{\bf g}}^\alpha_\mu=&-M_{\mu\nu}^{||}{\cal V}_\nu\tilde{v}^\alpha_\nu
+    \frac{d}{dt}{{\bf g}}^\alpha_\mu=&-M_{\mu\nu}^{||}{\cal V}_\nu\tilde{v}^\alpha_\nu,
 \label{ShearDisc}
 \end{align}
 where the dissipative matrix in this equation is
@@ -4451,7 +4452,7 @@ In terms of  the finite element basis functions $\Phi_\mu({\bf r})$ we may write
 (\ref{interpolated})  in the form 
 \begin{align}
     \overline{\rho}({\bf r})=\sum_\mu\tilde{\rho}_\mu\Phi_\mu({\bf r}), &&
-\overline{\bf  v}({\bf r})= \sum_\mu\tilde{\bf v}_\mu\Phi_\mu({\bf r})
+\overline{\bf  v}({\bf r})= \sum_\mu\tilde{\bf v}_\mu\Phi_\mu({\bf r}),
 \label{interpolated2}
 \end{align}
 where  we  have  used  (\ref{PsiFE})   and  the   discrete  field
@@ -4591,7 +4592,7 @@ equation. (\ref{fulldeltapsi}). The first one is, after using the expression
 &\times{\bf n}\esc\boldsymbol{\eta}_{{\bf r}{\bf r}'}\esc{\bf n}(\chi_\nu(z)-\chi_{\nu-1}(z))
 \nonumber\\
 &=
-\frac{1}{\Delta z^2} {\bf n}\esc\left[\boldsymbol{\eta}_{\mu\nu}-\boldsymbol{\eta}_{\mu-1\nu}-\boldsymbol{\eta}_{\mu\nu-1}+\boldsymbol{\eta}_{\mu-1\nu-1}\right]\esc{\bf n}
+\frac{1}{\Delta z^2} {\bf n}\esc\left[\boldsymbol{\eta}_{\mu\nu}-\boldsymbol{\eta}_{\mu-1\nu}-\boldsymbol{\eta}_{\mu\nu-1}+\boldsymbol{\eta}_{\mu-1\nu-1}\right]\esc{\bf n},
 \label{TC1}
 \end{align}
 where we have introduced the discrete nonlocal viscosity kernel as
@@ -4858,12 +4859,12 @@ while the second  approach is the nonlocal viscosity  model.
 The LADM assumes that the local transport coefficients of an inhomogeneous
 fluid can be set equal to the corresponding homogeneous transport coefficientes calculated at a locally averaged density. 
 \Note{No sé si lo entiendo. Coeficientes de transporte de fluidos inhomogeneos iguales a los coeficientes de transporte de fluidos homogeneos calculados en los puntos correspondientes al promedio local de la densidad. Pensar en el gráfico viscosidad local vs. densidad local, y en otro con el perfil de densidad inhomogéneo. Seleccionamos una densidad en la gráfica del perfil inhomogéneo y vemos en el gráfico viscosidad local vs. densidad local qué valor de la viscosidad local se obtiene cuando tenemos esa densidad dada.}
-%in a way similar to what  is done in equationilibrium Density  Functional Theory for the formulation of Weighted Density  Approximation models for the free energy functional \cite{Tarazona2008}.  %equation7.27
+%in a way similar to what  is done in equilibrium Density  Functional Theory for the formulation of Weighted Density  Approximation models for the free energy functional \cite{Tarazona2008}.  %equation7.27
 
 This somewhat  heuristic idea
 was given a rigorous foundation from a kinetic theory for dense fluids
 proposed by Pozhar et al.  \cite{Pozhar1991a}.  From the computational
-side,   Bitsanis  et   al  \cite{Bitsanis1987}   used  Nonequilibrium
+side,   Bitsanis  et   al.  \cite{Bitsanis1987}   used  Nonequilibrium
 Molecular  Dynamics (NEMD)  to produce  Couette-like flows  in several
 external conservative fields and it was shown that the LADM gives good
 results.    More     recent    work    by    Hoang     and    Galliero
@@ -4877,7 +4878,7 @@ time)  generalization of  Newton's  constitutive  equation for  planar
 shear  flows. Evans and Morriss \cite{EvansMorriss2008} proposed a nonlocal constitutive equation in  which  the  stress is  related  to  the strain  field $\dot{\gamma}$ in the form
 \begin{align}
   P^{xy}({\bf r},t)&=-\int_0^t ds \int_{-\infty}^{\infty} d{\bf r}'
-\eta({\bf r},{\bf r}',t-s)\dot{\gamma}({\bf r}',s)
+\eta({\bf r},{\bf r}',t-s)\dot{\gamma}({\bf r}',s),
 \label{GenNewtonian}   %Ecuación 2.77 de Evans y Morriss. 
 \end{align}
 where  $P^{xy}({\bf r}, t)$ is the $xy$ pressure tensor element and $\eta({\bf r},{\bf  r}',t)$  is the  shear viscosity  nonlocal
@@ -4893,7 +4894,7 @@ For  steady  state flows,  the  constitutive  equation
 becomes
 \begin{align}
   P^{xy}({\bf r})&=-\int_{-\infty}^{\infty} d{\bf r}'
-\eta({\bf r},{\bf r}')\dot{\gamma}({\bf r}')
+\eta({\bf r},{\bf r}')\dot{\gamma}({\bf r}'),
 \label{GenNewtonianSS}
 \end{align}
 where the shear viscosity nonlocal kernel $\eta({\bf r},{\bf r}')$ in
@@ -4940,8 +4941,8 @@ not trivial to  compute explicitly.  Therefore, a  clear separation of
 time  scales is  usually invoked  in such  a way  that an  approximate
 Markovian  differential  equation  is  obtained.   Unfortunately,  the
 resulting Green-Kubo expressions for the transport coefficients suffer
-from   the  well-known   plateau  problem   \cite{Espanol1998},  first
-described in the seminal work by Kirkwood \cite{Kirkwood1949}. In order to avoid the plateau problem, in Sec. \ref{Sec:GKsi} we propose an alternative formulation for the transport coefficientes in terms of a  \textit{corrected} Green-Kubo formulas that
+from   the  well-known   plateau  problem   \cite{Espanol1992},  first
+described in the seminal work by Kirkwood \cite{Kirkwood1949}. In order to avoid the plateau problem, in Sec. \ref{Sec:GKsi} we propose an alternative formulation for the transport coefficientes in terms of a  \textit{corrected} Green-Kubo formula that
 does  not suffer  from the  plateau problem. We will use this expression  in order to evaluate the nonlocal
 transport coefficients.
 
@@ -5007,7 +5008,7 @@ We may integrate the time derivatives obtaining
 The second and  fourth terms in the right hand  side cancel each other
 and we finally obtain
 \begin{align}
-M(t)&=-\frac{d}{dt}C(t)-L\esc c(t)
+M(t)&=-\frac{d}{dt}C(t)-L\esc c(t),
 \label{Math1}
 \end{align}
 where the normalized correlation matrix $c(t)$ is defined in (\ref{cnorm}).
@@ -5113,7 +5114,7 @@ In this section, we use Mori theory in the notation presented in Sec. \ref{Sec:M
 \label{Sec:CGVariablesPBC}
 In Chapter \ref{Chap:Planar} we gave a detailed description of the definitions of the geometry and the definition of the CG variables.
 The simulation periodic box of  dimensions $L_x,L_y,L_z$ is divided in
-its $L_z$  direction in  $N_{\rm bin}$ nodal  planes, as it shown in Fig. \ref{Fig:PBCBox}, labelled
+its $L_z$  direction in  $N_{\rm bin}$ nodal  planes, as it shown in Fig. \ref{fig:PBCBox}, labelled
 with   an    index   $\mu$   located   at    $z_\mu=\mu   \Delta   z$,
 $\mu=0,\cdots,N_{\rm bin}-1$ with $\Delta  z=L_z/N_{\rm bin}$.  Due to
 periodic  boundary conditions  (PBC)  in the  $z$  direction the  node
@@ -5150,10 +5151,10 @@ $\mu$   \Note{Realmente la única variable relevante es el momento.}
   \hat{\rho}_\mu(z)&= \sum_i^Nm_i\delta_\mu({\bf r}_i),&
 % \nonumber\\
 % \hat{e}_\mu(z)&= \sum_i^Ne_i\delta_\mu({\bf r}_i)
-\hat{\bf g}_\mu(z)&= \sum_i^N{\bf p}_i\delta_\mu({\bf r}_i)
+\hat{\bf g}_\mu(z)&= \sum_i^N{\bf p}_i\delta_\mu({\bf r}_i),
 \label{rhogmumicPBC}
 \end{align}
-where ${\bf r}_i,{\bf p}_i$ are the position and momentum of particle $i$, and the discrete Dirac $\delta$ was introduced in (\ref{delta})
+where ${\bf r}_i,{\bf p}_i$ are the position and momentum of particle $i$, and the discrete Dirac $\delta$ was introduced in (\ref{DelFE})
 %\begin{align}
 %\delta_\mu({\bf r})&=  \frac{1}{{\cal V}_\mu}\Phi_\mu({\bf r})
 %\label{delta}
@@ -5185,7 +5186,7 @@ discrete hydrodynamic variables we obtain
 \begin{align}
   \sum_\mu{\cal V}_\mu\hat{\rho}_\mu(z)&  &&= mN
 \nonumber\\
-  \sum_\mu{\cal V}_\mu\hat{\bf g}_\mu(z)&=\sum_i^N{\bf p}_i&&= \hat{\bf P}_T(z)
+  \sum_\mu{\cal V}_\mu\hat{\bf g}_\mu(z)&=\sum_i^N{\bf p}_i&&= \hat{\bf P}_T(z),
 \label{DiscCons}
 \end{align}
 where we  have introduced the total  mass $mN$ and the  total momentum
@@ -5291,7 +5292,7 @@ that happens to be within bin $\mu$.
 
 We may write equation (\ref{iLAcurrentx}) in matrix form as
 \begin{align}
-  i{\cal L}\hat{g}&= -B\esc\hat{\sigma}^{xz} =F^T\esc\hat{\sigma}^{xz}
+  i{\cal L}\hat{g}&= -B\esc\hat{\sigma}^{xz} =F^T\esc\hat{\sigma}^{xz},
 \label{iLgMat}
 \end{align}
 where  $\hat{\sigma}$ is  a  $N_{\rm  bin}$-dimensional column  vector
@@ -5508,13 +5509,13 @@ From
 (\ref{sbin}) and the fact that $\chi_\mu({\bf r}),z_{\mu}(i,j)$ form a partition of unity, we have
 that the total stress is the arithmetic average of the stress in each bin is given by
 \begin{align}
-\hat{\sigma}_T^{xz}=\frac{1}{N_{\rm bin}}\sum_\mu\hat{\sigma}_\mu^{xz}
+\hat{\sigma}_T^{xz}=\frac{1}{N_{\rm bin}}\sum_\mu\hat{\sigma}_\mu^{xz},
 \label{TotStress2}
 \end{align}
 where the  total stress $\hat\sigma_T^{xz}$ is defined  in the usual way
 \begin{align}
-\hat{\sigma}_T^{xz}&=\frac{1}{V_T}\left[\sum_{i}{\bf p}^1_i{\bf v}^3_i
-+\frac{1}{2}\sum_{ij}{\bf r}^1_{ij}\hat{\bf F}^3_{ij}\right]
+\hat{\sigma}_T^{xz}&=\frac{1}{V_T}\left[\sum_{i}{\bf p}^x_i{\bf v}^z_i
++\frac{1}{2}\sum_{ij}{\bf r}^x_{ij}\hat{\bf F}^z_{ij}\right]
 \label{TotStress}
 \end{align}
 and $V_T$ is the total volume of the system. 
@@ -5564,7 +5565,7 @@ where we have introduced the mass density matrix $\rho_{\mu\nu}$ as
 \end{align}
 where  $\hat{n}_\mu=\hat{\rho}_\mu/m$ is  the number  density  of node $\mu$ and $n=N/V$  is the  average
 number density.  The
-matrix $M^\delta_{\mu\nu}$ is given in (\ref{MM})
+matrix $M^\delta_{\mu\nu}$ is given in (\ref{MM}).
 %\begin{align}
 %  M^\delta_{\mu\nu}&=\int d{\bf r}\delta_\mu({\bf r})\delta_\nu({\bf r}) 
 %\end{align}
@@ -5676,7 +5677,7 @@ by using the translation invariance of the viscosity matrix we have
 % \begin{align}
 %   \frac{d}{dt}\hat{g}_\mu&=
 % \end{align}
-equation (\ref{SDELap0}) looks    like    a   discretization    of    the    following
+Equation (\ref{SDELap0}) looks    like    a   discretization    of    the    following
 integro-differential  equation
 \begin{align}
   \frac{d}{dt} {\bf g}^{x}(z)&=\int dz'{\eta}^*(z-z')\partial^2_{z'} {\bf v}^{x}(z')
@@ -5726,7 +5727,7 @@ the  nonlocal shear  viscosity matrix  and to  ${\bf v}_\mu$ introduced  in
 By using (\ref{EDE})  and (\ref{Dmumu}), the Fourier  transform of the
 equation of motion (\ref{SDECpi}) is then
 \begin{align}
-  \frac{d}{dt}\tilde{C}_{\mu}(t)&=-\frac{1}{\tau_\mu}\tilde{C}_\mu(t)  
+  \frac{d}{dt}\tilde{C}_{\mu}(t)&=-\frac{1}{\tau_\mu}\tilde{C}_\mu(t),
 \label{SDECpiDiag}
 \end{align}
 where the relaxation time $\tau_\mu$ of mode $\mu$ satisfies
@@ -5739,7 +5740,7 @@ where the relaxation time $\tau_\mu$ of mode $\mu$ satisfies
 The  solution of  equation  (\ref{SDECpiDiag})  with ``initial  condition''
 $\tilde{C}_\mu(\tau)$ at time $\tau$ is the exponential function
 \begin{align}
-  \tilde{C}_\mu(t)&=\exp\left\{-\frac{t-\tau}{\tau_\mu}\right\}  \tilde{C}_\mu(\tau)
+  \tilde{C}_\mu(t)&=\exp\left\{-\frac{t-\tau}{\tau_\mu}\right\}  \tilde{C}_\mu(\tau),
 \label{solexp}
 \end{align}
 The displacement of the initial condition to the time $\tau$ is due to
@@ -5749,7 +5750,7 @@ $t=0$  where   the  Markovian  equation  (\ref{AproxC})   (and  hence
 
 The correlation matrix $C(t)$ in real space is obtained from the correlation in Fourier space in (\ref{solexp}) by equation (\ref{FT}), and leads to the result
 \begin{align}
-  C(t)&=\exp\left\{\Delta\esc \nu^* (t-\tau) \right\}C(\tau)
+  C(t)&=\exp\left\{\Delta\esc \nu^* (t-\tau) \right\}C(\tau),
 \label{Cmunut}
 \end{align}
 where the exponential matrix takes the form
@@ -5778,7 +5779,7 @@ the nonlocal  discrete equation  (\ref{dgDnug}), we conclude  that the
 local approximation of the nonlocal viscosity matrix $\nu$ becomes a
 diagonal matrix of the form
 \begin{align}
-\nu_{\mu\mu'}&\simeq \nu_0 \delta_{\mu\mu'}
+\nu_{\mu\mu'}&\simeq \nu_0 \delta_{\mu\mu'},
 \end{align}
 where the local kinematic viscosity is given by
 \begin{align}
@@ -5890,7 +5891,7 @@ matrices  due to  traslation invariance.
 
 \subsection{Simulation set up}
 \label{Sec:SimSetUpPBC}
-A  system  of particles  interacting  with  a Lennard-Jones  potential
+A  system  of particles  interacting  with  a LJ  potential
 truncated at  $\sigma=2.5$ has been  simulated in PBC with  the LAMMPS code \cite{Plimpton1995}.
 In Fig. \ref{fig:PBCBox} a snapshot of the simulation is showed.
 The box  size is $40\times40\times30$, the  number of particles
@@ -5975,7 +5976,7 @@ bins should  have an  overall negative  value in  order for  the total
 momentum to  be zero. In order  to improve the statistical  quality of
 the matrix  $C(t)$ we have  used the analytical value  (\ref{Cneg}) of
 the  background,  as  provided  by the  analytic  calculation  of  the
-covariance in the Appendix \ref{Ap:Cov}.\Note{¿Cómo hicimo esto?:/}
+covariance in the Appendix \ref{Ap:Cov}.
 
 \begin{figure}[h!]
 \centering
@@ -6053,13 +6054,13 @@ eigenvalues of  the correlation matrix decay  exponentially, according
 to the prediction (\ref{SDECpiDiag}).  In order to better discriminate
 the exponential behaviour we introduce the time-dependent matrix
 \begin{align}
-\Lambda(t)\equiv-    \frac{dC}{dt}(t)\esc C^{-1}(t)
-\label{AproxCtau}
+\Lambda(t)\equiv-    \frac{d}{dt}C(t)\esc C^{-1}(t)
+\label{AproxCtau3}
 \end{align}
 that according  to the Markov equation  (\ref{AproxC}), should evolve
 toward a constant time  independent matrix $ \Lambda(t)\to \Lambda^*$
 after   certain  time.   In  Fourier   space  all   matrices  in   equation
-(\ref{AproxCtau}) are diagonal and, therefore
+(\ref{AproxCtau3}) are diagonal and, therefore
 \begin{align}
 \tilde{\Lambda}_{\mu\mu}(t)\equiv -    \frac{1}{\tilde{C}_{\mu\mu}(t)}\frac{d\tilde{C}_{\mu\mu}}{dt}(t)
 \label{AproxCtau2}
@@ -6071,7 +6072,7 @@ where the relaxation time is given in equation (\ref{taumu}).
 %\includegraphics[scale=0.41]{LambdatFourier-PBC}
 \includegraphics[width=\linewidth]{LambdatFourier-PBC}
 \caption[Diagonal elements  $\tilde{\Lambda}_{\mu\mu}(t)$ of  the Fourier transform of $\Lambda(t)$ for an unconfined fluid]{The  diagonal elements  $\tilde{\Lambda}_{\mu\mu}(t)$ of  the
-  Fourier transform of $\Lambda(t)$ defined in (\ref{AproxCtau}), as a
+  Fourier transform of $\Lambda(t)$ defined in (\ref{AproxCtau3}), as a
   function of  $\mu$ (left)  and $t$  (right).  In  the left  panel, in
   ascending  order the  plotted times  go  from $t=0$  to $t=0.20$  in
   intervals of $0.02$.  The orange line is the local approximation equation
@@ -6257,7 +6258,7 @@ modes.   We observe  that, whenever  the  statistics allow  for it,  a
 reasonable plateau  is obtained. Therefore,  it is possible  to define
 the  nonlocal  shear  viscosity  matrix  $\eta^*_{\mu\nu}$ in real space  from  the
 Fourier transform  of the plateau  value $\tilde{\eta}_{\mu\mu}(\tau)$.  
-The row $\mu=30$ of the matrix $\eta^{*}_{\mu\nu}$ is shown in Fig. (\ref{fig:CompareEtas-PBC}). We observe that the width is about $~5\sigma$. This is, approximately twice the cutoff distance of the Lennard-Jones potential. 
+The row $\mu=30$ of the matrix $\eta^{*}_{\mu\nu}$ is shown in Fig. (\ref{fig:CompareEtas-PBC}). We observe that the width is about $~5\sigma$. This is, approximately twice the cutoff distance of the LJ potential. 
 %This  is shown in Fig.  \ref{fig:CompareEtas-PBC} where the
 %diagonal structure  is apparent,  with a width  that has  around $\sim
 %5\sigma$.  This  is, approximately  twice the  cutoff distance  of the
@@ -6479,8 +6480,8 @@ in Mori theory.
 \section{The CG variables and its dynamics}
 
 \label{Sec:CGWALLS}
-We  consider a  Lennard-Jones  fluid system  confined  in between  two
-parallel solid walls made of Lennard-Jones particles fixed in a simple
+We  consider a  LJ  fluid system  confined  in between  two
+parallel solid walls made of LJ particles fixed in a simple
 cubic lattice. The  walls are along the directions  $x,y$.  Because of
 traslational invariance along the walls, we bin the vertical direction
 $z$ in  layers paralel to the  planar walls.  The box  length $L_z$ is
@@ -6591,7 +6592,7 @@ where $\tilde{C}(t)={\rm Diag}[\tilde{C}_1(t),\cdots,\tilde{C}_{N_{\rm
 diagonal.   If  the  system  was traslation  invariant  in  the  $z$
 dimension, the  matrix $E(t)$ would  be given by  the time-independent
 discrete Fourier  transform, as discussed  in Sec. \ref{Sec:Fourier}.   In the
-present problem where the solid walls break traslation invariance, the
+present problem, where the solid walls break traslation invariance, the
 unitary  matrix  $E(t)$ is  time  dependent.   As a  consequence,  the
 diagonal matrix $\tilde{C}(t)$ evolves according to
 \begin{align}
@@ -6623,7 +6624,7 @@ as
   \tilde{\Lambda}_{\mu}(t)&\equiv -\frac{1}{{\tilde{C}}_{\mu}(t)}\frac{d{\tilde{C}}_{\mu}}{dt}(t)
 \label{LambdatRec}
 \end{align}
-should,  after  a time  $\tau$  reach  the  constant plateau  value  $
+should,  after  a time  $\tau$,  reach  the  constant plateau  value  $
 \tilde{\Lambda}_{\mu\mu}^*$.  Note  that the eigenvalues  should decay
 exponentially  and,  therefore,  $  \tilde{\Lambda}_{\mu}(t)$ in (\ref{LambdatRec}) is  the
 product  of an  exponentially decaying  function and  an exponentially
@@ -7002,7 +7003,7 @@ length  scale  larger than  molecular  dimensions  as, for  example  a
 normalized Gaussian  of width  $\sigma$.  As  a consequence,  the free
 energy functional  that emerges from  such a coarsely  defined density
 field  is not  directly  given by  the usual  free  energy density  in
-equationilibrium  Density Functional  Theory, which  is, in  fact, the  one
+equilibrium  Density Functional  Theory, which  is, in  fact, the  one
 particle distribution function.  In fact,  a local model for the free energy 
 is expected for  the former. The resulting free  energy functional for
 coarsely  defined density  cannot  resolve the  density layering  near
@@ -7175,7 +7176,7 @@ correlations of momenta, stresses, and  forces. First, write the time
 derivative of the correlation matrix of the transverse momentum in the
 following form
 \begin{align}
-\dot{C}(t)&=  -\int_0^t dt' \frac{d}{dt'}\llangle \hat{g}(t') i{\cal L}\hat{g}^T\rrangle
+  \frac{d}{dt}C(t)&=  -\int_0^t dt' \frac{d}{dt'}\llangle \hat{g}(t') i{\cal L}\hat{g}^T\rrangle
 =-  \int_0^t dt' \llangle i{\cal L}\hat{g}(t') i{\cal L}\hat{g}^T\rrangle
 \nonumber\\
 &=-  k_BT M(t),
@@ -7257,7 +7258,7 @@ fluid with the walls.
 % }
 Equations  (\ref{dCMt}) and (\ref{MMatrix1}) lead to the following mathematical identity
 \begin{align}
-\dot{C}(t)&=-k_BT\left[{F}^T\esc{\eta}(t)\esc{F}+{G}(t)\esc{F}+{F}^T\esc{H}(t)+{\gamma}(t)\right]
+  \frac{d}{dt}C(t)&=-k_BT\left[{F}^T\esc{\eta}(t)\esc{F}+{G}(t)\esc{F}+{F}^T\esc{H}(t)+{\gamma}(t)\right]
 \label{CIdent}
 \end{align}
 This mathematical  identity relates correlations of  momenta with correlations of stresses
@@ -7329,7 +7330,7 @@ in the plateau region.
 By   using    (\ref{Mstar}) and (\ref{MMatrix1})   in   the   dynamics    of   correlations
 (\ref{InFull-C-2}) we obtain
 \begin{align}
-  \dot{C}(t) =
+\frac{d}{dt}C(t) =
 -k_BT\left[{F}^T{\eta}(\tau)\esc{F}\esc  +{G}(\tau)\esc F+F^T\esc{H}(\tau)+{\gamma}(\tau)\right]
 \esc C^{-1}(\tau) \esc C(t)
 \label{CMarkov2}
@@ -7386,7 +7387,7 @@ In terms of the velocity (\ref{Vel2}) the evolution equation (\ref{evolg}) is
    \frac{d}{dt}g(t)= -\left[{F}^T{\eta}(\tau)\esc{F}
 +{G}(\tau)\esc{F}
 +F^T\esc{H}(\tau)+{\gamma}(\tau)\right]
-\esc c^{-1}(\tau)\esc v(t)
+\esc {\cal V} \esc c^{-1}(\tau)\esc v(t)
 \label{evolg2}
 \end{align}
 
@@ -7432,7 +7433,7 @@ In explicit component form,  equation (\ref{evolg2}) takes the form
 where here,  in order to  ease the notation,  we have not  plotted the
 dependence                of               the                matrices
 $\eta_{\mu\nu},G_{\mu\nu},H_{\mu\nu},\gamma_{\mu\nu}$  on   the  upper
-limit  of integration  $\tau$. \Note{From now, we denote as $\eta$, $G$, $H$ and $\gamma$ the transport kernels evaluated at $t=\tau$}.  Similar  discrete equations  have been
+limit  of integration  $\tau$. Similar  discrete equations  have been
 obtained in Chapter \ref{Chap:Planar}
 by  using the Kawasaki-Gunton projector that
 gives state  dependent transport coefficients in  general.  Under the
@@ -7458,7 +7459,7 @@ G_{{\bf r}{\bf r}'}{\bf v}({\bf r}')
 The first term in the right  hand side involving second derivatives is
 a nonlocal  viscosity term, while  the other three terms  reflect the
 irreversible   force    that   the   solid   wall    exerts   on   the
-fluid.  equation  (\ref{integro-diff})  can  also  be  obtained  under  the
+fluid.  Equation  (\ref{integro-diff})  can  also  be  obtained  under  the
 assumption  of  planar  flow  in  planar  geometries  of  the  general
 continuum hydrodynamic equations presented in Ref. \cite{CamargoBC2018}.
 
@@ -7472,12 +7473,12 @@ compensating for the plateau problem.
 
 \section{Simulation setup}
 \label{Sec:sim}
-We conduct  MD simulations  at equilibrium  for a  Lennard-Jones fluid
+We conduct  MD simulations  at equilibrium  for a  LJ fluid
 with  parametres $\sigma,\epsilon$  in between  two crystalline  walls
-made  of fixed  identical Lennard-Jones  particles.  The  geometry,
+made  of fixed  identical LJ  particles.  The  geometry,
 thermodynamic point, and simulation are  exactly the same as that studied in Chapter \ref{Chap:Walls} ,
 giving  a  density in  the  bulk  of  $\rho=0.6  $ and  a  temperature
-$T=2$ in reduced Lennard-Jones  units.  
+$T=2$ in reduced LJ  units.  
 %After an equilibration of
 %$10^5$ timesteps with  a Langevin thermostate to  produce a microstate
 %typical from a thermodynamic  point corresponding to $T=2,\rho=0.6$ in
@@ -7512,7 +7513,7 @@ in a  simple cubic lattice  with a lattice spacing  $\sigma$. Periodic
 boundary conditions are given in all  directions but because we have a
 crystal with five lattice planes separated a distance of $1\sigma$, the
 atoms of fluid  near the left wall  do not interact with  the atoms of
-fluid near the  right wall, as the cutoff radius  in the Lennard-Jones
+fluid near the  right wall, as the cutoff radius  in the LJ
 potential is $2.5\sigma$.  
 We  choose a
 rather  large distance  $\Delta z=2\sigma$  between nodal  planes. The
@@ -7607,7 +7608,7 @@ large  distance in  molecular  terms.  The  matrices $G,H,\gamma$  are
 localized near  the nodes close to  the walls.  The matrix  $H$ is the
 transpose of the matrix $G$, i.e.  $H_{\mu\nu}(\tau)=G_{\nu\mu}(\tau)$
 as a reflection of  Onsager's reciprocity.  In the right panel of Fig.  \ref{Fig-GK-zoom}
-we plot  a zoom of the plots of the left panel were we observe  the structure of
+we plot  a zoom of the plots of the left panel where we observe  the structure of
 the transport  matrices near  the walls.   Observe that  the nonlocal
 viscosity  kernel $\eta_{\mu\nu}(\tau)$  takes the  bulk value  at the
 node $\mu=2,\nu=2$. The  elements that are different from  zero in the
@@ -7719,7 +7720,7 @@ agreement   is  observed,   implying  that   the  proposed   equations
 (\ref{evolg}) and (\ref{TheoryDiscFinSlipCH})  describe adequately the flow.
 The agreement between predicted and  measured profiles at longer times
 is   appreciated   in  the Fig.
-\ref{Fig-gxtPredictions}   were  the   momentum   at   nodes  $\mu=1,2,4$  as a function of time is
+\ref{Fig-gxtPredictions}   where  the   momentum   at   nodes  $\mu=1,2,4$  as a function of time is
 shown. Observe the  very fast decay of the momentum  near the wall due
 to the friction due to the wall. In the right panel we plot a zoom at
 short times of the evolution of  the momentum.  It is quite noticeable
@@ -7737,11 +7738,11 @@ $t\simeq 0.2$ but incorrect results at shorter times.
 \begin{figure}[!h]
     \centering
 \includegraphics[scale=0.41]{gxtPredictions-17nodes-WALLS}
-\caption[The momentum profile as a function of time for a confined fluid - Thick bins]{Left  panel: the  momentum $g(t)$  profile for modes $\mu=1,2...8$ (in ascending order) as a function of time (blue), and the predictions given by (\ref{gsol})(orange). Right panel: zoom of the left panel at short times. The red line is plotted at $t=0.2$.}
+\caption[The momentum profile as a function of time for a confined fluid - Thick bins]{Left  panel: the  momentum $g(t)$  profile for modes $\mu=1,2...8$ (in ascending order) as a function of time (blue), and the predictions given by (\ref{gsol}) (orange). Right panel: zoom of the left panel at short times. The red line is plotted at $t=0.2$.}
 \label{Fig-gxtPredictions}
 \end{figure}
 
-In  the left panel of Fig.   \ref{Fig-gxt-vt}  we  show  the  velocity  profile,  defined
+In  the right panel of Fig.   \ref{Fig-gxt-vt}  we  show  the  velocity  profile,  defined
 according  to   (\ref{ov}).   Note   that  the  velocity   shows  some
 irregularities as  compared with the smooth  momentum density profiles
 in the left panel of the same figure.  This is due to the fact  that the velocity
@@ -7786,7 +7787,7 @@ by (\ref{evolg2}).
 \end{figure}
 
 We introduce the  concept of \textit{boundary slab} of  fluid which is
-made of $B$ bins near one of the walls. Hansen et al \cite{Hansen2011}
+made of $B$ bins near one of the walls. Hansen et al. \cite{Hansen2011}
 have used  also a  boundary slab to  formulate a  generalized Langevin
 equation on which  to base a formulation of  boundary conditions.  The
 total momentum ${\bf P}_B^x$ of this slab is defined as
@@ -7795,7 +7796,7 @@ total momentum ${\bf P}_B^x$ of this slab is defined as
 \end{align}
 where we have introduced the function
 \begin{align}
-  U_B(z)=\sum_\mu^{B}{\cal    V}_{\mu=0}\delta_\mu(z)  
+  U_B(z)=\sum_\mu^{B}{\cal    V}_{\mu}\delta_\mu(z)  
 \end{align}
 This function is plotted  in Fig. \ref{Fig.Slab} for different values of $B$ and
 basically counts the particles that are near the wall.
@@ -7877,6 +7878,8 @@ difference (orange curve in  Fig. \ref{Fig.FBcheck}) between the measured
 force  on the  boundary slab  and the  prediction (\ref{FBv})  goes to
 zero.
 
+\Note{Si el balance mecánico es consecuencia de la ecuación dinámica obtenmida a partir de la teoría de Mori, ¿por qué no se cumple a pàrtir de t=0.2, que es cuando la aproximación markoviana es correcta?}
+
 \begin{figure}[]
   \centering
 \includegraphics[scale=0.41]{checkMecBalance-17nodes-WALLS}
@@ -7920,7 +7923,7 @@ $\dot{\overline{\gamma}}_{\rm wall}$ is the  shear rate.
 
 When we  choose $B=2$ as the  width of the boundary  slab, and observe
 the  range   of  the  values  for   $\eta_{B\nu}, H_{B\nu},G_\nu,\gamma_\nu$  in
-Fig. \ref{Fig.Bdependence} we realize that the values of the velocity
+Fig. \ref{Fig.Bdependence}, we realize that the values of the velocity
 that actually contribute to the boundary force are those of nodes $\mu=1,2,3,4$.
 Therefore, the force on the boundary is actually given  by
 \begin{align}
@@ -7957,13 +7960,13 @@ In equation (\ref{NavierDisc}) we have introduced the following transport coeffi
 \gamma'=  \gamma-H
 \end{align}
 with the following definitions \begin{align}
-\eta&= \sum_{\nu=1} {\cal V}_\nu \eta_{B\nu}
+  \eta&= \sum^{N_{\rm bin}}_{\nu=1} {\cal V}_\nu \eta_{B\nu}
 \nonumber\\
-G &=  \frac{1}{S} \sum_{\nu} {\cal V}_\nu \sum^{B}_{\mu=1}{\cal V}_\mu G_{\mu\nu}
+G &=  \frac{1}{S} \sum^{N_{\rm bin}}_{\nu=1} {\cal V}_\nu \sum^{B}_{\mu=1}{\cal V}_\mu G_{\mu\nu}
 \nonumber\\
-\gamma&=  \frac{1}{S}\sum_{\nu}{\cal V}_\nu\sum^{B}_{\mu=1}{\cal V}_\mu \gamma_{\mu\nu}
+\gamma&=  \frac{1}{S}\sum^{N_{\rm bin}}_{\nu=1}{\cal V}_\nu\sum^{B}_{\mu=1}{\cal V}_\mu \gamma_{\mu\nu}
 \nonumber\\
-H&= \sum_{\nu} {\cal V}_\nu H_{B\nu}
+H&= \sum^{N_{\rm bin}}_{\nu=1} {\cal V}_\nu H_{B\nu}
 \label{etagamma2}
 \end{align}
 
@@ -8040,20 +8043,21 @@ and the explicit Green-Kubo forms (\ref{GK}), we have
 \begin{align}
 \eta&= 
 \frac{1}{k_BT}\int_0^{\tau} dt
-\left\langle  \hat{\boldsymbol{\sigma}}^{xz}_{B}(t) \sum_{\nu} {\cal V}_\nu \hat{\boldsymbol{\sigma}}^{xz}_{\nu}\right\rangle^{\rm eq}
+\left\langle  \hat{\boldsymbol{\sigma}}^{xz}_{B}(t) \sum^{N_{\rm bin}}_{\nu=1} {\cal V}_\nu \hat{\boldsymbol{\sigma}}^{xz}_{\nu}\right\rangle^{\rm eq}
 \nonumber\\
 G &=   \frac{1}{Sk_BT}\int_0^{\tau} dt
-\left\langle  \sum^{B}_{\mu=1}{\cal V}_\mu\hat{\bf F}^{x}_\mu(t) \sum_{\nu} {\cal V}_\nu\hat{\boldsymbol{\sigma}}^{xz}_\nu\right\rangle^{\rm eq}
+\left\langle  \sum^{B}_{\mu=1}{\cal V}_\mu\hat{\bf F}^{x}_\mu(t) \sum^{N_{\rm bin}}_{\nu=1} {\cal V}_\nu\hat{\boldsymbol{\sigma}}^{xz}_\nu\right\rangle^{\rm eq}
 \nonumber\\
 H &=   \frac{1}{Sk_BT}\int_0^{\tau} dt
-\left\langle  \hat{\boldsymbol{\sigma}}^{xz}_{B}(t) \sum_{\nu} {\cal V}_\nu 
+\left\langle  \hat{\boldsymbol{\sigma}}^{xz}_{B}(t) \sum^{N_{\rm bin}}_{\nu=1} {\cal V}_\nu 
 \hat{\bf F}^{x}_\nu(t)\right\rangle^{\rm eq}
 \nonumber\\
 \gamma&= 
 \frac{1}{Sk_BT}\int_0^{\tau} dt
-\left\langle  \sum^{B}_{\mu=1}{\cal V}_\mu\hat{\bf F}^{x}_\mu(t)\sum_{\nu}{\cal V}_\nu \hat{\bf F}^{x}_\nu\right\rangle^{\rm eq}
+\left\langle  \sum^{B}_{\mu=1}{\cal V}_\mu\hat{\bf F}^{x}_\mu(t)\sum^{N_{\rm bin}}_{\nu=1}{\cal V}_\nu \hat{\bf F}^{x}_\nu\right\rangle^{\rm eq}
 \label{etagamma3}
 \end{align}
+\Note{En la exprsión para H de las anteriores ecuaciones sobra S no?}
 Note that we have a partition of unity property that implies that
 \begin{align}
   \sum_\mu^{N_{\rm bin}}\psi_\mu({\bf r})=1, &&
@@ -8175,7 +8179,7 @@ from the  discrete hydrodynamics gives an  additional information that
 it  was not  evident in  the  continuum derivation  presented by Camargo et al. in
 \cite{CamargoBC2018}    or   even    in    Bocquet    and   Barrat's    derivation
 \cite{Bocquet1994}.  As  it becomes apparent from  the discussion, the
-transport coefficients  $G,H,\gamma$ defined in  (\ref{FinMic}) depend
+transport coefficients  defined in  (\ref{FinMic}) depend
 on the upper limit  of integration $\tau$ and they do  not show a well
 defined plateau.  For  example, we plot in  Fig.  \ref{Fig.gammat} the
 friction  coefficient $\gamma(\tau)$  defined in  (\ref{FinMic}) as  a
@@ -8220,7 +8224,7 @@ insensitive to the actual value of  $\tau$. Note that, even though the
 range  of $\tau$  considered is  small  and limited  by the  explosive
 amplification of  statistical errors  involved in  the inverse  of the
 correlation matrix, it  is sufficiently large to  appreciate the decay
-of $\eta',\gamma'$ due to the plateau problem, as shown in the right panel of Fig. \ref{Fig:tau}.
+of $\eta',\gamma'$ due to the plateau problem, as shown in Fig. \ref{Fig:tau}.
 
 \begin{figure}[!h]
 \centering
@@ -8281,7 +8285,7 @@ the nodes  $\mu=1,2,3,4$.  For this reason,  we measure $\overline{\bf
 adjusting a linear profile to the  velocity at the four nodes near the
 wall.  Note  that the region where  the velocity of the  fluid affects
 the force on the boundary slab  is rather large, around one quarter of
-the channel width!   Note that only at very long  times, we expect the
+the channel width. Note also that only at very long  times, we expect the
 profile to be approximately linear within the boundary slab.
 
 %\begin{figure}[!h]
@@ -8340,7 +8344,7 @@ simulations.   As  shown  in Figs.   \ref{Fig-GK-zoom}  the  transport
 matrices
 $\eta_{\mu\nu}(\tau),G_{\mu\nu}(\tau),H_{\mu\nu}(\tau),\gamma_{\mu\nu}(\tau)$
 take exactly the  same values for the  bins near to the  walls in both
-channels.   In Fig.   \ref{Fig:delta} the  time-dependent slip  length
+channels.   In the left panel of Fig.   \ref{Fig:delta} the  time-dependent slip  length
 (\ref{deltat}) for  the two channel  widths is plotted.   Clearly, the
 slip  length that  we  obtain  is independent  on  the channel  width.
 
@@ -8422,7 +8426,7 @@ $\eta_\mu(\tau)$ is  the same for all  $\mu$ in the fluid  region, say
 equal to $\eta_{8}(\tau)$ in the middle of the channel.
 We also assume a local approximation for the correlation matrix
 \begin{align}
-C_{\mu\nu}(\tau)\simeq\frac{\delta_{\mu\nu}}{{\cal    V}}k_BT   \rho_\mu(\tau)
+C_{\mu\nu}(\tau)\simeq\frac{\delta_{\mu\nu}}{{\cal    V}}k_BT   \rho_\mu(\tau),
 \label{Clocal}
 \end{align}
  where we introduce the local scaled density as
@@ -8449,14 +8453,14 @@ for the fluid nodes $\mu=2,\cdots,15$
 \nonumber\\
 \vdots\;\;&=\quad\quad\quad\quad\vdots
 \nonumber\\
-  \frac{d g_{14}}{dt}&=\nu\frac{ g_{15}+ g_{xz}-2g_{14}}{\Delta z^2}
+  \frac{d g_{14}}{dt}&=\nu\frac{ g_{15}+ g_{13}-2g_{14}}{\Delta z^2}
 \nonumber\\
   \frac{d g_{15}}{dt}&=
-\nu\frac{g_{14}+g_{16}-2g_{15}}{\Delta z^2}
+\nu\frac{g_{16}+g_{14}-2g_{15}}{\Delta z^2}
 \label{ODE}
 \end{align}
 
-We have introduce the kinematic viscosity as give by $\nu=\eta_{\mu}(\tau)/\rho_{\mu}(\tau)$ that takes the value $\nu=1.41$. Even though $\eta_{\mu}(\tau)$ and $\rho_{\mu}(\tau)$ depend on $\tau$,$\mu$, the kinematic visocisty is constant and does not depend on $\tau$ and $\mu$. \Note{No sé si poner la gráfica. Es muy fea.}
+We have introduce the kinematic viscosity as give by $\nu=\eta_{\mu}(\tau)/\rho_{\mu}(\tau)$ that takes the value $\nu=1.41$. Even though $\eta_{\mu}(\tau)$ and $\rho_{\mu}(\tau)$ depend on $\tau$,$\mu$, the kinematic viscosity is constant and does not depend on $\tau$ and $\mu$. \Note{No sé si poner la gráfica. Es muy fea.}
 We see that 
 (\ref{ODE}) is a set of ODE for the variables $g_\mu$ for
 $\mu=2,\cdots,15$ but it includes in the first and last equations the
@@ -8509,7 +8513,7 @@ given by
 \vdots      &&\ddots&&\vdots\\
 \\
 0&\cdots&0&1&-\beta \end{array}
-\right)
+\right),
 \end{align}
 where we have introduced the parameter
 \begin{align}
@@ -8524,7 +8528,7 @@ that contains  the information about  the slip boundary  condition.
   from  (\ref{LocVisc})  and  the  slip boundary  condition  given  in
   (\ref{SlipLength}) (orange) compared with the measured momentum density
   profile  (blue).   There  are   no  adjustable  parameters  in  this
-  comparison. Times  are $t=5,3,\cdots,29$  in descending  order.  The
+  comparison. Times  are $t=5,7,\cdots,29$  in descending  order.  The
   initial   condition  is   the  measured   moment  profile   at  time
   $t=5$.  Right: The  same but  with the  initial condition  given at
   $t=0.3$ and times $t=0.3,0.6,\cdots2.1$.}
@@ -8768,7 +8772,7 @@ The support of this viscosity  kernel is determined by the length
 at which  the stress tensor  is correlated. As the  microscopic stress
 tensor is defined in terms of pairs of particles, and the range of the
 interactions  is   determined  by   the  cutoff  $2.5\sigma$   of  the
-Lennard-Jones potential,  correlations are expected at  a length scale
+LJ potential,  correlations are expected at  a length scale
 of  $5\sigma$ for  those  pairs  that have  a  common particle.   This
 explains  the  relatively large  range  of  the viscosity  kernel.  Of
 course,  for very  smooth  velocity fields,  the  nonlocality of  the
@@ -9219,7 +9223,7 @@ Note that the functional derivative of the relevant ensemble is
 \overline{\rho}_{t}\left[\frac{\delta}{\delta {\rho}({\bf r}',t)}\beta \int d{\bf r}\mu({\bf r})\hat{\rho}_{\bf r}(z)-\frac{\delta}{\delta{\rho}({\bf r}',t)}\ln \Xi[\lambda(t)]\right]
 \nonumber\\
 &=
-\overline{\rho}_{t}\beta \int d{\bf r}'\frac{\delta \mu({\bf r}'')}{\delta {\rho}({\bf r}',t)}\delta\hat{\rho}_{{\bf r}''}(z)
+\overline{\rho}_{t}\beta \int d{\bf r}'\frac{\delta \mu({\bf r}'')}{\delta {\rho}({\bf r}',t)}\delta\hat{\rho}_{{\bf r}''}(z),
 \label{funcder}
 \end{align}
 where $\delta\hat{\rho}_{{\bf r}''}(z)=\hat{\rho}_{{\bf r}''}(z)-\rho({\bf r}'',t)$.
@@ -9409,7 +9413,7 @@ time and in the past, leading to closed equations for the CG variables.
 The  relevant  ensemble is  obtained  by  maximizing the  Gibbs-Jaynes
 functional
 \begin{align}
-  {\cal S}[\rho]=-k_B{\rm Tr}\left[\rho\ln\frac{\rho}{\rho_0}\right]
+  {\cal S}[\rho]=-k_B{\rm Tr}\left[\rho\ln\frac{\rho}{\rho_0}\right],
 \end{align}
 where   $\rho_0=\frac{1}{N!h^{3N}}$  is   a   constant  that   renders
 dimensionless the argument of the  logarithm. The trace denotes
@@ -9465,7 +9469,7 @@ in the form
 \begin{align}
   \rho_\mu &=M^\delta_{\mu\nu}\frac{\partial \Phi(\lambda,{\bf v})}{\partial \lambda_\nu }
 \nonumber\\
-  {\bf g}_\mu &=-M^\delta_{\mu\nu}\frac{\partial \Phi(\lambda,{\bf v})}{\partial {\bf v}_\nu }
+  {\bf g}_\mu &=-M^\delta_{\mu\nu}\frac{\partial \Phi(\lambda,{\bf v})}{\partial {\bf v}_\nu },
 \label{rgoApp}
 \end{align}
 where we have used that the matrices $M^\delta, M^\psi$, defined in (\ref{MdMp}), are inverse of
@@ -9605,7 +9609,7 @@ By using the result for $\Omega_0$ in (\ref{Omegas}),  the  grand  partition  fu
 \Xi(\lambda,{\bf v})\equiv \sum_{N=0}^\infty \frac{1}{N!}
 \int \frac{dq}{\Lambda^{3N}}
 \exp\left\{-\beta V(q)-\beta M^\psi_{\mu\nu}\lambda_\nu\hat{\rho}_{\mu}(z)+\frac{\beta}{2}\hat{\cal M}_{\mu\nu}(q){\bf v}_\mu \esc{\bf v}_\nu
-\right\}
+\right\},
 \label{xiln2b}
 \end{align}
 %where the thermal wavelength $\Lambda$ is  
@@ -9629,7 +9633,7 @@ where the  matrix $\hat{\cal M}_{\mu'\nu}$ is  defined in (\ref{calM})
 and we have introduced the density matrix defined by
 \begin{align}
   \rho_{\mu\nu} =\int d{\bf r}
-\delta_\mu({\bf r})\psi_\nu({\bf r})\llangle\hat{\rho}_{\bf r}\rrangle^{\lambda{\bf v}}
+\delta_\mu({\bf r})\psi_\nu({\bf r})\llangle\hat{\rho}_{\bf r}\rrangle^{\lambda{\bf v}},
 \end{align}
 where $\llangle\cdots\rrangle^{\lambda{\bf v}}$  is the average  with respect
 to   the  relevant   ensemble   (\ref{relenslnAp}). 
@@ -9836,7 +9840,7 @@ and the partition function (\ref{xiln2b}) becomes
 \Xi(\lambda,{\bf v})\equiv \sum_{N=0}^\infty \frac{1}{N!}
 \int \frac{dq}{\Lambda^{3N}}
 \exp\left\{-\beta V(q)+\beta\mu_\sigma\hat{\rho}_{\sigma}(q)
-\right\}
+\right\},
 \label{xiln3}
 \end{align}
 where we have introduced the discrete chemical potential per unit mass as
@@ -9876,7 +9880,7 @@ The derivatives of the free energy $F(\rho)$  are given by
 We may now express the CG Hamiltonian (\ref{olegApp}) as
 \begin{align}
   {\cal H}(\rho,{\bf g}) &=  \frac{1}{2}{\cal M}_{\mu\nu}{\bf v}_\mu\esc{\bf v}_\nu
-+ F(\rho)
++ F(\rho),
 \label{oleg2}
 \end{align}
 where we introduce the matrix
@@ -9945,7 +9949,7 @@ in the length scale of the cell. Indeed, we have that
 \int d{\bf r}'
 \delta_{\nu}({\bf r})\psi_\nu({\bf r}')\overline{\bf v}^2({\bf r}')=
 \int d{\bf r}'
-\Delta({\bf r},{\bf r}')\overline{\bf v}^2({\bf r}')
+\Delta({\bf r},{\bf r}')\overline{\bf v}^2({\bf r}'),
 \end{align}
 where we have introduced the fat Dirac $\delta$ function (\ref{Delta}). When the
 velocity field is sufficiently smooth on the lattice scale, we may approximate
@@ -10008,7 +10012,7 @@ conjugate variables  at the  discrete level  it is  straightforward to
 show that the  connection between the two  thermodynamic potentials is
 given by
 \begin{align}
-  \Phi[\overline{\lambda}]&=  \Phi(\lambda)
+  \Phi[\overline{\lambda}]&=  \Phi(\lambda),
 \label{Phiphi}
 \end{align}
 where we have  evaluated the thermodynamic potential  of the continuum
@@ -10110,7 +10114,7 @@ projectors, respectively
 The unit tensor may be 
 written as
 \begin{align}
-\boldsymbol{\delta}={\bf t}_1{\bf t}_1^T+{\bf t}_2{\bf t}_2^T+{\bf n}{\bf n}^T
+\boldsymbol{\delta}={\bf t}_1{\bf t}_1^T+{\bf t}_2{\bf t}_2^T+{\bf n}{\bf n}^T,
 \end{align}
 where ${\bf  t}_1,{\bf t}_2$ are  unit vectors tangent to  the surface
 and  mutually   orthonormal.   We  take  the   convention  that  ${\bf
@@ -10268,7 +10272,7 @@ average
 \int dr dp \delta\left(\hat{H}(z)-E\right)
 \delta\left(\sum_i^N{\bf p}_i\right) 
 \sum_{ij}^N{\bf p}_i^x{\bf p}_j^x\delta_{\mu}({\bf r}_i) 
-\delta_{\nu}({\bf r}_j) 
+\delta_{\nu}({\bf r}_j)
 \end{align}
 The molecular ensemble is microcanonical in the total energy and total
 momentum, where  we have chosen the  reference frame of the  center of
@@ -10281,7 +10285,7 @@ to compute the following canonical average
 \int dr dp \exp\{-\beta\hat{H}(z)\}
 \delta\left(\sum_i^N{\bf p}_i\right) 
 \sum_{ij}^N{\bf p}_i^x{\bf p}_j^x\delta_{\mu}({\bf r}_i) 
-\delta_{\nu}({\bf r}_j) 
+\delta_{\nu}({\bf r}_j) ,
 \end{align}
 where the Dirac $\delta$ function on  the Hamiltonian is substituted by a
 Gibbs factor. We  keep, however the momentum  conservation Dirac $\delta$
@@ -10289,7 +10293,7 @@ function as this has observable consequences.  The two covariances are
 related by
 \begin{align}
   C^{\beta}_{\mu\nu}&=\int dE P_\beta(E)
-  C^{E}_{\mu\nu}
+  C^{E}_{\mu\nu},
 \end{align}
 where the probability distribution of the energy in the canonical ensemble is
 \begin{align}
