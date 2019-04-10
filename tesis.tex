@@ -281,15 +281,15 @@ Esta tesis doctoral estudia el comportamiento de un fluido en contacto con un s�
 Abordaremos el problema del \textit{plateau} que sufren las formulas de Green-Kubo presentes en los coeficientes de transporte de las ecuaciones de movimiento del fluido ofrenciendo una expresión alternativa sin el problema del \textit{plateau}.  
 
 Para validar la teoría y poder medir los coeficientes de transporte mediante simulaciones de dinámica molecular, derivaremos de nuevo las ecuaciones de la nanohidrodinámica a partir de unas variables hidrodinámicas discretas. 
-Para ello dividiremos el sistema a lo largo del eje perpendicular a la superficie de la paredes en una serie de láminas o celdas rectangulares de un grosor determinado separadas por planos nodales, de tal manera que las variables puedan ser definidas en dichas celdas o planos nodales.  
-Con el fin de verificar que la derivación es correcta, mostraremos que la ecuaciones obtenidas pueden ser interpretadas como una discretización de las ecuaciones continuas mediante el método de Petrov-Galerkin de elementos finitos.  
+Para ello dividiremos el sistema a lo largo del eje perpendicular a la superficie de las paredes en una serie de láminas o celdas rectangulares de un grosor determinado separadas por planos nodales, de tal manera que las variables puedan ser definidas en dichas celdas o planos nodales.  
+Con el fin de verificar que la derivación es correcta, mostraremos que las ecuaciones obtenidas pueden ser interpretadas como una discretización de las ecuaciones continuas mediante el método de Petrov-Galerkin de elementos finitos.  
 
 La hipótesis de markovianidad es la única aproximación realizada para derivar las ecuaciones de la hidrodinámica. Para validarla emplearemos la teoría de Mori que nos da una expresión de la evolución temporal de las correleaciones de las variables relevantes del sistema. La hipótesis Markoviana es válida siempre y cuando las correlaciones decaigan de forma exponencial.
 
 Abordaremos el problema de la markovianidad estudiando el caso más sencillo posible, que es un fluido en condiciones de contorno periódicas. Realizaremos simulaciones de dinámica molecular de un fluido no confinado en las cuales iremos monitorizando las variables relevantes del sistema con el fin de calcular sus correlaciones temporales. 
 Observaremos que para el estudio de la markovianidad será conveniente trasladarse al espacio recíproco (en el caso de un fluido en condiciones de contorno periódicas se trata del espacio de Fourier) y comprobar si los modos de la matriz de correlaciones decaen o no de forma exponencial. 
 
-Tras establecer la metodología adecuada para tratar el problema, realizaremos simulaciones de dinámica molecular de un fluido confinado entre dos paredes sólidas. Descubriremos que para una anchura de celda del orden de la distancia molecular, la hipótesis de markovianidad no se cumple para los modos cercanos a la pared. Sin embargo, para celdas más anchas, la hipótesis es validada a expensas de perder efectos de \textit{layering}. 
+Tras establecer la metodología adecuada para tratar el problema, realizaremos simulaciones de dinámica molecular de un fluido confinado entre dos paredes sólidas. Descubriremos que para una anchura de celda del orden de la distancia molecular la hipótesis de markovianidad no se cumple para los modos cercanos a la pared. Sin embargo, para celdas más anchas la hipótesis es validada a expensas de perder efectos de \textit{layering}. 
 
 Mediremos la condición de contorno de \textit{slip} a partir de una definición microscópica de la longitud de \textit{slip} y de la posición hidrodinámica de la pared atómica. Comprobaremos que la expresión obtenida es la dada por Bocquet y Barrat \cite{Bocquet1994} y demostraremos que el coeficiente de fricción es una propiedad intrínseca de la superficie puesto que la distancia de \textit{slip} no depende del tamaño del canal empleado. 
 
@@ -561,7 +561,7 @@ friction forces and velocities \cite{Hansen2011}, where the meaning of
 this quantities is often understood implicitly.
 \end{enumerate}
 
-Given this mess in the derivation of the slip boundary condition, in this dissertation address the slip problem from first principles. Following the work by Robertson \cite{Robertson1966} and Piccirelli \cite{Piccirelli1968}, who derived the hydrodynamic equations from the microscopic dynamics of a fluid, we obtain a set of continuum equations which describe the behaviour of a fluid in contact with a solid with the Markovian approximation as the only assumption. 
+Given this mess in the derivation of the slip boundary condition, in this dissertation we address the slip problem from first principles. Following the work by Robertson \cite{Robertson1966} and Piccirelli \cite{Piccirelli1968}, who derived the hydrodynamic equations from the microscopic dynamics of a fluid, we obtain a set of continuum equations which describe the behaviour of a fluid in contact with a solid with the Markovian approximation as the only assumption. 
 Because the validation of the theory is only possible through MD simulations, we derive the discrete equations with the same methodology as in continuum theory. 
 A cross-check is given using a Petrov-Galerkin  finite element discretization method in order to obtain from the continuum equations the resulting discrete equations previously derived.  
 Once we have the discrete equations, we address the study of the markovian behaviour of the simplest case (i.e. a fluid in periodic boundary conditions). We restrict the study to planar dynamics monitoring only the transverse momentum component. We use the same methodology to study the markovian behaviour of a confined fluid between two parallel solid slabs and we show how the marovian approximation is only valid when the size of the bin is bigger than the molecular length. Finally, we measure the transport coefficients that appear in the hydrodynamic equations in order to validate the theory. 
@@ -1220,7 +1220,7 @@ following closed exact equation
 \end{equation}
 The reversible term is given by
 \begin{equation}
-  v_i(t) = {\rm Tr}[\overline{\rho}_t  i{\cal L} \hat{A}_i]
+  v_i(t) = {\rm Tr}[\overline{\rho}_t  i{\cal L} \hat{A}_i],
 \label{vit}
 \end{equation}
 where $i{\cal L}$ is the Liouville operator (\ref{iL}).
@@ -1962,14 +1962,14 @@ structure of the theory changes in this case as we will discuss later.
 \subsection{The time derivatives of the relevant variables}
 The time derivatives  of the coarse variables play  a fundamental role
 in the final structure of  the dynamic equations (\ref{ex2}). The time
-derivative $  iL\hat{A}$ is  the result of  applying the  Liouville operator
+derivative $  i{\cal L}\hat{A}$ is  the result of  applying the  Liouville operator
 (\ref{iL}) to the relevant variables.  In this section, we discuss the
-particular  form of  $  iL\hat{A}$ for  the case  of  selected CG  variables
+particular  form of  $  i{\cal L}\hat{A}$ for  the case  of  selected CG  variables
 (\ref{CGvar}). The action of the Liouville operator on the CG variables gives \cite{Espanol2015a}
 \begin{align}
-    iL \hat{\rho}_{\bf r}(z) &= -\boldsymbol{\nabla}\esc\hat{\bf g}_{\bf r}(z)
+  i{\cal L} \hat{\rho}_{\bf r}(z) &= -\boldsymbol{\nabla}\esc\hat{\bf g}_{\bf r}(z)
 \nonumber\\
-iL  \hat{\bf g}_{\bf r}(z) &= -\boldsymbol{\nabla}{\cdot} \hat{{\bf K}}_{\bf r}(z)+
+i{\cal L}  \hat{\bf g}_{\bf r}(z) &= -\boldsymbol{\nabla}{\cdot} \hat{{\bf K}}_{\bf r}(z)+
 \hat{\bf F}^l_{\bf r}(z)
 \label{ildens}
 \end{align}
@@ -2037,7 +2037,7 @@ tensor, that is,
 \end{align}
 The time derivative of the momentum density (\ref{ildens}) becomes
 \begin{align}
-    iL\hat{\bf g}_{\bf r}(z)
+  i{\cal L}\hat{\bf g}_{\bf r}(z)
     &=-\boldsymbol{\nabla}\cdot \hat{{\bf K}}_{\bf r}(z) - \boldsymbol{\nabla}\cdot \hat{{\bf     \Pi}}_{\bf r}(z) +  \hat{{\bf F}}^{\rm s\to l}_{\bf r}(z) \nonumber \\
     &= -\boldsymbol{\nabla}\cdot\left(\hat{{\bf K}}_{\bf r}(z)+\hat{{\bf \Pi}}_{\bf r}(z)\right) +\hat{{\bf F}}^{\rm s\to l}_{\bf r} \nonumber \\
     &=-\boldsymbol{\nabla}\cdot \hat{\boldsymbol{\sigma}}_{\bf r}+\hat{{\bf F}}^{\rm s\to l}_{\bf r},
@@ -2058,9 +2058,9 @@ tensor of the fluid, that is,
 \end{align}
 For the solid object we have that the action of the Liouville operator gives
 \begin{align}
-    iL\hat{\bf R}(z) &=\frac{\hat{\bf P}(z)}{M'}
+  i{\cal L}\hat{\bf R}(z) &=\frac{\hat{\bf P}(z)}{M'}
   \nonumber\\
-    iL\hat{\bf P}(z) &=-\int  d{\bf r} \hat{\bf F}^{\rm s\to l}_{\bf r}(z)
+  i{\cal L}\hat{\bf P}(z) &=-\int  d{\bf r} \hat{\bf F}^{\rm s\to l}_{\bf r}(z)
    \label{Pfsl}  
 \end{align} 
 
@@ -2069,7 +2069,7 @@ CG variables as
 \begin{align}
   \hat{\bf P}_T&=\int d{\bf r} \hat{\bf g}_{\bf r}(z)+\hat{\bf P}(z),
 \end{align}
-satisfies $ iL\hat{\bf P}_T=0$ and is, therefore, a conserved quantity
+satisfies $ i{\cal L}\hat{\bf P}_T=0$ and is, therefore, a conserved quantity
 of  the  microscopic   dynamics.   We  have  used   that  $\int  d{\bf
 r}\boldsymbol{\nabla}\esc\hat{\boldsymbol{\sigma}}=0$ due to  Gauss theorem  and the  fact
 that at the infinite we assume there are no fluid molecules. A similar
@@ -2078,13 +2078,13 @@ argument holds when the domain of integration is periodic.
 
 Summarizing, the time derivatives of the relevant variables of the system are
 \begin{align}
-    iL \hat{\rho}_{\bf r}(z) &= -\boldsymbol{\nabla}\esc\hat{\bf g}_{\bf r}(z)
+  i{\cal L} \hat{\rho}_{\bf r}(z) &= -\boldsymbol{\nabla}\esc\hat{\bf g}_{\bf r}(z)
 \nonumber\\
-iL\hat{\bf g}_{\bf r}(z)
+i{\cal L}\hat{\bf g}_{\bf r}(z)
     &=-\boldsymbol{\nabla}\cdot \hat{\boldsymbol{\sigma}}_{\bf r}(z)+\hat{{\bf F}}^{\rm s\to l}_{\bf r}(z) \nonumber \\
-    iL\hat{\bf R}(z) &=\frac{\hat{\bf P}(z)}{M}
+i{\cal L}\hat{\bf R}(z) &=\frac{\hat{\bf P}(z)}{M}
   \nonumber\\
-    iL\hat{\bf P}(z) &=-\int  d{\bf r} \hat{\bf F}^{\rm s\to l}_{\bf r}(z)
+  i{\cal L}\hat{\bf P}(z) &=-\int  d{\bf r} \hat{\bf F}^{\rm s\to l}_{\bf r}(z)
    \label{timeDerivatives}  
 \end{align}
 
@@ -2430,7 +2430,7 @@ In this subsection we consider the reversible part for the case that the CG vari
 For the mass density we have
 \begin{align}
 \left.\partial_t \rho({\bf r},t)\right|_{\rm rev}
-&=  {\rm Tr}[\overline{\rho}_t  iL\hat{\rho}_{\bf r}] 
+&=  {\rm Tr}[\overline{\rho}_t  i{\cal L}\hat{\rho}_{\bf r}] 
 =-\boldsymbol{\nabla}\cdot {\bf  g}({\bf r},t),
 \label{conrho}
 \end{align}
@@ -2440,7 +2440,7 @@ density field ${\bf g}({\bf r},t)$.  On the other hand, and using again the equa
 part of the momentum density evolution equation is
 \begin{align}
 \left.\partial_t {\bf g}({\bf r},t)\right|_{\rm rev}
-&=  {\rm Tr}[\overline{\rho}_t  iL\hat{{\bf g}}_{\bf r}] 
+&=  {\rm Tr}[\overline{\rho}_t  i{\cal L}\hat{{\bf g}}_{\bf r}] 
 \nonumber\\
 &=-\boldsymbol{\nabla}\cdot  {\rm Tr}[\overline{\rho}_t \hat{{\bf K}}_{\bf r}] 
 +  {\rm Tr}[\overline{\rho}_t  \hat{\bf F}^{\rm l}_{\bf r}]
@@ -2515,10 +2515,10 @@ computed  in   equation  (\ref{fllr})  of  the   Appendix \ref{Ap:Forces}.   By 
 
 Finally, the averages with the relevant ensemble of the solid object variables are
 \begin{align}
-{\rm Tr}[\overline{\rho}_t  iL\hat{\bf R}] 
+  {\rm Tr}[\overline{\rho}_t  i{\cal L}\hat{\bf R}] 
 &=\frac{\bf P}{M}
 \nonumber\\
-{\rm Tr}[\overline{\rho}_t  iL\hat{\bf P}] 
+{\rm Tr}[\overline{\rho}_t  i{\cal L}\hat{\bf P}] 
 &=-\frac{\partial {\cal F}}{\partial {\bf R}}[\rho,{\bf R}],
 \end{align}
 where we have used equation (\ref{Fls}) in the Appendix \ref{Ap:Forces}.
@@ -2699,8 +2699,8 @@ variables,   the  irreversible   dynamics   is  given   by  the   term
 $\sum_jD_{ij}\lambda_j$   in  equation   (\ref{ex2}).   Because   the  time
 derivatives of  $\hat{\rho}({\bf r})$ and  $\hat{{\bf R}}$  are given in  terms of
 momenta, which  are relevant variables  themselves, the effect  of the
-projection operator in (\ref{Q}) is simply ${\cal Q} iL\hat{\rho}_{\bf r}=0$
-and ${\cal Q}  iL\hat{{\bf R}}_{\mu}=0$ resulting in  a large simplification
+projection operator in (\ref{Q}) is simply ${\cal Q} i{\cal L}\hat{\rho}_{\bf r}=0$
+and ${\cal Q}  i{\cal L}\hat{{\bf R}}_{\mu}=0$ resulting in  a large simplification
 of  the  friction  matrix.   The irreversible  part  of  the  dynamics
 $\sum_jD_{ij}\lambda_j$ in equation (\ref{ex2}) now takes the form
 \begin{align}
@@ -2753,23 +2753,23 @@ where the matrix elements are  defined in terms of Green-Kubo formulas
 as
 \begin{align}
   M^{gg}_{{\bf r}{\bf r}'}&=\frac{1}{k_BT}\int_0^{\Delta t} dt\langle 
-{\cal Q}  iL\hat{\bf g}_{{\bf r}}(t){\cal Q}  iL\hat{\bf g}_{{\bf r}'}\rangle^\lambda
+  {\cal Q}  i{\cal L}\hat{\bf g}_{{\bf r}}(t){\cal Q}  i{\cal L}\hat{\bf g}_{{\bf r}'}\rangle^\lambda
 \nonumber\\
   M^{gP}_{{\bf r}}&=\frac{1}{k_BT}\int_0^{\Delta t} dt\langle 
-{\cal Q}  iL\hat{\bf g}_{\bf r}(t){\cal Q}  iL\hat{\bf P}\rangle^\lambda
+{\cal Q}  i{\cal L}\hat{\bf g}_{\bf r}(t){\cal Q}  i{\cal L}\hat{\bf P}\rangle^\lambda
 \nonumber\\
   M^{Pg}_{{\bf r}'}&=\frac{1}{k_BT}\int_0^{\Delta t} dt\langle 
-{\cal Q}  iL\hat{\bf P}(t){\cal Q}  iL\hat{\bf g}_{{\bf r}'}\rangle^\lambda
+{\cal Q}  i{\cal L}\hat{\bf P}(t){\cal Q}  i{\cal L}\hat{\bf g}_{{\bf r}'}\rangle^\lambda
 \nonumber\\
   M^{PP}&=\frac{1}{k_BT}\int_0^{\Delta t} dt\langle 
-{\cal Q}  iL\hat{\bf P}(t){\cal Q}  iL\hat{\bf P}\rangle^\lambda
+{\cal Q}  i{\cal L}\hat{\bf P}(t){\cal Q}  i{\cal L}\hat{\bf P}\rangle^\lambda
 \nonumber\\
 \label{Ms}
 \end{align}
 Note that momentum conservation implies that the gain rate of the total momentum
 of the fluid is equal to the loss rate of momentum of the particle
 \begin{align}
-  \int d{\bf r} iL\hat{\bf g}_{\bf r}&=-iL\hat{\bf P}
+  \int d{\bf r} i{\cal L}\hat{\bf g}_{\bf r}&=-i{\cal L}\hat{\bf P}
 \label{iLgiLP}
 \end{align}
 The conservation of momenta then implies the following relationships between
@@ -9118,7 +9118,7 @@ sphere is due to the gradient of the free energy functional
 \label{Ap:Projected}
 \markboth{The projected currents}{}
 In  this appendix  we  consider  the explicit  form  of the  projected
-currents  ${\cal  Q}_tiL\hat{A}$  for  the  present  selection  of  relevant
+currents  ${\cal  Q}_ti{\cal L}\hat{A}$  for  the  present  selection  of  relevant
 variables.   The projector  defined  in (\ref{Q})  gives  rise to  the
 following  two projected  currents  ${\cal  Q}_t\hat{\bf F}^{\rm  s\to
   l}_{{\bf r}},  {\cal Q}_t\hat{\boldsymbol{\sigma}}_{{\bf  r}}$ given
