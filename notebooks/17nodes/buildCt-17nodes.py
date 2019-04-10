@@ -218,6 +218,9 @@ if gxgx=='y':
 if SxzFx == 'y':
     block1 = np.loadtxt('corr-SxzFx-WALLS-block1-17nodes-AVG.dat')
     block2 = np.loadtxt('corr-SxzFx-WALLS-block2-17nodes-AVG.dat')
+    #standard deviation
+    std1 = np.loadtxt('stdB1.dat')
+    std2 = np.loadtxt('stdB2.dat')
 
     nRows, nCols = np.shape(block1)
     nNodesBlock  = int(np.sqrt(nCols/4))
@@ -232,11 +235,17 @@ if SxzFx == 'y':
     corr_FxSxz_B2  = np.zeros((nSteps, nNodesBlock**2))
     corr_FxFx_B1   = np.zeros((nSteps, nNodesBlock**2))
     corr_FxFx_B2   = np.zeros((nSteps, nNodesBlock**2))
+    #standard deviation
+    std_FxFx_B1   = np.zeros((nSteps, nNodesBlock**2))
+    std_FxFx_B2   = np.zeros((nSteps, nNodesBlock**2))
 
     for t in range(nSteps):
         print 'Creating blocks. Step '+ str(t+1)
         B1 = block1[t,:].reshape(2*nNodesBlock, 2*nNodesBlock)    
         B2 = block2[t,:].reshape(2*nNodesBlock, 2*nNodesBlock)
+        #standard deviation
+        stdB1 = std1[t,:].reshape(2*nNodesBlock, 2*nNodesBlock)    
+        stdB2 = std2[t,:].reshape(2*nNodesBlock, 2*nNodesBlock)
 
         corr_SxzSxz_B1[t,:] = reshapeBlock_mv(B1[0*nNodesBlock:1*nNodesBlock, 0*nNodesBlock:1*nNodesBlock])
         corr_SxzSxz_B2[t,:] = reshapeBlock_mv(B2[0*nNodesBlock:1*nNodesBlock, 0*nNodesBlock:1*nNodesBlock])
@@ -246,6 +255,9 @@ if SxzFx == 'y':
         corr_FxSxz_B2[t,:]  = reshapeBlock_mv(B2[1*nNodesBlock:2*nNodesBlock, 0*nNodesBlock:1*nNodesBlock])
         corr_FxFx_B1[t,:]   = reshapeBlock_mv(B1[1*nNodesBlock:2*nNodesBlock, 1*nNodesBlock:2*nNodesBlock])
         corr_FxFx_B2[t,:]   = reshapeBlock_mv(B2[1*nNodesBlock:2*nNodesBlock, 1*nNodesBlock:2*nNodesBlock])
+        #standard deviation
+        std_FxFx_B1[t,:]   = reshapeBlock_mv(std1[1*nNodesBlock:2*nNodesBlock, 1*nNodesBlock:2*nNodesBlock])
+        std_FxFx_B2[t,:]   = reshapeBlock_mv(std2[1*nNodesBlock:2*nNodesBlock, 1*nNodesBlock:2*nNodesBlock])
    
     #np.savetxt('SxzSxz-WALLS-B1-t0.dat'  , reshapeBlock_vm(corr_SxzSxz_B1[0,:]))
     #np.savetxt('SxzSxz-WALLS-B2-t0.dat'  , reshapeBlock_vm(corr_SxzSxz_B2[0,:]))
@@ -274,6 +286,9 @@ if SxzFx == 'y':
     corr_FxSxz_B2_avg  = np.zeros((nSteps, nNodesBlock**2))
     corr_FxFx_B1_avg   = np.zeros((nSteps, nNodesBlock**2))
     corr_FxFx_B2_avg   = np.zeros((nSteps, nNodesBlock**2))
+    #standard deviation
+    std_FxFx_B1_avg   = np.zeros((nSteps, nNodesBlock**2))
+    std_FxFx_B2_avg   = np.zeros((nSteps, nNodesBlock**2))
 
     for t in range(nSteps):
         print 'Averaging blocks. Step '+ str(t+1)
@@ -293,6 +308,10 @@ if SxzFx == 'y':
         A = 0.5 * (reshapeBlock_vm(corr_FxFx_B1[t,:]) + np.rot90(reshapeBlock_vm(corr_FxFx_B2[t,:]),2))
         corr_FxFx_B1_avg[t,:] = reshapeBlock_mv(A)
         corr_FxFx_B2_avg[t,:] = reshapeBlock_mv(np.rot90(A,2))
+        
+        A = 0.5 * (reshapeBlock_vm(std_FxFx_B1[t,:]) + np.rot90(reshapeBlock_vm(std_FxFx_B2[t,:]),2))
+        std_FxFx_B1_avg[t,:] = reshapeBlock_mv(A)
+        std_FxFx_B2_avg[t,:] = reshapeBlock_mv(np.rot90(A,2))
 
     #np.savetxt('SxzSxz-WALLS-B1-avg-t0.dat'  , reshapeBlock_vm(corr_SxzSxz_B1_avg[0,:]))
     #np.savetxt('SxzSxz-WALLS-B2-avg-t0.dat'  , reshapeBlock_vm(corr_SxzSxz_B2_avg[0,:]))
@@ -335,15 +354,21 @@ if SxzFx == 'y':
     C1 = np.zeros((nSteps,nNodes**2))
     C2 = np.zeros((nSteps,nNodes**2))
     C3 = np.zeros((nSteps,nNodes**2))
+    #Standard deviation
+    std = np.zeros((nSteps,nNodes**2))
     for t in range(nSteps):
         print 'Building <Sxz('+str(t+1)+')Fx>, <Fx('+str(t+1)+')Sxz> and <Fx('+str(t+1)+')Fx>. Step '+ str(t+1)
         C1[t,:] = buildC2(corr_SxzFx_B1_avg[t,:], corr_SxzFx_B2_avg[t,:])
         C2[t,:] = buildC2(corr_FxSxz_B1_avg[t,:], corr_FxSxz_B2_avg[t,:])
         C3[t,:] = buildC2(corr_FxFx_B1_avg[t,:] , corr_FxFx_B2_avg[t,:])
+        #Standard deviation
+        std[t,:] = buildC2(std_FxFx_B1_avg[t,:] , std_FxFx_B2_avg[t,:])
 
-    np.savetxt('SxzFx-WALLS-17nodes.dat', C1)
-    np.savetxt('FxSxz-WALLS-17nodes.dat', C2)
-    np.savetxt('FxFx-WALLS-17nodes.dat' , C3)
+    #np.savetxt('SxzFx-WALLS-17nodes.dat', C1)
+    #np.savetxt('FxSxz-WALLS-17nodes.dat', C2)
+    #np.savetxt('FxFx-WALLS-17nodes.dat' , C3)
+    #Standard deviation
+    np.savetxt('std-FxFx-WALLS-17nodes.dat' , std)
     #np.savetxt('SxzFx-WALLS-500steps.dat', C1[0:500,:])
     #np.savetxt('FxSxz-WALLS-500steps.dat', C2[0:500,:])
     #np.savetxt('FxFx-WALLS-500steps.dat' , C3[0:500,:])
