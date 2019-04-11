@@ -1030,7 +1030,7 @@ to the relevant ensemble will be denoted by
 and can be written as 
 \begin{equation}
 a =\frac{\partial \Phi}{\partial
-\lambda}[\lambda] 
+\lambda}[\lambda],
 \label{cg1}
 \end{equation}
 where the  (dimensionless) thermodynamic potential  $\Phi[\lambda]$ is
@@ -1910,12 +1910,12 @@ sphere. These are given by the following set of phase functions
 &&\hat{\bf P}(z)=\sum_{i'}^{N'}{\bf p}_{i'},
 \label{CGvar}
 \end{align}
-where $\overline{\delta}({\bf r}-{\bf q}_i)$ is a coarse delta function as, for example, a normalized Gaussian.
+where $\delta({\bf r}-{\bf q}_i)$ is a coarse delta function as, for example, a normalized Gaussian.
 In these phase  functions, the position ${\bf r}$ plays  the role of a
 continuous index labeling  the phase function. The  position ${\bf r}$
 may take any value in  $\mathbb{R}^3$, or its periodic counterpart, as
 we  do  not  have  any  restriction to  the  possible  motion  of  the
-particles. As was mentioned in \ref{Chap:NESM} the hamiltonian (\ref{H}) is also a relevant variable.
+particles. As was mentioned in Chapter \ref{Chap:NESM} the hamiltonian (\ref{H}) is also a relevant variable.
 
 For the sake of simplicity, we do not include orientational degrees of
 freedom of the  solid for the time being.  Note  that by selecting the
@@ -2004,12 +2004,11 @@ of the Dirac $\delta$ functions in terms of a divergence
 The liquid  force density  $\hat{\bf F}^{\rm  l\to l}_{\bf  r}(z)$ can
 then be expressed  as the divergence of the  microscopic virial stress
 tensor, that is,
-\Note{Si equation (\ref{trick}), entonces el $\epsilon$ de equation (\ref{micfluxes}) tiene que ser negativo.}
 \begin{align}
 \hat{\bf F}^{\rm l\to l}_{\bf r}(z)&=-\boldsymbol{\nabla}{\cdot} \hat{\boldsymbol{\Pi}}_{\bf r}(z)
 \nonumber\\
 \hat{\boldsymbol{\Pi}}_{\bf r}(z)&\equiv \frac{1}{2}\sum^{N}_{ij}{\bf q}_{ij}\hat{\bf F}_{ij}
-\int_0^{1}d\epsilon \delta({\bf r}-{\bf q}_i+\epsilon{\bf q}_{ij})
+\int_0^{1}d\epsilon \delta({\bf r}-{\bf q}_i-\epsilon{\bf q}_{ij})
 \label{micfluxes}
 \end{align}
 The time derivative of the momentum density (\ref{ildens}) becomes
@@ -2030,7 +2029,7 @@ tensor of the fluid, that is,
 %\nonumber\\
 +
 \frac{1}{2}\sum^{N}_{ij}{\bf q}_{ij}\hat{\bf F}_{ij}
-\int_0^{1}d\epsilon \delta({\bf r}-{\bf q}_i+\epsilon{\bf q}_{ij})
+\int_0^{1}d\epsilon \delta({\bf r}-{\bf q}_i-\epsilon{\bf q}_{ij})
 \label{sigma}
 \end{align}
 For the solid object we have that the action of the Liouville operator gives
@@ -2071,7 +2070,7 @@ In Sec. \ref{Sec:TheEntropy} we obtained that the ensemble which maximizes the G
 \overline{\rho}(z) = \frac{1}{Z[\lambda]} \rho_0\exp\{-\lambda\!\cdot\!\hat{A}(z)\}
 %\label{relens1}
 \end{equation}
-When the CG variables are those in (\ref{CGvar}), the relevant ensemble $\bar{\rho}(z)$ takes the form \Note{En el paper falta el $\rho_0$}
+When the CG variables are those in (\ref{CGvar}), the relevant ensemble $\bar{\rho}(z)$ takes the form 
 \begin{align}
   \overline{\rho}(z)&=\frac{1}{\Xi[\lambda]}\rho_0\exp\left\{-\beta H(z)\right\}
 \nonumber\\
@@ -2290,7 +2289,7 @@ Finally, we have the free energy functional ${\cal  F}[\rho,{\bf R}]$ of a struc
 \begin{align}
   {\cal F}[\rho,{\bf R}]&\equiv  \Phi^{\rm pos}[\mu,\boldsymbol{\lambda}_R]
 +
-\int d{\bf r}\rho({\bf r})\mu({\bf r})-\boldsymbol{\lambda}_R\cdot{\bf R}
+\int d{\bf r}\rho({\bf r})\mu({\bf r})-\boldsymbol{\lambda}_R\cdot{\bf R},
 \label{leg}
 \end{align}
 whose derivatives are given by 
@@ -2301,13 +2300,12 @@ whose derivatives are given by
 \label{Fd2}
 \end{align}
 We can obtain an expression for the  hydrodynamic functional (\ref{oleg}) replacing the terms $\Phi[\lambda]$, $\boldsymbol{\lambda}_g({\bf r})$, $\boldsymbol{\lambda}_P$, and $\lambda_R\cdot{\bf R}$ by the equations (\ref{nu}), (\ref{xpos1}), and using (\ref{leg}), respectively.
-\Note{signo positivo antes del funcional de energía  libre}
 \begin{align}
   {\cal H}[\rho,{\bf g},{\bf R},{\bf P}] =& 
   -\int d{\bf r} \rho({\bf r})\lambda_{\rho}({\bf r}) 
   +\int d{\bf r}\frac{{\bf g}^2({\bf r})}{\rho({\bf r})} 
   \nonumber\\
-  &- {\cal F}[\rho,{\bf R}] -\int d{\bf r}\rho({\bf r})\mu({\bf r}) + \frac{{\bf P}^2}{2M'}
+  &+ {\cal F}[\rho,{\bf R}] -\int d{\bf r}\rho({\bf r})\mu({\bf r}) + \frac{{\bf P}^2}{2M'}
 \end{align}
 If we replace $\mu({\bf r})$ by the equation (\ref{chempot}) and use (\ref{nu}), we finally arrive to an expression of the hydrodynamic functional ${\cal H}$ which is the sum of a kinetic part and a ``potential'' part
 \begin{align}
@@ -2316,18 +2314,17 @@ If we replace $\mu({\bf r})$ by the equation (\ref{chempot}) and use (\ref{nu}),
   +\underbrace{{\cal F}[\rho,{\bf R}]}_{\rm potential}
 \label{oleg2}
 \end{align}
-A we show in Appendix \ref{Ap:Forces}, $\boldsymbol{\lambda}_R$
+As we show in Appendix \ref{Ap:Forces}, $\boldsymbol{\lambda}_R$
 is just the  average force on the solid due  to the fluid.  Therefore,
 the ``potential''  part ${\cal  F}[\rho,{\bf R}]$ of  the hydrodynamic
-functional  (\ref{oleg})  really  acts  as a  potential  energy  whose
+functional  (\ref{oleg2})  really  acts  as a  potential  energy  whose
 negative gradient  gives the actual  force on the sphere.   For future
 reference,  we  may also  compute  the  functional derivative  of  the
 hydrodynamic functional ${\cal  H}$ with respect to  the density field
 with the result
-\Note{Creo que hay mal un signo $+\frac{v^2}{2}$}
 \begin{align}
   \frac{\delta {\cal H}}{\delta\rho({\bf r})}[\rho,{\bf g},{\bf R},{\bf P}] &=    
--\frac{{\bf v}^2({\bf r})}{2}+  \frac{\delta {\cal F}}{\delta\rho({\bf r})}[\rho,{\bf R}]
+\frac{{\bf v}^2({\bf r})}{2}+  \frac{\delta {\cal F}}{\delta\rho({\bf r})}[\rho,{\bf R}]
 \end{align}
 
 The free energy functional is translationally invariant, that is,
@@ -2445,10 +2442,10 @@ The action of the Galilean operator on the relevant variables is
   {\cal G}\hat{\bf R}(z) &= \hat{\bf R}(z) \nonumber\\
   {\cal G}\hat{\bf P}(z) &= \hat{\bf P}(z)
 \end{align}
-Therefore, the action of ${\cal G}$ on the relevant ensemble is \Note{(En el paper aparece $\rho^{eq}$¿?)}
+Therefore, the action of ${\cal G}$ on the relevant ensemble is
 \begin{align}
   {\cal G}\overline{\rho}_t =
-\frac{1}{\Xi[\lambda(t)]}\rho_0
+  \frac{1}{\Xi[\lambda(t)]}\rho^{\rm eq}(z)
 \exp\left\{\beta\int d{\bf r}\mu({\bf r})\hat{\rho}_{\bf r}(z)\right\}
 %\nonumber\\
 \exp\left\{-\beta \boldsymbol{\lambda}_{R}(t)\esc\hat{\bf R}(z)
@@ -2478,7 +2475,7 @@ By noting that the ensemble (\ref{resrelens}) is Gaussian in momenta, we have fi
 \label{api}
 \end{align}
 where $\boldsymbol{\delta}$ is the unit  tensor.  The last term $ {\rm
-  Tr}[\overline{\rho}_t \hat{\bf F}_{\bf r}]$  in equation (\ref{grev1}) is
+Tr}[\overline{\rho}_t \hat{\bf F}^{l}_{\bf r}]$  in equation (\ref{grev1}) is
 computed  in   equation  (\ref{fllr})  of  the   Appendix \ref{Ap:Forces}.   By  collecting
 (\ref{api})  and  (\ref{fllr})  into  the  momentum  density  equation
 (\ref{grev1}) we obtain
@@ -2707,11 +2704,11 @@ $\sum_jD_{ij}\lambda_j$ in equation (\ref{ex2}) now takes the form
 \\
 \frac{\delta {\cal H}}{\delta {\bf g}_{{\bf r}'}}\\
 \\
-\frac{\partial {\cal H}}{\delta {\bf R}}\\
+\frac{\partial {\cal H}}{\partial {\bf R}}\\
 \\
-\frac{\partial {\cal H}}{\delta {\bf P}}
+\frac{\partial {\cal H}}{\partial {\bf P}}
     \end{array}
-\right),
+\right)
 \label{irr1}
 \end{align}
 where we have  used (\ref{lno}). The sum over  the continuum ``index''
@@ -2869,10 +2866,7 @@ density field is  just the continuity equation.  The  equation for the
 momentum density field involves the  usual convective term plus a term
 involving  the  gradient of  the  functional  derivative of  the  free
 energy.  This term describes both,  the ``pressure gradient'' term and
-the reversible coupling between the  fluid and solid sphere. The usual
-pressure gradient term of the Navier-Stokes equations is obtained when
-one  uses   a  local   free  energy  functional   as  will   be  shown
-elsewhere.               The                viscous               term
+the reversible coupling between the  fluid and solid sphere. The                viscous               term
 $\boldsymbol{\nabla}\esc\boldsymbol{\Sigma}$  
 describes   the  internal   friction   of  the   fluid   due  to   its
 self-interaction.  This  viscous term involving second  derivatives is
@@ -2883,8 +2877,8 @@ been   advocated  recently   in   the   field  of   nano-hydrodynamics
 alternative to address flow problems where density is inhomogeneous is
 to keep using  local hydrodynamics with the viscosity of  the bulk but
 evaluated at the local values of the density\cite{Bitsanis1987}. While
-this   may    lead   to    reasonable   results   (but    not   always
-\cite{Bitsanis1990}), the present  microscopically derived model seems
+this   may    lead   to    reasonable   results  
+, the present  microscopically derived model seems
 to have a firmer basis. The  fourth order viscosity tensor is given in
 terms  of the  correlation of  the  fluctuations of  the fluid  stress
 tensor.  Away from the walls, it is expected that the viscosity tensor
@@ -2981,10 +2975,10 @@ following functional without constraints
 \end{align}
 where    $\mu_0,{\bf   V}_0$    are    the   corresponding    Lagrange
 multipliers. Setting  to zero the derivatives of  the above functional
-gives  \Note{En la primera expresión que es la derivada con respecto a $\rho(r)$ no le falta un término $-V_0{\int d{\bf r}\bf v(r)}$? Luego se irá haciendo $V_0=0$}
+gives  
 \begin{align}
   \frac{{\bf v}^2({\bf r})}{2}
-+\frac{\delta {\cal F}}{\delta\rho({\bf r})}[\rho,{\bf R}]-\mu_0&=0,\quad
+  +\frac{\delta {\cal F}}{\delta\rho({\bf r})}[\rho,{\bf R}]-\mu_0-V_0{\int d{\bf r}\bf v(t)}  &=0,\quad
 &&\frac{\partial {\cal F}}{\partial {\bf R}}[\rho,{\bf R}]=0
 \nonumber\\
 {\bf v}({\bf r})-{\bf V}_0&=0,\quad
@@ -3177,7 +3171,7 @@ for the transport kernels
 In this chapter we have derived DDFT for simple fluid in contact with a solid sphere. We have taken as relevant variables the mass and momentum density fields of the fluid and the center of mass position and momentum of the solid sphere. We have use the Kawasaki-Gunton operator in order to obtain the evolution equations for the average value of these fields.  
 A crucial assumption in the method of projection operators is that the
 relevant variables should be {\em slow}  in order to have a Markovian,
-memoryless  equation.   equations with  memory  are  indeed much  more
+memoryless  equation.   Equations with  memory  are  indeed much  more
 difficult to deal with than  memoryless equations.  In the former case
 one  needs  to know  the  specific  form  of  the memory  kernel  {\em
   function}  instead of  just one  single number,  the transport  {\em
@@ -9858,7 +9852,7 @@ We may now express the CG Hamiltonian (\ref{olegApp}) as
 \begin{align}
   {\cal H}(\rho,{\bf g}) &=  \frac{1}{2}{\cal M}_{\mu\nu}{\bf v}_\mu\esc{\bf v}_\nu
 + F(\rho),
-\label{oleg2}
+\label{oleg2Ap}
 \end{align}
 where we introduce the matrix
 \begin{align}
@@ -9866,11 +9860,11 @@ where we introduce the matrix
 \label{AvecalM}
 \end{align}
 with dimensions  of mass.  The  CG Hamiltonian ${\cal  H}$ in
-(\ref{oleg2}),  which is  the free  energy  function of  the level  of
+(\ref{oleg2Ap}),  which is  the free  energy  function of  the level  of
 description given by $\rho_\mu,{\bf g}_\mu$ is expressed as the sum of
 a  kinetic part  and a  ``potential'' part  given in  terms of  a free
 energy function of the level of description given by $\rho_\mu$ alone.
-Note   that  we   may   also  express   the  CG Hamiltonian (\ref{oleg2})
+Note   that  we   may   also  express   the  CG Hamiltonian (\ref{oleg2Ap})
 in the form
 \begin{align}      {\cal       H}(\rho,{\bf      g})       &=
   \frac{1}{2}\llg\overline{\rho}\overline{\bf v}^2\rlg + F(\rho)
