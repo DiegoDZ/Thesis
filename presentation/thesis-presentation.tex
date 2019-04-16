@@ -16,6 +16,17 @@
 \useinnertheme{circles}
 \graphicspath{{../figures/}}
 %\setbeamercovered{transparent}
+\newcommand{\esc}{\!\cdot\!}
+\newcommand{\llangle}{\left\langle}
+\newcommand{\rrangle}{\right\rangle}
+\newcommand{\llg}{\left\lgroup}
+\newcommand{\rlg}{\right\rgroup}
+\newcommand{\bra}{\llbracket}
+\newcommand{\ket}{\rrbracket}
+\newcommand{\cc}{\!\parallel\!}
+\newcommand{\GK}[2]{\langle#1 \cc #2\rangle}
+\newcommand{\GKrest}[2]{\langle#1 \cc #2\rangle^0}
+
 
 
 
@@ -42,15 +53,7 @@
 \begin{frame}{Roadmap}
   \includegraphics[width=\linewidth]{scheme-thesis}
 \end{frame}
-%\begin{frame}{Roadmap}
-%  \begin{enumerate}
-%    \item The study of \alert{the behaviour of a fluid in contact with a solid} in the nanoscale. 
-%    \item Theory of Coarse-Graining in order to obtain the equations of motion of a fluid in contact with a huge solid sphere.
-%    \item To address the plateau problem.
-%    \item MD simulations. 
-%    \item Mori theory 
-%  \end{enumerate}
-%\end{frame}
+
 \begin{frame}{Derivation of the slip boundary condition}
 \begin{itemize}
 \item Through the  measurement of the correlation of
@@ -88,29 +91,45 @@ this quantities is often understood implicitly.
 \end{itemize}
 \end{frame}
 
-\begin{frame}{The dynamics. The Kawasaki-Gunton projection operator}
+\begin{frame}{The dynamics}
   \begin{itemize}
-    \item Set of CG variables $\hat{A}_i(z)$ and their conjugates variables $\lambda_i(t)$, related through the entropy $\frac{\delta S}{\delta a}=\lambda$.
-    \item The aim is to derive equations of motion for the time dependent average $a_i(t)$ of the CG variables $\hat{A}_i(z)$
+    %\item Set of CG variables $\hat{A}_i(z)$ and their averages $a_i(z)$
+%\begin{align}
+%    a = {\rm Tr}[{\hat{A}}\rho]
+%    \nonumber
+%\end{align}
+    \item The aim is to \alert{derive equations of motion} for the time dependent average $a_i(t)$ of the CG variables $\hat{A}_i(z)$
       \begin{align}
         a_i(t)={\rm Tr}\left[\hat{A}_i(z)\rho_t\right]
         \nonumber
       \end{align}
-    \item For isolated systems with a time-independet Hamiltonian,the averages evolves according to the following equation \cite{Grabert1982}
+    \item The trace symbol is given by
+\begin{align}
+  {\rm Tr}\left[\cdots\right]&=\sum_{N=0}^\infty \frac{1}{N!h^{3N}}
+\int dzdz'\cdots \nonumber
+\end{align}
+\item $\rho_t$ is the nonequilibrium solution of the Liouville equation
+\begin{align}
+    \rho_t(z) = {\rm exp}\{-i{\cal L}t\}\rho_0(z)
+    \nonumber
+\end{align}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{The dynamics. The Kawasaki-Gunton projection operator}
+    For isolated systems with a time-independet Hamiltonian,the averages evolves according to the following equation \cite{Grabert1982}
       \begin{equation}
 \frac{\partial }{\partial t} a_i(t)
 = v_i(t) + \int_0^t dt' \sum_j K_{ij}(t,t') \lambda_j(t')
 \nonumber
-\label{ex}
 \end{equation}
-\end{itemize}
 \end{frame}
 
-\begin{frame}{The reversible term}
+\begin{frame}{Kawasaki-Gunton projection operator. The reversible term}
 \begin{itemize}
   \item The reversible term is given by
 \begin{equation}
-  v_i(t) = {\rm Tr}[\overline{\rho}_t  i{\cal L} \hat{A}_i],
+  v_i(t) = {\rm Tr}[\overline{\rho}_t  i{\cal L} \hat{A}_i]
   \nonumber
 \label{vit}
 \end{equation}
@@ -123,15 +142,14 @@ where $i{\cal L}$ is the Liouville operator and $\overline{\rho}_t$ is the \aler
 
 \item The form of $\overline{\rho}_t$ is
 \begin{equation}
-\overline{\rho}(z) = \frac{1}{Z[\lambda]} \rho_0\exp\{-\lambda\!\cdot\!\hat{A}(z)\},
-%\label{relens1}
+\overline{\rho}(z) = \frac{1}{Z[\lambda]} \rho_0\exp\{-\lambda\!\cdot\!\hat{A}(z)\}
 \nonumber
 \end{equation}
 where $Z[\lambda]$ is the partition function and $\rho_0=\frac{1}{N!h^{3N}}$,   with  $h$  being   the  Planck's constant.
 \end{itemize}
 \end{frame}
 
-\begin{frame}{The irreversible term}
+\begin{frame}{Kawsaki-Gunton projection operator. The irreversible term}
 \begin{itemize}
     \item The irreversible
       term involves the \alert{memory kernel}
@@ -139,7 +157,7 @@ where $Z[\lambda]$ is the partition function and $\rho_0=\frac{1}{N!h^{3N}}$,   
 K_{ij}(t,t') =
 {\rm Tr}\left[\overline{\rho}_{t'} 
   \left({\cal Q}_{t'} i{\cal L}\hat{A}_j\right) G_{t't}
-\left({\cal Q}_{t } i{\cal L}\hat{A}_i\right)\right],
+\left({\cal Q}_{t } i{\cal L}\hat{A}_i\right)\right]
 \nonumber
 \label{ker}
 \end{equation}
@@ -148,7 +166,6 @@ applied  to an  arbitrary  function
 $\hat{F}(z)$ is
 \begin{align}
   {\cal Q}_{t'}\hat{F}(z) &= \hat{F}(z)- {\rm Tr}[\overline{\rho}_{t'} \hat{F}]
-%\nonumber\\
 -\sum_i(\hat{A}_i(z)-a_i(t'))\frac{\partial }{\partial a_i(t')}
 {\rm Tr}[\overline{\rho}_{t'} \hat{F}]
 \label{Q}
@@ -161,7 +178,7 @@ $\hat{F}(z)$ is
 +\sum_{n=1}^\infty \int_{t'}^tdt_1\cdots\int_{t'}^{t_{n-1}}dt_n
 i{\cal L}{\cal Q}_{t_n}\cdots  i{\cal L}{\cal Q}_{t_1}
 \nonumber\\
-&\equiv T_+\exp\left\{\int_{t'}^t dt''  i{\cal L}{\cal Q}_{t''}\right\},
+&\equiv T_+\exp\left\{\int_{t'}^t dt''  i{\cal L}{\cal Q}_{t''}\right\}
 \nonumber
 \end{align}
 where $T_+$ ensures that the operators are ordered from left to right as time increases.
@@ -169,9 +186,9 @@ where $T_+$ ensures that the operators are ordered from left to right as time in
   
 \end{frame}
 
-\begin{frame}{Markovian equation. Kawasaki-Gunton projection operator}
+\begin{frame}{Kawasaki-Gunton projection operator. Markovian equation}
   \begin{itemize}
-     \item Whenever a clear separation of timescales exists between the evolution of the averages and the decay of the memory kernel can be approximate by the memory-less equation
+     \item Clear separation of timescales between the evolution of the averages and the decay of the memory kernel 
 \begin{equation}
   \frac{\partial}{\partial t}a_i(t) = v_i(t) + \sum_j D_{ij}(t) \lambda_j(t)
 \label{ex2}
@@ -185,13 +202,130 @@ D_{ij}(t)=\int_0^{\Delta t} dt'\left\langle
 \label{dij}
 \nonumber
 \end{equation}
+\item $\left\langle\cdots\right\rangle$ denotes an equilibrium average.
 \end{itemize}
 \end{frame}
 
 \begin{frame}{The dynamics. Mori theory}
-
+    The \alert{Mori's exact Generalized Langevin equation} \cite{Mori1965} is
+\begin{align}
+  \frac{d}{dt}\hat{A}(t)= & -L\esc C^{-1}(0)\esc \hat{A} (t) 
+  -\int_0^tdt'\Gamma(t-t')\esc  C^{-1}(0)\esc \hat{A} (t') +F^+(t)
+\nonumber
+\end{align}
+where the following matrices have been introduced
+\begin{align}
+  L&=\langle \hat{A}i{\cal L}\hat{A}^T\rangle \nonumber \\
+  C(0)&=\langle \hat{A}\hat{A}^T\rangle \nonumber \\
+\Gamma(t)&=\langle F^+(t)F^{+T}(0)\rangle
+\nonumber
+\end{align}
 \end{frame}
 
+\begin{frame}{Mori theory. Projected forces and projection operator}
+  \begin{itemize}
+\item The projected forces are given by
+\begin{align}
+F^+(t)&= \exp\{{\cal Q}i{\cal L}t\} {\cal Q}i{\cal L}\hat{A}  
+\nonumber
+\end{align}
+\item $F^+(t)$ have zero mean and are uncorrelted from preivous values of the CG variables
+\begin{align}
+\langle  F^+  (t)\rangle&=0  
+\nonumber\\
+\langle \hat{A} F^+ (t)\rangle&=0 \quad\quad t\ge 0
+\nonumber
+\end{align}
+\item The projection operator ${\cal Q}$ is defined as ${\cal Q}=1-{\cal P}$
+  where  ${\cal P}$  is \alert{Mori's  projector} whose  effect on  an arbitrary
+phase function $\hat{F}(z)$ is
+\begin{align}
+  {\cal P}\hat{F}(z) = \langle \hat{F}\rangle+ \langle \hat{F}\hat{A}^T \rangle\esc  C^{-1}(0)\esc  \hat{A}(z)
+\nonumber
+\end{align}
+\end{itemize}
+\end{frame}
+\begin{frame}{Mori theory. Correlations and averages}
+  \begin{itemize}
+    \item The equilibrium time  correlation matrix of the CG variables is 
+\begin{align}
+  C(t)&=  \llangle \hat{A}(t)\hat{A}^T\rrangle
+\nonumber
+\end{align}
+\item \alert{Mori's equation for correlations}
+\begin{align}
+  \frac{d}{dt}C(t)&=-L\esc C^{-1}(0)\esc C(t)
+-\int_0^tdt' \Gamma(t-t')\esc C^{-1}(0)\esc  C(t')
+\nonumber
+\end{align}
 
+\item The time-dependent average of the CG variables is defined as
+\begin{align}
+  a(t)&=\int dz \rho_0(z) \exp\{i{\cal L}t\}\hat{A}(z)
+  \nonumber
+\end{align}
+\item \alert{Mori's equation for averages}
+\begin{align}
+  \frac{d}{dt}a(t) = -L\esc C^{-1}(0)\esc a(t)
+-\int_0^tdt' \Gamma(t-t')\esc  C^{-1}(0)\esc a(t')
+\label{exactAve}
+\nonumber
+\end{align}
+\end{itemize}
+\end{frame}
 
+\begin{frame}{Mori theory. Markovian aproximation}
+  \begin{itemize}
+    \item The linear integro-differential term can be approximated by a memory-less term
+      \begin{align}
+  \frac{d}{dt}C(t)&=-L\esc C^{-1}(0)\esc C(t)
+  -\underbrace{\int_0^tdt' \Gamma(t-t')\esc C^{-1}(0)\esc  C(t')}_{M^* C^{-1}(0)C(t)}
+\nonumber
+\end{align}
+\item Evolution equation for the correlations
+\begin{align}
+  \frac{d}{dt}C(t)&=-(L+M^*)C^{-1}(0)C(t) 
+  \nonumber \\
+  &= \Lambda^*\esc  C(t)
+\nonumber
+\end{align}
+\item The \alert{relaxation matrix} $\Lambda^*$ is defined as
+\begin{align}
+\Lambda^*\equiv(L+M^*)\esc C^{-1}(0)  
+\nonumber
+\end{align}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Mori theory. Markovian aproximation}
+  \begin{itemize}
+    \item  The only possibility for a correlation is to \alert{decay in an exponential matrix way} 
+\begin{align}
+  C(t)=\exp\{-\Lambda^* t\}\esc C(0)
+\nonumber
+\end{align}
+\item At short times 
+\begin{align}
+    \frac{d}{dt}C(0)&=-L
+  \nonumber
+\end{align}
+which is only possible if $M^*=0$.
+\item The correlations  will decay  in an
+  exponential (Markovian)  way only  after the  time $\tau$  beyond which
+memory is lost. 
+\begin{align}
+  C(t)=\exp\{-\Lambda^* (t-\tau)\}\esc C(\tau)
+\nonumber
+\end{align}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Summary}
+  \begin{itemize}
+    \item Kawasaki-Gunton and Mori theory. 
+    \item Exponential decay of the matrix of correlations after a time $\tau$.
+    \end{itemize}
+\end{frame}
+
+\section{Continuum hydrodynamics theory for liquids near solids}
 \end{document}
