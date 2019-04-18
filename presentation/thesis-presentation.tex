@@ -16,6 +16,7 @@
 \useinnertheme{circles}
 \graphicspath{{../figures/}}
 %\setbeamercovered{transparent}
+\newcommand{\Note}[1]{{\bf \color{red}#1}}    %Anotaciones
 \newcommand{\esc}{\!\cdot\!}
 \newcommand{\llangle}{\left\langle}
 \newcommand{\rrangle}{\right\rangle}
@@ -131,7 +132,6 @@ this quantities is often understood implicitly.
 \begin{equation}
   v_i(t) = {\rm Tr}[\overline{\rho}_t  i{\cal L} \hat{A}_i]
   \nonumber
-\label{vit}
 \end{equation}
 where $i{\cal L}$ is the Liouville operator and $\overline{\rho}_t$ is the \alert{relevant ensemble} which maximizes the Gibbs-Jaynes entropy functional
 \begin{align}
@@ -191,7 +191,6 @@ where $T_+$ ensures that the operators are ordered from left to right as time in
      \item Clear separation of timescales between the evolution of the averages and the decay of the memory kernel 
 \begin{equation}
   \frac{\partial}{\partial t}a_i(t) = v_i(t) + \sum_j D_{ij}(t) \lambda_j(t)
-\label{ex2}
 \nonumber
 \end{equation}
 \item The  dissipative matrix  is  given  by  the Green-Kubo  formula
@@ -317,15 +316,369 @@ memory is lost.
   C(t)=\exp\{-\Lambda^* (t-\tau)\}\esc C(\tau)
 \nonumber
 \end{align}
+\item Onsager's regression hypothesis
+\begin{align}
+  a(t)=\exp\{-\Lambda^* (t-\tau)\}\esc a(\tau)
+\nonumber
+\end{align}
 \end{itemize}
 \end{frame}
 
 \begin{frame}{Summary}
+\begin{itemize}
+\item Kawasaki-Gunton equation with Markovian approximation
+\begin{equation}
+\frac{\partial}{\partial t}a_i(t) = v_i(t) + \sum_j D_{ij}(t) \lambda_j(t)
+\nonumber
+\end{equation}
+\item Mori equation with Markovian approximation
+\begin{align}
+\frac{d}{dt}C(t)=\Lambda^*C(t)
+\nonumber
+\end{align}
+\item Exponential decay of the matrix of correlations after a time $\tau$.
+\begin{align}
+C(t)=\exp\{-\Lambda^* (t-\tau)\}\esc C(\tau)
+\nonumber
+\end{align}
+\end{itemize}
+\end{frame}
+
+\section{Hydrodynamics theory for liquids near solids}
+\begin{frame}{The system}
   \begin{itemize}
-    \item Kawasaki-Gunton and Mori theory. 
-    \item Exponential decay of the matrix of correlations after a time $\tau$.
+    \item Liquid system of $N$ particles interacting with a solid sphere of $N'$ particles.
+    \item The system is described  by the set of all  positions  ${\bf  q}_i$  and  momenta  ${\bf  p}_i=m_i{\bf  v}_i$
+($i=1,\cdots,N$) of the liquid atoms plus the positions ${\bf q}_{i'}$
+and  momenta ${\bf  p}_{i'}=m_{i'}{\bf v}_{i'}$  ($i'=1,\cdots,N'$) of
+the atoms  of the solid  sphere. 
+\item The microstate $z={q,p,q',p'}$. 
+    \item The microstate of the system evolves according to Hamilton's equations 
+\begin{align}
+H(z) = \sum^N_i \frac{p_i^2}{2m_i} + \sum^{N'}_{i'} \frac{p_{i'}^2}{2m_{i'}}
++ U(z)
+\nonumber
+\end{align}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{The CG variables}
+  \begin{itemize}
+    \item The CG variables
+\begin{align}
+  \hat{\rho}_{\bf r}(z) &=\sum^{N}_im\delta({\bf r}-{\bf q}_i)
+&&\hat{\bf R}(z)=\frac{1}{N'}\sum_{i'}^{N'}{\bf q}_{i'}
+\nonumber\\
+  \hat{\bf g}_{\bf r}(z) &=\sum^{N}_i{\bf p}_i\delta({\bf r}-{\bf q}_i)
+&&\hat{\bf P}(z)=\sum_{i'}^{N'}{\bf p}_{i'}
+\nonumber
+\end{align}
+\item The derivatives of the CG variables
+\begin{align}
+  i{\cal L} \hat{\rho}_{\bf r}(z) &= -\boldsymbol{\nabla}\esc\hat{\bf g}_{\bf r}(z)
+  && i{\cal L}\hat{\bf R}(z) =\frac{\hat{\bf P}(z)}{M}
+\nonumber\\
+i{\cal L}\hat{\bf g}_{\bf r}(z)
+    &=-\boldsymbol{\nabla}\cdot \hat{\boldsymbol{\sigma}}_{\bf r}(z)+\hat{{\bf F}}^{\rm s\to l}_{\bf r}(z) 
+  &&i{\cal L}\hat{\bf P}(z) =-\int  d{\bf r} \hat{\bf F}^{\rm s\to l}_{\bf r}(z)
+   \nonumber
+\end{align}
     \end{itemize}
 \end{frame}
 
-\section{Continuum hydrodynamics theory for liquids near solids}
+\begin{frame}{The relevant enesemble}
+  \begin{itemize}
+    \item The ensemble which maximizes the Gibbs-Jaynes entropy functional is
+\begin{align}
+  \overline{\rho}(z)&=\frac{1}{\Xi[\lambda]}\rho_0\exp\left\{-\beta H(z)\right\}
+\nonumber\\
+&\times
+\exp\left\{-\beta\int d{\bf r}\left(\lambda_\rho({\bf r})\cdot\hat{\rho}_{\bf
+    r}(z)+\boldsymbol{\lambda}_g{({\bf r})\cdot}\hat{\bf g}_{\bf r}(z)\right)\right\}
+\nonumber\\
+&\times
+\exp\left\{-\beta \boldsymbol{\lambda}_{R}\esc\hat{\bf R}(z)
+-\beta \boldsymbol{\lambda}_{P}\esc\hat{\bf P}(z)\right\}
+\nonumber
+\end{align}
+\item The $\lambda$-dependent partition function is
+\begin{align}
+  \Xi[\lambda]
+  &\equiv
+ \sum_{N=0}^\infty \frac{1}{N!h^{3N}}
+\int dqdp dq'dp'
+\nonumber\\
+&\times\exp\left\{-\beta H-\beta \sum_{i=1}^Nm \lambda_\rho({\bf
+    q}_i)-\beta \sum_{i=1}^N{\bf p}_i\esc\boldsymbol{\lambda}_g({\bf q}_i)\right\}
+\nonumber\\
+&\times\exp\left\{-\beta \boldsymbol{\lambda}_{R}\esc\hat{\bf R}(z)
+-\beta \boldsymbol{\lambda}_{P}\esc\hat{\bf P}(z)\right\}
+\nonumber
+\end{align}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{The grand potential}
+  \begin{itemize}
+\item The $\lambda$-dependent grand-canonical potential is given by
+\begin{eqnarray}
+  \Phi [\lambda]\equiv-k_BT \ln\Xi [\lambda]
+\nonumber
+\end{eqnarray}
+
+\item There is a one to one connection between the averages of the CG variables and the conjugates ones
+\begin{align}
+  \rho({\bf r}) &=\frac{\delta \Phi [\lambda]}{\delta \lambda_\rho({\bf r}) }
+&&{\bf R} =\frac{\partial \Phi [\lambda]}{\partial \boldsymbol{\lambda}_R }
+\nonumber\\
+  {\bf g}({\bf r}) &=\frac{\delta \Phi [\lambda]}{\delta \boldsymbol{\lambda}_g({\bf r}) }
+&&{\bf P} =\frac{\partial \Phi [\lambda]}{\partial \boldsymbol{\lambda}_P }
+\nonumber
+\end{align}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{The hydrodynamic functional}
+  \begin{itemize}
+\item The hydrodynamic functional 
+\begin{align}
+    {\cal H}[\rho,{\bf g},{\bf R},{\bf P}] =&
+\Phi [\lambda_\rho,\boldsymbol{\lambda}_g,\boldsymbol{\lambda}_R,\boldsymbol{\lambda}_P]
+\nonumber\\
+    & -
+\int d{\bf r}\rho({\bf r})\lambda_\rho({\bf r})
+-
+\int d{\bf r}{\bf g}({\bf r})\cdot\boldsymbol{\lambda}_g({\bf r})
+\nonumber\\
+    &    -\boldsymbol{\lambda}_R\cdot{\bf R}-\boldsymbol{\lambda}_P\cdot{\bf P}
+\nonumber
+\end{align}
+\item The hydrodynamic functional is minus the entropy \Note{Prensentar la entropía y su relación con el potencial termodinámico en NESM}
+\begin{align}
+  \lambda_\rho({\bf r}) &=-\frac{\delta {\cal H}}{\delta \rho({\bf r}) }
+&&  \boldsymbol{\lambda}_R =-\frac{\partial {\cal H}}{\partial {\bf R} }
+\nonumber\\
+  \boldsymbol{\lambda}_g({\bf r}) &=-\frac{\delta {\cal H}}{\delta {\bf g}({\bf r}) }
+&&  \boldsymbol{\lambda}_P =-\frac{\partial {\cal H}}{\partial{\bf P} }
+\nonumber
+\end{align}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{The grand potential of a fluid in the presence of a sphere}
+  \begin{itemize}
+    \item 
+  We may express the gran potential $\Phi [\lambda]$ as a sum of two contributions
+\begin{align}
+\Phi [\lambda]&=  \Phi^{\rm pos}[\mu,\boldsymbol{\lambda}_R]
+-\frac{M'}{2} {\boldsymbol{\lambda}_P}^2,
+\nonumber
+\end{align}
+where we have defined the following grand potential
+\begin{align}
+\Phi^{\rm pos}[\mu,\boldsymbol{\lambda}_R]
+&\equiv-k_BT\ln
+ \sum_{N=0}^\infty \frac{1}{N!}
+\int \frac{dq}{\Lambda^{3N}}\frac{dq'}{\Lambda^{3N'}}\nonumber\\
+&\times
+\exp\left\{-\beta  \left(U-\sum_{i=1}^N m\cdot\mu({\bf
+    q}_i)+ \boldsymbol{\lambda}_R\cdot\hat{\bf R}\right)\right\}
+\nonumber
+\end{align}
+\item We have introduced the thermal wavelength  and the chemical potential
+\begin{align}
+  \Lambda=\left(\frac{h^2\beta}{2\pi m}\right)^{\frac{1}{2}}, &&
+  \mu({\bf r})&\equiv\frac{1}{2}\lambda_g^2({\bf r})-\lambda_\rho({\bf r})
+\nonumber
+\end{align}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{The free energy}
+  \begin{itemize}
+    \item The Legendre transform of the grand potential for a simple fluid gives the classic free energy density functional.
+    \item The free energy functional ${\cal  F}[\rho,{\bf R}]$ of a structured fluid in the presence of a solid sphere is
+\begin{align}
+  {\cal F}[\rho,{\bf R}]&\equiv  \Phi^{\rm pos}[\mu,\boldsymbol{\lambda}_R]
++
+\int d{\bf r}\rho({\bf r})\mu({\bf r})-\boldsymbol{\lambda}_R\cdot{\bf R},
+\nonumber
+\end{align}
+\item Finally, the hydrodynamic funcional ${\cal H}$ takes the form
+\begin{align}
+  \frac{\delta {\cal H}}{\delta\rho({\bf r})}[\rho,{\bf g},{\bf R},{\bf P}] &=    
+\frac{{\bf v}^2({\bf r})}{2}+  \frac{\delta {\cal F}}{\delta\rho({\bf r})}[\rho,{\bf R}]
+\nonumber
+\end{align}
+\end{itemize}
+\end{frame}
+
+%\begin{frame}{The transport equations}
+%  \begin{itemize}
+%    \item
+%Kawasaki-Gunton equation 
+%\begin{equation}
+%  \frac{\partial}{\partial t}a_i(t) = v_i(t) + \sum_j D_{ij}(t) \lambda_j(t)
+%\nonumber
+%\end{equation}
+%\item 
+%\end{itemize}
+%\end{frame}
+
+\begin{frame}{The transport equations. Reversible term}
+  \begin{itemize}
+    \item The reversible term has the form
+\begin{equation}
+  v_i(t) = {\rm Tr}[\overline{\rho}_t  i{\cal L} \hat{A}_i]
+  \nonumber
+\end{equation}
+\item Reversible equations for the CG variables
+\begin{align}
+\left.  \partial_t\rho({\bf r})\right|_{\rm rev}&=-\boldsymbol{\nabla}\cdot{\bf g}({\bf r})
+\nonumber\\
+\left.  \partial_t{\bf g}({\bf r})\right|_{\rm rev}&=-\boldsymbol{\nabla}\cdot\left({\bf g}({\bf r}){\bf v}({\bf r})\right)
+-\rho({\bf r})\boldsymbol{\nabla} \frac{\delta {\cal F}}{\delta\rho({\bf r})}[\rho,{\bf R}]
+\nonumber\\
+\partial_t\left. {\bf R}\right|_{\rm rev}&=\frac{\bf P}{M}
+\nonumber\\
+\partial_t\left.{\bf P}\right|_{\rm rev}&=-\frac{\partial {\cal F}}{\partial {\bf R}}[\rho,{\bf R}]
+\nonumber
+\end{align}
+  \item No approximations.
+  \item They conserve the hydrodynamic functional ${\cal H}$.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{The transport equations. Irreversible term}
+  \begin{itemize}
+    \item The irreversible term has the form 
+        $\sum_{j}D_{ij}(t)\lambda_{j}(t)$
+    \item With
+$D_{ij}(t)=\int_0^{\Delta t} dt'\left\langle 
+{\cal Q}_t i{\cal L}\hat{A}_j\exp\{i{\cal L}t'\}{\cal Q}_t i{\cal L}\hat{A}_i
+\right\rangle^{\lambda(t)}$
+\item Large simplificatin of the friction matrix because 
+${\cal Q} i{\cal L}\hat{\rho}_{\bf r}=0$
+and ${\cal Q}  i{\cal L}\hat{{\bf R}}_{\mu}=0$
+\item Irreversible equations for the CG variables
+\begin{align}
+\left.  \partial_t{\bf g}^\alpha({\bf r})\right|_{\rm irr}&= \boldsymbol{\nabla}_{\bf r}^{\beta}\boldsymbol{\Sigma}^{\alpha\beta}({\bf r}) +\boldsymbol{{\cal S}}^\alpha({\bf r}) 
+\nonumber\\
+\left.\frac{d}{dt}{\bf P}^\alpha(t)\right|_{\rm irr}&=-\int d{\bf r}'   \boldsymbol{{\cal S}}^\alpha({\bf r}'),
+\nonumber
+\end{align}
+%\item 
+%\begin{align}
+%  \partial_t{\bf g}({\bf r})&=-\int d{\bf r}'M^{gg}_{{\bf r}{\bf r}'}
+%{\bf v}({\bf r}')-M^{gP}_{\bf r}{\bf V}
+%\nonumber\\
+%\frac{d}{dt}{\bf P}(t)&=-\int d{\bf r}' M^{Pg}_{{\bf r}'}{\bf v}({\bf r}')-M^{PP}{\bf V}
+%\nonumber
+%\end{align}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{The transport equations. Irreversible term}
+  \begin{itemize}
+    \item The fluid \alert{stress tensor}
+  \begin{align}
+  \boldsymbol{\Sigma}^{\alpha\beta}({\bf r})&=
+\int d{\bf r}'
+\boldsymbol{\eta}^{\alpha\beta\alpha'\beta'}_{{\bf r}{\bf r}'}
+\boldsymbol{\nabla}_{{\bf r}'}^{\beta'}{\bf v}^{\alpha'}({\bf r}')
+\nonumber
+\end{align}
+\item The \alert{irreversible surface force density} on the fluid
+\begin{align}
+  \boldsymbol{{\cal S}}^\alpha({\bf r})=&
+-\int d{\bf r}'{\bf G}^{\alpha\alpha'\beta'}_{{\bf r}{\bf r}'}
+\boldsymbol{\nabla}_{{\bf r}'}^{\beta'} {\bf v}^{\alpha'}({\bf r}')
++\boldsymbol{\nabla}_{{\bf r}}^{\beta}\int d{\bf r}'{\bf H}^{\alpha\beta\alpha'}_{{\bf r}{\bf r}'}
+( {\bf v}^{\alpha'}({\bf r}')-{\bf V}^{\alpha'})
+\nonumber\\
+&-\int d{\bf r}'
+\boldsymbol{\gamma}^{\alpha\alpha'}_{{\bf r}{\bf r}'}( {\bf v}^{\alpha'}({\bf r}')
+-{\bf V}^{\alpha'})
+\nonumber
+\end{align}
+\end{itemize}
+\end{frame}
+
+%\begin{frame}
+%  \begin{itemize}
+%\item 
+%\begin{align}
+%  M^{gg}_{{\bf r}{\bf r}'}&=\frac{1}{k_BT}\int_0^{\Delta t} dt\langle 
+%  {\cal Q}  i{\cal L}\hat{\bf g}_{{\bf r}}(t){\cal Q}  i{\cal L}\hat{\bf g}_{{\bf r}'}\rangle^\lambda
+%\nonumber\\
+%  M^{gP}_{{\bf r}}&=\frac{1}{k_BT}\int_0^{\Delta t} dt\langle 
+%{\cal Q}  i{\cal L}\hat{\bf g}_{\bf r}(t){\cal Q}  i{\cal L}\hat{\bf P}\rangle^\lambda
+%\nonumber\\
+%  M^{Pg}_{{\bf r}'}&=\frac{1}{k_BT}\int_0^{\Delta t} dt\langle 
+%{\cal Q}  i{\cal L}\hat{\bf P}(t){\cal Q}  i{\cal L}\hat{\bf g}_{{\bf r}'}\rangle^\lambda
+%\nonumber\\
+%  M^{PP}&=\frac{1}{k_BT}\int_0^{\Delta t} dt\langle 
+%{\cal Q}  i{\cal L}\hat{\bf P}(t){\cal Q}  i{\cal L}\hat{\bf P}\rangle^\lambda
+%\nonumber\\
+%\label{Ms}
+%\end{align}
+%\end{itemize}
+%\end{frame}
+\begin{frame}{Irreversible term. Nonlocal transport coefficients}
+\begin{align}
+  \boldsymbol{\eta}_{{\bf  r}{\bf r}'} &\equiv
+\frac{1}{k_BT}\int_0^{\Delta t} dt'\langle 
+{\cal Q}_t\hat{\boldsymbol{\sigma}}_{{\bf r}}(t')
+{\cal Q}_t\hat{\boldsymbol{\sigma}}_{{\bf r}'}\rangle^{\lambda(t)}
+\nonumber\\
+{\bf H}_{{\bf r}{\bf r}'}&\equiv\frac{1}{k_BT}\int_0^{\Delta t} dt'
+\langle {\cal Q}_t\hat{\boldsymbol{\sigma}}_{{\bf r}}(t')
+{\cal Q}_t\hat{\bf F}^{\rm s\to l}_{{\bf r}'}\rangle^{\lambda(t)}
+\nonumber\\
+{\bf G}_{{\bf r}{\bf r}'}&\equiv\frac{1}{k_BT}\int_0^{\Delta t} dt'
+\langle {\cal Q}_t\hat{\bf F}^{\rm s\to l}_{{\bf r}}(t')
+{\cal Q}_t\hat{\boldsymbol{\sigma}}_{{\bf r}'}\rangle^{\lambda(t)}
+\nonumber\\
+\boldsymbol{\gamma}_{{\bf  r}{\bf r}'}&\equiv\frac{1}{k_BT}\int_0^{\Delta t} dt'
+\langle 
+{\cal Q}_t\hat{\bf F}^{\rm s\to l}_{{\bf r}}(t')
+{\cal Q}_t\hat{\bf F}^{\rm s\to l}_{{\bf r}'}\rangle^{\lambda(t)}
+\nonumber
+\end{align}
+\end{frame}
+
+\begin{frame}{Final equations of nanohydrodynamics}
+\begin{align}
+\partial_t\rho({\bf r})=&-\boldsymbol{\nabla}\cdot{\bf g}({\bf r})
+\nonumber\\
+\partial_t{\bf g}({\bf r})=&-\boldsymbol{\nabla}\esc{\left({\bf g}({\bf r}){\bf v}({\bf r})\right)}
+-\rho({\bf r})\boldsymbol{\nabla}\frac{\delta {\cal F}}{\delta\rho({\bf r})}[\rho,{\bf R}]
++\boldsymbol{\nabla}\esc\boldsymbol{\Sigma}({\bf r})+\boldsymbol{{\cal S}}({\bf r})
+\nonumber\\
+\dot{\bf R}=&\frac{\bf P}{M}
+\nonumber\\
+\dot{\bf P}=&-\frac{\partial {\cal F}}{\partial {\bf R}}
+-\int d {{\bf r}}\boldsymbol{{\cal S}}({\bf r})
+\nonumber
+\end{align}
+
+\end{frame}
+
+\begin{frame}{From continuum to discrete theory}
+  \begin{itemize}
+    \item The \alert{amount of information} required in the hydrodynamic equations is exceedingly large.
+      \begin{itemize}
+        \item ${\bf \eta}$ 36 independent components. 
+        \item ${\bf H}$ and ${\bf G}$ 21 independent components. 
+        \item ${\bf \gamma}$ 9 independent components. 
+        \end{itemize}
+    \item We need a \alert{simpler theory}. 
+      \begin{itemize}
+        \item Planar walls. 
+        \item Isotropic walls: invariant under translations in the plane of the wall, and under rotations around an axis perpendicular to the walls.
+        \end{itemize}
+    \item \alert{Discrete version} in order to compute MD simulations.
+    \end{itemize}
+\end{frame}
+
 \end{document}
