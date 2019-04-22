@@ -979,7 +979,7 @@ where $\rho$ satisfies
 The trace symbol denotes a macrocanonical sum over particles and an integral over the position a momentum of $N$ particles
 \begin{align}
   {\rm Tr}\left[\cdots\right]&=\sum_{N=0}^\infty \frac{1}{N!h^{3N}}
-\int dzdz'\cdots
+\int dz\cdots
 \end{align}
 where $h$ is the Planck constant. 
 Note that 
@@ -1003,8 +1003,8 @@ Note that this functional applies to discrete distributions. However, the Gibbs-
  {\cal S}[\rho]&=-{\rm Tr}\left[\rho\ln\frac{\rho}{\rho_0}\right],
 \label{entropy}
 \end{align}
-where  $\rho_0=\frac{1}{N!h^{3N}}$,   with  $h$  being   the  Planck's
-constant, is  a dimensional  factor that renders  the argument  of the
+where  $\rho_0=\frac{1}{N!h^{3N}}$
+is  a dimensional  factor that renders  the argument  of the
 logarithm  dimensionless  and  that  takes  into  account  the  proper
 Boltzmann  counting.  The normalized  probability  density  that maximizes  the
 entropy  functional,  subject  to  produce prescribed  values  of  the
@@ -1088,24 +1088,24 @@ Because the  connection is one  to one,  we may change  variables from
 $\lambda$ to $a$.   However, the average $a$ is given  by a derivative
 and such a  change of variables implies a loss  of information.  As we
 know from the usual treatment in Thermodynamics \cite{Callen1960}, the
-correct way to proceed is to  introduce the dimensionless entropy function $S[a]$ of
+correct way to proceed is to  introduce the dimensionless entropy function ${\cal S}[a]$ of
 the given  level of description  as the (minus) Legendre  transform of
 the thermodynamic potential in the form
 \begin{align}
-S[a] &=-\Phi[\lambda[a]]+\lambda[a] a
+  {\cal S}[a] &=-\Phi[\lambda[a]]+\lambda[a] a
 \label{entropya}\end{align}
 The  relation of  this entropy  function $S[a]$  and the  Gibbs-Jaynes
 entropy functional  ${\cal S}[\rho]$ in  (\ref{entropy}) is
 simple. The  former is just  the later  evaluated at its  maximum, the
 relevant ensemble (\ref{relens1}). This is
 \begin{align}
-S[a]={\cal  S}[\overline{\rho}]
+  {\cal S}[a]={\cal  S}[\overline{\rho}]
 \end{align}
-Because  the  entropy   $S[a]$  is  the  Legendre   transform  of  the
+Because  the  entropy   ${\cal S}[a]$  is  the  Legendre   transform  of  the
 thermodynamic  potential  $\Phi[\lambda]$,  we have  the  relationship
 conjugate to (\ref{cg1})
 \begin{align}
-  \frac{\partial S}{\partial a}&=\lambda
+  \frac{\partial {\cal S}}{\partial a}&=\lambda
 \label{e3}
 \end{align}
 
