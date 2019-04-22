@@ -681,4 +681,156 @@ and ${\cal Q}  i{\cal L}\hat{{\bf R}}_{\mu}=0$
     \end{itemize}
 \end{frame}
 
+\begin{frame}{The discrete basis function set}
+  \begin{itemize}
+  \item $N_{\rm bin}$ bins with dimensions $L_x$, $L_y$, $\Delta z$ ($L_z/N_{\rm bin}$). 
+      \begin{center}
+    \includegraphics[width=.35\linewidth]{PRL3_gold2_wo_layers_wo_diffuse}
+    \includegraphics[width=.35\linewidth]{PRL3_gold2_wo_diffuse}
+      \end{center}
+    \item The characteristic function $\chi_\mu(z)$ and the finite element linear basis function $\Phi_\mu(z)$.
+  \begin{center}
+  \includegraphics[scale=0.2]{psichi}
+\end{center}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{The discrete basis function set}
+  \begin{itemize}
+    \item We can contruct \alert{continuum and discrete fields} from dual basis functions $\delta_{\mu}({\bf r})$ and $\psi_\mu({\bf r})$ 
+\begin{align}
+  v_\mu=\int d{\bf r}v({\bf r})\delta_\mu({\bf r}),&&
+    \overline{v}({\bf r}) =\sum_{\mu}v_\mu\psi_\mu({\bf r})
+\nonumber
+\end{align}
+\item
+The discrete  Dirac $\delta$ function is  defined in terms of  $\Phi_{\mu}(z)$
+\begin{align}
+  \delta_\mu({\bf r})\equiv\frac{\Phi_\mu({\bf r})}{{\cal V}_\mu}
+\nonumber
+\end{align}
+\item And the interpolant basis function takes the form
+  \begin{align}
+  \psi_\mu({\bf r})&
+  ={\cal V}_\mu \sum_\nu \left[M^{\Phi}\right]^{-1}_{\mu\nu} \Phi_\nu({\bf r})
+\nonumber
+\end{align}
+\item The usual mass matrix of the finite element method is 
+\begin{align}
+  M^\Phi_{\mu\nu}&=\int d{\bf r}\Phi_\mu({\bf r})\Phi_\nu({\bf r})
+\nonumber
+\end{align}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{The discrete CG variables}
+  \begin{itemize}
+    \item The discrete CG variables
+\begin{align}
+  \hat{\rho}_\mu&= \sum_i^Nm_i\delta_\mu({\bf q}_i), &
+%\nonumber\\
+\hat{\bf g}_\mu&= \sum_i^N{\bf p}_i\delta_\mu({\bf q}_i)
+\nonumber
+\end{align}
+    \item The time derivatives
+\begin{align}
+  i{\cal L}  \hat{\rho}_{\mu}&=\sum_{i=1}^N{\bf p}_i\esc\boldsymbol{\nabla}\delta_\mu({\bf q}_i),&
+%\nonumber\\
+i{\cal L}  \hat{\bf g}_{\mu}&=\sum_{i=1}^N{\bf p}_i{\bf v}_i\esc\boldsymbol{\nabla}\delta_\mu({\bf q}_i)
++\hat{\bf F}_\mu
+\nonumber
+\end{align}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{The discrete equations of nanohydrodynamics}
+  \begin{itemize}
+    \item The equation for the \alert{density}
+      \begin{align}
+\frac{d}{dt}\rho_\mu=&  \llg\overline{\rho} \; \overline{v}^{z}{\nabla}^{z}\delta_\mu \rlg
+        \nonumber
+      \end{align}
+    \item The \alert{normal component of the momentum}
+      \begin{align}
+    \frac{d}{dt}{{\bf g}}^{z}_\mu=&
+\llg\overline{\rho}\; \overline{v}^{z}\;\overline{v}^{z}{\nabla}^{z}\delta_{\mu}\rlg
+-\llg\overline{\rho}\delta_{\mu}{\nabla}^{z}\delta_{\nu}\rlg
+\frac{\partial  F}{\partial \rho_{\nu}}(\rho)
++M_{\mu\nu}^{\bot}{\cal V}_\nu\tilde{v}^{z}_\nu
+\nonumber
+\end{align}
+\item The dissipative matrix is defined as
+\begin{align}
+M^{\bot}_{\mu\nu} 
+=&-\frac{\eta^\bot_{\mu\nu}-\eta^\bot_{\mu-1\nu}-\eta^\bot_{\mu\nu-1}+\eta^\bot_{\mu-1\nu-1}}{\Delta z^2}
+\nonumber \\
+&+\frac{{G}^\bot_{\mu\nu}-{G}^\bot_{\mu\nu-1}}{\Delta z}
++\frac{{H}^\bot_{\mu\nu}-{H}^\bot_{\mu-1\nu}}{\Delta z}
+-{\gamma}^\bot_{\mu\nu}
+\nonumber
+\end{align}
+
+\item The \alert{parallel component}  ${\bf g}^\alpha_\mu$ for $\alpha
+=x,y$  of  the  discrete  momentum density
+\begin{align}
+    \frac{d}{dt}{{\bf g}}^\alpha_\mu=&-M_{\mu\nu}^{||}{\cal V}_\nu\tilde{v}^\alpha_\nu
+\nonumber
+\end{align}
+\end{itemize}  
+\end{frame}
+
+\begin{frame}{The transport kernels}
+\begin{align}
+\eta^{||}_{\mu\nu}&
+=\frac{1}{k_BT}\int_0^\tau  dt\left\langle 
+{\cal Q}\hat{\boldsymbol{\sigma}}^{xz}_\mu(t){\cal Q}\hat{\boldsymbol{\sigma}}^{xz}_\nu
+\right\rangle&&
+%\nonumber\\
+\eta^{\bot}_{\mu\nu}
+= \frac{1}{k_BT}\int_0^\tau  dt\langle 
+{\cal Q}\hat{\boldsymbol{\sigma}}^{zz}_\mu(t)
+{\cal Q}\hat{\boldsymbol{\sigma}}^{zz}_\nu\rangle
+\nonumber\\
+G^{||}_{\mu\nu}&
+=\frac{1}{k_BT} \int_0^\tau  dt
+\left\langle{\cal Q}\hat{\bf F}^{x}_\mu(t)
+{\cal Q}\hat{\boldsymbol{\sigma}}^{xz}_\nu
+\right\rangle&&
+%\nonumber\\
+G^{\bot}_{\mu\nu}=\frac{1}{k_BT} \int_0^\tau  dt
+\left\langle {\cal Q}\hat{\bf F}^{z}_\mu(t)
+{\cal Q}\hat{\boldsymbol{\sigma}}^{zz}_\nu
+\right\rangle
+\nonumber\\
+H^{||}_{\mu\nu}&
+=\frac{1}{k_BT} 
+\int_0^\tau  dt
+\left\langle{\cal Q}\hat{\boldsymbol{\sigma}}^{xz}_\mu(t){\cal Q}\hat{\bf F}^{x}_\nu\right\rangle&&
+%\nonumber\\
+H^\bot_{\mu\nu}=\frac{1}{k_BT} 
+\int_0^\tau  dt\left\langle {\cal Q}\hat{\boldsymbol{\sigma}}^{zz}_\mu(t){\cal Q}\hat{\bf F}^{z}_\nu\right\rangle
+\nonumber\\
+\gamma^{||}_{\mu\nu}&=
+\frac{1}{k_BT} \int_0^\tau  dt
+\left\langle 
+{\cal Q}\hat{\bf F}^{x}_\mu(t)
+{\cal Q}\hat{\bf F}^{x}_\nu\right\rangle&&
+%\nonumber\\
+\gamma^{\bot}_{\mu\nu}=
+\frac{1}{k_BT} \int_0^\tau  dt\left\langle 
+{\cal Q}\hat{\bf F}^{z}_\mu(t){\cal Q}\hat{\bf F}^{z}_\nu
+\right\rangle
+\nonumber
+\end{align}
+\end{frame}
+
+\begin{frame}{Summary}
+  \begin{itemize}
+    \item \alert{Isothermal hydrodynamic theory} for simple fluids in the presence of a solid sphere. 
+    \item Kawasaki-Gunton operator to obtain the evolution equations for the average of the CG variables. 
+    \item Markovian approximation: the CG variables should be slow in order to have memoryless equation. 
+    \item The theory describes the \alert{interaction fluid-solid} in terms of \alert{irreversible surfaces forces}.  
+    \item \alert{Hydrodynamic discrete theory for planar geometries} and flows involving discrete mass and momentum density variables defined in terms of finite element basis functions. 
+    \end{itemize}
+\end{frame}
 \end{document}
