@@ -81,8 +81,8 @@ this quantities is often understood implicitly.
 \begin{frame}{The Theory of Coarse-Graining (ToCG)}
 \begin{itemize}
 \item The ToCG consists on eliminate the ``useless'' information about a system. 
-\item Coarse grained (CG) variables.
-%Selected variables with timescales much larger tha the typical molecular scales. 
+\item We select the relevant variables or Coarse grained (CG) variables.
+%Selected variables with timescales much larger than the typical molecular scales. 
 \item Levels of description depending on the amount of information which one retains macroscopically.
   \begin{itemize}
     \item Macroscopic level.
@@ -90,6 +90,67 @@ this quantities is often understood implicitly.
     \item Mesoscopic level.
     \end{itemize}
 \end{itemize}
+\end{frame}
+
+\begin{frame}{The entropy}
+  \begin{itemize}
+    \item The average of the CG variables $\hat{A}$
+  \begin{align}
+    a = {\rm Tr}[{\hat{A}}\rho]
+    \nonumber
+\end{align}
+  \item 
+The trace symbol is given by
+\begin{align}
+  {\rm Tr}\left[\cdots\right]&=\sum_{N=0}^\infty \frac{1}{N!h^{3N}}
+\int dz'\cdots
+\nonumber
+\end{align}
+\item Gibbs-Jaynes entropy functional 
+\begin{align}
+ {\cal S}[\rho]&=-{\rm Tr}\left[\rho\ln\frac{\rho}{\rho_0}\right]
+\nonumber
+\end{align}
+%where  $\rho_0=\frac{1}{N!h^{3N}}$
+\item \alert{The relevant ensemble} takes the form
+\begin{equation}
+\overline{\rho}(z) = \frac{1}{Z[\lambda]} \rho_0\exp\{-\lambda\!\cdot\!\hat{A}(z)\}
+\nonumber
+\end{equation}
+with $Z[\lambda]$ the partition function and $\lambda$ the set of conjugate variables.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{The entropy}
+  \begin{itemize}
+    \item The average $a$ with respect to the relevant ensemble is
+   \begin{align}
+  a =\langle \hat{A}\rangle^\lambda ={\rm Tr}[\overline{\rho}\hat{A}]
+     \nonumber
+\end{align}
+\item If we introduce the thermodynamic potential $\Phi[\lambda]=-\ln Z[\lambda]$
+\begin{equation}
+a =\frac{\partial \Phi}{\partial
+\lambda}[\lambda]
+\nonumber
+\end{equation}
+\item One to one connection between $\lambda$ and $a$.
+\item The entropy is the Legendre transform of $\Phi[\lambda]$
+\begin{align}
+  {\cal S}[a] =-\Phi[\lambda[a]]+\lambda[a] a
+\nonumber
+\end{align}
+which is related to the Gibbs-Jaynes entropy functional ${\cal S}[\rho]$ as
+  \begin{align}
+{\cal S}[a]={\cal S}[\overline{\rho}]
+\nonumber
+\end{align}
+\item The averages \alert{$a$ and $\lambda$ are related through the entropy}
+\begin{align}
+  \frac{\partial S}{\partial a}&=\lambda
+\nonumber
+\end{align}
+    \end{itemize}
 \end{frame}
 
 \begin{frame}{The dynamics}
@@ -104,16 +165,16 @@ this quantities is often understood implicitly.
         a_i(t)={\rm Tr}\left[\hat{A}_i(z)\rho_t\right]
         \nonumber
       \end{align}
-    \item The trace symbol is given by
-\begin{align}
-  {\rm Tr}\left[\cdots\right]&=\sum_{N=0}^\infty \frac{1}{N!h^{3N}}
-\int dzdz'\cdots \nonumber
-\end{align}
 \item $\rho_t$ is the nonequilibrium solution of the Liouville equation
 \begin{align}
     \rho_t(z) = {\rm exp}\{-i{\cal L}t\}\rho_0(z)
     \nonumber
 \end{align}
+\item We use two techniques:
+  \begin{enumerate}
+    \item The Kawasaki-Gunton projection operator.
+    \item Mori theory.
+    \end{enumerate}
   \end{itemize}
 \end{frame}
 
@@ -453,7 +514,7 @@ i{\cal L}\hat{\bf g}_{\bf r}(z)
     &    -\boldsymbol{\lambda}_R\cdot{\bf R}-\boldsymbol{\lambda}_P\cdot{\bf P}
 \nonumber
 \end{align}
-\item The hydrodynamic functional is minus the entropy \Note{Prensentar la entropía y su relación con el potencial termodinámico en NESM}
+\item The hydrodynamic functional is minus the entropy 
 \begin{align}
   \lambda_\rho({\bf r}) &=-\frac{\delta {\cal H}}{\delta \rho({\bf r}) }
 &&  \boldsymbol{\lambda}_R =-\frac{\partial {\cal H}}{\partial {\bf R} }
@@ -833,4 +894,55 @@ H^\bot_{\mu\nu}=\frac{1}{k_BT}
     \item \alert{Hydrodynamic discrete theory for planar geometries} and flows involving discrete mass and momentum density variables defined in terms of finite element basis functions. 
     \end{itemize}
 \end{frame}
+
+\section{The plateau problem and the corrected Green Kubo formula}
+\begin{frame}{Plateau problem}
+  \begin{itemize}
+    \item Approximation of the linear integro-differential term 
+      \begin{align}
+  \frac{d}{dt}C(t)&=-L\esc C^{-1}(0)\esc C(t)
+  -\underbrace{\int_0^tdt' \Gamma(t-t')\esc C^{-1}(0)\esc  C(t')}_{M^* C^{-1}(0)C(t)}
+\nonumber
+\end{align}
+\item Rationale justifying the Markovian approximation 
+\begin{align}
+  \int_0^tdt' \Gamma(t-t')\esc c(t')&\simeq  \int_0^tdt' \Gamma(t-t')\esc  c(t)
+\equiv
+M^+(t)\esc c(t)
+\nonumber
+\end{align}
+with the normalized correlation $c(t)$ as $C^{-1}(0)C(t)$.
+\item Where we have introduced the \textit{projected} Green-Kubo running integral
+\begin{align}
+M^+(t)&\equiv  \int_0^tdt' \Gamma(t') 
+\nonumber\\
+& =\int_0^tdt' \llangle \left(\exp\{{\cal Q}i{\cal   L}t'\}{\cal Q}i{\cal L}\hat{A} \right){\cal Q} i{\cal L}\hat{A}^T\rrangle 
+\nonumber
+\end{align}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Corrected Green-Kubo formula}
+\end{frame}
+
+\section{Space and time locality for unconfined fluids}
+\begin{frame}{CG variables}
+\end{frame}
+
+\section{Markovian behaviour in confined fluids}
+\begin{frame}{The system}
+\end{frame}
+
+\section{The slip boundary condition}
+\begin{frame}{The system}
+\end{frame}
+
+\section{Conclusions and future directions}
+\begin{frame}{Conclusions}
+\end{frame}
+\begin{frame}{Future directions}
+\end{frame}
+\begin{frame}{Important references}
+\end{frame}
+
 \end{document}
