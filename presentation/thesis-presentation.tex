@@ -895,13 +895,13 @@ H^\bot_{\mu\nu}=\frac{1}{k_BT}
     \end{itemize}
 \end{frame}
 
-\section{The plateau problem and the corrected Green Kubo formula}
+\section{The plateau problem and the corrected Green-Kubo formula}
 \begin{frame}{Plateau problem}
   \begin{itemize}
     \item Approximation of the linear integro-differential term 
       \begin{align}
   \frac{d}{dt}C(t)&=-L\esc C^{-1}(0)\esc C(t)
-  -\underbrace{\int_0^tdt' \Gamma(t-t')\esc C^{-1}(0)\esc  C(t')}_{M^* C^{-1}(0)C(t)}
+        -\underbrace{\int_0^tdt' \Gamma(t-t')\esc C^{-1}(0)\esc  C(t')}_{M^* C^{-1}(0)C(t)=M^*c(t)}
 \nonumber
 \end{align}
 \item Rationale justifying the Markovian approximation 
@@ -911,38 +911,223 @@ H^\bot_{\mu\nu}=\frac{1}{k_BT}
 M^+(t)\esc c(t)
 \nonumber
 \end{align}
-with the normalized correlation $c(t)$ as $C^{-1}(0)C(t)$.
-\item Where we have introduced the \textit{projected} Green-Kubo running integral
+%with the normalized correlation $c(t)$ as $C^{-1}(0)C(t)$.
+\item The \alert{projected} Green-Kubo running integral
 \begin{align}
-M^+(t)&\equiv  \int_0^tdt' \Gamma(t') 
-\nonumber\\
+M^+(t)
+%&\equiv  \int_0^tdt' \Gamma(t') 
+%\nonumber\\
 & =\int_0^tdt' \llangle \left(\exp\{{\cal Q}i{\cal   L}t'\}{\cal Q}i{\cal L}\hat{A} \right){\cal Q} i{\cal L}\hat{A}^T\rrangle 
+\nonumber
+\end{align}
+\item The \alert{unprojected} Green-Kubo running integral is
+\begin{align}
+M(t)&\equiv  \int_0^{t} dt' \llangle \left(\exp\{i{\cal   L}t'\}i{\cal L}\hat{A} \right){\cal Q} i{\cal L}\hat{A}^T\rrangle
+\nonumber
+\end{align}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Plateau problem}
+  \begin{itemize}
+    \item After performing the running integrals
+\begin{align}
+M^+(t)&=
+  \llangle\left(\exp\{{\cal Q}i{\cal L}t\}  \hat{A}\right){\cal Q}i{\cal L}\hat{A}^{T} \rrangle
+\nonumber\\
+M(t)&=
+  \llangle\left(\exp\{i{\cal L}t\}  \hat{A}\right){\cal Q}i{\cal L}\hat{A}^{T} \rrangle
+\nonumber
+\end{align}
+\item $M^+(t)\approx M(t)$ when large separation of timescales. 
+\item $M(t)$ should have a plateau after a time $\tau$.
+\item For an ergodic system the correlations computed wiht the unprojected dynamics decay to zero
+\begin{align}
+  \lim_{t\to\infty}M(t)&= \lim_{t\to\infty} \llangle\left(\exp\{i{\cal L}t\}  \hat{A}\right){\cal Q}i{\cal L}\hat{A}^{T} \rrangle
+  \nonumber \\
+  &=
+ \llangle  \hat{A}\rrangle\llangle{\cal Q}i{\cal L}\hat{A}^{T} \rrangle=0
+ \nonumber
+\end{align}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Corrected Green-Kubo formula}
+  \begin{itemize}
+    \item  
+Action  of Mori projector  operator on the phase  function $i{\cal
+  L}\hat{A}$
+\begin{align}
+{\cal Q} i{\cal L}\hat{A}  
+=
+i{\cal L}\hat{A}+L\esc C^{-1}(0)\esc \hat{A}  
+\nonumber
+\end{align}
+\item Therefore, we may express $M(t)$
+\begin{align}
+M(t)&=-\frac{d}{dt}C(t)-L\esc c(t)
+\nonumber
+\end{align}
+(Remember that $L=\langle \hat{A}i{\cal L}\hat{A}^T\rangle$)
+\item With $\frac{d}{dt}C(t)=-\lambda^*\cdot C(t)$ and $\lambda^*=(L+M*)\cdot C^{-1}(0)$ we obtain 
+\begin{align}
+M(\tau)&\simeq M^*\esc c(\tau)
+\nonumber
+\end{align}
+\item The \alert{new corrected Green-Kubo formula} does not suffer from the plateau problem by construction
+\begin{align}
+M^*&= \int_0^{\tau} dt \llangle {\cal Q} i{\cal L}\hat{A} (t)i{\cal L}\hat{A}^T\rrangle\esc  c^{-1}(\tau)
 \nonumber
 \end{align}
 \end{itemize}
 \end{frame}
 
 \begin{frame}{Corrected Green-Kubo formula}
+  \begin{itemize}
+\item We introduce the time dependent matrix 
+\begin{align}
+\Lambda(t)\equiv-    \frac{d}{dt}C(t)\esc C^{-1}(t)
+\nonumber
+\end{align}
+\item If the Markovian approximation is correct, after a time $\tau$, $\lambda(t)$ should become a time-independent matrix 
+\begin{align}
+  \lim_{t\to \infty}\Lambda(t)=\Lambda^*
+\nonumber
+\end{align}
+\item Therefore, the time-independent friction matrix $M^*$
+\begin{align}
+M^*&=  -L+ \Lambda^*\esc C(0)
+\nonumber
+\end{align}
+\end{itemize}
 \end{frame}
 
 \section{Space and time locality for unconfined fluids}
 \begin{frame}{CG variables}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.45\linewidth]{temp_wo_walls}
+    \includegraphics[width=0.45\linewidth]{temp_wo_walls_w_layers2}
+\end{figure}
+\begin{align}
+  \hat{\bf g}_\mu(z)= \sum_i^N{\bf p}_i\delta_\mu({\bf r}_i)&& 
+  i{\cal L}  \hat{g}_{\mu}(z)=-\frac{\hat{\sigma}^{xz}_{\mu}-\hat{\sigma}^{xz}_{\mu-1}}{\Delta z}
+\nonumber
+\end{align}
+\nonumber
 \end{frame}
 
-\section{Markovian behaviour in confined fluids}
-\begin{frame}{The system}
+\begin{frame}{The Green-Kubo running integral $M(t)$ and $\eta(t)$}
+  \begin{itemize}
+    \item The Markovian dynamics given by Mori theory ($L=0$)
+\begin{align}
+    \frac{d}{dt}C(t) = -k_BTM^*\cdot c(t)
+    \nonumber
+\end{align}
+\item $M^*$ is related to the standard Green-Kubo running integral
+\begin{align}
+  M(t)&=\frac{1}{k_BT}\int_0^{t}dt' \llangle i{\cal L}\hat{g}(t')i{\cal L}\hat{g}^T\rrangle=-\frac{1}{k_BT}\frac{d}{dt}C(t)
+\nonumber
+\end{align}
+\item We may express $M(t)$ as $M(t)=-\Delta\cdot\eta(t)$, where $\Delta$ is the discrete Laplacian matrix and the nonlocal shear viscosity
+\begin{align}
+  \eta(t) &=\frac{1}{k_BT}\int_0^{t}dt' 
+  \llangle \hat{\sigma}^{xz}(t')\hat{\sigma}^{xz}\rrangle
+\nonumber
+\end{align}
+%\item Link between the momentum correlation matrix and the stress correlation matrix
+%\begin{align}
+%\frac{d}{dt}C(t)&= k_BT \Delta\esc \eta(t)
+%\nonumber
+%\end{align}
+\end{itemize}
 \end{frame}
 
-\section{The slip boundary condition}
-\begin{frame}{The system}
+\begin{frame}{The friction matrix $M^*$ and the nonlocal shear viscosity matrix}
+\begin{itemize}
+\item Link between the momentum correlation matrix and the stress correlation matrix
+  \begin{align}
+  \frac{d}{dt}C(t)&= k_BT \Delta\esc \eta(t)
+  \nonumber
+  \end{align}
+\item By analogy
+  \begin{align}
+   M(t)=-\Delta\cdot\eta(t)&& \rightarrow &&M^*=-\Delta\cdot\eta^*
+  \nonumber
+  \end{align}
+\item The Markovian dynamics becomes
+  \begin{align}
+\frac{d}{dt}C(t)&=  k_BT\Delta\esc \eta^*\esc c(t)
+\nonumber
+\end{align}
+\item We would like to obtain $\eta^*$ from $\eta(t)$
+  \begin{align}
+    \Delta\cdot\eta(t)=\Delta\cdot\eta^*\cdot c(t)
+    \nonumber
+  \end{align}
+\item $\Delta$ and $c(t)$ are not invertible!
+\end{itemize}
 \end{frame}
 
-\section{Conclusions and future directions}
-\begin{frame}{Conclusions}
+\begin{frame}{Fourier space}
+  \begin{itemize}
+    \item The unitay matrix and its inverse
+\begin{align}
+  E_{\mu\nu}&=\frac{1}{\sqrt{N_{\rm bin}}}\exp\left\{i\frac{2\pi}{N_{\rm bin}}\mu\nu\right\}
+  \nonumber \\
+  E^{-1}_{\mu\nu}&=\frac{1}{\sqrt{N_{\rm bin}}}\exp\left\{-i\frac{2\pi}{N_{\rm bin}}\mu\nu\right\}
+\nonumber
+\end{align} 
+    \item $E_{\mu}$ and $E_{\mu\nu}^{-1}$ diagonalizes any traslation invariant and periodic matrix $A_{\mu\nu}$
+      \begin{align}
+      \tilde{A}=E^{-1}\cdot A\cdot E
+      \nonumber
+    \end{align}
+  \end{itemize}
 \end{frame}
-\begin{frame}{Future directions}
-\end{frame}
-\begin{frame}{Important references}
-\end{frame}
+
+\begin{frame}{The nonlocal viscosity and nonlocal kinematic viscosity}
+  \begin{itemize}
+  \item Therefore
+\begin{align}
+%  \frac{d}{dt}\tilde{C}(t)&=  k_BT\tilde{\Delta}\esc \tilde{\eta}^*\esc \tilde{c}(t)
+%\nonumber\\
+  \tilde{\Delta}\esc \tilde{\eta}(t) =\tilde{\Delta}\esc \tilde{\eta}^*\esc \tilde{c}(t)&& \rightarrow
+  &&\tilde{\eta}_{\mu\mu}^*=\frac{\tilde{\eta}_{\mu\mu}(t) }{\tilde{c}_{\mu\mu}(t)}
+\nonumber
+\end{align}
+%\item The eigenvalue $\tilde{\eta}_{00}$ is given by
+%\begin{align}
+%    \tilde{\eta}_{00}(t)=\frac{N_{\rm bin}}{V_T}\eta_0(t)
+%    \nonumber
+%\end{align}
+%  where the local shear viscosity is defined as
+%\begin{align}
+%  \eta_0(t) &\equiv \frac{V_T}{k_BT}\int_0^t dt'\llangle \hat{\sigma}_T^{xz}(t')\hat{\sigma}_T^{xz}
+%\rrangle
+%\nonumber
+%\end{align}
+\item The nonlocal kinematic viscosity is defined as
+\begin{align}
+\nu^*&\equiv  \eta^*\esc{\cal V}\esc \rho^{-1}
+\nonumber
+\end{align}
+where ${\cal V}$ is a diagonal matrix that contains the volume ${\cal V}_{\mu}$ of the bins and $\rho$ is the mass density matrix
+\item In Fourier space $\nu_{\mu}$ is a diagonal matrix
+\begin{align}
+  \tilde{\nu}_\mu^*&=  \frac{{\cal V}_\mu \tilde{\eta}_\mu^*}{\tilde{\rho}_\mu}
+  \nonumber
+\end{align}
+ \end{itemize}
+ \end{frame}
+
+ \begin{frame}{Simulations}
+   \begin{enumerate}
+     \item Markovian approximation.
+     \item The nonlocal viscosity in real and Fourier space. 
+     \item The nonlocal kinematic viscosity in real and Fourier space. 
+     \item Prediction of the correlations (local and nonlocal). 
+   \end{enumerate}
+ \end{frame}
 
 \end{document}

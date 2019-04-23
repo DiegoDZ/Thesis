@@ -181,7 +181,7 @@
 \defcounter {refsection}{0}\relax 
 \headcommand {\beamer@framepages {41}{41}}
 \defcounter {refsection}{0}\relax 
-\headcommand {\sectionentry {4}{The plateau problem and the corrected Green Kubo formula}{42}{The plateau problem and the corrected Green Kubo formula}{0}}
+\headcommand {\sectionentry {4}{The plateau problem and the corrected Green-Kubo formula}{42}{The plateau problem and the corrected Green-Kubo formula}{0}}
 \defcounter {refsection}{0}\relax 
 \headcommand {\beamer@sectionpages {22}{41}}
 \defcounter {refsection}{0}\relax 
@@ -199,71 +199,49 @@
 \defcounter {refsection}{0}\relax 
 \headcommand {\beamer@framepages {44}{44}}
 \defcounter {refsection}{0}\relax 
-\headcommand {\sectionentry {5}{Space and time locality for unconfined fluids}{45}{Space and time locality for unconfined fluids}{0}}
-\defcounter {refsection}{0}\relax 
-\headcommand {\beamer@sectionpages {42}{44}}
-\defcounter {refsection}{0}\relax 
-\headcommand {\beamer@subsectionpages {42}{44}}
-\defcounter {refsection}{0}\relax 
-\headcommand {\slideentry {5}{0}{1}{45/45}{}{0}}
+\headcommand {\slideentry {4}{0}{4}{45/45}{}{0}}
 \defcounter {refsection}{0}\relax 
 \headcommand {\beamer@framepages {45}{45}}
 \defcounter {refsection}{0}\relax 
-\headcommand {\slideentry {5}{0}{2}{46/46}{}{0}}
+\headcommand {\slideentry {4}{0}{5}{46/46}{}{0}}
 \defcounter {refsection}{0}\relax 
 \headcommand {\beamer@framepages {46}{46}}
 \defcounter {refsection}{0}\relax 
-\headcommand {\sectionentry {6}{Markovian behaviour in confined fluids}{47}{Markovian behaviour in confined fluids}{0}}
+\headcommand {\sectionentry {5}{Space and time locality for unconfined fluids}{47}{Space and time locality for unconfined fluids}{0}}
 \defcounter {refsection}{0}\relax 
-\headcommand {\beamer@sectionpages {45}{46}}
+\headcommand {\beamer@sectionpages {42}{46}}
 \defcounter {refsection}{0}\relax 
-\headcommand {\beamer@subsectionpages {45}{46}}
+\headcommand {\beamer@subsectionpages {42}{46}}
 \defcounter {refsection}{0}\relax 
-\headcommand {\slideentry {6}{0}{1}{47/47}{}{0}}
+\headcommand {\slideentry {5}{0}{1}{47/47}{}{0}}
 \defcounter {refsection}{0}\relax 
 \headcommand {\beamer@framepages {47}{47}}
 \defcounter {refsection}{0}\relax 
-\headcommand {\slideentry {6}{0}{2}{48/48}{}{0}}
+\headcommand {\slideentry {5}{0}{2}{48/48}{}{0}}
 \defcounter {refsection}{0}\relax 
 \headcommand {\beamer@framepages {48}{48}}
 \defcounter {refsection}{0}\relax 
-\headcommand {\sectionentry {7}{The slip boundary condition}{49}{The slip boundary condition}{0}}
-\defcounter {refsection}{0}\relax 
-\headcommand {\beamer@sectionpages {47}{48}}
-\defcounter {refsection}{0}\relax 
-\headcommand {\beamer@subsectionpages {47}{48}}
-\defcounter {refsection}{0}\relax 
-\headcommand {\slideentry {7}{0}{1}{49/49}{}{0}}
+\headcommand {\slideentry {5}{0}{3}{49/49}{}{0}}
 \defcounter {refsection}{0}\relax 
 \headcommand {\beamer@framepages {49}{49}}
 \defcounter {refsection}{0}\relax 
-\headcommand {\slideentry {7}{0}{2}{50/50}{}{0}}
+\headcommand {\slideentry {5}{0}{4}{50/50}{}{0}}
 \defcounter {refsection}{0}\relax 
 \headcommand {\beamer@framepages {50}{50}}
 \defcounter {refsection}{0}\relax 
-\headcommand {\sectionentry {8}{Conclusions and future directions}{51}{Conclusions and future directions}{0}}
-\defcounter {refsection}{0}\relax 
-\headcommand {\beamer@sectionpages {49}{50}}
-\defcounter {refsection}{0}\relax 
-\headcommand {\beamer@subsectionpages {49}{50}}
-\defcounter {refsection}{0}\relax 
-\headcommand {\slideentry {8}{0}{1}{51/51}{}{0}}
+\headcommand {\slideentry {5}{0}{5}{51/51}{}{0}}
 \defcounter {refsection}{0}\relax 
 \headcommand {\beamer@framepages {51}{51}}
 \defcounter {refsection}{0}\relax 
-\headcommand {\slideentry {8}{0}{2}{52/52}{}{0}}
+\headcommand {\slideentry {5}{0}{6}{52/52}{}{0}}
 \defcounter {refsection}{0}\relax 
 \headcommand {\beamer@framepages {52}{52}}
 \defcounter {refsection}{0}\relax 
-\headcommand {\slideentry {8}{0}{3}{53/53}{}{0}}
+\headcommand {\slideentry {5}{0}{7}{53/53}{}{0}}
 \defcounter {refsection}{0}\relax 
 \headcommand {\beamer@framepages {53}{53}}
-\defcounter {refsection}{0}\relax 
-\headcommand {\slideentry {8}{0}{4}{54/54}{}{0}}
-\defcounter {refsection}{0}\relax 
-\headcommand {\beamer@framepages {54}{54}}
-\headcommand {\beamer@partpages {1}{54}}
-\headcommand {\beamer@subsectionpages {51}{54}}
-\headcommand {\beamer@sectionpages {51}{54}}
-\headcommand {\beamer@documentpages {54}}
-\headcommand {\def \inserttotalframenumber {45}}
+\headcommand {\beamer@partpages {1}{53}}
+\headcommand {\beamer@subsectionpages {47}{53}}
+\headcommand {\beamer@sectionpages {47}{53}}
+\headcommand {\beamer@documentpages {53}}
+\headcommand {\def \inserttotalframenumber {47}}
