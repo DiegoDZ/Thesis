@@ -1167,13 +1167,21 @@ where the local kinematic viscosity is given by
 
  \begin{frame}{Simulation set up}
    \begin{itemize}
-     \item LAMMPS code.
-     \item Box size $40x40x30$ binned in $60$ bins along $z$ axis.
-     \item LJ potential truncated at $\sigma=2.5$.
-     \item Timestep $0.002$ in reduced units. 
-     \item $T=2.0$, $\rho=0.6$ and $N=28749$ particles.
+     \item Simulation of $28749$ particles interacting with a \alert{LJ potential} truncated at $\sigma=2.5$.
+     \item Box size $40x40x30$ binned in $60$ bins along $z$ axis. \alert{$\Delta z=0.5\sigma$}
+     \item $dt=0.002$ in reduced units.
+     \item \alert{Equilibration stage}
+       \begin{itemize}
+         \item Langevin thermostat for $10^5$ timesteps: $T=2.0$, $\rho=0.6$.
+         \item NVE microcanonical conditions for a further $10^5$ timesteps.
+          \end{itemize}
+        \item \alert{Production stage}
+       \begin{itemize}
+         \item $1.5\times10^6$ timesteps.
+         \item $z$ axis binned in $60$ bins $\mu$.
+         \item $g_{\mu}^x(t)$ and $\rho_{\mu}(t)$ recorded every $10$ timesteps. 
+         \end{itemize}
      \end{itemize}
-\Note{Un dibujo del proceso de equilibrado y producción quedaría bien}
  \end{frame}
 
  \begin{frame}{The correlation matrix $C(t)$}
