@@ -1118,16 +1118,87 @@ where ${\cal V}$ is a diagonal matrix that contains the volume ${\cal V}_{\mu}$ 
   \tilde{\nu}_\mu^*&=  \frac{{\cal V}_\mu \tilde{\eta}_\mu^*}{\tilde{\rho}_\mu}
   \nonumber
 \end{align}
+\item And the dynamic equation for the correlations
+  \begin{align}
+    \frac{d}{dt}C(t)=\Delta\cdot\nu^*\cdot C(t)
+    \nonumber
+  \end{align}
  \end{itemize}
  \end{frame}
 
+\begin{frame}{Local predictions}
+  \begin{itemize}
+
+\item The local approximation of the nonlocal viscosity matrix $nu$ is
+\begin{align}
+\nu_{\mu\mu'}&\simeq \nu_0 \delta_{\mu\mu'}
+  \nonumber
+\end{align}
+where the local kinematic viscosity is given by 
+\begin{align}
+\nu_0&\equiv \sum_{\mu'}\nu_{\mu\mu'} \quad \quad \quad\forall \mu
+\nonumber
+\end{align}
+\item Therefore, the \alert{local in space prediction}
+%\begin{align}
+%  \frac{d}{dt}{C}(t)=&\nu_0{\Delta}\esc { C}(t)
+%  \nonumber
+%\end{align}
+\begin{align}
+  C(t)&=\exp\left\{\Delta\esc \nu_0 (t-\tau) \right\}C(\tau)
+\nonumber
+\end{align}
+    \item The \alert{local in time prediction}
+\begin{align}
+  C(t)&=\exp\left\{\Delta\esc \nu^* (t-\tau) \right\}C(\tau)
+\nonumber
+\end{align}
+\end{itemize}
+\end{frame}
+
  \begin{frame}{Simulations}
    \begin{enumerate}
-     \item Markovian approximation.
-     \item The nonlocal viscosity in real and Fourier space. 
-     \item The nonlocal kinematic viscosity in real and Fourier space. 
+     \item Validation the Markovian approximation.
+     \item The nonlocal viscosity ($\eta(t)$ and $\eta^*(t)$). 
+     \item The nonlocal kinematic viscosity ($\nu(t)$ and $\nu^*(t)$). 
      \item Prediction of the correlations (local and nonlocal). 
    \end{enumerate}
  \end{frame}
 
+ \begin{frame}{Simulation set up}
+   \begin{itemize}
+     \item LAMMPS code.
+     \item Box size $40x40x30$ binned in $60$ bins along $z$ axis.
+     \item LJ potential truncated at $\sigma=2.5$.
+     \item Timestep $0.002$ in reduced units. 
+     \item $T=2.0$, $\rho=0.6$ and $N=28749$ particles.
+     \end{itemize}
+\Note{Un dibujo del proceso de equilibrado y producción quedaría bien}
+ \end{frame}
+
+ \begin{frame}{The correlation matrix $C(t)$}
+   \begin{itemize}
+ \item
+   The correlation matrix $C(t)$ at $t=0$ (left) and $t=0.6$ (right)
+\begin{figure}[h!]
+\includegraphics[width=\linewidth]{Ct-matrix-PBC}
+\end{figure}
+\item  The evolution of the different eigenvalues $\tilde{C}_{\mu\mu}(t)$. %The horizontal  line  at  the   value  $2\times10^{-5}$,  signaling  the
+  %threshold below which statistical errors give spurious results.
+\begin{figure}[h!]
+  \includegraphics[width=\linewidth]{CtFourier-PBC-exp}
+\end{figure}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Validation of the Markovian approximation}
+\begin{figure}[h!]
+\includegraphics[width=\linewidth]{LambdatFourier-PBC}
+\end{figure}
+In  the left  panel, in
+  ascending  order the  plotted times  go  from $t=0$  to $t=0.20$  in
+  intervals of $0.02$.  The orange line is the local approximation equation
+  with a  value of the local  kinematic viscosity of
+  $\nu_0=1.48$.
+ \end{frame}
 \end{document}
