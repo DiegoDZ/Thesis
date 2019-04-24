@@ -1740,7 +1740,7 @@ already mentioned, i.e i) nonlocal hydrodynamics and ii) interactions
 with solid walls, we discuss previous  work in these two areas in what
 follows.
 
-\subsection{Non-local hydrodynamics}
+\subsection{Nonlocal hydrodynamics}
 This   chapter    relies   on   the   pioneering    work   by   Piccirelli
 \cite{Piccirelli1968}  who, following  Robertson \cite{Robertson1966},
 derived  hydrodynamic   equations  explicitly  from   the  microscopic
@@ -2102,7 +2102,7 @@ grand-canonical partition function defined as
 -\beta \boldsymbol{\lambda}_{P}\esc\hat{\bf P}(z)\right\},
 \label{xiln}
 \end{align}
-where we have introduced the conjugate variables as
+where we have introduced the coarse conjugate variables as
   \begin{align}
 \lambda_\rho({\bf q}_i)&=
 \int d{\bf r}\lambda_{\rho}({\bf r})\delta({\bf r}-{\bf q}_i)
@@ -4706,7 +4706,7 @@ Despite  its elegance,  this  general  theory is  very  complex as  it
 involves a  large number  of nonlocal  tensorial kernels  (related to
 viscous and friction forces).  In addition, as it is formulated at the
 continuum level,  transport kernels involve correlations  of the local
-stress tensor and force densities  which involve coarse delta functions
+stress tensor and force densities  which involve delta functions
 and that cannot  possibly be computed in MD simulations.   In order to
 tackle these problems,  in this chapter we  have presented from
 first principles a hydrodynamic theory for planar geometries and flows
@@ -4832,7 +4832,6 @@ Density Model  (LADM) introduced by Bitsanis  et al.  \cite{Bitsanis1987},
 while the second  approach is the nonlocal viscosity  model. 
 The LADM assumes that the local transport coefficients of an inhomogeneous
 fluid can be set equal to the corresponding homogeneous transport coefficientes calculated at a locally averaged density. 
-\Note{No sé si lo entiendo. Coeficientes de transporte de fluidos inhomogeneos iguales a los coeficientes de transporte de fluidos homogeneos calculados en los puntos correspondientes al promedio local de la densidad. Pensar en el gráfico viscosidad local vs. densidad local, y en otro con el perfil de densidad inhomogéneo. Seleccionamos una densidad en la gráfica del perfil inhomogéneo y vemos en el gráfico viscosidad local vs. densidad local qué valor de la viscosidad local se obtiene cuando tenemos esa densidad dada.}
 %in a way similar to what  is done in equilibrium Density  Functional Theory for the formulation of Weighted Density  Approximation models for the free energy functional \cite{Tarazona2008}.  %equation7.27
 
 This somewhat  heuristic idea
@@ -4862,7 +4861,6 @@ Hydrodynamics, that is
 \begin{align}
   P^{yx}(k,t) = -\int_0^t ds\eta(k,t-s)\dot{\gamma}(k,s)
 \end{align}
-\Note{Entender de forma intuitiva la viscosidad no local.}
 %Ecuación 4.47 de Evans y Morriss.
 For  steady  state flows,  the  constitutive  equation
 becomes
@@ -5022,7 +5020,7 @@ dynamic is Markovian. The equation   (\ref{GKCorrected}) is conceptually pleasin
 as it  displays in  very graphical terms  why the unprojected Green-Kubo
 integral  (\ref{Mtau}) has  no plateau  -- in  fact, it  decays as  the
 correlation matrix itself.  It is obvious that (\ref{GKCorrected}) can
-not be true at $\tau=0$ as this would imply $M^*=0$.  \Note{Duda ->}However, after a
+not be true at $\tau=0$ as this would imply $M^*=0$. However, after a
 time  in  the molecular  time  scales,  the  right  hand side  of  equation
 (\ref{GKCorrected})  should  be  time independent  provided  that  the
 Markovian description (\ref{AproxC})  is valid.  In the  limit of very
@@ -8022,7 +8020,7 @@ and the explicit Green-Kubo forms (\ref{GK}), we have
 G &=   \frac{1}{Sk_BT}\int_0^{\tau} dt
 \left\langle  \sum^{B}_{\mu=1}{\cal V}_\mu\hat{\bf F}^{x}_\mu(t) \sum^{N_{\rm bin}}_{\nu=1} {\cal V}_\nu\hat{\boldsymbol{\sigma}}^{xz}_\nu\right\rangle^{\rm eq}
 \nonumber\\
-H &=   \frac{1}{Sk_BT}\int_0^{\tau} dt
+H &=   \frac{1}{k_BT}\int_0^{\tau} dt
 \left\langle  \hat{\boldsymbol{\sigma}}^{xz}_{B}(t) \sum^{N_{\rm bin}}_{\nu=1} {\cal V}_\nu 
 \hat{\bf F}^{x}_\nu(t)\right\rangle^{\rm eq}
 \nonumber\\
@@ -8031,7 +8029,6 @@ H &=   \frac{1}{Sk_BT}\int_0^{\tau} dt
 \left\langle  \sum^{B}_{\mu=1}{\cal V}_\mu\hat{\bf F}^{x}_\mu(t)\sum^{N_{\rm bin}}_{\nu=1}{\cal V}_\nu \hat{\bf F}^{x}_\nu\right\rangle^{\rm eq}
 \label{etagamma3}
 \end{align}
-\Note{En la exprsión para H de las anteriores ecuaciones sobra S no?}
 Note that we have a partition of unity property that implies that
 \begin{align}
   \sum_\mu^{N_{\rm bin}}\psi_\mu({\bf r})=1, &&
@@ -8064,7 +8061,7 @@ Therefore, the transport coefficients (\ref{etagamma3}) are given by
 G &=   \frac{1}{Sk_BT}\int_0^{\tau} dt
 \left\langle  \hat{\bf F}^{x}(t) \hat{\boldsymbol{\sigma}}^{xz}\right\rangle^{\rm eq}
 \nonumber\\
-H &=   \frac{1}{Sk_BT}\int_0^{\tau} dt
+H &=   \frac{1}{k_BT}\int_0^{\tau} dt
 \left\langle  \hat{\boldsymbol{\sigma}}^{xz}_{B}(t) \hat{\bf F}^{x}\right\rangle^{\rm eq}
 \nonumber\\
 \gamma&= 
@@ -8434,7 +8431,7 @@ for the fluid nodes $\mu=2,\cdots,15$
 \label{ODE}
 \end{align}
 
-We have introduce the kinematic viscosity as give by $\nu=\eta_{\mu}(\tau)/\rho_{\mu}(\tau)$ that takes the value $\nu=1.41$. Even though $\eta_{\mu}(\tau)$ and $\rho_{\mu}(\tau)$ depend on $\tau$,$\mu$, the kinematic viscosity is constant and does not depend on $\tau$ and $\mu$. \Note{No sé si poner la gráfica. Es muy fea.}
+We have introduce the kinematic viscosity as give by $\nu=\eta_{\mu}(\tau)/\rho_{\mu}(\tau)$ that takes the value $\nu=1.41$. Even though $\eta_{\mu}(\tau)$ and $\rho_{\mu}(\tau)$ depend on $\tau$,$\mu$, the kinematic viscosity is constant and does not depend on $\tau$ and $\mu$.
 We see that 
 (\ref{ODE}) is a set of ODE for the variables $g_\mu$ for
 $\mu=2,\cdots,15$ but it includes in the first and last equations the
@@ -8542,12 +8539,12 @@ measured through well-defined Green-Kubo  expressions.
 
 \begin{figure}[]
 \includegraphics[width=\linewidth]{errors-17nodes-WALLS}
-\caption{Comparison  of   the  error   between  local   and  non-local
+\caption{Comparison of the error between local and nonlocal theories}{Comparison  of   the  error   between  local   and  nonlocal
   theories.  The error  $err_\mu(t)= g_\mu(t)-g^{\rm  predict}_\mu(t)$
   between the real and predicted profiles as a function of time. Every
   curve corresponds to  a different node $\mu$.  
   Left panel  is for the error with
-  the     non-local      prediction     corresponding      to     Fig.
+  the     nonlocal      prediction     corresponding      to     Fig.
   \ref{Fig-gxtPredictions}.
   The right  panel is for
   the   error    with   the   local   prediction    corresponding   to
@@ -8572,9 +8569,9 @@ for a highly discontinuous profile like  the plug flow.  To get better
 prediction  it  is  necessary  to consider  the  explicit  interaction
 between  the solid  and  the fluid  through  the surface  irreversible
 forces         containing         the        transport         kernels
-$G_{\mu\nu},H_{\mu\nu},\gamma_{\mu\nu}$.  The errors in using the non-local prediction 
+$G_{\mu\nu},H_{\mu\nu},\gamma_{\mu\nu}$.  The errors in using the nonlocal prediction 
 are shown in the left panel of Fig \ref{Fig:err}. The conclusion is that while the local prediction
-with a slip boundary condition is acceptable, non-local effects are appreciable.
+with a slip boundary condition is acceptable, nonlocal effects are appreciable.
 
 
 
@@ -8886,7 +8883,7 @@ Because of the high computational cost of these simulations we could not address
 
 Finally, a natural extension of this work is to derive a non-isothermal theory in which the CG relevant variables are the presented in Chapter \ref{Chap:Theory} and the ones that take into account the energy of the fluid and the solid, that is
 \begin{align}
-  \hat{e}_{\bf r}(z) = \sum_i^N e_i\bar{\delta}({\bf r}-{\bf q}_i) &&  \hat{E}(z)=\sum_{i'}^{N'}e_{i'},
+  \hat{e}_{\bf r}(z) = \sum_i^N e_i\delta({\bf r}-{\bf q}_i) &&  \hat{E}(z)=\sum_{i'}^{N'}e_{i'},
 \end{align}
 where $e_i$ and $e_i'$ are the total energy of the fluid particle $i$ and the total energy of the solid particle $i'$, respectively. 
 
@@ -8914,13 +8911,10 @@ An early attempt to explain it can be found in Ref. \cite{Shin2014}, where Shin 
 \markboth{Contributions}{}
 The following articles and posters are related with this dissertation.
 \begin{enumerate}
-  \item \cite{Camargo2018} Nanoscale hydrodynamics near solids.
-  \item \cite{Espanol2019e} Solution to the plateau problem in the Green-Kubo formula.
-  \item \cite{} Slip and non-Markovian effects in nanohydrodynamics. \Note{Falta referencia}
-  \item \cite{Discrete1} Discrete hydrodynamics I: Theory for planar flows with confining walls. To be submitted.
-  \item \cite{Discrete2} Discrete hydrodynamics II: Space and time locality for unconfined flows. To be submitted. 
-  \item \cite{Discrete3} Discrete hydrodynamics III: Non-Markovian behaviour near solids walls. To be submitted. 
-  \item \cite{Discrete4} Discrete hydrodynamics IV: The slip boundary condition. To be submitted. 
+  \item \cite{Camargo2018} D. Camargo, J. A. De La Torre, D. Duque-Zumajo, P. Español, R. Delgado-Buscalioni, and F. Chejne. Nanoscale hydrodynamics near solids. \textit{Journal of Chemical Physics}, 148(6), 2018.
+  \item \cite{Espanol2019e} P. Español, J. A. de la Torre, and D. Duque-Zumajo. Solution to the plateau problem in the Green-Kubo formula. \textit{Physical Review E}, 99(2), 2019.
+  \item \cite{Discrete1} Discrete hydrodynamics for planar flows with confining walls.
+  \item \Note{PRL y Markovian}
   \item \cite{FISESMadrid} Nanoscale hydrodynamics in periodic and confined geometries. Poster presented at 22th Workshop on Statistical Physics (FISES18), Madrid (Spain) 2018.
   \item \cite{IWNET} Nanoscale hydrodynamics in periodic boundary conditions. Poster presented at 8th International Workshop on Nonequilibrium Thermodynamics, Sint-Michielsgestel (The Netherlands) 2018.
   \item \cite{Ulam} Nanoscale heat transport in fluids near solids. Poster presented at Ulam Computer Simulation Workshop, Lviv (Ukraine) 2017.
@@ -8945,9 +8939,9 @@ averages  with the relevant  ensemble.  The  force densities  that the
 fluid or the solid exert on a fluid molecule located at the point ${\bf
   r}$ are introduced in (\ref{Fr}),
 \begin{eqnarray}
-  \hat{\bf F}^{\rm l\to l}_{\bf r}(z) \equiv \sum^{NN}_{ij}\hat{\bf F}_{ij}\bar{\delta}({\bf r}-{\bf q}_i)
+  \hat{\bf F}^{\rm l\to l}_{\bf r}(z) \equiv \sum^{NN}_{ij}\hat{\bf F}_{ij}\delta({\bf r}-{\bf q}_i)
 \nonumber\\
-\hat{\bf F}^{\rm s\to l}_{\bf r}(z) \equiv \sum^{NN'}_{ij'}\hat{\bf F}_{ij'}\bar{\delta}({\bf r}-{\bf q}_i),
+\hat{\bf F}^{\rm s\to l}_{\bf r}(z) \equiv \sum^{NN'}_{ij'}\hat{\bf F}_{ij'}\delta({\bf r}-{\bf q}_i),
 \label{Fr_ap}
 \end{eqnarray}
 where $\hat{\bf  F}_{ij'}$ is the  force that  atom $j'$ of  the solid
@@ -8959,7 +8953,7 @@ exerts on the liquid at the point ${\bf r}$.
 
 The total force density on the fluid is
 \begin{align}
-  \hat{\bf F}^l_{\bf r}&=\hat{\bf F}^{\rm l\to l}_{\bf r}+\hat{\bf F}^{\rm s\to l}_{\bf r} =\sum^{N}_{j}-\frac{\partial U}{\partial {\bf q}_{j}}\bar{\delta}({\bf r}-{\bf q}_j)
+  \hat{\bf F}^l_{\bf r}&=\hat{\bf F}^{\rm l\to l}_{\bf r}+\hat{\bf F}^{\rm s\to l}_{\bf r} =\sum^{N}_{j}-\frac{\partial U}{\partial {\bf q}_{j}}\delta({\bf r}-{\bf q}_j)
 \end{align}
 The total force on the fluid and on the solid are
 \begin{align}
@@ -8988,7 +8982,7 @@ Now, let us consider the average of the total force density on the liquid, equat
 \frac{1}{\Xi[\mu,\boldsymbol{\lambda}_R]}
  \sum_{N=0}^\infty \frac{1}{N!}
 \int \frac{dq}{\Lambda^{3N}}\frac{dq'}{\Lambda^{3N'}}
-\left[\sum^{N}_{j}-\frac{\partial U}{\partial {\bf q}_{j}}\bar{\delta}({\bf r}-{\bf q}_j)\right]
+\left[\sum^{N}_{j}-\frac{\partial U}{\partial {\bf q}_{j}}\delta({\bf r}-{\bf q}_j)\right]
 \nonumber\\
 &\times e^{-\beta U}
 \exp\left\{-\beta  \left( \boldsymbol{\lambda}_R{\cdot}\hat{\bf R}
@@ -9008,7 +9002,7 @@ times the Boltzmann factor itself, that is,
 \nonumber\\
 &\times \exp\left\{-\beta  \left(\boldsymbol{\lambda}_R{\cdot}\hat{\bf R}
 -\sum_{i=1}^N m\mu({\bf   q}_i)\right)\right\}
-k_BT\sum^{N}_{j}\bar{\delta}({\bf r}-{\bf q}_j)\frac{\partial }{\partial {\bf q}_{j}}e^{-\beta U}
+k_BT\sum^{N}_{j}\delta({\bf r}-{\bf q}_j)\frac{\partial }{\partial {\bf q}_{j}}e^{-\beta U}
 \end{align}
 Integrate by parts to obtain
 \begin{align}
@@ -9019,7 +9013,7 @@ Integrate by parts to obtain
 \nonumber \\
 &\times
 e^{-\beta U}
-k_BT\sum^{N}_{j}-\frac{\partial }{\partial {\bf q}_{j}}\left[\bar{\delta}({\bf r}-{\bf q}_j)
+k_BT\sum^{N}_{j}-\frac{\partial }{\partial {\bf q}_{j}}\left[\delta({\bf r}-{\bf q}_j)
 \exp\left\{-\beta  \left( \boldsymbol{\lambda}_R{\cdot}\hat{\bf R}
 -\sum_{i=1}^N m\mu({\bf q}_i)\right)\right\}\right]
 \nonumber\\
@@ -9031,7 +9025,7 @@ e^{-\beta U}
 \sum^{N}_{j}\exp\left\{-\beta  \left( \boldsymbol{\lambda}_R{\cdot}\hat{\bf R}
 -\sum_{i\neq j}^N m\mu({\bf   q}_j)\right)\right\}
 \nonumber\\
-&\times k_BT\left[-\frac{\partial }{\partial {\bf q}_{j}}\bar{\delta}({\bf r}-{\bf q}_j)
+&\times k_BT\left[-\frac{\partial }{\partial {\bf q}_{j}}\delta({\bf r}-{\bf q}_j)
 \exp\left\{\beta   m\mu({\bf   q}_j)\right\}\right]
 \nonumber\\
 &=\frac{k_BT}{m}\boldsymbol{\nabla} \rho({\bf r})
