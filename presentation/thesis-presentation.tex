@@ -1003,7 +1003,7 @@ M^*&=  -L+ \Lambda^*\esc C(0)
 \end{frame}
 
 \section{Space and time locality for unconfined fluids}
-\begin{frame}{CG variables}
+\begin{frame}{The CG variables}
 \begin{figure}
     \centering
     \includegraphics[width=0.45\linewidth]{temp_wo_walls}
@@ -1168,7 +1168,7 @@ where the local kinematic viscosity is given by
  \begin{frame}{Simulation set up}
    \begin{itemize}
      \item Simulation of $28749$ particles interacting with a \alert{LJ potential} truncated at $\sigma=2.5$.
-     \item Box size $40x40x30$ binned in $60$ bins along $z$ axis. \alert{$\Delta z=0.5\sigma$}
+     \item Box size $40x40x30$.
      \item $dt=0.002$ in reduced units.
      \item \alert{Equilibration stage}
        \begin{itemize}
@@ -1178,7 +1178,7 @@ where the local kinematic viscosity is given by
         \item \alert{Production stage}
        \begin{itemize}
          \item $1.5\times10^6$ timesteps.
-         \item $z$ axis binned in $60$ bins $\mu$.
+         \item $z$ axis binned in $60$ bins $\mu$. \alert{$\Delta z=0.5\sigma$}.
          \item $g_{\mu}^x(t)$ and $\rho_{\mu}(t)$ recorded every $10$ timesteps. 
          \end{itemize}
      \end{itemize}
@@ -1205,8 +1205,258 @@ where the local kinematic viscosity is given by
 \end{figure}
 In  the left  panel, in
   ascending  order the  plotted times  go  from $t=0$  to $t=0.20$  in
-  intervals of $0.02$.  The orange line is the local approximation equation
+  intervals of $0.02$.  The orange line is the local approximation
   with a  value of the local  kinematic viscosity of
   $\nu_0=1.48$.
  \end{frame}
+\begin{frame}{The nonlocal viscosity}
+\begin{figure}
+\includegraphics[width=\linewidth]{Etat-PBC}
+\end{figure}
+The nonlocal viscosity $\eta_{\mu\nu}(t)$ as a function of time, for $\mu=30$ and, in descending order, $\nu=30-40$. 
+\end{frame}
+
+\begin{frame}{The nonlocal viscosity $\tilde{eta}^*$}
+  \begin{align}
+  \tilde{\eta}^*_{\mu\mu}=\frac{\tilde{\eta}_{\mu\mu}(t)}{\tilde{c}_{\mu\mu}(t)}
+  \nonumber
+  \end{align}
+\begin{figure}[h!]
+\includegraphics[width=0.5\linewidth]{EtaStartFourier-PBC}
+\includegraphics[width=0.5\linewidth]{CompareEtas-PBC}
+\end{figure}
+\end{frame}
+
+\begin{frame}{The nonlocal kinematic viscosity $\tilde{\nu}^*$}
+\begin{figure}[h!]
+\includegraphics[width=\linewidth]{KinVisctFourier-PBC}
+\end{figure}
+The eigenvalues of the nonlocal kinematic viscosity matrix as a function of the mode index por times from $t=0$ to $t=0.2$ in ascending order in intervals of $0.01$. The orange line at $\nu_0=1.48$ is plotted in order to guide the eye in the plateau region.
+\end{frame}
+
+\begin{frame}{The local kinematic viscosity $\nu_0$}
+  \begin{align}
+    \nu_0(t)=\eta_0(t)/\rho^{\rm eq}
+    \nonumber
+  \end{align}
+\begin{figure}[h!]
+\includegraphics[scale=0.41]{KinVisc0t-PBC}
+\end{figure}
+The line at $\nu_0=1.48$ from the literature \cite{Woodcock2006}.
+\end{frame}
+
+\begin{frame}{Autocorrelation predictions $C_{\mu\mu}(t)$}
+\begin{figure}[h!]
+\includegraphics[width=\linewidth]{Predictionsmumu-PBC}
+\end{figure}
+{\color{blue} Blue}: Simulation results. \\
+{\color{orange} Orange}: nonlocal predictions.\\ 
+{\color{green} Green}: local predictions.\\
+\end{frame}
+
+\begin{frame}{Cross correlation predictions $C_{\mu\mu+1}(t)$}
+\begin{figure}[h!]
+\includegraphics[width=\linewidth]{Predictionsmumu+1-PBC}
+\end{figure}
+{\color{blue} Blue}: Simulation results. \\
+{\color{orange} Orange}: nonlocal predictions.\\ 
+{\color{green} Green}: local predictions.\\
+\end{frame}
+
+\begin{frame}{Summary}
+  \begin{itemize}
+    \item Simple case: unconfined fluid.
+    \item Equation for the correlations
+      \begin{align}
+        \frac{d}{dt}C(t)=-k_BTM^*\cdot c(t)
+        \nonumber
+      \end{align}
+    \item Fourier space in order to observe a plateau in $\Lambda$ after a time $\tau=0.2$.
+    \item Plateau in the nonlocal viscosity $\tilde{\eta}^*$ and nonlocal kinematic viscosity $\tilde{\nu}^*$
+    \item Local kinematic viscosity $\nu_0$ equal to the value of the literature.
+    \item After a time $\tau=0.2$ the nonlocal aproximation and the local approximation gives us excelent results. 
+  \end{itemize}
+\end{frame}
+
+\section{Markovian behaviour near solids}
+\begin{frame}{The system and the CG variables}
+\begin{itemize}
+  \item The system
+\begin{figure}
+    \centering
+    \includegraphics[width=0.45\linewidth]{PRL3_gold2_wo_layers_wo_diffuse}
+    \includegraphics[width=0.45\linewidth]{PRL3_gold2_wo_diffuse}
+\end{figure}
+\item The CG variable and its correlation
+\begin{align}
+  \hat{\bf g}^x_\mu= \sum_i^N{\bf p}_i\delta_\mu({\bf q}_i), && 
+  \hat{g}^T=(\hat{\bf   g}^x_1,\cdots,\hat{\bf  g}^x_{N_{\rm   bin}}), &&
+  C(t)=\llangle \hat{g}(t) \hat{g}^T\rrangle 
+\nonumber
+\end{align}
+
+\item The predictions
+\begin{align}
+  C(t)^{\rm predict} = {\rm exp}{-\Lambda^*(t-\tau)}C(\tau)
+  \nonumber
+\end{align}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Reciprocal space}
+\begin{itemize}
+  \item Spectral decomposition
+\begin{align}
+  C(t)&=\sum_\mu^{N_{\rm bin}}\tilde{C}_\mu(t) u_\mu(t) \otimes u_\mu^T(t)
+\nonumber
+\end{align}
+
+\item The unitary matrix $E(t)$ diagonalizes the correlation matrix
+\begin{align}
+  E^{-1}(t)\esc C(t)\esc E(t)=\tilde{C}(t),
+\nonumber
+\end{align}
+
+\item Evolution of the diagonal matrix $\tilde{C}(t)$
+\begin{align}
+\frac{d}{dt}  \tilde{C}(t)&=-\tilde{\Lambda}^*\esc \tilde{C}(t)
+  +\frac{d }{dt}(E^{-1}(t)) \esc C(t)\esc E(t)
+  +E(t)\esc C(t)\esc \frac{d }{dt}E(t)  
+\nonumber
+\end{align}
+
+\item The time dependence of the unitary matrix if very weak
+\begin{align}
+\frac{d}{dt}  \tilde{C}(t)&\simeq-\tilde{\Lambda}^*\esc \tilde{C}(t)
+\nonumber
+\end{align}
+
+\item Evolution of the eigenvalues $\tilde{C}_{\mu}(t)$
+\begin{align}
+  \tilde{C}_\mu(t)&=\exp\{-\tilde{\Lambda}_{\mu\mu} (t-\tau)\}  \tilde{C}_\mu(\tau)
+  \nonumber
+\end{align}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Simulation set up}
+   \begin{itemize}
+     \item Simulation of $28175$ fluid particles interacting with a \alert{LJ potential} truncated at $\sigma=2.5$.
+     \item Two solid walls in the $xy$ plane confine the fluid.  
+     \item Box size $40x40x33$. 
+     \item $dt=0.002$ in reduced units.
+     \item \alert{Equilibration stage}
+       \begin{itemize}
+         \item Langevin thermostat for $10^5$ timesteps: $T=2.0$, $\rho=0.6$.
+         \item NVE microcanonical conditions for a further $10^5$ timesteps.
+          \end{itemize}
+        \item \alert{Production stage}
+       \begin{itemize}
+         \item $12\times10^6$ timesteps.
+         \item $z$ axis binned in $66$ bins $\mu$ \alert{$\Delta z=0.5\sigma$} or $33$ bins $\mu$ \alert{$\Delta z=2\sigma$}.
+         \item $g_{\mu}^x(t)$ recorded every $2$ timesteps. 
+         \end{itemize}
+     \end{itemize}
+\end{frame}
+
+\begin{frame}{Thin bins ($\Delta z=0.5\sigma$)}
+  \begin{itemize}
+    \item $C_{\mu\nu}(t)$ for  $t=0$ (left) and $t=0.6$ (right).
+\begin{figure}[h!]
+\includegraphics[width=\linewidth]{Ct-matrix-WALLS-66nodes}
+\end{figure}
+\item Evolution of different eigenvalues $\tilde{C}_{\mu\nu}(t)$
+\begin{figure}[h!]
+  \includegraphics[width=\linewidth]{CtRec-WALLS-66nodes-exp}
+\end{figure}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{$\tilde{\Lambda}(t)$ ($\Delta z=0.5\sigma$)}
+Diagonal elements  $\tilde{\Lambda}_{\mu\mu}(t)$ of $\Lambda(t)$ in the reciprocal space. After a time $\tau=0.2$ we observe a nice plateau for the lower modes. 
+\begin{figure}[h!]
+\includegraphics[scale=0.5]{LambdatRec-WALLS-66nodes}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Eigenvalues and eigenvectors near the walls ($\Delta z=0.5\sigma$)}
+    The eigenvalues $\tilde{C}_{\mu}(t)$ of the correlation matrix $C(t)$ for $\mu=59,60$ which are identical and superimpose (left) and the corresponding eigenvectors $u_{\mu}$ in blue and orange, respectively (right).
+  \begin{figure}[h!]
+\includegraphics[width=\linewidth]{EigenvaluesVectors-WALLS-66nodes}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Predicted correlations in the bulk ($\Delta z=0.5\sigma$)}
+  In the middle of the canal the predicted (orange) correlation fits perfectly the measured (blue) correlation after a time $\tau=0.2$
+\begin{figure}[h!]
+\includegraphics[width=\linewidth]{Predictions-canal-WALLS-66nodes-defense}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Predicted correlations near the walls ($\Delta z=0.5\sigma$)}
+\begin{figure}[h!]
+\includegraphics[width=\linewidth]{Predictions-WALLS-66nodes-defense}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Eigenvalues $\tilde{C}_{\mu\mu}(t)$ ($\Delta=2\sigma$)}
+Evolution of different eigenvalues $\tilde{C}_{\mu\nu}(t)$. Also  plotted are  a vertical line  at $t=\tau=0.3$.
+\begin{figure}[h!]
+  \includegraphics[width=\linewidth]{CtRec-WALLS-17nodes-exp}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Eigenvectors near the walls ($\Delta z=2\sigma$)}
+ The eigenvectors correspondings to the two largest eigenvalues of $\Lambda(t)$ for a confined fluid.
+  \begin{figure}[h!]
+\includegraphics[scale=0.5]{Eigenvectors-WALLS-17nodes}
+\end{figure}
+\end{frame}
+
+\begin{frame}{$\tilde{\Lambda}(t)$ for thick bins ($\Delta z=2\sigma$)}
+    Diagonal elements  $\tilde{\Lambda}_{\mu\mu}(t)$ of $\Lambda(t)$ in the reciprocal space
+\begin{figure}[h!]
+\includegraphics[scale=0.5]{LambdatRec-WALLS-17nodes}
+\end{figure}
+\end{frame}
+
+
+\begin{frame}{Predicted auto-correlations ($\Delta z=2\sigma$)}
+\begin{figure}[h!]
+\includegraphics[width=\linewidth]{Predictions-WALLS-17nodes-defense}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Predicted cross-correlations ($\Delta z=2\sigma$)}
+\begin{figure}[h!]
+\includegraphics[width=\linewidth]{PredictionsCross-WALLS-17nodes}
+\end{figure}
+\end{frame}
+  
+\begin{frame}{The density}
+\begin{figure}[h!]
+\includegraphics[scale=0.41]{DensityProfile-WALLS}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Summary}
+  \begin{itemize}
+    \item
+    \item
+    \item 
+   \end{itemize}
+\end{frame}
+
+\section{The slip boundary condition}
+\begin{frame}{Overview}
+  \begin{itemize}
+    \item Compute the viscosity and friction kernels that appear in the discrete hydrodynamic theory $\eta$, $G$, $H$ and $\gamma$.
+    \item Predictions of $C(t)$ with these kernels. 
+    \item Derive the Navier slip boundary condition.
+      \
+
+    \end{itemize}
+
+\end{frame}
+
 \end{document}
