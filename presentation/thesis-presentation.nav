@@ -354,8 +354,46 @@
 \headcommand {\slideentry {6}{0}{16}{80/80}{}{0}}
 \defcounter {refsection}{0}\relax 
 \headcommand {\beamer@framepages {80}{80}}
-\headcommand {\beamer@partpages {1}{80}}
-\headcommand {\beamer@subsectionpages {65}{80}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\sectionentry {7}{The slip boundary condition}{81}{The slip boundary condition}{0}}
+\defcounter {refsection}{0}\relax 
 \headcommand {\beamer@sectionpages {65}{80}}
-\headcommand {\beamer@documentpages {80}}
-\headcommand {\def \inserttotalframenumber {73}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionpages {65}{80}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {7}{0}{1}{81/81}{}{0}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {81}{81}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {7}{0}{2}{82/82}{}{0}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {82}{82}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {7}{0}{3}{83/83}{}{0}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {83}{83}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {7}{0}{4}{84/84}{}{0}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {84}{84}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {7}{0}{5}{85/85}{}{0}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {85}{85}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {7}{0}{6}{86/86}{}{0}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {86}{86}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {7}{0}{7}{87/87}{}{0}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {87}{87}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {7}{0}{8}{88/88}{}{0}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {88}{88}}
+\headcommand {\beamer@partpages {1}{88}}
+\headcommand {\beamer@subsectionpages {81}{88}}
+\headcommand {\beamer@sectionpages {81}{88}}
+\headcommand {\beamer@documentpages {88}}
+\headcommand {\def \inserttotalframenumber {80}}

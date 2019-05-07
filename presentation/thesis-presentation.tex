@@ -1450,13 +1450,167 @@ Evolution of different eigenvalues $\tilde{C}_{\mu\nu}(t)$. Also  plotted are  a
 \section{The slip boundary condition}
 \begin{frame}{Overview}
   \begin{itemize}
-    \item Compute the viscosity and friction kernels that appear in the discrete hydrodynamic theory $\eta$, $G$, $H$ and $\gamma$.
-    \item Predictions of $C(t)$ with these kernels. 
-    \item Derive the Navier slip boundary condition.
-      \
-
+    \item Compute the viscosity and friction kernels that appear in the discrete hydrodynamic theory: $\eta$, $G$, $H$ and $\gamma$.
+    \item Prediction of $C(t)$ and the average, $g^x(t)$, with these kernels. 
+    \item Derive the Navier slip boundary condition: explicit expression for the slip length.
     \end{itemize}
-
 \end{frame}
 
+\begin{frame}{The tine derivative of $C(t)$}
+  \begin{itemize}
+    \item The time derivative of the CG variable $\hat{g}(t)$
+\begin{align}
+  i{\cal L}\hat{g}_\mu(z) &=\hat{F}_\mu(z)-\frac{\hat{\sigma}_\mu(z)-\hat{\sigma}_{\mu-1}(z)}{\Delta z}
+  \nonumber
+\end{align}
+where $\hat{F}_{\mu}=\hat{\bf F}^x_{\mu}$ and $\hat{\sigma}_{\mu}=\hat{\sigma}_{\mu}^{xz}$.
+\item We may express $i{\cal L}\hat{g}$ in a more compact form  
+\begin{align}
+  i{\cal L}\hat{g}&= \hat{F}+ F^T\esc\hat{\sigma}
+  \nonumber
+\end{align}
+\item Time derivative of the correlation matrix 
+  \begin{align}
+    \frac{d}{dt}C(t)=-k_BTM(t)
+    \nonumber
+  \end{align}
+  where $M(t)$ is given by 
+\begin{align}
+M(t)&= \frac{1}{k_BT}\int_0^t dt'\langle i{\cal L}\hat{g}(t')i{\cal L} \hat{g}^T\rangle
+\nonumber
+\end{align}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{The Green-Kubo running integrals}
+
+  \begin{itemize}
+    \item The matrix $M(t)$ can be expressed as 
+      \begin{align}
+{M}(t)&=F^T\esc{\eta}(t)\esc F+{G}(t)\esc F+F^T\esc{H}(t)+{\gamma}(t),
+\nonumber
+\end{align}
+
+    \item Where the Green-Kubo integrals are
+\begin{align}
+\eta_{\mu\nu}(t)
+&=\frac{1}{k_BT}\int_0^t dt'
+\left\langle \hat{\boldsymbol{\sigma}}^{xz}_{\mu}(t')\hat{\boldsymbol{\sigma}}^{xz}_{\nu}
+\right\rangle
+\nonumber\\
+  G_{\mu\nu}(t)&=\frac{1}{k_BT}\int_0^t dt'
+\left\langle\hat{\bf F}^x_\mu(t')
+\hat{\boldsymbol{\sigma}}^{xz}_\nu
+\right\rangle
+\nonumber\\
+H_{\mu\nu}(t)&=
+\frac{1}{k_BT}\int_0^t dt'
+\left\langle\hat{\boldsymbol{\sigma}}^{xz}_\mu(t')\hat{\bf F}^{x}_\nu\right\rangle
+\nonumber\\
+  \gamma_{\mu\nu}(t)
+&=\frac{1}{k_BT}\int_0^t dt'
+\left\langle 
+\hat{\bf F}^{x}_\mu(t')
+\hat{\bf F}^{x}_\nu\right\rangle
+\nonumber
+\end{align}
+
+\item Therefore, $\frac{d}{dt}C(t)=-k_BTM(t)$ may be expressed as
+\begin{align}
+  \frac{d}{dt}C(t)&=-k_BT\left[{F}^T\esc{\eta}(t)\esc{F}+{G}(t)\esc{F}+{F}^T\esc{H}(t)+{\gamma}(t)\right]
+\nonumber
+\end{align}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{No plateau in the Green-Kubo integrals}
+$\eta_{10,10}(t)$ (middle of the channel), $\gamma_{1,1}$ (blue) and $\gamma_{2,2}$ (orange). 
+\begin{figure}[]
+  \includegraphics[scale=0.33]{NoPlateau-WALLS-17nodes}
+\end{figure}
+\end{frame}
+
+\begin{frame}{The dynamics of the discrete transverse momentum}
+  \begin{itemize}
+    \item Corrected Green-Kubo formula 
+      \begin{align}
+        M^*=M(\tau)\cdot c^{-1}(\tau)
+        \nonumber
+      \end{align}
+    \item The Markovian dynamics given by Mori theory ($L=0$) 
+      \begin{align}
+        \frac{d}{dt}C(t)=-k_BT^*\cdot C^{-1}(0)C(t)
+        \nonumber
+      \end{align}
+  \item 
+    \begin{align}
+      \frac{d}{dt}C(t)=-k_BT\left[{F}^T\esc{\eta}(t)\esc{F}+{G}(t)\esc{F}+{F}^T\esc{H}(t)+{\gamma}(t)\right]
+      \nonumber
+      \end{align}
+      $\downarrow$
+\begin{align}
+\frac{d}{dt}C(t) =
+-k_BT\left[{F}^T{\eta}(\tau)\esc{F} +{G}(\tau)\esc F+F^T\esc{H}(\tau)+{\gamma}(\tau)\right]& \nonumber \\
+\times C^{-1}(\tau) \esc C(t)&
+\nonumber
+\end{align}
+
+\end{itemize}
+\end{frame}
+
+\begin{frame}{The equation for the average of the discrete momentum field}
+  \begin{itemize}
+    \item Algo
+\begin{align}
+   \frac{d}{dt}g(t)= -k_BT \left[{F}^T{\eta}(\tau)\esc{F}
++{G}(\tau)\esc{F}
++F^T\esc{H}(\tau)+{\gamma}(\tau)\right]& \nonumber \\
+\times C^{-1}(\tau)\esc  g(t)& 
+\nonumber
+\end{align}
+\item In terms of the velocity 
+\begin{align}
+  \frac{d}{dt}g(t)&= -\left[{F}^T{\eta}(\tau)\esc{F}
++{G}(\tau)\esc{F}
++F^T\esc{H}(\tau)+{\gamma}(\tau)\right]&& \nonumber \\
+\times {\cal V} \esc c^{-1}(\tau)\esc v(t)&& \nonumber \\
+ &= - {\cal V}\esc M^*\esc v(t) 
+\nonumber
+\end{align}
+\item It is equivalent to 
+\begin{align}
+   \frac{d}{dt}g(t)&=  - {\cal V}\esc M(\tau)\esc \overline{v}(t)
+\nonumber
+\end{align}
+\item The scaled velocity field $\overline{v}(t)=c^{-1}(\tau)\esc  v$.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{The dynamics with the scaled velocity field}
+  \begin{itemize}
+    \item The  components $\overline{\bf  v}^x_\mu$  of
+$\overline{v}$ are
+\begin{align}
+  \overline{\bf v}^x_\mu&=\sum_{\nu}\overline{\rho}_{\mu\nu}^{-1}{\bf g}^x_\nu
+\nonumber
+\end{align}
+\item The rescaled mass density is 
+\begin{align}
+  \overline{\rho}_{\mu\nu}&=\frac{C_{\mu\nu}(\tau)}{k_BT}  {\cal V}_\mu
+  \nonumber
+\end{align}
+\item The explicit form of the evolution of the average of the discrete momentum field 
+\begin{align}
+  \frac{d}{dt}{\bf g}^x_\mu(t)=&
+-\sum_{\nu} {\cal V}_\nu \frac{\left[\eta_{\mu\nu}-\eta_{\mu-1\nu}-\eta_{\mu\nu-1}+\eta_{\mu-1\nu-1}\right]}{\Delta z^2}\overline{\bf v}^x_\nu
+\nonumber \\
+&+\sum_{\nu} {\cal V}_\nu\frac{\left[G_{\mu\nu}-G_{\mu\nu-1}\right]}{\Delta z}\overline{\bf v}^x_\nu
+\nonumber\\
+&+\sum_{\nu} {\cal V}_\nu\frac{\left[H_{\mu\nu}-H_{\mu-1\nu}\right]}{\Delta z}
+\overline{\bf v}^x_\nu
+-\sum_{\nu} {\cal V}_\nu\gamma_{\mu\nu}\overline{\bf v}^x_\nu,
+\nonumber
+\end{align}
+    \end{itemize}
+\end{frame}
 \end{document}
