@@ -2123,13 +2123,6 @@
   </bcf:bibdata>
   <bcf:section number="0">
     <bcf:citekey order="1">Bocquet1993</bcf:citekey>
-    <bcf:citekey order="1">Chen2015</bcf:citekey>
-    <bcf:citekey order="2">Bocquet1993</bcf:citekey>
     <bcf:citekey order="2">Petravic2007</bcf:citekey>
-    <bcf:citekey order="3">Hansen2011</bcf:citekey>
-    <bcf:citekey order="4">Piccirelli1968</bcf:citekey>
-    <bcf:citekey order="5">Grabert1982</bcf:citekey>
-    <bcf:citekey order="6">Mori1965</bcf:citekey>
-    <bcf:citekey order="7">Woodcock2006</bcf:citekey>
   </bcf:section>
 </bcf:controlfile>
