@@ -198,9 +198,9 @@ D_{ij}(t)=\int_0^{\Delta t} dt'\left\langle
   \begin{itemize}
     \item The amount of information to compute the hydrodynamic equations is exceedingly large:
       \begin{itemize}
-        \item $\eta$ has 36 independent components. 
+        \item $\boldsymbol{\eta}$ has 36 independent components. 
         \item ${\bf G}$ and ${\bf H}$ have 21 independent components. 
-        \item $\gamma$ has 9 independent components. 
+        \item $\boldsymbol{\gamma}$ has 9 independent components. 
       \end{itemize}
     \item  The interactions felt by the fluid due to the walls are statistically planar and isotropic. We restric ourselves to planar flows. 
     \item In order to compare the hydrodynamic equations with the MD simulations we need a discrete version of the theory. 
@@ -236,6 +236,7 @@ D_{ij}(t)=\int_0^{\Delta t} dt'\left\langle
       M^\Phi_{\mu\nu}&=\llg\Phi_\mu\Phi_\nu\rlg  
       \nonumber
       \end{align}
+      where we have introduce the notation $\llg\cdots\rlg=\int d{\bf r}...$
     \item We introduce the discrete velocity field in terms of $M^\Phi_{\mu\nu}$
       \begin{align}
         \tilde{{\bf v}}_{\mu}=\sum_{\nu}{\cal V}_{\mu}[M^{\Phi}]^{-1}_{\mu\nu}{\bf v}_{\nu}
@@ -268,6 +269,302 @@ D_{ij}(t)=\int_0^{\Delta t} dt'\left\langle
 &{\color{red}-\sum_{\nu}{\cal V}_\nu\boldsymbol{\gamma}_{\mu\nu}\esc\tilde{\bf v}_\nu}
 \nonumber
 \end{align}
+\end{frame}
+
+\begin{frame}{Symmetry assumptions}
+  \begin{itemize}
+    \item The system is isotropic when we rotate it with respect to an axis perpendicular to the walls...
+    \item ... and reflect it with respect to a plane containing the axis. 
+    \item Large simplification of the structure of the tensors $\boldsymbol{\eta}_{\mu\nu}$, ${\bf G}_{\mu\nu}$, ${\bf H}_{\mu\nu}$ and $\boldsymbol{\gamma}_{\mu\nu}$.
+    \item Under the simplification we may separate the evolution of the selected variables in two contribution: normal and tangent.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Normal and tangent evolution}
+\begin{itemize}
+  \item The normal evolution 
+\begin{align}
+  \frac{d}{dt}\rho_\mu=&  {\color{blue} \llg\overline{\rho} \; \overline{v}^{z}{\nabla}^{z}\delta_\mu \rlg}
+\nonumber\\
+    \frac{d}{dt}{{\bf g}}^{z}_\mu=&
+{\color{blue} \llg\overline{\rho}\; \overline{v}^{z}\;\overline{v}^{z}{\nabla}^{z}\delta_{\mu}\rlg
+-\llg\overline{\rho}\delta_{\mu}{\nabla}^{z}\delta_{\nu}\rlg
+\frac{\partial  F}{\partial \rho_{\nu}}(\rho)}
+{\color{red} +M_{\mu\nu}^{\bot}{\cal V}_\nu\tilde{v}^{z}_\nu}
+\nonumber
+\end{align}
+  \item The parallel evolution for $\alpha=x,y$  
+\begin{align}
+  \frac{d}{dt}{{\bf g}}^\alpha_\mu=&{\color{red}-M_{\mu\nu}^{||}{\cal V}_\nu\tilde{v}^\alpha_\nu}
+\nonumber
+\end{align}
+\item The dissipative matrix for $\odot=||,\bot$
+\begin{align}
+M^{\odot}_{\mu\nu} 
+=&-\frac{\eta^{\odot}_{\mu\nu}-\eta^{\odot}_{\mu-1\nu}-\eta^{\odot}_{\mu\nu-1}+\eta^{\odot}_{\mu-1\nu-1}}{\Delta z^2}
++\frac{{G}^{\odot}_{\mu\nu}-{G}^{\odot}_{\mu\nu-1}}{\Delta z} \nonumber \\
+&+\frac{{H}^{\odot}_{\mu\nu}-{H}^{\odot}_{\mu-1\nu}}{\Delta z}
+-{\gamma}^{\odot}_{\mu\nu}
+\nonumber
+\end{align}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{The discrete transport kernels}
+\begin{align}
+\eta^{||}_{\mu\nu}&
+=\frac{1}{k_BT}\int_0^\tau  dt\left\langle 
+{\cal Q}\hat{\boldsymbol{\sigma}}^{xz}_\mu(t){\cal Q}\hat{\boldsymbol{\sigma}}^{xz}_\nu
+\right\rangle&&
+%\nonumber\\
+\eta^{\bot}_{\mu\nu}
+= \frac{1}{k_BT}\int_0^\tau  dt\langle 
+{\cal Q}\hat{\boldsymbol{\sigma}}^{zz}_\mu(t)
+{\cal Q}\hat{\boldsymbol{\sigma}}^{zz}_\nu\rangle
+\nonumber\\
+G^{||}_{\mu\nu}&
+=\frac{1}{k_BT} \int_0^\tau  dt
+\left\langle{\cal Q}\hat{\bf F}^{x}_\mu(t)
+{\cal Q}\hat{\boldsymbol{\sigma}}^{xz}_\nu
+\right\rangle&&
+%\nonumber\\
+G^{\bot}_{\mu\nu}=\frac{1}{k_BT} \int_0^\tau  dt
+\left\langle {\cal Q}\hat{\bf F}^{z}_\mu(t)
+{\cal Q}\hat{\boldsymbol{\sigma}}^{zz}_\nu
+\right\rangle
+\nonumber\\
+H^{||}_{\mu\nu}&
+=\frac{1}{k_BT} 
+\int_0^\tau  dt
+\left\langle{\cal Q}\hat{\boldsymbol{\sigma}}^{xz}_\mu(t){\cal Q}\hat{\bf F}^{x}_\nu\right\rangle&&
+%\nonumber\\
+H^\bot_{\mu\nu}=\frac{1}{k_BT} 
+\int_0^\tau  dt\left\langle {\cal Q}\hat{\boldsymbol{\sigma}}^{zz}_\mu(t){\cal Q}\hat{\bf F}^{z}_\nu\right\rangle
+\nonumber\\
+\gamma^{||}_{\mu\nu}&=
+\frac{1}{k_BT} \int_0^\tau  dt
+\left\langle 
+{\cal Q}\hat{\bf F}^{x}_\mu(t)
+{\cal Q}\hat{\bf F}^{x}_\nu\right\rangle&&
+%\nonumber\\
+\gamma^{\bot}_{\mu\nu}=
+\frac{1}{k_BT} \int_0^\tau  dt\left\langle 
+{\cal Q}\hat{\bf F}^{z}_\mu(t){\cal Q}\hat{\bf F}^{z}_\nu
+\right\rangle
+\nonumber
+\end{align}
+\end{frame}
+
+\begin{frame}{Summary}
+  \begin{itemize}
+    \item 
+    \item We have obtained a set of nonlocal transport coefficients that are include in the nanohydrodynamic equations.
+    \end{itemize}
+\end{frame}
+
+\section{Space and time locality for unconfined fluids}
+\begin{frame}{Mori's theory}
+  \begin{itemize}
+    \item Linear dynamic equations not only for the averages of the relevant variables but also for their correlations
+\begin{align}
+  \frac{d}{dt}C(t)&=-L\esc C^{-1}(0)\esc C(t)
+  -{\color{red}\int_0^tdt' \Gamma(t-t')\esc C^{-1}(0)\esc  C(t')}
+\nonumber
+\end{align}
+where the following matrices have been introduced
+\begin{align}
+  L&=\langle \hat{A}i{\cal L}\hat{A}^T\rangle \nonumber \\
+  C(0)&=\langle \hat{A}\hat{A}^T\rangle \nonumber \\
+\Gamma(t)&=\langle F^+(t)F^{+T}(0)\rangle
+\nonumber
+\end{align}
+\item The projected forces are given by
+\begin{align}
+F^+(t)&= \exp\{{\cal Q}i{\cal L}t\} {\cal Q}i{\cal L}\hat{A}  
+\nonumber
+\end{align}
+\item ${\cal Q}=1-{\cal P}$ where  ${\cal P}$  is Mori's  projector 
+\begin{align}
+  {\cal P}\hat{F}(z) = \langle \hat{F}\rangle+ \langle \hat{F}\hat{A}^T \rangle\esc  C^{-1}(0)\esc  \hat{A}(z)
+\nonumber
+\end{align}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Markovian approximation}
+  \begin{itemize}
+    \item Memory-less term 
+  \begin{align}
+{\color{red}\int_0^tdt' \Gamma(t-t')\esc C^{-1}(0)\esc  C(t')} \simeq M^* C^{-1}(0)C(t)
+\nonumber
+\end{align}
+\item Expression for the correlations
+\begin{align}
+  \frac{d}{dt}C(t) &= - (L+M^*)\esc C^{-1}(0)\esc C(t) \nonumber \\
+                     &\equiv \Lambda^*\esc C(t)
+  \nonumber
+\end{align}
+\item For a linear Markovian theory the only possibility for a correlation is to decay in an exponential matrix way
+\begin{align}
+  C(t)=\exp\{-\Lambda^* (t-\tau)\}\esc C(\tau)
+\nonumber
+\end{align}
+\item {\bf We need to find a constant matrix $\boldsymbol{\Lambda^*}$}.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Simpler case: unconfined fluid}
+  \begin{center}
+  \begin{itemize}
+  \item The system
+  \begin{figure}
+    \includegraphics[width=0.5\linewidth]{temp_wo_walls}
+    \includegraphics[width=0.5\linewidth]{temp_wo_walls_w_layers2}
+\end{figure}
+\item The relevant variable
+\begin{align}
+  \hat{\bf g}_\mu(z)= \sum_i^N{\bf p}_i\delta_\mu({\bf r}_i)
+%  i{\cal L}  \hat{g}_{\mu}(z)=-\frac{\hat{\sigma}^{xz}_{\mu}-\hat{\sigma}^{xz}_{\mu-1}}{\Delta z}
+\nonumber
+\end{align}
+\end{itemize}
+  \end{center}
+\end{frame}
+
+ \begin{frame}{Simulation set up}
+   \begin{itemize}
+     \item Simulation of $28749$ particles interacting with a LJ potential truncated at $\sigma=2.5$.
+     \item Box size $40x40x30$.
+     \item $dt=0.002$ in reduced units.
+     \item Equilibration stage
+       \begin{itemize}
+         \item Langevin thermostat for $10^5$ timesteps: $T=2.0$, $\rho=0.6$.
+         \item NVE microcanonical conditions for a further $10^5$ timesteps.
+          \end{itemize}
+        \item Production stage
+       \begin{itemize}
+         \item $1.5\times10^6$ timesteps.
+         \item $z$ axis binned in $60$ bins $\mu$. {$\boldsymbol{\Delta} {\bf z=0.5}\boldsymbol{\sigma}$}.
+         \item $g_{\mu}^x(t)$ recorded every $10$ timesteps.
+         \end{itemize}
+     \end{itemize}
+ \end{frame}
+
+ \begin{frame}{Building the correlation matrix $C(t)$}
+\begin{figure}[h!]
+\includegraphics[width=\linewidth]{lammps-python}
+\end{figure}
+ \end{frame}
+ 
+ \begin{frame}{The correlation matrix $C(t)$ and its eigenvalues $\tilde{C}_{\mu\mu}$}
+   \begin{itemize}
+ \item
+   The correlation matrix $C(t)$ at $t=0$ (left) and $t=0.6$ (right)
+\begin{figure}[h!]
+\includegraphics[width=\linewidth]{Ct-matrix-PBC}
+\end{figure}
+\item  The evolution of the different eigenvalues $\tilde{C}_{\mu\mu}(t)$. %The horizontal  line  at  the   value  $2\times10^{-5}$,  signaling  the
+  %threshold below which statistical errors give spurious results.
+\begin{figure}[h!]
+  \includegraphics[width=\linewidth]{CtFourier-PBC-exp}
+\end{figure}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Validation of the Markovian approximation}
+\begin{figure}[h!]
+\includegraphics[width=\linewidth]{LambdatFourier-PBC-defense}
+\end{figure}
+In  the left  panel, in
+  ascending  order the  plotted times  go  from $t=0$  to $t=0.20$  in
+  intervals of $0.02$.  In the right pannel the time evolution of $\tilde{\Lambda}_{\mu\mu}(t)$.
+\end{frame}
+
+\section{Markovian behaviour near solids}
+\begin{frame}
+\begin{itemize}
+  \item The system
+\begin{figure}
+    \centering
+    \includegraphics[width=0.45\linewidth]{PRL3_gold2_wo_layers_wo_diffuse}
+    \includegraphics[width=0.45\linewidth]{PRL3_gold2_wo_diffuse}
+\end{figure}
+\item The CG variable and its correlation
+\begin{align}
+  \hat{\bf g}^x_\mu= \sum_i^N{\bf p}_i\delta_\mu({\bf q}_i), && 
+  \hat{g}^T=(\hat{\bf   g}^x_1,\cdots,\hat{\bf  g}^x_{N_{\rm   bin}}), &&
+  C(t)=\llangle \hat{g}(t) \hat{g}^T\rrangle 
+\nonumber
+\end{align}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Simulation set up}
+   \begin{itemize}
+     \item Simulation of $28175$ fluid particles interacting with a LJ potential truncated at $\sigma=2.5$.
+     \item Two solid walls in the $xy$ plane confine the fluid.  
+     \item Box size $40x40x33$. 
+     \item $dt=0.002$ in reduced units.
+     \item Equilibration stage
+       \begin{itemize}
+         \item Langevin thermostat for $10^5$ timesteps: $T=2.0$, $\rho=0.6$.
+         \item NVE microcanonical conditions for a further $10^5$ timesteps.
+          \end{itemize}
+        \item Production stage
+       \begin{itemize}
+         \item $12\times10^6$ timesteps.
+         \item $z$ axis binned in $66$ bins $\mu$ $\boldsymbol{\Delta} {\bf z=0.5}\boldsymbol{\sigma}$ or $33$ bins $\mu$ $\boldsymbol{\Delta} {\bf z=2} \boldsymbol{\sigma}$.
+         \item $g_{\mu}^x(t)$ recorded every $2$ timesteps. 
+         \end{itemize}
+     \end{itemize}
+\end{frame}
+
+\begin{frame}{Reciprocal space}
+  \begin{itemize}
+    \item Eigenvalues $\tilde{C}_{\mu}$ and eigenvectors $u_{\mu}$
+\begin{align}
+  C(t)&=\sum_\mu^{N_{\rm bin}}\tilde{C}_\mu(t) u_\mu(t) \otimes u_\mu^T(t)
+\nonumber
+\end{align}
+    \item Unitary matrix $E(t)$
+\begin{align}
+  E^{-1}(t)\esc C(t)\esc E(t)=\tilde{C}(t)
+\nonumber
+\end{align}
+\item We observed that $\dot{E}\simeq 0$.
+\item The predictions of $C(t)$ in the reciprocal space
+\begin{align}
+  \tilde{C}_\mu(t)&=\exp\{-\tilde{\Lambda}_{\mu\mu} (t-\tau)\}  \tilde{C}_\mu(\tau)
+  \nonumber
+\end{align}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Thin bins ($\Delta z=0.5\sigma$)}
+  \begin{itemize}
+    \item $C_{\mu\nu}(t)$ for  $t=0$ (left) and $t=0.6$ (right).
+\begin{figure}[h!]
+\includegraphics[width=\linewidth]{Ct-matrix-WALLS-66nodes}
+\end{figure}
+\item Evolution of different eigenvalues $\tilde{C}_{\mu\nu}(t)$
+\begin{figure}[h!]
+  \includegraphics[width=\linewidth]{CtRec-WALLS-66nodes-exp}
+\end{figure}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{$\tilde{\Lambda}(t)$ ($\Delta z=0.5\sigma$)}
+Diagonal elements  $\tilde{\Lambda}_{\mu\mu}(t)$ of $\Lambda(t)$ in the reciprocal space. After a time $\tau=0.2$ we observe a nice plateau for the lower modes. 
+\begin{figure}[h!]
+\includegraphics[width=0.5\linewidth]{LambdatRec-WALLS-66nodes}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Eigenvalues and eigenvectors near the walls ($\Delta z=0.5\sigma$)}
+    The eigenvalues $\tilde{C}_{\mu}(t)$ of the correlation matrix $C(t)$ for $\mu=59,60$ which are identical and superimpose (left) and the corresponding eigenvectors $u_{\mu}$ in blue and orange, respectively (right).
+  \begin{figure}[h!]
+\includegraphics[width=0.5\linewidth]{EigenvaluesVectors-WALLS-66nodes}
+\end{figure}
 \end{frame}
 
 \end{document}
