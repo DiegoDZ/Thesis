@@ -14,6 +14,7 @@
 \usepackage{psfrag}
 \usepackage{afterpage}
 \usepackage{hyperref}
+
 \usepackage{tikz}
 \captionsetup[figure]{font=footnotesize,labelfont=footnotesize,labelfont=bf}
 \captionsetup[table]{font=footnotesize,labelfont=footnotesize,labelfont=bf}
@@ -21,6 +22,9 @@
 %To use a kind of times new roman font style
 \usepackage{mathptmx}
 \usepackage{newtxtext,newtxmath}
+\newcommand{\new}[1]{{\color{blue}#1}}
+\newcommand{\del}[1]{{\color{red}#1}}
+
 \usepackage[titletoc]{appendix}
 \newcommand\blankpage{% comando pagina vuota
 \clearpage
@@ -233,44 +237,54 @@ Finally, to Claudia. Thanks not only for being by my side in the good moments bu
 %\addcontentsline{toc}{section}{Abstract} % si queremos que aparezca en el índice
 \pagestyle{noHeader}  %define page style for the chapters
 \markboth{Abstract}{Abstract} % encabezado
-This dissertation studies the behaviour of a fluid in contact with a solid in the nanoscale. We will derive, using the Theory of Coarse-Graining (ToCG), the equations of motion of a fluid in contact with a solid sphere of large dimensions compared to molecular scales. 
-We will use the Kawasaki-Gunton projection operator technique which let us to obtain a set of nonlinear equations for the relevant variables of the system. We will imposse the Markovian approximation in order to obtain a set of memoryless equations.
-We will address the well-known plateau problem  that appears in the expressions of the transport coefficients present in the equations of motion of the fluid in contact with a solid. To avoid it we will obtain an alternative expression for the transport coefficients without the plateau problem. 
 
-In order to validate the theory and measure the transport coefficients with Molecular Dynamics (MD) simulations, we will derive the discrete equations of motion from a set of discrete hydrodynamic variables. To address it we will divide the system along the perpendicular axis of the surface of the solid walls in bins of a certain width separated by nodal planes. The discrete variables will be defined in that bins or nodes in a way that will be explain elsewhere.
-We will show that these discrete equations may be interpreted as a discretization of the continuum equations using the Petrov-Galerkin finite element method.  
+This dissertation studies the behaviour of a fluid in contact with a solid in the nanoscale. Theoretical formulations of non-local continuum and discrete hydrodynamics are presented in which the interaction of the solid with the fluid appears explicitly in terms of extended forces on the fluid, confined to the vicinity of the solid object. The discrete theory is validated through MD simulations, where we encounter the plateau problem in the determination of the transport coefficients. We offer a method that solves the problem and allows us to evaluate the transport coefficients unambigously. In the course of the MD investigation we find that the Markovian assumption implicit in the theoretical derivations is not satisfied near the wall when the hydrodynamics is resolved at molecular scales. However, for sufficiently large bins in which the discrete hydrodynamic variables are defined the behaviour is fully Markovian. The final outcome of the present dissertation is the derivation of the slip boundary condition from the microscopically formulated discrete hydrodynamic theory. The slip length and the position of the wall are defined through Green-Kubo formulas and seen to coincide with the original proposal of Bocquet and Barrat. We test the validity of the slip boundary condition thus obtained in a particularly challenging flow, an initial plug flow that is discontinuous near the wall at initial stages of the flow. We observe that the slip boundary condition is violated at the initial stages of the flow and we explain the reasons for this failure.
 
-The only assumption to derive the equations of motion of the fluid is the Markovian hypothesis. In order to validate it, we will use the Mori theory which let us to obtain the time evolution of the correlation of the relevant variales of the system. 
-We will see that only for an exponential decay of the correlations the hypothesis is valid. 
-%This only occurs when the size of the bins is sufficiently large but not for thin bins of the order of the molecular lenght.  
+More specifically,we derive, using the Theory of Coarse-Graining (ToCG), the equations of motion of a fluid in contact with a solid sphere of large dimensions compared to molecular scales. 
+We use the Kawasaki-Gunton projection operator technique which leads to a set of nonlinear equations for the relevant variables of the system. We assume the Markovian approximation in order to obtain a set of memoryless equations.
+We address the well-known plateau problem  that appears in the expressions of the transport coefficients present in the equations of motion of the fluid in contact with a solid. 
+We solve this problem and we obtain an alternative expression for the transport coefficients without the plateau problem. 
 
-As a first step to address the problem of markovianity we will study the simpler case performing MD simulations of a fluid in periodic boundary conditions (PBC). We will monitor the relevant variales of the system in order to compute their correlations. 
-We will realize that is necessary to move to the reciprocal space (i.e. the Fourier space for unconfined fluids) in order to validate the Markovian hypothesis. Only for an exponential decay of the modes of the matrix of correlations we can expect the hypothesis to be valid. 
+In order to validate the theory and measure the transport coefficients with Molecular Dynamics (MD) simulations, we derive the discrete equations of motion for a set of discrete hydrodynamic variables. 
+These variables are defined in terms of finite element basis functions based on regular bins constructed by dividing the domain of the fluid with equiespaced parallel planes. The discrete set of hydrodynamic equations are shown to be identical to a Petrov-Galerkin discretization of the continuum equations.
 
-Once the methodology is well established in order to address a more complicated system, we will perform MD simulations of a confined fluid between two solid slabs. We will show that if the size of the bin is of the order of the molecular lenght the Markovian hypothesis is not true for modes near the walls. Nevertheless, for large bins the hypothesis is accomplished but the nonlocal effect of layering is lost. 
+The only assumption made in order to derive the equations of motion of the fluid is the Markovian hypothesis. In order to validate it, we use  Mori theory which let us obtain the time evolution of the correlation of the relevant variables of the system. 
+%This only occurs when the size of the bins is sufficiently large but not for thin bins of the order of the molecular length.  
+The equations are linear, implying an exponential behaviour of the correlation. We take deviations from exponential decay as an indication of the violation of the Markovian hypothesis.
 
-Finally, we will measure the slip boundary condition from a microscopic definition of the slip lenght and the hydrodynamic position of the atomic wall. We will show that the expression we obtain is the one given by Bocquet and Barrat \cite{Bocquet1994}. We will demonstrate that the friction coefficient is a an intrinsic property of the surface of the solid because it does not depend on the size of the channel. 
+As a first step to address the problem of Markovianity we study the simpler case of a fluid in periodic boundary conditions (PBC) by  performing MD simulations. We monitor the relevant variales of the system  and compute their correlations. 
+We realize that is necessary to move to the reciprocal space (i.e. the Fourier space for unconfined fluids) in order to validate the Markovian hypothesis. Only for an exponential decay of the modes of the matrix of correlations we can expect the hypothesis to be valid. 
+
+Once the methodology is well established we address the more complicated case of a confined fluid between two solid slabs.
+ We show that if the size of the bin is of the order of the molecular length the Markovian hypothesis fails for modes near the walls. Nevertheless, for large bins the hypothesis is satisfied but the nonlocal effect of layering is lost. 
+
+
+Finally, we derive the slip boundary condition from the theory proposed, by considering mechanical balance within a slab of fluid near the wall, and assuming that the flow field inside this slab is linear. This allows to infer the slip length and the position of the wall where the boundary condition is to  be satisfied in microscopic terms, through Green-Kubo expressions. The microscopic expression obtained coincides with the original proposal by Bocquet and Barrat \cite{Bocquet1994}. We demonstrate that the friction coefficient is an intrinsic property of the surface of the solid as it does not depend on the width of the channel.
 
 \chapter*{Resumen} % si no queremos que añada la palabra "Capitulo"
 %\addcontentsline{toc}{section}{Resumen} % si queremos que aparezca en el índice
 \markboth{Resumen}{Resumen} % encabezado
-Esta tesis doctoral se centra en el estudio del comportamiento de un fluido en contacto con un sólido a escala nanoscópica. 
-Derivaremos, empleando la Teoría del \textit{Coarse-Graining} (ToCG), las ecuaciones de movimiento de un fluido en contacto con una esfera sólida de dimensiones grandes comparadas con escalas moleculares, de tal manera que la superficie de la esfera pueda ser aproximada a una pared plana. 
-Suponiendo un comportamiendo markoviano del fluido, obtendremos, mediante la técnica del operador de proyección de Kawasaki-Gunton, un conjunto de ecuaciones de las variables relevantes del sistema sin términos de memoria. 
-Abordaremos el problema del \textit{plateau} que sufren las fórmulas de Green-Kubo presentes en los coeficientes de transporte de las ecuaciones de movimiento del fluido ofreciendo una expresión alternativa de dichas fórmulas sin el problema del \textit{plateau}.  
+Esta tesis aborda el estudio del comportamiento de un fluido en contacto con un sólido en la nanoescala. 
+Se presenta una formulación teórica continua no local, así como su versión discreta, en la que la interacción del sólido con el fluido aparece explícitamente en términos de fuerzas confinadas cerca del sólido. 
+La teoría discreta es validada a través de simulaciones de dinámica molecular, en donde nos encontramos con el problema del \textit{plateau} que aparece a la hora de determinar los coeficientes de transporte. 
+Con el fin de obtener dichos coeficientes sin el problema del \textit{plateau}, ofrecemos un método alternativo para su obtención. 
+A través de simulaciones de dinámica molecular mostramos que la hipótesis de Markovianidad implícita en la derivación teórica no es satisfecha cerca de la pared del sólido cuando la hidrodinámica es resuelta a escalas moleculares. Sin embargo, para celdas de discretización mayores, en los cuales están definidas las variables de la hidrodinámica discreta, el comportamiento es perfectamente Markoviano. Por último, derivamos la condición de contorno de slip partiendo de la formulación microscópica de la teoría hidrodinámica discreta. La longitud de \textit{slip} y la posición de la pared son definidas a través de las fórmulas de Green-Kubo y coincide con la propuesta original de Bocquet y Barrat. Validamos la condición de contorno de \textit{slip} en un fluido tipo \textit{plug flow} que es discontinuo cerca de la pared en sus primeras etapas. Observamos que la condición de contorno de \textit{slip} no se cumple para etapas iniciales del fluido y explicamos las razones de esa inconsistencia. 
 
-Para validar la teoría y poder medir los coeficientes de transporte mediante simulaciones de dinámica molecular, derivaremos las ecuaciones de la nanohidrodinámica a partir de un conjunto de variables hidrodinámicas discretas. 
-Para ello dividiremos el sistema a lo largo del eje perpendicular a la superficie de las paredes en una serie de láminas o celdas rectangulares de un grosor determinado separadas por planos nodales, de tal manera que las variables puedan ser definidas en dichas celdas o planos nodales.  
-Con el fin de verificar que los acercamientos de arriba-abajo y de abajo-arriba coinciden, mostraremos que las ecuaciones obtenidas pueden ser interpretadas como una discretización de las ecuaciones continuas mediante el método de Petrov-Galerkin de elementos finitos.  
+Más especificamente, empleando la Teoría del \textit{Coarse-Graining} (ToCG) derivamos las ecuaciones de movimiento de un fluido en contacto con una esfera sólida de grandes dimensiones comparada con escalas moleculares. Empleamos la técnica de los operadores de proyección de Kawasaki-Gunton  para obtener un conjunto de exuaciones no lineares de las variables relevantes del sistema. Asumimos la aproximación Markoviana para obtener un conjunto de ecuaciones sin términos de memoria. 
+Abordamos el problema del \textit{plateau} que sufren las fórmulas de Green-Kubo presentes en los coeficientes de transporte de las ecuaciones de movimiento del fluido ofreciendo una expresión alternativa de dichas fórmulas sin el problema del \textit{plateau}.  
 
-La hipótesis de markovianidad es la única aproximación realizada para derivar las ecuaciones de la hidrodinámica. Para validarla emplearemos la teoría de Mori que nos ofrece una expresión de la evolución temporal de las correlaciones de las variables relevantes del sistema. Veremos que la hipótesis markoviana es válida siempre y cuando las correlaciones decaigan de forma exponencial.
+Para validar la teoría y poder medir los coeficientes de transporte mediante simulaciones de dinámica molecular, derivamos las ecuaciones de la nanohidrodinámica a partir de un conjunto de variables hidrodinámicas discretas. Estas variables son definidas en términos de funciones base de elemento finito definidas en celdas regulares construidas mediante la división del dominio del fluido en planos paralelos equiespaciados. El conjunto de ecuaciones discretas obtenido es idéntico al que se obtiene mediante el método de Petrov-Galerkin.
+%Para ello dividiremos el sistema a lo largo del eje perpendicular a la superficie de las paredes en una serie de láminas o celdas rectangulares de un grosor determinado separadas por planos nodales, de tal manera que las variables puedan ser definidas en dichas celdas o planos nodales.  
+%Con el fin de verificar que los acercamientos de arriba-abajo y de abajo-arriba coinciden, mostraremos que las ecuaciones obtenidas pueden ser interpretadas como una discretización de las ecuaciones continuas mediante el método de Petrov-Galerkin de elementos finitos.  
 
-Como primer paso para abordar el problema de la markovianidad estudiaremos el caso más sencillo posible, realizando simulaciones de dinámica molecular de un fluido no confinado en las cuales iremos monitorizando las variables relevantes del sistema con el fin de calcular sus correlaciones temporales. 
-Observaremos que para el estudio de la markovianidad será conveniente trasladarse al espacio recíproco (en el caso de un fluido en condiciones de contorno periódicas se trata del espacio de Fourier) y comprobar si los modos de la matriz de correlaciones decaen o no de forma exponencial. 
+La hipótesis de Markovianidad es la única aproximación realizada para derivar las ecuaciones de la hidrodinámica. Para validarla empleamos la teoría de Mori que nos ofrece una expresión de la evolución temporal de las correlaciones de las variables relevantes del sistema. Se muestra que la hipótesis Markoviana es válida siempre y cuando las correlaciones decaigan de forma exponencial.
 
-Tras establecer la metodología adecuada para tratar el problema, realizaremos simulaciones de dinámica molecular de un fluido confinado entre dos paredes sólidas. Descubriremos que para una anchura de celda del orden de la distancia molecular la hipótesis de markovianidad no se cumple para los modos cercanos a la pared. Sin embargo, para celdas más anchas la hipótesis es validada a expensas de perder efectos de \textit{layering}. 
+Como primer paso para abordar el problema de la Markovianidad estudiamos el caso más sencillo posible, realizando simulaciones de dinámica molecular de un fluido no confinado en las cuales se monitorizan las variables relevantes del sistema con el fin de calcular sus correlaciones temporales. 
+Observamos que para el estudio de la Markovianidad es conveniente trasladarse al espacio recíproco (en el caso de un fluido en condiciones de contorno periódicas se trata del espacio de Fourier) y comprobar si los modos de la matriz de correlaciones decaen o no de forma exponencial. 
 
-Mediremos la condición de contorno de \textit{slip} a partir de una definición microscópica de la longitud de \textit{slip} y de la posición hidrodinámica de la pared atómica. Comprobaremos que la expresión obtenida es la ofrecida por Bocquet y Barrat \cite{Bocquet1994} y demostraremos que el coeficiente de fricción es una propiedad intrínseca de la superficie puesto que la distancia de \textit{slip} no depende del tamaño del canal empleado. 
+Tras establecer la metodología adecuada para tratar el problema, realizamos simulaciones de dinámica molecular de un fluido confinado entre dos paredes sólidas. Mostramos que para una anchura de celda del orden de la distancia molecular la hipótesis de Markovianidad no se cumple para los modos cercanos a la pared. Sin embargo, para celdas más anchas la hipótesis es validada a expensas de perder efectos de \textit{layering}. 
+
+Finalmente, medimos la condición de contorno de \textit{slip} a partir de una definición microscópica de la longitud de \textit{slip} y de la posición hidrodinámica de la pared atómica. Comprobamos que la expresión obtenida es la ofrecida por Bocquet y Barrat \cite{Bocquet1994} y demostramos que el coeficiente de fricción es una propiedad intrínseca de la superficie puesto que la distancia de \textit{slip} no depende del tamaño del canal empleado. 
 
 
 \chapter*{Notation, conventions and quotes}
@@ -310,7 +324,7 @@ Six month before the release of the film, Isaac Asimov published the homonymous 
 In both book and movie, a group of scientists, one American intelligence agent, and a pilot are placed inside a submarine called Proteus before being miniaturized to the size of a microbe ($\sim 0.5 \mu m$). The objetive is to inject Proteus into the body of an important scientist affected by a cloot blood in his brain that no traditional surgery can remove. The group will have only one hour before the effect of the miniaturization passes.  
 
 As well as in other areas, the reality outdoes fiction. 
-Nanothecnology applied to medical devices is a reality. In the last 20 years there has been a rapidly increase in the nanotechnology patents \cite{Zheng2014} and there is a huge interest in the development of new nanomaterials to treat and diagnose cancer \cite{Nazir2014, Dreaden2012, Kievit2011}. 
+Nanothecnology applied to medical devices is a reality. In the last 20 years there has been a rapid increase in the number of nanotechnology patents \cite{Zheng2014} and there is a huge interest in the development of new nanomaterials to treat and diagnose cancer \cite{Nazir2014, Dreaden2012, Kievit2011}. 
 
 %Del paper planar
 This   advances  in   miniaturization  and   the  development   of  new
@@ -383,7 +397,7 @@ This assumption gives the correct predictions for macroscopic flows of
 Newtonian  fluids.  However,  as the  length scale  of observation  is
 reduced  toward   the  micro  and   nanoscale,  a  large   number  of
 experimental   \cite{Lauga2005}   and  computer   simulation   studies
-\cite{Koplik1995} has shown that the fluid may actually slip along the
+\cite{Koplik1995} have shown that the fluid may actually slip along the
 container walls  \cite{KarniadakisBook2005}.  The  first consideration
 of this possibility was made  by Navier \cite{Navier1827}, who proposed
 a  boundary condition  in  which the  shear stress  is  balanced by  a
@@ -540,26 +554,26 @@ friction forces and velocities \cite{Hansen2011}, where the meaning of
 this quantities is often understood implicitly.
 \end{enumerate}
 
-Given this mess in the derivation of the slip boundary condition, in this dissertation we address the slip problem from first principles. Following the work by Robertson \cite{Robertson1966} and Piccirelli \cite{Piccirelli1968}, who derived the hydrodynamic equations from the microscopic dynamics of a fluid, we obtain a set of continuum equations which describe the behaviour of a fluid in contact with a solid with the Markovian approximation as the only assumption. 
+Given this the unclear state of affairs in the derivation of the slip boundary condition, in this dissertation we address the slip problem from first principles. Following the work by Robertson \cite{Robertson1966} and Piccirelli \cite{Piccirelli1968}, who derived the hydrodynamic equations from the microscopic dynamics of a fluid, we obtain a set of continuum equations which describe the behaviour of a fluid in contact with a solid with the Markovian approximation as the only assumption. 
 Because the validation of the theory is only possible through MD simulations, we derive the discrete equations with the same methodology as in continuum theory. 
 A cross-check is given using a Petrov-Galerkin  finite element discretization method in order to obtain from the continuum equations the resulting discrete equations previously derived.  
-Once we have the discrete equations, we address the study of the markovian behaviour of the simplest case (i.e. a fluid in periodic boundary conditions). We restrict the study to planar dynamics monitoring only the transverse momentum component. We use the same methodology to study the markovian behaviour of a confined fluid between two parallel solid slabs and we show how the marovian approximation is only valid when the size of the bin is bigger than the molecular length. Finally, we measure the transport coefficients that appear in the hydrodynamic equations in order to validate the theory. 
+Once we have the discrete equations, we address the study of the Markovian behaviour of the simplest case (i.e. a fluid in periodic boundary conditions). We restrict the study to planar dynamics monitoring only the transverse momentum component. We use the same methodology to study the Markovian behaviour of a confined fluid between two parallel solid slabs and we show how the marovian approximation is only valid when the size of the bin is bigger than the molecular length. Finally, we measure the transport coefficients that appear in the hydrodynamic equations in order to validate the theory. 
 After that, the slip boundary condition is measured from a microscopic definition of the slip length and the position of the atomic wall.
 In contrast with the conclussion of Petravic and Harrowell \cite{Petravic2007}, we obtain, as Bocquet and Barrat \cite{Bocquet1994}, that the slip length is an intrinsic surface property. That means that it does not depend on the geometry of the channel. 
 
 This dissertation is structured as follows. 
-In the first chapter we review NESM in order to state the foundations in which the following chapters are based. 
+In the Chapter 1 we review NESM in order to state the foundations in which the following chapters are based. 
 We introduce two projection operator that allows us to obtain hydrodynamic equations: the Kawasaki-Gunton projector \cite{Kawasaki1973} and the Mori projector \cite{Mori1965}.  The first one allows one to obtain  nonlinear closed equations
-for  the  averages  of   the  selected  variables of the system, while under the Mori theory one obtains simple equations not only for the averages of the relevant variables, but also for their correlation functions. 
+for  the  averages  of   the  selected  variables of the system, while under the Mori theory one obtains simple linear equations not only for the averages of the relevant variables, but also for their correlation functions. 
 
-In the second chapter, we derive the hydrodynamic equations of a fluid in contact with a solid. In order to discuss total momentum conservation we choose a macroscopic solid sphere. 
+In Chapter 2, we derive the hydrodynamic equations of a fluid in contact with a solid. In order to discuss total momentum conservation we choose a macroscopic solid sphere. 
 To do so, we derive DDFT for a simple fluid including the mass and the momentum density field.
 We use the Kawasaki-Gunton operator technique to obtain the equations of motion of the time dependent average of these fields assuming the Markovian approximation. 
 The resulting equations contain transport coefficients given by  Green-Kubo formulas, which suffer from the plateau problem when the separation of timescales is not large.  
 This well-known problem arises because the Green-Kubo running integral appearing in the expressions of the tranport coefficients decays as the correlation of the selected coarse-grained (CG) variables when the projected dynamics is approximated by the unprojected Hamiltons dynamics. 
 
-The third chapter is a derivation from macrocopic principles of the discrete equations of hydrodynamics in the presence of a planar wall. 
-We bin the system in slabs as is shown in Figure \ref{fig:WallsBox1}. The yellow lanes are called {\it nodes} and they separated the {\it bins} in which the system is binned. We start from a discrete mass and momentum densities fields defined in the nodal planes in order to derive the hydrodynamic equations with the Kawasaki-Gunton projector. Also we validate the final discrete equations  with a discretization of the continumm hydrodynamic equations using the Petrov-Galerkin finite element discretization method.   
+Chapter 3 contains the derivation from microscopic principles of the discrete equations of hydrodynamics in the presence of a planar wall. 
+We bin the system in slabs as is shown in Figure \ref{fig:WallsBox1}. The yellow planes are called {\it nodes} and they separated the {\it bins} in which the system is binned. We start from a discrete mass and momentum densities fields defined in the nodal planes in order to derive the hydrodynamic equations with the Kawasaki-Gunton projector. Also we observe that the final discrete equations  are identical to a discretization of the continumm hydrodynamic equations using the Petrov-Galerkin finite element discretization method.   
 The main objetive of this chapter is to obtain the discrete transport coefficients in order to compute them with MD simulations. 
 \begin{figure}
     \centering
@@ -569,20 +583,20 @@ The main objetive of this chapter is to obtain the discrete transport coefficien
     \label{fig:WallsBox1}
 \end{figure}
 
-In the first part of the fourth chapter the plateau problem is adressed in order to obtain, within Mori projection operator formulation, an alternative expression for the transport coefficients with a corrected Green-Kubo expression with no plateau problem. 
-The corrected Green-Kubo expression is crucial for this dissertation because the results of the chapters \ref{Chap:PBC}, \ref{Chap:Walls} and \ref{Chap:Slip} are based on this new corrected Green-Kubo expresion. 
+In the first part of Chapter 4 the plateau problem is adressed in order to obtain, within Mori projection operator formulation, an alternative expression for the transport coefficients with a corrected Green-Kubo expression with no plateau problem. 
+The corrected Green-Kubo expression is crucial for this dissertation because the results of Chapters \ref{Chap:PBC}, \ref{Chap:Walls} and \ref{Chap:Slip} are based on this new corrected Green-Kubo expresion. 
 
-In the second part of this chapter the correlation matrix of the discrete transverse momentum density field is studied through MD simulations in order to determine to what extent the Markovian approximation is valid with a nonlocal space description of hydrodynamics. 
-The goal is to understand a simpler case before moving to a system more complicated such as a fluid confined between two solid walls. 
-One important learning about this chapter is that we have to consider to the reciprocal space (i.e. the Fourier space in the case of unconfined systems) to discuss unambiguously the Markov property.
-The method followed in this chapter will be extrapolated to the study of  confined fluids. 
+In the second part of Chapter 4 the correlation matrix of the discrete transverse momentum density field is studied through MD simulations in order to determine to what extent the Markovian approximation is valid with a nonlocal space description of hydrodynamics. 
+The goal is to understand a simpler case before moving to the more complicated case of a fluid confined between two solid walls. 
+One important learning about this chapter is that we have to consider the reciprocal space (i.e. the Fourier space in the case of unconfined systems) to discuss unambiguously the Markov property.
+The method followed in this chapter will be also used for the study of  confined fluids. 
 
 In Chapter \ref{Chap:Walls} MD simulations are performed to compute the correlation matrix of the discrete transverse momentum density field of a fluid between two solid slabs. 
 Because the objetive of this chapter is to study the effect of the size of the bin on the Markovian behaviour near the solid walls, the system is discretized using two size of the bins. We realize that for bins smaller than the molecular size the description near the walls can not be Markovian, while for larger bins the description can be deemed Markovian.  
 
-Finally, in the last chapter  the nonlocal transport kernels that appear in the discrete theory presented in the third chapter are measured through MD simulations. 
+Finally, in Chapter 6  the nonlocal transport kernels that appear in the discrete theory presented in  Chapter 3 are measured through MD simulations. 
 We use the corrected Green-Kubo expression in order to avoid the plateu problem. 
-The main result of this chapter is the calculation of the slip length and the location of the hydrodynamic position of the atomic wall. We conclude that the slip lenght does not depend on the size of the channel and, therefore, it is a intrinsic surface property.  
+The main result of this chapter is the calculation of the slip length and the location of the hydrodynamic position of the atomic wall. We conclude that the slip length does not depend on the size of the channel and, therefore, it is a intrinsic surface property.  
 
 
 %\section{Objetives reached in this dissertation}
@@ -618,7 +632,7 @@ The main result of this chapter is the calculation of the slip length and the lo
 %
 %Finally, the objetive of the last publication of this series, {\it Discrete hydrodynamics IV: The slip boundary condition}, is to measure through MD simulations the nonlocal transport kernels that appear in the discrete theory presented in the first part of the series. 
 %We use the corrected Green-Kubo expression in order to avoid the plateu problem. 
-%The main result of this publication is the calculation of the slip length and the location of the hydrodynamic position of the atomic wall. We conclude that the slip lenght does not depend on the size of the channel and, therefore, it is a intrinsic surface property.  
+%The main result of this publication is the calculation of the slip length and the location of the hydrodynamic position of the atomic wall. We conclude that the slip length does not depend on the size of the channel and, therefore, it is a intrinsic surface property.  
 % 
 
 
@@ -636,26 +650,28 @@ The main result of this chapter is the calculation of the slip length and the lo
 \section{Introduction}
 It was in the nineteen century when Statistical Mechanics was born mainly because of the work of Ludwing Boltzmann and Josiah Willard Gibbs. The goal was to reconcile Thermodynamics with the microscopic laws known at that time. 
 
-Thermodynamics was well-established because it draws its concepts from experiments while the attemps to understand it from the Newton's laws collided with problems such as the imposibility of taking into account the interactions between all the particles of a thermodynamic system, the highly nontrivial form of theses interactions, the huge number of degrees of freedom or the Loschmidt's paradox\footnote{The second law of thermodynamics establishes that the entropy of an isolated system increases with time. This can be understood as a time direction imposed by the increasing of the entropy. Furthermore, Newton's laws are reversible. According to Josef Loschmidt this apparently conflict could be the responsible of the imposibility to derive the laws of the thermodynamics from the microscopic laws.}. 
+Thermodynamics was well-established because it draws its concepts from experiments while the attemps to understand it from the Newton's laws collided with problems such as the imposibility of taking into account the interactions between all the particles of a thermodynamic system, the highly nontrivial form of theses interactions, the huge number of degrees of freedom, or the Loschmidt's paradox\footnote{The second law of thermodynamics establishes that the entropy of an isolated system increases with time. This can be understood as a time direction imposed by the increasing of the entropy. Furthermore, Newton's laws are reversible. According to Josef Loschmidt this apparently conflict could be the responsible of the imposibility to derive the laws of the thermodynamics from the microscopic laws. Boltzman refuted the argument brilliantly.}. 
 To avoid these problems physicists realized that the macro properties of a thermodynamic system does not strongly depend on the exact dynamics of every particle, but more on the averages that eventually erode the details of the behaviour of the particles. 
-Thus, the link between the microscopic and macroscopic theory of matter can be stated through statistical techniques to the microscopical mechanics laws. 
-The connection is possible to the notion of \textit{ensemble}, which is a collection of imaginary systems with a set of common macroscopic properties.  
+Thus, the link between the microscopic and macroscopic theory of matter can be stated through statistical assumptions in the microscopical mechanics laws. 
+The connection is possible thanks to the notion of \textit{ensemble}, which is a collection of imaginary replicas of the system with a set of common macroscopic properties.  
 
 Statistical Mechanics is a theoretical framework which allows one to study the macro-properties of a many-body system from the dynamics of its microcopic constituents.
-Therefore, we may roughly say that Statistical Mechanics acts as a bridge between two levels of description: {\it microscopic level} governed by the Newton's laws of motion and the {\it macroscopic level} in which the knowledge is adquired from the experiments.
+Therefore, we may roughly say that Statistical Mechanics acts as a bridge between two levels of description: A {\it microscopic level} governed by the Newton's laws of motion and the {\it macroscopic level} in which the knowledge is adquired from the experiments.
 A beautiful but rough example about how Statistical Mechanics works can be found in the book of Dean Rickles {\it Philosophy of Physics} \cite{Rickles2016}.
 He imagines a large musical ensemble playing in concert.
 The ``global'' sound produced by the musicians is analogue to the thermodynamic variables obtained from the colisions between the particles in the system. 
-The music can me analized from two levels: the global level, where the harmony and the musical form take an important role, and the individual level, in which we focus in what the musicians are playing to produce the global sound. ``Is this zooming in and out'', in words of Rickles, ``from the whole system to its parts, that characterizes the relationship between statistical mechanics and thermodynamics: you won't see harmonies in a single bassoon; likewise, you won't see pressure or temperature in an individual molecule.''
+The music can be analized from two levels: the global level, where the harmony and the musical form take an important role, and the individual level, in which we focus in what the musicians are playing to produce the global sound. ``Is this zooming in and out'', in words of Rickles, ``from the whole system to its parts, that characterizes the relationship between statistical mechanics and thermodynamics: you won't see harmonies in a single bassoon; likewise, you won't see pressure or temperature in an individual molecule.''
 
 The equilibrium theory of Statistical Mechanics provides an interpretation for the equilibrium thermodynamic systems from a molecular point of view. The models that allow us to reproduce real systems are the well-known microcanonical, canonical, and grand canonical ensembles. These ensembles are idealizations. They does not reproduce exactly real experiments, but give us useful information about them. 
-However, most of the phenomena present in the Nature are in nonequilibrium in the timescale of our observation. A nonequilibrium system may be modeled perturbating an equilibrium ensemble that forces the system to not relax to equilibrium.  
+However, most of the phenomena present in the Nature are in nonequilibrium in the timescale of our observation. A nonequilibrium system may be modeled perturbating an equilibrium ensemble that forces the system out of equilibrium.  
 Einstein \cite{Einstein1905}, Onsager \cite{Onsager1931} and Kirkwood \cite{Kirkwood1946} made important contributions to NESM years before Green \cite{Green1952, Green1954}, in the fifties, formulated it as we know nowadays. 
 It was in the 60's when Zwanzig \cite{Zwanzig1961} and Mori \cite{Mori1965} reformulated the theory using the technique of the projection operators \cite{Grabert1982}. 
 
 
 \section{Hamilton's equations and the evolution of the microstates}
 \label{Sec:Hamilton}
+We assume Classical Mechanics expressed in terms of Hamilton's equations. As opposed to Newton's equations of motion, Hamilton's are first order differential equations. As emphasized by Gibbs, statistical assumptions on initial conditions are conveniently expresed in the Hamiltonian language of phase space.
+
 Consider a system consisting of $N$ particles of mass $m$ in a volume $V$. 
 In Classical Mechanics the positions of the particles ${\bf q}^N\equiv ({\bf q}_1,\dots,{\bf q}_N)^T$ and their 3N momenta ${\bf p}^N\equiv ({\bf p}_1,\dots,{\bf p}_N)^T$ specify the state of the system at any time. 
 The collection of the positions and momenta of the particles defines the microscopic state of the system, $z=(q,p)^T$, which is a {\it phase point} in the {\it phase space} $\Gamma$ of 6N dimensions. 
@@ -704,7 +720,7 @@ Hamilton's equations are in general a {\it set of nonlinear ordinary differentia
 %By analogy with Quantum Mechanics (QM) we consider all functions $\hat{B}(z)$ in phase space as a Hilbert vector space. 
 %Each function $\hat{B}(z)$ is a vector in the infinite-dimensional Hilbert space vector. 
 %As well as the state vector in QM, $|\Psi\rangle$, each function (vector) $\hat{B}$ has the dimension of all the possible microstates in which the system might be. 
-We consider all functions $hat{B}(z)$ in phase space as vectors in infinite-dimensional vector space. 
+We consider all functions $\hat{B}(z)$ in phase space as vectors in infinite-dimensional vector space. 
 The identity function in phase space is denoted as $\hat{z}$. It takes any microstate $z$ into $\hat{z}(z)=z$. 
 We carefuly distinguish the argument $z$, which is a point in the phase space, from the vector of the Hilbert space $\hat{z}$, which represents the identity function.
 
@@ -802,7 +818,7 @@ Evaluating all these time derivatives at $t=0$, the equation (\ref{ztExp}) becom
     ={\rm exp}\{i{\cal L}t\}\hat{z}(z_0),
     \label{zt1}
 \end{align}
-where the exponential operator can be defined as a Taylor expansion
+where the exponential operator is defined through a Taylor expansion
 
 \begin{align}
   {\rm exp}(i{\cal L}t) \equiv {\cal I} + i{\cal L}t + \frac{1}{2!}(i{\cal L}t)^2 + \frac{1}{3!}(i{\cal L}t)^3 +  \frac{1}{4!}(i{\cal L}t)^4 + \cdots,
@@ -815,7 +831,10 @@ The notation of the time evolution equation (\ref{zt1}) is usually simplified in
 \end{align}
 without forgetting that what we are doing is to apply an operator ${\rm exp}\{i{\cal L}t\}$ to a phase function $\hat{z}$, giving as a result ${\rm exp}\{i{\cal L}t\}\hat{z}$, and then evaluate this result at the value $z_0$.
 
-
+One important property of the  Hamiltonian flow in phase space is
+  that   it  is   incompressible.  This   is  illustrated   in  Figure
+  \ref{fig:LiouvilleTh}. This  implies that if we  consider the change
+  of variable from $z_0$ to $z_t$ it necesarily has a unit Jacobian.
 \section{The Liouville theorem}
 We have seen that Hamilton's equations (\ref{compactHamiltonEq}) are first order differential equations governing the deterministic evolution of the system. 
 These equations need an initial condition $z_0$, which is impossible to know in practice because in general we have not access to the position and momenta of every single particle in the system. Usually, a system is prepared under identical macroscopic conditions that do not allow to fix the value of the initial condition. 
@@ -851,13 +870,14 @@ Note that we may express the Lioville equation (\ref{LiouvilleEq}) in the follow
     \frac{d\rho_t(z)}{dt} = 0 
     \label{LiouvilleTh}
 \end{align}
-This is called the {\it Liouville theorem}. It shows that if we take a volume in the phase space bounded by a surface and we follow it during time evolution, we will observe that the surface will move and so do the points (microstates) inside the surface but the volume will remain the same. The reason is that the phase trajectories can not cross because this implies that they started at the same point. In other words: the volume in phase space must be conserved, as is illustrated in Figure \ref{fig:LiouvilleTh}.
+
+The Liouville theorem is a direct consequence of the incompressibility of the flow in phase space as it expresses the fact that the probability (density) of a microstate at time $t$ is the probability it had at time $t=0$.
 
 \begin{figure}
     \centering
     \includegraphics[scale=0.9]{Liouville}
     %\includegraphics[width=\linewidth]{Liouville}
-    \caption[Representation of the Liouville theorem]{Conservation of the volume in the phase space along time. We show two different shapes but with equal volume. The Liouville theorem establishes that the volume will be the same.}
+    \caption[Representation of the Liouville theorem]{Conservation of the volume in the phase space along time. We show two different shapes but with equal volume.}
     \label{fig:LiouvilleTh}
 \end{figure}
 
@@ -876,17 +896,17 @@ This is called the {\it Liouville theorem}. It shows that if we take a volume in
 %    B(t) = {\rm exp}(i{\cal L})B(0)
 %\end{align}
 \section{The Theory of Coarse-Graining and the CG variables}
-The ToCG consists on eliminate the ``useless'' information about a system in order to have a simplified version described by a set of selected variables with timescales much larger than the typical molecular scales. 
-We may acquire a lot of information about the system during the simplification process because we have to separate the essential details from the irrelevant ones. 
+The ToCG consists on eliminating the ``useless'' information about a system in order to have a simplified version described by a set of selected variables with timescales much larger than the typical molecular scales. 
+We may acquire a lot of information about the system during the simplification process because we separate the essential details from the irrelevant ones. 
 %Frase copiada del libro de Pep 
 %In the simplication process we may acquire a lot of information about the system by focusing in the essential details and not being distracted by overwhelming number of irrelevant details.
 
 %Referencia Theory of simple liquids
-One of the advantages of the ToCG is to allow to simulate systems with a computer that otherwise it would not be possible or would be computationally expensive. 
-This is because we only not gain in terms of a reduction of the number of particles, but also on the possibility to explore longer timescales. 
+One of the advantages of a CG description is that it allows to simulate systems with a computer that otherwise it would not be possible or would be computationally expensive. 
+This is because we not only gain in terms of a reduction of the number of particles, but also on the possibility to explore longer timescales. 
 Think about a system which its constituents have different scales of length and time as, 
 for example, colloidal suspensions, which are dispersions of mesoscopic particles suspended in a molecular solvent.
-The dimensions of the particles are of the order of tens or hundreds nanometers and they move in timescales of nanoseconds or microseconds, whereas the dimensions of the molecules of the solvent are a fraction of a nanometer (for example, in the case of a molecule of water typically of the order of $0.21$ nm) and their timescales are of the order of picoseconds. To treat this kind of asymmetric systems from a microscopic point of view is unworkable with methods such as MD simulations, but if our interest resides on the mesoscopic behaviour the problem is hightly simplified using coarse-graining techniques.    
+The dimensions of the particles are of the order of tens or hundreds nanometers and they move in timescales of nanoseconds or microseconds, whereas the dimensions of the molecules of the solvent are a fraction of a nanometer (for example, in the case of a molecule of water typically of the order of $0.21$ nm) and their timescales are of the order of picoseconds. To treat this kind of asymmetric systems from a microscopic point of view is not possible with MD simulations, but if our interest resides on the mesoscopic behaviour the problem is hightly simplified using coarse-graining techniques.    
 
 %Copiado del libro de Pep
 A system may be described at different {\it levels of description} depending on the amount of information which one retains macroscopically. The state of a system at a given level of description is described by a set of {\it coarse grained variables} (CG variables), which are functions of the microscopic state $z$ of the system and, therefore, are phase functions $\hat{A}(z)$. 
@@ -908,17 +928,19 @@ The main objetive of the ToCG is to derive the dynamic equations of the CG varia
 
 \subsection{Quasi-equilibrium and separation of timescales}
 %Two ice cubes are melting inside a glass of water while I am writing this notes. 
-Imagine two ice cubes melting inside a glass of water. 
-The process is slow but not enough to let one observe how the ice cubes reduce their size. 
-With a sip of water is possible to appreciate that the temperature of the water has decreased. 
-After a while the ice cubes ``disappear'' and the glass of water reaches an homogeneous mixture in an apparently equilibrium. 
-Nevertheless, if we let the glass on a desk, the water will begin to evaporate slowly because the equilibration of the system is not a real equilibrium state. 
-Moreover, over many years the glass itself will probably deteriorate. 
-Further, the process will never reach an equilibrium state, but we may distinguish ``different levels'' of tendency towards equilibrium.  
-Focusing on the time we figure out that the process during the ice cubes are melting is not the same as the deterioration of the glass over the years.
-The second one is much slower than the first one and allows we may say that it is at {\it quasi-equilibrium}.
+Imagine two ice cubes melting inside a glass of water.  The process is
+slow but not enough to let one  observe how the ice cubes reduce their
+size.   With  a sip  of  water  is  possible  to appreciate  that  the
+temperature of the  water has decreased.  After a while  the ice cubes
+``disappear'' and the glass of water becomes an homogeneous mixture
+ apparently in equilibrium.  Nevertheless,  if we let  the glass  on a
+desk,  the   water  will  begin   to  evaporate  slowly   because  the
+equilibration  of  the  system  is   not  a  real  equilibrium  state.
+Moreover, over many years the  glass itself will probably deteriorate.
+Further, the process will never reach an equilibrium state, but we may
+distinguish  ``different  levels''  of tendency  towards  equilibrium each governed by a characteristic time scale.
 
-The above example shows that a system can be at a equilibrium state depending on the timescale of the observation. The degradation of the glass over the years is very slow in contrast with the melting of the ice cubes. Therefore, at the timescale of our observations we can find functions that evolve very slow; they may be considered as dynamic invariants that determine the equilibrium properties of the system. 
+The above example shows that a system can be at a equilibrium state depending on the timescale of the observation. The degradation of the glass over the years is very slow in contrast with the melting of the ice cubes. Therefore, at the timescale of our observations we can find functions that evolve very slowly; they may be considered as dynamic invariants that determine the equilibrium properties of the system. This situation is referred to as \textit{quasi-equilibrium}.
 
 In this dissertation the notion of several ``equilibriums timescales'' is crucial because we take advantage of the partial equilibration of the system in the timescale of evolution of the CG variables. 
 %Frase del libro de Pep
@@ -957,7 +979,7 @@ Therefore, only small or coarse systems (i.e. with a reasonable number of partic
 
 The pioneering work of Adler and Wainwright \cite{Alder1957} in the fifties was a first step in the development of the MD simulations when they studied the phase transition of a system consisting on hard sphares. In the sixties Gibson et al. \cite{Gibson1960} studied the radiation damage using MD simulations and  Rahman \cite{Rahman1964} simulated a system consisting on 864 particles interacting with Lennard-Jones (LJ) potential in order to study correlations in the motion of atoms in liquid argon.  
 
-MD simulations play the role of the experiments in the real world. They provide us the observation which precedes the comprehension, because without comprehension science would be only documentation \cite{Rapaport}. Simulations allows us, in contrast with the theory, to assume less approximations in exchange for a computational effort. Both simulations and physical theory must coincide (i.e. the predictions of theory must coincide with the results of the simulations). If they differ is an indication that an error has been commited somewhere.
+MD simulations play the role of virtual experiments. They provide us the observation which precedes the comprehension, because without comprehension science would be only documentation \cite{Rapaport}. Simulations allows us, in contrast with the theory, to assume less approximations in exchange for a computational effort. Both simulations and physical theory must coincide (i.e. the predictions of theory must coincide with the results of the simulations). If they differ, this is an indication that an error has been commited somewhere.
 
 This dissertation rests on two pillars. The first one consits on a theoretical derivation of the equations that governs the evolution of the CG variables of a fluid in contact with a solid. 
 Along the derivation we only assume the Markovian approximation that simplify considerably the final equations, in which the transport coefficients are included through the Green-Kubo formula. 
@@ -981,7 +1003,7 @@ The trace symbol denotes a macrocanonical sum over particles and an integral ove
   {\rm Tr}\left[\cdots\right]&=\sum_{N=0}^\infty \frac{1}{N!h^{3N}}
 \int dz\cdots
 \end{align}
-where $h$ is the Planck constant. 
+where $h$ is the Planck constant, introduced here just for non-dimensionalization purposes. 
 Note that 
 \begin{align}
     {\rm Tr}[\hat{A}\rho] = \int dz\rho(z)\hat{A}(z) 
@@ -1295,7 +1317,7 @@ them here for simplicity.
 \subsection{Mori's Generalized Langevin equation}
 \label{Sec:Mori}
 In the last section we introduced the Kawasaki-Gunton projection operator that allows one to obtain nonlinear closed equations of motion for the averages of a set of relevant variables. It is shown that the equations consist of two terms, a reversible term and irreversible one which contains the memory kernel. 
-In this section we present a summary of Mori's theory \cite{Mori1965} which allows one to obtain not only linear dynamic equations for the averages of the relevant variables but also for their correlations. The Markovian approximation will be suppose as in the case of the nonlinear equations obtained with the Kawasaki-Gunton projection operator. 
+In this section we present a summary of Mori's theory \cite{Mori1965} which allows one to obtain not only linear dynamic equations for the averages of the relevant variables but also for their correlations. We will also assume the Markovian approximation as in the case of the nonlinear equations obtained with the Kawasaki-Gunton projection operator. 
 %As we showed in Sec. \ref{Sec:Hamilton}, at a microscopic level of description we
 %assume that  the system is  well described by CM and
 %that the microscopic state $z=\{{\bf q}_i,{\bf p}_i,i=1,\cdots,N\}$ is
@@ -1649,15 +1671,14 @@ simulations but  it usually  suffers from  the plateau  problem giving
 ambiguous values for the transport coefficients.  In Chapter \ref{Chap:PBC} we will address the plateau problem in order to offer an alternative expression of transport coefficients in terms of corrected Green-Kubo formulas with no plateau problem by construction.
 
 \section{Summary}
-In this chapter we have introduced two important concepts that holds this dissertation. The first one, quasi-equilibrium, states that what we understand as equilibrium of a system depends on the time window we take. If the time of obervation is shorter than the time in which some variables evolve, we may use the variables as CG variables. 
+In this chapter we have introduced two important concepts for this dissertation. The first one, quasi-equilibrium, states that what we understand as equilibrium of a system depends on the time window we take. If the time of obervation is shorter than the time in which some variables evolve, we may use the variables as CG variables. 
 Because the other variables evolve faster we may assume that are irrelevant for the selected level of description. 
 Therefore, we say that the slow and faster variables evolve in different timescales, which is the second important concept of this chapter. 
 Only when there is a well-separation of timescales we obtain tractable time evolution equation without memory terms. 
 The approximation that allows one this simplification is known as the Markovian approximation. In this approximation the present does not depend on the past. 
 
-This is known as Markovian descripcion to distinguish from the non-Markovian description in which the present state is determined by the past. 
 
-Under the Markovian approximation, we have obtained the general form of the memory-less dynamic equation of the CG variables using the Kawasaki-Gunton projection operator and the time-dependent equation for the correlation of the averages of the CG variables within Mori theory. 
+Under the Markovian approximation, we have obtained the general form of the memory-less dynamic equation of the CG variables using the Kawasaki-Gunton projection operator and the evolution equation for the correlation of the averages of the CG variables within Mori theory. 
 
 %In the next chapter we will derive the dynamic equations for a set of CG variables of fluid in contact with a solid sphere. We will use the Kawasaki-Gunton formalism as well as in Chapter \ref{Chap:Planar}, where we will derive the discrete version of the hydrodynamic equations. \Note{Mencionar algo de Mori?} 
 
@@ -2373,7 +2394,7 @@ solid and fluid atoms.  Note  that even for the case of
   exact free energy (\ref{leg}) with (\ref{xpos}) due to the integrals
   over  the solid  degrees  of freedom  of  the interaction  potential
   between    ideal     gas    particles    and     solid    particles.
-  equation (\ref{modelnonlocalF}) is just a natural  candidate to model the free
+  Equation (\ref{modelnonlocalF}) is just a natural  candidate to model the free
   energy $F[\rho,{\bf R}]$. The potential energy $V({\bf r},{\bf R})$
 becomes infinite (or extremely large)  for the points ${\bf r}$ inside
 the solid  sphere. Therefore, the last  term in (\ref{modelnonlocalF})
@@ -2385,8 +2406,6 @@ The derivatives of the free energy model (\ref{modelnonlocalF}) are
 %\nonumber\\
   \frac{\partial{\cal F}}{\partial{\bf R}}=-\int d{\bf r}\frac{1}{m}\rho({\bf r}){\bf F}({\bf r},{\bf R}),
 \end{align}
-
-
 where $\mu_0({\bf r})$ is the  usual chemical potential of the solvent
 in the  absence of any  solid, and ${\bf  F}({\bf r},{\bf R})$  is the
 effective force, deriving from the potential $V({\bf r},{\bf R})$ that
@@ -2415,8 +2434,7 @@ part of the momentum density evolution equation is
 \begin{align}
 \left.\partial_t {\bf g}({\bf r},t)\right|_{\rm rev}
 &=  {\rm Tr}[\overline{\rho}_t  i{\cal L}\hat{{\bf g}}_{\bf r}] 
-\nonumber\\
-&=-\boldsymbol{\nabla}\cdot  {\rm Tr}[\overline{\rho}_t \hat{{\bf K}}_{\bf r}] 
+=-\boldsymbol{\nabla}\cdot  {\rm Tr}[\overline{\rho}_t \hat{{\bf K}}_{\bf r}] 
 +  {\rm Tr}[\overline{\rho}_t  \hat{\bf F}^{\rm l}_{\bf r}]
 \label{grev1}
 \end{align}
@@ -4559,8 +4577,9 @@ equation. (\ref{fulldeltapsi}). The first one is, after using the expression
 \frac{1}{\Delta z^2}\int \frac{d{\bf r}}{{\cal V}_\mu}
 \int \frac{d{\bf r}'}{{\cal V}_\nu}
 (\chi_\mu(z)-\chi_{\mu-1}(z))
-\nonumber\\
-&\times{\bf n}\esc\boldsymbol{\eta}_{{\bf r}{\bf r}'}\esc{\bf n}(\chi_\nu(z)-\chi_{\nu-1}(z))
+%\nonumber\\
+%&\times
+{\bf n}\esc\boldsymbol{\eta}_{{\bf r}{\bf r}'}\esc{\bf n}(\chi_\nu(z)-\chi_{\nu-1}(z))
 \nonumber\\
 &=
 \frac{1}{\Delta z^2} {\bf n}\esc\left[\boldsymbol{\eta}_{\mu\nu}-\boldsymbol{\eta}_{\mu-1\nu}-\boldsymbol{\eta}_{\mu\nu-1}+\boldsymbol{\eta}_{\mu-1\nu-1}\right]\esc{\bf n},
@@ -4705,7 +4724,7 @@ viscous and friction forces).  In addition, as it is formulated at the
 continuum level,  transport kernels involve correlations  of the local
 stress tensor and force densities  which involve delta functions
 and that cannot  possibly be computed in MD simulations.   In order to
-tackle these problems,  in this chapter we  have presented from
+tackle these problems,  in the present chapter we  have derived from
 first principles a hydrodynamic theory for planar geometries and flows
 involving  discrete mass  and  momentum density  variables defined  in
 terms of finite element basis functions.  By the very selection of the
@@ -4748,7 +4767,7 @@ Markov  assumption and  2)  Linear for  spiky  assumption (LFSA).   We
 expect that the validity of both  assumptions is linked to the size of
 the bins used.  In fact, we  have conducted MD simulations in order to
 evaluate  the kernels  $\eta^{||},G^{||},H^{||},\gamma^{||}$ appearing
-in equation(\ref{ShearDisc})  describing shear flow. We  have also compared
+in equation (\ref{ShearDisc})  describing shear flow. We  have also compared
 the predictions of  the discrete equations with  direct measurement of
 the   flows   starting   from   nonequilibrium   conditions.    These
 simulations, that will  be detailed in the following chapters, show that
@@ -4761,7 +4780,7 @@ size,  the  Markov   approximation  is  shown  to   be  valid.
 %defined not with a Dirac delta function as in equation (\ref{rhogmiccont}),
 %but rather with a coarse delta  function as, for example, a normalized
 %Gaussian of  supramolecular width.  
-The resulting  hydrodynamic fields vary on length  scales of supramolecular size and  cannot capture, for example, the density layering near walls.
+In this case, the resulting  hydrodynamic fields vary on length  scales of supramolecular size and  cannot capture, for example, the density layering near walls.
 
 
 
@@ -5116,7 +5135,7 @@ $\mu$
 \hat{\bf g}_\mu(z)&= \sum_i^N{\bf p}_i\delta_\mu({\bf r}_i),
 \label{rhogmumicPBC}
 \end{align}
-where ${\bf r}_i,{\bf p}_i$ are the position and momentum of particle $i$, and the discrete Dirac $\delta$ was introduced in (\ref{DelFE})
+where ${\bf r}_i,{\bf p}_i$ are the position and momentum of particle $i$, and the discrete Dirac $\delta$ was introduced in (\ref{DelFE}).
 %\begin{align}
 %\delta_\mu({\bf r})&=  \frac{1}{{\cal V}_\mu}\Phi_\mu({\bf r})
 %\label{delta}
@@ -5845,7 +5864,7 @@ These two  matrices can be measured  from MD simulations.
 %compare  the  prediction  (\ref{Cmunut})  from Mori  theory  with  the
 %correlation matrix measured in the simulation.
 
-The objective of this section is to present the simulations we made to measure the
+The objective of this section is to present the simulations conducted to measure the
 momentum  correlation  matrix  $C(t)$  and  the  Green-Kubo  nonlocal
 viscosity $\eta(t)$.   From these primary quantities,  we obtain their
 Fourier transforms  $\tilde{C}(t),\tilde{\eta}(t)$ which  are diagonal
@@ -5936,7 +5955,7 @@ global  correlation for  nodes that  are far  appart is  due to  total
 momentum conservation in PBC.  If a bin has  a positive momentum, the rest of
 bins should  have an  overall negative  value in  order for  the total
 momentum to  be zero. In order  to improve the statistical  quality of
-the matrix  $C(t)$ we have  used the analytical value  (\ref{Cneg}) of
+the matrix  $C(t)$ we have  used the analytical value  (\ref{Cneg}) for
 the  background,  as  provided  by the  analytic  calculation  of  the
 covariance in the Appendix \ref{Ap:Cov}.
 
@@ -6128,7 +6147,7 @@ correlation.
 \label{fig:Predictionsmumu-PBC}
 \end{figure}
 
-In Fig. \ref{fig:Predictionsmumu+1-PBC} we compare the cross correlation $C_{\mu\mu+1}(t)$ in the same way as we did with the autocorrelation in Fig. \ref{fig:Predictionsmumu-PBC}. The agreement of the the three curves (predictions, nonlocal and local theories) is excellent beyond $\tau$, but we appreciate that for long times the local prediction is better than the nonlocal prediction. 
+In Fig. \ref{fig:Predictionsmumu+1-PBC} we compare the cross correlation $C_{\mu\mu+1}(t)$ in the same way as we did with the autocorrelation in Fig. \ref{fig:Predictionsmumu-PBC}. The agreement of the the three curves (predictions, nonlocal and local theories) is excellent beyond $\tau$. 
 
 \begin{figure}[h!]
   \centering
@@ -6237,7 +6256,7 @@ in both bins.
 \begin{figure}[h!]
   \centering
 \includegraphics[scale=0.41]{EtaStartFourier-PBC}
-\caption[The nonlocal shear viscosity kernel for an unconfined fluid]{The nonlocal shear viscosity kernel from corrected Green-Kubo formula $\tilde{\eta}^*_{\mu\mu}=\frac{\tilde{\eta}_{\mu\mu}(t)}{\tilde{c}_{\mu\mu}(t)}$}
+\caption[The nonlocal shear viscosity kernel for an unconfined fluid]{The eigenvalues of the nonlocal shear viscosity kernel from corrected Green-Kubo formula $\tilde{\eta}^*_{\mu\mu}=\frac{\tilde{\eta}_{\mu\mu}(t)}{\tilde{c}_{\mu\mu}(t)}$}
 \label{fig:EtaStartFourier-PBC}
 \end{figure}
 
@@ -6263,7 +6282,7 @@ number $\mu$  at different times from $t=0$ to $t=0.2$ in intervals of $0.01$ (r
 the last plot  we observe that the modes around  $\sim 30$ are subject
 to  large statistical  error because  for these  modes the  eigenvalue
 $\tilde{c}_\mu(t)$ of  the correlation  matrix has already  taken very
-low values, thus  amplifying though its inverse  the small statistical
+low values, thus  amplifying through its inverse  the small statistical
 errors present. In  any case, we observe  that $\tilde{\nu}_\nu(t)$ is
 almost constant for all values of $\mu$ and that for times larger than
 $\tau=0.2$ the  kinematic viscosity  of all  modes is  fairly constant
@@ -6600,9 +6619,9 @@ meaningless.
 
 \section{Simulations}
 \label{Sec:SimWALLS}
-The objetive of this section is to present the simulations we made to measure the matrix of correlations $C(t)$ in order to validate the Markovian approximation of a confined fluid. 
-We follow the strategy presented in Sec. \ref{Sec:SimPBC}. Because the translational invariance is broken for confined fluids, it used, instead of the Fourier basis, the eigenvector basis of $C(t)$. 
-We deal with a system in which the space occupied by the fluid is exactly the same as in the case of an unconfined fluid. In the first part of this section the fluid region is divided in bins in which $\Delta z$ is the same as the used in Chapter \ref{Chap:PBC}. In the second part, the size of the bins is doubled. 
+The objetive of this section is to present the simulations conducted to measure the matrix of correlations $C(t)$ in order to validate the Markovian approximation of a confined fluid. 
+We follow the strategy presented in Sec. \ref{Sec:SimPBC}. Because translational invariance is broken in a confined fluid, we use the eigenvector basis of $C(t)$, which is not given in this case by the Fourier basis.
+We deal with a system in which the space occupied by the fluid is exactly the same as in the case of an unconfined fluid. In the first part of this section the fluid region is divided in bins in which $\Delta z$ is the same as the used in Chapter \ref{Chap:PBC}. In the second part, the width of the bins is twice large. 
 
 \subsection{Simulation set up}
 A system of particles interacting  with a LJ potential 
@@ -6651,15 +6670,17 @@ matrix $\Lambda(t)$.   A  few  selected  elements of  the  correlation  matrix  
 computed with a very long support of $t=30$ in reduced units, in order
 to test the predictions of the theory at long times.
 
-The time correlation  matrix is shown in  Fig.  \ref{fig:Ct-matrix-WALLS-66nodes} at
-two different  times, $t=0$ and  $t=0.6$ in  reduced LJ units.   For the
-covariance,  at $t=0$,  we can observe the  reminiscense  of the  density
-layering near  the wall in the  form of peaks.  As  time proceeds, the
-diagonal of  the correlation  widens and  decreases in  height.  Nodes
-$\mu=0,1,64,65$ contain  no fluid, while  node $\mu=2,62$ have  a very
-small  contribution  from  the  fluid but not negligible.  This means  that  out  of  the
-$66\times66$ correlation matrix, we strip off a band of zeros, leaving
-a matrix of $61\times61$ nonzero elements.
+The     time    correlation     matrix     is     shown    in     Fig.
+\ref{fig:Ct-matrix-WALLS-66nodes}  at two  different times,  $t=0$ and
+$t=0.6$ in  reduced LJ units.   For the  covariance, at $t=0$,  we can
+observe the reminiscense of the density  layering near the wall in the
+form  of peaks.   As time  proceeds, the  diagonal of  the correlation
+widens  and decreases  in  height.  Nodes  $\mu=0,1,64,65$ contain  no
+fluid,  while  node  $\mu=2,62$  have   a  very  small,  but  not
+  negligible contribution  from the  fluid.
+This means that  out of the $66\times66$ correlation  matrix, we strip
+off  a  band  of  zeros,  leaving a  matrix  of  $61\times61$  nonzero
+elements.
 
 \begin{figure}[h!]
 \centering
@@ -6796,7 +6817,7 @@ The  measured  autocorrelation  remains positive,  though,  while  the
 predicted correlation  becomes negative.  Therefore, we  conclude that
 the measured relaxation  matrix $\Lambda^*$ does not  allow to predict
 through (\ref{InFull-C})  the correct  momentum correlations  near the
-wall.   This is  clear sign  that the  dynamics near  the wall  is not
+wall.   This is a clear sign  that the  dynamics near  the wall  is not
 Markovian.
 
 
@@ -6898,8 +6919,8 @@ $t=0$ vanishes, as it is clear for $C_{3,5}(t)$.
 \section{Summary}
 In this chapter we have considered  the discrete hydrodynamics of  a LJ
 fluid  confined  between   two  rigid  parallel  walls   of  fixed  LJ
-particles. We  measure the correlation  matrix $C(t)$ of  component of
-the discrete momentum density which is  parallel to the walls.  According
+particles. We  measure the correlation  matrix $C(t)$ of
+the component parallel to the wall of the discrete momentum density.  According
 to  Mori theory,  under the  Markovian approximation  this correlation
 should decay  in a  matrix exponential form  with a  relaxation matrix
 $\Lambda^*$ that  can be  obtained from the  plateau region  where the
@@ -6908,7 +6929,7 @@ $\tilde{C}_\mu(t)$  of the  correlation  matrix,  the Markov  property
 translates into an  exponential decay of all the  eigenvalues. We have
 observed that  for bins  smaller than  molecular dimensions  $\Delta z
 \leq  \sigma$,  where  $\sigma$  is  the  LJ  diameter,  some  of  the
-eigenvalues do  not decay  as exponential  and become  negative.  Even
+eigenvalues do  not decay  as an exponential  and become  negative.  Even
 though we can estimate a relaxation matrix from the plateau that gives
 good predictions away  from the wall, the correlations  near the walls
 are poorly described by the Markovian theory.
@@ -6979,12 +7000,13 @@ Note   that   it    only   make   sense   to    speak   of   transport
 \textit{coefficients} (or matrices of) in theories that are Markovian,
 otherwise  one  needs   transport  \textit{memory  kernels}.   Another
 implication of  non-Markovianity of  highly resolved  hydrodynamics is
-that in order  to speak about the the  nonlocal friction coefficients
-as the ones  described by Camargo et al. in \cite{CamargoBC2018} one  has to ensure
-that the  bins are larger  than the  molecular size. In  the following chapter we will  measure  the nonlocal  viscosity and  nonlocal
+that in order to speak about the the nonlocal friction coefficients as
+the ones described  by Camargo et al. in  \cite{CamargoBC2018} one has
+to ensure  that the bins  are larger than  the molecular size.  In the
+following chapter we will measure  the nonlocal viscosity and nonlocal
 friction matrices that are buried in the relaxation matrix $\Lambda^*$
-and  that  have  not  been  considered in  this chapter.  These
-transport matrices enter  into the microscopic definition  of the slip
+and that  have not been  considered in this chapter.   These transport
+matrices will enter into the  microscopic definition of the slip
 length.
 
 
@@ -7031,7 +7053,7 @@ channel width.
 
 \section{The CG variables}
 \label{Sec:CGSlip}
-Although some of the expressions and mathematical derivations in this section and the following one  have been obtained in the previous chapters, it is convenient to include them in order to follow-up this chapter.
+Although some of the expressions and mathematical derivations in this section and the following one  have been obtained in the previous chapters, it is convenient to include them in order to make this chapter self-contained.
 
 We consider a monoatomic fluid  confined in between two parallel solid
 walls in the  $x,y$ directions while the normal axis  $z$ to the
@@ -7435,12 +7457,12 @@ compensating for the plateau problem.
 
 \section{Simulation setup}
 \label{Sec:sim}
-We conduct  MD simulations  at equilibrium  for a  LJ fluid
-with  parametres $\sigma,\epsilon$  in between  two crystalline  walls
-made  of fixed  identical LJ  particles.  The  geometry,
-thermodynamic point, and simulation are  exactly the same as that studied in Chapter \ref{Chap:Walls} ,
-giving  a  density in  the  bulk  of  $\rho=0.6  $ and  a  temperature
-$T=2$ in reduced LJ  units.  
+We  conduct  MD  simulations  at  equilibrium  for  a  LJ  fluid  with
+parametres $\sigma,\epsilon$ in between  two crystalline walls made of
+fixed identical LJ particles.   The geometry, thermodynamic point, and
+simulation  are   exactly  the  same   as  that  studied   in  Chapter
+\ref{Chap:Walls}, giving  a density in the  bulk of $\rho=0.6 $  and a
+temperature $T=2$ in reduced LJ units.
 %After an equilibration of
 %$10^5$ timesteps with  a Langevin thermostate to  produce a microstate
 %typical from a thermodynamic  point corresponding to $T=2,\rho=0.6$ in
@@ -7453,7 +7475,7 @@ $T=2$ in reduced LJ  units.
 \begin{figure}[]
   \centering
   %\frame{\includegraphics[width=\linewidth]{SchemeNodes-4}}
-  \includegraphics[scale=0.2]{SchemeNodes-4}
+  \includegraphics[scale=0.2]{schemeNodes-4}
   \caption[Scheme of the location of the nodal planes in the system]{Scheme of the location of the nodal planes in the system, labeled
   with $\mu=0,1,\cdots,16$, and the corresponding finite element basis
   functions  (linear  tent  functions).    Orange  circles  indicate  the
@@ -7541,9 +7563,9 @@ are seen to decay towards zero, in a quasi-algebraic way.
 \label{Fig.noplateau}
 \end{figure}
 
-Given that the  Green-Kubo formula for the transport  matrices do not
+Given that the  Green-Kubo formula for the transport  matrices does not
 have  a   plateau,  we  resort   to  the  methodology   introduced  in
-Chapter \ref{Chap:PBC} and that essentially amount to extract $M^*$ defined in
+Chapter \ref{Chap:PBC} and that essentially amounts to extract $M^*$ defined in
 (\ref{Mstar}) from $M(t)$ defined in (\ref{MMatrix1}). Once the matrix
 $M(\tau)\esc c^{-1}(\tau)$  is constructed,  it is possible  to obtain
 the  value of  $\tau$  at which  this  matrix do  has  a plateau.  The
@@ -7602,6 +7624,9 @@ walls is unaffected by the size of the channel.
 
 
 \section{Evolution of the flow in NEMD simulations}
+
+Mori theory for the averages describes the decay of an initial non-equilibrium
+profile towards the equilibrium state.
 Once we  have measured the  transport matrix $M^*$  or, alternatively,
 the transport  matrices $\eta^*,G^*,H^*,\gamma^*$  we may  predict the
 evolution   of   a   nonequilibrium   average   where   the   initial
@@ -7990,9 +8015,10 @@ terms, through the transport  coefficients (\ref{etagamma2}).  We next
 show that the microscopic expression for the slip length coincide with
 the one presented by Camargo et al. in  Ref.  \cite{CamargoBC2018}, where they derived the Navier
 slip  boundary  condition  from  the  continuum  theory  presented  in
-Chapter \ref{Chap:Theory}.   We  also   showed  that   our  microscopic
+Chapter \ref{Chap:Theory}.   There it was  also   showed  that   the  microscopic
 expression  for the  slip length  coincides with  Bocquet and Barrat under  a suitable
-redefinition of the hydrodynamic wall position.
+redefinition of the hydrodynamic wall position. Therefore, the expression given
+here coincides with the proposed one by Bocquet and Barrat.
 
 
 \subsection{The microscopic expression for the slip length}
@@ -8114,7 +8140,7 @@ following microscopic expression for the slip length (\ref{SlipLength})
 \label{deltaBB}
 \end{align}
   This result  is identical  to the  one
-obtained in Ref.  \cite{CamargoBC2018} by Camargo et al., and it coincides , after a suitable redefinition of the wall position, with
+obtained in Ref.  \cite{CamargoBC2018} by Camargo et al., and it coincides, after a suitable redefinition of the wall position, with
 %where  we started from the continuum theory
 %presented  in Ref.   \cite{Camargo2018}.   We have  also discussed  in
 %Ref. \cite{2}  that this  microscopic expression  for the  slip length
@@ -8188,8 +8214,8 @@ of $\eta',\gamma'$ due to the plateau problem, as shown in Fig. \ref{Fig:tau}.
 \begin{figure}[!h]
 \centering
 \includegraphics[scale=0.41]{tauDependenceSlip-17nodes-WALLS}
-\caption[Dependence on time $\tau$ in the plateau region of $\eta'$,$\gamma'$ and the slip lenght $\delta$]{Dependence  on  the time  $\tau$  in  the plateau  region  of
-  $\eta'$  (green),  $\gamma'$  (orange),  and the  slip  lenght  $\delta$
+\caption[Dependence on time $\tau$ in the plateau region of $\eta'$,$\gamma'$ and the slip length $\delta$]{Dependence  on  the time  $\tau$  in  the plateau  region  of
+  $\eta'$  (green),  $\gamma'$  (orange),  and the  slip  length  $\delta$
   (blue). Note  that while $\eta',\gamma'$  decay with $\tau$  due to
   the plateau  problem, its ratio  given by the predicted  slip length
   $\delta$ in (\ref{deltaBB}) is roughly constant. }
@@ -8339,7 +8365,7 @@ the partial differential equation (\ref{NS}) takes the form
   \frac{d}{dt}g_\mu(t)&=\nu \frac{1}{\Delta z^2}(g_{\mu-1}(t)+g_{\mu+1}(t)-2g_{\mu}(t))
 \label{NSDisc}
 \end{align}
-This  equation  is to  be  compared  with the  nonlocal  hydrodynamic
+This  equation  is to  be  compared  with the \textit{nonlocal}  hydrodynamic
 equation (\ref{TheoryDiscFinSlipCH}) that we know, from the results obtained
 so   far,   that   describes   very   well   the   dynamics   of   the
 system.  Therefore, a  natural  question  is how  one  can obtain  the
@@ -8419,7 +8445,7 @@ for the fluid nodes $\mu=2,\cdots,15$
 \label{ODE}
 \end{align}
 
-We have introduce the kinematic viscosity as give by $\nu=\eta_{\mu}(\tau)/\rho_{\mu}(\tau)$ that takes the value $\nu=1.41$. Even though $\eta_{\mu}(\tau)$ and $\rho_{\mu}(\tau)$ depend on $\tau$,$\mu$, the kinematic viscosity is constant and does not depend on $\tau$ and $\mu$.
+We have introduce the kinematic viscosity as give by $\nu=\eta_{\mu}(\tau)/\rho_{\mu}(\tau)$ that takes the value $\nu=1.41$. Even though $\eta_{\mu}(\tau)$ and $\rho_{\mu}(\tau)$ depend on $\tau$ and $\mu$, the kinematic viscosity is constant and does not depend on $\tau$ and $\mu$.
 We see that 
 (\ref{ODE}) is a set of ODE for the variables $g_\mu$ for
 $\mu=2,\cdots,15$ but it includes in the first and last equations the
@@ -8559,7 +8585,7 @@ between  the solid  and  the fluid  through  the surface  irreversible
 forces         containing         the        transport         kernels
 $G_{\mu\nu},H_{\mu\nu},\gamma_{\mu\nu}$.  The errors in using the nonlocal prediction 
 are shown in the left panel of Fig \ref{Fig:err}. The conclusion is that while the local prediction
-with a slip boundary condition is acceptable, nonlocal effects are appreciable.
+with a slip boundary condition is acceptable, nonlocal effects are appreciable for a plug flow near the wall at short times.
 
 
 
@@ -8605,7 +8631,7 @@ idea  of a  boundary slab,  and they  proposed a  generalized Langevin
 equation  for  the  motion  of  the   slab  in  order  to  identify  a
 friction. The derivation  in the present chapter, which is  based on the
 hydrodynamics  in  the  full  channel, gives  not  only  the  friction
-coefficient, but also the position of the wall in microscopic terms.
+coefficient, but also the position of the wall where to apply the boundary condition, in microscopic terms.
 
 
 In addition to  the validity of the  Markovian discrete hydrodynamics,
@@ -8705,7 +8731,7 @@ boundary condition is  valid. This implies that for  this late stages,
 the hydrodynamics  is local, an  observation that  is akin to  what we
 observed for unconfined fluids in Chapter \ref{Chap:PBC}. However, at short times of
 the   highly  discontinuous   plug   flow  the   predictions  of   the
-Navier-Stokes equations are wrong. One has to recourse in that case to
+Navier-Stokes equations are not accurate. One has to recourse in that case to
 the nonlocal  theory with explicit  account of the  extended friction
 forces that the solid  exerts on the fluid. Such a  theory, as we have
 seen, gives  excellent results even for  the very early stages  of the
@@ -8713,14 +8739,14 @@ plug flow.
 
 The size $2\sigma$ of  the bins that are used in  the present work are
 pretty large in  molecular terms.  In particular,  it blurs completely
-the density layering near the walls as it showed in Fig. \ref{fig:DensityProfile-WALLS}.  The reason for using these large
+the density layering near the walls as it is shown in Fig. \ref{fig:DensityProfile-WALLS}.  The reason for using these large
 bins is the observation made in Chapter \ref{Chap:Walls} that the dynamics for smaller
 bins is non-Markovian  near the walls. As we  are interested precisely
 in the derivation  of boundary conditions near walls  with a Markovian
 theory, we  are forced to  use large  bins. However, even  these large
 bins  still display  nonlocal  effects.  For  example, the  nonlocal
 viscosity transport  matrix has a  support of  three bins or  a length
-scale of $6\sigma$ and the  friction extend over two bins ($4\sigma$).
+scale of $\sim 5\sigma$ and the  friction extend over two bins ($4\sigma$).
 As  mentioned above,  such nonlocal  effects are  needed in  order to
 describe the initial stage of a  discontinuous plug flow.  It is quite
 remarkable that the  friction force on the optimal  boundary slab that
@@ -8745,15 +8771,16 @@ viscosity kernel may be approximated with a local viscosity.
 %CONCLUSIONS
 %-----------------------------------------------------------------
 \chapter{Conclusions}\label{Chap:Conclusions}
-The main achievement of the present dissertation is to validate the slip boundary condition 
-from nonequilibrium MD simulations of a decaying plug flow with the Navier slip boundary condition 
-derived from the formulation of a mechanical balance on a fluid slab near a solid wall.  
-In order to address it, we proposed in Chapter \ref{Chap:Theory} a continuum hydrodynamic theory 
+
+
+The present dissertation has addressed the formulation of hydrodynamics near solid walls in order to describe the phenomena of slip and its theoretical foundation.
+As a first step, we propose in Chapter \ref{Chap:Theory} a continuum hydrodynamic theory 
 derived with the Kawasaki-Gunton operator method that considers the interaction of a fluid with a solid sphere. 
 %The theory presented defines the hydrodynamic variables with Dirac $\delta$ functions. Nevertheless, 
 %in Chapter \ref{Chap:Walls} we observed that in the stric continumm limit, the Markov 
 %assumption implicit in th ederivation of the hydrodynamic equations breaks down near the walls. 
-In   the    continuum   hydrodynamic   theory   presented    in   Chapter \ref{Chap:Theory},
+In  
+this theory
 the  solid  exerts both,  reversible  forces  that
 forbid the penetration of the fluid inside the solid, and irreversible
 forces concentrated  in the  vicinity of the  solid that  describe the
@@ -8767,7 +8794,17 @@ equations breaks down  near the  walls.
 Only if one defines the hydrodynamic variables with an implicit length
 scale    by   using,    for    example,    coarse   $\delta$    functions
 instead  of Dirac $\delta$ functions,  one may expect
-the Markov assumption.
+the Markov assumption to hold.
+
+One  can  reproduce  step  by  step  the  procedure  in  Chapter \ref{Chap:Theory}
+ in order  to  obtain the  hydrodynamic theory  for
+these  coarse  hydrodynamic  variables.   The  resulting  hydrodynamic
+equations  are  formally  identical   to  the  hydrodynamic  equations
+obtained in \ref{Chap:Theory}, but with  a coarse-grained free
+energy functional which is different from the usual density functional
+of DFT.  In particular, due to  the coarser definition of the density,
+it does not allow one to describe the density layering near a wall.
+
 %One  can  reproduce  step  by  step  the  procedure  in  Ref.
 %\cite{Camargo2018}  in order  to  obtain the  hydrodynamic theory  for
 %these  coarse  hydrodynamic  variables.   The  resulting  hydrodynamic
@@ -8791,98 +8828,123 @@ the Markov assumption.
 %for the slip length of the  Navier boundary condition as in the theory
 %with Dirac delta functions.
 
-In order to validate through MD simulations the hydrodynamic theory presented in Chapter \ref{Chap:Theory}, 
-we formulated a discrete hydrodynamic theory for planar flows between two solid walls. 
-This theory  can  be understood  as a  finite
-element discretization  of the  continuum hydrodynamic theory  
-when restricted  to  planar  flows.  The  discrete
-hydrodynamic theory introduces an intrinsic  length scale given by the
-size of the bins in which space is discretized.  
-%In counterdistinction
-%to  the continuum  theory  presented in Chapter \ref{Chap:Theory},  the
-%discrete theory of Chapter \ref{Chap:Planar}
-%allows for its validation through MD simulations.
+In order  to validate through  MD simulations the  hydrodynamic theory
+presented  in Chapter  \ref{Chap:Theory}, we  have formulated  a
+discrete hydrodynamic theory for planar flows between two solid walls.
+This theory  can be understood  as a finite element  discretization of
+the continuum  hydrodynamic theory  of Chapter  \ref{Chap:Theory} when
+restricted  to   planar  flows.   The  discrete   hydrodynamic  theory
+introduces an intrinsic length scale given  by the size of the bins in
+which space is discretized.
+In counterdistinction
+to  the continuum  theory  presented in Chapter \ref{Chap:Theory},  the
+discrete theory of Chapter \ref{Chap:Planar}
+allows for its validation through MD simulations.
 
-In  Chapter \ref{Chap:PBC},  we   have  considered  the
-correlations  of  the discrete  momentum  of  an unconfined  fluid  in
-periodic boundary conditions with no solid walls.  This allowed us
-to discuss the  locality of hydrodynamics in time  (i.e. the Markovian
-assumption)  and  how it  is  related  to  locality in  space.   Quite
-remarkably  we  show there  that  the  Green-Kubo formula  for  the
-nonlocal  viscosity  kernel  suffers dramatically  from  the  plateau
-problem.  In Sec. \ref{Sec:GKsi} of Chapter \ref{Chap:PBC}, we have  shown that the plateau problem is
+
+In Chapter \ref{Chap:PBC}, we have  considered the correlations of the
+discrete  momentum  of  an   unconfined  fluid  in  periodic  boundary
+conditions with no solid walls.   This has allowed us to discuss
+the locality of hydrodynamics in  time (i.e. the Markovian assumption)
+and how it is related to  locality in space.  Quite remarkably we show
+there that  the Green-Kubo formula  for the nonlocal  viscosity kernel
+suffers dramatically from the plateau problem.  In Sec. \ref{Sec:GKsi}
+of Chapter \ref{Chap:PBC},  we have shown that the  plateau problem is
 due to  the fact that the  Green-Kubo formula defined in  terms of the
 unprojected dynamics  decays as the  correlation of the  CG variables.
-We  have  also  suggested a  way  to  correct  the
-Green-Kubo formula.  The  new corrected Green-Kubo formula  has a well
-defined plateau that  allows one to obtain  unambiguously the transport
-coefficients.  By using the corrected Green-Kubo expressions we obtain
-in Chapter \ref{Chap:PBC}
-the explicit  forms of  the nonlocal  viscosity.  With  this measured
-viscosity  kernel,   we  predict   correctly  the  evolution   of  the
-correlation matrix of the transverse momentum.
+This suggest itself  as a  way to
+correct the Green-Kubo formula.   The new corrected Green-Kubo formula
+has a well defined plateau that allows one to obtain unambiguously the
+transport coefficients.  By using the corrected Green-Kubo expressions
+we obtain in Chapter \ref{Chap:PBC} the explicit forms of the nonlocal
+viscosity.  With this measured  viscosity kernel, we predict correctly
+the   evolution  of   the   correlation  matrix   of  the   transverse
+momentum. We  also  show  that   for  the  times  in  which  the
+  hydrodynamics  is well  described  by  the Markovian  approximation,
+i.e.  locality in time, it is also  well described with a local approximation
+  in space.
 
-In Chapter \ref{Chap:Walls}, we  have shown that the
-shear flow  dynamics in  fluids confined between  planar walls  is not
-Markovian if  the bins  in which  the fluid is  divided are  too thin. 
-An important conclussion of this chapter is that non-Markovian effects  are detected from the  non-exponential decay of
-the eigenvalues of the  correlation matrix.  The non-Markovian effects
-are clearly identified as originating  near the walls. For bins larger
-than the molecular size, the dynamics becomes fully Markovian but nonlocal effects, such the layering near the walls, are lost. 
+In  Chapter  \ref{Chap:Walls},  we  have shown  that  the  shear  flow
+dynamics in fluids  confined between planar walls is  not Markovian if
+the bins  in which the fluid  is divided are too  thin, below the
+  molecular scale dictated by $\sigma$. 
+  Non-Markovian effects are  detected from
+the  non-exponential  decay  of  the eigenvalues  of  the  correlation
+matrix. An  important conclusion  of this chapter  is that  the
+non-Markovian effects  are clearly identified as  originating near the
+walls. For bins  larger than the molecular size,  the dynamics becomes
+fully Markovian but the layering near the
+walls is lost. 
 
-Finally, in Chapter \ref{Chap:Slip}, we have measured, through equilibrium MD simulations,
-the nonlocal
-transport  kernels that appear in the discrete hydrodynamic equations derived in Chapter \ref{Chap:Planar}.
-After observe that they suffer from the plateau problem, we have used the method presented in Chapter \ref{Chap:PBC}
-for realiably extracting the transport kernels out of the plateau-problematic Green-Kubo formula. 
-We obtained excellent predictions with these kernels of the decaying of the average of the transverse momentum in a channel configuration when the initial velocity profile is a plug flow. 
-We infered the  slip  boundary
-condition with  a well-defined  microscopic definition for  the slip
-length and the  location of the hydrodynamic position  of the atomic
-wall.   The  microscopic expression  for  the  slip length  obtained
-coincides  with the  one originally  proposed by  Bocquet and  Barrat \cite{Bocquet1994}
-.  We also  have shown that the slip
-length does not depend on  the channel width, thus demonstrating that
-the friction coefficient is an intrinsic surface property, in contrast with the results obtained by Petravic and Harrowell \cite{Petravic2007}.
+Finally,  in  Chapter  \ref{Chap:Slip},   we  have  measured,  through
+equilibrium MD simulations, the nonlocal transport kernels that appear
+in   the   discrete   hydrodynamic  equations   derived   in   Chapter
+\ref{Chap:Planar}.   After  observing  that  they
+suffer from the plateau problem, we  have used the method presented in
+Chapter  \ref{Chap:PBC} for  realiably extract
+the  transport  kernels  out  of  the  plateau-problematic  Green-Kubo
+formula.   We have  obtained  excellent  predictions with  these
+kernels for  the decay of the  average of
+the transverse  momentum in a  channel configuration when  the initial
+velocity  profile  is a  plug  flow.   We  infered the  slip  boundary
+condition  with a  well-defined  microscopic definition  for the  slip
+length and  the location  of the hydrodynamic  position of  the atomic
+wall.   The  microscopic  expression  for  the  slip  length  obtained
+coincides  with the  one  originally proposed  by  Bocquet and  Barrat
+\cite{Bocquet1994}.  We also have shown  that the slip length does not
+depend  on the  channel width,  thus demonstrating  that the  friction
+coefficient is an intrinsic surface property.  
+We have  observed violations of  the slip boundary  condition for
+  the initial  stages of the plug  flow.  These are attributed  to two
+  effects. First,  the force  on the  slab of fluid  is not  zero and,
+  therefore,  there is  no exact  balance between  shear and  friction
+  forces,   which   is   at   the   basis   of   the   slip   boundary
+  condition. Second, the  flow field is parabolic,  not linear, within
+  the slab of  the fluid. Only when the flow  has decayed sufficiently
+  it is  possible to approximate  the parabolic profile with  a linear
+  one. Then the slip boundary condition holds very well.
+
+A general final conclusion of this dissertation is that in order to talk
+about slip boundary conditions in nano-confined fluids, one should ensure
+that the hydrodynamic equations on which this boundary condition will be
+applied are valid at those scales. Only for supramolecularly resolved hydrodynamics
+one expects a Markovian hydrodynamic theory. Talking about slip in highly confined
+fluids like those in the interior of a carbon nanotube may not be entirely appropriate.
+
+
 
 %-----------------------------------------------------------------
 %FUTURE
 %-----------------------------------------------------------------
 \chapter{Future Directions}\label{Chap:Future}
 %\epigraph{\textit{Descubrir es ver de otro modo lo que nadie ha percibido.}}{Blanco Nocturno \\ RICARDO PLIGIA}
-In this dissertation we have presented an isothemal theory for a fluid in contact with a solid where the atoms of the solid are moving and vibrating. 
-Nevertheless, in the MD simulations presented to validate the theory, the solid is treated as a frozen crystal with no interaction between its particles.
-One issue easy to address consists of following the methodology that we have presented but simulating, instead of a frozen solid, a more realistic one with some degrees of freedom. 
-Although our results are robust, it would be convenient to validate them with the ones given by the interaction between the fluid with a ``real'' solid. 
-In particular, check if the slip lenght depends on the ``degree of reality'' of the solid. We obtained a slip lenght which does not depend on the geometry of the system. This result agrees with the one obtained by Bocquet and Barrat \cite{Bocquet1994} but it is opposed to the Petravic and Harrowell \cite{Petravic2007}). Therefore, it would be interesting to study if such size channel independence is due to a particular interaction between the fluid and the solid. 
-
-Another important open problem is about analyze the effect of the bin size in the Markovian behaviour of the fluid near the solid. 
-We observed that for a bin size of a molecular lenght, the Markovian approximation assumed in the derivation of the hydrodynamic equations of the fluid is not appropiated and, therefore, we have to discretize the system in bigger bins. The problem that arises when we use thick bins is that the layering near the walls is lost. 
-Because of the high computational cost of these simulations we could not address it in this dissertation, but it would be convenient to check if it is possible to obtain Markovian behaviour near the solid for a bin size that captures the layering. 
+In this dissertation we have presented an isothermal theory for a fluid in contact with a solid. 
+In the MD simulations presented to validate the theory, the solid is treated as a frozen crystal where the atoms remain at fixed positions of space.
+One issue that needs to be addressed in the future is wether the non-Markovian effects observed may be related to the ``hard'' nature of the crystal. This issue may be  addressed by  using more realistic models for the solid wall in which the bonded atoms may still be subject to vibrations in such a way that transport of elastic energy may occur.
+The results in the present dissertation have been obtained at a particular thermodynamic point and we have not investigated what is the effect of  changing the temperature or the density in the results. On the other hand, we have assumed that the parameters of the potential between crystal and the fluid atoms is the same as that of fluid and fluid atoms. Changing the strength of the former may allow to discuss how the attraction of the wall, related to the degree of hydrofobicity or hydrofillicity of the fluid, affects the conclusions reached so far.  These issues, that are computationally very intensive,  should be considered in the future.
 
 
 %This solid is, in fact, totally unrealistic but for the purpose of this dissertation should be valid. 
-%We have offered a methodology to study the markovianity of the fluid, which consists on observing the decay of the modes of the matrix of correlations in the reciprocal space. 
-%We observed that for a bin size of a molecular lenght, the Markovian approximation assumed in the derivation of the hydrodynamic equations of the fluid is not appropiated and, therefore, we have to choose biggers bins. 
+%We have offered a methodology to study the Markovianity of the fluid, which consists on observing the decay of the modes of the matrix of correlations in the reciprocal space. 
+%We observed that for a bin size of a molecular length, the Markovian approximation assumed in the derivation of the hydrodynamic equations of the fluid is not appropiated and, therefore, we have to choose biggers bins. 
 %Once the theory is validated though MD simulations, we compute the transport kernels. Then, we validate the theory predicting the decay of the vlocity of a fluid with a plug flow initial state. We observe that the slip length is independent of the channel size, which is a result that concuerda with the results of Bocquet and Barrat \cite{Bocquet1994}, but not with the Petravic and Harrowell \cite{Petravic2007}. 
 
-%One interesting way to explore is the markovianity for a wide bin size. Because of the high computational cost of these simulations we could not addressed it in this dissertation, but it would be convenient to see if we can obtain Markovian behaviour near the solid while we capture the layering. 
+%One interesting way to explore is the Markovianity for a wide bin size. Because of the high computational cost of these simulations we could not addressed it in this dissertation, but it would be convenient to see if we can obtain Markovian behaviour near the solid while we capture the layering. 
 %Also, it would be convenient to answer if our results are a partocular case produces by the fluid interaction with an unrealistic frozen solid wall.For example, simulations with a solid walls with particules interacting with a LJ potentials. 
 
-Finally, a natural extension of this work is to derive a non-isothermal theory in which the CG relevant variables are the presented in Chapter \ref{Chap:Theory} and the ones that take into account the energy of the fluid and the solid, that is
+Finally, a natural extension of this work is to derive a non-isothermal theory in which the CG relevant variables are, in addition to the mass and momentum densities presented in Chapter \ref{Chap:Theory}, the energy density of the fluid and the total energy of the solid, that is
 \begin{align}
   \hat{e}_{\bf r}(z) = \sum_i^N e_i\delta({\bf r}-{\bf q}_i) &&  \hat{E}(z)=\sum_{i'}^{N'}e_{i'},
 \end{align}
-where $e_i$ and $e_i'$ are the total energy of the fluid particle $i$ and the total energy of the solid particle $i'$, respectively. 
+where $e_i$ and $e_i'$ are the total energy of the fluid particle $i$ and the total energy of the solid particle $i'$, respectively. With these new variables, we should be able to address the problem of thermal boundary conditions and, in particular, the Kaptiza resistance. It is uncertain at these moment if the Kaptiza resistance, that plays the role of the solid-fluid friction coefficient for thermal effects, is also subject to the same issues (plateau problem and lack of Markovianicity at short scales) as the friction coefficient itself.
 
-The interest behind this (and the original motivation of this dissertation) is to understand the heat transfer between solids and fluids, specifically between nanoparticles and molten salts. 
+The interest behind the thermal aspects of the problem (and the original motivation of this dissertation) is to understand the heat transfer between solids and fluids, specifically between nanoparticles and molten salts. 
 The industry has a high interest in the study of mixtures of molten salts with nanoparticles in order to use them as a storage thermal fluid in solar plants \cite{Mahian2013,Schuller2015b, Shahrul2014a,Goharshadi2013a,Serrano-Lopez2013}. 
 They have low toxicity and melting point, and high specific heat capacity which can be increased depending on the type and percentage by weight of the nanoparticles added. 
 It has been observed an enhancement of $20\%$  in the specific heat capacity of a solar
 salt \footnote{Molten salts consisting of 60-wt.$\%$ NaN0$_3$ and 40-wt.\% KNO$_3$. } due to the introduction of silica and alumina nanoparticles \cite{Chieruzzi2013a}.
   
-There are a lot of experimental publications in which is observed an enhancement in the specific heat of a molten salt due to the introduction of nanoparticles \cite{Schuller2015b, Chieruzzi2013a,Khanafer2015a}, but there is not a clear physical explanation for such effect.
-An early attempt to explain it can be found in Ref. \cite{Shin2014}, where Shin et al. propose an expression for the specific heat of the mixture which take into account the mass and the specific heat of the nanoparticles, as well as the mass and the specific heat of the nanofluid. They attributed the enhancement measured in the experiemtns to the surface area of nanoparticles. Nevertheless, the debate about the physical origin of the specific heat enhancement due to nanoparticles is not conclude. This dissertation establishes not only the theoretical framework to address this problem but also the right methodology.
+There are a lot of experimental publications in which an enhancement in the specific heat of a molten salt due to the introduction of nanoparticles \cite{Schuller2015b, Chieruzzi2013a,Khanafer2015a} is observed, but there is not a clear physical explanation for such an effect. This fascinating subject requires for its understanding a theoretical framework like the one proposed in the present dissertation, as well as a methodology similar to the one followed here.
 
 \pagestyle{Contents}
 \bibliographystyle{unsrt}
@@ -8901,8 +8963,9 @@ The following articles and posters are related with this dissertation.
 \begin{enumerate}
   \item \cite{Camargo2018} D. Camargo, J. A. De La Torre, D. Duque-Zumajo, P. Español, R. Delgado-Buscalioni, and F. Chejne. Nanoscale hydrodynamics near solids. \textit{Journal of Chemical Physics}, 148(6), 2018.
   \item \cite{Espanol2019e} P. Español, J. A. de la Torre, and D. Duque-Zumajo. Solution to the plateau problem in the Green-Kubo formula. \textit{Physical Review E}, 99(2), 2019.
-  \item \cite{Discrete1} Discrete hydrodynamics for planar flows with confining walls.
-  \item \Note{PRL y Markovian}
+  \item \cite{Discrete1} D. Duque-Zumajo, D. Camargo, J. A. de la Torre, F. Chejne, and Pep Español. Discrete hydrodynamics for planar flows with confining walls. \textit{Physical Review E}, 2019
+  \item \cite{PRL} D. Duque-Zumajo, J. A. de la Torre, and Pep Español. Slip and non-Markovian effects in nanohydrodynamics (in preparation). \textit{Physical Review Letters}, 2019. 
+  \item \cite{Markovian} D. Duque-Zumajo, D. Camargo, J. A. de la Torre, Farid Chejne, and Pep Español. Discrete hydrodynamics near solid walls: non-Markovian effects and slip (in preparation). \textit{Physical Review E}, 2019. 
   \item \cite{FISESMadrid} Nanoscale hydrodynamics in periodic and confined geometries. Poster presented at 22th Workshop on Statistical Physics (FISES18), Madrid (Spain) 2018.
   \item \cite{IWNET} Nanoscale hydrodynamics in periodic boundary conditions. Poster presented at 8th International Workshop on Nonequilibrium Thermodynamics, Sint-Michielsgestel (The Netherlands) 2018.
   \item \cite{Ulam} Nanoscale heat transport in fluids near solids. Poster presented at Ulam Computer Simulation Workshop, Lviv (Ukraine) 2017.
@@ -10531,7 +10594,7 @@ is given by
 \end{center}
 \vspace{80pt}
 \begin{center}
-This dissertation was finished in April 2019. 
+This dissertation was finished in May 2019. 
 \end{center}
 
 \end{document}
