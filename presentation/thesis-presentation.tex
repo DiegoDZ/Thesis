@@ -11,6 +11,7 @@
 \usepackage{caption}
 \usepackage{psfrag}
 \usepackage{afterpage}
+\usepackage{cancel}
 \usepackage[backend=biber, style=nature]{biblatex}
 \addbibresource{../bibTex/thesis-library.bib}
 \useinnertheme{circles}
@@ -481,7 +482,7 @@ In  the left  panel, in
 \end{frame}
 
 \section{Markovian behaviour near solids}
-\begin{frame}
+\begin{frame}{The system and the CG variables}
 \begin{itemize}
   \item The system
 \begin{figure}
@@ -489,7 +490,7 @@ In  the left  panel, in
     \includegraphics[width=0.45\linewidth]{PRL3_gold2_wo_layers_wo_diffuse}
     \includegraphics[width=0.45\linewidth]{PRL3_gold2_wo_diffuse}
 \end{figure}
-\item The CG variable and its correlation
+\item The CG variables and its correlation
 \begin{align}
   \hat{\bf g}^x_\mu= \sum_i^N{\bf p}_i\delta_\mu({\bf q}_i), && 
   \hat{g}^T=(\hat{\bf   g}^x_1,\cdots,\hat{\bf  g}^x_{N_{\rm   bin}}), &&
@@ -553,18 +554,185 @@ In  the left  panel, in
 \end{itemize}
 \end{frame}
 
-\begin{frame}{$\tilde{\Lambda}(t)$ ($\Delta z=0.5\sigma$)}
-Diagonal elements  $\tilde{\Lambda}_{\mu\mu}(t)$ of $\Lambda(t)$ in the reciprocal space. After a time $\tau=0.2$ we observe a nice plateau for the lower modes. 
-\begin{figure}[h!]
-\includegraphics[width=0.5\linewidth]{LambdatRec-WALLS-66nodes}
-\end{figure}
-\end{frame}
-
 \begin{frame}{Eigenvalues and eigenvectors near the walls ($\Delta z=0.5\sigma$)}
     The eigenvalues $\tilde{C}_{\mu}(t)$ of the correlation matrix $C(t)$ for $\mu=59,60$ which are identical and superimpose (left) and the corresponding eigenvectors $u_{\mu}$ in blue and orange, respectively (right).
   \begin{figure}[h!]
-\includegraphics[width=0.5\linewidth]{EigenvaluesVectors-WALLS-66nodes}
+\includegraphics[width=1\linewidth]{EigenvaluesVectors-WALLS-66nodes}
 \end{figure}
 \end{frame}
+
+\begin{frame}{$\tilde{\Lambda}(t)$ ($\Delta z=0.5\sigma$)}
+Diagonal elements  $\tilde{\Lambda}_{\mu\mu}(t)$ of $\Lambda(t)$ in the reciprocal space. After a time $\tau=0.2$ we observe a nice plateau for the lower modes. 
+\begin{figure}[h!]
+\includegraphics[width=0.7\linewidth]{LambdatRec-WALLS-66nodes}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Predicted correlations in the bulk ($\Delta z=0.5\sigma$)}
+  In the middle of the canal the {\color{orange} predicted} correlation fits perfectly the {\color{blue} measured} correlation after a time $\tau=0.2$
+\begin{figure}[h!]
+\includegraphics[width=\linewidth]{Predictions-canal-WALLS-66nodes-defense}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Predicted correlations near the walls ($\Delta z=0.5\sigma$)}
+\begin{figure}[h!]
+\includegraphics[width=\linewidth]{Predictions-WALLS-66nodes-defense}
+\end{figure}
+\end{frame}
+
+\begin{frame}{From $\Delta z=0.5\sigma$ to $\Delta z=2\sigma$}
+  \begin{itemize}
+    \item We change the size of the bin
+\begin{figure}[h!]
+\includegraphics[width=0.9\linewidth]{bin_size}
+\end{figure}
+\item The thick bins do not capture the layering of the density field
+\begin{figure}[h!]
+\includegraphics[width=0.47\linewidth]{DensityProfile-WALLS}
+\end{figure}
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Eigenvalues $\tilde{C}_{\mu\mu}(t)$ ($\Delta=2\sigma$)}
+%Evolution of different eigenvalues $\tilde{C}_{\mu\nu}(t)$. Vertical line  at $t=\tau=0.3$.
+\begin{figure}[h!]
+  \includegraphics[width=0.87\linewidth]{CtRec-WALLS-17nodes-exp}
+\end{figure}
+\begin{figure}[h!]
+\includegraphics[scale=0.315]{LambdatRec-WALLS-17nodes}
+\includegraphics[scale=0.315]{Eigenvectors-WALLS-17nodes}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Predicted auto-correlations ($\Delta z=2\sigma$)}
+\begin{figure}[h!]
+\includegraphics[width=\linewidth]{Predictions-WALLS-17nodes-defense}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Predicted cross-correlations ($\Delta z=2\sigma$)}
+\begin{figure}[h!]
+\includegraphics[width=\linewidth]{PredictionsCross-WALLS-17nodes}
+\end{figure}
+\end{frame}
+
+\section{The slip boundary condition}
+\begin{frame}{Strategy}
+  \Note{Esto habrá que cambiarlo. No muestro las predicciones de C(t) aunque sí que vimos que el teorema se cumple. Directamente plug flow}
+  \begin{enumerate}
+    \item Compute the viscosity ($\eta$) and friction kernels ($G$, $H$, $\gamma$).
+    \item Corrected Green-Kubo expression which avoid the plateau problem. 
+    \item Predict the evolution of the correlation matrix, $C(t)$, with that transport kernels. 
+    \item Onsager's hypothesis.  
+    \item Navier slip boundary condition $\rightarrow$ slip length. 
+    \item Check that the slip boundary condition is satisfied by a plug flow.
+    \item The slip lenght is independent on the channel width.
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}{Correlation matrix $C(t)$}
+  \begin{itemize}
+    \item We measure the correlation matrix $C(t)=\llangle \hat{g}(t) \hat{g}^T \rrangle$
+%with $\hat{g}^T=(\hat{\bf g}^x_1,\cdots,\hat{\bf g}^x_{\rm bin})$.
+\item  The time derivative of the correlation matrix
+\begin{align}
+  \frac{d}{dt}C(t)
+=-  \int_0^t dt' \llangle i{\cal L}\hat{g}(t') i{\cal L}\hat{g}^T\rrangle
+=-  k_BT M(t)
+\nonumber
+\end{align}
+\item The Green-Kubo running integral 
+\begin{align}
+M(t)&= \frac{1}{k_BT}\int_0^t dt'\langle i{\cal L}\hat{g}(t')i{\cal L} \hat{g}^T\rangle
+\nonumber
+\end{align}
+\item The time derivative of the momentum is 
+\begin{align}
+  i{\cal L}\hat{g}_\mu(z) &=\hat{F}_\mu(z)-\frac{\hat{\sigma}_\mu(z)-\hat{\sigma}_{\mu-1}(z)}{\Delta z}
+\nonumber
+\end{align}
+where
+$\hat{F}_\mu=\hat{\bf                   F}_\mu^x$                  and
+$\hat{\sigma}_\mu=\hat{\boldsymbol{\sigma}}^{xz}_\mu$.
+\item Therefore, the Green-Kubo running integral takes the form  
+\begin{align}
+{M}(t)&=F^T\esc{\eta}(t)\esc F+{G}(t)\esc F+F^T\esc{H}(t)+{\gamma}(t)
+\nonumber
+\end{align}
+where $F$ is the bi-diagonal fordward finite difference operator.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{The nonlocal transport matrices} 
+\begin{align}
+\eta_{\mu\nu}(t)
+&=\frac{1}{k_BT}\int_0^t dt'
+\left\langle \hat{\boldsymbol{\sigma}}^{xz}_{\mu}(t')\hat{\boldsymbol{\sigma}}^{xz}_{\nu}
+\right\rangle
+\nonumber\\
+  G_{\mu\nu}(t)&=\frac{1}{k_BT}\int_0^t dt'
+\left\langle\hat{\bf F}^x_\mu(t')
+\hat{\boldsymbol{\sigma}}^{xz}_\nu
+\right\rangle
+\nonumber\\
+H_{\mu\nu}(t)&=
+\frac{1}{k_BT}\int_0^t dt'
+\left\langle\hat{\boldsymbol{\sigma}}^{xz}_\mu(t')\hat{\bf F}^{x}_\nu\right\rangle
+\nonumber\\
+  \gamma_{\mu\nu}(t)
+&=\frac{1}{k_BT}\int_0^t dt'
+\left\langle 
+\hat{\bf F}^{x}_\mu(t')
+\hat{\bf F}^{x}_\nu\right\rangle
+\nonumber
+\end{align}
+\end{frame}
+\begin{frame}{The plateau problem}
+$\eta_{10,10}(t)$ (middle of the channel), $\gamma_{1,1}$ (blue) and $\gamma_{2,2}$ (orange). 
+\begin{figure}[]
+  \includegraphics[scale=0.33]{NoPlateau-WALLS-17nodes}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Corrected Green-Kubo expression}
+  \begin{itemize}
+    \item Mori's theory and Markovian approximation 
+      \begin{align}
+        \frac{d}{dt}C(t)=-k_BT({\color{red}\cancel{L}} + M^*)\esc C^{-1}(0)\esc C(t)
+        \nonumber
+      \end{align}
+    \item We also have $\frac{d}{dt}C(t)=-k_B T\esc M(t)$
+    \item The \textit{corrected} Green-Kubo formula 
+      %\begin{align}
+       $ M^*=M(\tau)\esc C^{-1}(\tau)\esc C(0)$
+      %\end{align}
+      %where $c(\tau)=C^{-1}(0)\esc C(\tau)$
+    \item The evolution of the correlation matrix
+      \begin{align}
+        \frac{d}{dt}C(t)=-k_BT\esc M(\tau)\esc {\color{red} C^{-1}(\tau)}\esc C(t)
+        \nonumber
+      \end{align}
+    \item The evolution of the momentum field
+      \begin{align}
+        \frac{d}{dt}g(t)=-k_BT\esc M(\tau)\esc C^{-1}(\tau)\esc g(t)
+        \nonumber
+      \end{align}
+    \item The evolution of the velocity field
+      \begin{align}
+        \frac{d}{dt}v(t)=-k_BT\esc M(\tau)\esc C^{-1}(\tau)\esc {\cal V}\esc \underbrace{C^{-1}(\tau)\esc C(0)\esc v(t)}_{\overline{v}(t)}
+        \nonumber
+      \end{align}
+  \end{itemize}
+\end{frame}
+
+%\begin{frame}{The transport matrices}
+%\begin{figure}[]
+%\includegraphics[width=\linewidth]{transportMatrices-17nodes-WALLS}
+%\end{figure}
+%\end{frame}
+
+
 
 \end{document}
