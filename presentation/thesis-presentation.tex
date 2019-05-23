@@ -727,11 +727,113 @@ $\eta_{10,10}(t)$ (middle of the channel), $\gamma_{1,1}$ (blue) and $\gamma_{2,
   \end{itemize}
 \end{frame}
 
-%\begin{frame}{The transport matrices}
-%\begin{figure}[]
-%\includegraphics[width=\linewidth]{transportMatrices-17nodes-WALLS}
-%\end{figure}
-%\end{frame}
+\begin{frame}{Plug flow simulation}
+  \begin{itemize}
+    \item Simulations to generate a nonequilibrium plug flow. 
+    \item Add to the thermal velocity of each fluid atom the same velocity $\bf{V}$ 
+\begin{figure}[]
+  \includegraphics[width=0.3\linewidth]{plug_flow}
+\end{figure}
+\item Increase the kinetic energy $\rightarrow$ Increase the temperature. 
+\item Rescale the resulting velocities in order to remain at the same temperature. 
+\item Average over 5000 simulations with different initial configurations.
+\item $g^x_{\mu})(t)$ recorded every 2 timesteps.  
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Plug flow predictions}
+  \begin{align}
+    g(t)=\exp\{-\Lambda^* (t-\tau)\}\esc g(\tau)
+    \nonumber
+\end{align}
+\begin{figure}[!h]
+\includegraphics[width=0.5\linewidth]{gxtPredictions-17nodes-WALLS-defense1}
+\end{figure}
+The {\color{blue} measured momentum average} and the {\color{orange} predictions} for $\tau=0.3$ at times $t=1,3,...,21$ in descending order. 
+\end{frame}
+
+\begin{frame}{Plug flow predictions}
+\begin{figure}[!h]
+\includegraphics[width=\linewidth]{gxtPredictions-17nodes-WALLS-defense2}
+\end{figure}
+  \begin{itemize}
+    \item The {\color{blue} measured momentum average} and the {\color{orange} predictions} for modes $\mu=1, 2,...,8$ in ascending order. Zoom at short times.
+    \item Only after the tine in which the transport matrix reached a plateau, and hence a Markovian theory holds, it is expected that we get correct predictions. 
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{The boundary condition from pillbox argument}
+Boundary slab of made of $B$ bins near one of the walls.
+  \begin{enumerate}
+    \item The momentum obeys the dynamics
+      \begin{align}
+        \frac{d}{dt}g(t)=-k_BT\esc M(\tau)\esc C^{-1}(\tau)\esc g(t)
+        \nonumber
+      \end{align}
+\item The velocity field inside the boundary slab is linear
+\begin{align}
+\overline{\bf v}^x_{\mu}&=  \overline{\bf v}^x_{\rm wall}+\dot{\overline{\gamma}}_{\rm wall}(\mu\Delta z-z_{\rm wall})
+\nonumber
+\end{align}
+      \begin{itemize}
+        \item $z_{\rm wall}$: position of the wall. 
+        \item $\overline{\bf v}^x_{\rm wall}$: velocity at $z_{\rm wall}$.
+        \item $\dot{\overline{\gamma}}_{\rm wall}$: shear rate.
+      \end{itemize}
+\item The force on the boundary slab is vanishingly small. 
+  \end{enumerate}
+The Navier slip boundary condition and the slip length $\delta$
+\begin{align}
+\overline{\bf v}^x_{\rm wall}=\delta\dot{\overline{\gamma}}_{\rm wall}
+  =\frac{\eta-G}{\gamma-H}\dot{\overline{\gamma}}_{\rm wall}
+  \nonumber
+\end{align}
+\end{frame}
+
+\begin{frame}{Linear approximation for the velocity and force on the slab}
+\begin{figure}[!h]
+  \includegraphics[width=0.5\linewidth]{vtCorrected-17nodes-WALLS-defense}
+  \includegraphics[width=0.5\linewidth]{checkMecBalance-17nodes-WALLS-defense}
+\end{figure}
+  \begin{itemize}
+    \item The linear approximation for the velocity depends on the width of the boundary slab $B$. We choose $B=2$.\\
+\item The force on the slab boundary vanishes for times larger than $t=2$.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Validation of the slip boundary condition}
+  \begin{itemize}
+    \item The slip length is measured from 
+      %$\overline{\bf v}_{\rm wall}(t)$ and $\dot{\overline{\gamma}}_{\rm wall}$
+%\begin{align}
+ $\delta(t)=\frac{\overline{\bf v}^x_{\rm wall}(t)}{\dot{\overline{\gamma}}_{\rm wall}(t)}$
+%\nonumber
+%\end{align}
+\item The slip lenght has to be constant according to 
+  %\begin{align}
+  $\delta =\frac{\eta -G}{\gamma-H}$
+    %\nonumber
+  %\end{align}
+  \end{itemize}
+  \begin{figure}[]
+\includegraphics[width=\linewidth]{Slipt-17nodes-WALLS}
+  \end{figure}
+  \begin{itemize}
+    \item The slip length does not depend on the channel width (left) and is roughly independent of the actual value of $\tau$ (right).
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Local hydrodynamic model with boundary conditions}  
+  \begin{itemize}
+    \item We asess the local hydrodynamic equation (tangential component of the Navier-Stokes equation)
+\begin{align}
+  \partial_t g(z,t)&=\nu\frac{\partial^2}{\partial z^2} g(z,t)
+\nonumber
+\end{align}
+      with the slip boundary condition $\overline{\bf v}^x_{\rm wall}=\delta \dot{\overline{\gamma}}_{\rm wall}$ applied at $z_{\rm wall}$.
+    \item The kinematic viscosity is $\nu=\frac{\eta}{\rho}$.
+  \end{itemize}
+\end{frame}
 
 
 
