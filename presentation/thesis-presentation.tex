@@ -620,15 +620,14 @@ Diagonal elements  $\tilde{\Lambda}_{\mu\mu}(t)$ of $\Lambda(t)$ in the reciproc
 
 \section{The slip boundary condition}
 \begin{frame}{Strategy}
-  \Note{Esto habrá que cambiarlo. No muestro las predicciones de C(t) aunque sí que vimos que el teorema se cumple. Directamente plug flow}
   \begin{enumerate}
     \item Compute the viscosity ($\eta$) and friction kernels ($G$, $H$, $\gamma$).
     \item Corrected Green-Kubo expression which avoid the plateau problem. 
-    \item Predict the evolution of the correlation matrix, $C(t)$, with that transport kernels. 
-    \item Onsager's hypothesis.  
+    \item Predict the evolution of the average of the momentum profile, $g(t)$, with that transport kernels. 
     \item Navier slip boundary condition $\rightarrow$ slip length. 
     \item Check that the slip boundary condition is satisfied by a plug flow.
-    \item The slip lenght is independent on the channel width.
+    %\item The slip lenght is independent on the channel width.
+    \item Compare nonlocal and local theories. 
   \end{enumerate}
 \end{frame}
 
@@ -825,16 +824,106 @@ The Navier slip boundary condition and the slip length $\delta$
 
 \begin{frame}{Local hydrodynamic model with boundary conditions}  
   \begin{itemize}
-    \item We asess the local hydrodynamic equation (tangential component of the Navier-Stokes equation)
+    \item The disrete version of the local equation $\partial_t g(z,t)=\nu\frac{\partial^2}{\partial z^2} g(z,t)$
 \begin{align}
-  \partial_t g(z,t)&=\nu\frac{\partial^2}{\partial z^2} g(z,t)
+  \frac{d}{dt}g_\mu(t)&=\nu \frac{1}{\Delta z^2}(g_{\mu-1}(t)+g_{\mu+1}(t)-2g_{\mu}(t))
 \nonumber
 \end{align}
-      with the slip boundary condition $\overline{\bf v}^x_{\rm wall}=\delta \dot{\overline{\gamma}}_{\rm wall}$ applied at $z_{\rm wall}$.
-    \item The kinematic viscosity is $\nu=\frac{\eta}{\rho}$.
+where the kinematic viscosity is $\nu=\frac{\eta}{\rho}$.
+    \item Nonlocal hydrodynamic equation  
+\begin{align}
+  \frac{d}{dt}{\bf g}^x_\mu(t)=&
+-\sum_{\nu} {\cal V}_\nu \frac{\left[\eta_{\mu\nu}-\eta_{\mu-1\nu}-\eta_{\mu\nu-1}+\eta_{\mu-1\nu-1}\right]}{\Delta z^2}\overline{\bf v}^x_\nu \nonumber \\
+  &{\color{red}+\sum_{\nu} {\cal V}_\nu\frac{\left[G_{\mu\nu}-G_{\mu\nu-1}\right]}{\Delta z}\overline{\bf v}^x_\nu
++\sum_{\nu} {\cal V}_\nu\frac{\left[H_{\mu\nu}-H_{\mu-1\nu}\right]}{\Delta z}
+  \overline{\bf v}^x_\nu}
+\nonumber \\
+  &{\color{red}-\sum_{\nu} {\cal V}_\nu\gamma_{\mu\nu}\overline{\bf v}^x_\nu}
+\nonumber
+\end{align}
+\item We use the slip boundary condition $\overline{\bf v}_{\rm wall}^x=\delta \dot{\overline{\gamma}}_{\rm wall}$ applied at $z_{\rm wall}$.
   \end{itemize}
 \end{frame}
 
+\begin{frame}{The local predictions}
+\begin{align}
+ g(t)&=\exp\{\nu \Delta' (t-\tau)\}g(\tau)
+\nonumber
+\end{align}
+%with $\Delta'$ the Laplacian operator for slip boundary condition.
+\begin{figure}[]
+\includegraphics[width=\linewidth]{gxtLocalPrediction-17nodes-WALLS}
+\end{figure}
+  {\color{orange} Local  prediction}
+  compared with the {\color{blue} measured} momentum density
+  profile. Times  are $t=5,7,\cdots,29$  (left panel) in descending  order. Times $t=0.3,0.6,\cdots2.1$ (right panel).
+\end{frame}
+
+\begin{frame}{Comparison of the error between local and nonlocal theories}
+  \begin{align}
+  err_\mu(t)=  g_\mu(t)-g^{\rm predict}_\mu(t)
+    \nonumber
+  \end{align}
+    \begin{figure}
+\includegraphics[width=\linewidth]{errors-17nodes-WALLS-defense}
+\end{figure}
+  %\begin{itemize}
+    %\item The local theory gives higher errors. 
+    %\item The slip boundary condition used to predict the flow does not hold. 
+    %\item It is necessary to consider the explicit interaction between the solid and the fluid through the surface irreversible forces containing the transport kernels $G_{\mu\nu}$,$H_{\mu\nu}$,$\gamma_{\mu\nu}$.
+    %\item While the local prediction with the slip boundary condition is acceptable, nonlocal effects are appreciable. 
+  %\end{itemize}
+\end{frame}
+
+\begin{frame}{Conclusions}
+
+\end{frame}
+
+\begin{frame}{Future Directions}
+  \begin{enumerate}
+        \item Non-Markovian effects may be related to the ``hard'' nature of the crystal. 
+      \begin{itemize}
+        \item More realistic models for the solid wall. 
+        \item Change the thermodynamic point. 
+        \item Hydrofobicity or hydrofillicity affect the conclusions. 
+      \end{itemize}
+    \item Non-isothermal theory. 
+      \begin{itemize}
+        \item New CG variables
+\begin{align}
+  \hat{e}_{\bf r}(z) = \sum_i^N e_i\delta({\bf r}-{\bf q}_i) &&  \hat{E}(z)=\sum_{i'}^{N'}e_{i'}
+  \nonumber
+\end{align}
+\item Solve the problem of thermal boundary conditions. 
+    \item Understand the heat transfer between solids and fluid, specifically between nanoparticles and molten salts. 
+      \end{itemize}
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}{Relevant references}
+  \begin{itemize}
+      \begin{small}
+    \item D.Camargo, J.A. de la Torre, {\bf D.Duque-Zumajo}, P.Espa\~nol, R.Delgado-Buscalioni, and F. Chejne. Nanoscale hydrodynamics near solids. \textit{Journal of Chemical Physics}, 148(6), 2018.
+    \item P.Espa\~nol, J.A.de la Torre, and {\bf D.Duque-Zumajo}. Solution to the plateau problem in the Green-Kubo formula. \textit{Physical Review E}, 99(2), 2019.
+    \item {\bf D. Duque-Zumajo}, D. Camargo, J. A. de la Torre, F. Chejne, and Pep Espa\~nol. Discrete hydrodynamics for planar flows with confining walls. \textit{Physical Review E}, 2019.
+  \item {\bf D. Duque-Zumajo}, J. A. de la Torre, and Pep Espa\~nol. Slip and non-Markovian effects in nanohydrodynamics (in preparation). \textit{Physical Review Letters}, 2019. 
+  \item {\bf D. Duque-Zumajo}, D. Camargo, J. A. de la Torre, Farid Chejne, and Pep Espa\~nol. Discrete hydrodynamics near solid walls: non-Markovian effects and slip (in preparation). \textit{Physical Review E}, 2019. 
+      \end{small}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{figure}
+\includegraphics[width=0.2\linewidth]{logo}
+\end{figure}
+  \vspace{0.5cm}  
+\begin{center}
+\textit{Nanoscale hydrodynamics near solids}\\
+July 2019\\
+Diego Duque Zumajo
+\end{center}
+
+\end{frame}
 
 
 \end{document}
