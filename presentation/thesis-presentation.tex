@@ -8,6 +8,7 @@
 \usepackage{verbatim}
 \usepackage{fancyhdr}
 \usepackage{epigraph}
+\usepackage{transparent}
 \usepackage{caption}
 \usepackage{psfrag}
 \usepackage{afterpage}
@@ -45,19 +46,19 @@
 
 \begin{frame}{Motivation}
   \begin{itemize}
-    \item Great interest in the study of fluids in contact with solids in the nanoscale.
-        \item Density layering $\rightarrow$ DFT for equilibrium situations $\rightarrow$ DDFT for the study of the dynamic behaviour of the fluid. 
-        \item Slip boundary condition
+    \item<1-> Great interest in the study of fluids in contact with solids in the nanoscale.
+        \item<2-> Density layering $\rightarrow$ DFT for equilibrium situations $\rightarrow$ DDFT for the study of the dynamic behaviour of the fluid. 
+        \item<3-> Slip boundary condition
           \begin{align}
             \delta\frac{\partial v}{\partial z}=v_{\rm slip}, && \delta =\frac{\eta}{\gamma} \nonumber
           \end{align}
-        \item Bocquet and Barrat \cite{Bocquet1993}
+        \item<4-> Bocquet and Barrat \cite{Bocquet1993}
 \begin{align}
   \gamma=\frac{1}{Sk_BT}\int_0^{\tau} dt \llangle \hat{F}^x(t)\hat{F}^x\rrangle
 \nonumber
 \end{align}
-      \item Petravic and Harrowell \cite{Petravic2007} disagree with the expression obtained by Bocquet and Barrat.
-      \item The expression for $\gamma$ suffers from the plateau problem. 
+      \item<5-> Petravic and Harrowell \cite{Petravic2007} disagree with the expression obtained by Bocquet and Barrat.
+      \item<6-> The expression for $\gamma$ suffers from the plateau problem. 
     \end{itemize}
 \end{frame}
 
@@ -65,12 +66,16 @@
   \includegraphics[width=\linewidth]{scheme-thesis}
 \end{frame}
 
+\begin{frame}{Roadmap}
+  \includegraphics[width=\linewidth]{scheme-thesis-kawasaki}
+\end{frame}
+
 \section{Hydrodynamics theory for liquids near solids}
 \begin{frame}{The system and the relevant variables}
   \begin{itemize}
-    \item We study a fluid with $N$ particles in contact with a solid sphere of $N'$ particles.
-    \item $z= ({\bf q}_i, {\bf p}_i)$ and $z'= ({\bf q}_{i'}, {\bf p}_{i'})$
-    \item The relevant variables 
+    \item<1-> We study a fluid with $N$ particles in contact with a solid sphere of $N'$ particles.
+    %\item $z= ({\bf q}_i, {\bf p}_i)$ and $z'= ({\bf q}_{i'}, {\bf p}_{i'})$
+    \item<2-> The relevant variables 
       \begin{align}
         \hat{\rho}_{\bf r}(z) &=\sum^{N}_im\delta({\bf r}-{\bf q}_i)
       &&\hat{\bf R}(z)=\frac{1}{N'}\sum_{i'}^{N'}{\bf q}_{i'}
@@ -79,7 +84,7 @@
       &&\hat{\bf P}(z)=\sum_{i'}^{N'}{\bf p}_{i'}
       \nonumber
       \end{align}
-    \item The derivatives of the relevant variables
+    \item<3-> The derivatives of the relevant variables
       \begin{align}
         i{\cal L} \hat{\rho}_{\bf r}(z) &= -\boldsymbol{\nabla}\esc\hat{\bf g}_{\bf r}(z)
         && i{\cal L}\hat{\bf R}(z) =\frac{\hat{\bf P}(z)}{M}
@@ -94,18 +99,18 @@
 
 \begin{frame}{Kawasaki-Gunton projection operator}
   \begin{itemize}
-     \item Clear separation of timescales between the evolution of the averages and the decay of the memory kernel 
+     \item<1-> Separation of timescales between the evolution of the averages of the CG variables, $a_i$, and the decay of the memory kernel 
 \begin{equation}
   \frac{\partial}{\partial t}a_i(t) = {\color{blue} v_i(t)} {\color{red} +\sum_j D_{ij}(t) \lambda_j(t)}
 \nonumber
 \end{equation}
-\item {\color{blue} Reversible term}: $v_i={\rm Tr}[\overline{\rho}_t i{\cal L}\hat{A}_i]$ 
-\item The relevant ensemble: 
+\item<2-> {\color{blue} Reversible term}: $v_i={\rm Tr}[\overline{\rho}_t i{\cal L}\hat{A}_i]$ 
+\item<3-> The relevant ensemble: 
   \begin{equation}
   \overline{\rho}(z) = \frac{1}{Z[\lambda]} \rho_0\exp\{-\lambda\!\cdot\!\hat{A}(z)\}
   \nonumber
   \end{equation}
-\item {\color{red} The  dissipative matrix}  is  given  by  the Green-Kubo  formula
+\item<4-> {\color{red} The  dissipative matrix}  is  given  by  the Green-Kubo  formula
 \begin{equation}
 D_{ij}(t)=\int_0^{\Delta t} dt'\left\langle 
 {\cal Q}_t i{\cal L}\hat{A}_j\exp\{i{\cal L}t'\}{\cal Q}_t i{\cal L}\hat{A}_i
@@ -113,7 +118,7 @@ D_{ij}(t)=\int_0^{\Delta t} dt'\left\langle
 \label{dij}
 \nonumber
 \end{equation}
-\item The Kawasaki-Gunton projection operator is given by 
+\item<5-> The Kawasaki-Gunton projection operator is given by 
   \begin{align}
     {\cal Q}_{t'}\hat{F}(z) &= \hat{F}(z)- {\rm Tr}[\overline{\rho}_{t'} \hat{F}]
   -\sum_i(\hat{A}_i(z)-a_i(t'))\frac{\partial }{\partial a_i(t')}
@@ -146,9 +151,9 @@ D_{ij}(t)=\int_0^{\Delta t} dt'\left\langle
 \end{itemize}
 \end{frame}
 
-\begin{frame}{The transport kernels}
+\begin{frame}{The fluid stress tensor and the irreversible force}
   \begin{itemize}
-    \item The fluid stress tensor ${\color{red} \Sigma({\bf r})}$ is given by 
+    \item<1-> The fluid stress tensor ${\color{red} \Sigma({\bf r})}$ is given by 
   \begin{align}
   \boldsymbol{\Sigma}^{\alpha\beta}({\bf r})&=
 \int d{\bf r}'
@@ -156,7 +161,7 @@ D_{ij}(t)=\int_0^{\Delta t} dt'\left\langle
 \boldsymbol{\nabla}_{{\bf r}'}^{\beta'}{\bf v}^{\alpha'}({\bf r}')
 \nonumber
 \end{align}
-\item The irreversible surface force density on the fluid ${\color{red} {\cal S}({\bf r})}$
+\item<2-> The irreversible surface force density on the fluid ${\color{red} {\cal S}({\bf r})}$
 \begin{align}
   \boldsymbol{{\cal S}}^\alpha({\bf r})=&
 -\int d{\bf r}'{\bf G}^{\alpha\alpha'\beta'}_{{\bf r}{\bf r}'}
@@ -195,27 +200,20 @@ D_{ij}(t)=\int_0^{\Delta t} dt'\left\langle
 \end{align}
 \end{frame}
 
-\begin{frame}{Simpler theory}
-  \begin{itemize}
-    \item The amount of information to compute the hydrodynamic equations is exceedingly large:
-      \begin{itemize}
-        \item $\boldsymbol{\eta}$ has 36 independent components. 
-        \item ${\bf G}$ and ${\bf H}$ have 21 independent components. 
-        \item $\boldsymbol{\gamma}$ has 9 independent components. 
-      \end{itemize}
-    \item  The interactions felt by the fluid due to the walls are statistically planar and isotropic. We restric ourselves to planar flows. 
-    \item In order to compare the hydrodynamic equations with the MD simulations we need a discrete version of the theory. 
-    \end{itemize}
-\end{frame}
 
-\begin{frame}{Discrete basis function}
-  \begin{itemize}
-    \item $N_{\rm bin}$ bins with dimensions $L_x$, $L_y$, $\Delta z$ ($L_z/N_{\rm bin}$). 
+\begin{frame}{Discrete basis function I}
+  %\begin{itemize}
+    %\item 
+  $N_{\rm bin}$ bins with dimensions $L_x$, $L_y$, $\Delta z$. ($\Delta z = \frac{L_z}{N_{\rm bin}}$). 
       \begin{center}
-        \includegraphics[width=.3\linewidth]{PRL3_gold2_wo_layers_wo_diffuse}
-        \includegraphics[width=.3\linewidth]{PRL3_gold2_wo_diffuse}
+        \includegraphics[width=.5\linewidth]{PRL3_gold2_wo_layers_wo_diffuse}
+        %\includegraphics[width=.5\linewidth]{PRL3_gold2_wo_diffuse}
+        \includegraphics[width=.45\linewidth]{scheme-bines}
       \end{center}
-    \item  Characteristic function $\chi_{\mu}({\bf r})$ and finite element linear basis function $\Phi_{\mu}({\bf r})$
+  \end{frame}
+\begin{frame}{Discrete basis function II}
+    %\item  
+  Characteristic function $\chi_{\mu}({\bf r})$ and finite element linear basis function $\Phi_{\mu}({\bf r})$
     \begin{align}
     \chi_\mu({\bf r})&=\theta(z_{\mu+ 1}-z)\theta(z-z_\mu)=\chi_\mu(z)
     \nonumber
@@ -225,40 +223,45 @@ D_{ij}(t)=\int_0^{\Delta t} dt'\left\langle
       \nonumber
     \end{align}
     \begin{center} 
-      \includegraphics[scale=0.16]{psichi}
+      \includegraphics[width = \linewidth]{psichi}
+      %\includegraphics[scale=0.16]{psichi}
     \end{center}
-  \end{itemize}
+  %\end{itemize}
 \end{frame}
 
-\begin{frame}{Mass matrix and dual basis functions}
-  \begin{itemize}
-    \item The usual mass matrix of the finite element method is
-      \begin{align}
-      M^\Phi_{\mu\nu}&=\llg\Phi_\mu\Phi_\nu\rlg  
-      \nonumber
-      \end{align}
-      where we have introduce the notation $\llg\cdots\rlg=\int d{\bf r}...$
-    \item We introduce the discrete velocity field in terms of $M^\Phi_{\mu\nu}$
-      \begin{align}
-        \tilde{{\bf v}}_{\mu}=\sum_{\nu}{\cal V}_{\mu}[M^{\Phi}]^{-1}_{\mu\nu}{\bf v}_{\nu}
-        \nonumber
-      \end{align}
-  \item We can contruct continuum and discrete fields from dual basis functions $\delta_{\mu}({\bf r})$ and $\psi_\mu({\bf r})$ 
-    \begin{align}
-      v_\mu=\int d{\bf r}v({\bf r})\delta_\mu({\bf r}),&&
-        \overline{v}({\bf r}) =\sum_{\mu}v_\mu\psi_\mu({\bf r})
-    \nonumber
-    \end{align}
-  \end{itemize}
-\end{frame}
+%\begin{frame}{Dual basis functions and mass matrix}
+%  \begin{itemize}
+%  \item We can contruct continuum and discrete fields from dual basis functions $\delta_{\mu}({\bf r})$ and $\psi_\mu({\bf r})$ 
+%    \begin{align}
+%      v_\mu=\int d{\bf r}v({\bf r})\delta_\mu({\bf r}),&&
+%        \overline{v}({\bf r}) =\sum_{\mu}v_\mu\psi_\mu({\bf r})
+%    \nonumber
+%    \end{align}
+%    \item The usual mass matrix of the finite element method is
+%      \begin{align}
+%      M^\Phi_{\mu\nu}&=\llg\Phi_\mu\Phi_\nu\rlg  
+%      \nonumber
+%      \end{align}
+%      where we have introduce the notation $\llg\cdots\rlg=\int d{\bf r}...$
+%    \item We introduce the discrete velocity field in terms of $M^\Phi_{\mu\nu}$
+%      \begin{align}
+%        \tilde{{\bf v}}_{\mu}=\sum_{\nu}{\cal V}_{\mu}[M^{\Phi}]^{-1}_{\mu\nu}{\bf v}_{\nu}
+%        \nonumber
+%      \end{align}
+%  \end{itemize}
+%\end{frame}
 
 \begin{frame}{Discrete equations of nanohydrodynamics}
 \begin{align}
-  \frac{d}{dt}\rho_\mu&=  {\color{blue} \llg\overline{\rho} \; \overline{\bf v}\boldsymbol{\nabla}\delta_\mu \rlg}
+  %\frac{d}{dt}\rho_\mu&=  {\color{blue} \llg\overline{\rho} \; \overline{\bf v}\boldsymbol{\nabla}\delta_\mu \rlg}
+  \frac{d}{dt}\rho_\mu&=  {\color{blue} \int d{\bf r}\overline{\rho} \; \overline{\bf v}\boldsymbol{\nabla}\delta_\mu }
 \nonumber\\
 \frac{d}{dt}{\bf g}_\mu&=
-{\color{blue} \llg\overline{\rho} \overline{\bf v}\;\overline{\bf v}\esc\boldsymbol{\nabla}\delta_{\mu}\rlg
--\sum_\nu\llg\overline{\rho}\delta_{\mu}\boldsymbol{\nabla}\delta_{\nu}\rlg
+%{\color{blue} \llg\overline{\rho} \overline{\bf v}\;\overline{\bf v}\esc\boldsymbol{\nabla}\delta_{\mu}\rlg
+  {\color{blue} \int d{\bf r}\overline{\rho} \overline{\bf v}\;\overline{\bf v}\esc\boldsymbol{\nabla}\delta_{\mu}
+%-\sum_\nu\llg\overline{\rho}\delta_{\mu}\boldsymbol{\nabla}\delta_{\nu}\rlg
+%\frac{\partial  F}{\partial \rho_{\nu}}(\rho)}
+  -\sum_\nu\int d{\bf r}\overline{\rho}\delta_{\mu}\boldsymbol{\nabla}\delta_{\nu}
 \frac{\partial  F}{\partial \rho_{\nu}}(\rho)}
 \nonumber\\
 &{\color{red}-\sum_{\nu}{\cal V}_\nu \frac{{\bf n}\esc\left[\boldsymbol{\eta}_{\mu\nu}-\boldsymbol{\eta}_{\mu-1\nu}-\boldsymbol{\eta}_{\mu\nu-1}+\boldsymbol{\eta}_{\mu-1\nu-1}\right]}{\Delta z^2}:{\bf n}\tilde{\bf v}_\nu}
@@ -272,44 +275,53 @@ D_{ij}(t)=\int_0^{\Delta t} dt'\left\langle
 \end{align}
 \end{frame}
 
-\begin{frame}{Symmetry assumptions}
+\begin{frame}{Simpler theory}
   \begin{itemize}
-    \item The system is isotropic when we rotate it with respect to an axis perpendicular to the walls...
-    \item ... and reflect it with respect to a plane containing the axis. 
-    \item Large simplification of the structure of the tensors $\boldsymbol{\eta}_{\mu\nu}$, ${\bf G}_{\mu\nu}$, ${\bf H}_{\mu\nu}$ and $\boldsymbol{\gamma}_{\mu\nu}$.
-    \item Under the simplification we may separate the evolution of the selected variables in two contribution: normal and tangent.
+    \item<1-> The amount of information to compute the hydrodynamic equations is exceedingly large:
+      \begin{itemize}
+        \item $\boldsymbol{\eta}$ has 36 independent components. 
+        \item ${\bf G}$ and ${\bf H}$ have 21 independent components. 
+        \item $\boldsymbol{\gamma}$ has 9 independent components. 
+      \end{itemize}
+    \item<2-> Two simplifications
+      \begin{enumerate}
+    \item The interactions felt by the fluid due to the walls are statistically planar and isotropic (planar walls).
+    \item Planar flows: the hydrodynamic flow depends only on the coordinate perpendicular to the walls. 
+      \end{enumerate}
+    \item<3-> Under the simplification we may separate the evolution of the selected variables in two contribution: normal and tangent.
+    %\item<3-> In order to compare the hydrodynamic equations with the MD simulations we need a discrete version of the theory. 
     \end{itemize}
 \end{frame}
 
-\begin{frame}{Normal and tangent evolution}
-\begin{itemize}
-  \item The normal evolution 
-\begin{align}
-  \frac{d}{dt}\rho_\mu=&  {\color{blue} \llg\overline{\rho} \; \overline{v}^{z}{\nabla}^{z}\delta_\mu \rlg}
-\nonumber\\
-    \frac{d}{dt}{{\bf g}}^{z}_\mu=&
-{\color{blue} \llg\overline{\rho}\; \overline{v}^{z}\;\overline{v}^{z}{\nabla}^{z}\delta_{\mu}\rlg
--\llg\overline{\rho}\delta_{\mu}{\nabla}^{z}\delta_{\nu}\rlg
-\frac{\partial  F}{\partial \rho_{\nu}}(\rho)}
-{\color{red} +M_{\mu\nu}^{\bot}{\cal V}_\nu\tilde{v}^{z}_\nu}
-\nonumber
-\end{align}
-  \item The parallel evolution for $\alpha=x,y$  
-\begin{align}
-  \frac{d}{dt}{{\bf g}}^\alpha_\mu=&{\color{red}-M_{\mu\nu}^{||}{\cal V}_\nu\tilde{v}^\alpha_\nu}
-\nonumber
-\end{align}
-\item The dissipative matrix for $\odot=||,\bot$
-\begin{align}
-M^{\odot}_{\mu\nu} 
-=&-\frac{\eta^{\odot}_{\mu\nu}-\eta^{\odot}_{\mu-1\nu}-\eta^{\odot}_{\mu\nu-1}+\eta^{\odot}_{\mu-1\nu-1}}{\Delta z^2}
-+\frac{{G}^{\odot}_{\mu\nu}-{G}^{\odot}_{\mu\nu-1}}{\Delta z} \nonumber \\
-&+\frac{{H}^{\odot}_{\mu\nu}-{H}^{\odot}_{\mu-1\nu}}{\Delta z}
--{\gamma}^{\odot}_{\mu\nu}
-\nonumber
-\end{align}
-\end{itemize}
-\end{frame}
+%\begin{frame}{Normal and tangent evolution}
+%\begin{itemize}
+%  \item The normal evolution 
+%\begin{align}
+%  \frac{d}{dt}\rho_\mu=&  {\color{blue} \llg\overline{\rho} \; \overline{v}^{z}{\nabla}^{z}\delta_\mu \rlg}
+%\nonumber\\
+%    \frac{d}{dt}{{\bf g}}^{z}_\mu=&
+%{\color{blue} \llg\overline{\rho}\; \overline{v}^{z}\;\overline{v}^{z}{\nabla}^{z}\delta_{\mu}\rlg
+%-\llg\overline{\rho}\delta_{\mu}{\nabla}^{z}\delta_{\nu}\rlg
+%\frac{\partial  F}{\partial \rho_{\nu}}(\rho)}
+%{\color{red} +M_{\mu\nu}^{\bot}{\cal V}_\nu\tilde{v}^{z}_\nu}
+%\nonumber
+%\end{align}
+%  \item The parallel evolution for $\alpha=x,y$  
+%\begin{align}
+%  \frac{d}{dt}{{\bf g}}^\alpha_\mu=&{\color{red}-M_{\mu\nu}^{||}{\cal V}_\nu\tilde{v}^\alpha_\nu}
+%\nonumber
+%\end{align}
+%\item The dissipative matrix for $\odot=||,\bot$
+%\begin{align}
+%M^{\odot}_{\mu\nu} 
+%=&-\frac{\eta^{\odot}_{\mu\nu}-\eta^{\odot}_{\mu-1\nu}-\eta^{\odot}_{\mu\nu-1}+\eta^{\odot}_{\mu-1\nu-1}}{\Delta z^2}
+%+\frac{{G}^{\odot}_{\mu\nu}-{G}^{\odot}_{\mu\nu-1}}{\Delta z} \nonumber \\
+%&+\frac{{H}^{\odot}_{\mu\nu}-{H}^{\odot}_{\mu-1\nu}}{\Delta z}
+%-{\gamma}^{\odot}_{\mu\nu}
+%\nonumber
+%\end{align}
+%\end{itemize}
+%\end{frame}
 
 \begin{frame}{The discrete transport kernels}
 \begin{align}
@@ -356,56 +368,56 @@ H^\bot_{\mu\nu}=\frac{1}{k_BT}
 \end{align}
 \end{frame}
 
-\begin{frame}{Summary}
-  \begin{itemize}
-    \item 
-    \item We have obtained a set of nonlocal transport coefficients that are include in the nanohydrodynamic equations.
-    \end{itemize}
+\begin{frame}{Roadmap}
+  \includegraphics[width=\linewidth]{scheme-thesis-markovian}
 \end{frame}
 
 \section{Space and time locality for unconfined fluids}
 \begin{frame}{Mori's theory}
   \begin{itemize}
-    \item Linear dynamic equations not only for the averages of the relevant variables but also for their correlations
+    \item<1-> Linear dynamic equations for the correlations of $\hat{A}(t)$
 \begin{align}
   \frac{d}{dt}C(t)&=-L\esc C^{-1}(0)\esc C(t)
   -{\color{red}\int_0^tdt' \Gamma(t-t')\esc C^{-1}(0)\esc  C(t')}
 \nonumber
 \end{align}
-where the following matrices have been introduced
-\begin{align}
-  L&=\langle \hat{A}i{\cal L}\hat{A}^T\rangle \nonumber \\
-  C(0)&=\langle \hat{A}\hat{A}^T\rangle \nonumber \\
-\Gamma(t)&=\langle F^+(t)F^{+T}(0)\rangle
-\nonumber
-\end{align}
-\item The projected forces are given by
-\begin{align}
-F^+(t)&= \exp\{{\cal Q}i{\cal L}t\} {\cal Q}i{\cal L}\hat{A}  
-\nonumber
-\end{align}
-\item ${\cal Q}=1-{\cal P}$ where  ${\cal P}$  is Mori's  projector 
-\begin{align}
-  {\cal P}\hat{F}(z) = \langle \hat{F}\rangle+ \langle \hat{F}\hat{A}^T \rangle\esc  C^{-1}(0)\esc  \hat{A}(z)
-\nonumber
-\end{align}
-\end{itemize}
-\end{frame}
+where  $L=\langle \hat{A}i{\cal L}\hat{A}^T\rangle$.
+%where the following matrices have been introduced
+%\begin{align}
+%  L&=\langle \hat{A}i{\cal L}\hat{A}^T\rangle \nonumber \\
+%  C(0)&=\langle \hat{A}\hat{A}^T\rangle \nonumber \\
+%\Gamma(t)&=\langle F^+(t)F^{+T}(0)\rangle
+%\nonumber
+%\end{align}
+%\item<2-> The projected forces are given by
+%\begin{align}
+%F^+(t)&= \exp\{{\cal Q}i{\cal L}t\} {\cal Q}i{\cal L}\hat{A}  
+%\nonumber
+%\end{align}
+%\item<3-> ${\cal Q}=1-{\cal P}$ where  ${\cal P}$  is Mori's  projector 
+%\begin{align}
+%  {\cal P}\hat{F}(z) = \langle \hat{F}\rangle+ \langle \hat{F}\hat{A}^T \rangle\esc  C^{-1}(0)\esc  \hat{A}(z)
+%\nonumber
+%\end{align}
+%\end{itemize}
+%\end{frame}
 
-\begin{frame}{Markovian approximation}
-  \begin{itemize}
-    \item Memory-less term 
+%\begin{frame}{Markovian approximation}
+%  \begin{itemize}
+    %\item Memory-less term 
+    \item Markovian approximation
   \begin{align}
 {\color{red}\int_0^tdt' \Gamma(t-t')\esc C^{-1}(0)\esc  C(t')} \simeq M^* C^{-1}(0)C(t)
 \nonumber
 \end{align}
-\item Expression for the correlations
+\item Mori's equation and Markovian approximation
 \begin{align}
-  \frac{d}{dt}C(t) &= - (L+M^*)\esc C^{-1}(0)\esc C(t) \nonumber \\
-                     &\equiv \Lambda^*\esc C(t)
+  \frac{d}{dt}C(t) &= - (L+M^*)\esc C^{-1}(0)\esc C(t) 
+                     \equiv \Lambda^*\esc C(t)
   \nonumber
 \end{align}
-\item For a linear Markovian theory the only possibility for a correlation is to decay in an exponential matrix way
+%\item For a linear Markovian theory the only possibility for a correlation is to decay in an exponential matrix way
+\item Exponential matrix decay 
 \begin{align}
   C(t)=\exp\{-\Lambda^* (t-\tau)\}\esc C(\tau)
 \nonumber
@@ -414,35 +426,46 @@ F^+(t)&= \exp\{{\cal Q}i{\cal L}t\} {\cal Q}i{\cal L}\hat{A}
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Simpler case: unconfined fluid}
+\begin{frame}{Unconfined fluid. Simulation set up}
   \begin{center}
-  \begin{itemize}
-  \item The system
+  %\begin{itemize}
+  %\item The system
   \begin{figure}
-    \includegraphics[width=0.5\linewidth]{temp_wo_walls}
-    \includegraphics[width=0.5\linewidth]{temp_wo_walls_w_layers2}
+    %\includegraphics[width=0.5\linewidth]{temp_wo_walls}
+    %\includegraphics[width=0.5\linewidth]{temp_wo_walls}
+    \includegraphics[width=0.5\linewidth]{sim-pbc-box}
+%    \includegraphics[width=0.5\linewidth]{temp_wo_walls_w_layers2}
 \end{figure}
-\item The relevant variable
-\begin{align}
-  \hat{\bf g}_\mu(z)= \sum_i^N{\bf p}_i\delta_\mu({\bf r}_i)
-%  i{\cal L}  \hat{g}_{\mu}(z)=-\frac{\hat{\sigma}^{xz}_{\mu}-\hat{\sigma}^{xz}_{\mu-1}}{\Delta z}
-\nonumber
-\end{align}
-\end{itemize}
+%\item The relevant variable
+%\begin{align}
+%  \hat{\bf g}_\mu(z)= \sum_i^N{\bf p}_i\delta_\mu({\bf r}_i)
+%%  i{\cal L}  \hat{g}_{\mu}(z)=-\frac{\hat{\sigma}^{xz}_{\mu}-\hat{\sigma}^{xz}_{\mu-1}}{\Delta z}
+%\nonumber
+%\end{align}
+%\end{itemize}
+    \begin{itemize}
+     \item<1-> $L_{x}=40$, $L_{y}=40$, $L_{z}=30$.
+     \item<2-> $28749$ particles.
+     \item<3-> LJ potential truncated at $\sigma=2.5$.
+     \item<4-> $dt=2\cdot 10^{-3}$ in reduced units. 
+    \end{itemize}
   \end{center}
 \end{frame}
 
- \begin{frame}{Simulation set up}
+
+\begin{frame}{Unconfined fluid. Simulation set up}
+  \begin{figure}
+    \includegraphics[width=0.5\linewidth]{sim-pbc-box-bin}
+  \end{figure}
    \begin{itemize}
-     \item Simulation of $28749$ particles interacting with a LJ potential truncated at $\sigma=2.5$.
-     \item Box size $40x40x30$.
-     \item $dt=0.002$ in reduced units.
-     \item Equilibration stage
+     %\item Simulation of $28749$ particles interacting with a LJ potential truncated at $\sigma=2.5$.
+     %\item Box size $40x40x30$.
+     \item<1-> Equilibration stage
        \begin{itemize}
          \item Langevin thermostat for $10^5$ timesteps: $T=2.0$, $\rho=0.6$.
          \item NVE microcanonical conditions for a further $10^5$ timesteps.
           \end{itemize}
-        \item Production stage
+        \item<2-> Production stage
        \begin{itemize}
          \item $1.5\times10^6$ timesteps.
          \item $z$ axis binned in $60$ bins $\mu$. {$\boldsymbol{\Delta} {\bf z=0.5}\boldsymbol{\sigma}$}.
@@ -451,20 +474,20 @@ F^+(t)&= \exp\{{\cal Q}i{\cal L}t\} {\cal Q}i{\cal L}\hat{A}
      \end{itemize}
  \end{frame}
 
- \begin{frame}{Building the correlation matrix $C(t)$}
-\begin{figure}[h!]
-\includegraphics[width=\linewidth]{lammps-python}
-\end{figure}
- \end{frame}
+% \begin{frame}{Building the correlation matrix $C(t)$}
+%\begin{figure}[h!]
+%\includegraphics[width=\linewidth]{lammps-python}
+%\end{figure}
+% \end{frame}
  
  \begin{frame}{The correlation matrix $C(t)$ and its eigenvalues $\tilde{C}_{\mu\mu}$}
    \begin{itemize}
- \item
+ \item<1->
    The correlation matrix $C(t)$ at $t=0$ (left) and $t=0.6$ (right)
 \begin{figure}[h!]
 \includegraphics[width=\linewidth]{Ct-matrix-PBC}
 \end{figure}
-\item  The evolution of the different eigenvalues $\tilde{C}_{\mu\mu}(t)$. %The horizontal  line  at  the   value  $2\times10^{-5}$,  signaling  the
+\item<2->  The evolution of the different eigenvalues $\tilde{C}_{\mu\mu}(t)$. %The horizontal  line  at  the   value  $2\times10^{-5}$,  signaling  the
   %threshold below which statistical errors give spurious results.
 \begin{figure}[h!]
   \includegraphics[width=\linewidth]{CtFourier-PBC-exp}
@@ -473,12 +496,16 @@ F^+(t)&= \exp\{{\cal Q}i{\cal L}t\} {\cal Q}i{\cal L}\hat{A}
 \end{frame}
 
 \begin{frame}{Validation of the Markovian approximation}
+\begin{align}
+  \tilde{\Lambda}_{\mu\mu}=-\frac{1}{\tilde{C}_{\mu\mu}(t)}\frac{d\tilde{C}_{\mu\mu}}{dt}(t)
+  \nonumber
+\end{align}
 \begin{figure}[h!]
 \includegraphics[width=\linewidth]{LambdatFourier-PBC-defense}
 \end{figure}
-In  the left  panel, in
-  ascending  order the  plotted times  go  from $t=0$  to $t=0.20$  in
-  intervals of $0.02$.  In the right pannel the time evolution of $\tilde{\Lambda}_{\mu\mu}(t)$.
+  Left:
+  in ascending  order times  go  from $t=0$  to $t=0.20$  in
+  intervals of $0.02$.  Right: time evolution of $\tilde{\Lambda}_{\mu\mu}(t)$.
 \end{frame}
 
 \section{Markovian behaviour near solids}
@@ -616,6 +643,13 @@ Diagonal elements  $\tilde{\Lambda}_{\mu\mu}(t)$ of $\Lambda(t)$ in the reciproc
 \begin{figure}[h!]
 \includegraphics[width=\linewidth]{PredictionsCross-WALLS-17nodes}
 \end{figure}
+\end{frame}
+
+
+
+
+\begin{frame}{Roadmap}
+  \includegraphics[width=\linewidth]{scheme-thesis-slip}
 \end{frame}
 
 \section{The slip boundary condition}
@@ -925,5 +959,106 @@ Diego Duque Zumajo
 
 \end{frame}
 
+\begin{frame}{Dual basis functions and mass matrix}
+  \begin{itemize}
+  \item We can contruct continuum and discrete fields from dual basis functions $\delta_{\mu}({\bf r})$ and $\psi_\mu({\bf r})$ 
+    \begin{align}
+      v_\mu=\int d{\bf r}v({\bf r})\delta_\mu({\bf r}),&&
+        \overline{v}({\bf r}) =\sum_{\mu}v_\mu\psi_\mu({\bf r})
+    \nonumber
+    \end{align}
+    \item The usual mass matrix of the finite element method is
+      \begin{align}
+      M^\Phi_{\mu\nu}&=\llg\Phi_\mu\Phi_\nu\rlg  
+      \nonumber
+      \end{align}
+      where we have introduce the notation $\llg\cdots\rlg=\int d{\bf r}...$
+    \item We introduce the discrete velocity field in terms of $M^\Phi_{\mu\nu}$
+      \begin{align}
+        \tilde{{\bf v}}_{\mu}=\sum_{\nu}{\cal V}_{\mu}[M^{\Phi}]^{-1}_{\mu\nu}{\bf v}_{\nu}
+        \nonumber
+      \end{align}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Normal and tangent evolution}
+\begin{itemize}
+  \item The normal evolution 
+\begin{align}
+  \frac{d}{dt}\rho_\mu=&  {\color{blue} \llg\overline{\rho} \; \overline{v}^{z}{\nabla}^{z}\delta_\mu \rlg}
+\nonumber\\
+    \frac{d}{dt}{{\bf g}}^{z}_\mu=&
+{\color{blue} \llg\overline{\rho}\; \overline{v}^{z}\;\overline{v}^{z}{\nabla}^{z}\delta_{\mu}\rlg
+-\llg\overline{\rho}\delta_{\mu}{\nabla}^{z}\delta_{\nu}\rlg
+\frac{\partial  F}{\partial \rho_{\nu}}(\rho)}
+{\color{red} +M_{\mu\nu}^{\bot}{\cal V}_\nu\tilde{v}^{z}_\nu}
+\nonumber
+\end{align}
+  \item The parallel evolution for $\alpha=x,y$  
+\begin{align}
+  \frac{d}{dt}{{\bf g}}^\alpha_\mu=&{\color{red}-M_{\mu\nu}^{||}{\cal V}_\nu\tilde{v}^\alpha_\nu}
+\nonumber
+\end{align}
+\item The dissipative matrix for $\odot=||,\bot$
+\begin{align}
+M^{\odot}_{\mu\nu} 
+=&-\frac{\eta^{\odot}_{\mu\nu}-\eta^{\odot}_{\mu-1\nu}-\eta^{\odot}_{\mu\nu-1}+\eta^{\odot}_{\mu-1\nu-1}}{\Delta z^2}
++\frac{{G}^{\odot}_{\mu\nu}-{G}^{\odot}_{\mu\nu-1}}{\Delta z} \nonumber \\
+&+\frac{{H}^{\odot}_{\mu\nu}-{H}^{\odot}_{\mu-1\nu}}{\Delta z}
+-{\gamma}^{\odot}_{\mu\nu}
+\nonumber
+\end{align}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Mori's theory}
+  \begin{itemize}
+    \item<1-> Linear dynamic equations not only for the averages of the relevant variables but also for their correlations
+\begin{align}
+  \frac{d}{dt}C(t)&=-L\esc C^{-1}(0)\esc C(t)
+  -{\color{red}\int_0^tdt' \Gamma(t-t')\esc C^{-1}(0)\esc  C(t')}
+\nonumber
+\end{align}
+where the following matrices have been introduced
+\begin{align}
+  L&=\langle \hat{A}i{\cal L}\hat{A}^T\rangle \nonumber \\
+  C(0)&=\langle \hat{A}\hat{A}^T\rangle \nonumber \\
+\Gamma(t)&=\langle F^+(t)F^{+T}(0)\rangle
+\nonumber
+\end{align}
+\item<2-> The projected forces are given by
+\begin{align}
+F^+(t)&= \exp\{{\cal Q}i{\cal L}t\} {\cal Q}i{\cal L}\hat{A}  
+\nonumber
+\end{align}
+\item<3-> ${\cal Q}=1-{\cal P}$ where  ${\cal P}$  is Mori's  projector 
+\begin{align}
+  {\cal P}\hat{F}(z) = \langle \hat{F}\rangle+ \langle \hat{F}\hat{A}^T \rangle\esc  C^{-1}(0)\esc  \hat{A}(z)
+\nonumber
+\end{align}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Markovian approximation}
+  \begin{itemize}
+    \item Memory-less term 
+  \begin{align}
+{\color{red}\int_0^tdt' \Gamma(t-t')\esc C^{-1}(0)\esc  C(t')} \simeq M^* C^{-1}(0)C(t)
+\nonumber
+\end{align}
+\item Expression for the correlations
+\begin{align}
+  \frac{d}{dt}C(t) &= - (L+M^*)\esc C^{-1}(0)\esc C(t) \nonumber \\
+                     &\equiv \Lambda^*\esc C(t)
+  \nonumber
+\end{align}
+\item For a linear Markovian theory the only possibility for a correlation is to decay in an exponential matrix way
+\begin{align}
+  C(t)=\exp\{-\Lambda^* (t-\tau)\}\esc C(\tau)
+\nonumber
+\end{align}
+\item {\bf We need to find a constant matrix $\boldsymbol{\Lambda^*}$}.
+\end{itemize}
+\end{frame}
 
 \end{document}
