@@ -46,9 +46,9 @@
 
 \begin{frame}{Motivation}
   \begin{itemize}
-    \item<1-> Great interest in the study of fluids in contact with solids in the nanoscale.
-        \item<2-> Density layering $\rightarrow$ DFT for equilibrium situations $\rightarrow$ DDFT for the study of the dynamic behaviour of the fluid. 
-        \item<3-> Slip boundary condition
+    \item<1-> Great interest in the study of fluids in contact with solids in the nanoscale ($1-100$ nm).
+    \item<2-> \alert{Density layering} $\rightarrow$ DFT for equilibrium situations $\leadsto$ DDFT for the study of the dynamic behaviour of the fluid. 
+    \item<3-> \alert{Slip boundary condition}
           \begin{align}
             \delta\frac{\partial v}{\partial z}=v_{\rm slip}, && \delta =\frac{\eta}{\gamma} \nonumber
           \end{align}
@@ -58,7 +58,7 @@
 \nonumber
 \end{align}
       \item<5-> Petravic and Harrowell \cite{Petravic2007} disagree with the expression obtained by Bocquet and Barrat.
-      \item<6-> The expression for $\gamma$ suffers from the plateau problem. 
+      \item<6-> The expression for $\gamma$ suffers from the \alert{plateau problem}. 
     \end{itemize}
 \end{frame}
 
@@ -99,7 +99,7 @@
 
 \begin{frame}{Kawasaki-Gunton projection operator}
   \begin{itemize}
-     \item<1-> Separation of timescales between the evolution of the averages of the CG variables, $a_i$, and the decay of the memory kernel 
+    \item<1-> Separation of timescales between the evolution of the averages of the CG variables, $a_i$, and the decay of the memory kernel 
 \begin{equation}
   \frac{\partial}{\partial t}a_i(t) = {\color{blue} v_i(t)} {\color{red} +\sum_j D_{ij}(t) \lambda_j(t)}
 \nonumber
@@ -285,10 +285,10 @@ D_{ij}(t)=\int_0^{\Delta t} dt'\left\langle
       \end{itemize}
     \item<2-> Two simplifications
       \begin{enumerate}
-    \item The interactions felt by the fluid due to the walls are statistically planar and isotropic (planar walls).
-    \item Planar flows: the hydrodynamic flow depends only on the coordinate perpendicular to the walls. 
+        \item The interactions felt by the fluid due to the walls are statistically planar and isotropic (\alert{planar walls}).
+        \item \alert{Planar flows}: the hydrodynamic flow depends only on the coordinate perpendicular to the walls. 
       \end{enumerate}
-    \item<3-> Under the simplification we may separate the evolution of the selected variables in two contribution: normal and tangent.
+    \item<3-> Under the simplification we may separate the evolution of the selected variables in two contributions: normal and tangent.
     %\item<3-> In order to compare the hydrodynamic equations with the MD simulations we need a discrete version of the theory. 
     \end{itemize}
 \end{frame}
@@ -444,10 +444,10 @@ where  $L=\langle \hat{A}i{\cal L}\hat{A}^T\rangle$.
 %\end{align}
 %\end{itemize}
     \begin{itemize}
-     \item<1-> $L_{x}=40$, $L_{y}=40$, $L_{z}=30$.
-     \item<2-> $28749$ particles.
-     \item<3-> LJ potential truncated at $\sigma=2.5$.
-     \item<4-> $dt=2\cdot 10^{-3}$ in reduced units. 
+     \item $L_{x}=40$, $L_{y}=40$, $L_{z}=30$.
+     \item $28749$ particles.
+     \item LJ potential truncated at $\sigma=2.5$.
+     \item $dt=2\cdot 10^{-4}$ in reduced units. 
     \end{itemize}
   \end{center}
 \end{frame}
@@ -460,12 +460,12 @@ where  $L=\langle \hat{A}i{\cal L}\hat{A}^T\rangle$.
    \begin{itemize}
      %\item Simulation of $28749$ particles interacting with a LJ potential truncated at $\sigma=2.5$.
      %\item Box size $40x40x30$.
-     \item<1-> Equilibration stage
+     \item<1-> \alert{Equilibration} stage
        \begin{itemize}
          \item Langevin thermostat for $10^5$ timesteps: $T=2.0$, $\rho=0.6$.
          \item NVE microcanonical conditions for a further $10^5$ timesteps.
           \end{itemize}
-        \item<2-> Production stage
+        \item<2-> \alert{Production} stage
        \begin{itemize}
          \item $1.5\times10^6$ timesteps.
          \item $z$ axis binned in $60$ bins $\mu$. {$\boldsymbol{\Delta} {\bf z=0.5}\boldsymbol{\sigma}$}.
@@ -474,11 +474,11 @@ where  $L=\langle \hat{A}i{\cal L}\hat{A}^T\rangle$.
      \end{itemize}
  \end{frame}
 
-% \begin{frame}{Building the correlation matrix $C(t)$}
-%\begin{figure}[h!]
-%\includegraphics[width=\linewidth]{lammps-python}
-%\end{figure}
-% \end{frame}
+ \begin{frame}{Building the correlation matrix $C(t)$}
+\begin{figure}[h!]
+\includegraphics[width=\linewidth]{lammps-python}
+\end{figure}
+ \end{frame}
  
  \begin{frame}{The correlation matrix $C(t)$ and its eigenvalues $\tilde{C}_{\mu\mu}$}
    \begin{itemize}
@@ -501,80 +501,120 @@ where  $L=\langle \hat{A}i{\cal L}\hat{A}^T\rangle$.
   \nonumber
 \end{align}
 \begin{figure}[h!]
-\includegraphics[width=\linewidth]{LambdatFourier-PBC-defense}
+\includegraphics[width=0.7\linewidth]{LambdatFourier-PBC-defense}
 \end{figure}
-  Left:
-  in ascending  order times  go  from $t=0$  to $t=0.20$  in
-  intervals of $0.02$.  Right: time evolution of $\tilde{\Lambda}_{\mu\mu}(t)$.
+%  Left:
+%  in ascending  order times  go  from $t=0$  to $t=0.20$  in
+%  intervals of $0.02$.  Right: time evolution of $\tilde{\Lambda}_{\mu\mu}(t)$.
 \end{frame}
 
 \section{Markovian behaviour near solids}
-\begin{frame}{The system and the CG variables}
-\begin{itemize}
-  \item The system
+
+\begin{frame}{Confined fluid. Simulation set up}
 \begin{figure}
     \centering
-    \includegraphics[width=0.45\linewidth]{PRL3_gold2_wo_layers_wo_diffuse}
-    \includegraphics[width=0.45\linewidth]{PRL3_gold2_wo_diffuse}
+    \includegraphics[width=0.8\linewidth]{dim-sim-pbc-walls}
 \end{figure}
-\item The CG variables and its correlation
-\begin{align}
-  \hat{\bf g}^x_\mu= \sum_i^N{\bf p}_i\delta_\mu({\bf q}_i), && 
-  \hat{g}^T=(\hat{\bf   g}^x_1,\cdots,\hat{\bf  g}^x_{N_{\rm   bin}}), &&
-  C(t)=\llangle \hat{g}(t) \hat{g}^T\rrangle 
-\nonumber
-\end{align}
-\end{itemize}
+    \begin{itemize}
+      \item $L_x=40$, $L_x=40$, $L_z=33$.
+     \item $28175$ particles.
+     \item LJ potential truncated at $\sigma=2.5$.
+     \item $dt=2\cdot 10^{-3}$ in reduced units. 
+    \end{itemize}
 \end{frame}
 
-\begin{frame}{Simulation set up}
+\begin{frame}{Confined fluid. Simulation set up}
+  %\begin{figure}
+  %  \includegraphics[width=0.5\linewidth]{sim-walls-box-bin}
+  %\end{figure}
    \begin{itemize}
-     \item Simulation of $28175$ fluid particles interacting with a LJ potential truncated at $\sigma=2.5$.
-     \item Two solid walls in the $xy$ plane confine the fluid.  
-     \item Box size $40x40x33$. 
-     \item $dt=0.002$ in reduced units.
-     \item Equilibration stage
+     %\item Simulation of $28749$ particles interacting with a LJ potential truncated at $\sigma=2.5$.
+     %\item Box size $40x40x30$.
+     \item<1-> \alert{Equilibration} stage
        \begin{itemize}
          \item Langevin thermostat for $10^5$ timesteps: $T=2.0$, $\rho=0.6$.
          \item NVE microcanonical conditions for a further $10^5$ timesteps.
           \end{itemize}
-        \item Production stage
+        \item<2-> \alert{Production} stage
        \begin{itemize}
          \item $12\times10^6$ timesteps.
-         \item $z$ axis binned in $66$ bins $\mu$ $\boldsymbol{\Delta} {\bf z=0.5}\boldsymbol{\sigma}$ or $33$ bins $\mu$ $\boldsymbol{\Delta} {\bf z=2} \boldsymbol{\sigma}$.
-         \item $g_{\mu}^x(t)$ recorded every $2$ timesteps. 
+         \item $g_{\mu}^x(t)$ recorded every $2$ timesteps.
+         \item $z$ axis binned in $66$ bins $\mu$ ({$\boldsymbol{\Delta} {\bf z=0.5}\boldsymbol{\sigma}$}).
          \end{itemize}
+       \item<3->[]
+         \begin{figure}
+    \includegraphics[width=\linewidth]{bin_size_top-bottom}
+  \end{figure}
      \end{itemize}
-\end{frame}
 
-\begin{frame}{Reciprocal space}
-  \begin{itemize}
-    \item Eigenvalues $\tilde{C}_{\mu}$ and eigenvectors $u_{\mu}$
-\begin{align}
-  C(t)&=\sum_\mu^{N_{\rm bin}}\tilde{C}_\mu(t) u_\mu(t) \otimes u_\mu^T(t)
-\nonumber
-\end{align}
-    \item Unitary matrix $E(t)$
-\begin{align}
-  E^{-1}(t)\esc C(t)\esc E(t)=\tilde{C}(t)
-\nonumber
-\end{align}
-\item We observed that $\dot{E}\simeq 0$.
-\item The predictions of $C(t)$ in the reciprocal space
-\begin{align}
-  \tilde{C}_\mu(t)&=\exp\{-\tilde{\Lambda}_{\mu\mu} (t-\tau)\}  \tilde{C}_\mu(\tau)
-  \nonumber
-\end{align}
-    \end{itemize}
-\end{frame}
+ \end{frame}
+
+%\begin{frame}{The system and the CG variables}
+%\begin{itemize}
+%  \item The system
+%\begin{figure}
+%    \centering
+%    \includegraphics[width=0.45\linewidth]{PRL3_gold2_wo_layers_wo_diffuse}
+%    \includegraphics[width=0.45\linewidth]{PRL3_gold2_wo_diffuse}
+%\end{figure}
+%\item The CG variables and its correlation
+%\begin{align}
+%  \hat{\bf g}^x_\mu= \sum_i^N{\bf p}_i\delta_\mu({\bf q}_i), && 
+%  \hat{g}^T=(\hat{\bf   g}^x_1,\cdots,\hat{\bf  g}^x_{N_{\rm   bin}}), &&
+%  C(t)=\llangle \hat{g}(t) \hat{g}^T\rrangle 
+%\nonumber
+%\end{align}
+%\end{itemize}
+%\end{frame}
+%
+%\begin{frame}{Simulation set up}
+%   \begin{itemize}
+%     \item Simulation of $28175$ fluid particles interacting with a LJ potential truncated at $\sigma=2.5$.
+%     \item Two solid walls in the $xy$ plane confine the fluid.  
+%     \item Box size $40x40x33$. 
+%     \item $dt=0.002$ in reduced units.
+%     \item Equilibration stage
+%       \begin{itemize}
+%         \item Langevin thermostat for $10^5$ timesteps: $T=2.0$, $\rho=0.6$.
+%         \item NVE microcanonical conditions for a further $10^5$ timesteps.
+%          \end{itemize}
+%        \item Production stage
+%       \begin{itemize}
+%         \item $12\times10^6$ timesteps.
+%         \item $z$ axis binned in $66$ bins $\mu$ $\boldsymbol{\Delta} {\bf z=0.5}\boldsymbol{\sigma}$ or $33$ bins $\mu$ $\boldsymbol{\Delta} {\bf z=2} \boldsymbol{\sigma}$.
+%         \item $g_{\mu}^x(t)$ recorded every $2$ timesteps. 
+%         \end{itemize}
+%     \end{itemize}
+%\end{frame}
+%
+%\begin{frame}{Reciprocal space}
+%  \begin{itemize}
+%    \item Eigenvalues $\tilde{C}_{\mu}$ and eigenvectors $u_{\mu}$
+%\begin{align}
+%  C(t)&=\sum_\mu^{N_{\rm bin}}\tilde{C}_\mu(t) u_\mu(t) \otimes u_\mu^T(t)
+%\nonumber
+%\end{align}
+%    \item Unitary matrix $E(t)$
+%\begin{align}
+%  E^{-1}(t)\esc C(t)\esc E(t)=\tilde{C}(t)
+%\nonumber
+%\end{align}
+%\item We observed that $\dot{E}\simeq 0$.
+%\item The predictions of $C(t)$ in the reciprocal space
+%\begin{align}
+%  \tilde{C}_\mu(t)&=\exp\{-\tilde{\Lambda}_{\mu\mu} (t-\tau)\}  \tilde{C}_\mu(\tau)
+%  \nonumber
+%\end{align}
+%    \end{itemize}
+%\end{frame}
 
 \begin{frame}{Thin bins ($\Delta z=0.5\sigma$)}
   \begin{itemize}
-    \item $C_{\mu\nu}(t)$ for  $t=0$ (left) and $t=0.6$ (right).
+    \item<1-> $C_{\mu\nu}(t)$ for  $t=0$ (left) and $t=0.6$ (right).
 \begin{figure}[h!]
 \includegraphics[width=\linewidth]{Ct-matrix-WALLS-66nodes}
 \end{figure}
-\item Evolution of different eigenvalues $\tilde{C}_{\mu\nu}(t)$
+\item<2-> Evolution of different eigenvalues $\tilde{C}_{\mu\nu}(t)$
 \begin{figure}[h!]
   \includegraphics[width=\linewidth]{CtRec-WALLS-66nodes-exp}
 \end{figure}
@@ -582,7 +622,8 @@ where  $L=\langle \hat{A}i{\cal L}\hat{A}^T\rangle$.
 \end{frame}
 
 \begin{frame}{Eigenvalues and eigenvectors near the walls ($\Delta z=0.5\sigma$)}
-    The eigenvalues $\tilde{C}_{\mu}(t)$ of the correlation matrix $C(t)$ for $\mu=59,60$ which are identical and superimpose (left) and the corresponding eigenvectors $u_{\mu}$ in blue and orange, respectively (right).
+%    The eigenvalues $\tilde{C}_{\mu}(t)$ of the correlation matrix $C(t)$ for $\mu=59,60$ which are identical and superimpose (left) and the corresponding eigenvectors $u_{\mu}$ in blue and orange, respectively (right).
+  Eigenvalues $\tilde{C}_{\mu}(t)$ of $C(t)$ for $\mu=59,60$ and the corresponding eigenvectors $u_{\mu}$ in blue and orange, respectively.
   \begin{figure}[h!]
 \includegraphics[width=1\linewidth]{EigenvaluesVectors-WALLS-66nodes}
 \end{figure}
@@ -596,6 +637,11 @@ Diagonal elements  $\tilde{\Lambda}_{\mu\mu}(t)$ of $\Lambda(t)$ in the reciproc
 \end{frame}
 
 \begin{frame}{Predicted correlations in the bulk ($\Delta z=0.5\sigma$)}
+  \begin{align}
+    C(t) = {\rm exp}\{-\Lambda^*(t-\tau)\cdot C(\tau)\}
+    \nonumber
+  \end{align}
+  
   In the middle of the canal the {\color{orange} predicted} correlation fits perfectly the {\color{blue} measured} correlation after a time $\tau=0.2$
 \begin{figure}[h!]
 \includegraphics[width=\linewidth]{Predictions-canal-WALLS-66nodes-defense}
@@ -610,15 +656,22 @@ Diagonal elements  $\tilde{\Lambda}_{\mu\mu}(t)$ of $\Lambda(t)$ in the reciproc
 
 \begin{frame}{From $\Delta z=0.5\sigma$ to $\Delta z=2\sigma$}
   \begin{itemize}
-    \item We change the size of the bin
+    \item<1-> We change the size of the bin
 \begin{figure}[h!]
-\includegraphics[width=0.9\linewidth]{bin_size}
+\includegraphics[width=0.7\linewidth]{bin_size}
 \end{figure}
-\item The thick bins do not capture the layering of the density field
+\item<2-> We need to add a new layer of solid atoms
 \begin{figure}[h!]
-\includegraphics[width=0.47\linewidth]{DensityProfile-WALLS}
+\includegraphics[width=0.9\linewidth]{bin_size-top-bottom_17nodos_cut}
 \end{figure}
   \end{itemize}
+\end{frame}
+
+\begin{frame}{The density layering}
+The thick bins do not capture the layering of the density field.
+\begin{figure}[h!]
+\includegraphics[width=0.7\linewidth]{DensityProfile-WALLS}
+\end{figure}
 \end{frame}
 
 
@@ -722,6 +775,18 @@ H_{\mu\nu}(t)&=
 \nonumber
 \end{align}
 \end{frame}
+
+%\begin{frame}{Simulations}
+%\begin{figure}[]
+%  \includegraphics[width=0.5\linewidth]{PRL3_gold2_wo_diffuse}
+%\end{figure}
+%\begin{figure}[h!]
+%\includegraphics[width=0.8\linewidth]{bin_size-top-bottom_17nodos_cut}
+%\end{figure}
+%\end{frame}
+
+
+
 \begin{frame}{The plateau problem}
 $\eta_{10,10}(t)$ (middle of the channel), $\gamma_{1,1}$ (blue) and $\gamma_{2,2}$ (orange). 
 \begin{figure}[]
@@ -770,7 +835,7 @@ $\eta_{10,10}(t)$ (middle of the channel), $\gamma_{1,1}$ (blue) and $\gamma_{2,
 \item Increase the kinetic energy $\rightarrow$ Increase the temperature. 
 \item Rescale the resulting velocities in order to remain at the same temperature. 
 \item Average over 5000 simulations with different initial configurations.
-\item $g^x_{\mu})(t)$ recorded every 2 timesteps.  
+\item $g^x_{\mu}(t)$ recorded every 2 timesteps.  
   \end{itemize}
 \end{frame}
 
@@ -780,7 +845,7 @@ $\eta_{10,10}(t)$ (middle of the channel), $\gamma_{1,1}$ (blue) and $\gamma_{2,
     \nonumber
 \end{align}
 \begin{figure}[!h]
-\includegraphics[width=0.5\linewidth]{gxtPredictions-17nodes-WALLS-defense1}
+\includegraphics[width=0.55\linewidth]{gxtPredictions-17nodes-WALLS-defense1}
 \end{figure}
 The {\color{blue} measured momentum average} and the {\color{orange} predictions} for $\tau=0.3$ at times $t=1,3,...,21$ in descending order. 
 \end{frame}
@@ -791,7 +856,7 @@ The {\color{blue} measured momentum average} and the {\color{orange} predictions
 \end{figure}
   \begin{itemize}
     \item The {\color{blue} measured momentum average} and the {\color{orange} predictions} for modes $\mu=1, 2,...,8$ in ascending order. Zoom at short times.
-    \item Only after the tine in which the transport matrix reached a plateau, and hence a Markovian theory holds, it is expected that we get correct predictions. 
+    \item Only after the time in which the transport matrix reached a plateau, and hence a Markovian theory holds, it is expected that we get correct predictions. 
   \end{itemize}
 \end{frame}
 
