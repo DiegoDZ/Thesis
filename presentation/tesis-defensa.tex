@@ -843,54 +843,86 @@ donde ${\cal D}$ es el operador derivada adelantada.
   %\end{itemize}
 \end{frame}
 
-\begin{frame}{The boundary condition from pillbox argument}
-Boundary slab of made of $B$ bins near one of the walls.
+%\begin{frame}{The boundary condition from pillbox argument}
+%Boundary slab of made of $B$ bins near one of the walls.
+%  \begin{enumerate}
+%    \item The momentum obeys the dynamics
+%      \begin{align}
+%        \frac{d}{dt}g(t)=-k_BT\esc M(\tau)\esc C^{-1}(\tau)\esc g(t)
+%        \nonumber
+%      \end{align}
+%\item The velocity field inside the boundary slab is linear
+%\begin{align}
+%\overline{\bf v}^x_{\mu}&=  \overline{\bf v}^x_{\rm wall}+\dot{\overline{\gamma}}_{\rm wall}(\mu\Delta z-z_{\rm wall})
+%\nonumber
+%\end{align}
+%      \begin{itemize}
+%        \item $z_{\rm wall}$: position of the wall. 
+%        \item $\overline{\bf v}^x_{\rm wall}$: velocity at $z_{\rm wall}$.
+%        \item $\dot{\overline{\gamma}}_{\rm wall}$: shear rate.
+%      \end{itemize}
+%\item The force on the boundary slab is vanishingly small. 
+%  \end{enumerate}
+%The Navier slip boundary condition y the slip length $\delta$
+%\begin{align}
+%\overline{\bf v}^x_{\rm wall}=\delta\dot{\overline{\gamma}}_{\rm wall}
+%  =\frac{\eta-G}{\gamma-H}\dot{\overline{\gamma}}_{\rm wall}
+%  \nonumber
+%\end{align}
+%\end{frame}
+
+\begin{frame}{La condición de contorno}
+  \begin{itemize}
+    %\item Hemos resuelto la ecuación discreta no local para $g^x_{\mu}(t)$ sin hacer referencia a la condición de contorno. 
+    \item<1-> \textit{Región de contorno} compuesta por $B$ bines cerca de la pared.
   \begin{enumerate}
-    \item The momentum obeys the dynamics
+    \item<2-> La evolución del momento obedece la ecuación
       \begin{align}
         \frac{d}{dt}g(t)=-k_BT\esc M(\tau)\esc C^{-1}(\tau)\esc g(t)
         \nonumber
       \end{align}
-\item The velocity field inside the boundary slab is linear
+\item<3-> El campo de velocidad dentro de la región es lineal 
 \begin{align}
 \overline{\bf v}^x_{\mu}&=  \overline{\bf v}^x_{\rm wall}+\dot{\overline{\gamma}}_{\rm wall}(\mu\Delta z-z_{\rm wall})
 \nonumber
 \end{align}
       \begin{itemize}
-        \item $z_{\rm wall}$: position of the wall. 
-        \item $\overline{\bf v}^x_{\rm wall}$: velocity at $z_{\rm wall}$.
-        \item $\dot{\overline{\gamma}}_{\rm wall}$: shear rate.
+        \item $z_{\rm wall}$: posición de la pared.
+        \item $\overline{\bf v}^x_{\rm wall}$: velocidad en  $z_{\rm wall}$.
+        \item $\dot{\overline{\gamma}}_{\rm wall}$: Gradiente de la velocidad.
+          %shear rate
       \end{itemize}
-\item The force on the boundary slab is vanishingly small. 
+    \item<4-> La fuerza sobre la \textit{región de contorno} es muy pequeña. 
   \end{enumerate}
-The Navier slip boundary condition y the slip length $\delta$
+\item<5-> Condición de contorno y longitud de slip $\delta$
 \begin{align}
 \overline{\bf v}^x_{\rm wall}=\delta\dot{\overline{\gamma}}_{\rm wall}
-  =\frac{\eta-G}{\gamma-H}\dot{\overline{\gamma}}_{\rm wall}
+  && \delta=\frac{\eta-G}{\gamma-H}
   \nonumber
 \end{align}
-\end{frame}
-
-\begin{frame}{Linear aproximación for the velocity y force on the slab}
-\begin{figure}[!h]
-  \includegraphics[width=0.5\linewidth]{vtCorrected-17nodes-WALLS-defense}
-  \includegraphics[width=0.5\linewidth]{checkMecBalance-17nodes-WALLS-defense}
-\end{figure}
-  \begin{itemize}
-    \item The linear aproximación for the velocity depends on the width of the boundary slab $B$. We choose $B=2$.\\
-\item The force on the slab boundary vanishes for times larger than $t=2$.
+\item<6-> Por \textbf{(2)} escogemos $B=2$ y observamos que \textbf{(3)} se cumple para $t>2$.
   \end{itemize}
 \end{frame}
+%\begin{frame}{Linear aproximación for the velocity y force on the slab}
+%\begin{figure}[!h]
+%  \includegraphics[width=0.5\linewidth]{vtCorrected-17nodes-WALLS-defense}
+%  \includegraphics[width=0.5\linewidth]{checkMecBalance-17nodes-WALLS-defense}
+%\end{figure}
+%  \begin{itemize}
+%    \item The linear aproximación for the velocity depends on the width of the boundary slab $B$. We choose $B=2$.\\
+%\item The force on the slab boundary vanishes for times larger than $t=2$.
+%  \end{itemize}
+%\end{frame}
 
-\begin{frame}{Validation of the slip boundary condition}
+\begin{frame}{Validación de la condición de contorno de slip}
   \begin{itemize}
-    \item The slip length is measured from 
+    \item Medimos la longitud de \textit{slip} a través de 
       %$\overline{\bf v}_{\rm wall}(t)$ y $\dot{\overline{\gamma}}_{\rm wall}$
 %\begin{align}
  $\delta(t)=\frac{\overline{\bf v}^x_{\rm wall}(t)}{\dot{\overline{\gamma}}_{\rm wall}(t)}$
 %\nonumber
 %\end{align}
-\item The slip lenght has to be constant according to 
+\item La longitud de \textit{slip} 
   %\begin{align}
   $\delta =\frac{\eta -G}{\gamma-H}$
     %\nonumber
@@ -900,19 +932,42 @@ The Navier slip boundary condition y the slip length $\delta$
 \includegraphics[width=\linewidth]{Slipt-17nodes-WALLS}
   \end{figure}
   \begin{itemize}
-    \item The slip length does not depend on the channel width (left) y is roughly independent of the actual value of $\tau$ (right).
+    \item La longitud de slip no depende del tamaño del canal (izq.) y es aproximadament independiente de $\tau$ (dcha.).
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Local hydrodynamic model with boundary conditions}  
+%\begin{frame}{Local hydrodynamic model with boundary conditions}  
+%  \begin{itemize}
+%    \item The disrete version of the local equation $\partial_t g(z,t)=\nu\frac{\partial^2}{\partial z^2} g(z,t)$
+%\begin{align}
+%  \frac{d}{dt}g_\mu(t)&=\nu \frac{1}{\Delta z^2}(g_{\mu-1}(t)+g_{\mu+1}(t)-2g_{\mu}(t))
+%\nonumber
+%\end{align}
+%where the kinematic viscosity is $\nu=\frac{\eta}{\rho}$.
+%    \item Nonlocal hydrodynamic equation  
+%\begin{align}
+%  \frac{d}{dt}{\bf g}^x_\mu(t)=&
+%-\sum_{\nu} {\cal V}_\nu \frac{\left[\eta_{\mu\nu}-\eta_{\mu-1\nu}-\eta_{\mu\nu-1}+\eta_{\mu-1\nu-1}\right]}{\Delta z^2}\overline{\bf v}^x_\nu \nonumber \\
+%  &{\color{red}+\sum_{\nu} {\cal V}_\nu\frac{\left[G_{\mu\nu}-G_{\mu\nu-1}\right]}{\Delta z}\overline{\bf v}^x_\nu
+%+\sum_{\nu} {\cal V}_\nu\frac{\left[H_{\mu\nu}-H_{\mu-1\nu}\right]}{\Delta z}
+%  \overline{\bf v}^x_\nu}
+%\nonumber \\
+%  &{\color{red}-\sum_{\nu} {\cal V}_\nu\gamma_{\mu\nu}\overline{\bf v}^x_\nu}
+%\nonumber
+%\end{align}
+%\item We use the slip boundary condition $\overline{\bf v}_{\rm wall}^x=\delta \dot{\overline{\gamma}}_{\rm wall}$ applied at $z_{\rm wall}$.
+%  \end{itemize}
+%\end{frame}
+
+\begin{frame}{Modelo hidrodinámico local con condiciones de contorno}  
   \begin{itemize}
-    \item The disrete version of the local equation $\partial_t g(z,t)=\nu\frac{\partial^2}{\partial z^2} g(z,t)$
+    \item Versión discreta de la ecuación local $\partial_t g(z,t)=\nu\frac{\partial^2}{\partial z^2} g(z,t)$
 \begin{align}
   \frac{d}{dt}g_\mu(t)&=\nu \frac{1}{\Delta z^2}(g_{\mu-1}(t)+g_{\mu+1}(t)-2g_{\mu}(t))
 \nonumber
 \end{align}
-where the kinematic viscosity is $\nu=\frac{\eta}{\rho}$.
-    \item Nonlocal hydrodynamic equation  
+donde la viscosidad cinemática es $\nu=\frac{\eta}{\rho}$.
+    \item Ecuación hidrodinámica no local 
 \begin{align}
   \frac{d}{dt}{\bf g}^x_\mu(t)=&
 -\sum_{\nu} {\cal V}_\nu \frac{\left[\eta_{\mu\nu}-\eta_{\mu-1\nu}-\eta_{\mu\nu-1}+\eta_{\mu-1\nu-1}\right]}{\Delta z^2}\overline{\bf v}^x_\nu \nonumber \\
@@ -923,11 +978,13 @@ where the kinematic viscosity is $\nu=\frac{\eta}{\rho}$.
   &{\color{red}-\sum_{\nu} {\cal V}_\nu\gamma_{\mu\nu}\overline{\bf v}^x_\nu}
 \nonumber
 \end{align}
-\item We use the slip boundary condition $\overline{\bf v}_{\rm wall}^x=\delta \dot{\overline{\gamma}}_{\rm wall}$ applied at $z_{\rm wall}$.
+\item Empleamos la condición de contorno de \textit{slip} $\overline{\bf v}_{\rm wall}^x=\delta \dot{\overline{\gamma}}_{\rm wall}$ aplicada en $z_{\rm wall}$.
   \end{itemize}
 \end{frame}
 
-\begin{frame}{The local predictions}
+
+
+\begin{frame}{Predicciones locales}
 \begin{align}
  g(t)&=\exp\{\nu \Delta' (t-\tau)\}g(\tau)
 \nonumber
@@ -936,12 +993,12 @@ where the kinematic viscosity is $\nu=\frac{\eta}{\rho}$.
 \begin{figure}[]
 \includegraphics[width=\linewidth]{gxtLocalPrediction-17nodes-WALLS}
 \end{figure}
-  {\color{orange} Local  prediction}
-  compared with the {\color{blue} measured} momentum density
-  profile. Times  are $t=5,7,\cdots,29$  (left panel) in descending  order. Times $t=0.3,0.6,\cdots2.1$ (right panel).
+  {\color{orange} Predicción local}
+  y {\color{blue} medición} del perfil del momento. 
+  . $t=5,7,\cdots,29$  (izq.) en orden descendente. $t=0.3,0.6,\cdots2.1$ (dcha.).
 \end{frame}
 
-\begin{frame}{Comparison of the error between local y nonlocal theories}
+\begin{frame}{Comparación de errores entre teorías local y no local}
   \begin{align}
   err_\mu(t)=  g_\mu(t)-g^{\rm predict}_\mu(t)
     \nonumber
@@ -957,7 +1014,16 @@ where the kinematic viscosity is $\nu=\frac{\eta}{\rho}$.
   %\end{itemize}
 \end{frame}
 
-\begin{frame}{Conclusions}
+\begin{frame}{Conclusiones}
+  \begin{enumerate}
+\item<1-> Teoría hidrodinámica continua no local que generaliza  DFT para fluidos en situaciones de no equilibririo.  
+\item<2-> Si la aproximación Markoviana es válida las correlaciones de las variables relevantes deben decaer de forma exponencial matricial.  
+\item<3-> Para bines pequeños observamos comportamiento no Markoviano cerca de las paredes. Esta observación es posible realizarla a través de los autovalores de la matriz de correlaciones. 
+\item<4-> Para bines mayores que el tamaño molecular, la aproximación Markoviana es perfectamente válida. Sin embargo, se pierden efectos de \textit{layering}.
+\item<5-> Fórmula de Green-Kubo corregida para evitar el problema del \textit{plateau}.
+\item<6-> Excelentes predicciones para el valor medio del momento de un \textit{plug flow} empleando los kernels de transporte corregidos. 
+\item<7-> Condición de contorno y longitud de \textit{slip}. 
+  \end{enumerate}
 
 \end{frame}
 
