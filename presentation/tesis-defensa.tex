@@ -153,7 +153,7 @@ D_{ij}(t)=\int_0^{\Delta t} dt'\left\langle
 \end{align}
 
 \begin{itemize}
-  \item ${\cal F}[\rho, {\bf R}]$: funcional de la densidad de energía libre de un fluido en presencia de una esfera sólida. 
+  \item ${\cal F}[\rho, {\bf R}]$: funcional de energía libre de un fluido en presencia de una esfera sólida. 
   \item $\boldsymbol{\Sigma}({\bf r})$: tensor de tensiones del fluido. 
   \item $\boldsymbol{{\cal S}}({\bf r})$: densidad de fuerza irreversible sobre el fluido. 
 \end{itemize}
@@ -286,21 +286,23 @@ D_{ij}(t)=\int_0^{\Delta t} dt'\left\langle
         \item ${\bf G}$ y ${\bf H}$: 21 componentes independientes. 
         \item $\boldsymbol{\gamma}$: 9 componentes independientes.  
       \end{itemize}
-    \item<2-> Simplificaciones 
+    \item<2-> Simplificacipnes 
       \begin{enumerate}
         \item Paredes planas. 
         \item Flujos planos. 
       \end{enumerate}
-    \item<3-> Después de las simplicaciones podemos separar la evolución de las variables relevantes en dos contribuciones: normal y paralela. 
+    \item<3-> $\rightarrow$ Podemos separar la evolución de las variables relevantes en dos contribuciones: normal y paralela. 
     \end{itemize}
 \end{frame}
 
-\begin{frame}{Evolución normal y paralela}
+\begin{frame}{Evolución normal y paralela del momento}
+%\begin{align}
+%  \frac{d}{dt}\rho_\mu=&  {\color{blue} \llg\overline{\rho} \; \overline{v}^{z}{\nabla}^{z}\delta_\mu \rlg}
+%  \nonumber
+%\end{align}
 \begin{itemize}
-  \item<1-> Evolución normal 
+  \item Evolución normal 
 \begin{align}
-  \frac{d}{dt}\rho_\mu=&  {\color{blue} \llg\overline{\rho} \; \overline{v}^{z}{\nabla}^{z}\delta_\mu \rlg}
-\nonumber\\
     \frac{d}{dt}{{\bf g}}^{z}_\mu=&
 {\color{blue} \llg\overline{\rho}\; \overline{v}^{z}\;\overline{v}^{z}{\nabla}^{z}\delta_{\mu}\rlg
 -\llg\overline{\rho}\delta_{\mu}{\nabla}^{z}\delta_{\nu}\rlg
@@ -308,12 +310,12 @@ D_{ij}(t)=\int_0^{\Delta t} dt'\left\langle
 {\color{red} +M_{\mu\nu}^{\bot}{\cal V}_\nu\tilde{v}^{z}_\nu}
 \nonumber
 \end{align}
-  \item<2-> Evolución paralela para $x$  
+  \item Evolución paralela 
 \begin{align}
   \frac{d}{dt}{{\bf g}}^x_\mu=&{\color{red}-M_{\mu\nu}^{||}{\cal V}_\nu\tilde{v}^x_\nu}
 \nonumber
 \end{align}
-\item<3-> La matriz de fricción para $\odot=||,\bot$
+\item La matriz de fricción para $\odot=||,\bot$
 \begin{align}
 M^{\odot}_{\mu\nu} 
 =&-\frac{\eta^{\odot}_{\mu\nu}-\eta^{\odot}_{\mu-1\nu}-\eta^{\odot}_{\mu\nu-1}+\eta^{\odot}_{\mu-1\nu-1}}{\Delta z^2}
@@ -332,10 +334,10 @@ M^{\odot}_{\mu\nu}
 {\cal Q}\hat{\boldsymbol{\sigma}}^{xz}_\mu(t){\cal Q}\hat{\boldsymbol{\sigma}}^{xz}_\nu
 \right\rangle&&
 %\nonumber\\
-  {\color{gray} \eta^{\bot}_{\mu\nu}
-= \frac{1}{k_BT}\int_0^\tau  dt\langle 
-{\cal Q}\hat{\boldsymbol{\sigma}}^{zz}_\mu(t)
-  {\cal Q}\hat{\boldsymbol{\sigma}}^{zz}_\nu\rangle}
+%  {\color{gray} \eta^{\bot}_{\mu\nu}
+%= \frac{1}{k_BT}\int_0^\tau  dt\langle 
+%{\cal Q}\hat{\boldsymbol{\sigma}}^{zz}_\mu(t)
+%  {\cal Q}\hat{\boldsymbol{\sigma}}^{zz}_\nu\rangle}
 \nonumber\\
 G^{||}_{\mu\nu}&
 =\frac{1}{k_BT} \int_0^\tau  dt
@@ -343,29 +345,29 @@ G^{||}_{\mu\nu}&
 {\cal Q}\hat{\boldsymbol{\sigma}}^{xz}_\nu
 \right\rangle&&
 %\nonumber\\
-{\color{gray}G^{\bot}_{\mu\nu}=\frac{1}{k_BT} \int_0^\tau  dt
-\left\langle {\cal Q}\hat{\bf F}^{z}_\mu(t)
-{\cal Q}\hat{\boldsymbol{\sigma}}^{zz}_\nu
-  \right\rangle}
+%{\color{gray}G^{\bot}_{\mu\nu}=\frac{1}{k_BT} \int_0^\tau  dt
+%\left\langle {\cal Q}\hat{\bf F}^{z}_\mu(t)
+%{\cal Q}\hat{\boldsymbol{\sigma}}^{zz}_\nu
+%  \right\rangle}
 \nonumber\\
 H^{||}_{\mu\nu}&
 =\frac{1}{k_BT} 
 \int_0^\tau  dt
 \left\langle{\cal Q}\hat{\boldsymbol{\sigma}}^{xz}_\mu(t){\cal Q}\hat{\bf F}^{x}_\nu\right\rangle&&
-%\nonumber\\
-{\color{gray}H^\bot_{\mu\nu}=\frac{1}{k_BT} 
-  \int_0^\tau  dt\left\langle {\cal Q}\hat{\boldsymbol{\sigma}}^{zz}_\mu(t){\cal Q}\hat{\bf F}^{z}_\nu\right\rangle}
 \nonumber\\
+%{\color{gray}H^\bot_{\mu\nu}=\frac{1}{k_BT} 
+%  \int_0^\tau  dt\left\langle {\cal Q}\hat{\boldsymbol{\sigma}}^{zz}_\mu(t){\cal Q}\hat{\bf F}^{z}_\nu\right\rangle}
+%\nonumber\\
 \gamma^{||}_{\mu\nu}&=
 \frac{1}{k_BT} \int_0^\tau  dt
 \left\langle 
 {\cal Q}\hat{\bf F}^{x}_\mu(t)
 {\cal Q}\hat{\bf F}^{x}_\nu\right\rangle&&
 %\nonumber\\
-{\color{gray}\gamma^{\bot}_{\mu\nu}=
-\frac{1}{k_BT} \int_0^\tau  dt\left\langle 
-  {\cal Q}\hat{\bf F}^{z}_\mu(t){\cal Q}\hat{\bf F}^{z}_\nu
-  \right\rangle}
+%{\color{gray}\gamma^{\bot}_{\mu\nu}=
+%\frac{1}{k_BT} \int_0^\tau  dt\left\langle 
+%  {\cal Q}\hat{\bf F}^{z}_\mu(t){\cal Q}\hat{\bf F}^{z}_\nu
+%  \right\rangle}
 \nonumber
 \end{align}
 \end{frame}
@@ -448,7 +450,7 @@ H^{||}_{\mu\nu}&
     \begin{itemize}
      \item $28749$ partículas.
      \item Potencial LJ truncado en $2.5\sigma$.
-     \item $L_{x}=40$, $L_{y}=40$, $L_{z}=30$.
+     \item $L_{x}=40\sigma$, $L_{y}=40\sigma$, $L_{z}=30\sigma$.
      \item $dt=2\cdot 10^{-4}$. 
     \end{itemize}
   \end{center}
@@ -521,8 +523,8 @@ H^{||}_{\mu\nu}&
     \includegraphics[width=0.8\linewidth]{dim-sim-pbc-walls}
 \end{figure}
     \begin{itemize}
-      \item $L_x=40$, $L_x=40$, $L_z=33$.
-     \item $28175$ partículas. 
+      \item $L_x=40\sigma$, $L_x=40\sigma$, $L_z=33\sigma$.
+     \item $28175$ partículas de fluido. 
      \item Potencial LJ truncado en $2.5\sigma$.
      \item $dt=2\cdot 10^{-3}$.
     \end{itemize}
@@ -668,7 +670,7 @@ La {\color{orange} predicción} se ajusta perfectamente a la {\color{blue} medic
 %\begin{figure}[h!]
 %\includegraphics[width=0.7\linewidth]{bin_size}
 %\end{figure}
-\item<1-> Bines de tamaño $\Delta z = 2\sigma$
+\item<1-> Bines de tamaño $\Delta z = 2\sigma$: 16 nodos de fluido. 
 \begin{figure}[h!]
 \includegraphics[width=0.75\linewidth]{bin_size-top-bottom_17nodos_cut}
 \end{figure}
@@ -769,7 +771,7 @@ H_{\mu\nu}(t)&=
   \begin{itemize}
     %\item We measure the correlación matrix $C(t)=\llangle \hat{g}(t) \hat{g}^T \rrangle$
 %with $\hat{g}^T=(\hat{\bf g}^x_1,\cdots,\hat{\bf g}^x_{\rm bin})$.
-    \item<1-> Identidad matemática para la derivada de $C(t)=\langle\hat{g}(t)\hat{g}^T\rangle$
+    \item<1-> Identidad matemática para la derivada de $C(t)$
 \begin{align}
   \frac{d}{dt}C(t)
 =-  \int_0^t dt' \llangle i{\cal L}\hat{g}(t') i{\cal L}\hat{g}^T\rrangle
@@ -853,12 +855,12 @@ donde ${\cal D}$ es el operador derivada adelantada.
     \item<2-> Identidad matemática:  $\frac{d}{dt}C(t)=-k_B T\esc M(t)$
     \item<3-> Fórmula de Green-Kubo corregida  
       %\begin{align}
-       $ M^*=M(\tau)\esc C^{-1}(\tau)\esc C(0)$
+      $ M^*=M(\tau)\esc {\color{blue}C^{-1}(\tau)\esc C(0)}$
       %\end{align}
       %where $c(\tau)=C^{-1}(0)\esc C(\tau)$
     \item<4-> Evolución de la matriz de correlaciones
       \begin{align}
-        \frac{d}{dt}C(t)=-\underbrace{k_BT\esc M(\tau)\esc {\color{blue} C^{-1}(\tau)}}_{\Lambda^*}\esc C(t)
+        \frac{d}{dt}C(t)=-\underbrace{k_BT\esc M(\tau)\esc  C^{-1}(\tau)}_{\Lambda^*}\esc C(t)
         \nonumber
       \end{align}
     \item<5-> Evolución del campo de momento
@@ -867,9 +869,9 @@ donde ${\cal D}$ es el operador derivada adelantada.
         \frac{d}{dt}g(t)=-\Lambda^*\esc g(t)
         \nonumber
       \end{align}
-    \item<6-> Evolución del campo de velocidad
+    \item<6-> Evolución de $g(t)$ en función de la velocidad
       \begin{align}
-        \frac{d}{dt}v(t)=-\Lambda^*\esc {\cal V}\esc \underbrace{{\color{blue}C^{-1}(\tau)}\esc C(0)\esc v(t)}_{\overline{v}(t)}
+        \frac{d}{dt}g(t)=-{\cal V}\esc M(\tau)\esc \underbrace{{\color{blue}C^{-1}(\tau)\esc C(0)}\esc v(t)}_{\overline{v}(t)}
         %\frac{d}{dt}v(t)=-k_BT\esc M(\tau)\esc C^{-1}(\tau)\esc {\cal V}\esc \underbrace{C^{-1}(\tau)\esc C(0)\esc v(t)}_{\overline{v}(t)}
         \nonumber
       \end{align}
@@ -883,9 +885,10 @@ donde ${\cal D}$ es el operador derivada adelantada.
   \includegraphics[width=0.3\linewidth]{plug_flow}
 \end{figure}
 \item<2-> Aumenta la energía cinética $\rightarrow$ Aumenta la temperatura.
-\item<3-> Reescalamos las velocidades resultantes para mantener el mismo punto termodinámico.
-\item<4-> Medimos $g^x_{\mu}(t)$ cada 2 pasos de tiempo en cada uno de los nodos del sistema. $\boldsymbol{\Delta} {\bf z=2}\boldsymbol{\sigma}$. 16 nodos de fluido. 
-\item<5-> Promediamos 5000 simulaciones inicializadas con diferentes configuraciones. 
+\item<3-> Reescalamos las velocidades resultantes para mantener el mismo punto termodinámico ($T=2$, $\rho=0.6$).
+\item<4-> Medimos $g^x_{\mu}(t)$ en cada uno de los nodos del sistema. 
+  %$\boldsymbol{\Delta} {\bf z=2}\boldsymbol{\sigma}$. 16 nodos de fluido. 
+%\item<5-> Promediamos 5000 simulaciones inicializadas con diferentes configuraciones. 
   \end{itemize}
 \end{frame}
 
@@ -897,7 +900,7 @@ donde ${\cal D}$ es el operador derivada adelantada.
 \begin{figure}[!h]
 \includegraphics[width=0.55\linewidth]{gxtPredictions-17nodes-WALLS-defense1}
 \end{figure}
-  Excelentes {\color{orange} predicciones} (con $\tau=0.3$) del {\color{blue} momento medido} para los tiempos $t=1,3,...,21$ (en orden descendente).
+  {\color{orange} Predicciones} (con $\tau=0.3$) del {\color{blue} momento medido} para los tiempos $t=1,3,...,21$ (en orden descendente).
 \end{frame}
 
 \begin{frame}{Predicciones del plug flow}
@@ -1119,7 +1122,7 @@ donde la viscosidad cinemática es $\nu=\frac{\eta}{\rho}$.
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Perspectivas}
+\begin{frame}{Próximos pasos}
   \begin{enumerate}
         \item Estudio de los efectos no Markovianos.
       \begin{itemize}
@@ -1129,13 +1132,14 @@ donde la viscosidad cinemática es $\nu=\frac{\eta}{\rho}$.
       \end{itemize}
     \item Teoría no isoterma. 
       \begin{itemize}
-        \item Nuevas variables relevantes
-\begin{align}
-  \hat{e}_{\bf r}(z) = \sum_i^N e_i\delta({\bf r}-{\bf q}_i) &&  \hat{E}(z)=\sum_{i'}^{N'}e_{i'}
-  \nonumber
-\end{align}
+        %\item Nuevas variables relevantes
+%\begin{align}
+%  \hat{e}_{\bf r}(z) = \sum_i^N e_i\delta({\bf r}-{\bf q}_i) &&  \hat{E}(z)=\sum_{i'}^{N'}e_{i'}
+%  \nonumber
+%\end{align}
 %\item Resolver el problema de as condiciones de contorno térmicas. 
-    \item Comprender el transporte de calor entre sólidos y fluidos, especialmente entre nanopartículas y sales fundidas.
+    \item Transporte de calor entre sólidos y fluidos.
+    \item Nanopartículas y sales fundidas $\rightarrow$ Aplicación en la industria termosolar.
       \end{itemize}
   \end{enumerate}
 \end{frame}
@@ -1175,84 +1179,104 @@ Diego Duque Zumajo
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Evolución normal y tangente}
-\begin{itemize}
-  \item La componente normal de la evolución
-\begin{align}
-  \frac{d}{dt}\rho_\mu=&  {\color{blue} \llg\overline{\rho} \; \overline{v}^{z}{\nabla}^{z}\delta_\mu \rlg}
-\nonumber\\
-    \frac{d}{dt}{{\bf g}}^{z}_\mu=&
-{\color{blue} \llg\overline{\rho}\; \overline{v}^{z}\;\overline{v}^{z}{\nabla}^{z}\delta_{\mu}\rlg
--\llg\overline{\rho}\delta_{\mu}{\nabla}^{z}\delta_{\nu}\rlg
-\frac{\partial  F}{\partial \rho_{\nu}}(\rho)}
-{\color{red} +M_{\mu\nu}^{\bot}{\cal V}_\nu\tilde{v}^{z}_\nu}
-\nonumber
-\end{align}
-  \item La componente paralela de la evolcuión para  $\alpha=x,y$  
-\begin{align}
-  \frac{d}{dt}{{\bf g}}^\alpha_\mu=&{\color{red}-M_{\mu\nu}^{||}{\cal V}_\nu\tilde{v}^\alpha_\nu}
-\nonumber
-\end{align}
-\item The dissipative matrix for $\odot=||,\bot$
-\begin{align}
-M^{\odot}_{\mu\nu} 
-=&-\frac{\eta^{\odot}_{\mu\nu}-\eta^{\odot}_{\mu-1\nu}-\eta^{\odot}_{\mu\nu-1}+\eta^{\odot}_{\mu-1\nu-1}}{\Delta z^2}
-+\frac{{G}^{\odot}_{\mu\nu}-{G}^{\odot}_{\mu\nu-1}}{\Delta z} \nonumber \\
-&+\frac{{H}^{\odot}_{\mu\nu}-{H}^{\odot}_{\mu-1\nu}}{\Delta z}
--{\gamma}^{\odot}_{\mu\nu}
-\nonumber
-\end{align}
-\end{itemize}
-\end{frame}
-
-\begin{frame}{Mori's teoría}
+\begin{frame}{Validez hipótesis Markoviana}
   \begin{itemize}
-    \item<1-> Linear dynamic equations not only for the averages of the relevante variables but also for their correlacións
+    \item Ecuación de Mori
 \begin{align}
   \frac{d}{dt}C(t)&=-L\esc C^{-1}(0)\esc C(t)
-  -{\color{red}\int_0^tdt' \Gamma(t-t')\esc C^{-1}(0)\esc  C(t')}
-\nonumber
+  -\int_0^tdt' \Gamma(t-t')\esc C^{-1}(0)\esc  C(t')
 \end{align}
-where the following matrices have been introduced
-\begin{align}
-  L&=\langle \hat{A}i{\cal L}\hat{A}^T\rangle \nonumber \\
-  C(0)&=\langle \hat{A}\hat{A}^T\rangle \nonumber \\
-\Gamma(t)&=\langle F^+(t)F^{+T}(0)\rangle
-\nonumber
+\item Mori con aproximación Markoviana
+  \begin{align}
+    \frac{d}{dt}C(t)=-\Lambda^*\esc C(t)=-(L+M^*)\esc C^{-1}(0)\esc C(t)
+  \end{align}
+
+\item Para $t=0$ (1) quedaría
+  \begin{align}
+  \frac{d}{dt}C(0)&=-L
+    \nonumber
 \end{align}
-\item<2-> The projected forces are given by
-\begin{align}
-F^+(t)&= \exp\{{\cal Q}i{\cal L}t\} {\cal Q}i{\cal L}\hat{A}  
-\nonumber
-\end{align}
-\item<3-> ${\cal Q}=1-{\cal P}$ where  ${\cal P}$  is Mori's  projector 
-\begin{align}
-  {\cal P}\hat{F}(z) = \langle \hat{F}\rangle+ \langle \hat{F}\hat{A}^T \rangle\esc  C^{-1}(0)\esc  \hat{A}(z)
-\nonumber
-\end{align}
+
+\item Esto implica por (2) 
+  \begin{align}
+  M^*=0
+  \end{align}
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Aproximación Markoviana}
+\begin{frame}{Matriz $\tilde{\Lambda}$}
   \begin{itemize}
-    \item Memory-less término 
-  \begin{align}
-{\color{red}\int_0^tdt' \Gamma(t-t')\esc C^{-1}(0)\esc  C(t')} \simeq M^* C^{-1}(0)C(t)
-\nonumber
-\end{align}
-\item Expresión for the correlacións
+    \item {\color{blue} Base de $C(t)$ en $t=0.15$.}
+    \item {\color{green} Base de $C(t)$ en $t=0.30$.}
+    \item {\color{orange} Base de $C(t)$ evolucionando con el tiempo.}
+  \end{itemize}
+  \begin{figure}
+    \includegraphics[width=0.7\linewidth]{LambdatBasis-WALLS-66nodes}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Perfil de velocidad}
 \begin{align}
-  \frac{d}{dt}C(t) &= - (L+M^*)\esc C^{-1}(0)\esc C(t) \nonumber \\
-                     &\equiv \Lambda^*\esc C(t)
+  \overline{\bf v}^x_\mu=\sum_{\nu}\overline{\rho}_{\mu\nu}^{-1}{\bf g}^x_\nu, &&
+  \overline{\rho}_{\mu\nu}=\frac{C_{\mu\nu}(\tau)}{k_BT}  {\cal V}_\mu
   \nonumber
 \end{align}
-\item For a linear Markovian teoría the only posibilidad for a correlación is to decay in an exponential matrix way
+
+  \begin{center}
+  \includegraphics[width=0.7\linewidth]{vtCorrected-17nodes-WALLS-defense}
+  \end{center}
+\end{frame}
+
+
+\begin{frame}{Definición de $\eta$, $G$, $\gamma$, $H$}
 \begin{align}
-  C(t)=\exp\{-\Lambda^* (t-\tau)\}\esc C(\tau)
+  \eta&= \sum^{N_{\rm bin}}_{\nu=1} {\cal V}_\nu \eta_{B\nu}
+\nonumber\\
+G &=  \frac{1}{S} \sum^{N_{\rm bin}}_{\nu=1} {\cal V}_\nu \sum^{B}_{\mu=1}{\cal V}_\mu G_{\mu\nu}
+\nonumber\\
+\gamma&=  \frac{1}{S}\sum^{N_{\rm bin}}_{\nu=1}{\cal V}_\nu\sum^{B}_{\mu=1}{\cal V}_\mu \gamma_{\mu\nu}
+\nonumber\\
+H&= \sum^{N_{\rm bin}}_{\nu=1} {\cal V}_\nu H_{B\nu}
 \nonumber
 \end{align}
-\item {\bf We need to find a constant matrix $\boldsymbol{\Lambda^*}$}.
-\end{itemize}
+\end{frame}
+
+\begin{frame}{Definición de $\eta$, $G$, $\gamma$, $H$}
+\begin{align}
+\eta&= \frac{1}{k_BT}\int_0^{\tau} dt
+\left\langle  \hat{\boldsymbol{\sigma}}^{xz}_{B}(t) \hat{\boldsymbol{\sigma}}^{xz}\right\rangle^{\rm eq}
+\nonumber\\
+G &=   \frac{1}{Sk_BT}\int_0^{\tau} dt
+\left\langle  \hat{\bf F}^{x}(t) \hat{\boldsymbol{\sigma}}^{xz}\right\rangle^{\rm eq}
+\nonumber\\
+H &=   \frac{1}{k_BT}\int_0^{\tau} dt
+\left\langle  \hat{\boldsymbol{\sigma}}^{xz}_{B}(t) \hat{\bf F}^{x}\right\rangle^{\rm eq}
+\nonumber\\
+\gamma&= 
+\frac{1}{Sk_BT}\int_0^{\tau} dt
+\left\langle  \hat{\bf F}^{x}(t)\hat{\bf F}^{x}\right\rangle^{\rm eq}
+\nonumber
+\end{align}
+
+
+\end{frame}
+
+\begin{frame}{Matrices de transporte para distintos valores de B}
+\includegraphics[width=\linewidth]{transportMatrices-17nodes-WALLS}
+\end{frame}
+
+\begin{frame}{¿Cómo depende $\eta'$ y $\gamma`$ de $\tau$?}
+  \begin{align}
+    \delta=\frac{\eta'}{\gamma'}
+    \nonumber
+  \end{align}
+  \begin{align}
+    \eta'=\eta-G && \gamma'=\gamma-H
+   \nonumber 
+  \end{align}
+  \begin{center}
+\includegraphics[scale=0.41]{tauDependenceSlip-17nodes-WALLS}
+  \end{center}
 \end{frame}
 
 \end{document}
