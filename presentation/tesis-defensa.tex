@@ -46,39 +46,73 @@
 
 
 \begin{frame}{Motivación}
+    Interés en la comprensión teórica del comportamiento de fluidos en contacto con sólidos en la nanoescala ($1-100$ nm).
+  \end{frame}
+
+  \begin{frame}{Layering}
+    \alert{Layering} de la densidad del fluido cerca de la superficie del sólido. 
+\begin{figure}[h!]
+\includegraphics[width=0.48\linewidth]{Density-WALLS-defense}
+\end{figure}
+    \begin{itemize}
+    \item DFT para situaciones de equilibrio.
+    \item DDFT para partículas coloidales pero no para fluidos simples en contacto con sólidos. 
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Velocidad de deslizamiento}
+  La velocidad del fluido cerca de la pared es distinta de cero.
   \begin{itemize}
-    \item<1-> Interés en la comprensión teórica del comportamiento de fluidos en contacto con sólidos en la nanoescala ($1-100$ nm).
-    \item<2-> \alert{\textit{Layering}} $\rightarrow$ DFT situaciones de equilibrio $\leadsto$ DDFT para el estudio del comportamiento dinámico de fluidos. 
-    \item<3-> Condición de contorno de \alert{\textit{slip}}
+    \item<1-> Condición de contorno de \textit{slip}
           \begin{align}
-            \delta\frac{\partial v}{\partial z}=v_{\rm slip}, && \delta =\frac{\eta}{\gamma} \nonumber
+            \delta\frac{\partial v}{\partial z}=v_{\rm des}, && \delta =\frac{\eta}{\gamma} \nonumber
           \end{align}
         %\item<4-> Bocquet y Barrat \cite{Bocquet1993}
-        \item<4-> Bocquet y Barrat [Bocquet 1993]
+        \item<2-> Bocquet y Barrat [Bocquet 1993]
 \begin{align}
   \gamma=\frac{1}{Sk_BT}\int_0^{\tau} dt \llangle \hat{F}^x(t)\hat{F}^x\rrangle
 \nonumber
 \end{align}
       %\item<5-> Fricción entre dos paredes (Petravic y Harrowell \cite{Petravic2007}).
-      \item<5-> Fricción entre dos paredes [Petravic 2007].
-      \item<6-> La expresión para $\gamma$ sufre del \alert{problema del \textit{plateau}}. 
+      \item<3-> Fricción entre dos paredes [Petravic 2007].
+      \item<4-> La expresión para $\gamma$ sufre del \alert{problema del \textit{plateau}}. 
     \end{itemize}
 \end{frame}
 
-\begin{frame}{Hoja de ruta}
-  \includegraphics[width=\linewidth]{scheme-thesis-esp}
-\end{frame}
+%\begin{frame}{Hoja de ruta}
+%  \includegraphics[width=\linewidth]{scheme-thesis-esp}
+%\end{frame}
+%
+%\begin{frame}{Hoja de ruta}
+%  \includegraphics[width=\linewidth]{scheme-thesis-kawasaki}
+%\end{frame}
 
-\begin{frame}{Hoja de ruta}
-  \includegraphics[width=\linewidth]{scheme-thesis-kawasaki}
+\begin{frame}{Líneas de investigación}
+  \textbf{Estudio del comportamiento de un fluido en contacto con un sólido en la nanoescala.}
+  \begin{itemize}
+    \item<1-> \alert{Kawasaki-Gunton} y aproximación Markoviana: Ecuaciones de la nanohidrodinámica que generalizan DFT para un fluido simple en movimiento en presencia de un sólido.
+    \item<2-> Teoría discreta más simple: \alert{geometrías planas}.
+    \item<3-> \alert{Teoría de Mori} con aproximación Markoviana. 
+      \begin{align}
+        C(t)=\exp\{\Lambda^*t\}\cdot C(0)
+        \nonumber
+      \end{align}
+    \item<4-> \alert{Simulaciones}
+      \begin{itemize}
+        \item Fluido no confinado. 
+        \item Fluido en contacto con paredes. 
+      \end{itemize}
+    \item<5-> \alert{Condición de contorno} de \textit{slip}. 
+  \end{itemize}
 \end{frame}
 
 \section{Teoría hidrodinámica para fluidos cerca de sólidos}
 \begin{frame}{El sistema y las variables relevantes}
   \begin{itemize}
-    \item<1-> Estudiamos un fluido de $N$ partículas en contacto con una esfera sólida compuesta por $N'$ partículas.
+    \item<1-> \alert{Objetivo}: Derivar ecuaciones de la hidrodinámica a partir de las ecuaciones de Hamilton. 
+    \item<2-> Estudiamos un fluido de $N$ partículas en contacto con una esfera sólida compuesta por $N'$ partículas.
     %\item $z= ({\bf q}_i, {\bf p}_i)$ y $z'= ({\bf q}_{i'}, {\bf p}_{i'})$
-    \item<2-> Variables relevantes
+    \item<3-> Variables relevantes
       \begin{align}
         \hat{\rho}_{\bf r}(z) &=\sum^{N}_im\delta({\bf r}-{\bf q}_i)
       &&\hat{\bf R}(z)=\frac{1}{N'}\sum_{i'}^{N'}{\bf q}_{i'}
@@ -87,7 +121,7 @@
       &&\hat{\bf P}(z)=\sum_{i'}^{N'}{\bf p}_{i'}
       \nonumber
       \end{align}
-    \item<3-> Derivadas de las variables relevantes
+    \item<4-> Derivadas de las variables relevantes
       \begin{align}
         i{\cal L} \hat{\rho}_{\bf r}(z) &= -\boldsymbol{\nabla}\esc\hat{\bf g}_{\bf r}(z)
         && i{\cal L}\hat{\bf R}(z) =\frac{\hat{\bf P}(z)}{M}
@@ -102,17 +136,18 @@
 
 \begin{frame}{Operador de proyección de Kawasaki-Gunton}
   \begin{itemize}
-    \item<1-> Kawasaki-Gunton y aproximación Markoviana 
+    %\item<1-> Kawasaki-Gunton y aproximación Markoviana 
       %Si hay separación de escalas temporales entre la evolución de los promedios de las variables relevantes, $a_i$, y el decaimiento del kernel de memoria 
+    \item<1-> Ecuaciones de evolución para los promedios de las variables relevantes, $a_i(t)$
 \begin{equation}
   \frac{\partial}{\partial t}a_i(t) = {\color{blue} v_i(t)} {\color{red} +\sum_j D_{ij}(t) \lambda_j(t)}
 \nonumber
 \end{equation}
 \item<2-> {\color{blue} Término reversible}: 
-  \begin{align}
-    v_i={\rm Tr}[\overline{\rho}_t i{\cal L}\hat{A}_i] 
-    \nonumber
-  \end{align}
+  %\begin{align}
+    $v_i={\rm Tr}[\overline{\rho}_t i{\cal L}\hat{A}_i]$
+   % \nonumber
+  %\end{align}
 \item<3-> Colectividad relevante 
   \begin{equation}
   \overline{\rho}(z) = \frac{1}{Z[\lambda]} \rho_0\exp\{-\lambda\!\cdot\!\hat{A}(z)\}
@@ -155,7 +190,7 @@ D_{ij}(t)=\int_0^{\Delta t} dt'\left\langle
 \begin{itemize}
   \item ${\cal F}[\rho, {\bf R}]$: funcional de energía libre de un fluido en presencia de una esfera sólida. 
   \item $\boldsymbol{\Sigma}({\bf r})$: tensor de tensiones del fluido. 
-  \item $\boldsymbol{{\cal S}}({\bf r})$: densidad de fuerza irreversible sobre el fluido. 
+  \item $\boldsymbol{{\cal S}}({\bf r})$: fuerza irreversible sobre el fluido. 
 \end{itemize}
 \end{frame}
 
@@ -169,7 +204,7 @@ D_{ij}(t)=\int_0^{\Delta t} dt'\left\langle
 \boldsymbol{\nabla}_{{\bf r}'}^{\beta'}{\bf v}^{\alpha'}({\bf r}')
 \nonumber
 \end{align}
-\item<2-> La densidad de fuerza irreversible sobre el fluido ${\color{red} {\cal S}({\bf r})}$
+\item<2-> Fuerza irreversible sobre el fluido ${\color{red} {\cal S}({\bf r})}$
 \begin{align}
   \boldsymbol{{\cal S}}^\alpha({\bf r})=&
 -\int d{\bf r}'{\bf G}^{\alpha\alpha'\beta'}_{{\bf r}{\bf r}'}
@@ -186,6 +221,7 @@ D_{ij}(t)=\int_0^{\Delta t} dt'\left\langle
 \end{frame}
 
 \begin{frame}{Los \textit{kernels} de transporte}
+%Comentar que los kernels H,G y gamma estarían muy localizados cerca de las paredes porque está involucrada la fuerza. 
 \begin{align}
   \boldsymbol{\eta}_{{\bf  r}{\bf r}'} &\equiv
 \frac{1}{k_BT}\int_0^{\Delta t} dt'\langle 
@@ -208,6 +244,41 @@ D_{ij}(t)=\int_0^{\Delta t} dt'\left\langle
 \end{align}
 \end{frame}
 
+%\begin{frame}{Algo}
+%  \begin{itemize}
+%    \item Generalización de DFT para fluidos simples en presencia de una esfera sólida de grandes dimensiones. 
+%    \item Teoría continua para la evolución de las variables relevantes.
+%    \item La única aproximación realizada es la Markoviana. 
+%    \item Impracticable el cálculo de los kernels de transporte: no locales y de caracter tensorial. 
+%    \item Teoría continua $\rightarrow$ No podemos calcular nada.
+%    \item Si pudiéramos calcular algo sería muy costoso a nivel computacional. 
+%  \end{itemize}
+%\end{frame}
+
+\begin{frame}{Necesidad de una teoría sencilla}
+  %\begin{itemize}
+    %\item[] La teoría presentada no puede ser validada a través de simulaciones:
+    La teoría presentada no puede ser validada a través de simulaciones:
+      \begin{enumerate}
+        \item Teoría continua.
+        \item Demasiada información en las ecs. hidrodinámicas: kernels de transporte no locales y de caracter tensorial. 
+      \end{enumerate}
+    %\item[] $\rightarrow$ Necesitamos una \alert{teoría más simple} (menos información que calcular) y \alert{discreta}. 
+    $\rightarrow$ Necesitamos una \alert{teoría más simple} (menos información que calcular) y \alert{discreta}. 
+  %\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Teoría discreta de un caso sencillo}
+  \begin{itemize}
+    \item<1-> Paredes planas e isotrópicas. 
+      \begin{figure}
+        \includegraphics[width=.6\linewidth]{PRL3_gold2_wo_layers_wo_diffuse}
+      \end{figure}
+    \item<2-> Flujos planos $\rightarrow$ Invariancia traslacional en la dirección paralela a las paredes.
+    %\item<3-> Teoría discreta para poder validarla a través de simulaciones de dinámica molecular.  
+  \end{itemize}
+\end{frame}
 
 \begin{frame}{Discretización}
   %\begin{itemize}
@@ -223,7 +294,7 @@ D_{ij}(t)=\int_0^{\Delta t} dt'\left\langle
 
 \begin{frame}{Discretización}
   \begin{itemize}
-    \item Función base de elemento finito $\Phi_{\mu}(z)$
+    \item<1-> Función base de elemento finito $\Phi_{\mu}(z)$
   %Función característica $\chi_{\mu}({\bf r})$ y la función base de elemento finito $\Phi_{\mu}({\bf r})$
 %    \begin{align}
 %    \chi_\mu({\bf r})&=\theta(z_{\mu+ 1}-z)\theta(z-z_\mu)=\chi_\mu(z)
@@ -238,14 +309,14 @@ D_{ij}(t)=\int_0^{\Delta t} dt'\left\langle
       %\includegraphics[scale=0.16]{psichi}
     \end{center}
   %\end{itemize}
-  \item Variables relevantes discretas
+  \item<2-> Variables relevantes discretas
 \begin{align}
   \hat{\rho}_\mu= \sum_i^Nm_i\delta_\mu({\bf q}_i) &&
 %\nonumber\\
 \hat{\bf g}_\mu= \sum_i^N{\bf p}_i\delta_\mu({\bf q}_i)
 \nonumber
 \end{align}
-\item La función de Dirac discreta en términos del elemento finito
+\item<3-> La función de Dirac discreta en términos del elemento finito
   \begin{align}
     \delta_{\mu}({\bf r}) \equiv \frac{\phi({\bf r})}{{\cal V}_{\mu}}
     \nonumber
@@ -254,55 +325,53 @@ D_{ij}(t)=\int_0^{\Delta t} dt'\left\langle
 
 \end{frame}
 
-\begin{frame}{Ecuaciones discretas de la hidrodinámica}
-\begin{align}
-  %\frac{d}{dt}\rho_\mu&=  {\color{blue} \llg\overline{\rho} \; \overline{\bf v}\boldsymbol{\nabla}\delta_\mu \rlg}
-  \frac{d}{dt}\rho_\mu&=  {\color{blue} \int d{\bf r}\overline{\rho} \; \overline{\bf v}\boldsymbol{\nabla}\delta_\mu }
-\nonumber\\
-\frac{d}{dt}{\bf g}_\mu&=
-%{\color{blue} \llg\overline{\rho} \overline{\bf v}\;\overline{\bf v}\esc\boldsymbol{\nabla}\delta_{\mu}\rlg
-  {\color{blue} \int d{\bf r}\overline{\rho} \overline{\bf v}\;\overline{\bf v}\esc\boldsymbol{\nabla}\delta_{\mu}
-%-\sum_\nu\llg\overline{\rho}\delta_{\mu}\boldsymbol{\nabla}\delta_{\nu}\rlg
-%\frac{\partial  F}{\partial \rho_{\nu}}(\rho)}
-  -\sum_\nu\int d{\bf r}\overline{\rho}\delta_{\mu}\boldsymbol{\nabla}\delta_{\nu}
-\frac{\partial  F}{\partial \rho_{\nu}}(\rho)}
-\nonumber\\
-&{\color{red}-\sum_{\nu}{\cal V}_\nu \frac{{\bf n}\esc\left[\boldsymbol{\eta}_{\mu\nu}-\boldsymbol{\eta}_{\mu-1\nu}-\boldsymbol{\eta}_{\mu\nu-1}+\boldsymbol{\eta}_{\mu-1\nu-1}\right]}{\Delta z^2}:{\bf n}\tilde{\bf v}_\nu}
-\nonumber\\
-&{\color{red}+\sum_{\nu}{\cal V}_\nu\frac{\left[{\bf G}_{\mu\nu}-{\bf G}_{\mu\nu-1}\right]}{\Delta z}\esc{\bf n}\tilde{\bf v}_\nu}
-\nonumber\\
-&{\color{red}+\sum_{\nu}{\cal V}_\nu\frac{{\bf n}\esc\left[{\bf H}_{\mu\nu}-{\bf H}_{\mu-1\nu}\right]}{\Delta z}\esc\tilde{\bf v}_\nu}
-\nonumber\\
-&{\color{red}-\sum_{\nu}{\cal V}_\nu\boldsymbol{\gamma}_{\mu\nu}\esc\tilde{\bf v}_\nu}
-\nonumber
-\end{align}
-\end{frame}
-
-\begin{frame}{Una teoría más simple}
-  \begin{itemize}
-    \item<1-> Necesitaríamos obtener demasiada información para calcular las ecuaciones de la hidrodinámica 
-      \begin{itemize}
-        \item $\boldsymbol{\eta}$: 36 componentes independientes.
-        \item ${\bf G}$ y ${\bf H}$: 21 componentes independientes. 
-        \item $\boldsymbol{\gamma}$: 9 componentes independientes.  
-      \end{itemize}
-    \item<2-> Simplificacipnes 
-      \begin{enumerate}
-        \item Paredes planas. 
-        \item Flujos planos. 
-      \end{enumerate}
-    \item<3-> $\rightarrow$ Podemos separar la evolución de las variables relevantes en dos contribuciones: normal y paralela. 
-    \end{itemize}
-\end{frame}
-
-\begin{frame}{Evolución normal y paralela del momento}
+%\begin{frame}{Ecuaciones discretas de la hidrodinámica}
 %\begin{align}
-%  \frac{d}{dt}\rho_\mu=&  {\color{blue} \llg\overline{\rho} \; \overline{v}^{z}{\nabla}^{z}\delta_\mu \rlg}
-%  \nonumber
+%  %\frac{d}{dt}\rho_\mu&=  {\color{blue} \llg\overline{\rho} \; \overline{\bf v}\boldsymbol{\nabla}\delta_\mu \rlg}
+%  \frac{d}{dt}\rho_\mu&=  {\color{blue} \int d{\bf r}\overline{\rho} \; \overline{\bf v}\boldsymbol{\nabla}\delta_\mu }
+%\nonumber\\
+%\frac{d}{dt}{\bf g}_\mu&=
+%%{\color{blue} \llg\overline{\rho} \overline{\bf v}\;\overline{\bf v}\esc\boldsymbol{\nabla}\delta_{\mu}\rlg
+%  {\color{blue} \int d{\bf r}\overline{\rho} \overline{\bf v}\;\overline{\bf v}\esc\boldsymbol{\nabla}\delta_{\mu}
+%%-\sum_\nu\llg\overline{\rho}\delta_{\mu}\boldsymbol{\nabla}\delta_{\nu}\rlg
+%%\frac{\partial  F}{\partial \rho_{\nu}}(\rho)}
+%  -\sum_\nu\int d{\bf r}\overline{\rho}\delta_{\mu}\boldsymbol{\nabla}\delta_{\nu}
+%\frac{\partial  F}{\partial \rho_{\nu}}(\rho)}
+%\nonumber\\
+%&{\color{red}-\sum_{\nu}{\cal V}_\nu \frac{{\bf n}\esc\left[\boldsymbol{\eta}_{\mu\nu}-\boldsymbol{\eta}_{\mu-1\nu}-\boldsymbol{\eta}_{\mu\nu-1}+\boldsymbol{\eta}_{\mu-1\nu-1}\right]}{\Delta z^2}:{\bf n}\tilde{\bf v}_\nu}
+%\nonumber\\
+%&{\color{red}+\sum_{\nu}{\cal V}_\nu\frac{\left[{\bf G}_{\mu\nu}-{\bf G}_{\mu\nu-1}\right]}{\Delta z}\esc{\bf n}\tilde{\bf v}_\nu}
+%\nonumber\\
+%&{\color{red}+\sum_{\nu}{\cal V}_\nu\frac{{\bf n}\esc\left[{\bf H}_{\mu\nu}-{\bf H}_{\mu-1\nu}\right]}{\Delta z}\esc\tilde{\bf v}_\nu}
+%\nonumber\\
+%&{\color{red}-\sum_{\nu}{\cal V}_\nu\boldsymbol{\gamma}_{\mu\nu}\esc\tilde{\bf v}_\nu}
+%\nonumber
 %\end{align}
+%\end{frame}
+
+%\begin{frame}{Una teoría más simple}
+%  \begin{itemize}
+%    \item<1-> Necesitaríamos obtener demasiada información para calcular las ecuaciones de la hidrodinámica 
+%      \begin{itemize}
+%        \item $\boldsymbol{\eta}$: 36 componentes independientes.
+%        \item ${\bf G}$ y ${\bf H}$: 21 componentes independientes. 
+%        \item $\boldsymbol{\gamma}$: 9 componentes independientes.  
+%      \end{itemize}
+%    \item<2-> Simplificacipnes 
+%      \begin{enumerate}
+%        \item Paredes planas. 
+%        \item Flujos planos. 
+%      \end{enumerate}
+%    \item<3-> $\rightarrow$ Podemos separar la evolución de las variables relevantes en dos contribuciones: normal y paralela. 
+%    \end{itemize}
+%\end{frame}
+
+\begin{frame}{Ecs. hidrodinámica: contribución normal y paralela}
 \begin{itemize}
-  \item Evolución normal 
+  \item<1-> Evolución normal 
 \begin{align}
+  \frac{d}{dt}\rho_\mu=&  {\color{blue} \llg\overline{\rho} \; \overline{v}^{z}{\nabla}^{z}\delta_\mu \rlg} 
+  \nonumber \\
     \frac{d}{dt}{{\bf g}}^{z}_\mu=&
 {\color{blue} \llg\overline{\rho}\; \overline{v}^{z}\;\overline{v}^{z}{\nabla}^{z}\delta_{\mu}\rlg
 -\llg\overline{\rho}\delta_{\mu}{\nabla}^{z}\delta_{\nu}\rlg
@@ -310,12 +379,12 @@ D_{ij}(t)=\int_0^{\Delta t} dt'\left\langle
 {\color{red} +M_{\mu\nu}^{\bot}{\cal V}_\nu\tilde{v}^{z}_\nu}
 \nonumber
 \end{align}
-  \item Evolución paralela 
+  \item<2-> Evolución paralela 
 \begin{align}
   \frac{d}{dt}{{\bf g}}^x_\mu=&{\color{red}-M_{\mu\nu}^{||}{\cal V}_\nu\tilde{v}^x_\nu}
 \nonumber
 \end{align}
-\item La matriz de fricción para $\odot=||,\bot$
+\item<3-> La matriz de fricción para $\odot=||,\bot$
 \begin{align}
 M^{\odot}_{\mu\nu} 
 =&-\frac{\eta^{\odot}_{\mu\nu}-\eta^{\odot}_{\mu-1\nu}-\eta^{\odot}_{\mu\nu-1}+\eta^{\odot}_{\mu-1\nu-1}}{\Delta z^2}
@@ -332,7 +401,7 @@ M^{\odot}_{\mu\nu}
 \eta^{||}_{\mu\nu}&
 =\frac{1}{k_BT}\int_0^\tau  dt\left\langle 
 {\cal Q}\hat{\boldsymbol{\sigma}}^{xz}_\mu(t){\cal Q}\hat{\boldsymbol{\sigma}}^{xz}_\nu
-\right\rangle&&
+  \right\rangle^{\lambda(t)}&&
 %\nonumber\\
 %  {\color{gray} \eta^{\bot}_{\mu\nu}
 %= \frac{1}{k_BT}\int_0^\tau  dt\langle 
@@ -343,7 +412,7 @@ G^{||}_{\mu\nu}&
 =\frac{1}{k_BT} \int_0^\tau  dt
 \left\langle{\cal Q}\hat{\bf F}^{x}_\mu(t)
 {\cal Q}\hat{\boldsymbol{\sigma}}^{xz}_\nu
-\right\rangle&&
+\right\rangle^{\lambda(t)}&&
 %\nonumber\\
 %{\color{gray}G^{\bot}_{\mu\nu}=\frac{1}{k_BT} \int_0^\tau  dt
 %\left\langle {\cal Q}\hat{\bf F}^{z}_\mu(t)
@@ -353,7 +422,7 @@ G^{||}_{\mu\nu}&
 H^{||}_{\mu\nu}&
 =\frac{1}{k_BT} 
 \int_0^\tau  dt
-\left\langle{\cal Q}\hat{\boldsymbol{\sigma}}^{xz}_\mu(t){\cal Q}\hat{\bf F}^{x}_\nu\right\rangle&&
+\left\langle{\cal Q}\hat{\boldsymbol{\sigma}}^{xz}_\mu(t){\cal Q}\hat{\bf F}^{x}_\nu\right\rangle^{\lambda(t)}&&
 \nonumber\\
 %{\color{gray}H^\bot_{\mu\nu}=\frac{1}{k_BT} 
 %  \int_0^\tau  dt\left\langle {\cal Q}\hat{\boldsymbol{\sigma}}^{zz}_\mu(t){\cal Q}\hat{\bf F}^{z}_\nu\right\rangle}
@@ -362,7 +431,7 @@ H^{||}_{\mu\nu}&
 \frac{1}{k_BT} \int_0^\tau  dt
 \left\langle 
 {\cal Q}\hat{\bf F}^{x}_\mu(t)
-{\cal Q}\hat{\bf F}^{x}_\nu\right\rangle&&
+{\cal Q}\hat{\bf F}^{x}_\nu\right\rangle^{\lambda(t)}&&
 %\nonumber\\
 %{\color{gray}\gamma^{\bot}_{\mu\nu}=
 %\frac{1}{k_BT} \int_0^\tau  dt\left\langle 
@@ -372,11 +441,11 @@ H^{||}_{\mu\nu}&
 \end{align}
 \end{frame}
 
-\begin{frame}{Hoja de ruta}
-  \includegraphics[width=\linewidth]{scheme-thesis-mori}
-\end{frame}
+%\begin{frame}{Hoja de ruta}
+%  \includegraphics[width=\linewidth]{scheme-thesis-mori}
+%\end{frame}
 
-\section{Estudio de la Markovianidad en fluidos no confinados}
+\section{Teoría de Mori}
 \begin{frame}{Teoría de Mori}
   \begin{itemize}
     \item<1-> Ecuaciones lineales para las correlaciones de $\hat{A}(t)$
@@ -417,7 +486,7 @@ H^{||}_{\mu\nu}&
 \item<3-> Ecuación de Mori y aproximación Markoviana
 \begin{align}
   \frac{d}{dt}C(t) &= - (L+M^*)\esc C^{-1}(0)\esc C(t) 
-                     \equiv \Lambda^*\esc C(t)
+                     \equiv -\Lambda^*\esc C(t)
   \nonumber
 \end{align}
 %\item For a linear Markovian teoría the only posibilidad for a correlación is to decay in an exponential matrix way
@@ -431,6 +500,21 @@ H^{||}_{\mu\nu}&
 \end{frame}
 
 \begin{frame}{Simulaciones}
+\begin{figure}[!htb]
+   \begin{minipage}{0.5\textwidth}
+     \centering
+     \includegraphics[width=1\linewidth]{temp_wo_walls}
+   \end{minipage}\hfill
+   \begin{minipage}{0.5\textwidth}
+     \centering
+     \includegraphics[width=1\linewidth]{PRL3_gold2_wo_layers_wo_diffuse}
+   \end{minipage}
+\end{figure}
+\end{frame}
+
+
+\section{Estudio de la Markovianidad en fluidos no confinados}
+\begin{frame}{Simulaciones fluido no confinado}
   \begin{center}
   %\begin{itemize}
   %\item The sistema
@@ -451,13 +535,13 @@ H^{||}_{\mu\nu}&
      \item $28749$ partículas.
      \item Potencial LJ truncado en $2.5\sigma$.
      \item $L_{x}=40\sigma$, $L_{y}=40\sigma$, $L_{z}=30\sigma$.
-     \item $dt=2\cdot 10^{-4}$. 
+     %\item $dt=2\cdot 10^{-4}$. 
     \end{itemize}
   \end{center}
 \end{frame}
 
 
-\begin{frame}{Simulaciones}
+\begin{frame}{Simulaciones fluido no confinado}
   %\begin{figure}
   %  \includegraphics[width=0.5\linewidth]{sim-pbc-box-bin}
   %\end{figure}
@@ -472,7 +556,8 @@ H^{||}_{\mu\nu}&
         \item<2-> Fase de \alert{producción}
        \begin{itemize}
          \item $1.5\times10^6$ pasos de tiempo.
-         \item $g_{\mu}^x(t)$ medido cada $10$ pasos de tiempo.
+         \item Medición de $g_{\mu}^x(t)$.
+           %medido cada $10$ pasos de tiempo.
          \item $z$ discretizado en $60$ bines $\mu$ $\rightarrow$ {$\boldsymbol{\Delta} {\bf z=0.5}\boldsymbol{\sigma}$}.
          \end{itemize}
        \item<2->[]\begin{figure}
@@ -515,9 +600,9 @@ H^{||}_{\mu\nu}&
 %  intervals of $0.02$.  Right: time evolution of $\tilde{\Lambda}_{\mu\mu}(t)$.
 \end{frame}
 
-\section{Comportamiento Markoviano cerca de sólidos}
+\section{Comportamiento Markoviano cerca de paredes planas}
 
-\begin{frame}{Simulaciones}
+\begin{frame}{Simulaciones fluido confinado}
 \begin{figure}
     \centering
     \includegraphics[width=0.8\linewidth]{dim-sim-pbc-walls}
@@ -526,29 +611,30 @@ H^{||}_{\mu\nu}&
       \item $L_x=40\sigma$, $L_x=40\sigma$, $L_z=33\sigma$.
      \item $28175$ partículas de fluido. 
      \item Potencial LJ truncado en $2.5\sigma$.
-     \item $dt=2\cdot 10^{-3}$.
+     %\item $dt=2\cdot 10^{-3}$.
     \end{itemize}
 \end{frame}
 
-\begin{frame}{Simulaciones}
+\begin{frame}{Simulaciones fluido confinado}
   %\begin{figure}
   %  \includegraphics[width=0.5\linewidth]{sim-walls-box-bin}
   %\end{figure}
    \begin{itemize}
      %\item Simulation of $28749$ particles interacting with a LJ potential truncated at $\sigma=2.5$.
      %\item Box size $40x40x30$.
-     \item<1-> Fase de \alert{equilibrado}
+     \item Fase de \alert{equilibrado}
        \begin{itemize}
          \item Termostato durante $10^5$ pasos de tiempo: $T=2.0$, $\rho=0.6$.
          \item NVE durante $10^5$ pasos de tiempo.
           \end{itemize}
-        \item<2-> Fase de \alert{producción}
+        \item Fase de \alert{producción}
        \begin{itemize}
          \item $12\times10^6$ pasos de tiempo.
-         \item $g_{\mu}^x(t)$ medido cada $2$ pasos de tiempo.
+         \item Medición de $g_{\mu}^x(t)$.
+           %medido cada $2$ pasos de tiempo.
          \item Eje $z$ discretizado en $66$ bines $\mu$ $\rightarrow$ {$\boldsymbol{\Delta} {\bf z=0.5}\boldsymbol{\sigma}$}.
          \end{itemize}
-       \item<3->[]
+       \item[]
          \begin{figure}
     \includegraphics[width=\linewidth]{bin_size_top-bottom}
   \end{figure}
@@ -630,20 +716,26 @@ H^{||}_{\mu\nu}&
 
 \begin{frame}{Autovalores y autovectores cerca de las paredes ($\Delta z=0.5\sigma$)}
 %    The eigenvalues $\tilde{C}_{\mu}(t)$ of the correlación matrix $C(t)$ for $\mu=59,60$ which are identical y superimpose (left) y the corresponding eigenvectors $u_{\mu}$ in blue y orange, respectively (right).
-  Los autovalores $\tilde{C}_{\mu}(t)$ de $C(t)$ para $\mu={\color{blue}59},{\color{orange}60}$ y sus correspondientes autovectores $u_{\mu}$ .
+  
+  Comportamiento \textbf{no Markoviano} cerca de las paredes. 
   \begin{figure}[h!]
 \includegraphics[width=1\linewidth]{EigenvaluesVectors-WALLS-66nodes}
 \end{figure}
 \end{frame}
+%Los autovalores $\tilde{C}_{\mu}(t)$ de $C(t)$ para $\mu={\color{blue}59},{\color{orange}60}$ y sus correspondientes autovectores $u_{\mu}$ .
 
 \begin{frame}{Elementos de la diagonal, $\tilde{\Lambda}(t)$ ($\Delta z=0.5\sigma$)}
 %Elementos de la diagonal,
 %  $\tilde{\Lambda}_{\mu\mu}(t)$, de $\Lambda(t)$ en el espacio recíproco. 
-  Para $t>0.2$ se observa un \textit{plateau} para los modos inferiores
   %(longitud de onda larga).
+\begin{align}
+  \tilde{\Lambda}_{\mu\mu}=-\frac{1}{\tilde{C}_{\mu\mu}(t)}\frac{d\tilde{C}_{\mu\mu}}{dt}(t)
+  \nonumber
+\end{align}
 \begin{figure}[h!]
 \includegraphics[width=0.7\linewidth]{LambdatRec-WALLS-66nodes}
 \end{figure}
+  Para $t>0.2$ se observa un \textit{plateau} para los modos inferiores.
 \end{frame}
 
 \begin{frame}{Predicciones en el centro del canal ($\Delta z=0.5\sigma$)}
@@ -651,7 +743,7 @@ H^{||}_{\mu\nu}&
     C(t) = {\rm exp}\{-\Lambda^*(t-\tau)\cdot C(\tau)\}
     \nonumber
   \end{align}
-La {\color{orange} predicción} se ajusta perfectamente a la {\color{blue} medición} para $\tau>0.2$.
+La {\color{orange} predicción} en el centro del canal se ajusta perfectamente  a la {\color{blue} medición} para $\tau>0.2$.
   
 \begin{figure}[h!]
 \includegraphics[width=\linewidth]{Predictions-canal-WALLS-66nodes-defense}
@@ -665,20 +757,21 @@ La {\color{orange} predicción} se ajusta perfectamente a la {\color{blue} medic
 \end{frame}
 
 \begin{frame}{Tamaño de bin: $\Delta z=0.5\sigma$ $\rightarrow$ $\Delta z=2\sigma$}
-  \begin{itemize}
+  %\begin{itemize}
 %    \item<1-> We change the size of the bin
 %\begin{figure}[h!]
 %\includegraphics[width=0.7\linewidth]{bin_size}
 %\end{figure}
-\item<1-> Bines de tamaño $\Delta z = 2\sigma$: 16 nodos de fluido. 
+%\item<1-> Bines de tamaño $\Delta z = 2\sigma$: 16 nodos de fluido. 
+Bines de tamaño $\Delta z = 2\sigma$ $\rightarrow$ 16 nodos de fluido. 
 \begin{figure}[h!]
 \includegraphics[width=0.75\linewidth]{bin_size-top-bottom_17nodos_cut}
 \end{figure}
-\item<2-> Los bines anchos no capturan el \textit{layering} de la densidad
-\begin{figure}[h!]
-\includegraphics[width=0.48\linewidth]{DensityProfile-WALLS}
-\end{figure}
-  \end{itemize}
+%\item<2-> Los bines anchos no capturan el \textit{layering} de la densidad.
+%\begin{figure}[h!]
+%\includegraphics[width=0.48\linewidth]{DensityProfile-WALLS}
+%\end{figure}
+%  \end{itemize}
 \end{frame}
 
 %\begin{frame}{The density layering}
@@ -689,7 +782,7 @@ La {\color{orange} predicción} se ajusta perfectamente a la {\color{blue} medic
 %\end{frame}
 
 
-\begin{frame}{Autovalores $\tilde{C}_{\mu\mu}(t)$ ($\Delta=2\sigma$)}
+\begin{frame}{Autovalores $\tilde{C}_{\mu\mu}(t)$ ($\Delta z=2\sigma$)}
 %Evolution of different eigenvalues $\tilde{C}_{\mu\nu}(t)$. Vertical line  at $t=\tau=0.3$.
   \begin{itemize}
     \item<1->[]
@@ -716,9 +809,16 @@ La {\color{orange} predicción} se ajusta perfectamente a la {\color{blue} medic
 \end{figure}
 \end{frame}
 
-\begin{frame}{Hoja de ruta}
-  \includegraphics[width=\linewidth]{scheme-thesis-slip}
+\begin{frame}{Layering de la densidad}
+  El coste de tener una teoría Markoviana válida cerca de las paredes es la pérdida del layering de la densidad. 
+\begin{figure}[h!]
+\includegraphics[width=0.6\linewidth]{DensityProfile-WALLS}
+\end{figure}
 \end{frame}
+
+%\begin{frame}{Hoja de ruta}
+%  \includegraphics[width=\linewidth]{scheme-thesis-slip}
+%\end{frame}
 
 
 \section{Condición de contorno de slip}
@@ -785,7 +885,7 @@ M(t)&= \frac{1}{k_BT}\int_0^t dt'\langle i{\cal L}\hat{g}(t')i{\cal L} \hat{g}^T
 \end{align}
 \item<3-> La derivada temporal del momento viene dada por
 \begin{align}
-  i{\cal L}\hat{g}_\mu(z) &=\hat{F}_\mu(z)-\frac{\hat{\sigma}_\mu(z)-\hat{\sigma}_{\mu-1}(z)}{\Delta z}
+  i{\cal L}\hat{g}_\mu &=\hat{F}_\mu-\frac{\hat{\sigma}_\mu-\hat{\sigma}_{\mu-1}}{\Delta z}
 \nonumber
 \end{align}
 %donde
@@ -869,7 +969,8 @@ donde ${\cal D}$ es el operador derivada adelantada.
         \frac{d}{dt}g(t)=-\Lambda^*\esc g(t)
         \nonumber
       \end{align}
-    \item<6-> Evolución de $g(t)$ en función de la velocidad
+    \item<6-> Evolución de $g(t)$ en función de la velocidad: 
+      ${\bf v}^x_\mu=\sum_{\nu}\rho_{\mu\nu}^{-1}{\bf g}^x_\nu$
       \begin{align}
         \frac{d}{dt}g(t)=-{\cal V}\esc M(\tau)\esc \underbrace{{\color{blue}C^{-1}(\tau)\esc C(0)}\esc v(t)}_{\overline{v}(t)}
         %\frac{d}{dt}v(t)=-k_BT\esc M(\tau)\esc C^{-1}(\tau)\esc {\cal V}\esc \underbrace{C^{-1}(\tau)\esc C(0)\esc v(t)}_{\overline{v}(t)}
@@ -952,17 +1053,29 @@ donde ${\cal D}$ es el operador derivada adelantada.
 %\end{frame}
 
 \begin{frame}{La condición de contorno}
+    %\item Hemos resuelto la ecuación discreta no local para $g^x_{\mu}(t)$ sin hacer referencia a la condición de contorno. 
+  \begin{itemize}
+    \item[]
+  \alert{Región de contorno} compuesta por $B$ bines cerca de la pared.
+\item[]
+  \begin{figure}
+    \includegraphics[width=\linewidth]{region_contorno}
+  \end{figure}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{La condición de contorno}
   \begin{itemize}
     %\item Hemos resuelto la ecuación discreta no local para $g^x_{\mu}(t)$ sin hacer referencia a la condición de contorno. 
     \item<1-> \alert{Región de contorno} compuesta por $B$ bines cerca de la pared.
   \begin{enumerate}
-    \item<2-> La evolución del momento obedece la ecuación
+    \item<1-> La evolución del momento obedece la ecuación
       \begin{align}
         \frac{d}{dt}g(t)=-k_BT\esc M(\tau)\esc C^{-1}(\tau)\esc g(t)
         \nonumber
       \end{align}
       %$\rightarrow$ $\tau=0.3$
-\item<3-> El campo de velocidad dentro de la región es lineal 
+\item<2-> El campo de velocidad dentro de la región es lineal 
 \begin{align}
 \overline{\bf v}^x_{\mu}&=  \overline{\bf v}^x_{\rm wall}+\dot{\overline{\gamma}}_{\rm wall}(\mu\Delta z-z_{\rm wall})
 \nonumber
@@ -974,11 +1087,11 @@ donde ${\cal D}$ es el operador derivada adelantada.
           %shear rate
       \end{itemize}
       $\rightarrow$ $B=2$
-    \item<4-> La fuerza sobre la región de contorno es muy pequeña. \\
+    \item<3-> La fuerza sobre la región de contorno es muy pequeña. \\
       $\rightarrow$ $t>2$
   \end{enumerate}
 %\item<5-> Por \textbf{(2)} escogemos $B=2$ y observamos que \textbf{(3)} se cumple para $t>2$.
-\item<5-> Condición de contorno y longitud de slip $\delta$
+\item<4-> Condición de contorno y longitud de slip $\delta$
 \begin{align}
 \overline{\bf v}^x_{\rm wall}=\delta\dot{\overline{\gamma}}_{\rm wall}
   && \delta=\frac{\eta-G}{\gamma-H}
@@ -986,6 +1099,7 @@ donde ${\cal D}$ es el operador derivada adelantada.
 \end{align}
   \end{itemize}
 \end{frame}
+
 %\begin{frame}{Linear aproximación for the velocity y force on the slab}
 %\begin{figure}[!h]
 %  \includegraphics[width=0.5\linewidth]{vtCorrected-17nodes-WALLS-defense}
@@ -1042,7 +1156,38 @@ donde ${\cal D}$ es el operador derivada adelantada.
 %  \end{itemize}
 %\end{frame}
 
-\begin{frame}{Modelo hidrodinámico local con condiciones de contorno}  
+
+\begin{frame}{Condición en el contorno con teoría no local}
+  \begin{itemize}
+    \item[] \alert{Teoría no local} \textbf{sin condiciones de contorno} que nos permite obtener una condición en el contorno:  
+      \begin{align}
+      \overline{\bf v}^x_{\rm wall}(t) = \delta(t)\dot{\overline{\gamma}}_{\rm wall}(t)
+        \nonumber
+      \end{align}
+    %\item[] Hemos observado una condición en el contorno: 
+ %$\delta(t)=\frac{\overline{\bf v}^x_{\rm wall}(t)}{\dot{\overline{\gamma}}_{\rm wall}(t)}$
+\item[]
+  \begin{figure}
+    \includegraphics[width=0.55\linewidth]{condicion_contorno}
+  \end{figure}
+  \end{itemize}
+\end{frame}
+
+  \begin{frame}{Condición de contorno en teoría local}
+    \begin{itemize}
+      \item[] \alert{Teoría local} \textbf{sin sólidos} con condiciones de contorno:
+        \begin{align}
+      \overline{\bf v}^x_{\rm wall}(t) = \delta(t)\dot{\overline{\gamma}}_{\rm wall}(t)
+        \nonumber
+        \end{align}
+  \begin{figure}
+    \includegraphics[width=0.55\linewidth]{condicion_contorno_local}
+  \end{figure}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Modelo hidrodinámico local con condicion de contorno}  
   \begin{itemize}
     \item Versión discreta de la ecuación local $\partial_t g(z,t)=\nu\frac{\partial^2}{\partial z^2} g(z,t)$
 \begin{align}
@@ -1101,11 +1246,12 @@ donde la viscosidad cinemática es $\nu=\frac{\eta}{\rho}$.
 \begin{frame}{Conclusiones}
   \begin{enumerate}
     \item<1-> DDFT para un fluido en contacto con una esfera sólida. 
-    \item<2-> Decaimiento exponencial de las correlaciones si la hipótesis Markoviana es válida. 
-    \item<3-> Efectos no Markovianos cerca de la pared cuando el tamaño de bin es inferior a la distancia molecular. 
-    \item<4-> Fórmula de Green-Kubo corregida para evitar el problema del \textit{plateau}.
-    \item<5-> Excelentes predicciones del momento de un \textit{plug flow} empleando los kernels de transporte corregidos. 
-    \item<6-> La longitud de slip no depende de la geometría del sistema.  
+    \item<2-> Ecuaciones hidrodinámica fluido en contacto con paredes planas. 
+    \item<3-> Decaimiento exponencial de las correlaciones si la hipótesis Markoviana es válida. 
+    \item<4-> Efectos no Markovianos cerca de la pared cuando el tamaño de bin es inferior a la distancia molecular. 
+    \item<5-> Fórmula de Green-Kubo corregida para evitar el problema del \textit{plateau}.
+    \item<6-> Excelentes predicciones del momento de un \textit{plug flow} empleando los kernels de transporte corregidos. 
+    \item<7-> La longitud de slip no depende de la geometría del sistema.  
   \end{enumerate}
 \end{frame}
 
@@ -1139,7 +1285,7 @@ donde la viscosidad cinemática es $\nu=\frac{\eta}{\rho}$.
 %\end{align}
 %\item Resolver el problema de as condiciones de contorno térmicas. 
     \item Transporte de calor entre sólidos y fluidos.
-    \item Nanopartículas y sales fundidas $\rightarrow$ Aplicación en la industria termosolar.
+    \item Nanopartículas y sales fundidas $\rightarrow$ Aplicación en almacenamiento térmico en la industria termosolar.
       \end{itemize}
   \end{enumerate}
 \end{frame}
@@ -1171,7 +1317,7 @@ Diego Duque Zumajo
       \nonumber
       \end{align}
       where we have introduce the notation $\llg\cdots\rlg=\int d{\bf r}...$
-    \item We introduce the discrete velocity field in términos of $M^\Phi_{\mu\nu}$
+    \item We introduce the discrete velocity field in terms of $M^\Phi_{\mu\nu}$
       \begin{align}
         \tilde{{\bf v}}_{\mu}=\sum_{\nu}{\cal V}_{\mu}[M^{\Phi}]^{-1}_{\mu\nu}{\bf v}_{\nu}
         \nonumber
