@@ -13,6 +13,30 @@
 \usepackage{psfrag}
 \usepackage{afterpage}
 \usepackage{cancel}
+
+\makeatletter
+\renewcommand{\metropolis@colors@dark}{%
+  \setbeamercolor{normal text}{%
+    fg=black!2,
+    bg=mDarkTeal
+  }%
+  \usebeamercolor[fg]{normal text}%
+}
+\renewcommand{\metropolis@colors@white}{%
+  \setbeamercolor{normal text}{%
+    fg=mDarkTeal,
+    bg=white
+  }%
+  \usebeamercolor[fg]{normal text}%
+}
+\makeatother
+
+
+
+
+
+
+
 \usepackage[backend=biber, style=nature]{biblatex}
 \addbibresource{../bibTex/thesis-library.bib}
 \useinnertheme{circles}
@@ -52,7 +76,7 @@
   \begin{frame}{Layering}
     \alert{Layering} de la densidad del fluido cerca de la superficie del sólido. 
 \begin{figure}[h!]
-\includegraphics[width=0.48\linewidth]{Density-WALLS-defense}
+\includegraphics[width=0.48\linewidth]{Density-01sigma-2sigma-defensa}
 \end{figure}
     \begin{itemize}
     \item DFT para situaciones de equilibrio.
@@ -107,12 +131,20 @@
 \end{frame}
 
 \section{Teoría hidrodinámica para fluidos cerca de sólidos}
-\begin{frame}{El sistema y las variables relevantes}
+\begin{frame}{El sistema}
   \begin{itemize}
     \item<1-> \alert{Objetivo}: Derivar ecuaciones de la hidrodinámica a partir de las ecuaciones de Hamilton. 
     \item<2-> Estudiamos un fluido de $N$ partículas en contacto con una esfera sólida compuesta por $N'$ partículas.
     %\item $z= ({\bf q}_i, {\bf p}_i)$ y $z'= ({\bf q}_{i'}, {\bf p}_{i'})$
-    \item<3-> Variables relevantes
+  \begin{figure}
+  \includegraphics[width=.6\linewidth]{esfera}
+  \end{figure}
+  \end{itemize}
+\end{frame}
+   
+   \begin{frame}{Las variables relevantes}
+     \begin{itemize}
+    \item<1-> Variables relevantes
       \begin{align}
         \hat{\rho}_{\bf r}(z) &=\sum^{N}_im\delta({\bf r}-{\bf q}_i)
       &&\hat{\bf R}(z)=\frac{1}{N'}\sum_{i'}^{N'}{\bf q}_{i'}
@@ -121,7 +153,7 @@
       &&\hat{\bf P}(z)=\sum_{i'}^{N'}{\bf p}_{i'}
       \nonumber
       \end{align}
-    \item<4-> Derivadas de las variables relevantes
+    \item<2-> Derivadas temporales de las variables relevantes
       \begin{align}
         i{\cal L} \hat{\rho}_{\bf r}(z) &= -\boldsymbol{\nabla}\esc\hat{\bf g}_{\bf r}(z)
         && i{\cal L}\hat{\bf R}(z) =\frac{\hat{\bf P}(z)}{M}
@@ -140,20 +172,24 @@
       %Si hay separación de escalas temporales entre la evolución de los promedios de las variables relevantes, $a_i$, y el decaimiento del kernel de memoria 
     \item<1-> Ecuaciones de evolución para los promedios de las variables relevantes, $a_i(t)$
 \begin{equation}
-  \frac{\partial}{\partial t}a_i(t) = {\color{blue} v_i(t)} {\color{red} +\sum_j D_{ij}(t) \lambda_j(t)}
+  \frac{\partial}{\partial t}a_i(t) = {\color{blue} v_i(t)}+ {\color{red} \sum_j D_{ij}(t) \lambda_j(t)}
 \nonumber
 \end{equation}
 \item<2-> {\color{blue} Término reversible}: 
   %\begin{align}
-    $v_i={\rm Tr}[\overline{\rho}_t i{\cal L}\hat{A}_i]$
+  $v_i={\rm Tr}[\overline{\rho}_t i{\cal L}\hat{A}_i]$
    % \nonumber
   %\end{align}
+  \\En donde 
+  ${\rm Tr}\left[\cdots\right]=\sum_{N=0}^\infty \frac{1}{N!h^{3N}}
+\int dz\cdots$
 \item<3-> Colectividad relevante 
   \begin{equation}
   \overline{\rho}(z) = \frac{1}{Z[\lambda]} \rho_0\exp\{-\lambda\!\cdot\!\hat{A}(z)\}
   \nonumber
   \end{equation}
-\item<4-> {\color{red} La matriz disipativa} viene dada por la fórmula de  Green-Kubo
+\item<4-> Promedios variables relevantes: $a_i={\rm Tr}[\bar{\rho}\hat{A}_i]={\rm Tr}[\rho\hat{A}_i]$
+\item<5-> {\color{red} La matriz disipativa} viene dada por la fórmula de  Green-Kubo
 \begin{equation}
 D_{ij}(t)=\int_0^{\Delta t} dt'\left\langle 
 {\cal Q}_t i{\cal L}\hat{A}_j\exp\{i{\cal L}t'\}{\cal Q}_t i{\cal L}\hat{A}_i
@@ -161,14 +197,14 @@ D_{ij}(t)=\int_0^{\Delta t} dt'\left\langle
 \label{dij}
 \nonumber
 \end{equation}
-\item<5-> El operador de proyección de Kawasaki-Gunton  
-  \begin{align}
-    {\cal Q}_{t'}\hat{F}(z) &= \hat{F}(z)- {\rm Tr}[\overline{\rho}_{t'} \hat{F}]
-  -\sum_i(\hat{A}_i(z)-a_i(t'))\frac{\partial }{\partial a_i(t')}
-  {\rm Tr}[\overline{\rho}_{t'} \hat{F}]
-  \label{Q}
-  \nonumber
-  \end{align}
+%\item<5-> El operador de proyección de Kawasaki-Gunton  
+%  \begin{align}
+%    {\cal Q}_{t'}\hat{F}(z) &= \hat{F}(z)- {\rm Tr}[\overline{\rho}_{t'} \hat{F}]
+%  -\sum_i(\hat{A}_i(z)-a_i(t'))\frac{\partial }{\partial a_i(t')}
+%  {\rm Tr}[\overline{\rho}_{t'} \hat{F}]
+%  \label{Q}
+%  \nonumber
+%  \end{align}
 \end{itemize}
 \end{frame}
 
@@ -188,7 +224,7 @@ D_{ij}(t)=\int_0^{\Delta t} dt'\left\langle
 \end{align}
 
 \begin{itemize}
-  \item ${\cal F}[\rho, {\bf R}]$: funcional de energía libre de un fluido en presencia de una esfera sólida. 
+  \item ${\cal F}[\rho, {\bf R}]$: funcional de energía libre de un fluido en presencia de una esfera sólida (DFT).
   \item $\boldsymbol{\Sigma}({\bf r})$: tensor de tensiones del fluido. 
   \item $\boldsymbol{{\cal S}}({\bf r})$: fuerza irreversible sobre el fluido. 
 \end{itemize}
@@ -220,7 +256,7 @@ D_{ij}(t)=\int_0^{\Delta t} dt'\left\langle
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Los \textit{kernels} de transporte}
+\begin{frame}{Los kernels de transporte}
 %Comentar que los kernels H,G y gamma estarían muy localizados cerca de las paredes porque está involucrada la fuerza. 
 \begin{align}
   \boldsymbol{\eta}_{{\bf  r}{\bf r}'} &\equiv
@@ -244,6 +280,18 @@ D_{ij}(t)=\int_0^{\Delta t} dt'\left\langle
 \end{align}
 \end{frame}
 
+\metroset{background=dark}
+\begin{frame}
+  \begin{itemize}
+    \item<1-> \alert{Generalización de la DFT} para un fluido simple en movimiento en presencia de una esfera sólida. 
+    \item<2-> No hay condiciones de contorno. La interacción con el sólido es tenida en cuenta a través de \alert{fuerzas irreversibles} $\cal{S}({\bf r}).$ 
+    \item<3-> D.Camargo, J.A. de la Torre,  D.Duque-Zumajo, P.Espa\~nol, R.Delgado-Buscalioni, and F. Chejne. Nanoscale hydrodynamics near solids. \textit{Journal of Chemical Physics}, 148(6), 2018.
+  \end{itemize}
+
+\end{frame}
+\metroset{background=white}
+
+
 %\begin{frame}{Algo}
 %  \begin{itemize}
 %    \item Generalización de DFT para fluidos simples en presencia de una esfera sólida de grandes dimensiones. 
@@ -261,13 +309,14 @@ D_{ij}(t)=\int_0^{\Delta t} dt'\left\langle
     La teoría presentada no puede ser validada a través de simulaciones:
       \begin{enumerate}
         \item Teoría continua.
-        \item Demasiada información en las ecs. hidrodinámicas: kernels de transporte no locales y de caracter tensorial. 
+        \item Demasiada información en las ecs. hidrodinámicas: kernels de transporte no locales y de carácter tensorial. 
       \end{enumerate}
     %\item[] $\rightarrow$ Necesitamos una \alert{teoría más simple} (menos información que calcular) y \alert{discreta}. 
     $\rightarrow$ Necesitamos una \alert{teoría más simple} (menos información que calcular) y \alert{discreta}. 
   %\end{itemize}
 \end{frame}
 
+\section{Hidrodinámica discreta para flujos planos cerca de sólidos}
 
 \begin{frame}{Teoría discreta de un caso sencillo}
   \begin{itemize}
@@ -318,7 +367,7 @@ D_{ij}(t)=\int_0^{\Delta t} dt'\left\langle
 \end{align}
 \item<3-> La función de Dirac discreta en términos del elemento finito
   \begin{align}
-    \delta_{\mu}({\bf r}) \equiv \frac{\phi({\bf r})}{{\cal V}_{\mu}}
+    \delta_{\mu}({\bf r}) \equiv \frac{\Phi({\bf r})}{{\cal V}}
     \nonumber
   \end{align}
 \end{itemize}
@@ -441,6 +490,75 @@ H^{||}_{\mu\nu}&
 \end{align}
 \end{frame}
 
+
+\metroset{background=dark}
+\begin{frame}
+  \begin{itemize}
+    \item<1-> \alert{Teoría discreta} para flujos planos confinados entre paredes planoparalelas e isotrópicas.
+    \item<2-> Nos centraremos en la {componente paralela} del momento   
+\begin{align}
+  \frac{d}{dt}{{\bf g}}^x_\mu=&-M_{\mu\nu}^{||}{\cal V}_\nu\tilde{v}^x_\nu
+\nonumber
+\end{align}
+    \item<3-> D. Duque-Zumajo, D. Camargo, J. A. de la Torre, F. Chejne, and Pep Espa\~nol. Discrete hydrodynamics for planar flows with confining walls. \textit{Physical Review E}, 2019.
+  \end{itemize}
+
+\end{frame}
+\metroset{background=white}
+
+
+\begin{frame}{Kernels de transporte}
+\begin{align}
+\eta^{||}_{\mu\nu}&
+=\frac{1}{k_BT}\int_0^\tau  dt\left\langle 
+{\cal Q}\hat{\boldsymbol{\sigma}}^{xz}_\mu(t){\cal Q}\hat{\boldsymbol{\sigma}}^{xz}_\nu
+  \right\rangle^{\lambda(t)}&&
+%\nonumber\\
+%  {\color{gray} \eta^{\bot}_{\mu\nu}
+%= \frac{1}{k_BT}\int_0^\tau  dt\langle 
+%{\cal Q}\hat{\boldsymbol{\sigma}}^{zz}_\mu(t)
+%  {\cal Q}\hat{\boldsymbol{\sigma}}^{zz}_\nu\rangle}
+\nonumber\\
+G^{||}_{\mu\nu}&
+=\frac{1}{k_BT} \int_0^\tau  dt
+\left\langle{\cal Q}\hat{\bf F}^{x}_\mu(t)
+{\cal Q}\hat{\boldsymbol{\sigma}}^{xz}_\nu
+\right\rangle^{\lambda(t)}&&
+%\nonumber\\
+%{\color{gray}G^{\bot}_{\mu\nu}=\frac{1}{k_BT} \int_0^\tau  dt
+%\left\langle {\cal Q}\hat{\bf F}^{z}_\mu(t)
+%{\cal Q}\hat{\boldsymbol{\sigma}}^{zz}_\nu
+%  \right\rangle}
+\nonumber\\
+H^{||}_{\mu\nu}&
+=\frac{1}{k_BT} 
+\int_0^\tau  dt
+\left\langle{\cal Q}\hat{\boldsymbol{\sigma}}^{xz}_\mu(t){\cal Q}\hat{\bf F}^{x}_\nu\right\rangle^{\lambda(t)}&&
+\nonumber\\
+%{\color{gray}H^\bot_{\mu\nu}=\frac{1}{k_BT} 
+%  \int_0^\tau  dt\left\langle {\cal Q}\hat{\boldsymbol{\sigma}}^{zz}_\mu(t){\cal Q}\hat{\bf F}^{z}_\nu\right\rangle}
+%\nonumber\\
+\gamma^{||}_{\mu\nu}&=
+\frac{1}{k_BT} \int_0^\tau  dt
+\left\langle 
+{\cal Q}\hat{\bf F}^{x}_\mu(t)
+{\cal Q}\hat{\bf F}^{x}_\nu\right\rangle^{\lambda(t)}&&
+%\nonumber\\
+%{\color{gray}\gamma^{\bot}_{\mu\nu}=
+%\frac{1}{k_BT} \int_0^\tau  dt\left\langle 
+%  {\cal Q}\hat{\bf F}^{z}_\mu(t){\cal Q}\hat{\bf F}^{z}_\nu
+%  \right\rangle}
+\nonumber
+\end{align}
+\end{frame}
+
+
+\begin{frame}{Problema del plateau}
+\begin{figure}[]
+  \includegraphics[scale=0.33]{NoPlateau-WALLS-17nodes}
+\end{figure}
+\end{frame}
+
 %\begin{frame}{Hoja de ruta}
 %  \includegraphics[width=\linewidth]{scheme-thesis-mori}
 %\end{frame}
@@ -550,12 +668,14 @@ H^{||}_{\mu\nu}&
      %\item Box size $40x40x30$.
      \item<1-> Fase de \alert{equilibrado}
        \begin{itemize}
-         \item Termostato durante $10^5$ pasos de tiempo: $T=2.0$, $\rho=0.6$.
-         \item NVE durante $10^5$ pasos de tiempo.
+         %\item Termostato durante $10^5$ pasos de tiempo: $T=2.0$, $\rho=0.6$.
+         \item Termostato de Langevin: $T=2.0$, $\rho=0.6$.
+         %\item NVE durante $10^5$ pasos de tiempo.
+         \item Quitamos termostato y dejamos que corra en NVE.
           \end{itemize}
         \item<2-> Fase de \alert{producción}
        \begin{itemize}
-         \item $1.5\times10^6$ pasos de tiempo.
+         %\item $1.5\times10^6$ pasos de tiempo.
          \item Medición de $g_{\mu}^x(t)$.
            %medido cada $10$ pasos de tiempo.
          \item $z$ discretizado en $60$ bines $\mu$ $\rightarrow$ {$\boldsymbol{\Delta} {\bf z=0.5}\boldsymbol{\sigma}$}.
@@ -600,6 +720,21 @@ H^{||}_{\mu\nu}&
 %  intervals of $0.02$.  Right: time evolution of $\tilde{\Lambda}_{\mu\mu}(t)$.
 \end{frame}
 
+\metroset{background=dark}
+\begin{frame}
+  \begin{itemize}
+    \item<1-> Para estudiar la validez de la aproximación Markoviana es conveniente hacerlo en el \alert{espacio recíproco} (Fourier para un fluido en PBC). 
+    \item<2-> Observamos una \alert{matriz $\tilde{\Lambda}$ constante} a partir de un tiempo $\tau=0.2$ para la mayoría de los modos.  
+    \item<3-> Las predicciones de la matriz de correlaciones con la teoría Markoviana son muy buenas. 
+    \item<4-> D. Duque-Zumajo, D.Camargo, J.A. de la Torre, F. Chejne, and P.Espa\~nol. Space and time locality for unconfined fluids. \textit{Journal of Chemical Physics}, 2019.
+  \end{itemize}
+
+\end{frame}
+\metroset{background=white}
+
+
+
+
 \section{Comportamiento Markoviano cerca de paredes planas}
 
 \begin{frame}{Simulaciones fluido confinado}
@@ -624,12 +759,13 @@ H^{||}_{\mu\nu}&
      %\item Box size $40x40x30$.
      \item Fase de \alert{equilibrado}
        \begin{itemize}
-         \item Termostato durante $10^5$ pasos de tiempo: $T=2.0$, $\rho=0.6$.
-         \item NVE durante $10^5$ pasos de tiempo.
+         %\item Termostato durante $10^5$ pasos de tiempo: $T=2.0$, $\rho=0.6$.
+         \item Termostato de Langevin : $T=2.0$, $\rho=0.6$.
+         \item Quitamos termostato y dejamos que corra en NVE.
           \end{itemize}
         \item Fase de \alert{producción}
        \begin{itemize}
-         \item $12\times10^6$ pasos de tiempo.
+         %\item $12\times10^6$ pasos de tiempo.
          \item Medición de $g_{\mu}^x(t)$.
            %medido cada $2$ pasos de tiempo.
          \item Eje $z$ discretizado en $66$ bines $\mu$ $\rightarrow$ {$\boldsymbol{\Delta} {\bf z=0.5}\boldsymbol{\sigma}$}.
@@ -815,6 +951,22 @@ Bines de tamaño $\Delta z = 2\sigma$ $\rightarrow$ 16 nodos de fluido.
 \includegraphics[width=0.6\linewidth]{DensityProfile-WALLS}
 \end{figure}
 \end{frame}
+
+\metroset{background=dark}
+\begin{frame}
+  \begin{itemize}
+    \item<1-> Autovalores que cortan la recta $y=0$ $\rightarrow$ No puede ser válida la hipótesis Markoviana cerca de la pared.
+    \item<2-> Las predicciones en el centro del canal son buenas, pero no cerca de las paredes. 
+    \item<3-> Teoría Markoviana válida si el tamaño de bin es superior a la distancia molecular $\rightarrow$ \alert{pérdida del layering}. 
+  \item<4-> D. Duque-Zumajo, D. Camargo, J. A. de la Torre, Farid Chejne, and Pep Espa\~nol. Discrete hydrodynamics near solid walls: non-Markovian effects and slip. \textit{Physical Review E}, 2019. 
+  \end{itemize}
+
+\end{frame}
+\metroset{background=white}
+
+
+
+
 
 %\begin{frame}{Hoja de ruta}
 %  \includegraphics[width=\linewidth]{scheme-thesis-slip}
@@ -1055,8 +1207,8 @@ donde ${\cal D}$ es el operador derivada adelantada.
 \begin{frame}{La condición de contorno}
     %\item Hemos resuelto la ecuación discreta no local para $g^x_{\mu}(t)$ sin hacer referencia a la condición de contorno. 
   \begin{itemize}
-    \item[]
-  \alert{Región de contorno} compuesta por $B$ bines cerca de la pared.
+    \item \textbf{Derivamos condiciones de contorno cerca de la pared}. 
+    \item Para ello seleccionamos una \alert{región de contorno} compuesta por $B$ bines cerca de la pared.
 \item[]
   \begin{figure}
     \includegraphics[width=\linewidth]{region_contorno}
@@ -1159,29 +1311,29 @@ donde ${\cal D}$ es el operador derivada adelantada.
 
 \begin{frame}{Condición en el contorno con teoría no local}
   \begin{itemize}
-    \item[] \alert{Teoría no local} \textbf{sin condiciones de contorno} que nos permite obtener una condición en el contorno:  
+    \item[] \alert{Teoría no local} \textbf{sin condiciones de contorno} que nos permite obtener una condición {\bf en} el contorno:  
       \begin{align}
-      \overline{\bf v}^x_{\rm wall}(t) = \delta(t)\dot{\overline{\gamma}}_{\rm wall}(t)
+      \overline{\bf v}^x_{\rm wall}(t) = \delta\dot{\overline{\gamma}}_{\rm wall}(t)
         \nonumber
       \end{align}
     %\item[] Hemos observado una condición en el contorno: 
  %$\delta(t)=\frac{\overline{\bf v}^x_{\rm wall}(t)}{\dot{\overline{\gamma}}_{\rm wall}(t)}$
 \item[]
   \begin{figure}
-    \includegraphics[width=0.55\linewidth]{condicion_contorno}
+    \includegraphics[width=0.45\linewidth]{condiciones_contorno_paredes_recorte}
   \end{figure}
   \end{itemize}
 \end{frame}
 
   \begin{frame}{Condición de contorno en teoría local}
     \begin{itemize}
-      \item[] \alert{Teoría local} \textbf{sin sólidos} con condiciones de contorno:
+      \item[] \alert{Teoría local} que tenga en cuenta la presencia del sólido a través de condiciones de contorno:
         \begin{align}
-      \overline{\bf v}^x_{\rm wall}(t) = \delta(t)\dot{\overline{\gamma}}_{\rm wall}(t)
+      \overline{\bf v}^x_{\rm wall}(t) = \delta\dot{\overline{\gamma}}_{\rm wall}(t)
         \nonumber
         \end{align}
   \begin{figure}
-    \includegraphics[width=0.55\linewidth]{condicion_contorno_local}
+    \includegraphics[width=0.55\linewidth]{condicion_contorno_recorte}
   \end{figure}
 \end{itemize}
 \end{frame}
@@ -1189,13 +1341,13 @@ donde ${\cal D}$ es el operador derivada adelantada.
 
 \begin{frame}{Modelo hidrodinámico local con condicion de contorno}  
   \begin{itemize}
-    \item Versión discreta de la ecuación local $\partial_t g(z,t)=\nu\frac{\partial^2}{\partial z^2} g(z,t)$
+    \item<1-> Versión discreta de la ecuación local $\partial_t g(z,t)=\nu\frac{\partial^2}{\partial z^2} g(z,t)$
 \begin{align}
   \frac{d}{dt}{\bf g}^x_\mu(t)&=\nu \frac{1}{\Delta z^2}({\bf g}^x_{\mu-1}(t)+{\bf g}^x_{\mu+1}(t)-2{\bf g}^x_{\mu}(t))
 \nonumber
 \end{align}
 donde la viscosidad cinemática es $\nu=\frac{\eta}{\rho}$.
-    \item Ecuación hidrodinámica no local 
+    \item<2-> Ecuación hidrodinámica no local 
 \begin{align}
   \frac{d}{dt}{\bf g}^x_\mu(t)=&
 -\sum_{\nu} {\cal V}_\nu \frac{\left[\eta_{\mu\nu}-\eta_{\mu-1\nu}-\eta_{\mu\nu-1}+\eta_{\mu-1\nu-1}\right]}{\Delta z^2}\overline{\bf v}^x_\nu \nonumber \\
@@ -1206,7 +1358,7 @@ donde la viscosidad cinemática es $\nu=\frac{\eta}{\rho}$.
   &{\color{red}-\sum_{\nu} {\cal V}_\nu\gamma_{\mu\nu}\overline{\bf v}^x_\nu}
 \nonumber
 \end{align}
-\item Empleamos la condición de contorno de \textit{slip} $\overline{\bf v}_{\rm wall}^x=\delta \dot{\overline{\gamma}}_{\rm wall}$ aplicada en $z_{\rm wall}$.
+\item<3-> Empleamos la condición de contorno de \textit{slip} $\overline{\bf v}_{\rm wall}^x=\delta \dot{\overline{\gamma}}_{\rm wall}$ aplicada en $z_{\rm wall}$.
   \end{itemize}
 \end{frame}
 
@@ -1219,12 +1371,12 @@ donde la viscosidad cinemática es $\nu=\frac{\eta}{\rho}$.
 %\end{align}
 %with $\Delta'$ the Laplacian operator for slip boundary condition.
 \begin{figure}[]
-\includegraphics[width=\linewidth]{gxtLocalPrediction-17nodes-WALLS}
+\includegraphics[width=\linewidth]{gxtLocalPrediction-17nodes-WALLS-defense}
 \end{figure}
   {\color{orange} Predicción local}
   y {\color{blue} medición} del perfil del momento.\\
-  Izq: $t=5,7,\cdots,29$  en orden descendente.\\
-  Dcha: $t=0.3,0.6,\cdots2.1$ en orden descendente.
+  Izq.: $t=0.3,0.6,\cdots2.1$ en orden descendente.\\
+  Dcha.: $t=5,7,\cdots,29$  en orden descendente.
 \end{frame}
 
 \begin{frame}{Comparación de errores entre teorías local y no local}
@@ -1243,11 +1395,27 @@ donde la viscosidad cinemática es $\nu=\frac{\eta}{\rho}$.
   %\end{itemize}
 \end{frame}
 
+\metroset{background=dark}
+\begin{frame}
+  \begin{itemize}
+    \item<1-> Fórmula de Green-Kubo corregida que evita el \alert{problema del plateau} en los kernels de transporte. 
+    %\item<2-> Buenas predicciones del momento de un \textit{\alert{plug flow}} con corrección de Green-Kubo. 
+    \item<2-> \alert{Condición de contorno} a partir de la teoría no local. 
+    \item<3-> Errores en la teoría local debido a \alert{efectos no locales} que no captura.  
+    \item<4-> La \alert{longitud de slip} no depende de la geometría del sistema. 
+    \item<5-> Pep Espa\~nol, J.A.de la Torre, and D.Duque-Zumajo. Solution to the plateau problem in the Green-Kubo formula. \textit{Physical Review E}, 99(2), 2019.
+    \item<5-> D. Duque-Zumajo, J.A. de la Torre, D. Camargo, and Pep Español. Slip in nanohydrodynamics. \textit{Physical Review Letters}, 2019. 
+  \end{itemize}
+
+\end{frame}
+\metroset{background=white}
+
+
 \begin{frame}{Conclusiones}
   \begin{enumerate}
     \item<1-> DDFT para un fluido en contacto con una esfera sólida. 
-    \item<2-> Ecuaciones hidrodinámica fluido en contacto con paredes planas. 
-    \item<3-> Decaimiento exponencial de las correlaciones si la hipótesis Markoviana es válida. 
+    \item<2-> Ecuaciones de la hidrodinámica para un fluido en contacto con paredes planas. 
+    \item<3-> Si la hipótesis Markoviana es válida las correlaciones decaen de forma exponencial. 
     \item<4-> Efectos no Markovianos cerca de la pared cuando el tamaño de bin es inferior a la distancia molecular. 
     \item<5-> Fórmula de Green-Kubo corregida para evitar el problema del \textit{plateau}.
     \item<6-> Excelentes predicciones del momento de un \textit{plug flow} empleando los kernels de transporte corregidos. 
@@ -1256,19 +1424,19 @@ donde la viscosidad cinemática es $\nu=\frac{\eta}{\rho}$.
 \end{frame}
 
 
-\begin{frame}{Publicaciones relacionadas}
-  \begin{itemize}
-      \begin{small}
-    \item D.Camargo, J.A. de la Torre, {\bf D.Duque-Zumajo}, P.Espa\~nol, R.Delgado-Buscalioni, and F. Chejne. Nanoscale hydrodynamics near solids. \textit{Journal of Chemical Physics}, 148(6), 2018.
-    \item P.Espa\~nol, J.A.de la Torre, and {\bf D.Duque-Zumajo}. Solution to the plateau problem in the Green-Kubo formula. \textit{Physical Review E}, 99(2), 2019.
-    \item {\bf D. Duque-Zumajo}, D. Camargo, J. A. de la Torre, F. Chejne, and Pep Espa\~nol. Discrete hydrodynamics for planar flows with confining walls. \textit{Physical Review E}, 2019.
-  \item {\bf D. Duque-Zumajo}, J. A. de la Torre, and Pep Espa\~nol. Slip and non-Markovian effects in nanohydrodynamics (in preparation). \textit{Physical Review Letters}, 2019. 
-  \item {\bf D. Duque-Zumajo}, D. Camargo, J. A. de la Torre, Farid Chejne, and Pep Espa\~nol. Discrete hydrodynamics near solid walls: non-Markovian effects and slip (in preparation). \textit{Physical Review E}, 2019. 
-      \end{small}
-  \end{itemize}
-\end{frame}
+%\begin{frame}{Publicaciones relacionadas}
+%  \begin{itemize}
+%      \begin{small}
+%    \item D.Camargo, J.A. de la Torre, {\bf D.Duque-Zumajo}, P.Espa\~nol, R.Delgado-Buscalioni, and F. Chejne. Nanoscale hydrodynamics near solids. \textit{Journal of Chemical Physics}, 148(6), 2018.
+%    \item P.Espa\~nol, J.A.de la Torre, and {\bf D.Duque-Zumajo}. Solution to the plateau problem in the Green-Kubo formula. \textit{Physical Review E}, 99(2), 2019.
+%    \item {\bf D. Duque-Zumajo}, D. Camargo, J. A. de la Torre, F. Chejne, and Pep Espa\~nol. Discrete hydrodynamics for planar flows with confining walls. \textit{Physical Review E}, 2019.
+%  \item {\bf D. Duque-Zumajo}, J. A. de la Torre, and Pep Espa\~nol. Slip and non-Markovian effects in nanohydrodynamics (in preparation). \textit{Physical Review Letters}, 2019. 
+%  \item {\bf D. Duque-Zumajo}, D. Camargo, J. A. de la Torre, Farid Chejne, and Pep Espa\~nol. Discrete hydrodynamics near solid walls: non-Markovian effects and slip (in preparation). \textit{Physical Review E}, 2019. 
+%      \end{small}
+%  \end{itemize}
+%\end{frame}
 
-\begin{frame}{Próximos pasos}
+\begin{frame}{Trabajo futuro}
   \begin{enumerate}
         \item Estudio de los efectos no Markovianos.
       \begin{itemize}
@@ -1362,6 +1530,7 @@ Diego Duque Zumajo
 \end{frame}
 
 \begin{frame}{Perfil de velocidad}
+  $t=1,3,...23$.
 \begin{align}
   \overline{\bf v}^x_\mu=\sum_{\nu}\overline{\rho}_{\mu\nu}^{-1}{\bf g}^x_\nu, &&
   \overline{\rho}_{\mu\nu}=\frac{C_{\mu\nu}(\tau)}{k_BT}  {\cal V}_\mu
