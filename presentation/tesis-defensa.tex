@@ -79,7 +79,7 @@
 \includegraphics[width=0.48\linewidth]{Density-01sigma-2sigma-defensa}
 \end{figure}
     \begin{itemize}
-    \item DFT para situaciones de equilibrio.
+      \item Teoría del Funcional de la Densidad (DFT) para situaciones de equilibrio.
     \item DDFT para partículas coloidales pero no para fluidos simples en contacto con sólidos. 
     \end{itemize}
 \end{frame}
@@ -137,7 +137,8 @@
     \item<2-> Estudiamos un fluido de $N$ partículas en contacto con una esfera sólida compuesta por $N'$ partículas.
     %\item $z= ({\bf q}_i, {\bf p}_i)$ y $z'= ({\bf q}_{i'}, {\bf p}_{i'})$
   \begin{figure}
-  \includegraphics[width=.6\linewidth]{esfera}
+  \includegraphics[width=.6\linewidth]{esfera_gris}
+  %\includegraphics[width=.6\linewidth]{esfera}
   \end{figure}
   \end{itemize}
 \end{frame}
@@ -283,9 +284,10 @@ D_{ij}(t)=\int_0^{\Delta t} dt'\left\langle
 \metroset{background=dark}
 \begin{frame}
   \begin{itemize}
-    \item<1-> \alert{Generalización de la DFT} para un fluido simple en movimiento en presencia de una esfera sólida. 
-    \item<2-> No hay condiciones de contorno. La interacción con el sólido es tenida en cuenta a través de \alert{fuerzas irreversibles} $\cal{S}({\bf r}).$ 
-    \item<3-> D.Camargo, J.A. de la Torre,  D.Duque-Zumajo, P.Espa\~nol, R.Delgado-Buscalioni, and F. Chejne. Nanoscale hydrodynamics near solids. \textit{Journal of Chemical Physics}, 148(6), 2018.
+    \item<1-> D.Camargo, J.A. de la Torre,  D.Duque-Zumajo, P.Espa\~nol, R.Delgado-Buscalioni, and F. Chejne. Nanoscale hydrodynamics near solids. \textit{Journal of Chemical Physics}, 148(6), 2018.
+    \item<2-> \alert{Generalización de la DFT} para un fluido simple en movimiento en presencia de una esfera sólida. 
+    \item<3-> \alert{No hay condiciones de contorno}. La interacción con el sólido es tenida en cuenta a través de fuerzas irreversibles $\cal{S}({\bf r})$ y el funcional de energía libre.
+    %\item<3-> D.Camargo, J.A. de la Torre,  D.Duque-Zumajo, P.Espa\~nol, R.Delgado-Buscalioni, and F. Chejne. Nanoscale hydrodynamics near solids. \textit{Journal of Chemical Physics}, 148(6), 2018.
   \end{itemize}
 
 \end{frame}
@@ -306,13 +308,13 @@ D_{ij}(t)=\int_0^{\Delta t} dt'\left\langle
 \begin{frame}{Necesidad de una teoría sencilla}
   %\begin{itemize}
     %\item[] La teoría presentada no puede ser validada a través de simulaciones:
-    La teoría presentada no puede ser validada a través de simulaciones:
+    La teoría no puede ser validada a través de simulaciones:
       \begin{enumerate}
         \item Teoría continua.
-        \item Demasiada información en las ecs. hidrodinámicas: kernels de transporte no locales y de carácter tensorial. 
+        \item Demasiados cálculos a realizar en las ecs. hidrodinámicas: kernels de transporte no locales y de carácter tensorial. 
       \end{enumerate}
     %\item[] $\rightarrow$ Necesitamos una \alert{teoría más simple} (menos información que calcular) y \alert{discreta}. 
-    $\rightarrow$ Necesitamos una \alert{teoría más simple} (menos información que calcular) y \alert{discreta}. 
+    $\rightarrow$ Necesitamos una \alert{teoría más sencilla} y \alert{discreta}. 
   %\end{itemize}
 \end{frame}
 
@@ -367,7 +369,7 @@ D_{ij}(t)=\int_0^{\Delta t} dt'\left\langle
 \end{align}
 \item<3-> La función de Dirac discreta en términos del elemento finito
   \begin{align}
-    \delta_{\mu}({\bf r}) \equiv \frac{\Phi({\bf r})}{{\cal V}}
+    \delta_{\mu}({\bf r}) \equiv \frac{\Phi_{\mu}({\bf r})}{{\cal V}}
     \nonumber
   \end{align}
 \end{itemize}
@@ -413,6 +415,36 @@ D_{ij}(t)=\int_0^{\Delta t} dt'\left\langle
 %      \end{enumerate}
 %    \item<3-> $\rightarrow$ Podemos separar la evolución de las variables relevantes en dos contribuciones: normal y paralela. 
 %    \end{itemize}
+%\end{frame}
+
+%\begin{frame}{Ecs. hidrodinámica: contribución normal y paralela}
+%\begin{itemize}
+%  \item Evolución normal 
+%\begin{align}
+%  \frac{d}{dt}\rho_\mu=&  {\color{blue} \llg\overline{\rho} \; \overline{v}^{z}{\nabla}^{z}\delta_\mu \rlg} 
+%  \nonumber \\
+%    \frac{d}{dt}{{\bf g}}^{z}_\mu=&
+%{\color{blue} \llg\overline{\rho}\; \overline{v}^{z}\;\overline{v}^{z}{\nabla}^{z}\delta_{\mu}\rlg
+%-\llg\overline{\rho}\delta_{\mu}{\nabla}^{z}\delta_{\nu}\rlg
+%\frac{\partial  F}{\partial \rho_{\nu}}(\rho)}
+%{\color{red} +M_{\mu\nu}^{\bot}{\cal V}_\nu\tilde{v}^{z}_\nu}
+%\nonumber
+%\end{align}
+%  \item[] {\color{white} Evolución paralela 
+%\begin{align}
+%  \frac{d}{dt}{{\bf g}}^x_\mu=&{\color{red}-M_{\mu\nu}^{||}{\cal V}_\nu\tilde{v}^x_\nu}
+%  }\nonumber
+%\end{align}
+%\item[] {\color{white} La matriz de fricción para $\odot=||,\bot$
+%\begin{align}
+%M^{\odot}_{\mu\nu} 
+%=&-\frac{\eta^{\odot}_{\mu\nu}-\eta^{\odot}_{\mu-1\nu}-\eta^{\odot}_{\mu\nu-1}+\eta^{\odot}_{\mu-1\nu-1}}{\Delta z^2}
+%+\frac{{G}^{\odot}_{\mu\nu}-{G}^{\odot}_{\mu\nu-1}}{\Delta z} \nonumber \\
+%&+\frac{{H}^{\odot}_{\mu\nu}-{H}^{\odot}_{\mu-1\nu}}{\Delta z}
+%-{\gamma}^{\odot}_{\mu\nu}
+%\nonumber
+%\end{align}}
+%\end{itemize}
 %\end{frame}
 
 \begin{frame}{Ecs. hidrodinámica: contribución normal y paralela}
@@ -494,13 +526,14 @@ H^{||}_{\mu\nu}&
 \metroset{background=dark}
 \begin{frame}
   \begin{itemize}
-    \item<1-> \alert{Teoría discreta} para flujos planos confinados entre paredes planoparalelas e isotrópicas.
-    \item<2-> Nos centraremos en la {componente paralela} del momento   
+    \item<1-> D. Duque-Zumajo, D. Camargo, J. A. de la Torre, F. Chejne, and Pep Espa\~nol. Discrete hydrodynamics for planar flows with confining walls. \textit{Physical Review E}, 2019.
+    \item<2-> \alert{Teoría discreta} para flujos planos confinados entre paredes planoparalelas e isotrópicas.
+    \item<3-> Nos centraremos en la \alert{componente paralela} del momento   
 \begin{align}
   \frac{d}{dt}{{\bf g}}^x_\mu=&-M_{\mu\nu}^{||}{\cal V}_\nu\tilde{v}^x_\nu
 \nonumber
 \end{align}
-    \item<3-> D. Duque-Zumajo, D. Camargo, J. A. de la Torre, F. Chejne, and Pep Espa\~nol. Discrete hydrodynamics for planar flows with confining walls. \textit{Physical Review E}, 2019.
+    %\item<3-> D. Duque-Zumajo, D. Camargo, J. A. de la Torre, F. Chejne, and Pep Espa\~nol. Discrete hydrodynamics for planar flows with confining walls. \textit{Physical Review E}, 2019.
   \end{itemize}
 
 \end{frame}
@@ -568,7 +601,7 @@ H^{||}_{\mu\nu}&
   \begin{itemize}
     \item<1-> Ecuaciones lineales para las correlaciones de $\hat{A}(t)$
 \begin{align}
-  \frac{d}{dt}C(t)&=-L\esc C^{-1}(0)\esc C(t)
+  \frac{d}{dt}C(t)&={\color{blue} -L\esc C^{-1}(0)\esc C(t)}
   -{\color{orange}\int_0^tdt' \Gamma(t-t')\esc C^{-1}(0)\esc  C(t')}
 \nonumber
 \end{align}
@@ -726,7 +759,7 @@ H^{||}_{\mu\nu}&
     \item<1-> Para estudiar la validez de la aproximación Markoviana es conveniente hacerlo en el \alert{espacio recíproco} (Fourier para un fluido en PBC). 
     \item<2-> Observamos una \alert{matriz $\tilde{\Lambda}$ constante} a partir de un tiempo $\tau=0.2$ para la mayoría de los modos.  
     \item<3-> Las predicciones de la matriz de correlaciones con la teoría Markoviana son muy buenas. 
-    \item<4-> D. Duque-Zumajo, D.Camargo, J.A. de la Torre, F. Chejne, and P.Espa\~nol. Space and time locality for unconfined fluids. \textit{Journal of Chemical Physics}, 2019.
+    \item<4-> D. Duque-Zumajo, D.Camargo, J.A. de la Torre, F. Chejne, and P.Espa\~nol. Space and time locality for unconfined fluids. \textit{Journal of Chemical Physics}, 2019 (to be submitted).
   \end{itemize}
 
 \end{frame}
@@ -955,10 +988,13 @@ Bines de tamaño $\Delta z = 2\sigma$ $\rightarrow$ 16 nodos de fluido.
 \metroset{background=dark}
 \begin{frame}
   \begin{itemize}
-    \item<1-> Autovalores que cortan la recta $y=0$ $\rightarrow$ No puede ser válida la hipótesis Markoviana cerca de la pared.
-    \item<2-> Las predicciones en el centro del canal son buenas, pero no cerca de las paredes. 
-    \item<3-> Teoría Markoviana válida si el tamaño de bin es superior a la distancia molecular $\rightarrow$ \alert{pérdida del layering}. 
-  \item<4-> D. Duque-Zumajo, D. Camargo, J. A. de la Torre, Farid Chejne, and Pep Espa\~nol. Discrete hydrodynamics near solid walls: non-Markovian effects and slip. \textit{Physical Review E}, 2019. 
+    \item<1-> Para bines de tamaño \alert{$\Delta z=0.5\sigma$} observamos \alert{efectos no Markovianos} cerca de las paredes. 
+    \item<2-> Las predicciones de una teoría Markoviana cerca de las paredes no salen bien. En el centro del canal obtenemos buenos resultados. 
+    \item<3-> Observamos que para bines de un tamaño superior a la distancia molecular la hipótesis Markoviana es válida. 
+    %\item<1-> Autovalores que cortan la recta $y=0$ $\rightarrow$ No puede ser válida la hipótesis Markoviana cerca de la pared.
+    %\item<2-> Las predicciones en el centro del canal son buenas, pero no cerca de las paredes. 
+    %\item<3-> Teoría Markoviana válida si el tamaño de bin es superior a la distancia molecular $\rightarrow$ \alert{pérdida del layering}. 
+    \item<4-> D. Duque-Zumajo, D. Camargo, J. A. de la Torre, Farid Chejne, and Pep Espa\~nol. Discrete hydrodynamics near solid walls: non-Markovian effects and slip. \textit{Physical Review E}, 2019 (to be submitted).
   \end{itemize}
 
 \end{frame}
@@ -1320,7 +1356,8 @@ donde ${\cal D}$ es el operador derivada adelantada.
  %$\delta(t)=\frac{\overline{\bf v}^x_{\rm wall}(t)}{\dot{\overline{\gamma}}_{\rm wall}(t)}$
 \item[]
   \begin{figure}
-    \includegraphics[width=0.45\linewidth]{condiciones_contorno_paredes_recorte}
+    %\includegraphics[width=0.45\linewidth]{condiciones_contorno_paredes_recorte}
+    \includegraphics[width=0.45\linewidth]{condicion_contorno_White_recorte}
   \end{figure}
   \end{itemize}
 \end{frame}
@@ -1333,7 +1370,7 @@ donde ${\cal D}$ es el operador derivada adelantada.
         \nonumber
         \end{align}
   \begin{figure}
-    \includegraphics[width=0.55\linewidth]{condicion_contorno_recorte}
+    \includegraphics[width=0.55\linewidth]{condicion_contorno_noWalls_recorte}
   \end{figure}
 \end{itemize}
 \end{frame}
@@ -1398,13 +1435,13 @@ donde la viscosidad cinemática es $\nu=\frac{\eta}{\rho}$.
 \metroset{background=dark}
 \begin{frame}
   \begin{itemize}
-    \item<1-> Fórmula de Green-Kubo corregida que evita el \alert{problema del plateau} en los kernels de transporte. 
+    \item<1-> \alert{Problema del plateau} en los kernels de transporte $\rightarrow$ Fórmula de \alert{Green-Kubo corregida}. 
     %\item<2-> Buenas predicciones del momento de un \textit{\alert{plug flow}} con corrección de Green-Kubo. 
-    \item<2-> \alert{Condición de contorno} a partir de la teoría no local. 
+    \item<2-> \alert{Condición de contorno} a partir de la teoría no local que hemos empleado para obtener una teoría local. 
     \item<3-> Errores en la teoría local debido a \alert{efectos no locales} que no captura.  
     \item<4-> La \alert{longitud de slip} no depende de la geometría del sistema. 
     \item<5-> Pep Espa\~nol, J.A.de la Torre, and D.Duque-Zumajo. Solution to the plateau problem in the Green-Kubo formula. \textit{Physical Review E}, 99(2), 2019.
-    \item<5-> D. Duque-Zumajo, J.A. de la Torre, D. Camargo, and Pep Español. Slip in nanohydrodynamics. \textit{Physical Review Letters}, 2019. 
+    \item<5-> D. Duque-Zumajo, J.A. de la Torre, D. Camargo, and Pep Español. Slip in nanohydrodynamics. \textit{Physical Review Letters}, 2019 (to be submitted). 
   \end{itemize}
 
 \end{frame}
@@ -1414,7 +1451,7 @@ donde la viscosidad cinemática es $\nu=\frac{\eta}{\rho}$.
 \begin{frame}{Conclusiones}
   \begin{enumerate}
     \item<1-> DDFT para un fluido en contacto con una esfera sólida. 
-    \item<2-> Ecuaciones de la hidrodinámica para un fluido en contacto con paredes planas. 
+    \item<2-> Teoría más simple: flujos planos confinados entre paredes planas e isotrópicas. 
     \item<3-> Si la hipótesis Markoviana es válida las correlaciones decaen de forma exponencial. 
     \item<4-> Efectos no Markovianos cerca de la pared cuando el tamaño de bin es inferior a la distancia molecular. 
     \item<5-> Fórmula de Green-Kubo corregida para evitar el problema del \textit{plateau}.
@@ -1592,6 +1629,15 @@ H &=   \frac{1}{k_BT}\int_0^{\tau} dt
   \begin{center}
 \includegraphics[scale=0.41]{tauDependenceSlip-17nodes-WALLS}
   \end{center}
+\end{frame}
+
+\begin{frame}{Expresión microscópica de $z_{\rm wall}$}
+\begin{align}
+  z_{\rm wall}&=\frac{\sum_\nu^{B}{\cal V}_\nu(\gamma_\nu-H_{B \nu})\nu\Delta z}
+{\sum_\nu^{B}{\cal V}_\nu(\gamma_\nu-H_{B \nu}) }
+\label{zwallDisc}
+\nonumber
+\end{align}
 \end{frame}
 
 \end{document}
