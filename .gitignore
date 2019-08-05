@@ -10,6 +10,7 @@ Makefile
 *.toc
 *.swp
 *.out
+tesis.pdf
 
 # OS generated files #
 ######################
