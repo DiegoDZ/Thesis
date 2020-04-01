@@ -10,7 +10,6 @@ Makefile
 *.toc
 *.swp
 *.out
-tesis.pdf
 .Rhistory
 
 # OS generated files #
