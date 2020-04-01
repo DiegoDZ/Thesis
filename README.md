@@ -1,4 +1,4 @@
-# Thesis - Nanoscale hydrodynamics near solids
+# Nanoscale hydrodynamics near solids
 
 This repository contains most of the work that I did throughout the four years I spent working in my Ph.D.
 
