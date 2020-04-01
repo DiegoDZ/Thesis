@@ -20,7 +20,7 @@ Because GitHub does not admit files larger than 100.00 MB, all the necessary fil
 
 ## Software and tools
 
-* To perfmorm MD simulations I used [LAMMPS](https://lammps.sandia.gov/).
+* To perform MD simulations I used [LAMMPS](https://lammps.sandia.gov/).
 * To obtain mesoscopic information from the simulations my group developed the [CG-Method](UNEDSoftMatter/CG-Method). Almost all the code was written by [@hiperones](https://github.com/hiperones).
 * Python was my predilect language to translate the theory to code. And Jupyter notebooks my [panopticon](https://en.wikipedia.org/wiki/Panopticon) to visualize the results. 
 
