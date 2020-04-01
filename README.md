@@ -2,7 +2,7 @@
 
 This repository contains most of the work that I did throughout the four years I spent working in my Ph.D.
 
-If you are only interested in the dissertation, I recommend you to visit [this website](http://62.204.194.43/fez/view/tesisuned:ED-Pg-Ciencias-Dduque), where you can download the entire file in pdf format. 
+If you are only interested in the dissertation, I recommend you to visit [this website](http://62.204.194.43/fez/view/tesisuned:ED-Pg-Ciencias-Dduque), where you can download the entire file in pdf format.
 
 
 I would have liked to clean the code contained in the jupyter notebooks. Maybe it is not readable enough, but I did my best with the little time that every phd candidate has along in his/her last year. Hope it would be useful. 
